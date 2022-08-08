@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="ValueSet-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ValueSet Example using enumeration of codes (extensional)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="valueset-example"/>
+    </extension>
+    <item>
+      <reference value="ValueSet/example-extensional"/>
+      <display value="Extensional"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ValueSet Example using code filter (intensional)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="valueset-example-intensional"/>
+    </extension>
+    <item>
+      <reference value="ValueSet/example-intensional"/>
+      <display value="Intensional"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ValueSet Example using code filter (intensional) defined in a code system resource"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="valueset-example-filter"/>
+    </extension>
+    <item>
+      <reference value="ValueSet/example-filter"/>
+      <display value="filter"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ValueSet Example using a prepared expansion"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="valueset-example-expansion"/>
+    </extension>
+    <item>
+      <reference value="ValueSet/example-expansion"/>
+      <display value="Expansion"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Common UCUM codes"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="valueset-ucum-common"/>
+    </extension>
+    <item>
+      <reference value="ValueSet/ucum-common"/>
+      <display value="UCUM Common"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="All CPT codes"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="valueset-example-cpt-all"/>
+    </extension>
+    <item>
+      <reference value="ValueSet/example-cpt-all"/>
+      <display value="CPT All"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Yes/No/Don&#39;t know, for capturing a common answer set in questionnaires"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="valueset-example-yesnodontknow"/>
+    </extension>
+    <item>
+      <reference value="ValueSet/yesnodontknow"/>
+      <display value="Yes/No/Don&#39;t know"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="NHIN Purpose of Use"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="valueset-nhin-purposeofuse"/>
+    </extension>
+    <item>
+      <reference value="ValueSet/nhin-purposeofuse"/>
+      <display value="NHIN PurposeOfUse"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Valueset including inactive concepts"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="valueset-example-inactive"/>
+    </extension>
+    <item>
+      <reference value="ValueSet/inactive"/>
+      <display value="inactive"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Value Set Metadata"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="valueset-example-metadata"/>
+    </extension>
+    <item>
+      <reference value="ValueSet/example-metadata"/>
+      <display value="Metadata"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Value Set Metadata v2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="valueset-example-metadata-2"/>
+    </extension>
+    <item>
+      <reference value="ValueSet/example-metadata-2"/>
+      <display value="Metadata v2"/>
+    </item>
+  </entry>
+</List>

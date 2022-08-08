@@ -10,12 +10,7 @@
     </div>
   </text>
   <status value="active"/>
-  <scope>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
-      <code value="patient-privacy"/>
-    </coding>
-  </scope>
+
   <category>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
@@ -28,12 +23,9 @@
   </subject>
   <dateTime value="2018-12-28"/>
   <sourceAttachment>
-    <title value="The signed document can be attached here."/>
+    <title value="The Patient has expressed both deny Treatment and deny Emergency."/>
+    <url value="https://uhin.org/wp-content/uploads/2017/06/cHIE_Patient_Participation_Form.pdf"/>
   </sourceAttachment>
-  <policy>
-    <uri value="https://uhin.org/wp-content/uploads/2017/06/cHIE_Patient_Participation_Form.pdf"/>
-    <!-- this policy is a multiple use policy. The Patient has expressed both deny Treatment and deny Emergency  -->
-  </policy>
   <provision>
     <type value="deny"/>
     <actor>

@@ -139,11 +139,5 @@
 		<effectiveDate>
 			<start value="2013-03-15"/>
 		</effectiveDate>
-		<authorization>
-			<identifier>
-				<system value="http://ema.europa.eu/example/manufacturingAuthorisationReferenceNumber"/>
-				<value value="1324TZ"/>
-			</identifier>
-		</authorization>
 	</operation>
 </MedicinalProductDefinition>

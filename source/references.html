@@ -8,7 +8,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <%refheader base%>
 
@@ -36,7 +36,7 @@ search parameters for the references and by providing support for <a href="searc
 <p>
 Because resources are processed independently, relationships are not considered to be transitive.
 For example, if a <a href="procedure.html">Procedure</a> resource references a <a href="patient.html">Patient</a> as its subject, and has a 
-<a href="procedure.html">Procedure</a> resource as its reason, there is no automatic rule or implication that the condition 
+<a href="condition.html">Condition</a> resource as its reason, there is no automatic rule or implication that the condition 
 has the same patient for its subject. Instead, the subject of the condition must be established 
 directly in the Condition resource itself. Another way to state this is that the context of the 
 subject is not "inherited", nor does it "conduct" along the relationship to condition.
@@ -184,6 +184,14 @@ replaces the logical URL with what is the correct literal URL at the completion 
   &lt;/target&gt;
 </pre>
 <p>
+  or
+</p>
+<pre class="xml" fragment="Reference">
+  &lt;target&gt;
+    &lt;reference value="Observation/1x2/_history/2" /&gt;
+  &lt;/target&gt;
+</pre>
+<p>
 This is usually associated with audit trail or provenance information where it is important to 
 reference a specific version of a record, not the most current information. 
 </p>
@@ -304,7 +312,7 @@ the <code>url</code> element on the conformance/knowledge resources (which has t
 &lt;valueSet value=&quot;http://hl7.org/fhir/ValueSet/my-valueset&quot;/&gt;
 </pre>
 <p>
-References of type <code>canonical</code> may include a version, in order be precise about which version of the 
+References of type <code>canonical</code> may include a version, in order to be precise about which version of the 
 resource is being referred to. To do this, append the version to the reference with a '|' like this:
 </p>
 <pre>
@@ -519,7 +527,7 @@ The same example in JSON:
 </div>
 [%impl-note%]
 Contained resources are still a reference rather than being inlined directly
-into the element that is the reference (e.g. "custodian" above) to ensure that a
+into the element that is the reference (e.g. "asserter" above) to ensure that a
 single approach to resolving resource references can be used. Though direct containment
 would seem simpler, it would still be necessary to support internal references where the
 same contained resource is referenced more than once. In the end, all that it would achieve
@@ -542,8 +550,9 @@ Some notes about use and interpretation of contained resources:
   <li>Contained resources share the same internal id resolution space as the parent resource (for id attributes, see <a href="narrative.html#internal">Narrative references</a>).</li>
   <li>When resolving references, references are resolved by looking through the 'container' resource - the one that contains the other
   resources. Since there are no nested contained resources, there is only one container resource.</li>
-  <li>References to contained resources are never resolved outside the container resource. Specifically, resolution stops at the elements
-  Bundle.entry.resource and Parameters.parameter.resource, but not at DomainResource.contained.</li>
+  <li>Fragment-only URL References to contained resources are never resolved outside the container resource. Specifically, resolution stops at the elements
+  Bundle.entry.resource and Parameters.parameter.resource, but not at DomainResource.contained. To reference a contained resource in a 
+  different entry within a Parameters or Bundle (or anywhere else), the reference must include the containing resource. E.g. Observation/123#pat.</li>
   <li>Both <code>Reference</code> and <code>canonical</code> types may refer to contained resources</li>
   <li>Contained resources SHALL NOT contain additional contained resources.</li>
   <li>Contained resources SHALL NOT contain <code>meta.versionId</code>, <code>meta.lastUpdated</code>, or <code>meta.security</code>.</li>
@@ -671,6 +680,13 @@ the resource reference describes a headache. Note that it is not generally compu
 this is true or not.
 </p>
 <p>
+The constraints on the CodeableReference apply to the CodeableReference.reference or the CodeableReference.concept as appropriate and they SHOULD NOT be specified on the .reference or .concept.
+If they are specified on both, then they SHALL be the same.
+</p>
+<p>
+When we have experience with implementation practice, we will evaluate changing the SHOULD NOT to a SHALL NOT.
+</p>
+<p>
 This data type can be constrained in profiles so that only concept or reference are allowed, and 
 profiles can restrict the bound value sets and allowed target resource types.
 </p>
@@ -690,8 +706,6 @@ This data type is mostly used for reason for an action.
 </p>
 </div>
 
-
-</div>
 
 </div>
 

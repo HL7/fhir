@@ -1,6 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="observation-interpretation"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/observation-interpretation"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.399"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="ObservationInterpretationCodes"/>
   <title value="Observation Interpretation Codes"/>
   <status value="draft"/>
@@ -11,18 +24,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="A categorical assessment, providing a rough qualitative interpretation of the observation value, 
-  such as “normal”/ “abnormal”,”low” / “high”, “better” / “worse”, “susceptible” / “resistant”, “expected”/ “not expected”. 
-  The value set is intended to be for ANY use where coded representation of an interpretation is needed.
-  &#13;&#10;
-  &#13;&#10;
-  Notes:&#13;&#10;
-  &#13;&#10;
-  This is being communicated in v2.x in OBX-8 (Observation Interpretation), in v3 in ObservationInterpretation (CWE) in R1 (Representative Realm) and in FHIR in 
-  Observation.interpretation. Historically these values come from the laboratory domain, and these codes are extensively 
-  used. The value set binding is extensible, so codes outside the value set that are needed for interpretation concepts 
-  (i.e. particular meanings) that are not included in the value set can be used, and these new codes may also be added to 
-  the value set and published in a future version."/>
+  <description value="A categorical assessment, providing a rough qualitative interpretation of the observation value,    such as &#x201C;normal&#x201D;/ &#x201C;abnormal&#x201D;,&#x201D;low&#x201D; / &#x201C;high&#x201D;, &#x201C;better&#x201D; / &#x201C;worse&#x201D;, &#x201C;susceptible&#x201D; / &#x201C;resistant&#x201D;, &#x201C;expected&#x201D;/ &#x201C;not expected&#x201D;.    The value set is intended to be for ANY use where coded representation of an interpretation is needed.   &#xD;&#xA;   &#xD;&#xA;   Notes:&#xD;&#xA;   &#xD;&#xA;   This is being communicated in v2.x in OBX-8 (Observation Interpretation), in v3 in ObservationInterpretation (CWE) in R1 (Representative Realm) and in FHIR in    Observation.interpretation. Historically these values come from the laboratory domain, and these codes are extensively    used. The value set binding is extensible, so codes outside the value set that are needed for interpretation concepts    (i.e. particular meanings) that are not included in the value set can be used, and these new codes may also be added to    the value set and published in a future version."/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>

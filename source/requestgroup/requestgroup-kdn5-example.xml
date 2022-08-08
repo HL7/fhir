@@ -23,6 +23,7 @@
       <subject>
         <reference value="Patient/example"/>
       </subject>
+      <dose>
       <dosageInstruction>
         <text value="1250 mg/m² IV over 30 minutes" />
         <timing>
@@ -40,7 +41,7 @@
               <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
               <code value="ordered"/>
               <display value="Ordered"/>
-            </coding> 
+            </coding>
           </type>
           <doseQuantity>
           <value value="1250" />
@@ -48,6 +49,7 @@
           </doseQuantity>
         </doseAndRate>
       </dosageInstruction>
+      </dose>
     </MedicationRequest>
   </contained>
   <contained>
@@ -68,6 +70,7 @@
       <subject>
         <reference value="Patient/example"/>
       </subject>
+      <dose>
       <dosageInstruction>
         <text value="AUC 5 IV over 30 minutes" />
         <timing>
@@ -85,7 +88,7 @@
               <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
               <code value="ordered"/>
               <display value="Ordered"/>
-            </coding> 
+            </coding>
           </type>
           <doseQuantity>
             <!-- AUC as dose unit or as an extension? -->
@@ -98,13 +101,14 @@
           <code value="413573002" /> -->
           </doseQuantity>
         </doseAndRate>
-       
+
       </dosageInstruction>
+      </dose>
     </MedicationRequest>
   </contained>
   <identifier>
     <value value="requestgroup-kdn5"/>
-  </identifier>  
+  </identifier>
   <instantiatesCanonical value="http://example.org/fhir/PlanDefinition/KDN5"/>
   <status value="draft"/>
   <intent value="plan"/>
@@ -166,7 +170,7 @@
             </extension>
             <textEquivalent value="CARBOplatin AUC 5 IV over 30 minutes on Day 1" />
             <relatedAction>
-              <actionId value="action-1"/>
+              <targetId value="action-1"/>
               <relationship value="concurrent-with-start"/>
 			</relatedAction>
             <resource>
@@ -178,4 +182,3 @@
     </action> <!-- end of regimen options -->
   </action>
 </RequestGroup>
-

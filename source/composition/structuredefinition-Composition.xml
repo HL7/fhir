@@ -1,0 +1,1058 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+  <id value="Composition"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Foundation.Documents"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="not-classified"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sd"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+  <version value="4.6.0"/>
+  <name value="Composition"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Structured Documents)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/structure/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.)."/>
+  <purpose value="To support documents, and also to capture the EN13606 notion of an attested commit to the patient EHR, and to allow a set of disparate resources at the information/engineering level to be gathered into a clinical statement."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="cda"/>
+    <uri value="http://hl7.org/v3/cda"/>
+    <name value="CDA (R2)"/>
+  </mapping>
+  <mapping>
+    <identity value="fhirdocumentreference"/>
+    <uri value="http://hl7.org/fhir/documentreference"/>
+    <name value="FHIR DocumentReference"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Composition"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Composition">
+      <path value="Composition"/>
+      <short value="A set of resources composed into a single coherent clinical statement with clinical attestation"/>
+      <definition value="A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.)."/>
+      <comment value="While the focus of this specification is on patient-specific clinical statements, this resource can also apply to other healthcare-related statements such as study protocol designs, healthcare invoices and other activities that are not necessarily patient-specific or clinical."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Document[classCode=&quot;DOC&quot; and moodCode=&quot;EVN&quot; and isNormalAct()]"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="when described by DocumentReference"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="infrastructure.documents"/>
+      </mapping>
+    </element>
+    <element id="Composition.url">
+      <path value="Composition.url"/>
+      <short value="Canonical identifier for this Composition, represented as a URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this Composition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this Composition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the Composition is stored on different servers."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version."/>
+      <requirements value="Allows the Composition to be referenced by a single globally unique identifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.url"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="Composition.identifier">
+      <path value="Composition.identifier"/>
+      <short value="Version-independent identifier for the Composition"/>
+      <definition value="A version-independent identifier for the Composition. This identifier stays constant as the composition is changed over time."/>
+      <comment value="Similar to ClinicalDocument/setId in CDA. See discussion in resource definition for how these relate."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Document.id / Document.setId"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".setId"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.masterIdentifier"/>
+      </mapping>
+    </element>
+    <element id="Composition.version">
+      <path value="Composition.version"/>
+      <short value="An explicitly assigned identifer of a variation of the content in the Composition"/>
+      <comment value="While each resource, including the composition itself, has its own version identifier, this is a formal identifier for the logical version of the Composition as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".versionNumber"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.version"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.version"/>
+      </mapping>
+    </element>
+    <element id="Composition.status">
+      <path value="Composition.status"/>
+      <short value="registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | deprecated | unknown"/>
+      <definition value="The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document."/>
+      <comment value="If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag &quot;entered-in-error&quot; is why this element is labeled as a modifier of other elements.   &#xA;&#xA;Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required."/>
+      <requirements value="Need to be able to mark interim, amended, or withdrawn compositions or documents."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CompositionStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
+          <valueString value="ActStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The workflow/clinical status of the composition."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/composition-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="interim: .completionCode=&quot;IN&quot; &amp; ./statusCode[isNormalDatatype()]=&quot;active&quot;;  final: .completionCode=&quot;AU&quot; &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;complete&quot; and not(./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseComposition&quot;, code) and isNormalAct()]);  amended: .completionCode=&quot;AU&quot; &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;complete&quot; and ./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseComposition&quot;, code) and isNormalAct() and statusCode=&quot;completed&quot;];  withdrawn : .completionCode=NI &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;obsolete&quot;"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.status"/>
+      </mapping>
+    </element>
+    <element id="Composition.type">
+      <path value="Composition.type"/>
+      <short value="Kind of composition (LOINC if possible)"/>
+      <definition value="Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition."/>
+      <comment value="For Composition type, LOINC is ubiquitous and strongly endorsed by HL7. Most implementation guides will require a specific LOINC code, or use LOINC as an extensible binding."/>
+      <requirements value="Key metadata element describing the composition, used in searching/filtering."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DocumentType"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Type of a composition."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/doc-typecodes"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./code"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".code"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.type"/>
+      </mapping>
+    </element>
+    <element id="Composition.category">
+      <path value="Composition.category"/>
+      <short value="Categorization of Composition"/>
+      <definition value="A categorization for the type of the composition - helps for indexing and searching. This may be implied by or derived from the code specified in the Composition Type."/>
+      <requirements value="Helps humans to assess whether the composition is of interest when viewing an index of compositions or documents."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DocumentCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="High-level kind of a clinical document at a macro level."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/referenced-item-category"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumenttReference.category"/>
+      </mapping>
+    </element>
+    <element id="Composition.subject">
+      <path value="Composition.subject"/>
+      <short value="Who and/or what the composition is about"/>
+      <definition value="Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)."/>
+      <comment value="For clinical documents, this is usually the patient."/>
+      <requirements value="Essential metadata for searching for the composition. Identifies who and/or what the composition/document is about."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=&quot;SBJ&quot;].role[typeCode=&quot;PAT&quot;]"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".recordTarget"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="Composition.encounter">
+      <path value="Composition.encounter"/>
+      <short value="Context of the Composition"/>
+      <definition value="Describes the clinical encounter or type of care this documentation is associated with."/>
+      <requirements value="Provides context for the composition and supports searching."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.encounter"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="unique(highest(./outboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()], priorityNumber)/target[moodCode=&quot;EVN&quot; and classCode=(&quot;ENC&quot;, &quot;PCPR&quot;) and isNormalAct])"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".componentOf.encompassingEncounter"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.context.encounter"/>
+      </mapping>
+    </element>
+    <element id="Composition.date">
+      <path value="Composition.date"/>
+      <short value="Composition editing time"/>
+      <definition value="The composition editing time, when the composition was last logically changed by the author."/>
+      <comment value="The Last Modified Date on the composition may be after the date of the document was attested without being changed. This means that the date on an amended document is the date of the amendment, not the date of original authorship."/>
+      <requirements value="dateTime is used for tracking, organizing versions and searching. Note that this is the time of authoring this version of the Composition. When packaged in a document, [Bundle.timestamp](bundle-definitions.html#Bundle.timestamp) is the date of packaging."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime[type=&quot;TS&quot;]"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".effectiveTime"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.content.attachment.date, DocumentReference.created"/>
+      </mapping>
+    </element>
+    <element id="Composition.useContext">
+      <path value="Composition.useContext"/>
+      <short value="The context that the content is intended to support"/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate Composition instances."/>
+      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+      <requirements value="Assist in searching for appropriate content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.useContext"/>
+      </mapping>
+    </element>
+    <element id="Composition.author">
+      <path value="Composition.author"/>
+      <short value="Who and/or what authored the composition"/>
+      <definition value="Identifies who is responsible for the information in the composition, not necessarily who typed it in."/>
+      <requirements value="Identifies who is responsible for the content."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=&quot;AUT&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".author.assignedAuthor"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.agent"/>
+      </mapping>
+    </element>
+    <element id="Composition.name">
+      <path value="Composition.name"/>
+      <short value="Name for this Composition (computer friendly)"/>
+      <definition value="A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <requirements value="Support human navigation and code generation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Composition.title">
+      <path value="Composition.title"/>
+      <short value="Human Readable name/title"/>
+      <definition value="Official human-readable label for the composition."/>
+      <comment value="For many compositions, the title is the same as the text or a display name of Composition.type (e.g. a &quot;consultation&quot; or &quot;progress note&quot;). Note that CDA does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here. Feedback on this requirement is welcome during the trial use period."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./title"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".title"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.description, DocumentReference.content.attachment.title"/>
+      </mapping>
+    </element>
+    <element id="Composition.note">
+      <path value="Composition.note"/>
+      <short value="For any additional notes"/>
+      <comment value="A comment, general note or annotation not coded elsewhere."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+    </element>
+    <element id="Composition.attester">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="down"/>
+      </extension>
+      <path value="Composition.attester"/>
+      <short value="Attests to accuracy of composition"/>
+      <definition value="A participant who has attested to the accuracy of the composition/document."/>
+      <comment value="Only list each attester once."/>
+      <requirements value="Identifies responsibility for the accuracy of the composition content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=&quot;AUTHEN&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".authenticator/.legalAuthenticator"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.authenticator"/>
+      </mapping>
+    </element>
+    <element id="Composition.attester.mode">
+      <path value="Composition.attester.mode"/>
+      <short value="personal | professional | legal | official"/>
+      <definition value="The type of attestation the authenticator offers."/>
+      <requirements value="Indicates the level of authority of the attestation."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CompositionAttestationMode"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The way in which a person authenticated a composition."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/composition-attestation-mode"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="unique(./modeCode)"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="implied by .authenticator/.legalAuthenticator"/>
+      </mapping>
+    </element>
+    <element id="Composition.attester.time">
+      <path value="Composition.attester.time"/>
+      <short value="When the composition was attested"/>
+      <definition value="When the composition was attested by the party."/>
+      <requirements value="Identifies when the information in the composition was deemed accurate.  (Things may have changed since then.)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./time[type=&quot;TS&quot; and isNormalDatatype()]"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".authenticator.time"/>
+      </mapping>
+    </element>
+    <element id="Composition.attester.party">
+      <path value="Composition.attester.party"/>
+      <short value="Who attested the composition"/>
+      <definition value="Who attested the composition in the specified way."/>
+      <requirements value="Identifies who has taken on the responsibility for accuracy of the composition content."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.witness"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./role[classCode=&quot;ASSIGNED&quot; and isNormalRole]/player[determinerCode=&quot;INST&quot; and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and isNormalEntity()] or ./role[classCode=&quot;ASSIGNED&quot; and isNormalRole and not(player)]/scoper[determinerCode=&quot;INST&quot; and classCode=&quot;ORG&quot; and isNormalEntity()]"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".authenticator.assignedEnttty"/>
+      </mapping>
+    </element>
+    <element id="Composition.custodian">
+      <path value="Composition.custodian"/>
+      <short value="Organization which maintains the composition"/>
+      <definition value="Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information."/>
+      <comment value="This is useful when documents are derived from a composition - provides guidance for how to get the latest version of the document. This is optional because this is sometimes not known by the authoring system, and can be inferred by context. However, it is important that this information be known when working with a derived document, so providing a custodian is encouraged."/>
+      <requirements value="Identifies where to go to find the current version, where to report issues, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=&quot;RCV&quot;].role[classCode=&quot;CUST&quot;].scoper[classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;]"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".custodian.assignedCustodian"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.custodian"/>
+      </mapping>
+    </element>
+    <element id="Composition.relatesTo">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,0"/>
+      </extension>
+      <path value="Composition.relatesTo"/>
+      <short value="Relationships to other compositions/documents"/>
+      <definition value="Relationships that this composition has with other compositions or documents that already exist."/>
+      <comment value="To reference (using relatesTo) a Bundle of type &quot;document&quot; or another Composition where you only have the identifier, use a resourceReference with an identifier.\nHere is an example of using relatesTo to reference another Bundle of type &quot;document&quot; or Composition where you only have the identifier:&#xA;```&#xA;&lt;relatesTo  &gt;&#xA;    &lt;type value=&quot;replaces&quot; /&gt;&#xA;&lt;resourceReference&gt;&#xA;&lt;identifier&gt;&#xA;&lt;system value=&quot;...&quot; /&gt;&#xA;&lt;value value=&quot;...&quot; /&gt;&#xA;&lt;/identifier&gt;&#xA;&lt;/resourceReference&gt;&#xA;&lt;/relatesTo&gt;&#xA;```"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".relatedDocument"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.relatesTo"/>
+      </mapping>
+    </element>
+    <element id="Composition.event">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,200"/>
+      </extension>
+      <path value="Composition.event"/>
+      <short value="The clinical service(s) being documented"/>
+      <definition value="The clinical service, such as a colonoscopy or an appendectomy, being documented."/>
+      <comment value="The event needs to be consistent with the type element, though can provide further information if desired."/>
+      <requirements value="Provides context for the composition and creates a linkage between a resource describing an event and the composition created describing the event."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=&quot;SUBJ&quot;].target[classCode&lt;&#39;ACT&#39;]"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".documentationOf.serviceEvent"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.event"/>
+      </mapping>
+    </element>
+    <element id="Composition.event.code">
+      <path value="Composition.event.code"/>
+      <short value="Code(s) that apply to the event being documented"/>
+      <definition value="This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &quot;History and Physical Report&quot; in which the procedure being documented is necessarily a &quot;History and Physical&quot; act."/>
+      <comment value="An event can further specialize the act inherent in the typeCode, such as where it is simply &quot;Procedure Report&quot; and the procedure was a &quot;colonoscopy&quot;. If one or more eventCodes are included, they SHALL NOT conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as key words for certain types of queries."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DocumentEventType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This list of codes represents the main clinical acts being documented."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActCode"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".code"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.event.code"/>
+      </mapping>
+    </element>
+    <element id="Composition.event.period">
+      <path value="Composition.event.period"/>
+      <short value="The period covered by the documentation"/>
+      <definition value="The period of time covered by the documentation. There is no assertion that the documentation is a complete representation for this period, only that it documents events during this time."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".effectiveTime"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirdocumentreference"/>
+        <map value="DocumentReference.event.period"/>
+      </mapping>
+    </element>
+    <element id="Composition.event.detail">
+      <path value="Composition.event.detail"/>
+      <short value="The event(s) being documented"/>
+      <definition value="The description and/or reference of the event(s) being documented. For example, this could be used to document such a colonoscopy or an appendectomy."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].target"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Composition.section">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Section"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="Composition.section"/>
+      <short value="Composition is broken into sections"/>
+      <definition value="The root of the sections that make up the composition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="cmp-1"/>
+        <severity value="error"/>
+        <human value="A section must contain at least one of text, entries, or sub-sections"/>
+        <expression value="text.exists() or entry.exists() or section.exists()"/>
+        <xpath value="exists(f:text) or exists(f:entry) or exists(f:section)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+      </constraint>
+      <constraint>
+        <key value="cmp-2"/>
+        <severity value="error"/>
+        <human value="A section can only have an emptyReason if it is empty"/>
+        <expression value="emptyReason.empty() or entry.empty()"/>
+        <xpath value="not(exists(f:emptyReason) and exists(f:entry))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[moodCode=&quot;EVN&quot; and classCode=&quot;DOCSECT&quot; and isNormalAct]"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".component.structuredBody.component.section"/>
+      </mapping>
+    </element>
+    <element id="Composition.section.title">
+      <path value="Composition.section.title"/>
+      <short value="Label for section (e.g. for ToC)"/>
+      <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents."/>
+      <comment value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents, it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element."/>
+      <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized."/>
+      <alias value="header"/>
+      <alias value="label"/>
+      <alias value="caption"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./title"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".title"/>
+      </mapping>
+    </element>
+    <element id="Composition.section.code">
+      <path value="Composition.section.code"/>
+      <short value="Classification of section (recommended)"/>
+      <definition value="A code identifying the kind of content contained within the section. This must be consistent with the section title."/>
+      <comment value="The code identifies the section for an automated processor of the document. This is particularly relevant when using profiles to control the structure of the document.   &#xA;&#xA;If the section has content (instead of sub-sections), the section.code does not change the meaning or interpretation of the resource that is the content of the section in the comments for the section.code."/>
+      <requirements value="Provides computable standardized labels to topics within the document."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CompositionSectionType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Classification of a section of a composition/document."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/doc-section-codes"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./code"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="Composition.section.author">
+      <path value="Composition.section.author"/>
+      <short value="Who and/or what authored the section"/>
+      <definition value="Identifies who is responsible for the information in this section, not necessarily who typed it in."/>
+      <requirements value="Identifies who is responsible for the content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=&quot;AUT&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".author.assignedAuthor"/>
+      </mapping>
+    </element>
+    <element id="Composition.section.focus">
+      <path value="Composition.section.focus"/>
+      <short value="Who/what the section is about, when it is not about the subject of composition"/>
+      <definition value="The actual focus of the section when it is not the subject of the composition, but instead represents something or someone associated with the subject such as (for a patient subject) a spouse, parent, fetus, or donor. If not focus is specified, the focus is assumed to be focus of the parent section, or, for a section in the Composition itself, the subject of the composition. Sections with a focus SHALL only include resources where the logical subject (patient, subject, focus, etc.) matches the section focus, or the resources have no logical subject (few resources)."/>
+      <comment value="Typically, sections in a doument are about the subject of the document, whether that is a  patient, or group of patients, location, or device, or whatever. For some kind of documents, some sections actually contain data about related entities. Typical examples are  a section in a newborn discharge summary concerning the mother, or family history documents, with a section about each family member, though there are many other examples."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".subject? (CDA did not differentiate between subject and focus)"/>
+      </mapping>
+    </element>
+    <element id="Composition.section.text">
+      <path value="Composition.section.text"/>
+      <short value="Text summary of the section, for human interpretation"/>
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative."/>
+      <comment value="Document profiles may define what content should be represented in the narrative to ensure clinical safety."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Narrative"/>
+      </type>
+      <condition value="cmp-1"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".text"/>
+      </mapping>
+    </element>
+    <element id="Composition.section.mode">
+      <path value="Composition.section.mode"/>
+      <short value="working | snapshot | changes"/>
+      <definition value="How the entry list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted."/>
+      <comment value="This element is labeled as a modifier because a change list must not be misunderstood as a complete list."/>
+      <requirements value="Sections are used in various ways, and it must be known in what way it is safe to use the entries in them."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SectionMode"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The processing mode that applies to this section."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/list-mode"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outBoundRelationship[typeCode=COMP].target[classCode=OBS&quot;].value"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Composition.section.orderedBy">
+      <path value="Composition.section.orderedBy"/>
+      <short value="Order of section entries"/>
+      <definition value="Specifies the order applied to the items in the section entries."/>
+      <comment value="Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. If there is no order specified, the order is unknown, though there may still be some order."/>
+      <requirements value="Important for presentation and rendering.  Lists may be sorted to place more important information first or to group related entries."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SectionEntryOrder"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="What order applies to the items in the entry."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/list-order"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP].sequenceNumber &gt; 1"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Composition.section.entry">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="Composition.section.entry"/>
+      <short value="A reference to data that supports this section"/>
+      <definition value="A reference to the actual resource from which the narrative in the section is derived."/>
+      <comment value="If there are no entries in the list, an emptyReason SHOULD be provided."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <condition value="cmp-2"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP] or  .participation[typeCode=SBJ]"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".entry"/>
+      </mapping>
+    </element>
+    <element id="Composition.section.emptyReason">
+      <path value="Composition.section.emptyReason"/>
+      <short value="Why the section is empty"/>
+      <definition value="If the section is empty, why the list is empty. An empty section typically has some text explaining the empty reason."/>
+      <comment value="The various reasons for an empty section make a significant interpretation to its interpretation. Note that this code is for use when the entire section content has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases."/>
+      <requirements value="Allows capturing things like &quot;none exist&quot; or &quot;not asked&quot; which can be important for most lists."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <condition value="cmp-2"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SectionEmptyReason"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="If a section is empty, why it is empty."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/list-empty-reason"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ,code&lt;ListEmptyReason].value[type=CD]"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Composition.section.section">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="Composition.section.section"/>
+      <short value="Nested Section"/>
+      <definition value="A nested sub-section within this section."/>
+      <comment value="Nested sections are primarily used to help human readers navigate to particular portions of the document."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#Composition.section"/>
+      <condition value="cmp-1"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[moodCode=&quot;EVN&quot; and classCode=&quot;DOCSECT&quot; and isNormalAct]"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".component.section"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,14 +1,6 @@
-<!-- 
-Document section library - a set of section structure definitions that are intended to be re-used elsewhere
+<?xml version="1.0" encoding="UTF-8"?>
 
-Defines 3 sections:
-- codeA
-- codeB
-- codeC
-
-These should be sliced by pattern on Section.code
- -->
-<StructureDefinition xmlns="http://hl7.org/fhir"> 
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="example-section-library"/>
   <url value="http://hl7.org/fhir/StructureDefinition/example-section-library"/>
   <name value="DocumentSectionLibrary"/>
@@ -16,31 +8,27 @@ These should be sliced by pattern on Section.code
   <status value="active"/>
   <experimental value="false"/>
   <date value="2018-11-05T17:57:00+11:00"/>
-  <kind value="complex-type"/>
+  <kind value="resource"/>
   <abstract value="true"/>
   <type value="Composition"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition"/>
   <derivation value="constraint"/>
   <differential>
     <element id="Composition">
-      <!-- this is present to work around a bug in the snapshot generator -->
       <path value="Composition"/>
     </element>
     <element id="Composition.section">
-      <!-- set up slicing on Composition.section - by the code. Actually, this slicing is never used anywhere since this profile is abstract -->  
       <path value="Composition.section"/>
-      <slicing>  
-        <discriminator> 
+      <slicing>
+        <discriminator>
           <type value="pattern"/>
           <path value="code"/>
         </discriminator>
         <description value="Slice by .section.code when using this library of sections"/>
         <ordered value="true"/>
         <rules value="closed"/>
-       </slicing>
+      </slicing>
     </element>
-    
-    <!-- code B -->  
     <element id="Composition.section:procedure">
       <path value="Composition.section"/>
       <sliceName value="procedure"/>
@@ -61,8 +49,6 @@ These should be sliced by pattern on Section.code
         </coding>
       </patternCodeableConcept>
     </element>
-    
-    <!-- code A -->  
     <element id="Composition.section:medications">
       <path value="Composition.section"/>
       <sliceName value="medications"/>
@@ -83,8 +69,6 @@ These should be sliced by pattern on Section.code
         </coding>
       </patternCodeableConcept>
     </element>
-    
-    <!-- code C -->  
     <element id="Composition.section:plan">
       <path value="Composition.section"/>
       <sliceName value="plan"/>
@@ -105,6 +89,5 @@ These should be sliced by pattern on Section.code
         </coding>
       </patternCodeableConcept>
     </element>
-
   </differential>
 </StructureDefinition>

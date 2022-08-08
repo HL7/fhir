@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="TerminologyCapabilities-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Condition Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="terminologycapabilities-example"/>
+    </extension>
+    <item>
+      <reference value="TerminologyCapabilities/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+</List>

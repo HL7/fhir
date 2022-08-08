@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ResearchStudy-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-category"/>
+        <description value="Classifications for the study"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="ResearchStudy.category"/>
+        <xpath value="f:ResearchStudy/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-condition"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.condition"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-category"/>
+        <description value="Condition being studied"/>
+        <code value="condition"/>
+        <type value="token"/>
+        <expression value="ResearchStudy.condition"/>
+        <xpath value="f:ResearchStudy/f:condition"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-date"/>
+        <description value="When the study began and ended"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="ResearchStudy.period"/>
+        <xpath value="f:ResearchStudy/f:period"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-focus"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.focus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-focus"/>
+        <description value="Drugs, devices, etc. under study"/>
+        <code value="focus"/>
+        <type value="token"/>
+        <expression value="ResearchStudy.focus"/>
+        <xpath value="f:ResearchStudy/f:focus"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-identifier"/>
+        <description value="Business Identifier for study"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="ResearchStudy.identifier"/>
+        <xpath value="f:ResearchStudy/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-keyword"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.keyword"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-keyword"/>
+        <description value="Used to search for the study"/>
+        <code value="keyword"/>
+        <type value="token"/>
+        <expression value="ResearchStudy.keyword"/>
+        <xpath value="f:ResearchStudy/f:keyword"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-location"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.location"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-location"/>
+        <description value="Geographic region(s) for study"/>
+        <code value="location"/>
+        <type value="token"/>
+        <expression value="ResearchStudy.location"/>
+        <xpath value="f:ResearchStudy/f:location"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-partof"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.partOf"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-partof"/>
+        <description value="Part of larger study"/>
+        <code value="partof"/>
+        <type value="reference"/>
+        <expression value="ResearchStudy.partOf"/>
+        <xpath value="f:ResearchStudy/f:partOf"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-principalinvestigator"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.principalInvestigator"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-principalinvestigator"/>
+        <description value="Researcher who oversees multiple aspects of the study"/>
+        <code value="principalinvestigator"/>
+        <type value="reference"/>
+        <expression value="ResearchStudy.principalInvestigator"/>
+        <xpath value="f:ResearchStudy/f:principalInvestigator"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-protocol"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.protocol"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-protocol"/>
+        <description value="Steps followed in executing study"/>
+        <code value="protocol"/>
+        <type value="reference"/>
+        <expression value="ResearchStudy.protocol"/>
+        <xpath value="f:ResearchStudy/f:protocol"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-recruitment_actual"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.recruitment_actual"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-recruitment_actual"/>
+        <description value="Actual number of participants enrolled in study across all groups"/>
+        <code value="recruitment_actual"/>
+        <type value="number"/>
+        <expression value="ResearchStudy.recruitment.actualNumber"/>
+        <xpath value="f:ResearchStudy/f:recruitment/f:actualNumber"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-recruitment_target"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.recruitment_target"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-recruitment_target"/>
+        <description value="Target number of participants enrolled in study across all groups"/>
+        <code value="recruitment_target"/>
+        <type value="number"/>
+        <expression value="ResearchStudy.recruitment.targetNumber"/>
+        <xpath value="f:ResearchStudy/f:recruitment/f:targetNumber"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-site"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.site"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-site"/>
+        <description value="Facility where study activities are conducted"/>
+        <code value="site"/>
+        <type value="reference"/>
+        <expression value="ResearchStudy.site"/>
+        <xpath value="f:ResearchStudy/f:site"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-sponsor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.sponsor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-sponsor"/>
+        <description value="Organization that initiates and is legally responsible for the study"/>
+        <code value="sponsor"/>
+        <type value="reference"/>
+        <expression value="ResearchStudy.sponsor"/>
+        <xpath value="f:ResearchStudy/f:sponsor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-status"/>
+        <description value="active | active-but-not-recruiting | administratively-completed | approved | closed-to-accrual | closed-to-accrual-and-intervention | completed | disapproved | enrolling-by-invitation | in-review | not-yet-recruiting | recruiting | temporarily-closed-to-accrual | temporarily-closed-to-accrual-and-intervention | terminated | withdrawn"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="ResearchStudy.status"/>
+        <xpath value="f:ResearchStudy/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-title"/>
+        <description value="Name for this study"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="ResearchStudy.title"/>
+        <xpath value="f:ResearchStudy/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

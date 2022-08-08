@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+  <id value="Coverage"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Financial.Support"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Coverage"/>
+  <version value="4.6.0"/>
+  <name value="Coverage"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Financial Management)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment."/>
+  <purpose value="Coverage provides a link between covered parties (patients) and the payors of their healthcare costs (both insurance and self-pay)."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="cdanetv4"/>
+    <uri value="http://www.cda-adc.ca/en/services/cdanet/"/>
+    <name value="Canadian Dental Association eclaims standard"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="cpha3pharm"/>
+    <uri value="http://www.pharmacists.ca/"/>
+    <name value="Canadian Pharmacy Associaiton eclaims standard"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Coverage"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Coverage">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="Coverage"/>
+      <short value="Insurance or medical plan or a payment agreement"/>
+      <definition value="Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment."/>
+      <comment value="The Coverage resource contains the insurance card level information, which is customary to provide on claims and other communications between providers and insurers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Coverage"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="financial.support"/>
+      </mapping>
+    </element>
+    <element id="Coverage.identifier">
+      <path value="Coverage.identifier"/>
+      <short value="Business Identifier for the coverage"/>
+      <definition value="A unique identifier assigned to this coverage."/>
+      <comment value="The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Certificate number, Personal Health Number or Case ID. May be constructed as the concatenation of the Coverage.SubscriberID and the Coverage.dependant."/>
+      <requirements value="Allows coverages to be distinguished and referenced."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="C02"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+      <mapping>
+        <identity value="cpha3pharm"/>
+        <map value="C.32, C.33, C.39"/>
+      </mapping>
+    </element>
+    <element id="Coverage.status">
+      <path value="Coverage.status"/>
+      <short value="active | cancelled | draft | entered-in-error"/>
+      <definition value="The status of the resource instance."/>
+      <comment value="This element is labeled as a modifier because the status contains the code entered-in-error that marks the coverage as not currently valid."/>
+      <requirements value="Need to track the status of the resource as 'draft' resources may undergo further edits while 'active' resources are immutable and may only have their status changed to 'cancelled'."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CoverageStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="A code specifying the state of the resource instance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/fm-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act.status"/>
+      </mapping>
+    </element>
+    <element id="Coverage.type">
+      <path value="Coverage.type"/>
+      <short value="Coverage category such as medical or accident"/>
+      <definition value="The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health or payment by an individual or organization."/>
+      <requirements value="The order of application of coverages is dependent on the types of coverage."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CoverageType"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The type of insurance: public health, worker compensation; private accident, auto, private health, etc.) or a direct payment by an individual or organization."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/coverage-type"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-15"/>
+      </mapping>
+    </element>
+    <element id="Coverage.policyHolder">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="C.35."/>
+      </extension>
+      <path value="Coverage.policyHolder"/>
+      <short value="Owner of the policy"/>
+      <definition value="The party who 'owns' the insurance policy."/>
+      <comment value="For example: may be an individual, corporation or the subscriber's employer."/>
+      <requirements value="This provides employer information in the case of Worker's Compensation and other policies."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="D01 through D09"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-16, 18,  19-name of insured, address, date of birth"/>
+      </mapping>
+      <mapping>
+        <identity value="cpha3pharm"/>
+        <map value="C.35"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="Coverage.subscriber">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="C.35."/>
+      </extension>
+      <path value="Coverage.subscriber"/>
+      <short value="Subscriber to the policy"/>
+      <definition value="The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due."/>
+      <comment value="May be self or a parent in the case of dependants."/>
+      <requirements value="This is the party who is entitled to the benfits under the policy."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="D01 through D09"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-16, 18,  19-name of insured, address, date of birth"/>
+      </mapping>
+      <mapping>
+        <identity value="cpha3pharm"/>
+        <map value="C.35"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="Coverage.subscriberId">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="C.35."/>
+      </extension>
+      <path value="Coverage.subscriberId"/>
+      <short value="ID assigned to the subscriber"/>
+      <definition value="The insurer assigned ID for the Subscriber."/>
+      <requirements value="The insurer requires this identifier on correspondance and claims (digital and otherwise)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="D01 through D09"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-16, 18,  19-name of insured, address, date of birth"/>
+      </mapping>
+      <mapping>
+        <identity value="cpha3pharm"/>
+        <map value="C.35"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="Coverage.beneficiary">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="C.35."/>
+      </extension>
+      <path value="Coverage.beneficiary"/>
+      <short value="Plan beneficiary"/>
+      <definition value="The party who benefits from the insurance coverage; the patient when products and/or services are provided."/>
+      <requirements value="This is the party who receives treatment for which the costs are reimbursed under the coverage."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="D01 through D09"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-16, 18,  19-name of insured, address, date of birth"/>
+      </mapping>
+      <mapping>
+        <identity value="cpha3pharm"/>
+        <map value="C.35"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="Coverage.dependent">
+      <path value="Coverage.dependent"/>
+      <short value="Dependent number"/>
+      <definition value="A designator for a dependent under the coverage."/>
+      <comment value="Sometimes the member number is constructed from the subscriberId and the dependant number."/>
+      <requirements value="For some coverages a single identifier is issued to the Subscriber and then a additional dependent number is issued to each beneficiary."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="C17"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="- No exact HL7 v2 equivalent concept seems to exist;"/>
+      </mapping>
+    </element>
+    <element id="Coverage.relationship">
+      <path value="Coverage.relationship"/>
+      <short value="Beneficiary relationship to the subscriber"/>
+      <definition value="The relationship of beneficiary (patient) to the subscriber."/>
+      <comment value="Typically, an individual uses policies which are theirs (relationship='self') before policies owned by others."/>
+      <requirements value="The relationship between the patient and the subscriber to determine coordination of benefits."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Relationship"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The relationship between the Subscriber and the Beneficiary (insured/covered party/patient)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscriber-relationship"/>
+      </binding>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="C03"/>
+      </mapping>
+    </element>
+    <element id="Coverage.period">
+      <path value="Coverage.period"/>
+      <short value="Coverage start and end dates"/>
+      <definition value="Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force."/>
+      <requirements value="Some insurers require the submission of the coverage term."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-12 / IN1-13"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act.effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="Coverage.payor">
+      <path value="Coverage.payor"/>
+      <short value="Issuer of the policy"/>
+      <definition value="The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements."/>
+      <comment value="May provide multiple identifiers such as insurance company identifier or business identifier (BIN number).&#xA;For selfpay it may provide multiple paying persons and/or organizations."/>
+      <requirements value="Need to identify the issuer to target for claim processing and for coordination of benefit processing."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="A05"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-3"/>
+      </mapping>
+      <mapping>
+        <identity value="cpha3pharm"/>
+        <map value="C.30"/>
+      </mapping>
+    </element>
+    <element id="Coverage.class">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Class"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="430,0"/>
+      </extension>
+      <path value="Coverage.class"/>
+      <short value="Additional coverage classifications"/>
+      <definition value="A suite of underwriter specific classifiers."/>
+      <comment value="For example, class may be used to identify a class of coverage or employer group, policy, or plan."/>
+      <requirements value="The codes provided on the health card which identify or confirm the specific policy for the insurer."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Coverage.class.type">
+      <path value="Coverage.class.type"/>
+      <short value="Type of class such as 'group' or 'plan'"/>
+      <definition value="The type of classification for which an insurer-specific class label or number and optional name is provided.  For example, type may be used to identify a class of coverage or employer group, policy, or plan."/>
+      <requirements value="The insurer issued label for a specific health card value."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CoverageClass"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The policy classifications, eg. Group, Plan, Class, etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/coverage-class"/>
+      </binding>
+    </element>
+    <element id="Coverage.class.value">
+      <path value="Coverage.class.value"/>
+      <short value="Value associated with the type"/>
+      <definition value="The alphanumeric string value associated with the insurer issued label."/>
+      <comment value="For example, the Group or Plan number."/>
+      <requirements value="The insurer issued label and value are necessary to identify the specific policy."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="C11 (Division,Section)"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-8"/>
+      </mapping>
+      <mapping>
+        <identity value="cpha3pharm"/>
+        <map value="C.31"/>
+      </mapping>
+    </element>
+    <element id="Coverage.class.name">
+      <path value="Coverage.class.name"/>
+      <short value="Human readable description of the type and value"/>
+      <definition value="A short description for the class."/>
+      <requirements value="Used to provide a meaningful description in correspondence to the patient."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="C11 (Division,Section)"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-8"/>
+      </mapping>
+      <mapping>
+        <identity value="cpha3pharm"/>
+        <map value="C.31"/>
+      </mapping>
+    </element>
+    <element id="Coverage.order">
+      <path value="Coverage.order"/>
+      <short value="Relative order of the coverage"/>
+      <definition value="The order of applicability of this coverage relative to other coverages which are currently in force. Note, there may be gaps in the numbering and this does not imply primary, secondary etc. as the specific positioning of coverages depends upon the episode of care."/>
+      <requirements value="Used in managing the coordination of benefits."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="- No exact HL7 v2 equivalent concept seems to exist;"/>
+      </mapping>
+    </element>
+    <element id="Coverage.network">
+      <path value="Coverage.network"/>
+      <short value="Insurer network"/>
+      <definition value="The insurer-specific identifier for the insurer-defined network of providers to which the beneficiary may seek treatment which will be covered at the 'in-network' rate, otherwise 'out of network' terms and conditions apply."/>
+      <requirements value="Used in referral for treatment and in claims processing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="D10"/>
+      </mapping>
+    </element>
+    <element id="Coverage.costToBeneficiary">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="CostToBeneficiary"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="430,100"/>
+      </extension>
+      <path value="Coverage.costToBeneficiary"/>
+      <short value="Patient payments for services/products"/>
+      <definition value="A suite of codes indicating the cost category and associated amount which have been detailed in the policy and may have been  included on the health card."/>
+      <comment value="For example by knowing the patient visit co-pay, the provider can collect the amount prior to undertaking treatment."/>
+      <requirements value="Required by providers to manage financial transaction with the patient."/>
+      <alias value="CoPay"/>
+      <alias value="Deductible"/>
+      <alias value="Exceptions"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Coverage.costToBeneficiary.type">
+      <path value="Coverage.costToBeneficiary.type"/>
+      <short value="Cost category"/>
+      <definition value="The category of patient centric costs associated with treatment."/>
+      <comment value="For example visit, specialist visits, emergency, inpatient care, etc."/>
+      <requirements value="Needed to identify the category associated with the amount for the patient."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CopayTypes"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The types of services to which patient copayments are specified."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/coverage-copay-type"/>
+      </binding>
+    </element>
+    <element id="Coverage.costToBeneficiary.value[x]">
+      <path value="Coverage.costToBeneficiary.value[x]"/>
+      <short value="The amount or percentage due from the beneficiary"/>
+      <definition value="The amount due from the patient for the cost category."/>
+      <comment value="Amount may be expressed as a percentage of the service/product cost or a fixed amount of currency."/>
+      <requirements value="Needed to identify the amount for the patient associated with the category."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <type>
+        <code value="Money"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="C11 (Division,Section)"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-8"/>
+      </mapping>
+      <mapping>
+        <identity value="cpha3pharm"/>
+        <map value="C.31"/>
+      </mapping>
+    </element>
+    <element id="Coverage.costToBeneficiary.exception">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Exemption"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="430,230"/>
+      </extension>
+      <path value="Coverage.costToBeneficiary.exception"/>
+      <short value="Exceptions for patient payments"/>
+      <definition value="A suite of codes indicating exceptions or reductions to patient costs and their effective periods."/>
+      <requirements value="Required by providers to manage financial transaction with the patient."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Coverage.costToBeneficiary.exception.type">
+      <path value="Coverage.costToBeneficiary.exception.type"/>
+      <short value="Exception category"/>
+      <definition value="The code for the specific exception."/>
+      <requirements value="Needed to identify the exception associated with the amount for the patient."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CoverageFinancialException"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The types of exceptions from the part or full value of financial obligations such as copays."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/coverage-financial-exception"/>
+      </binding>
+    </element>
+    <element id="Coverage.costToBeneficiary.exception.period">
+      <path value="Coverage.costToBeneficiary.exception.period"/>
+      <short value="The effective period of the exception"/>
+      <definition value="The timeframe the exception is in force."/>
+      <requirements value="Needed to identify the applicable timeframe for the exception for the correct calculation of patient costs."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Coverage.subrogation">
+      <path value="Coverage.subrogation"/>
+      <short value="Reimbursement to insurer"/>
+      <definition value="When 'subrogation=true' this insurance instance has been included not for adjudication but to provide insurers with the details to recover costs."/>
+      <comment value="Typically, automotive and worker's compensation policies would be flagged with 'subrogation=true' to enable healthcare payors to collect against accident claims."/>
+      <requirements value="See definition for when to be used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Coverage.contract">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="C.35."/>
+      </extension>
+      <path value="Coverage.contract"/>
+      <short value="Contract details"/>
+      <definition value="The policy(s) which constitute this insurance coverage."/>
+      <requirements value="To reference the legally binding contract between the policy holder and the insurer."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract"/>
+      </type>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="D01 through D09"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-16, 18,  19"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="cpha3pharm"/>
+        <map value="C.35"/>
+      </mapping>
+    </element>
+    <element id="Coverage.insurancePlan">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="C.35."/>
+      </extension>
+      <path value="Coverage.insurancePlan"/>
+      <short value="Insurance plan details"/>
+      <definition value="The insurance plan details, benefits and costs, which constitute this insurance coverage."/>
+      <requirements value="To associate the plan benefits and costs with the coverage which is an instance of that plan."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InsurancePlan"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

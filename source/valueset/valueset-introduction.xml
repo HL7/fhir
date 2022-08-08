@@ -50,7 +50,7 @@ The Characteristics of the <code>ValueSet</code> resource are derived from Forma
  with metadata in the HL7 Value Set Definition specification. Value set resources can be converted to CTS2 
  value set or code system instances.</li>
  <li>The value set resource is aligned with the <a href="https://confluence.hl7.org/display/VOC/Characteristics+of+a+Value+Set+Definition+%28VSD%29+Project">Value Set Definition</a> (VSD) project. 
- Not all of the elements defined by the VSD are part of the base resource - some are defined as part of the <a href="valueset-extensions.html">ValueSet Extensions</a>.
+ Not all of the elements defined by the VSD are part of the base resource - some are defined as part of the <a href="valueset-core.html">ValueSet Extensions</a>.
  In the ValueSet resource, the <code>compose</code> element is the VSD "Content Logical definition".</li>
 </ul>
 </div>
@@ -105,7 +105,7 @@ A value set may be described as intensional or extensional. The terms intensiona
 </p>
 <p>
 An intensional value set is typically algorithmically defined. That is, the code group is defined as a rule e.g. all codes with the word diabetes in their 
-description). The key benefit of intensional code groups is that they can be dynamically updated. Dynamic updating helps healthcare organizations keep 
+description. The key benefit of intensional code groups is that they can be dynamically updated. Dynamic updating helps healthcare organizations keep 
 current when new drugs (and their associated codes) become available or codes for diseases and other clinical concepts change. An intensional value set 
 designed to contain all of the drugs in the beta blocker category can automatically receive a new beta blocker’s code as soon as it hits the market.
 </p>

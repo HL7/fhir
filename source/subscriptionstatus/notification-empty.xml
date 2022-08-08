@@ -11,12 +11,14 @@
         <id value="b21e4fae-ce73-45cb-8e37-1e203362b2ae"/>
         <status value="active"/>
         <type value="event-notification"/>
-        <eventsSinceSubscriptionStart value="310"/>
-        <eventsInNotification value="0"/>
+        <eventsSinceSubscriptionStart value="2"/>
+        <notificationEvent>
+          <eventNumber value="2"/>
+          <timestamp value="2020-04-17T10:20:00.0000000-05:00"/>
+        </notificationEvent>
         <subscription>
           <reference value="http://example.org/FHIR/R5/Subscription/123"/>
         </subscription>
-        <topic value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
       </SubscriptionStatus>
     </resource>
   </entry>

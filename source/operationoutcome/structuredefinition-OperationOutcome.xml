@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="OperationOutcome"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Foundation.Other"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="4.0.0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value="n/a - this resource is not expected to be stored"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+  <version value="4.6.0"/>
+  <name value="OperationOutcome"/>
+  <status value="active"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A collection of error, warning, or information messages that result from a system action."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="OperationOutcome"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="OperationOutcome">
+      <path value="OperationOutcome"/>
+      <short value="Information about the success/failure of an action"/>
+      <definition value="A collection of error, warning, or information messages that result from a system action."/>
+      <comment value="Can result from the failure of a REST call or be part of the response message returned from a request message."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Grouping is handled through multiple repetitions from whatever context references the outcomes (no specific grouper required)"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="infrastructure.exchange"/>
+      </mapping>
+    </element>
+    <element id="OperationOutcome.issue">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="OperationOutcome.issue"/>
+      <short value="A single issue associated with the action"/>
+      <definition value="An error, warning, or information message that results from a system action."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ERR"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="AcknowledgementDetail or Observation[classCode=&quot;ALRT&quot; and moodCode=&quot;EVN&quot;]"/>
+      </mapping>
+    </element>
+    <element id="OperationOutcome.issue.severity">
+      <path value="OperationOutcome.issue.severity"/>
+      <short value="fatal | error | warning | information"/>
+      <definition value="Indicates whether the issue indicates a variation from successful processing."/>
+      <comment value="This is labeled as &quot;Is Modifier&quot; because applications should not confuse hints and warnings with errors."/>
+      <requirements value="Indicates how relevant the issue is to the overall success of the action."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="IssueSeverity"/>
+        </extension>
+        <strength value="required"/>
+        <description value="How the issue affects the success of the action."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/issue-severity"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ERR-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./typeCode[parent::AcknowledgmentDetail] or unique(./inboundRelationship[parent::Observation and typeCode=&#39;SUBJ&#39; and isNormalActRelationship()]/source[classCode=&quot;OBS&quot; and moodCode=&quot;EVN&quot; and implies(code, ActCode#SEV and isNormalAct())/value[xsi:type=&quot;CD&quot;]"/>
+      </mapping>
+    </element>
+    <element id="OperationOutcome.issue.code">
+      <path value="OperationOutcome.issue.code"/>
+      <short value="Error or warning code"/>
+      <definition value="Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide its own code for the error in the details element."/>
+      <requirements value="Expresses the issue in a human and computer-friendly way, allowing the requesting system to behave differently based on the type of issue.&#xA;&#xA;The required element provides a base level of computable interoperability across all systems for processing an outcome, allowing systems to respond appropriately regardless of the internal system error codes returned."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="IssueType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="A code that describes the type of issue."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/issue-type"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ERR-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./code"/>
+      </mapping>
+    </element>
+    <element id="OperationOutcome.issue.details">
+      <path value="OperationOutcome.issue.details"/>
+      <short value="Additional details about the error"/>
+      <definition value="Additional details about the error. This may be a text description of the error or a system code that identifies the error."/>
+      <comment value="A human readable description of the error issue SHOULD be placed in details.text."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="IssueDetails"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code that provides details as the exact issue."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/operation-outcome"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ERR-5"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./code"/>
+      </mapping>
+    </element>
+    <element id="OperationOutcome.issue.diagnostics">
+      <path value="OperationOutcome.issue.diagnostics"/>
+      <short value="Additional diagnostic information about the issue"/>
+      <definition value="Additional diagnostic information about the issue."/>
+      <comment value="This may be a description of how a value is erroneous, a stack dump to help trace the issue or other troubleshooting information."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ERR-8"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./text[parent::AcknowledgmentDetail]"/>
+      </mapping>
+    </element>
+    <element id="OperationOutcome.issue.location">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/>
+      </extension>
+      <path value="OperationOutcome.issue.location"/>
+      <short value="Deprecated: Path of element(s) related to issue"/>
+      <definition value="This element is deprecated because it is XML specific. It is replaced by issue.expression, which is format independent, and simpler to parse. &#xA;&#xA;For resource issues, this will be a simple XPath limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised.  For HTTP errors, will be &quot;http.&quot; + the parameter name."/>
+      <comment value="The root of the XPath is the resource or bundle that generated OperationOutcome.  Each XPath SHALL resolve to a single node.  This element is deprecated, and is being replaced by expression."/>
+      <requirements value="Allows systems to highlight or otherwise guide users to elements implicated in issues to allow them to be fixed more easily."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ERR-2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./location[parent::AcknowledgmentDetail]"/>
+      </mapping>
+    </element>
+    <element id="OperationOutcome.issue.expression">
+      <path value="OperationOutcome.issue.expression"/>
+      <short value="FHIRPath of element(s) related to issue"/>
+      <definition value="A [simple subset of FHIRPath](fhirpath.html#simple) limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised."/>
+      <comment value="The root of the FHIRPath is the resource or bundle that generated OperationOutcome.  Each FHIRPath SHALL resolve to a single node."/>
+      <requirements value="Allows systems to highlight or otherwise guide users to elements implicated in issues to allow them to be fixed more easily."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ERR-2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./location[parent::AcknowledgmentDetail]"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

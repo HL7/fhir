@@ -25,7 +25,7 @@ notes:
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <a name="history"></a>
 <h3>Version History since DSTU #1</h3>
@@ -91,6 +91,19 @@ template:
 notes: do not list revision in the version
 -->
 	<tr>
+		<td>4.6.0<a name="v4.6.0"></a></td>
+		<td>
+      Draft Ballot for R5 - May 2020 Ballot (Apr 14-20 2020). Significant changes:
+      <ul>
+        <li>Add <a href="datatypes.html#RatioRange">RatioRange</a> data type</li>
+        <li>Rename DeviceUseStatement to <a href="deviceusage.html">DeviceUsage</a></li>
+        <li>New resources <a href="inventoryreport.html">InventoryReport</a>, <a href="citation.html">Citation</a>, <a href="evidencereport.html">EvidenceReport</a>, ClinicalUseIssue</li>
+        <li>Updates for <a href="subscription.html">subscriptions</a>, <a href="medication-definition-module.html">medication definitions</a>, and <a href="evidence.html">evidence based medicine</a></li>
+        <li>Ongoing development of other resources</li>
+      </ul>
+    </td>
+  </tr>
+	<tr>
 		<td>4.5.0<a name="v4.5.0"></a></td>
 		<td>
       3rd Milestone for R5 - September 2020 Virtual Connectathon Stable Version (Aug-20 2020). Significant changes:
@@ -153,7 +166,6 @@ notes: do not list revision in the version
        <li>New Resources:
          <ul style="-moz-column-count: 3; -moz-column-gap: 20px;  -webkit-column-count: 3;  -webkit-column-gap: 20px;  column-count: 3;  column-gap: 20px;">
            <li><a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a></li>
-           <li><a href="catalogentry.html">CatalogEntry</a></li>
            <li><a href="chargeitemdefinition.html">ChargeItemDefinition</a></li>
            <li><a href="devicedefinition.html">DeviceDefinition</a></li>
            <li>EffectEvidenceSynthesis</li>
@@ -297,7 +309,6 @@ notes: do not list revision in the version
        <li>Many minor &amp; major changes to data types, resources, operations</li>
        <li>New Resources:      
        <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>,
-       <a href="catalogentry.html">CatalogEntry</a>,
        <a href="eventdefinition.html">EventDefinition</a>,
        <a href="examplescenario.html">ExampleScenario</a>,
        <a href="immunizationevaluation.html">ImmunizationEvaluation</a>,
@@ -336,7 +347,7 @@ notes: do not list revision in the version
       <ul>
        <li>Ensure that all pages have a standards status, and enforce standards status throughout. Add dependency analysis</li>
        <li>Many minor changes to data types, resources, operations</li>
-       <li>New Resources: <a href="catalogentry.html">CatalogEntry</a>, <a href="specimendefinition.html">SpecimenDefinition</a>, <a href="observationdefinition.html">ObservationDefinition</a>, 
+       <li>New Resources: <a href="specimendefinition.html">SpecimenDefinition</a>, <a href="observationdefinition.html">ObservationDefinition</a>, 
           <a href="examplescenario.html">ExampleScenario</a>, <a href="terminologycapabilities.html">TerminologyCapabilities</a>, UserSession, <a href="invoice.html">Invoice</a>, 
           <a href="insuranceplan.html">InsurancePlan</a>, OccupationalData, <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <a href="verificationresult.html">VerificationResult</a>, 
           MedicinalProduct, MedicinalProductAuthorization <!--a href="medicinalproductclinicals.html"-->MedicinalProductClinicals<!--/a-->, 
@@ -707,7 +718,7 @@ notes: do not list revision in the version
         <li>DataElement (now <a href="structuredefinition.html">StructureDefinition</a>) - total rewrite to use ElementDefinition</li>
         <li><a href="device.html">Device</a> - add status, manufactureDate</li>
         <li><a href="devicemetric.html">DeviceMetric</a> - rename operationalState to operationalStatus, add measurementMode, rename calibrationInfo to calibration, change color to an enumerations</li>
-        <li><a href="devicerequest.html">DeviceRequest</a>/<a href="deviceusestatement.html">DeviceUseStatement</a> - change to bodySite = code or Reference(BodySite)</li>
+        <li><a href="devicerequest.html">DeviceRequest</a>/<a href="deviceusage.html">DeviceUsage</a> - change to bodySite = code or Reference(BodySite)</li>
         <li>DiagnosticRequest- change to bodySite = code or Reference(BodySite)</li>
         <li><a href="diagnosticreport.html">DiagnosticReport</a> - add encounter</li>
         <li><a href="documentmanifest.html">DocumentManifest</a> - add options for how content is referred to </li>
@@ -809,7 +820,7 @@ notes: do not list revision in the version
         <li>DataElement (now <a href="structuredefinition.html">StructureDefinition</a>)</li>
         <li><a href="devicemetric.html">DeviceMetric</a></li>
         <li><a href="devicerequest.html">DeviceRequest</a> </li>
-        <li><a href="deviceusestatement.html">DeviceUseStatement</a></li>
+        <li><a href="deviceusage.html">DeviceUsage</a></li>
         <li><a href="enrollmentrequest.html">EnrollmentRequest</a></li>
         <li><a href="enrollmentresponse.html">EnrollmentResponse</a></li>
         <li><a href="episodeofcare.html">EpisodeOfCare</a></li>
@@ -846,7 +857,7 @@ notes: do not list revision in the version
         <li><code>Data Access Framework</code></li>
         <li><code>Structured Data Capture</code> &amp; <code>Structured Data Capture - Data Element Exchange</code></li>
 				<li>US Laboratory <code>Order</code>, <code>Report</code> &amp; <code>Report to Public Health</code></li>
-        <li><a href="ehrsrle/ehrsrle.html">EHRS Functional model - Record Lifecycle Events</a></li>
+<!--        <li><a href="ehrsrle/ehrsrle.html">EHRS Functional model - Record Lifecycle Events</a></li> -->
 			</ul>
 		</td>
 	</tr>
@@ -909,8 +920,6 @@ notes: do not list revision in the version
 <p>
 Note: a useful tool for displaying the differences between pages is the <a href="http://services.w3.org/htmldiff">W3C HTML Diff engine</a>.
 </p>
-
-</div>
 
 [%file newfooter%]
 

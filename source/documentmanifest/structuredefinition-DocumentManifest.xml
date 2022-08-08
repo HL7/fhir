@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="DocumentManifest"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Foundation.Documents"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="not-classified"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sd"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/DocumentManifest"/>
+  <version value="4.6.0"/>
+  <name value="DocumentManifest"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Structured Documents)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/structure/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A collection of documents compiled for a purpose together with metadata that applies to the collection."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="xds"/>
+    <uri value="https://profiles.ihe.net/ITI/HIE-Whitepaper"/>
+    <name value="XDS metadata equivalent"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="DocumentManifest"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="DocumentManifest">
+      <path value="DocumentManifest"/>
+      <short value="A list that defines a set of documents"/>
+      <definition value="A collection of documents compiled for a purpose together with metadata that applies to the collection."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act[classCode=FOLDER, moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="infrastructure.documents"/>
+      </mapping>
+    </element>
+    <element id="DocumentManifest.masterIdentifier">
+      <path value="DocumentManifest.masterIdentifier"/>
+      <short value="Unique Identifier for the set of documents"/>
+      <definition value="A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="id [need a list semantic to indicate order matters]"/>
+      </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet.uniqueId"/>
+      </mapping>
+    </element>
+    <element id="DocumentManifest.identifier">
+      <path value="DocumentManifest.identifier"/>
+      <short value="Other identifiers for the manifest"/>
+      <definition value="Other identifiers associated with the document manifest, including version independent  identifiers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="TXA-16-Unique Document File Name?"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id / .setId"/>
+      </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet.entryUUID"/>
+      </mapping>
+    </element>
+    <element id="DocumentManifest.status">
+      <path value="DocumentManifest.status"/>
+      <short value="current | superseded | entered-in-error"/>
+      <definition value="The status of this document manifest."/>
+      <comment value="This element is labeled as a modifier because the status contains the codes that mark the manifest as not currently valid."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DocumentReferenceStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
+          <valueString value="http://terminology.hl7.org/ValueSet/v3-ActStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The status of the document reference."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/document-reference-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".statusCode"/>
+      </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet status"/>
+      </mapping>
+    </element>
+    <element id="DocumentManifest.type">
+      <path value="DocumentManifest.type"/>
+      <short value="Kind of document set"/>
+      <definition value="The code specifying the type of clinical activity that resulted in placing the associated content into the DocumentManifest."/>
+      <comment value="Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="v3Act"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The activity that caused the DocumentManifest to be created."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActCode"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet.contentTypeCode"/>
+      </mapping>
+    </element>
+    <element id="DocumentManifest.subject">
+      <path value="DocumentManifest.subject"/>
+      <short value="The subject of the set of documents"/>
+      <definition value="Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=SBJ].role"/>
+      </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet.patientId"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="DocumentManifest.created">
+      <path value="DocumentManifest.created"/>
+      <short value="When this document manifest created"/>
+      <definition value="When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.)."/>
+      <comment value="Creation time is used for tracking, organizing versions and searching. This is the creation time of the document set, not the documents on which it is based."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].time"/>
+      </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet.submissionTime"/>
+      </mapping>
+    </element>
+    <element id="DocumentManifest.author">
+      <path value="DocumentManifest.author"/>
+      <short value="Who and/or what authored the DocumentManifest"/>
+      <definition value="Identifies who is the author of the manifest. Manifest author is not necessarly the author of the references included."/>
+      <comment value="Not necessarily who did the actual data entry (i.e. typist) or who was the source (informant)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].role"/>
+      </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet.author"/>
+      </mapping>
+    </element>
+    <element id="DocumentManifest.recipient">
+      <path value="DocumentManifest.recipient"/>
+      <short value="Intended to get notified about this set of documents"/>
+      <definition value="A patient, practitioner, or organization for which this set of documents is intended."/>
+      <comment value="How the recipient receives the document set or is notified of it is up to the implementation. This element is just a statement of intent. If the recipient is a person, and it is not known whether the person is a patient or a practitioner, RelatedPerson would be the default choice."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.cause"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=IRCP].role"/>
+      </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet.intendedRecipient"/>
+      </mapping>
+    </element>
+    <element id="DocumentManifest.source">
+      <path value="DocumentManifest.source"/>
+      <short value="The source system/application/software"/>
+      <definition value="Identifies the source system, application, or software that produced the document manifest."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PFM].time"/>
+      </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet.sourceId"/>
+      </mapping>
+    </element>
+    <element id="DocumentManifest.description">
+      <path value="DocumentManifest.description"/>
+      <short value="Human-readable description (title)"/>
+      <definition value="Human-readable description of the source document. This is sometimes known as the &quot;title&quot;."/>
+      <comment value="What the document is about, rather than a terse summary of the document. It is commonly the case that records do not have a title and are collectively referred to by the display name of Record code (e.g. a &quot;consultation&quot; or &quot;progress note&quot;)."/>
+      <requirements value="Helps humans to assess whether the document is of interest."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".title"/>
+      </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet.title"/>
+      </mapping>
+    </element>
+    <element id="DocumentManifest.content">
+      <path value="DocumentManifest.content"/>
+      <short value="Items in manifest"/>
+      <definition value="The list of Resources that consist of the parts of this manifest."/>
+      <comment value="When used for XDS the intended focus of the DocumentManifest is for the reference to target to be a set of DocumentReference Resources. The reference is to &quot;Any&quot; to support EN 13606 usage, where an extract is DocumentManifest that references  List and Composition resources."/>
+      <requirements value="Any Resources are allowed to be grouped in a Manifest. The manifest brings context to the group."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP].target"/>
+      </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="SubmissionSet DocumentEntry(s)"/>
+      </mapping>
+    </element>
+    <element id="DocumentManifest.related">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="DocumentManifest.related"/>
+      <short value="Related things"/>
+      <definition value="Related identifiers or resources associated with the DocumentManifest."/>
+      <comment value="May be identifiers or resources that caused the DocumentManifest to be created."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="DocumentManifest.related.identifier">
+      <path value="DocumentManifest.related.identifier"/>
+      <short value="Identifiers of things that are related"/>
+      <definition value="Related identifier to this DocumentManifest.  For example, Order numbers, accession numbers, XDW workflow numbers."/>
+      <comment value="If both identifier and ref elements are present they shall refer to the same thing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="DocumentManifest.related.ref">
+      <path value="DocumentManifest.related.ref"/>
+      <short value="Related Resource"/>
+      <definition value="Related Resource to this DocumentManifest. For example, Order, ServiceRequest,  Procedure, EligibilityRequest, etc."/>
+      <comment value="If both identifier and ref elements are present they shall refer to the same thing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

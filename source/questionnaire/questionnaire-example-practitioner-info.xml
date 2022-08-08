@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Questionnaire xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd" xmlns="http://hl7.org/fhir">
+	<id value="example-practitioner-info"/>
+	<status value="draft"/>
+	<item>
+		<linkId value="core-props"/>
+		<type value="group"/>
+		<repeats value="false"/>
+		<item>
+			<linkId value="Practitioner.active"/>
+			<definition value="http://hl7.org/fhir/StructureDefinition/Practitioner#Practitioner.active"/>
+			<text value="Active"/>
+			<type value="boolean"/>
+		</item>
+		<item>
+			<linkId value="Practitioner.gender"/>
+			<definition value="http://hl7.org/fhir/StructureDefinition/Practitioner#Practitioner.gender"/>
+			<text value="Gender"/>
+			<type value="coding"/>
+		</item>
+		<item>
+			<linkId value="Practitioner.birthDate"/>
+			<definition value="http://hl7.org/fhir/StructureDefinition/Practitioner#Practitioner.birthDate"/>
+			<text value="Birth Date"/>
+			<type value="date"/>
+		</item>
+		<item>
+			<linkId value="Practitioner.name.text"/>
+			<definition value="http://hl7.org/fhir/StructureDefinition/Practitioner#Practitioner.name.text"/>
+			<text value="Name"/>
+			<type value="string"/>
+		</item>
+		<item>
+			<linkId value="Practitioner.address.line"/>
+			<definition value="http://hl7.org/fhir/StructureDefinition/Practitioner#Practitioner.address.line"/>
+			<text value="Address"/>
+			<type value="string"/>
+			<repeats value="true"/>
+		</item>
+		<item>
+			<linkId value="Practitioner.address.postalCode"/>
+			<definition value="http://hl7.org/fhir/StructureDefinition/Practitioner#Practitioner.address.postalCode"/>
+			<text value="Post Code"/>
+			<type value="string"/>
+		</item>
+	</item>
+	<item>
+		<linkId value="Practitioner.qualification"/>
+		<definition value="http://hl7.org/fhir/StructureDefinition/Practitioner#Practitioner.qualification"/>
+		<text value="Qualifications"/>
+		<type value="group"/>
+		<repeats value="true"/>
+		<item>
+			<linkId value="Practitioner.qualification.code.coding.code"/>
+			<definition value="http://hl7.org/fhir/StructureDefinition/Practitioner#Practitioner.qualification.code.coding.code"/>
+			<text value="Code"/>
+			<type value="string"/>
+		</item>
+		<item>
+			<linkId value="Practitioner.qualification.code.coding.display"/>
+			<definition value="http://hl7.org/fhir/StructureDefinition/Practitioner#Practitioner.qualification.code.coding.display"/>
+			<text value="Display"/>
+			<type value="string"/>
+		</item>
+		<item>
+			<linkId value="Practitioner.qualification.period.end"/>
+			<definition value="http://hl7.org/fhir/StructureDefinition/Practitioner#Practitioner.qualification.period.end"/>
+			<text value="Completion Year"/>
+			<type value="dateTime"/>
+		</item>
+		<item>
+			<linkId value="Practitioner.qualification.issuer.display"/>
+			<definition value="http://hl7.org/fhir/StructureDefinition/Practitioner#Practitioner.qualification.issuer.display"/>
+			<text value="Issued by"/>
+			<type value="string"/>
+		</item>
+	</item>
+</Questionnaire>

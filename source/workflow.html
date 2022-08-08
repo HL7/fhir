@@ -15,7 +15,7 @@ in order to support consistent definitions for schema and UML derived code.
 <body>
     [%file newnavbar%]
 
-    <div class="col-12">
+    
         <table class="colstu">
             <tr>
                 <td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td>
@@ -102,6 +102,11 @@ in order to support consistent definitions for schema and UML derived code.
                     </td>
                     <td>
                         <ul>
+                            <li><a href="observationdefinition.html">ObservationDefinition</a></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
                             <li><a href="operationdefinition.html">OperationDefinition</a></li>
                         </ul>
                     </td>
@@ -166,16 +171,15 @@ in order to support consistent definitions for schema and UML derived code.
                             <li><a href="communication.html">Communication</a></li>
                             <li><a href="composition.html">Composition</a></li>
                             <li><a href="condition.html">Condition (aka Problem)</a></li>
-			    <li><a href="contract.html">Contract</a></li>
-
                             <li><a href="consent.html">Consent</a></li>
+                            <li><a href="contract.html">Contract</a></li>
                             <li><a href="coverage.html">Coverage</a></li>
                         </ul>
                     </td>
                     <td>
                         <ul>
                             <li><a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></li>
-                            <li><a href="deviceusestatement.html">DeviceUseStatement</a></li>
+                            <li><a href="deviceusage.html">DeviceUsage</a></li>
                             <li><a href="diagnosticreport.html">DiagnosticReport</a></li>
                             <li><a href="documentmanifest.html">DocumentManifest</a></li>
                             <li><a href="documentreference.html">DocumentReference</a></li>
@@ -195,11 +199,11 @@ in order to support consistent definitions for schema and UML derived code.
                             <li><a href="medicationadministration.html">MedicationAdministration</a></li>
                             <li><a href="medicationdispense.html">MedicationDispense</a></li>
                             <li><a href="medicationusage.html">MedicationUsage</a></li>
+                            <li><a href="observation.html">Observation</a></li>
                         </ul>
                     </td>
                     <td>
                         <ul>
-                            <li><a href="observation.html">Observation</a></li>
                             <li><a href="paymentnotice.html">PaymentNotice</a></li>
                             <li><a href="paymentreconciliation.html">PaymentReconciliation</a></li>
                             <li><a href="procedure.html">Procedure</a></li>
@@ -207,6 +211,7 @@ in order to support consistent definitions for schema and UML derived code.
                             <li><a href="riskassessment.html">RiskAssessment</a></li>
                             <li><a href="supplydelivery.html">SupplyDelivery</a></li>
                             <li><a href="task.html">Task</a><sup><a href="#listnotes">&#8225;</a></sup></li>
+                            <li><a href="transport.html">Transport</a><sup><a href="#listnotes">&#8225;</a></sup></li>
                         </ul>
                     </td>
                 </tr>
@@ -304,13 +309,14 @@ in order to support consistent definitions for schema and UML derived code.
                 <li>The <a href="supplyrequest.html">SupplyRequest</a>, <a href="devicerequest.html">DeviceRequest</a> and <a href="visionprescription.html">VisionPrescription</a> resources have a significant degree of overlap. Should they remain distinct
                     resources?
                 </li>
+                <li>
+                    SpecimenDefinition is defining a 'thing', not an action, so it is not appropriate for the Definitions group.
+                </li>
             </ul>
             <p>
                 Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
             </p>
         </blockquote>
-
-    </div>
 
     [%file newfooter%]
 </body>

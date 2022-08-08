@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ManufacturedItemDefinition-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ManufacturedItemDefinition-dose-form"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ManufacturedItemDefinition.manufacturedDoseForm"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ManufacturedItemDefinition-dose-form"/>
+        <description value="Dose form as manufactured and before any transformation into the pharmaceutical product"/>
+        <code value="dose-form"/>
+        <type value="token"/>
+        <expression value="ManufacturedItemDefinition.manufacturedDoseForm"/>
+        <xpath value="f:ManufacturedItemDefinition/f:manufacturedDoseForm"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ManufacturedItemDefinition-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ManufacturedItemDefinition.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ManufacturedItemDefinition-identifier"/>
+        <description value="Unique identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="ManufacturedItemDefinition.identifier"/>
+        <xpath value="f:ManufacturedItemDefinition/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ManufacturedItemDefinition-ingredient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ManufacturedItemDefinition.ingredient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ManufacturedItemDefinition-ingredient"/>
+        <description value="An ingredient of this item"/>
+        <code value="ingredient"/>
+        <type value="token"/>
+        <expression value="ManufacturedItemDefinition.ingredient"/>
+        <xpath value="f:ManufacturedItemDefinition/f:ingredient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

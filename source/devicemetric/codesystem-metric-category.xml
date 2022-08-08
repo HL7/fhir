@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="metric-category"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/metric-category defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">measurement
+            
+            <a name="metric-category-measurement"> </a>
+          
+          </td>
+          
+          <td>Measurement</td>
+          
+          <td>DeviceObservations generated for this DeviceMetric are measured.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">setting
+            
+            <a name="metric-category-setting"> </a>
+          
+          </td>
+          
+          <td>Setting</td>
+          
+          <td>DeviceObservations generated for this DeviceMetric is a setting that will influence the behavior of the Device.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">calculation
+            
+            <a name="metric-category-calculation"> </a>
+          
+          </td>
+          
+          <td>Calculation</td>
+          
+          <td>DeviceObservations generated for this DeviceMetric are calculated.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">unspecified
+            
+            <a name="metric-category-unspecified"> </a>
+          
+          </td>
+          
+          <td>Unspecified</td>
+          
+          <td>The category of this DeviceMetric is unspecified.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="dev"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/metric-category"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.649"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="DeviceMetricCategory"/>
+  <title value="DeviceMetricCategory"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Describes the category of the metric."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/metric-category"/>
+  <content value="complete"/>
+  <concept>
+    <code value="measurement"/>
+    <display value="Measurement"/>
+    <definition value="DeviceObservations generated for this DeviceMetric are measured."/>
+  </concept>
+  <concept>
+    <code value="setting"/>
+    <display value="Setting"/>
+    <definition value="DeviceObservations generated for this DeviceMetric is a setting that will influence the behavior of the Device."/>
+  </concept>
+  <concept>
+    <code value="calculation"/>
+    <display value="Calculation"/>
+    <definition value="DeviceObservations generated for this DeviceMetric are calculated."/>
+  </concept>
+  <concept>
+    <code value="unspecified"/>
+    <display value="Unspecified"/>
+    <definition value="The category of this DeviceMetric is unspecified."/>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="FamilyMemberHistory-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="FamilyMemberHistory-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="FamilyMemberHistory.condition.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/FamilyMemberHistory-code"/>
+        <description value="A search by a condition code"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="FamilyMemberHistory.condition.code"/>
+        <xpath value="f:FamilyMemberHistory/f:condition/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="FamilyMemberHistory-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="FamilyMemberHistory.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/FamilyMemberHistory-date"/>
+        <description value="When history was recorded or last updated"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="FamilyMemberHistory.date"/>
+        <xpath value="f:FamilyMemberHistory/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="FamilyMemberHistory-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="FamilyMemberHistory.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/FamilyMemberHistory-identifier"/>
+        <description value="A search by a record identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="FamilyMemberHistory.identifier"/>
+        <xpath value="f:FamilyMemberHistory/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="FamilyMemberHistory-instantiates-canonical"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="FamilyMemberHistory.instantiatesCanonical"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/FamilyMemberHistory-instantiates-canonical"/>
+        <description value="Instantiates FHIR protocol or definition"/>
+        <code value="instantiates-canonical"/>
+        <type value="reference"/>
+        <expression value="FamilyMemberHistory.instantiatesCanonical"/>
+        <xpath value="f:FamilyMemberHistory/f:instantiatesCanonical"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="FamilyMemberHistory-instantiates-uri"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="FamilyMemberHistory.instantiatesUri"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/FamilyMemberHistory-instantiates-uri"/>
+        <description value="Instantiates external protocol or definition"/>
+        <code value="instantiates-uri"/>
+        <type value="uri"/>
+        <expression value="FamilyMemberHistory.instantiatesUri"/>
+        <xpath value="f:FamilyMemberHistory/f:instantiatesUri"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="FamilyMemberHistory-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="FamilyMemberHistory.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/FamilyMemberHistory-patient"/>
+        <description value="The identity of a subject to list family member history items for"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="FamilyMemberHistory.patient"/>
+        <xpath value="f:FamilyMemberHistory/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="FamilyMemberHistory-relationship"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="FamilyMemberHistory.relationship"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/FamilyMemberHistory-relationship"/>
+        <description value="A search by a relationship type"/>
+        <code value="relationship"/>
+        <type value="token"/>
+        <expression value="FamilyMemberHistory.relationship"/>
+        <xpath value="f:FamilyMemberHistory/f:relationship"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="FamilyMemberHistory-sex"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="FamilyMemberHistory.sex"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/FamilyMemberHistory-sex"/>
+        <description value="A search by a sex code of a family member"/>
+        <code value="sex"/>
+        <type value="token"/>
+        <expression value="FamilyMemberHistory.sex"/>
+        <xpath value="f:FamilyMemberHistory/f:sex"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="FamilyMemberHistory-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="FamilyMemberHistory.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/FamilyMemberHistory-status"/>
+        <description value="partial | completed | entered-in-error | health-unknown"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="FamilyMemberHistory.status"/>
+        <xpath value="f:FamilyMemberHistory/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

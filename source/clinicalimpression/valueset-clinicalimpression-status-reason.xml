@@ -1,29 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-  <url value="http://hl7.org/fhir/ValueSet/communication-request-status-reason"/>
-	<name value="ClinicalImpressionStatusReason"/>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="clinicalimpression-status-reason"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/clinicalimpression-status-reason"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1417"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ClinicalImpressionStatusReason"/>
   <title value="ClinicalImpression Status Reason"/>
-	<status value="draft"/>
-	<publisher value="HL7 International - Patient Care WG"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org/Special/committees/patientcare/"/>
-		</telecom>
-	</contact>
-	<description value="Example codes indicating the reason why a ClinicalImpression is on hold or stopped. Note that these are in no way complete and might not even be appropriate for some uses."/>
-  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
-	<compose>
+  <status value="draft"/>
+  <publisher value="HL7 International - Patient Care WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare/"/>
+    </telecom>
+  </contact>
+  <description value="Example codes indicating the reason why a ClinicalImpression is on hold or stopped. Note that these are in no way complete and might not even be appropriate for some uses."/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      
       <concept>
         <code value="397709008"/>
       </concept>
       <concept>
         <code value="105480006"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="719500002"/>
       </concept>
       <concept>
@@ -32,7 +44,7 @@
       <concept>
         <code value="704273008"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="704274002"/>
       </concept>
       <concept>
@@ -41,7 +53,7 @@
       <concept>
         <code value="704275001"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="704276000"/>
       </concept>
       <concept>
@@ -50,7 +62,6 @@
       <concept>
         <code value="398090008"/>
       </concept>
-	  
     </include>
   </compose>
 </ValueSet>

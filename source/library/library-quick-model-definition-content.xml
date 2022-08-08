@@ -921,7 +921,7 @@
         <ns4:element name="DeviceComponent" type="QUICK.DeviceComponent"/>
         <ns4:element name="DeviceMetric" type="QUICK.DeviceMetric"/>
         <ns4:element name="DeviceRequest" type="QUICK.DeviceRequest"/>
-        <ns4:element name="DeviceUseStatement" type="QUICK.DeviceUseStatement"/>
+        <ns4:element name="DeviceUsage" type="QUICK.DeviceUsage"/>
         <ns4:element name="DiagnosticOrder" type="QUICK.DiagnosticOrder"/>
         <ns4:element name="DiagnosticReport" type="QUICK.DiagnosticReport"/>
         <ns4:element name="DocumentManifest" type="QUICK.DocumentManifest"/>
@@ -3035,8 +3035,8 @@
         <ns4:element name="country" type="System.String"/>
         <ns4:element name="period" type="interval&lt;System.DateTime&gt;"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.DeviceUseStatement" baseType="QUICK.DomainResource"
-                  retrievable="true" identifier="deviceusestatement-qicore-qicore-deviceusestatement" primaryCodePath="device.type">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.DeviceUsage" baseType="QUICK.DomainResource"
+                  retrievable="true" identifier="deviceusage-qicore-qicore-deviceusage" primaryCodePath="device.type">
         <ns4:element name="bodySiteCodeableConcept" type="System.Concept"/>
         <ns4:element name="bodySiteReference" type="System.Any"/>
         <ns4:element name="whenUsed" type="interval&lt;System.DateTime&gt;"/>

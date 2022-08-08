@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="MedicationDispense-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationDispense-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.medication.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationDispense-code"/>
+        <description value="Returns dispenses of this medicine code"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="MedicationDispense.medication.concept"/>
+        <xpath value="f:MedicationDispense/f:medication/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationDispense-destination"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.destination"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationDispense-destination"/>
+        <description value="Returns dispenses that should be sent to a specific destination"/>
+        <code value="destination"/>
+        <type value="reference"/>
+        <expression value="MedicationDispense.destination"/>
+        <xpath value="f:MedicationDispense/f:destination"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationDispense-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationDispense-encounter"/>
+        <description value="Returns dispenses with a specific encounter"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="MedicationDispense.encounter"/>
+        <xpath value="f:MedicationDispense/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationDispense-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationDispense-identifier"/>
+        <description value="Returns dispenses with this external identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="MedicationDispense.identifier"/>
+        <xpath value="f:MedicationDispense/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationDispense-medication"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.medication.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationDispense-medication"/>
+        <description value="Returns dispenses of this medicine resource"/>
+        <code value="medication"/>
+        <type value="reference"/>
+        <expression value="MedicationDispense.medication.reference"/>
+        <xpath value="f:MedicationDispense/f:medication/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationDispense-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationDispense-patient"/>
+        <description value="The identity of a patient to list dispenses  for"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="MedicationDispense.subject.where(resolve() is Patient)"/>
+        <xpath value="f:MedicationDispense/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationDispense-performer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.performer.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationDispense-performer"/>
+        <description value="Returns dispenses performed by a specific individual"/>
+        <code value="performer"/>
+        <type value="reference"/>
+        <expression value="MedicationDispense.performer.actor"/>
+        <xpath value="f:MedicationDispense/f:performer/f:actor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationDispense-prescription"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.authorizingPrescription"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationDispense-prescription"/>
+        <description value="The identity of a prescription to list dispenses from"/>
+        <code value="prescription"/>
+        <type value="reference"/>
+        <expression value="MedicationDispense.authorizingPrescription"/>
+        <xpath value="f:MedicationDispense/f:authorizingPrescription"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationDispense-receiver"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.receiver"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationDispense-receiver"/>
+        <description value="The identity of a receiver to list dispenses for"/>
+        <code value="receiver"/>
+        <type value="reference"/>
+        <expression value="MedicationDispense.receiver"/>
+        <xpath value="f:MedicationDispense/f:receiver"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationDispense-responsibleparty"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.substitution.responsibleParty"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationDispense-responsibleparty"/>
+        <description value="Returns dispenses with the specified responsible party"/>
+        <code value="responsibleparty"/>
+        <type value="reference"/>
+        <expression value="MedicationDispense.substitution.responsibleParty"/>
+        <xpath value="f:MedicationDispense/f:substitution/f:responsibleParty"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationDispense-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationDispense-status"/>
+        <description value="Returns dispenses with a specified dispense status"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="MedicationDispense.status"/>
+        <xpath value="f:MedicationDispense/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationDispense-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationDispense-subject"/>
+        <description value="The identity of a patient for whom to list dispenses"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="MedicationDispense.subject"/>
+        <xpath value="f:MedicationDispense/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationDispense-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationDispense-type"/>
+        <description value="Returns dispenses of a specific type"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="MedicationDispense.type"/>
+        <xpath value="f:MedicationDispense/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationDispense-whenhandedover"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.whenHandedOver"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationDispense-whenhandedover"/>
+        <description value="Returns dispenses handed over on this date"/>
+        <code value="whenhandedover"/>
+        <type value="date"/>
+        <expression value="MedicationDispense.whenHandedOver"/>
+        <xpath value="f:MedicationDispense/f:whenHandedOver"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationDispense-whenprepared"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.whenPrepared"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationDispense-whenprepared"/>
+        <description value="Returns dispenses prepared on this date"/>
+        <code value="whenprepared"/>
+        <type value="date"/>
+        <expression value="MedicationDispense.whenPrepared"/>
+        <xpath value="f:MedicationDispense/f:whenPrepared"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.recorded"/>
+        </extension>
+        <description value="Returns dispenses where dispensing activity began on this date"/>
+        <code value="recorded"/>
+        <type value="date"/>
+        <expression value="MedicationDispense.recorded"/>
+        <xpath value="f:MedicationDispense/f:recorded"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.location"/>
+        </extension>
+        <description value="Returns dispense for a given location"/>
+        <code value="location"/>
+        <type value="reference"/>
+        <expression value="MedicationDispense.location"/>
+        <xpath value="f:MedicationDispense/f:location"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

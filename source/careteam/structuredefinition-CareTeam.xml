@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="CareTeam"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Care Provision"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+  <version value="4.6.0"/>
+  <name value="CareTeam"/>
+  <status value="draft"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="Health Level Seven International (Patient Care)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="interface"/>
+    <uri value="http://hl7.org/fhir/interface"/>
+    <name value="Interface Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="CareTeam"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="CareTeam">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#20909."/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="CareTeam"/>
+      <short value="Planned participants in the coordination and delivery of care"/>
+      <definition value="The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Role"/>
+      </mapping>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Participant"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.careprovision"/>
+      </mapping>
+    </element>
+    <element id="CareTeam.identifier">
+      <path value="CareTeam.identifier"/>
+      <short value="External Ids for this team"/>
+      <definition value="Business identifiers assigned to this care team by the performer or other systems which remain constant as the resource is updated and propagates from server to server."/>
+      <comment value="This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <requirements value="Allows identification of the care team as it is known by various participating systems and in a way that remains consistent across servers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Participant.identifier"/>
+      </mapping>
+    </element>
+    <element id="CareTeam.status">
+      <path value="CareTeam.status"/>
+      <short value="proposed | active | suspended | inactive | entered-in-error"/>
+      <definition value="Indicates the current state of the care team."/>
+      <comment value="This element is labeled as a modifier because the status contains the code entered-in-error that marks the care team as not currently valid."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CareTeamStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Indicates the status of the care team."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/care-team-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Participant.active {map: active = true; :default = false}"/>
+      </mapping>
+    </element>
+    <element id="CareTeam.category">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#11347."/>
+      </extension>
+      <path value="CareTeam.category"/>
+      <short value="Type of team"/>
+      <definition value="Identifies what kind of team.  This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team."/>
+      <comment value="There may be multiple axis of categorization and one team may serve multiple purposes."/>
+      <requirements value="Used for filtering what teams(s) are retrieved and displayed to different types of users."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CareTeamCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates the type of care team."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/care-team-category"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="CareTeam.name">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#11176."/>
+      </extension>
+      <path value="CareTeam.name"/>
+      <short value="Name of the team, such as crisis assessment team"/>
+      <definition value="A label for human use intended to distinguish like teams.  E.g. the &quot;red&quot; vs. &quot;green&quot; trauma teams."/>
+      <comment value="The meaning/purpose of the team is conveyed in CareTeam.category.  This element may also convey semantics of the team (e.g. &quot;Red trauma team&quot;), but its primary purpose is to distinguish between identical teams in a human-friendly way.  (&quot;Team 18735&quot; isn&#39;t as friendly.)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Participant.name"/>
+      </mapping>
+    </element>
+    <element id="CareTeam.subject">
+      <path value="CareTeam.subject"/>
+      <short value="Who care team is for"/>
+      <definition value="Identifies the patient or group whose intended care is handled by the team."/>
+      <requirements value="Allows the team to care for a group (e.g. marriage) therapy. &#xA;Allows for an organization to designate a team such as the PICC line team."/>
+      <alias value="patient"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="CareTeam.period">
+      <path value="CareTeam.period"/>
+      <short value="Time period team covers"/>
+      <definition value="Indicates when the team did (or is intended to) come into effect and end."/>
+      <requirements value="Allows tracking what team(s) are in effect at a particular time."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.init"/>
+      </mapping>
+    </element>
+    <element id="CareTeam.participant">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="360,0"/>
+      </extension>
+      <path value="CareTeam.participant"/>
+      <short value="Members of the team"/>
+      <definition value="Identifies all people and organizations who are expected to be involved in the care team."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <condition value="ctm-1"/>
+      <condition value="ctm-2"/>
+      <constraint>
+        <key value="ctm-1"/>
+        <severity value="error"/>
+        <human value="CareTeam.participant.onBehalfOf can only be populated when CareTeam.participant.member is a Practitioner"/>
+        <expression value="onBehalfOf.exists() implies (member.resolve() is Practitioner)"/>
+        <xpath value="starts-with(f:member/f:reference/@value, &#39;Practitioner/&#39;) or contains(f:member/f:reference/@value, &#39;/Practitioner/&#39;) or exists(ancestor::*/f:contains/f:Practitioner/f:id[@value=substring-after(current()/f:member/f:reference/@value, &#39;#&#39;)]) or not(exists(f:onBehalfOf))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+      </constraint>
+      <constraint>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+          <valueBoolean value="false"/>
+        </extension>
+        <key value="ctm-2"/>
+        <severity value="warning"/>
+        <human value="CareTeam.participant.role or CareTeam.participant.member exists"/>
+        <expression value="role.exists() or member.exists()"/>
+        <xpath value="exists(f:role) or exists(f:member)"/>
+      </constraint>
+      <mapping>
+        <identity value="v2"/>
+        <map value="REL (REL.4 is always the Patient) ( or PRT?)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRF]"/>
+      </mapping>
+    </element>
+    <element id="CareTeam.participant.role">
+      <path value="CareTeam.participant.role"/>
+      <short value="Type of involvement"/>
+      <definition value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary care physician&quot;, &quot;Trained social worker counselor&quot;, &quot;Caregiver&quot;, etc."/>
+      <comment value="Roles may sometimes be inferred by type of Practitioner.  These are relationships that hold only within the context of the care team.  General relationships should be handled as properties of the Patient resource directly.  If a participant has multiple roles within the team, then there should be multiple participants."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CareTeamParticipantRole"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participant-role"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="REL.2 (or PRT-4?)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".functionCode"/>
+      </mapping>
+    </element>
+    <element id="CareTeam.participant.member">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#14334."/>
+      </extension>
+      <path value="CareTeam.participant.member"/>
+      <short value="Who is involved"/>
+      <definition value="The specific person or organization who is participating/expected to participate in the care team."/>
+      <comment value="Patient only needs to be listed if they have a role other than &quot;subject of care&quot;.&#xA;&#xA;Member is optional because some participants may be known only by their role, particularly in draft plans."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="REL.5 (or PRT-5 : ( PRV-4 {provider participations} ) / PRT-5 : ( PRV-4  {non-provider person participations} ) / PRT-5 : ( PRV-4 = (patient non-subject of care) ) / PRT-8?)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role"/>
+      </mapping>
+    </element>
+    <element id="CareTeam.participant.onBehalfOf">
+      <path value="CareTeam.participant.onBehalfOf"/>
+      <short value="Organization of the practitioner"/>
+      <definition value="The organization of the practitioner."/>
+      <requirements value="Practitioners can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="CareTeam.participant.coverage[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#23030."/>
+      </extension>
+      <path value="CareTeam.participant.coverage[x]"/>
+      <short value="When the member is generally available within this care team"/>
+      <definition value="When the member is generally available within this care team."/>
+      <comment value="This is populated while creating / managing the CareTeam to ensure there is coverage when servicing CarePlan activities from the Schedule."/>
+      <requirements value="To manage members who share the same role, but with different timing.  For example, two physical therapists where one is available Monday through Friday whereas the other is available on the weekend."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Timing"/>
+      </type>
+    </element>
+    <element id="CareTeam.reason">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#12367."/>
+      </extension>
+      <path value="CareTeam.reason"/>
+      <short value="Why the care team exists"/>
+      <definition value="Describes why the care team exists."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CareTeamReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates the reason for the care team."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+    </element>
+    <element id="CareTeam.managingOrganization">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#11335."/>
+      </extension>
+      <path value="CareTeam.managingOrganization"/>
+      <short value="Organization responsible for the care team"/>
+      <definition value="The organization responsible for the care team."/>
+      <requirements value="Allows for multiple organizations to collaboratively manage cross-organizational, longitudinal care plan."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="CareTeam.telecom">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#13233."/>
+      </extension>
+      <path value="CareTeam.telecom"/>
+      <short value="A contact detail for the care team (that applies to all members)"/>
+      <definition value="A central contact detail for the care team (that applies to all members)."/>
+      <comment value="The ContactPoint.use code of home is not appropriate to use. These contacts are not the contact details of individual care team members."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactPoint"/>
+      </type>
+    </element>
+    <element id="CareTeam.note">
+      <path value="CareTeam.note"/>
+      <short value="Comments made about the CareTeam"/>
+      <definition value="Comments made about the CareTeam."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

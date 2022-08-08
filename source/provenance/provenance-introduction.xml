@@ -8,7 +8,7 @@ The Provenance resource tracks information about the activity that created, revi
 This information can be used to form assessments about its quality, reliability, trustworthiness, or to provide pointers for where to go to further investigate the origins of the resource and the information in it. 
 </p>
 <p>
-<a href="provenance.html">Provenance resources</a> are a record-keeping assertion that gathers information about the context in which the information in a resource was obtained. 
+Provenance resources are a record-keeping assertion that gathers information about the context in which the information in a resource was obtained. 
 Provenance resources are prepared by the application that initiates the create/update etc. of the resource.
 An <a href="auditevent.html">AuditEvent</a> resource contains overlapping information, but is created as events occur, to track and audit the events. 
 AuditEvent resources are often (though not exclusively) created by the application responding to the read/query/create/update/etc. event. 
@@ -26,6 +26,7 @@ functionality of the Provenance resource. These properties in other resources
 should always be used in preference to the Provenance resource, and the 
 Provenance resource should be used where additional information is required,
 or explicit record or provenance is desired. 
+Details on this overlap can be found on the <a href="fivews.html">FiveWs</a>, including a mapping from the at the Resource Element level.
 </p>
 <p>
 The relationship between a resource and its provenance is established
@@ -57,7 +58,7 @@ Where:
 </p>
 <ul>
 <li>Entity - An entity is a physical, digital, conceptual or other kind of thing with some fixed aspects; entities may be real or imaginary. One or more entities can be the input (.entity) of an activity, and one or more entities can be the output (.target).</li>
-<li>Agent - An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.</li>
+<li>Agent - An agent is something that bears the responsibility identified by the type of participation in the activity taking place, for the existence of an entity, or for another agent's activity. An Agent may be a person, device, system, organization, group, care-team, or identifiable thing.</li>
 <li>Activity - An activity is something that occurs over a time period and acts upon or with entities. It may include consuming, processing, transforming, modifying, relocating, using, or generating entities.</li>
 </ul>
 <p>
@@ -84,3 +85,4 @@ covers "Usage" of "Entity" and all other "Activity" as defined in W3C Provenance
 </div>
 
 </div>
+

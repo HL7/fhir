@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="MolecularSequence-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MolecularSequence-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MolecularSequence.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-identifier"/>
+        <description value="The unique identity for a particular sequence"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="MolecularSequence.identifier"/>
+        <xpath value="f:MolecularSequence/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MolecularSequence-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MolecularSequence.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-patient"/>
+        <description value="The subject that the sequence is about"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="MolecularSequence.patient"/>
+        <xpath value="f:MolecularSequence/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MolecularSequence-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MolecularSequence.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-type"/>
+        <description value="Amino Acid Sequence/ DNA Sequence / RNA Sequence"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="MolecularSequence.type"/>
+        <xpath value="f:MolecularSequence/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

@@ -9,7 +9,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <%txheader%>
 
@@ -38,8 +38,9 @@ The terms of use for LOINC require that a <a href="license.html#loinc">notice</a
 This notice must appear in the <i>copyright</i> element of any value set that includes LOINC codes (either in the code or filter elements, or in an expansion):
 </p>
 <pre>
-&lt;copyright value=&quot;This material contains content from LOINC (<a href="http://loinc.org">http://loinc.org</a>). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. 
-and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license 
+&lt;copyright value=&quot;This material contains content from LOINC (<a href="http://loinc.org">http://loinc.org</a>). 
+Refer to <a href="http://terminology.hl7.org/">terminology.hl7.org</a> for copyright information. 
+LOINC® is available at no cost under the license 
 at <a href="http://loinc.org/license">http://loinc.org/license</a>. LOINC® is a registered United States trademark of Regenstrief Institute, Inc.&quot;/&gt;
 </pre>
 <p>
@@ -193,9 +194,9 @@ The value set identifier http://loinc.org/vs is a value set that contains all LO
 
 <p>
 LOINC defines a set of Answer lists, each of which contains a set of LOINC codes.
-LOINC answer lists are value sets. The value set identifier "http://loinc.org/vs/[id]"
-identifies a value set that contains a set of LOINC codes. For instance, the value
-set identifier http://loinc.org/vs/LL715-4 has the following definition for LOINC 2.52:
+LOINC answer lists are value sets. The value set canonical uri "http://loinc.org/vs/[id]" 
+identifies a value set that contains a set of LOINC codes. For instance, the value set 
+uri http://loinc.org/vs/LL715-4 has the following definition for LOINC 2.52:
 </p>
 <pre class="xml" fragment="ValueSet">
 &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
@@ -257,17 +258,17 @@ Here is an example of a LOINC Answer list used in a Questionnaire
 question:
 </p>
 <pre class="xml">
-&lt;question&gt;
-  &lt;concept&gt;
+&lt;item&gt;
+  &lt;code&gt;
     &lt;system value=&quot;http://loinc.org&quot;/&gt;
     &lt;code value=&quot;11125-2&quot;/&gt;
     &lt;display value=&quot;Plat morph Bld&quot;/&gt;
-  &lt;/concept&gt;
-  &lt;type value=&quot;choice&quot;/&gt;
-  &lt;options&gt;
+  &lt;/code&gt;
+  &lt;type value=&quot;Coding&quot;/&gt;
+  &lt;answerValueset&gt;
     &lt;reference value=&quot;http://loinc.org/vs/LL715-4&quot;/&gt;
-  &lt;/options&gt;
-&lt;/question&gt;
+  &lt;/answerValueset&gt;
+&lt;/item&gt;
 </pre>
 
 
@@ -378,11 +379,11 @@ using this table:
  </tr>
  <tr>
   <td>Nom</td>
-  <td>CodeableConcept (and string?) </td>
+  <td>CodeableConcept</td>
  </tr>
  <tr>
   <td>Nar</td>
-  <td>markdown (?)</td>
+  <td>markdown</td>
  </tr>
  <tr>
   <td>Multi</td>
@@ -393,8 +394,6 @@ using this table:
   <td>Attachment</td>
  </tr>
 </table>
-
-</div>
 
 [%file newfooter%]
 

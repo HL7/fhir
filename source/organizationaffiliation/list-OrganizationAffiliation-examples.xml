@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="OrganizationAffiliation-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="HL7 Payer Network services for Acme Hospital"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="organizationaffiliation-example"/>
+    </extension>
+    <item>
+      <reference value="OrganizationAffiliation/example"/>
+      <display value="AdamCareFullAtAcme"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Hospital member"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="orgrole-example-hie"/>
+    </extension>
+    <item>
+      <reference value="OrganizationAffiliation/orgrole2"/>
+      <display value="HIE"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provider of rehabilitation services"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="orgrole-example-services"/>
+    </extension>
+    <item>
+      <reference value="OrganizationAffiliation/orgrole1"/>
+      <display value="Rehab"/>
+    </item>
+  </entry>
+</List>

@@ -60,10 +60,10 @@
 	</target>
 	<statusDate value="2016-02-14" />
 	<statusReason value="Patient wants to defer weight loss until after honeymoon."/>
-	<expressedBy>
+	<source>
 		<reference value="Patient/example"/>
 		<display value="Peter James Chalmers"/>
-	</expressedBy>
+	</source>
 	<addresses>
 		<display value="obesity condition"/>
 	</addresses>

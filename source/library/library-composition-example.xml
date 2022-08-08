@@ -25,7 +25,7 @@
   <topic>
     <text value="Zika Virus Management"/>
   </topic>
-  
+
   <relatedArtifact>
     <type value="composed-of"/>
     <resource value="http://example.org/fhir/ActivityDefinition/administer-zika-virus-exposure-assessment"/>
@@ -58,6 +58,8 @@
 
   <relatedArtifact>
     <type value="derived-from"/>
-    <url value="https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w"/>
+    <document>
+      <url value="https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w"/>
+    </document>
   </relatedArtifact>
 </Library>

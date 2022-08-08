@@ -1,6 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="icd-10"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/icd-10"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.531"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="ICD-10Codes"/>
   <title value="ICD-10 Codes"/>
   <status value="draft"/>
@@ -16,36 +29,6 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/sid/icd-10"/>
-      <!--
-      <concept>
-        <code value="123456"/>
-        <display value="DIAG-1"/>
-      </concept>
-      <concept>
-        <code value="123457"/>
-        <display value="DIAG-1a"/>
-      </concept>
-      <concept>
-        <code value="987654"/>
-        <display value="DIAG-2"/>
-      </concept>
-      <concept>
-        <code value="123987"/>
-        <display value="DIAG-3"/>
-      </concept>
-      <concept>
-        <code value="112233"/>
-        <display value="DIAG-4"/>
-      </concept>
-      <concept>
-        <code value="997755"/>
-        <display value="DIAG-5"/>
-      </concept>
-      <concept>
-        <code value="321789"/>
-        <display value="DIAG-6"/>
-      </concept>
-      -->
     </include>
   </compose>
 </ValueSet>

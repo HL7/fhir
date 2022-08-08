@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="PackagedProductDefinition-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PackagedProductDefinition-biological"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-biological"/>
+        <description value="A biologically derived product within this packaged product"/>
+        <code value="biological"/>
+        <type value="reference"/>
+        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PackagedProductDefinition-contained-item"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-contained-item"/>
+        <description value="Any of the contained items within this packaged product"/>
+        <code value="contained-item"/>
+        <type value="reference"/>
+        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PackagedProductDefinition-device"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-device"/>
+        <description value="A device within this packaged product"/>
+        <code value="device"/>
+        <type value="reference"/>
+        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PackagedProductDefinition-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PackagedProductDefinition.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-identifier"/>
+        <description value="Unique identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="PackagedProductDefinition.identifier"/>
+        <xpath value="f:PackagedProductDefinition/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PackagedProductDefinition-manufactured-item"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-manufactured-item"/>
+        <description value="A manufactured item of medication within this packaged product"/>
+        <code value="manufactured-item"/>
+        <type value="reference"/>
+        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PackagedProductDefinition-medication"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-medication"/>
+        <description value="A manufactured item of medication within this packaged product"/>
+        <code value="medication"/>
+        <type value="reference"/>
+        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PackagedProductDefinition-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PackagedProductDefinition.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-name"/>
+        <description value="A name for this package. Typically what it would be listed as in a drug formulary or catalogue, inventory etc"/>
+        <code value="name"/>
+        <type value="token"/>
+        <expression value="PackagedProductDefinition.name"/>
+        <xpath value="f:PackagedProductDefinition/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PackagedProductDefinition-nutrition"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-nutrition"/>
+        <description value="A nutrition product within this packaged product"/>
+        <code value="nutrition"/>
+        <type value="reference"/>
+        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PackagedProductDefinition-package"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-package"/>
+        <description value="A complete packaged product within this packaged product"/>
+        <code value="package"/>
+        <type value="reference"/>
+        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PackagedProductDefinition-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PackagedProductDefinition.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-status"/>
+        <description value="The status within the lifecycle of this item. A high level status, this is not intended to duplicate details carried elsewhere such as legal status, or authorization or marketing status"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="PackagedProductDefinition.status"/>
+        <xpath value="f:PackagedProductDefinition/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PackagedProductDefinition-package-for"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PackagedProductDefinition.packageFor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-package-for"/>
+        <description value="The product that this is a pack for"/>
+        <code value="package-for"/>
+        <type value="reference"/>
+        <expression value="PackagedProductDefinition.packageFor"/>
+        <xpath value="f:PackagedProductDefinition/f:packageFor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

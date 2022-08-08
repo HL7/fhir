@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="CodeSystem-operations"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/CodeSystem-lookup"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/CodeSystem-validate-code"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/CodeSystem-subsumes"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/CodeSystem-find-matches"/>
+    </item>
+  </entry>
+</List>

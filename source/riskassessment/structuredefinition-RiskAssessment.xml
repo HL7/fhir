@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="RiskAssessment"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Care Provision"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
+  <version value="4.6.0"/>
+  <name value="RiskAssessment"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Clinical Decision Support)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="openehr"/>
+    <uri value="http://openehr.org"/>
+    <name value="Open EHR Archetype Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="RiskAssessment"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="RiskAssessment">
+      <path value="RiskAssessment"/>
+      <short value="Potential outcomes for a subject with likelihood"/>
+      <definition value="An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome."/>
+      <alias value="Prognosis"/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Observation[classCode=OBS, moodCode=EVN, code=&quot;Risk Assessment&quot;]"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="OpenEHR-EHR-EVALUATION.risk.v1"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.general"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.identifier">
+      <path value="RiskAssessment.identifier"/>
+      <short value="Unique identifier for the assessment"/>
+      <definition value="Business identifier assigned to the risk assessment."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Workflow Identifier"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.basedOn">
+      <path value="RiskAssessment.basedOn"/>
+      <short value="Request fulfilled by this assessment"/>
+      <definition value="A reference to the request that is fulfilled by this risk assessment."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.parent">
+      <path value="RiskAssessment.parent"/>
+      <short value="Part of this occurrence"/>
+      <definition value="A reference to a resource that this risk assessment is part of, such as a Procedure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.partOf"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.status">
+      <path value="RiskAssessment.status"/>
+      <short value="registered | preliminary | final | amended +"/>
+      <definition value="The status of the RiskAssessment, using the same statuses as an Observation."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RiskAssessmentStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The status of the risk assessment; e.g. preliminary, final, amended, etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.method">
+      <path value="RiskAssessment.method"/>
+      <short value="Evaluation mechanism"/>
+      <definition value="The algorithm, process or mechanism used to evaluate the risk."/>
+      <requirements value="The method can influence the results of the assessment."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RiskAssessmentMethod"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The mechanism or algorithm used to make the assessment; e.g. TIMI, PRISM, Cardiff Type 2 diabetes, etc."/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".methodCode"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.code">
+      <path value="RiskAssessment.code"/>
+      <short value="Type of assessment"/>
+      <definition value="The type of the risk assessment performed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.subject">
+      <path value="RiskAssessment.subject"/>
+      <short value="Who/what does assessment apply to?"/>
+      <definition value="The patient or group the risk assessment applies to."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=SBJ].role"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Subject of Care"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.encounter">
+      <path value="RiskAssessment.encounter"/>
+      <short value="Where was assessment performed?"/>
+      <definition value="The encounter where the assessment was performed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.encounter"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.occurrence[x]">
+      <path value="RiskAssessment.occurrence[x]"/>
+      <short value="When was assessment made?"/>
+      <definition value="The date (and possibly time) the risk assessment was performed."/>
+      <requirements value="The assessment results lose validity the more time elapses from when they are first made."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.condition">
+      <path value="RiskAssessment.condition"/>
+      <short value="Condition assessed"/>
+      <definition value="For assessments or prognosis specific to a particular condition, indicates the condition being assessed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.performer">
+      <path value="RiskAssessment.performer"/>
+      <short value="Who did assessment?"/>
+      <definition value="The provider, patient, related person, or software application that performed the assessment."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PFM].role[classCode=ASSIGNED]"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Information Provider"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.reason">
+      <path value="RiskAssessment.reason"/>
+      <short value="Why the assessment was necessary?"/>
+      <definition value="The reason the risk assessment was performed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.reason"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.basis">
+      <path value="RiskAssessment.basis"/>
+      <short value="Information used in assessment"/>
+      <definition value="Indicates the source data considered as part of the assessment (for example, FamilyHistory, Observations, Procedures, Conditions, etc.)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DRIV].target"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Risk Factor; Link to Evidence"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.prediction">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="320,0"/>
+      </extension>
+      <path value="RiskAssessment.prediction"/>
+      <short value="Outcome predicted"/>
+      <definition value="Describes the expected outcome for the subject."/>
+      <comment value="Multiple repetitions can be used to identify the same type of outcome in different timeframes as well as different types of outcomes."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="ras-2"/>
+        <severity value="error"/>
+        <human value="Must be &lt;= 100"/>
+        <expression value="probability is decimal implies (probability as decimal) &lt;= 100"/>
+        <xpath value="not(f:probabilityDecimal) or f:probabilityDecimal/@value &lt;= 100"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=VALUE].target[classCod=OBS, moodCode=RISK]"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.prediction.outcome">
+      <path value="RiskAssessment.prediction.outcome"/>
+      <short value="Possible outcome for the subject"/>
+      <definition value="One of the potential outcomes for the patient (e.g. remission, death,  a particular condition)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RiskAssessmentOutcome"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The condition or other outcome; e.g. death, remission, amputation, infection, etc."/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".value"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Risk"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.prediction.probability[x]">
+      <path value="RiskAssessment.prediction.probability[x]"/>
+      <short value="Likelihood of specified outcome"/>
+      <definition value="Indicates how likely the outcome is (in the specified timeframe)."/>
+      <comment value="If range is used, it represents the lower and upper bounds of certainty; e.g. 40-60%  Decimal values are expressed as percentages as well (max = 100)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <constraint>
+        <key value="ras-1"/>
+        <severity value="error"/>
+        <human value="low and high must be percentages, if present"/>
+        <expression value="(low.empty() or ((low.code = &#39;%&#39;) and (low.system = %ucum))) and (high.empty() or ((high.code = &#39;%&#39;) and (high.system = %ucum)))"/>
+        <xpath value="(not(f:low) or f:low[f:code/@value=&#39;%&#39; and f:system/@value=&#39;http://unitsofmeasure.org&#39;]) and (not(f:high) or f:high[f:code/@value=&#39;%&#39; and f:system/@value=&#39;http://unitsofmeasure.org&#39;])"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;probability&quot;].value"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Category"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.prediction.qualitativeRisk">
+      <path value="RiskAssessment.prediction.qualitativeRisk"/>
+      <short value="Likelihood of specified outcome as a qualitative value"/>
+      <definition value="Indicates how likely the outcome is (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, or high)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RiskAssessmentProbability"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The likelihood of the occurrence of a specified outcome."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/risk-probability"/>
+      </binding>
+    </element>
+    <element id="RiskAssessment.prediction.relativeRisk">
+      <path value="RiskAssessment.prediction.relativeRisk"/>
+      <short value="Relative likelihood"/>
+      <definition value="Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.)."/>
+      <requirements value="Absolute risk is less meaningful than relative risk."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;relative risk&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.prediction.when[x]">
+      <path value="RiskAssessment.prediction.when[x]"/>
+      <short value="Timeframe or age range"/>
+      <definition value="Indicates the period of time or age range of the subject to which the specified probability applies."/>
+      <comment value="If not specified, the risk applies &quot;over the subject&#39;s lifespan&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;age&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.prediction.rationale">
+      <path value="RiskAssessment.prediction.rationale"/>
+      <short value="Explanation of prediction"/>
+      <definition value="Additional information explaining the basis for the prediction."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode.text"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Rationale"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.mitigation">
+      <path value="RiskAssessment.mitigation"/>
+      <short value="How to reduce risk"/>
+      <definition value="A description of the steps that might be taken to reduce the identified risk(s)."/>
+      <requirements value="One of the main reasons for assessing risks is to identify whether interventional steps are needed to reduce risk."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=MTGT].target[classCode=ACT, moodCode=EVN].text"/>
+      </mapping>
+    </element>
+    <element id="RiskAssessment.note">
+      <path value="RiskAssessment.note"/>
+      <short value="Comments on the risk assessment"/>
+      <definition value="Additional comments about the risk assessment."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.note"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

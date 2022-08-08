@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="hl7-work-group"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/hl7-work-group"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.944"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="HL7Workgroup"/>
+  <description value="Description Needed Here"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/hl7-work-group"/>
+    </include>
+  </compose>
+</ValueSet>

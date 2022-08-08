@@ -10,7 +10,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 
 <h2>Clinical Safety</h2>
@@ -68,7 +68,7 @@ These basic safety checks relate to using the FHIR specification correctly.
  <li title="link-merge"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#link-merge"> </a>My system ensures checks for patient links (and/or merges) and handles data that is linked to patients accordingly</li>
  <li title="cs-declare"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#cs-declare"> </a>My system publishes a <a href="capabilitystatement.html">Capability Statement</a> with <a href="structuredefinition.html">StructureDefinitions</a>, <a href="valueset.html">ValueSets</a>, and <a href="operationdefinition.html">OperationDefinitions</a>, etc., so other implementers know how the system functions</li>
  <li title="valid-checked"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#valid-checked"> </a>All resources in use are <a href="validation.html">valid</a> against the base specification and the <a href="profiling.html">profiles</a> that apply to my system (see note about the <a href="validation.html#correct-use">correct run-time use of validation</a>)</li>
- <li title="obs-focus"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#obs-focus"> </a>I've reviewed the <a href="observation.html">Observation</a> resource, and understand how <code>focus</code> is a mechanism for observations to be about someone or something other than the patient or subject of record.</li>
+ <li title="obs-focus"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#obs-focus"> </a>I've reviewed the <a href="observation.html">Observation</a> resource, and understand how <code>focus</code> is a mechanism for observations to be about someone or something other than the patient or subject of record.</li>  
 </ol>
 
 <a name="conformance"> </a>
@@ -107,7 +107,8 @@ appropriate, or much more seriously, missing resources out in search results tha
 <ol start="17">
 <li title="missing-values"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#missing-values"> </a>My system caters for <a href="search.html#missing">parameters that have missing values</a> when doing search operations, and responds correctly to the client with regard to <a href="search.html#errors">erroneous search parameters</a></li>
 <li title="default-filters"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#default-filters"> </a>My system includes appropriate default filters when searching based on patient context - e.g. filtering out entered-in-error records, filtering to only include active, living patients if appropriate, and clearly documents these 
- (preferably including them in the self link for a search</li>
+ (preferably including them in the self-link for a search)</li>
+ <li title="subsetted"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#obs-focus"> </a>When clients have limited access to data for permission reasons (e.g. the data they receive might be <code>SUBSETTED</code>), my system handles update or create requests tagged in such a way by either rejecting them, or accepting them after carefully considering how to avoid accidental loss of data the updating client did not have access to, and taking into account the possibility that a client update might invalidate data the client was unaware of.</li>
 </ol>
 
 <a name="conformance"> </a>
@@ -142,7 +143,7 @@ responsibility of implementers to ensure that relevant regulations and other req
 <h3>Security Related Safety Checks</h3>
 <p>Basic Context:</p>
 <ol start="25">
- <li title="check-clocks"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#check-clocks"> </a>My system ensures that system clocks are synchronized using a protocol like NTP or SNTP, or my server is robust against clients that have the wrong clock set</li>
+ <li title="check-clocks"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#check-clocks"> </a>My system ensures that system clocks are synchronized using a protocol like NTP or SNTP, and my server is robust against clients that have the wrong clock set</li>
  <li title="check-dns-responses"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#check-dns-responses"> </a>My system uses security methods for an API to authenticate where Domain Name System (DNS) responses are coming from and ensure that they are valid</li>
 </ol>
 
@@ -189,8 +190,6 @@ In addition, server developers should check these specific additional checks for
  <li title="use-format-header"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-format-header"> </a>The _format header is supported correctly</li>
  <li title="use-operation-outcome"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-operation-outcome"> </a>Errors are trapped and an OperationOutcome returned</li>
 </ol>
-
-</div>
 
 [%file newfooter%]
 </body>

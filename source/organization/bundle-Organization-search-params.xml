@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Organization-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Organization-active"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Organization.active"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Organization-active"/>
+        <description value="Is the Organization record active"/>
+        <code value="active"/>
+        <type value="token"/>
+        <expression value="Organization.active"/>
+        <xpath value="f:Organization/f:active"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Organization-address"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Organization.address"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Organization-address"/>
+        <description value="A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"/>
+        <code value="address"/>
+        <type value="string"/>
+        <expression value="Organization.address"/>
+        <xpath value="f:Organization/f:address"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Organization-address-city"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Organization.address.city"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Organization-address-city"/>
+        <description value="A city specified in an address"/>
+        <code value="address-city"/>
+        <type value="string"/>
+        <expression value="Organization.address.city"/>
+        <xpath value="f:Organization/f:address/f:city"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Organization-address-country"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Organization.address.country"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Organization-address-country"/>
+        <description value="A country specified in an address"/>
+        <code value="address-country"/>
+        <type value="string"/>
+        <expression value="Organization.address.country"/>
+        <xpath value="f:Organization/f:address/f:country"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Organization-address-postalcode"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Organization.address.postalCode"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Organization-address-postalcode"/>
+        <description value="A postal code specified in an address"/>
+        <code value="address-postalcode"/>
+        <type value="string"/>
+        <expression value="Organization.address.postalCode"/>
+        <xpath value="f:Organization/f:address/f:postalCode"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Organization-address-state"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Organization.address.state"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Organization-address-state"/>
+        <description value="A state specified in an address"/>
+        <code value="address-state"/>
+        <type value="string"/>
+        <expression value="Organization.address.state"/>
+        <xpath value="f:Organization/f:address/f:state"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Organization-address-use"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Organization.address.use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Organization-address-use"/>
+        <description value="A use code specified in an address"/>
+        <code value="address-use"/>
+        <type value="token"/>
+        <expression value="Organization.address.use"/>
+        <xpath value="f:Organization/f:address/f:use"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Organization-endpoint"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Organization.endpoint"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Organization-endpoint"/>
+        <description value="Technical endpoints providing access to services operated for the organization"/>
+        <code value="endpoint"/>
+        <type value="reference"/>
+        <expression value="Organization.endpoint"/>
+        <xpath value="f:Organization/f:endpoint"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Organization-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Organization.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Organization-identifier"/>
+        <description value="Any identifier for the organization (not the accreditation issuer&#39;s identifier)"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Organization.identifier"/>
+        <xpath value="f:Organization/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Organization-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Organization.name,Organization.alias"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Organization-name"/>
+        <description value="A portion of the organization&#39;s name or alias"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="Organization.name | Organization.alias"/>
+        <xpath value="f:Organization/f:name | f:Organization/f:alias"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Organization-partof"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Organization.partOf"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Organization-partof"/>
+        <description value="An organization of which this organization forms a part"/>
+        <code value="partof"/>
+        <type value="reference"/>
+        <expression value="Organization.partOf"/>
+        <xpath value="f:Organization/f:partOf"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Organization-phonetic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Organization.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Organization-phonetic"/>
+        <description value="A portion of the organization&#39;s name using some kind of phonetic matching algorithm"/>
+        <code value="phonetic"/>
+        <type value="string"/>
+        <expression value="Organization.name"/>
+        <xpath value="f:Organization/f:name"/>
+        <xpathUsage value="phonetic"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Organization-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Organization.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Organization-type"/>
+        <description value="A code for the type of organization"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="Organization.type"/>
+        <xpath value="f:Organization/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

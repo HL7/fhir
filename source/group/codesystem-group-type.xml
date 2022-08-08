@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="group-type"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/group-type defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">person
+            
+            <a name="group-type-person"> </a>
+          
+          </td>
+          
+          <td>Person</td>
+          
+          <td>Group contains &quot;person&quot; Patient resources.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">animal
+            
+            <a name="group-type-animal"> </a>
+          
+          </td>
+          
+          <td>Animal</td>
+          
+          <td>Group contains &quot;animal&quot; Patient resources.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">practitioner
+            
+            <a name="group-type-practitioner"> </a>
+          
+          </td>
+          
+          <td>Practitioner</td>
+          
+          <td>Group contains healthcare practitioner resources (Practitioner or PractitionerRole).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">device
+            
+            <a name="group-type-device"> </a>
+          
+          </td>
+          
+          <td>Device</td>
+          
+          <td>Group contains Device resources.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">medication
+            
+            <a name="group-type-medication"> </a>
+          
+          </td>
+          
+          <td>Medication</td>
+          
+          <td>Group contains Medication resources.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">substance
+            
+            <a name="group-type-substance"> </a>
+          
+          </td>
+          
+          <td>Substance</td>
+          
+          <td>Group contains Substance resources.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/group-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.285"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="GroupType"/>
+  <title value="GroupType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Types of resources that are part of group."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/group-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="person"/>
+    <display value="Person"/>
+    <definition value="Group contains &quot;person&quot; Patient resources."/>
+  </concept>
+  <concept>
+    <code value="animal"/>
+    <display value="Animal"/>
+    <definition value="Group contains &quot;animal&quot; Patient resources."/>
+  </concept>
+  <concept>
+    <code value="practitioner"/>
+    <display value="Practitioner"/>
+    <definition value="Group contains healthcare practitioner resources (Practitioner or PractitionerRole)."/>
+  </concept>
+  <concept>
+    <code value="device"/>
+    <display value="Device"/>
+    <definition value="Group contains Device resources."/>
+  </concept>
+  <concept>
+    <code value="medication"/>
+    <display value="Medication"/>
+    <definition value="Group contains Medication resources."/>
+  </concept>
+  <concept>
+    <code value="substance"/>
+    <display value="Substance"/>
+    <definition value="Group contains Substance resources."/>
+  </concept>
+</CodeSystem>

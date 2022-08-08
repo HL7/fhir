@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Provenance-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Provenance Example - data extracted from CDA document from XDS"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Targeted Provenance Example - got the patients name from the patient directly"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example1"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example1"/>
+      <display value="Targetted #1"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Targeted Provenance Example - got the patient nickname from his partner"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example2"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example2"/>
+      <display value="Targetted #2"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Targeted Provenance Example - followUp note came from specified practitioner"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example3"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example3"/>
+      <display value="Targetted #3"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provenance holding a signature"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-sig"/>
+    </extension>
+    <item>
+      <reference value="Provenance/signature"/>
+      <display value="Signature"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provenance with signature for a Consent"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-consent-signature"/>
+    </extension>
+    <item>
+      <reference value="Provenance/consent-signature"/>
+      <display value="Consent Signature"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="MolecularSequence recorded by a Biocompute objects"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-biocompute-object"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-biocompute-object"/>
+      <display value="Biocompute Object"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="MolecularSequence for CWL workflow project"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-cwl"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-cwl"/>
+      <display value="CWL Workflow"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Creation of a Consent from a Questionnaire"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-create-consent"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-create-consent"/>
+      <display value="Consent Workflow"/>
+    </item>
+  </entry>
+</List>

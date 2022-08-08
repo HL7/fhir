@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="CareTeam-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CareTeam-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CareTeam.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CareTeam-category"/>
+        <description value="Type of team"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="CareTeam.category"/>
+        <xpath value="f:CareTeam/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CareTeam-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CareTeam-date"/>
+        <description value="A date within the coverage time period."/>
+        <code value="date"/>
+        <type value="date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CareTeam-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CareTeam.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CareTeam-identifier"/>
+        <description value="External Ids for this team"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="CareTeam.identifier"/>
+        <xpath value="f:CareTeam/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CareTeam-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+          <valueString value="J#20012"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="f:CareTeam/f:name | f:CareTeam/f:extension@url=&#39;[http://hl7.org/fhir/StructureDefinition/careteam-alias&#39;]/f:valueString"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CareTeam-name"/>
+        <description value="Name of the team, such as crisis assessment team"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="CareTeam.name | CareTeam.extension(&#39;http://hl7.org/fhir/StructureDefinition/careteam-alias&#39;)"/>
+        <xpath value="f:CareTeam/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CareTeam-participant"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CareTeam.participant.member"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CareTeam-participant"/>
+        <description value="Who is involved"/>
+        <code value="participant"/>
+        <type value="reference"/>
+        <expression value="CareTeam.participant.member"/>
+        <xpath value="f:CareTeam/f:participant/f:member"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CareTeam-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CareTeam.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CareTeam-patient"/>
+        <description value="Who care team is for"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="CareTeam.subject.where(resolve() is Patient)"/>
+        <xpath value="f:CareTeam/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CareTeam-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CareTeam.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CareTeam-status"/>
+        <description value="proposed | active | suspended | inactive | entered-in-error"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="CareTeam.status"/>
+        <xpath value="f:CareTeam/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CareTeam-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CareTeam.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CareTeam-subject"/>
+        <description value="Who care team is for"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="CareTeam.subject"/>
+        <xpath value="f:CareTeam/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

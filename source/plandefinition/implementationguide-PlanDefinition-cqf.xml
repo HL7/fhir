@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="PlanDefinition-cqf"/>
+  <version value="0.01"/>
+  <name value="CDSHooksServicePlanDefinition"/>
+  <title value="CDSHooksServicePlanDefinition"/>
+  <status value="draft"/>
+  <date value="1970-01-01T10:00:00+10:00"/>
+  <publisher value="HL7"/>
+  <description value="Defines a PlanDefinition that implements the behavior for a CDS Hooks service"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cdshooksserviceplandefinition"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/computableplandefinition"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

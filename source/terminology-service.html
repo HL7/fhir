@@ -7,10 +7,10 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <h2>Terminology Service</h2>
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg vocab%]">[%wgt vocab%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 <p>
 This specification includes support for the provision of a terminology service - that is, a
@@ -136,23 +136,6 @@ list above extended.</i>
 Note: A terminology service may choose to expose additional external code system specific
 related functionality such as summation, or structured search, but these services are
 outside the scope of the FHIR terminology service.
-</p>
-
-<a name="all"></a>
-<h4>Operations across all value sets</h4>
-<p>
-For some of the operations below, it can be useful to perform them across all value sets known to the system.
-For example, $expand using a text filter, and searching all value sets at once. A special value set is
-defined that means "all value sets known to the server":
-</p>
-<pre>
-http://hl7.org/fhir/ValueSet/@all
-</pre>
-<p>
-Technically, this value set automatically imports all the existing value sets on the server.
-Note that this URL has no fixed meaning - its interpretation is server specific (e.g. whether
-it includes all versions of all value sets). This URL can only be used as a parameter to the
-operations described on this page.
 </p>
 
 <a name="maint"></a>
@@ -415,7 +398,7 @@ The following properties are defined for all code systems:
  </tr>
 </table>
 <p>
-In addition, any property codes defined by the code system (CodeSysem.property.code) can be used (and see the definitions for <a href="snomedct.html#props">SNOMED CT</a>, <a href="loinc.html#props">LOINC</a>, and <a href="rxnorm.html#props">RxNorm</a>).
+In addition, any property codes defined by the code system (CodeSystem.property.code) can be used (and see the definitions for <a href="snomedct.html#props">SNOMED CT</a>, <a href="loinc.html#props">LOINC</a>, and <a href="rxnorm.html#props">RxNorm</a>).
 </p>
 
 <a name="validation"></a>
@@ -1232,8 +1215,6 @@ Note that in real clinical systems, tables are usually far more structured than 
 example implies, and the query is correspondingly more complex. The closure table
 would usually be normalised - this example is kept simple to demonstrate the concept.
 </p>
-
-</div>
 
 [%file newfooter%]
 

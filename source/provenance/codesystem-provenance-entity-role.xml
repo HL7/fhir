@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="provenance-entity-role"/>
+  <meta>
+    <lastUpdated value="2021-10-01T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/provenance-entity-role defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td>
+            
+            <b>Lvl</b>
+          
+          </td>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>1</td>
+          
+          <td style="white-space:nowrap">derivation
+            
+            <a name="provenance-entity-role-derivation"> </a>
+          
+          </td>
+          
+          <td>Derivation</td>
+          
+          <td>A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>2</td>
+          
+          <td style="white-space:nowrap">  revision
+            
+            <a name="provenance-entity-role-revision"> </a>
+          
+          </td>
+          
+          <td>Revision</td>
+          
+          <td>An entity that is used by the activity to produce a new version of that entity.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>2</td>
+          
+          <td style="white-space:nowrap">  quotation
+            
+            <a name="provenance-entity-role-quotation"> </a>
+          
+          </td>
+          
+          <td>Quotation</td>
+          
+          <td>An entity that is copied in full or part by an agent that is not the author of the entity.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>2</td>
+          
+          <td style="white-space:nowrap">  source
+            
+            <a name="provenance-entity-role-source"> </a>
+          
+          </td>
+          
+          <td>Source</td>
+          
+          <td>An entity that is used as input to the activity that produced the target.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>2</td>
+          
+          <td style="white-space:nowrap">  instantiates
+            
+            <a name="provenance-entity-role-instantiates"> </a>
+          
+          </td>
+          
+          <td>Instantiates</td>
+          
+          <td>The record resulting from this event adheres to the protocol, guideline, order set or other definition represented by this entity.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>2</td>
+          
+          <td style="white-space:nowrap">  removal
+            
+            <a name="provenance-entity-role-removal"> </a>
+          
+          </td>
+          
+          <td>Removal</td>
+          
+          <td>An entity that is removed from accessibility, usually through the DELETE operator.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/provenance-entity-role"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.437"/>
+  </identifier>
+  <version value="4.7.0"/>
+  <name value="ProvenanceEntityRole"/>
+  <title value="ProvenanceEntityRole"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-10-01T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="How an entity was used in an activity."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/provenance-entity-role"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+    <concept>
+      <code value="revision"/>
+      <display value="Revision"/>
+      <definition value="An entity that is used by the activity to produce a new version of that entity."/>
+    </concept>
+    <concept>
+      <code value="quotation"/>
+      <display value="Quotation"/>
+      <definition value="An entity that is copied in full or part by an agent that is not the author of the entity."/>
+    </concept>
+    <concept>
+      <code value="source"/>
+      <display value="Source"/>
+      <definition value="An entity that is used as input to the activity that produced the target."/>
+    </concept>
+    <concept>
+      <code value="instantiates"/>
+      <display value="Instantiates"/>
+      <definition value="The record resulting from this event adheres to the protocol, guideline, order set or other definition represented by this entity."/>
+    </concept>
+    <concept>
+      <code value="removal"/>
+      <display value="Removal"/>
+      <definition value="An entity that is removed from accessibility, usually through the DELETE operator."/>
+    </concept>
+</CodeSystem>

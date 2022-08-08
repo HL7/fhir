@@ -1,0 +1,8 @@
+<sparql-tests>
+  <!--
+    level = error | warning
+    expectation = true | false - whether the sparql should return rows (true) or not (false)
+    description = what to show to the user
+  -->
+  <assertion id="w5.base" level="warning" expectation="false" description="Some resources don't have a w5 classification" rowtype="url" message="Does not have a W5 classification">SELECT ?x WHERE { ?x  rdfs:subClassOf fhir:DomainResource. FILTER NOT EXISTS { ?x fhir:w5 ?anything }}</assertion>
+</sparql-tests>

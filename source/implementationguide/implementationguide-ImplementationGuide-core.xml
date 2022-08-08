@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="ImplementationGuide-core"/>
+  <name value="FHIR Core ImplementationGuide Profile"/>
+  <title value="FHIR Core ImplementationGuide Profile"/>
+  <status value="draft"/>
+  <date value="2014-12-07T00:00:00.000"/>
+  <publisher value="Health Level Seven, Inc. - FHIR WG"/>
+  <description value="This profile holds core ImplementationGuide extensions"/>
+</ImplementationGuide>

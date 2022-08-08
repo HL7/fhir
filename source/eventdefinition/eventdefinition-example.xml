@@ -12,7 +12,7 @@
     <condition>
       <description value="Encounter Location = emergency (active/completed encounters, current or previous)"/>
       <language value="text/fhirpath"/>
-      <expression value="(this | %previous).location.where(location = 'Location/emergency' and status in {'active', 'completed'}).exists()"/>
+      <expression value="(%current | %previous).location.where(location = 'Location/emergency' and status in {'active', 'completed'}).exists()"/>
     </condition>
   </trigger>
 </EventDefinition>

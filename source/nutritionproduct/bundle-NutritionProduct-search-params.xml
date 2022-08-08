@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="NutritionProduct-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionProduct-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionProduct.instance.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionProduct-identifier"/>
+        <description value="The identifier for the physical instance, typically a serial number"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="NutritionProduct.instance.identifier"/>
+        <xpath value="f:NutritionProduct/f:instance/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionProduct-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionProduct.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionProduct-status"/>
+        <description value="active | inactive | entered-in-error"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="NutritionProduct.status"/>
+        <xpath value="f:NutritionProduct/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionProduct-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionProduct.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionProduct-category"/>
+        <description value="The broad product group or category of the nutrition product"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="NutritionProduct.category"/>
+        <xpath value="f:NutritionProduct/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionProduct-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionProduct.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionProduct-code"/>
+        <description value="The code identifying a specific nutrition product"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="NutritionProduct.code"/>
+        <xpath value="f:NutritionProduct/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

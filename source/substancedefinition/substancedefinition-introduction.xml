@@ -2,6 +2,29 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
-		<p><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></p>
+		<p style="border:2px; border-style:solid; border-color:#999999; padding: 1em; border-radius: 4px 4px 4px 4px;"><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
+		<p>SubstanceDefinition is used for rich descriptions of substances, of any type, to support the detailed definition of medications, 
+		and in particular their ingredients (see <a href="ingredient.html">Ingredient</a>) and manufacturing.</p>
+		<p>This is a definitional resource describing types of substances, to a varying degree of specificity. 
+			It can cover the substance in the abstract (properties that this substance always has), 
+			or a particular variety of it, such as one manufacturer's version, 
+			or a certain presentation (e.g. "granulated"). 
+			However it is always a type and does not represent an actual physical instance of a substance. 
+			By contrast the <a href="substance.html">Substance</a> resource can act as either a concise definition 
+			(a subset of SubstanceDefinition) or as an instance (an actual batch).</p>
+		<p>SubstanceDefinition is not generally used directly to represent an ingredient, nor as a product that is given to a patient.
+			When acting as an ingredient, the <a href="ingredient.html">Ingredient</a> resource gives the context necessary (strength, role etc.) 
+			and, within it, uses this resource to describe the substance.
+			Any substance that is to be used as medication would be considered a medicinal product (even a plain one such as water)
+			and as such would be described using <a href="medicinalproductdefinition.html">MedicinalProductDefinition</a> or for a concise summary suitable for day-to-day prescribing, <a href="medication.html">Medication</a>.
+		</p>
 	</div>
+	[%dragons-start%]
+	<p>
+		This resource is undergoing review for which elements are core and which may be suitable as extensions.
+	</p>
+	<p>
+		Implementer feedback is welcome <a href="http://hl7.org/fhir-issues">on the issue tracker</a> or <a href="https://chat.fhir.org/#narrow/stream/4-implementers">chat.fhir.org</a>.
+	</p>
+	[%dragons-end%]
 </div>

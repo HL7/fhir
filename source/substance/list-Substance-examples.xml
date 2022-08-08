@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Substance-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="substance-example"/>
+    </extension>
+    <item>
+      <reference value="Substance/example"/>
+      <display value="Apitoxin"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dust Mite Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="substance-example-f201-dust"/>
+    </extension>
+    <item>
+      <reference value="Substance/f201"/>
+      <display value="Dust"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Staphylococcus Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="substance-example-f202-staphylococcus"/>
+    </extension>
+    <item>
+      <reference value="Substance/f202"/>
+      <display value="Staphylococcus"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Potassium Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="substance-example-f203-potassium"/>
+    </extension>
+    <item>
+      <reference value="Substance/f203"/>
+      <display value="Potassium"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Silver Nitrate Product Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="substance-example-silver-nitrate-product"/>
+    </extension>
+    <item>
+      <reference value="Substance/f204"/>
+      <display value="SilverNitrate"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Amoxicillin-Clavulanate Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="substance-example-amoxicillin-clavulanate"/>
+    </extension>
+    <item>
+      <reference value="Substance/f205"/>
+      <display value="AmoxicillinClavulanate"/>
+    </item>
+  </entry>
+</List>

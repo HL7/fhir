@@ -158,12 +158,12 @@
   <concept>
     <code value="behind-target"/>
     <display value="behind-target"/>
-    <definition value=""/>
+    <definition value="Behind the planned timelines"/>
   </concept>
   <concept>
     <code value="not-ready"/>
     <display value="not-ready"/>
-    <definition value="Behind the planned timelines"/>
+    <definition value="Not ready to act"/>
   </concept>
   <concept>
     <code value="transduc-discon"/>

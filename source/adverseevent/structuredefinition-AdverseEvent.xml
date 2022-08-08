@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="AdverseEvent"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Summary"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/AdverseEvent"/>
+  <version value="4.6.0"/>
+  <name value="AdverseEvent"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Patient Care)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two arenas, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="AdverseEvent"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="AdverseEvent">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="AdverseEvent"/>
+      <short value="Medical care, research study or other healthcare event causing physical injury"/>
+      <definition value="An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two arenas, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints."/>
+      <alias value="AE"/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.general"/>
+      </mapping>
+    </element>
+    <element id="AdverseEvent.identifier">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#15028."/>
+      </extension>
+      <path value="AdverseEvent.identifier"/>
+      <short value="Business identifier for the event"/>
+      <definition value="Business identifiers assigned to this adverse event by the performer or other systems which remain constant as the resource is updated and propagates from server to server."/>
+      <comment value="This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <requirements value="Allows identification of the adverse event as it is known by various participating systems and in a way that remains consistent across servers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+    </element>
+    <element id="AdverseEvent.status">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#22108, J#25926."/>
+      </extension>
+      <path value="AdverseEvent.status"/>
+      <short value="in-progress | completed | entered-in-error | unknown"/>
+      <definition value="The current state of the adverse event or potential adverse event."/>
+      <comment value="This is not the reporting of the event to any regulatory or quality organization.  This is not the outcome of the patient&#39;s condition."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes identifying the lifecycle stage of an event."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="AdverseEvent.actuality">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#32990"/>
+      </extension>
+      <path value="AdverseEvent.actuality"/>
+      <short value="actual | potential"/>
+      <definition value="Whether the event actually happened or was a near miss. Note that this is independent of whether anyone was affected or harmed or how severely."/>
+      <comment value="AllergyIntolerance should be used for the initial capture or recording of the individual&#39;s propensity to an adverse reaction to a substance.  If an AllergyIntolerance does not exist, then an adverse reaction should be recorded as an AllergyIntolerance. If an AllergyIntolerance does exist and the substance was given, then an adverse reaction should be recorded as an AdverseEvent due to the aberrant workflow."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it has a potential code that indicates the adverse event did not actually happen."/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventActuality"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Overall nature of the adverse event, e.g. real or potential."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-actuality"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="AdverseEvent.category">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="FHIR-25396."/>
+      </extension>
+      <path value="AdverseEvent.category"/>
+      <short value="wrong-patient | procedure-mishap | medication-mishap | device | unsafe-physical-environment | hospital-aquired-infection | wrong-body-site"/>
+      <definition value="The overall type of event, intended for search and filtering purposes."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall categorization of the event, e.g. product-related or situational."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-category"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="AdverseEvent.code">
+      <path value="AdverseEvent.code"/>
+      <short value="Event or incident that occurred or was averted"/>
+      <definition value="Specific event that occurred or that was averted, such as patient fall, wrong organ removed, or wrong blood transfused."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Detailed type of event."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-type"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+    </element>
+    <element id="AdverseEvent.subject">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#13890, GF#13893."/>
+      </extension>
+      <path value="AdverseEvent.subject"/>
+      <short value="Subject impacted by event"/>
+      <definition value="This subject or group impacted by the event."/>
+      <comment value="If AdverseEvent.resultingCondition differs among members of the group, then use Patient as the subject."/>
+      <requirements value="Allows for exposure of biohazard (such as legionella) to a group of individuals in a hospital."/>
+      <alias value="patient"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="AdverseEvent.encounter">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#14458; FHIR-25397."/>
+      </extension>
+      <path value="AdverseEvent.encounter"/>
+      <short value="The Encounter associated with the start of the AdverseEvent"/>
+      <definition value="The Encounter associated with the start of the AdverseEvent."/>
+      <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter. For example, if a medication administration was considered an adverse event because it resulted in a rash, then the encounter when the medication administration was given is the associated encounter. If the patient reports the AdverseEvent during a second encounter, that second encounter is not the associated encounter."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.encounter"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+    </element>
+    <element id="AdverseEvent.occurrence[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#24681."/>
+      </extension>
+      <path value="AdverseEvent.occurrence[x]"/>
+      <short value="When the event occurred"/>
+      <definition value="The date (and perhaps time) when the adverse event occurred."/>
+      <alias value="timing"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Timing"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+    </element>
+    <element id="AdverseEvent.detected">
+      <path value="AdverseEvent.detected"/>
+      <short value="When the event was detected"/>
+      <definition value="Estimated or actual date the AdverseEvent began, in the opinion of the reporter."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="AdverseEvent.recordedDate">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#16027 and GF#17285."/>
+      </extension>
+      <path value="AdverseEvent.recordedDate"/>
+      <short value="When the event was recorded"/>
+      <definition value="The date on which the existence of the AdverseEvent was first recorded."/>
+      <comment value="The recordedDate represents the date when this particular AdverseEvent record was created in the system, not the date of the most recent update.  The date of the last record modification can be retrieved from the resource metadata."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.recorded"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="AdverseEvent.resultingCondition">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#26435."/>
+      </extension>
+      <path value="AdverseEvent.resultingCondition"/>
+      <short value="Effect on the subject due to this event"/>
+      <definition value="Information about the condition that occurred as a result of the adverse event, such as hives due to the exposure to a substance (for example, a drug or a chemical) or a broken leg as a result of the fall."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="AdverseEvent.location">
+      <path value="AdverseEvent.location"/>
+      <short value="Location where adverse event occurred"/>
+      <definition value="The information about where the adverse event occurred."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.location"/>
+      </mapping>
+    </element>
+    <element id="AdverseEvent.seriousness">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#22740, GF#22994, GF#22995."/>
+      </extension>
+      <path value="AdverseEvent.seriousness"/>
+      <short value="Seriousness or gravity of the event"/>
+      <definition value="Assessment whether this event, or averted event, was of clinical importance."/>
+      <comment value="Using an example, a rash can have an AdverseEvent.resultingCondition.severity = severe, yet an AdverseEvent.seriousness = non-serious.  Alternatively, a medication given with the wrong dose (chemotherapy given with too low of a dose) can have an AdverseEvent.resultingCondition.severity = mild, yet a AdverseEvent.seriousness = serious.  Another example would be a beta blocker clinical trial where patients with asthma should be excluded, yet a patient with asthma was included and had an asthmatic episode where  AdverseEvent.resultingCondition.severity = mild, yet a AdverseEvent.seriousness = serious."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventSeriousness"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall seriousness of this event for the patient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-seriousness"/>
+      </binding>
+    </element>
+    <element id="AdverseEvent.outcome">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#27784."/>
+      </extension>
+      <path value="AdverseEvent.outcome"/>
+      <short value="Type of outcome from the adverse event"/>
+      <definition value="Describes the type of outcome from the adverse event, such as resolved, recovering, ongoing, resolved-with-sequelae, or fatal."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventOutcome"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing the type of outcome from the adverse event."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-outcome"/>
+      </binding>
+    </element>
+    <element id="AdverseEvent.recorder">
+      <path value="AdverseEvent.recorder"/>
+      <short value="Who recorded the adverse event"/>
+      <definition value="Information on who recorded the adverse event.  May be the patient or a practitioner."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+    </element>
+    <element id="AdverseEvent.participant">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#18853."/>
+      </extension>
+      <path value="AdverseEvent.participant"/>
+      <short value="Who was involved in the adverse event or the potential adverse event and what they did"/>
+      <definition value="Indicates who or what participated in the adverse event and how they were involved."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer"/>
+      </mapping>
+    </element>
+    <element id="AdverseEvent.participant.function">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#18853."/>
+      </extension>
+      <path value="AdverseEvent.participant.function"/>
+      <short value="Type of involvement"/>
+      <definition value="Distinguishes the type of involvement of the actor in the adverse event, such as contributor or informant."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventParticipantFunction"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing the type of involvement of the actor in the adverse event."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-participant-function"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.function"/>
+      </mapping>
+    </element>
+    <element id="AdverseEvent.participant.actor">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#13894, GF#18853."/>
+      </extension>
+      <path value="AdverseEvent.participant.actor"/>
+      <short value="Who was involved in the adverse event or the potential adverse event"/>
+      <definition value="Indicates who or what participated in the event."/>
+      <comment value="For example, the physician prescribing a drug, a nurse administering the drug, a device that administered the drug, a witness to the event, or an informant of clinical history."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
+      </mapping>
+    </element>
+	<element id="AdverseEvent.study">
+      <path value="AdverseEvent.study"/>
+      <short value="Research study that the subject is enrolled in"/>
+      <definition value="The research study that the subject is enrolled in."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+	<element id="AdverseEvent.expectedInResearchStudy">
+      <path value="AdverseEvent.expectedInResearchStudy"/>
+      <short value="Considered likely or probable or anticipated in the research study"/>
+      <definition value="Considered likely or probable or anticipated in the research study.  Whether the reported event matches any of the outcomes for the patient that are considered by the study as known or likely."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="AdverseEvent.suspectEntity">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,0"/>
+      </extension>
+      <path value="AdverseEvent.suspectEntity"/>
+      <short value="The suspected agent causing the adverse event"/>
+      <definition value="Describes the entity that is suspected to have caused the adverse event."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="AdverseEvent.suspectEntity.instance[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#13698."/>
+      </extension>
+      <path value="AdverseEvent.suspectEntity.instance[x]"/>
+      <short value="Refers to the specific entity that caused the adverse event"/>
+      <definition value="Identifies the actual instance of what caused the adverse event.  May be a substance, medication, medication administration, medication statement or a device."/>
+      <alias value="Substance or Medication or Device"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="AdverseEvent.suspectEntity.causality">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#22107."/>
+      </extension>
+      <path value="AdverseEvent.suspectEntity.causality"/>
+      <short value="Information on the possible cause of the event"/>
+      <definition value="Information on the possible cause of the event."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="AdverseEvent.suspectEntity.causality.assessmentMethod">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#20593."/>
+      </extension>
+      <path value="AdverseEvent.suspectEntity.causality.assessmentMethod"/>
+      <short value="Method of evaluating the relatedness of the suspected entity to the event"/>
+      <definition value="The method of evaluating the relatedness of the suspected entity to the event."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventCausalityMethod"/>
+        </extension>
+        <strength value="example"/>
+        <description value="TODO."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-causality-method"/>
+      </binding>
+    </element>
+    <element id="AdverseEvent.suspectEntity.causality.entityRelatedness">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#20593."/>
+      </extension>
+      <path value="AdverseEvent.suspectEntity.causality.entityRelatedness"/>
+      <short value="Result of the assessment regarding the relatedness of the suspected entity to the event"/>
+      <definition value="The result of the assessment regarding the relatedness of the suspected entity to the event."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventCausalityAssessment"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the assessment of whether the entity caused the event."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-causality-assess"/>
+      </binding>
+    </element>
+    <element id="AdverseEvent.suspectEntity.causality.author">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#20593."/>
+      </extension>
+      <path value="AdverseEvent.suspectEntity.causality.author"/>
+      <short value="Author of the information on the possible cause of the event"/>
+      <definition value="The author of the information on the possible cause of the event."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="AdverseEvent.contributingFactor">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#17237."/>
+      </extension>
+      <path value="AdverseEvent.contributingFactor"/>
+      <short value="Contributing factors suspected to have increased the probability or severity of the adverse event"/>
+      <definition value="The contributing factors suspected to have increased the probability or severity of the adverse event."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="AdverseEvent.contributingFactor.item[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#17237."/>
+      </extension>
+      <path value="AdverseEvent.contributingFactor.item[x]"/>
+      <short value="Item suspected to have increased the probability or severity of the adverse event"/>
+      <definition value="The item that is suspected to have increased the probability or severity of the adverse event."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventContributingFactor"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing the contributing factors suspected to have increased the probability or severity of the adverse event."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-contributing-factor"/>
+      </binding>
+    </element>
+    <element id="AdverseEvent.preventiveAction">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#17237."/>
+      </extension>
+      <path value="AdverseEvent.preventiveAction"/>
+      <short value="Preventive actions that contributed to avoiding the adverse event"/>
+      <definition value="Preventive actions that contributed to avoiding the adverse event."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="AdverseEvent.preventiveAction.item[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#17237."/>
+      </extension>
+      <path value="AdverseEvent.preventiveAction.item[x]"/>
+      <short value="Action that contributed to avoiding the adverse event"/>
+      <definition value="The action that contributed to avoiding the adverse event."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventPreventiveAction"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing the preventive actions that contributed to avoiding the adverse event."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-preventive-action"/>
+      </binding>
+    </element>
+    <element id="AdverseEvent.mitigatingAction">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#17237."/>
+      </extension>
+      <path value="AdverseEvent.mitigatingAction"/>
+      <short value="Ameliorating actions taken after the adverse event occured in order to reduce the extent of harm"/>
+      <definition value="The ameliorating action taken after the adverse event occured in order to reduce the extent of harm."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="AdverseEvent.mitigatingAction.item[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#17237."/>
+      </extension>
+      <path value="AdverseEvent.mitigatingAction.item[x]"/>
+      <short value="Ameliorating action taken after the adverse event occured in order to reduce the extent of harm"/>
+      <definition value="The ameliorating action taken after the adverse event occured in order to reduce the extent of harm."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventMitigatingAction"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing the ameliorating actions taken after the adverse event occured in order to reduce the extent of harm."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-mitigating-action"/>
+      </binding>
+    </element>
+    <element id="AdverseEvent.supportingInfo">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#20593."/>
+      </extension>
+      <path value="AdverseEvent.supportingInfo"/>
+      <short value="Supporting information relevant to the event"/>
+      <definition value="Supporting information relevant to the event."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="AdverseEvent.supportingInfo.item[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#14151, GF#20593."/>
+      </extension>
+      <path value="AdverseEvent.supportingInfo.item[x]"/>
+      <short value="Subject medical history or document relevant to this adverse event"/>
+      <definition value="Relevant past history for the subject. In a clinical care context, an example being a patient had an adverse event following a pencillin administration and the patient had a previously documented penicillin allergy. In a clinical trials context, an example is a bunion or rash that was present prior to the study. Additionally, the supporting item can be a document that is relevant to this instance of the adverse event that is not part of the subject&#39;s medical history. For example, a clinical note, staff list, or material safety data sheet (MSDS).  Supporting information is not a contributing factor, preventive action, or mitigating action."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdverseEventSupportingInfo"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing the supporting information relevant to the event."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-supporting-info"/>
+      </binding>
+    </element>
+	<element id="AdverseEvent.note">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="need to add jira"/>
+      </extension>
+      <path value="AdverseEvent.note"/>
+      <short value="Comment on adverse event"/>
+      <definition value="Comments made about the adverse event by the performer, subject or other participants."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

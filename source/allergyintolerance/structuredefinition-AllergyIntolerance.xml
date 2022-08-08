@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="AllergyIntolerance"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Summary"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".verificationStatus = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
+  <version value="4.6.0"/>
+  <name value="AllergyIntolerance"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Patient Care)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance."/>
+  <purpose value="To record a clinical assessment of a propensity, or potential risk to an individual, of an adverse reaction upon future exposure to the specified substance, or class of substance."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="AllergyIntolerance"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="AllergyIntolerance">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#32856"/>
+      </extension>
+      <path value="AllergyIntolerance"/>
+      <short value="Allergy or Intolerance (generally: Risk of adverse reaction to a substance)"/>
+      <definition value="Risk of harmful or undesirable physiological response which is specific to an individual and associated with exposure to a substance."/>
+      <comment value="Substances include, but are not limited to: a therapeutic substance administered correctly at an appropriate dosage for the individual; food; material derived from plants or animals; or venom from insect stings."/>
+      <alias value="Allergy"/>
+      <alias value="Intolerance"/>
+      <alias value="Adverse Reaction"/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Observation[classCode=OBS, moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.general"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.identifier">
+      <path value="AllergyIntolerance.identifier"/>
+      <short value="External ids for this item"/>
+      <definition value="Business identifiers assigned to this AllergyIntolerance by the performer or other systems which remain constant as the resource is updated and propagates from server to server."/>
+      <comment value="This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <requirements value="Allows identification of the AllergyIntolerance as it is known by various participating systems and in a way that remains consistent across servers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IAM-7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="id"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.clinicalStatus">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF# 10642, 11151, 11920, 17743, 25514."/>
+      </extension>
+      <path value="AllergyIntolerance.clinicalStatus"/>
+      <short value="active | inactive | resolved"/>
+      <definition value="The clinical status of the allergy or intolerance."/>
+      <comment value="AllergyIntolerance.clinicalStatus should be present if verificationStatus is not entered-in-error and the AllergyIntolerance.code isn&#39;t negated (No Known Allergy, No Drug Allergy, No Food Allergy, No Latex Allergy).&#xA;Refer to [discussion](extensibility.html#Special-Case) if clincalStatus is missing data.&#xA;The data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because the status contains the codes inactive and resolved that mark the AllergyIntolerance as no longer active."/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AllergyIntoleranceClinicalStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The clinical status of the allergy or intolerance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/allergyintolerance-clinical"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Observation ACT .inboundRelationship[typeCode=COMP].source[classCode=OBS, code=&quot;clinicalStatus&quot;, moodCode=EVN].value"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.verificationStatus">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF# 10642, 11151, 11920, 17743, 28458."/>
+      </extension>
+      <path value="AllergyIntolerance.verificationStatus"/>
+      <short value="unconfirmed | presumed | confirmed | refuted | entered-in-error"/>
+      <definition value="Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).  The verification status pertains to the allergy or intolerance, itself, not to any specific AllergyIntolerance attribute."/>
+      <comment value="The data type is CodeableConcept because verificationStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because the status contains the codes refuted and entered-in-error that mark the AllergyIntolerance as not currently valid."/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AllergyIntoleranceVerificationStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/allergyintolerance-verification"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Observation ACT .inboundRelationship[typeCode=COMP].source[classCode=OBS, code=&quot;verificationStatus&quot;, moodCode=EVN].value"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.type">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+	  <path value="AllergyIntolerance.type"/>
+      <short value="allergy | intolerance - Underlying mechanism (if known)"/>
+      <definition value="Identification of the underlying physiological mechanism for the reaction risk."/>
+      <comment value="Allergic (typically immune-mediated) reactions have been traditionally regarded as an indicator for potential escalation to significant future risk. Contemporary knowledge suggests that some reactions previously thought to be immune-mediated are, in fact, non-immune, but in some cases can still pose a life threatening risk. It is acknowledged that many clinicians might not be in a position to distinguish the mechanism of a particular reaction. Often the term &quot;allergy&quot; is used rather generically and may overlap with the use of &quot;intolerance&quot; - in practice the boundaries between these two concepts might not be well-defined or understood. This data element is included nevertheless, because many legacy systems have captured this attribute. Immunologic testing may provide supporting evidence for the basis of the reaction and the causative substance, but no tests are 100% sensitive or specific for sensitivity to a particular substance. If, as is commonly the case, it is unclear whether the reaction is due to an allergy or an intolerance, then the type element should be omitted from the resource."/>
+      <alias value="Category"/>
+      <alias value="Class"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AllergyIntoleranceType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Identification of the underlying physiological mechanism for a Reaction Risk."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/allergy-intolerance-type"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IAM-9"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.category">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#11352 - to address examples like bee pollen that may fit into multiple categories;  GF#12136 - search usage note."/>
+      </extension>
+      <path value="AllergyIntolerance.category"/>
+      <short value="food | medication | environment | biologic"/>
+      <definition value="Category of the identified substance."/>
+      <comment value="This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the substance where coding systems are used, and is effectively redundant in that situation.  When searching on category, consider the implications of AllergyIntolerance resources without a category.  For example, when searching on category = medication, medication allergies that don&#39;t have a category valued will not be returned.  Refer to [search](search.html) for more information on how to search category with a :missing modifier to get allergies that don&#39;t have a category.  Additionally, category should be used with caution because category can be subjective based on the sender."/>
+      <alias value="Category"/>
+      <alias value="Type"/>
+      <alias value="Reaction Type"/>
+      <alias value="Class"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AllergyIntoleranceCategory"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Category of an identified substance associated with allergies or intolerances."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/allergy-intolerance-category"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="AL1-2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value &lt; IntoleranceValue (Agent)"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.criticality">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#12177."/>
+      </extension>
+      <path value="AllergyIntolerance.criticality"/>
+      <short value="low | high | unable-to-assess"/>
+      <definition value="Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance."/>
+      <comment value="The default criticality value for any propensity to an adverse reaction should be &#39;Low Risk&#39;, indicating at the very least a relative contraindication to deliberate or voluntary exposure to the substance. &#39;High Risk&#39; is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere).  Systems that capture a severity at the condition level are actually representing the concept of criticality whereas the severity documented at the reaction level is representing the true reaction severity.  Existing systems that are capturing both condition criticality and reaction severity may use the term &quot;severity&quot; to represent both.  Criticality is the worst it could be in the future (i.e. situation-agnostic) whereas severity is situation-dependent."/>
+      <alias value="Severity"/>
+      <alias value="Seriousness"/>
+      <alias value="Contra-indication"/>
+      <alias value="Risk"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AllergyIntoleranceCriticality"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Estimate of the potential clinical harm, or seriousness, of a reaction to an identified substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.grade"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="AL1-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV, value &lt;= SeverityObservation (Severity Level)]"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.code">
+      <path value="AllergyIntolerance.code"/>
+      <short value="Code that identifies the allergy or intolerance"/>
+      <definition value="Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., &quot;Latex&quot;), an allergy or intolerance condition (e.g., &quot;Latex allergy&quot;), or a negated/excluded code for a specific substance or class (e.g., &quot;No latex allergy&quot;) or a general or categorical negated statement (e.g.,  &quot;No known allergy&quot;, &quot;No known drug allergies&quot;).  Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the &#39;code&#39; and ignore the &#39;reaction.substance&#39;.  If a receiving system is unable to confirm that AllergyIntolerance.reaction.substance falls within the semantic scope of AllergyIntolerance.code, then the receiving system should ignore AllergyIntolerance.reaction.substance."/>
+      <comment value="It is strongly recommended that this element be populated using a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNII, and ATC. Plain text should only be used if there is no appropriate terminology available. Additional details can be specified in the text.&#xD;&#xD;When a substance or product code is specified for the &#39;code&#39; element, the &quot;default&quot; semantic context is that this is a positive statement of an allergy or intolerance (depending on the value of the &#39;type&#39; element, if present) condition to the specified substance/product.  In the corresponding SNOMED CT allergy model, the specified substance/product is the target (destination) of the &quot;Causative agent&quot; relationship.&#xD;&#xD;The &#39;substanceExposureRisk&#39; extension is available as a structured and more flexible alternative to the &#39;code&#39; element for making positive or negative allergy or intolerance statements.  This extension provides the capability to make &quot;no known allergy&quot; (or &quot;no risk of adverse reaction&quot;) statements regarding any coded substance/product (including cases when a pre-coordinated &quot;no allergy to x&quot; concept for that substance/product does not exist).  If the &#39;substanceExposureRisk&#39; extension is present, the AllergyIntolerance.code element SHALL be omitted."/>
+      <alias value="Code"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AllergyIntoleranceCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Type of the substance/product, allergy or intolerance condition, or negation/exclusion codes for reporting no known allergies."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/allergyintolerance-code"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="AL1-3 / IAM-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="substance/product:&#xD;&#xD;.participation[typeCode=CAGNT].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code &lt;= ExposureAgentEntityType]&#xD;&#xD;negated/excluded substance/product:&#xD;&#xD;.participation[typeCode=CAGNT, negationInd=true].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code &lt;= ExposureAgentEntityType]&#xD;&#xD;positive or negated/excluded condition/situation:&#xD;&#xD;Observation.code=ASSERTION; Observation.value"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.patient">
+      <path value="AllergyIntolerance.patient"/>
+      <short value="Who the sensitivity is for"/>
+      <definition value="The patient who has the allergy or intolerance."/>
+      <alias value="Patient"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="(PID-3)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=SBJ].role[classCode=PAT]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.encounter">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#14566."/>
+      </extension>
+      <path value="AllergyIntolerance.encounter"/>
+      <short value="Encounter when the allergy or intolerance was asserted"/>
+      <definition value="The encounter when the allergy or intolerance was asserted."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.onset[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#11089."/>
+      </extension>
+      <path value="AllergyIntolerance.onset[x]"/>
+      <short value="When allergy or intolerance was identified"/>
+      <definition value="Estimated or actual date,  date-time, or age when allergy or intolerance was identified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Age"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.init"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="effectiveTime.low"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.recordedDate">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#11089, GF#14007, GF#17285, GF#15781, J#34396, J#34395"/>
+      </extension>
+      <path value="AllergyIntolerance.recordedDate"/>
+      <short value="Date allergy or intolerance was first recorded"/>
+      <definition value="The recordedDate represents when this particular AllergyIntolerance record was created in the system, which is often a system-generated date."/>
+      <comment value="When onset date is unknown, recordedDate can be used to establish if the allergy or intolerance was present on or before a given date.  If the recordedDate is known and provided by a sending system, it is preferred that the receiving system preserve that recordedDate value. If the recordedDate is not provided by the sending system, the receipt timestamp is sometimes used as the recordedDate."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IAM-13"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].time"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.participant">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#34395"/>
+      </extension>
+      <path value="AllergyIntolerance.participant"/>
+      <short value="Who or what participated in the activities related to the allergy or intolerance and how they were involved"/>
+      <definition value="Indicates who or what participated in the activities related to the allergy or intolerance and how they were involved."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRF]"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.participant.function">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#34395"/>
+      </extension>
+      <path value="AllergyIntolerance.participant.function"/>
+      <short value="Type of involvement"/>
+      <definition value="Distinguishes the type of involvement of the actor in the activities related to the allergy or intolerance."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AllergyIntoleranceParticipantFunction"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participation-role-type"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation.functionCode"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.participant.actor">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#34395"/>
+      </extension>
+      <path value="AllergyIntolerance.participant.actor"/>
+      <short value="Who or what participated in the activities related to the allergy or intolerance"/>
+      <definition value="Indicates who or what participated in the activities related to the allergy or intolerance."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.who"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.lastOccurrence">
+      <path value="AllergyIntolerance.lastOccurrence"/>
+      <short value="Date(/time) of last known occurrence of a reaction"/>
+      <definition value="Represents the date and/or time of the last known occurrence of a reaction event."/>
+      <comment value="This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurrence is required e.g. &#39;In Childhood, &#39;10 years ago&#39; the AllergyIntolerance.note element should be used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outBoundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN, code &lt;= CommonClinicalObservationType, value &lt;= ObservationValue (Reaction Type)].effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.note">
+      <path value="AllergyIntolerance.note"/>
+      <short value="Additional text not captured in other fields"/>
+      <definition value="Additional narrative about the propensity for the Adverse Reaction, not captured in other fields."/>
+      <comment value="For example: including reason for flagging a seriousness of &#39;High Risk&#39;; and instructions related to future exposure or administration of the substance, such as administration within an Intensive Care Unit or under corticosteroid cover. The notes should be related to an allergy or intolerance as a condition in general and not related to any particular episode of it. For episode notes and descriptions, use AllergyIntolerance.event.description and  AllergyIntolerance.event.notes."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="subjectOf.observationEvent[code=&quot;annotation&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="AllergyIntolerance.reaction"/>
+      <short value="Adverse Reaction Events linked to exposure to substance"/>
+      <definition value="Details about each adverse reaction event linked to exposure to the identified substance."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outBoundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN, code &lt;= CommonClinicalObservationType, value &lt;= ObservationValue (Reaction Type)]"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction.substance">
+      <path value="AllergyIntolerance.reaction.substance"/>
+      <short value="Specific substance or pharmaceutical product considered to be responsible for event"/>
+      <definition value="Identification of the specific substance (or pharmaceutical product) considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the &#39;code&#39; and ignore the &#39;reaction.substance&#39;.  If a receiving system is unable to confirm that AllergyIntolerance.reaction.substance falls within the semantic scope of AllergyIntolerance.code, then the receiving system should ignore AllergyIntolerance.reaction.substance."/>
+      <comment value="Coding of the specific substance (or pharmaceutical product) with a terminology capable of triggering decision support should be used wherever possible.  The &#39;code&#39; element allows for the use of a specific substance or pharmaceutical product, or a group or class of substances. In the case of an allergy or intolerance to a class of substances, (for example, &quot;penicillins&quot;), the &#39;reaction.substance&#39; element could be used to code the specific substance that was identified as having caused the reaction (for example, &quot;amoxycillin&quot;). Duplication of the value in the &#39;code&#39; and &#39;reaction.substance&#39; elements is acceptable when a specific substance has been recorded in &#39;code&#39;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes defining the type of the substance (including pharmaceutical products)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-code"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outBoundRelationship[typeCode=SAS].target[classCode=SBADM, code &lt;= ExposureCode].participation[typeCode=CSM].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code &lt;= ExposureAgentEntityType]"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction.manifestation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#31578"/>
+      </extension>
+      <path value="AllergyIntolerance.reaction.manifestation"/>
+      <short value="Clinical symptoms/signs associated with the Event"/>
+      <definition value="Clinical symptoms and/or signs that are observed or associated with the adverse reaction event."/>
+      <comment value="Manifestation can be expressed as a single word, phrase or brief description. For example: nausea, rash or no reaction. It is preferable that manifestation should be coded with a terminology, where possible. The values entered here may be used to display on an application screen as part of a list of adverse reactions, as recommended in the UK NHS CUI guidelines.  Terminologies commonly used include, but are not limited to, SNOMED CT or ICD10."/>
+      <alias value="Symptoms"/>
+      <alias value="Signs"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Manifestation"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="AL1-5"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction.description">
+      <path value="AllergyIntolerance.reaction.description"/>
+      <short value="Description of the event as a whole"/>
+      <definition value="Text description about the reaction as a whole, including details of the manifestation if required."/>
+      <comment value="Use the description to provide any details of a particular event of the occurred reaction such as circumstances, reaction specifics, what happened before/after. Information, related to the event, but not describing a particular care should be captured in the note field. For example: at the age of four, the patient was given penicillin for strep throat and subsequently developed severe hives."/>
+      <alias value="Narrative"/>
+      <alias value="Text"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="text"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction.onset">
+      <path value="AllergyIntolerance.reaction.onset"/>
+      <short value="Date(/time) when manifestations showed"/>
+      <definition value="Record of the date and/or time of the onset of the Reaction."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="AL1-6"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="effectiveTime.low"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction.severity">
+      <path value="AllergyIntolerance.reaction.severity"/>
+      <short value="mild | moderate | severe (of event as a whole)"/>
+      <definition value="Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations."/>
+      <comment value="It is acknowledged that this assessment is very subjective. There may be some specific practice domains where objective scales have been applied. Objective scales can be included in this model as extensions."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AllergyIntoleranceSeverity"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/reaction-event-severity"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV, value &lt;= SeverityObservation (Severity Level)]"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction.exposureRoute">
+      <path value="AllergyIntolerance.reaction.exposureRoute"/>
+      <short value="How the subject was exposed to the substance"/>
+      <definition value="Identification of the route by which the subject was exposed to the substance."/>
+      <comment value="Coding of the route of exposure with a terminology should be used wherever possible."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RouteOfAdministration"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept describing the route or physiological path of exposure to a substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/route-codes"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outBoundRelationship[typeCode=SAS].target[classCode=SBADM, code &lt;= ExposureCode].routeCode"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.reaction.note">
+      <path value="AllergyIntolerance.reaction.note"/>
+      <short value="Text about event not captured in other fields"/>
+      <definition value="Additional text about the adverse reaction event not captured in other fields."/>
+      <comment value="Use this field to record information indirectly related to a particular event and not captured in the description. For example: Clinical records are no longer available, recorded based on information provided to the patient by her mother and her mother is deceased."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="subjectOf.observationEvent[code=&quot;annotation&quot;].value"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

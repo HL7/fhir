@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicinalProductDefinition xmlns="http://hl7.org/fhir">
+<MedicinalProductDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicinalproductdefinition.xsd">
 	<id value="drug-combo-product"/>
 	<text>
 		<status value="generated"/>
@@ -167,13 +167,16 @@
 	<contained>
 		<PackagedProductDefinition>
 			<id value="packageCombo"/>
-			<package>
+			<packageFor>
+				<reference value="#"/>
+			</packageFor>
+			<packaging>
 				<type>
 					<coding>
 						<code value="Box"/>
 					</coding>
 				</type>
-				<package>
+				<packaging>
 					<type>
 						<coding>
 							<code value="blister pack"/>
@@ -185,12 +188,12 @@
 							<reference value="#tabletItem"/>
 							</reference>
 						</item>
-						<amountQuantity>
+						<amount>
 							<value value="1"/>
-						</amountQuantity>
+						</amount>
 					</containedItem>
-				</package>
-				<package>
+				</packaging>
+				<packaging>
 					<type>
 						<coding>
 							<code value="tube"/>
@@ -202,25 +205,28 @@
 							<reference value="#creamItem"/>
 							</reference>
 						</item>
-						<amountQuantity>
+						<amount>
 							<value value="20"/>
 							<unit value="g"/>
-						</amountQuantity>
+							<system value="http://unitsofmeasure.org"/> 
+							<code value="g"/>
+						</amount>
 					</containedItem>
-					<package>
+					<packaging>
 						<type>
 							<coding>
 								<code value="cap"/>
 							</coding>
 						</type>
-					</package>
-				</package>
-			</package>
+					</packaging>
+				</packaging>
+			</packaging>
 		</PackagedProductDefinition>
 	</contained>
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="tabletItem"/>
+			<status value="active"/>
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
@@ -233,6 +239,7 @@
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="creamItem"/>
+			<status value="active"/>
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
@@ -252,11 +259,6 @@
 			<code value="Tablet and Cream for topical application"/>
 		</coding>
 	</combinedPharmaceuticalDoseForm>
-	<packagedMedicinalProduct>
-		<reference>
-		<reference value="#packageCombo"/>
-		</reference>
-	</packagedMedicinalProduct>
 	<name>
 		<productName value="ThrushTreat Combo"/>
 	</name>

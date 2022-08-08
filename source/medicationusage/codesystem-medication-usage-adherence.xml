@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="medication-usage-adherence"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/medication-usage-adherence"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="MedicationUsage Adherence Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medication-usage-adherence"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <concept>
+    <code value="taking"/>
+    <display value="Taking"/>
+    <definition value="The medication is being taken."/>
+    <concept>
+      <code value="taking-as-directed"/>
+      <display value="Taking As Directed"/>
+      <definition value="The medication is being taken as directed."/>
+    </concept>
+    <concept>
+      <code value="taking-not-as-directed"/>
+      <display value="Taking Not As Directed"/>
+      <definition value="The medication is not being taken as directed."/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="not-taking"/>
+    <display value="Not Taking"/>
+    <definition value="The medication is not being taken."/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="Whether the medication is being taken or not is not currently known."/>
+  </concept>
+</CodeSystem>

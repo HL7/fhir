@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="CoverageEligibilityResponse-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CoverageEligibilityResponse-created"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CoverageEligibilityResponse.created"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CoverageEligibilityResponse-created"/>
+        <description value="The creation date"/>
+        <code value="created"/>
+        <type value="date"/>
+        <expression value="CoverageEligibilityResponse.created"/>
+        <xpath value="f:CoverageEligibilityResponse/f:created"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CoverageEligibilityResponse-disposition"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CoverageEligibilityResponse.disposition"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CoverageEligibilityResponse-disposition"/>
+        <description value="The contents of the disposition message"/>
+        <code value="disposition"/>
+        <type value="string"/>
+        <expression value="CoverageEligibilityResponse.disposition"/>
+        <xpath value="f:CoverageEligibilityResponse/f:disposition"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CoverageEligibilityResponse-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CoverageEligibilityResponse.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CoverageEligibilityResponse-identifier"/>
+        <description value="The business identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="CoverageEligibilityResponse.identifier"/>
+        <xpath value="f:CoverageEligibilityResponse/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CoverageEligibilityResponse-insurer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CoverageEligibilityResponse.insurer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CoverageEligibilityResponse-insurer"/>
+        <description value="The organization which generated this resource"/>
+        <code value="insurer"/>
+        <type value="reference"/>
+        <expression value="CoverageEligibilityResponse.insurer"/>
+        <xpath value="f:CoverageEligibilityResponse/f:insurer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CoverageEligibilityResponse-outcome"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CoverageEligibilityResponse.outcome"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CoverageEligibilityResponse-outcome"/>
+        <description value="The processing outcome"/>
+        <code value="outcome"/>
+        <type value="token"/>
+        <expression value="CoverageEligibilityResponse.outcome"/>
+        <xpath value="f:CoverageEligibilityResponse/f:outcome"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CoverageEligibilityResponse-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CoverageEligibilityResponse.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CoverageEligibilityResponse-patient"/>
+        <description value="The reference to the patient"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="CoverageEligibilityResponse.patient"/>
+        <xpath value="f:CoverageEligibilityResponse/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CoverageEligibilityResponse-request"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CoverageEligibilityResponse.request"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CoverageEligibilityResponse-request"/>
+        <description value="The EligibilityRequest reference"/>
+        <code value="request"/>
+        <type value="reference"/>
+        <expression value="CoverageEligibilityResponse.request"/>
+        <xpath value="f:CoverageEligibilityResponse/f:request"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CoverageEligibilityResponse-requestor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CoverageEligibilityResponse.requestor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CoverageEligibilityResponse-requestor"/>
+        <description value="The EligibilityRequest provider"/>
+        <code value="requestor"/>
+        <type value="reference"/>
+        <expression value="CoverageEligibilityResponse.requestor"/>
+        <xpath value="f:CoverageEligibilityResponse/f:requestor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CoverageEligibilityResponse-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CoverageEligibilityResponse.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CoverageEligibilityResponse-status"/>
+        <description value="The EligibilityRequest status"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="CoverageEligibilityResponse.status"/>
+        <xpath value="f:CoverageEligibilityResponse/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

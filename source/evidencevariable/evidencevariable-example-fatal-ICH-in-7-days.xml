@@ -12,10 +12,9 @@
   <title value="Fatal Intracranial Hemorrhage Within Seven Days"/>
   <status value="draft"/>
   <note>
-    <text value="Death must be due to intracranial hemorrhage"/>
+	<text value="Death must be due to intracranial hemorrhage"/>
   </note>
   <actual value="true"/>
-  <characteristicCombination value="intersection"/>
   <characteristic>
     <description value="intracranial hemorrhage within 7 days"/>
     <definitionCodeableConcept>
@@ -25,8 +24,15 @@
 				<display value="Intracranial hemorrhage (disorder)"/>
 			</coding>
     </definitionCodeableConcept>
-    <timeFromStart>
+    <timeFromEvent>
 			<description value="within 7 days"/>
+			<eventCodeableConcept>
+				<coding>
+					<system value="http://hl7.org/fhir/evidence-variable-event"/>
+					<code value="study-start"/>
+					<display value="Study Start"/>
+				</coding>
+			</eventCodeableConcept>
 			<range>
 				<low>
 					<value value="0"/>
@@ -41,7 +47,7 @@
 					<code value="d"/>
 				</high>
 			</range>
-    </timeFromStart>
+    </timeFromEvent>
   </characteristic>
   <characteristic>
 		<description value="death within 7 days"/>
@@ -52,7 +58,7 @@
 				<display value="Death (event)"/>
 			</coding>
 		</definitionCodeableConcept>
-		<timeFromStart>
+		<timeFromEvent>
 			<description value="within 7 days"/>
 			<range>
 				<low>
@@ -68,7 +74,7 @@
 					<code value="d"/>
 				</high>
 			</range>
-		</timeFromStart>
+		</timeFromEvent>
   </characteristic>
   <handling value="dichotomous"/>
 </EvidenceVariable>

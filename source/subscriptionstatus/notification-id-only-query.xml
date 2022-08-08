@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Bundle.xsd">
+  <id value="155141d4-7601-46f7-a82b-b8443bcf9883"/>
+  <type value="subscription-notification"/>
+  <timestamp value="2020-04-17T10:24:13.1882432-05:00"/>
+  <entry>
+    <fullUrl value="urn:uuid:dd431176-7bcf-455e-8a0c-50cb15d6263f"/>
+    <resource>
+      <SubscriptionStatus xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionStatus.xsd">
+        <id value="dd431176-7bcf-455e-8a0c-50cb15d6263f"/>
+        <status value="active"/>
+        <type value="query-event"/>
+        <eventsSinceSubscriptionStart value="2"/>
+        <notificationEvent>
+          <eventNumber value="1"/>
+          <focus>
+            <reference value="http://example.org/FHIR/R5/Encounter/1"/>
+          </focus>
+        </notificationEvent>
+        <notificationEvent>
+          <eventNumber value="2"/>
+          <focus>
+            <reference value="http://example.org/FHIR/R5/Encounter/2"/>
+          </focus>
+        </notificationEvent>
+        <subscription>
+          <reference value="http://example.org/FHIR/R5/Subscription/123"/>
+        </subscription>
+        <topic value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
+      </SubscriptionStatus>
+    </resource>
+    <request>
+      <method value="GET" />
+      <url value="Subscription/123/$events" />
+    </request>
+    <response>
+      <status value="200"/>
+    </response>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/FHIR/R5/Encounter/1" />
+    <request>
+      <method value="PUT" />
+      <url value="Encounter/1" />
+    </request>
+    <response>
+      <status value="201"/>
+    </response>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/FHIR/R5/Encounter/2" />
+    <request>
+      <method value="PUT" />
+      <url value="Encounter/2" />
+    </request>
+    <response>
+      <status value="201"/>
+    </response>
+  </entry>
+</Bundle>

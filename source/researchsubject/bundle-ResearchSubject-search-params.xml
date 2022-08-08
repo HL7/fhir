@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ResearchSubject-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchSubject-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchSubject.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchSubject-date"/>
+        <description value="Start and end of participation"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="ResearchSubject.period"/>
+        <xpath value="f:ResearchSubject/f:period"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchSubject-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchSubject.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchSubject-identifier"/>
+        <description value="Business Identifier for research subject in a study"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="ResearchSubject.identifier"/>
+        <xpath value="f:ResearchSubject/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchSubject-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchSubject.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchSubject-subject"/>
+        <description value="Who or what is part of study"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="ResearchSubject.subject"/>
+        <xpath value="f:ResearchSubject/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchSubject-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchSubject.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchSubject-patient"/>
+        <description value="Who or what is part of study"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="ResearchSubject.subject"/>
+        <xpath value="f:ResearchSubject/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchSubject-state"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchSubject.progress.subjectProgress"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchSubject-state"/>
+        <description value="candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn"/>
+        <code value="subject_state"/>
+        <type value="token"/>
+        <expression value="ResearchSubject.progress.subjectState"/>
+        <xpath value="f:ResearchSubject/f:progress/f:subjectState"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchSubject-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchSubject.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchSubject-status"/>
+        <description value="draft | active | retired | unknown"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="ResearchSubject.status"/>
+        <xpath value="f:ResearchSubject/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchSubject-study"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchSubject.study"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchSubject-study"/>
+        <description value="Study subject is part of"/>
+        <code value="study"/>
+        <type value="reference"/>
+        <expression value="ResearchSubject.study"/>
+        <xpath value="f:ResearchSubject/f:study"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

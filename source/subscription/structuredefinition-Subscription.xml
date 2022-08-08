@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Subscription"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Foundation.Other"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = off (just turn it off, maybe update the error message)"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Subscription"/>
+  <version value="4.6.0"/>
+  <name value="Subscription"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The subscription resource describes a particular client&#39;s request to be notified about a SubscriptionTopic."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Subscription"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Subscription">
+      <path value="Subscription"/>
+      <short value="Notification about a SubscriptionTopic"/>
+      <definition value="The subscription resource describes a particular client&#39;s request to be notified about a SubscriptionTopic."/>
+      <alias value="WebHook"/>
+      <alias value="Hook"/>
+      <alias value="Routing Rule"/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="infrastructure.exchange"/>
+      </mapping>
+    </element>
+    <element id="Subscription.identifier">
+      <path value="Subscription.identifier"/>
+      <short value="Additional identifiers (business identifier)"/>
+      <definition value="A formal identifier that is used to identify this code system when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="Subscription.name">
+      <path value="Subscription.name"/>
+      <short value="Human readable name for this subscription"/>
+      <definition value="A natural language name identifying the subscription."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Subscription.status">
+      <path value="Subscription.status"/>
+      <short value="requested | active | error | off | entered-in-error"/>
+      <definition value="The status of the subscription, which marks the server state for managing the subscription."/>
+      <comment value="A client can only submit subscription resources in the requested or off state. Only the server can  move a subscription from requested to active, and then to error. Either the server or the client can turn a subscription off.&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubscriptionStatusCodes"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The status of a subscription."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="Subscription.topic">
+      <path value="Subscription.topic"/>
+      <short value="Reference to the subscription topic being subscribed to"/>
+      <definition value="The reference to the subscription topic to be notified about."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubscriptionTopic"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+    </element>
+    <element id="Subscription.contact">
+      <path value="Subscription.contact"/>
+      <short value="Contact details for source (e.g. troubleshooting)"/>
+      <definition value="Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactPoint"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="Subscription.end">
+      <path value="Subscription.end"/>
+      <short value="When to automatically delete the subscription"/>
+      <definition value="The time for the server to turn the subscription off."/>
+      <comment value="The server is permitted to deviate from this time but should observe it."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="instant"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+    </element>
+    <element id="Subscription.reason">
+      <path value="Subscription.reason"/>
+      <short value="Description of why this subscription was created"/>
+      <definition value="A description of why this subscription is defined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+    </element>
+    <element id="Subscription.filterBy">
+      <path value="Subscription.filterBy"/>
+      <short value="Criteria for narrowing the subscription topic stream"/>
+      <definition value="The filter properties to be applied to narrow the subscription topic stream.  When multiple filters are applied, evaluates to true if all the conditions are met; otherwise it returns false.   (i.e., logical AND)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Subscription.filterBy.resourceType">
+      <path value="Subscription.filterBy.resourceType"/>
+      <short value="Allowed Data type or Resource (reference to definition) for this Subscription"/>
+      <definition value="If the element is a reference to another resource, this element contains &quot;Reference&quot;, and the targetProfile element defines what resources can be referenced. The targetProfile may be a reference to the general definition of a resource (e.g. http://hl7.org/fhir/StructureDefinition/Patient)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FHIRDefinedTypeExt"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Either a resource or a data type, including logical model types."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
+      </binding>
+    </element>
+    <element id="Subscription.filterBy.filterParameter">
+      <path value="Subscription.filterBy.filterParameter"/>
+      <short value="Filter label defined in SubscriptionTopic"/>
+      <definition value="The filter label (=key) as defined in the `SubscriptionTopic.canfilterBy.filterParameter`  element."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Subscription.filterBy.modifier">
+      <path value="Subscription.filterBy.modifier"/>
+      <short value="= | eq | ne | gt | lt | ge | le | sa | eb | ap | above | below | in | not-in | of-type"/>
+      <definition value="Operator to apply when determining matches (Search Modifiers), from the list of allowed modifiers for this filter in the relevant SubscriptionTopic."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubscriptionFilterBySearchModifier"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Operator to apply to filter label."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-search-modifier"/>
+      </binding>
+    </element>
+    <element id="Subscription.filterBy.value">
+      <path value="Subscription.filterBy.value"/>
+      <short value="Literal value or resource path"/>
+      <definition value="The literal value or resource path as is legal in search - for example, &quot;Patient/123&quot; or &quot;le1950&quot;."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Subscription.channelType">
+      <path value="Subscription.channelType"/>
+      <short value="Channel type for notifications"/>
+      <definition value="The type of channel to send notifications on."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubscriptionChannelType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The type of method used to execute a subscription."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-channel-type"/>
+      </binding>
+    </element>
+    <element id="Subscription.endpoint">
+      <path value="Subscription.endpoint"/>
+      <short value="Where the channel points to"/>
+      <definition value="The url that describes the actual end-point to send messages to."/>
+      <comment value="For rest-hook the end-point must be an http: or https: URL; for websocket ws: or wss:; for email, a mailto: url; and for message the endpoint can be in any form of url the server understands (usually, http/s: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since there may be more than one, clients should avoid using relative URIs)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="url"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Subscription.header">
+      <path value="Subscription.header"/>
+      <short value="Usage depends on the channel type"/>
+      <definition value="Additional headers / information to send as part of the notification."/>
+      <comment value="Exactly what these mean depend on the channel type. They can convey additional information to the recipient and/or meet security requirements; for example, support of multiple headers in the outgoing notifications for rest-hook type subscriptions."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Subscription.heartbeatPeriod">
+      <path value="Subscription.heartbeatPeriod"/>
+      <short value="Interval in seconds to send &#39;heartbeat&#39; notification"/>
+      <definition value="If present,  a &#39;hearbeat&quot; notification (keepalive) is sent via this channel with an the interval period equal to this elements integer value in seconds.    If not present, a heartbeat notification is not sent."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Subscription.timeout">
+      <path value="Subscription.timeout"/>
+      <short value="Timeout in seconds to attempt notification delivery"/>
+      <definition value="If present, the maximum amount of time a server will allow before failing a notification attempt."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Subscription.contentType">
+      <path value="Subscription.contentType"/>
+      <short value="MIME type to send, or omit for no payload"/>
+      <definition value="The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. The MIME types &quot;text/plain&quot; and &quot;text/html&quot; may also be used for Email subscriptions."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MimeType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
+        </extension>
+        <strength value="required"/>
+        <description value="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+      </binding>
+    </element>
+    <element id="Subscription.content">
+      <path value="Subscription.content"/>
+      <short value="empty | id-only | full-resource"/>
+      <definition value="How much of the resource content to deliver in the notification payload. The choices are an empty payload, only the resource id, or the full resource content."/>
+      <comment value="Sending the payload has obvious security implications. The server is responsible for ensuring that the content is appropriately secured."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubscriptionPayloadContent"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes to represent how much resource content to send in the notification payload."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-payload-content"/>
+      </binding>
+    </element>
+    <element id="Subscription.maxCount">
+      <path value="Subscription.maxCount"/>
+      <short value="Maximum number of triggering resources included in notification bundles"/>
+      <definition value="If present, the maximum number of triggering resources that will be included in a notification bundle (e.g., a server will not include more than this number of trigger resources in a single notification).  Note that this is not a strict limit on the number of entries in a bundle, as dependent resources can be included."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

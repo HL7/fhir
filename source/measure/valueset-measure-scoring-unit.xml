@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="measure-scoring-unit"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cqi"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/measure-scoring-unit"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="MeasureScoringUnit"/>
+  <title value="Measure Scoring Unit"/>
+  <status value="active"/>
+  <date value="2021-04-06T19:00:36+00:00"/>
+  <publisher value="HL7 International - Clinical Quality Information Work Group"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cqi/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="This is an example value set illustrating some typical scoring units used in quality measure specifications."/>
+  <compose>
+    <include>
+      <system value="http://unitsofmeasure.org"/>
+      <concept>
+        <code value="1"/>
+        <display value="Default units"/>
+      </concept>
+      <concept>
+        <code value="/1000.d"/>
+        <display value="per 1000 patient days"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

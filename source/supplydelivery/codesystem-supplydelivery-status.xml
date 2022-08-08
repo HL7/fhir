@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="supplydelivery-status"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/supplydelivery-status defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">in-progress
+            
+            <a name="supplydelivery-status-in-progress"> </a>
+          
+          </td>
+          
+          <td>In Progress</td>
+          
+          <td>Supply has been requested, but not delivered.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">completed
+            
+            <a name="supplydelivery-status-completed"> </a>
+          
+          </td>
+          
+          <td>Delivered</td>
+          
+          <td>Supply has been delivered (&quot;completed&quot;).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">abandoned
+            
+            <a name="supplydelivery-status-abandoned"> </a>
+          
+          </td>
+          
+          <td>Abandoned</td>
+          
+          <td>Delivery was not completed.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            <a name="supplydelivery-status-entered-in-error"> </a>
+          
+          </td>
+          
+          <td>Entered In Error</td>
+          
+          <td>This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;abandoned&quot; rather than &quot;entered-in-error&quot;.).</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/supplydelivery-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.701"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="SupplyDeliveryStatus"/>
+  <title value="SupplyDeliveryStatus"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Status of the supply delivery."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="in-progress"/>
+    <display value="In Progress"/>
+    <definition value="Supply has been requested, but not delivered."/>
+  </concept>
+  <concept>
+    <code value="completed"/>
+    <display value="Delivered"/>
+    <definition value="Supply has been delivered (&quot;completed&quot;)."/>
+  </concept>
+  <concept>
+    <code value="abandoned"/>
+    <display value="Abandoned"/>
+    <definition value="Delivery was not completed."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered In Error"/>
+    <definition value="This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;abandoned&quot; rather than &quot;entered-in-error&quot;.)."/>
+  </concept>
+</CodeSystem>

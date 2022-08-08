@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="vsd-alignedvalueset" />
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use" />
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/vsd-alignedvalueset" />
+  <version value="4.6.0"/>
+  <name value="VSDALignedValueSet" />
+  <title value="Value Set Definition Aligned Profile" />
+  <status value="draft" />
+  <experimental value="false" />
+  <date value="2021-02-15" />
+  <publisher value="HL7" />
+  <description value="This profile defines the necessary extensions and constraints on ValueSet to align with the HL7 Specification: Characteristics of a Value Set Definition, Release 1 (VSD). This normative specification describes elements to create a ValueSet definition, and does not describe elements related to a ValueSet expansion." />
+  <purpose value="This profile defines the necessary extensions and constraints on ValueSet to align with the HL7 Specification: Characteristics of a Value Set Definition, Release 1 (VSD). This normative specification describes elements to create a ValueSet definition, and does not describe elements related to a ValueSet expansion." />
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="workflow" />
+    <uri value="http://hl7.org/fhir/workflow" />
+    <name value="Workflow Pattern" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/fivews" />
+    <name value="FiveWs Pattern Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="objimpl" />
+    <uri value="http://hl7.org/fhir/object-implementation" />
+    <name value="Object Implementation Information" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="ValueSet" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ValueSet" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="ValueSet">
+      <path value="ValueSet" />
+      <min value="1" />
+      <max value="1" />
+    </element>
+    <element id="ValueSet.extension">
+      <path value="ValueSet.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="ValueSet.extension:valueset-otherTitle">
+      <path value="ValueSet.extension" />
+      <sliceName value="valueset-otherTitle" />
+      <definition value="Alternate human readable name that may declare a language and preferred indicator." />
+		  <comment value="Either ValueSet.title or ValueSet.otherTitle must be valued." />
+      <requirements value="Use when a language or preferred indicator is necessary" />
+		  <type>
+	        <code value="Extension" />
+	        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-otherTitle" />
+	      </type>
+	      <constraint>
+	        <key value="vsd-2" />
+	        <severity value="error" />
+	        <human value="Either title or extension-otherTitle must be valued" />
+	        <expression value="ValueSet.title.exists() or ValueSet.extension:valueset-other-title.exists()" />
+			<source value="http://hl7.org/fhir/StructureDefinition/vsd-alignedvalueset" />
+	      </constraint>
+    </element>
+    <element id="ValueSet.extension:valueset-authoritativeSource">
+      <path value="ValueSet.extension" />
+      <sliceName value="valueset-authoritativeSource" />
+      <definition value="Authoritative, accessible, persisted source of truth of the entire Value Set Definition." />
+      <comment value="The designated authoritative source is expected to be able to generate a valid expansion of the value set. If it cannot, the valueset-trusted-expansion should be used." />
+	  <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-authoritativeSource" />
+      </type>
+    </element>
+    <element id="ValueSet.extension:valueset-trusted-expansion">
+      <path value="ValueSet.extension" />
+      <sliceName value="valueset-trusted-expansion" />
+      <definition value="Potential source for a ValueSet expansion." />
+      <comment value="Should only be used if valueset-authoritativeSource does not have a FHIR service which is capable of generating a valid FHIR expansion." />
+	  <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-trusted-expansion" />
+      </type>
+    </element>
+    <element id="ValueSet.extension:valueset-sourceReference">
+      <path value="ValueSet.extension" />
+      <sliceName value="valueset-sourceReference" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-sourceReference" />
+      </type>
+    </element>
+    <element id="ValueSet.extension:valueset-keyWord">
+      <path value="ValueSet.extension" />
+      <sliceName value="valueset-keyWord" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-keyWord" />
+      </type>
+    </element>
+    <element id="ValueSet.extension:valueset-workflowStatusDescription">
+      <path value="ValueSet.extension" />
+      <sliceName value="valueset-workflowStatusDescription" />
+      <definition value="Status of Value Set Definition development process." />
+	  <comment value="May be a controlled list." />
+	  <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-workflowStatusDescription" />
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.extension:valueset-steward">
+      <path value="ValueSet.extension" />
+      <sliceName value="valueset-steward" />
+      <definition value="Responsible for the content of the Value Set Definition." />
+	  <comment value="Should include contact information." />
+	  <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-steward" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="ValueSet.extension:valueset-author">
+      <path value="ValueSet.extension" />
+      <sliceName value="valueset-author" />
+      <definition value="Entity or entities that create and may modify the Value Set Definition." />
+      <comment value ="May include contact information." />
+		  <type>
+	        <code value="Extension" />
+	        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-author" />
+	      </type>
+	  <mustSupport value="true" />
+    </element>
+    <element id="ValueSet.extension:valueset-expression">
+      <path value="ValueSet.extension" />
+      <sliceName value="valueset-expression" />
+      <definition value="Human readable Value Set Definition." />
+	  <comment value="If present with compose, expression makes the same statement as the compose. If present without compose, expression is computable, and provides the definition of the Value Set.  The syntax is defined in valueset-expression." />
+	  <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-expression" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+	<element id="ValueSet.extension:valueset-supplement">
+	  <path value="ValueSet.extension" />
+	  <sliceName value="valueset-supplement" />
+	  <definition value="This extension declares that a value set depends on a particular supplement and should not be used in its absence." />
+	  <type>
+	    <code value="Extension" />
+		<profile value="http://hl7.org/fhir/StructureDefinition/valueset-supplement" />
+	  </type>
+	  <mustSupport value="true" />
+	</element>
+    <element id="ValueSet.url">
+      <path value="ValueSet.url" />
+      <min value="1" />
+    </element>
+    <element id="ValueSet.identifier">
+      <path value="ValueSet.identifier" />
+      <comment value="Identifier.system is restricted to OID, RUID, UUID, URI" />
+      <constraint>
+        <key value="vsd-1" />
+        <severity value="error" />
+        <human value="Identifier.system is restricted to OID, RUID, UUID, URI" />
+		<expression value="identifier.exists(system in ('OID' or 'RUID' or 'UUID' or 'URI'))" />
+        <source value="http://hl7.org/fhir/StructureDefinition/vsd-alignedvalueset" />
+      </constraint>
+      <mustSupport value="true" />
+    </element>
+    <element id="ValueSet.version">
+      <path value="ValueSet.version" />
+	  <requirements value="Must be persisted with a ValueSet expansion." />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ValueSet.name">
+      <path value="ValueSet.name" />
+      <min value="1" />
+    </element>
+    <element id="ValueSet.title">
+      <path value="ValueSet.title" />
+      <constraint>
+        <key value="vsd-2" />
+        <severity value="error" />
+        <human value="Either title or extension-otherTitle must be valued" />
+        <expression value="ValueSet.title.exists() or ValueSet.extension:valueset-other-title.exists()" />
+		<source value="http://hl7.org/fhir/StructureDefinition/vsd-alignedvalueset" />
+      </constraint>
+    </element>
+    <element id="ValueSet.status">
+      <path value="ValueSet.status" />
+	  <requirements value="Must be persisted with a ValueSet expansion." />
+      <mustSupport value="true" />
+      <mapping>
+        <identity value="rim" />
+        <map value="N/A" />
+      </mapping>
+    </element>
+    <element id="ValueSet.status.extension">
+      <path value="ValueSet.status.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="ValueSet.status.extension:valueset-status-activityStatusDate">
+      <path value="ValueSet.status.extension" />
+      <sliceName value="valueset-status-activityStatusDate" />
+	  <definition value="Date the Value Set Definition status is set." />
+	  <comment value="When &quot;Active&quot;,  defines the date-time the ValueSet Definition becomes active. When the Status is set to &quot;Inactive&quot;, defines the date-time when the ValueSet Definition version becomes Inactive." />
+	  <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-status-activityStatusDate" />
+      </type>
+      <mustSupport value="true" />
+    </element>
+    <element id="ValueSet.experimental">
+      <path value="ValueSet.experimental" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+	<element id="ValueSet.publisher">
+      <path value="ValueSet.publisher" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ValueSet.useContext">
+      <path value="ValueSet.useContext" />
+      <comment value="If only text is available, use CodeableConcept.text." />
+      <mustSupport value="true" />
+    </element>
+    <element id="ValueSet.immutable">
+      <path value="ValueSet.immutable" />
+      <min value="1" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ValueSet.purpose">
+      <path value="ValueSet.purpose" />
+    </element>
+    <element id="ValueSet.compose">
+      <path value="ValueSet.compose" />
+      <comment value="Only one of rulesText, expression, or compose SHALL be provided for any given valueset instance." />
+      <mustSupport value="true" />
+    </element>
+    <element id="ValueSet.compose.extension">
+      <path value="ValueSet.compose.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="ValueSet.compose.extension:valueset-compose-creationDate">
+      <path value="ValueSet.compose.extension" />
+      <sliceName value="valueset-compose-creationDate" />
+	  <definition value="Date the Value Set Definition was persisted." />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-compose-creationDate" />
+      </type>
+    </element>
+    <element id="ValueSet.compose.extension:valueset-compose-createdBy">
+      <path value="ValueSet.compose.extension" />
+      <sliceName value="valueset-compose-createdBy" />
+	  <comment value="Person or process that created the Value Set Definition." />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-compose-createdBy" />
+      </type>
+    </element>
+    <element id="ValueSet.compose.lockedDate">
+      <path value="ValueSet.compose.lockedDate" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ValueSet.compose.inactive">
+      <path value="ValueSet.compose.inactive" />
+      <comment value="Note: VSD.ActiveOnly = TRUE is equivalent to ValueSet.compose.inactive = FALSE" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ValueSet.compose.include">
+      <path value="ValueSet.compose.include" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ValueSet.compose.include.extension">
+      <path value="ValueSet.compose.include.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="ValueSet.compose.include.extension:valueset-compose-include-valueSetTitle">
+      <path value="ValueSet.compose.include.extension" />
+      <sliceName value="valueset-compose-include-valueSetTitle" />
+	  <definition value="Human readable name of a Value Set Definition." />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-compose-include-valueSetTitle" />
+      </type>
+    </element>
+    <element id="ValueSet.compose.include.extension:valueset-systemTitle">
+      <path value="ValueSet.compose.include.extension" />
+      <sliceName value="valueset-systemTitle" />
+	  <definition value="Human readable name for a CodeSystem." />
+      <type>
+        <code value="Extension" />
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-systemTitle" />
+      </type>
+    </element>
+    <element id="ValueSet.compose.include.system">
+      <path value="ValueSet.compose.include.system" />
+      <comment value="Fragments cannot contain any codes, concepts or properties that would not be found in a complete representation of the code system. Implementers should note that a &quot;complete representation&quot; of the code system might not exist in a single authoritative publication (e.g., SNOMED International with all modules/extensions)" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ValueSet.compose.include.filter">
+      <path value="ValueSet.compose.include.filter" />
+      <mustSupport value="true" />
+    </element>
+		<element id="ValueSet.compose.include.filter.property">
+	      <path value="ValueSet.compose.include.filter.property" />
+	      <mustSupport value="true" />
+	    </element>
+	<element id="ValueSet.compose.include.filter.op">
+      <path value="ValueSet.compose.include.filter.op" />
+      <mustSupport value="true" />
+    </element>
+	<element id="ValueSet.compose.include.filter.value">
+      <path value="ValueSet.compose.include.filter.value" />
+      <mustSupport value="true" />
+    </element>
+    <element id="ValueSet.compose.include.copyright">
+      <path value="ValueSet.compose.include.copyright" />
+      <definition value="Exclusive right given to an originator or an assignee to print, publish, perform, film or record material and to authorize others to do the same." />
+	  <comment value="Copyright statement for the specific CodeSystem and Version or for the included ValueSet CodeSystem and version." />
+      <mustSupport value="true" />
+    </element>
+
+	<element id="ValueSet.scope">
+		<path value="ValueSet.scope"/>
+	  <min value="1" />
+	  <mustSupport value="true"/>
+	</element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="Resource-core"/>
+  <version value="0.01"/>
+  <name value="Resource HL7 Extensions"/>
+  <title value="Resource HL7 Extensions"/>
+  <status value="draft"/>
+  <date value="1970-01-01T10:00:00+10:00"/>
+  <publisher value="HL7"/>
+  <description value="Defines common extensions used across multiple different resources"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/resource-approvalDate"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/resource-lastReviewDate"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/resource-effectivePeriod"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/resource-pertainsToGoal"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/derivation-reference"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/resource-instance-description"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/resource-instance-name"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

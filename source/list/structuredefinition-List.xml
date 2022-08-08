@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="List"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Base.Management"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="not-classified"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/List"/>
+  <version value="4.6.0"/>
+  <name value="List"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A list is a curated collection of resources."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="List"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="List">
+      <path value="List"/>
+      <short value="A list is a curated collection of resources"/>
+      <definition value="A list is a curated collection of resources."/>
+      <alias value="Collection"/>
+      <alias value="WorkingList"/>
+      <alias value="Organizer"/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="lst-3"/>
+        <severity value="error"/>
+        <human value="An entry date can only be used if the mode of the list is &quot;working&quot;"/>
+        <expression value="mode = &#39;working&#39; or entry.date.empty()"/>
+        <xpath value="(f:mode/@value = &#39;working&#39;) or not(exists(f:entry/f:date))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/List"/>
+      </constraint>
+      <constraint>
+        <key value="lst-2"/>
+        <severity value="error"/>
+        <human value="The deleted flag can only be used if the mode of the list is &quot;changes&quot;"/>
+        <expression value="mode = &#39;changes&#39; or entry.deleted.empty()"/>
+        <xpath value="(f:mode/@value = &#39;changes&#39;) or not(exists(f:entry/f:deleted))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/List"/>
+      </constraint>
+      <constraint>
+        <key value="lst-1"/>
+        <severity value="error"/>
+        <human value="A list can only have an emptyReason if it is empty"/>
+        <expression value="emptyReason.empty() or entry.empty()"/>
+        <xpath value="not(exists(f:emptyReason) and exists(f:entry))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/List"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act[classCode&lt;ORG,moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="infrastructure.documents"/>
+      </mapping>
+    </element>
+    <element id="List.identifier">
+      <path value="List.identifier"/>
+      <short value="Business identifier"/>
+      <definition value="Identifier for the List assigned for business purposes outside the context of FHIR."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+    <element id="List.status">
+      <path value="List.status"/>
+      <short value="current | retired | entered-in-error"/>
+      <definition value="Indicates the current state of this list."/>
+      <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ListStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The current state of the list."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/list-status|4.6.0"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".status[current=active;retired=obsolete;entered-in-error=nullified]"/>
+      </mapping>
+    </element>
+    <element id="List.mode">
+      <path value="List.mode"/>
+      <short value="working | snapshot | changes"/>
+      <definition value="How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted."/>
+      <comment value="This element is labeled as a modifier because a change list must not be misunderstood as a complete list."/>
+      <requirements value="Lists are used in various ways, and it must be known in what way it is safe to use them."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="If set to &quot;changes&quot;, the list is considered incomplete, while the other two codes indicate the list is complete, which changes the understanding of the elements listed"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ListMode"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The processing mode that applies to this list."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/list-mode|4.6.0"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outBoundRelationship[typeCode=COMP].target[classCode=OBS&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="List.title">
+      <path value="List.title"/>
+      <short value="Descriptive name for the list"/>
+      <definition value="A label for the list assigned by the author."/>
+      <requirements value="Allows customization beyond just the code identifying the kind of list."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueString value="Dr. Jane&#39;s Patients"/>
+      </example>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".title"/>
+      </mapping>
+    </element>
+    <element id="List.code">
+      <path value="List.code"/>
+      <short value="What the purpose of this list is"/>
+      <definition value="This code defines the purpose of the list - why it was created."/>
+      <comment value="If there is no code, the purpose of the list is implied where it is used, such as in a document section using Document.section.code."/>
+      <requirements value="Lists often contain subsets of resources rather than an exhaustive list.  The code identifies what type of subset is included."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ListPurpose"/>
+        </extension>
+        <strength value="example"/>
+        <description value="What the purpose of a list is."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/list-example-codes"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="List.subject">
+      <path value="List.subject"/>
+      <short value="If all resources have the same subject"/>
+      <definition value="The common subject (or patient) of the resources that are in the list if there is one."/>
+      <comment value="Some purely arbitrary lists do not have a common subject, so this is optional."/>
+      <requirements value="The primary purpose of listing the subject explicitly is to help with finding the right list."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode&lt;SUB].role (and sometimes .player)"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="List.encounter">
+      <path value="List.encounter"/>
+      <short value="Context in which list created"/>
+      <definition value="The encounter that is the context in which this list was created."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="List.date">
+      <path value="List.date"/>
+      <short value="When the list was prepared"/>
+      <definition value="The date that the list was prepared."/>
+      <comment value="The actual important date is the date of currency of the resources that were summarized, but it is usually assumed that these are current when the preparation occurs."/>
+      <requirements value="Identifies how current the list is which affects relevance."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode&lt;AUT].time[type=TS]"/>
+      </mapping>
+    </element>
+    <element id="List.source">
+      <path value="List.source"/>
+      <short value="Who and/or what defined the list contents (aka Author)"/>
+      <definition value="The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list."/>
+      <comment value="The primary source is the entity that made the decisions what items are in the list. This may be software or user."/>
+      <requirements value="Allows follow-up as well as context."/>
+      <alias value="Author"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode&lt;AUT].role[classCode=REL].player[classCode=PSN,determinerCode=INST] or .participation[typeCode&lt;AUT].role[classCode=REL].player[classCode=DEV,determinerCode=INST]"/>
+      </mapping>
+    </element>
+    <element id="List.orderedBy">
+      <path value="List.orderedBy"/>
+      <short value="What order the list has"/>
+      <definition value="What order applies to the items in the list."/>
+      <comment value="Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. If there is no order specified, the order is unknown, though there may still be some order."/>
+      <requirements value="Important for presentation and rendering.  Lists may be sorted to place more important information first or to group related entries."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ListOrder"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="What order applies to the items in a list."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/list-order"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP].sequenceNumber &gt; 1"/>
+      </mapping>
+    </element>
+    <element id="List.note">
+      <path value="List.note"/>
+      <short value="Comments about the list"/>
+      <definition value="Comments that apply to the overall list."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].act.text"/>
+      </mapping>
+    </element>
+    <element id="List.entry">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="List.entry"/>
+      <short value="Entries in the list"/>
+      <definition value="Entries in this list."/>
+      <comment value="If there are no entries in the list, an emptyReason SHOULD be provided."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <orderMeaning value="Order has no meaning unless specifically asserted by List.orderedBy, in which case the List SHALL be interpreted as being ordered as specified by List.orderedBy."/>
+      <condition value="lst-1"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP] or  .participation[typeCode=SBJ]"/>
+      </mapping>
+    </element>
+    <element id="List.entry.flag">
+      <path value="List.entry.flag"/>
+      <short value="Status/Workflow information about this item"/>
+      <definition value="The flag allows the system constructing the list to indicate the role and significance of the item in the list."/>
+      <comment value="The flag can only be understood in the context of the List.code. If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. Deleted can only be used if the List.mode is &quot;changes&quot;."/>
+      <requirements value="This field is present to support various clinical uses of lists, such as a discharge summary medication list, where flags specify whether the medication was added, modified, or deleted from the list."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ListItemFlag"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes that provide further information about the reason and meaning of the item in the list."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/list-item-flag"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outBoundRelationship[typeCode=COMP].target[classCode=OBS&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="List.entry.deleted">
+      <path value="List.entry.deleted"/>
+      <short value="If this item is actually marked as deleted"/>
+      <definition value="True if this item is marked as deleted in the list."/>
+      <comment value="If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. Both flag and deleted can only be used if the List.mode is &quot;changes&quot;. A deleted entry should be displayed in narrative as deleted.  This element is labeled as a modifier because it indicates that an item is (to be) no longer in the list."/>
+      <requirements value="The flag element may contain codes that an application processing the list does not understand. However there can be no ambiguity if a list item is actually marked as &quot;deleted&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="List items are generally only treated as deleted when this element explicitly carries a value of true. Systems SHOULD always populate this value when mode is &#39;changes&#39;"/>
+      <condition value="lst-2"/>
+      <isModifier value="true"/>
+      <isModifierReason value="If deleted is true, then the item included in the list isn&#39;t actually part of the list anymore"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="added: .updateMode=(&quot;A&quot;,&quot;AR&quot;)  retained: .updateMode=&quot;NC&quot;  updated: .updateMode=&quot;R&quot;  deleted: .updateMode=&quot;D&quot;"/>
+      </mapping>
+    </element>
+    <element id="List.entry.date">
+      <path value="List.entry.date"/>
+      <short value="When item added to list"/>
+      <definition value="When this item was added to the list."/>
+      <requirements value="The date may be significant for understanding the meaning of items in a working list."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".availabilityTime"/>
+      </mapping>
+    </element>
+    <element id="List.entry.item">
+      <path value="List.entry.item"/>
+      <short value="Actual entry"/>
+      <definition value="A reference to the actual resource from which data was derived."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".target or .role or .role.entity"/>
+      </mapping>
+    </element>
+    <element id="List.emptyReason">
+      <path value="List.emptyReason"/>
+      <short value="Why list is empty"/>
+      <definition value="If the list is empty, why the list is empty."/>
+      <comment value="The various reasons for an empty list make a significant interpretation to its interpretation. Note that this code is for use when the entire list has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases."/>
+      <requirements value="Allows capturing things like &quot;none exist&quot; or &quot;not asked&quot; which can be important for most lists."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <condition value="lst-1"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ListEmptyReason"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="If a list is empty, why it is empty."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/list-empty-reason"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ,code&lt;ListEmptyReason].value[type=CD]"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

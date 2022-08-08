@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="invoice-status"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/invoice-status defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">draft
+            
+            <a name="invoice-status-draft"> </a>
+          
+          </td>
+          
+          <td>draft</td>
+          
+          <td>the invoice has been prepared but not yet finalized.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">issued
+            
+            <a name="invoice-status-issued"> </a>
+          
+          </td>
+          
+          <td>issued</td>
+          
+          <td>the invoice has been finalized and sent to the recipient.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">balanced
+            
+            <a name="invoice-status-balanced"> </a>
+          
+          </td>
+          
+          <td>balanced</td>
+          
+          <td>the invoice has been balaced / completely paid.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">cancelled
+            
+            <a name="invoice-status-cancelled"> </a>
+          
+          </td>
+          
+          <td>cancelled</td>
+          
+          <td>the invoice was cancelled.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            <a name="invoice-status-entered-in-error"> </a>
+          
+          </td>
+          
+          <td>entered in error</td>
+          
+          <td>the invoice was determined as entered in error before it was issued.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/invoice-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.867"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="InvoiceStatus"/>
+  <title value="InvoiceStatus"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Codes identifying the lifecycle stage of an Invoice."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/invoice-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="draft"/>
+    <display value="draft"/>
+    <definition value="the invoice has been prepared but not yet finalized."/>
+  </concept>
+  <concept>
+    <code value="issued"/>
+    <display value="issued"/>
+    <definition value="the invoice has been finalized and sent to the recipient."/>
+  </concept>
+  <concept>
+    <code value="balanced"/>
+    <display value="balanced"/>
+    <definition value="the invoice has been balaced / completely paid."/>
+  </concept>
+  <concept>
+    <code value="cancelled"/>
+    <display value="cancelled"/>
+    <definition value="the invoice was cancelled."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="entered in error"/>
+    <definition value="the invoice was determined as entered in error before it was issued."/>
+  </concept>
+</CodeSystem>

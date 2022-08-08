@@ -10,7 +10,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <%txheader%>
 
@@ -113,17 +113,19 @@ no explicit differentiation between them; only the fact that a code happens to l
 LOINC code betrays its origin.
 </p>
 <p>
-For data exchange, on the other hand, explicitly tracking the source of the code is both important and necessary.
-In order to do this, each code system that defines codes is assigned a URL that identifies it, and all
-the codes it defines are actually a pair ("Code Pair":  a name with a namespace). So in the case of
-this mixed list example from the previous paragraph, there are two code systems: <a href="loinc.html">LOINC</a> (http://loinc.org)
-and a local one (let's say it has been given the URL: http://example.com/codesystems/additional-test-codes).
-The application table is a single value set (a set of Code Pairs) that includes codes from each of
-those two namespaces. The value set itself is given its own URL as an identifier (e.g. "http://example.com/fhir/ValueSet/test-codes").
-This identifies the set of Code Pairs, but is never used as the namespace in an actual code pair, or in an instance.
-In FHIR, Code Pairs are always represented as "code" and "system", except for the simple data type <a href="datatypes.html#code">code</a>
-where the namespace (e.g. the system element/property) is fixed in the schema and not
-represented explicitly.
+The code system identifier of the concept is necessary for interoperable data exchange.  
+Each code system is assigned a uri.  The combination of the code system identifier (uri) 
+and the concept identifier (e.g. code) is unique. Note that code system version may be 
+necessary to achieve uniqueness when the code system does not follow concept permanence rules. 
+</p>
+<p>
+In the case of the mixed list example from the previous paragraph, there are two code systems: <a href="loinc.html">LOINC</a> (http://loinc.org) 
+and a local one with the uri: http://example.com/codesystems/additional-test-codes. 
+The value set definition includes concept identifier (codes) from each of the two code systems. 
+The value set is given a uri as an identifier (e.g. "http://example.com/fhir/ValueSet/test-codes"). 
+The value set uri is not the same as the code system uri. Concepts are always identified by <code>code</code> and <code>system</code>, 
+except for the simple data type <a href="datatypes.html#code">code</a> where the code system is fixed in a specification 
+(e.g. core specification, implementation guide, profile) and not represented explicitly.
 </p>
 <p>
 Note that for some code systems, there is a single correct mechanism by which to represent
@@ -149,32 +151,83 @@ The correct value to use in the <i>system</i> for a given code system can be det
 by working through the following list, in order:
 </p>
 <ul>
- <li>The specification <a href="terminologies-systems.html">Code System Registry</a>
-     - if a code system is listed here, it SHALL be used</li>
- <li>A system URI or OID defined as the correct value to use in FHIR by the publisher of the code system</li>
- <li>The FHIR <a href="https://registry.fhir.org/search?q=resourcetype:codesystem">community code system registry</a>
-     - if a code system is listed here with <a href="namingsystem-definitions.html#NamingSystem.status">status = active</a>, it SHALL be used</li>
- <li>An OID registered in the <a href="http://hl7.org/oid">HL7 OID registry</a> - if a code system is registered here, the OID SHOULD be used (using the syntax urn:oid:[oid])</li>
+ <li><a href="https://terminology.hl7.org/">Terminology.hl7.org </a> (THO) -  If a code system is listed here, the canonical CodeSystem URL SHALL be used.</li>
+ <li>Not listed in <a href="https://terminology.hl7.org/">Terminology.hl7.org </a>, and the code system is external to HL7, the CodeSystem identifier authorized by HTA SHALL be used.
+  <ul>
+   <li>Check the HL7 Terminology Authority (HTA) JIRA project to determine if a request is in process to obtain an identifier
+    <ul>
+	 <li><a href="https://jira.hl7.org/projects/HTA/issues/">https://jira.hl7.org/projects/HTA/issues/</a></li>
+	 <li>No JIRA in progress? Check the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=91999004">HTA Confluence pages</a> to determine if a request is in process to obtain an identifier.</li>
+	</ul>
+   </li>
+   <li>If none of the HTA resources address your issue,
+    <ul>
+	 <li>Start the <a href="https://confluence.hl7.org/display/TA/Request+Content+in+External+Terminologies">HTA process to request content in external terminologies</a> communicating the temporary identifier you assigned</li>
+	 <li>Create a temporary identifier following this pattern:
+	  <ul>
+	   <li>terminology.hl7.org/temporary/CodeSystem/xxxxx   (where xxxx is a meaningful text string)</li>
+	  </ul>
+	 </li>
+	</ul>
+   </li>
+   <li>Monitor the HTA request and update your specification when an authoritative identifier is available</li>
+  </ul>
+ </li>
+ <li>Not listed in <a href="http://terminology.hl7.org/">Terminology.hl7.org</a>, and the code system is internal to HL7, and is expected to be used in a production system
+  <ul>
+  <li>If you don't see your CodeSystem in THO,
+    <ul>
+	 <li>Create a canonical URL following this pattern: terminology.hl7.org/CodeSystem/xxxxx    (where xxxx is a meaningful text string)
+	  <ul>
+	   <li>This will start the process to create a NamingSystem resource in terminology.hl7.org for your CodeSystem </li>
+	   <li>The CodeSystem content may remain within the IG</li>
+	  </ul>
+	 </li>
+	</ul>
+   </li>
+   <li>When the CodeSystem is at a state where the IG authors/developers/interested parties are confident it is sufficient, and as early in the process as possible,
+    <ul>
+	 <li><a href="https://confluence.hl7.org/display/VMAH/How+To+Submit+a+UTG+Change+Proposal">Start the UTG process</a> to move the CodeSystem content to THO</li>
+	</ul>
+   </li>
+   <li>Set yourself as a watcher on the UP JIRA ticket and update your specification when your CodeSystem is in THO</li>
+  </ul>
+ </li>
+ <li>Not listed in <a href="http://terminology.hl7.org/">Terminology.hl7.org</a>, and the code system is intended to <i>never be used in a production system,</i> and will be used to create a value set bound with Example binding strength
+  <ul>
+  <li>If the example concept codes will be used in multiple IGs,
+   <ul>
+    <li>Use the following URL pattern:  [ig-base-canonical]/CodeSystem/example-xxxxx (from one of the multiple IGs, there is no reason to define the same example CodeSystem in multiple IGs)</li>
+   </ul>
+  </li>
+  <li>If the example concept codes will only ever be used in a single IG:
+   <ul>
+    <li>Create an identifier following this pattern: [ig-base-canonical]/CodeSystem/example-xxxxx  (where xxxxx is a specific string that conveys intent)</li>
+   </ul>
+  </li>
+  </ul>
+ </li>
 </ul>
 <p>
-If a code system is not resolved by this list, and there is no publisher to consult, implementers
-must choose a URI to use. The priority should be to choose a unique value that won't
-accidentally be used by another implementer for a different purpose - or a very similar purpose
-with a different scope. See <a href="https://confluence.hl7.org/display/FHIR/Registering+Code+Systems">Registering Code Systems</a> for further advice.
+
+In the unusual situation where a code system is not resolved by this list, create a temporary identifier following this pattern: terminology.hl7.org/temporary/CodeSystem/xxxx. Contact the HL7 Vocabulary co-chairs.
 </p>
 <p>
 For publishers of code systems, the following considerations should be kept in mind when
 defining the correct URI to use:
 </p>
 <ul>
- <li>Once defined, the URI will require agreement from all implementers to change, and some might not be able to change (stored resources). If the set of users is not closed, it will usually not be possible to change the URI</li>
- <li>Implementers strongly prefer a human readable URI. http://acme.com/patients/mrn is a great deal easier to work with than urn:oid:1.2.3.4.5.6.7</li>
+ <li>Once defined and in production use, in rare situations, the code system URI may change. Implementers should design their system to support a code system identifier change. Terminology.hl7.org implements NamingSystem resources to manage code system identifiers and their effective date range.</li>
  <li>An http: address SHOULD resolve to some useful description of the code system. Ideally, if a user makes a request of the address with the media type set to a FHIR media type, the server will respond
    with a <a href="codesystem.html">CodeSystem resource</a>, but some other human or computable definition is allowed</li>
  <li>HTTP addresses should be permalinks which may re-direct to the current correct content</li>
- <li>A scope of the code system URI and the correct usage of codes and displays in its namespace SHOULD be clearly defined.
-   See examples for <a href="snomedct.html">SNOMED CT</a>, <a href="rxnorm.html">RxNorm</a>, <a href="loinc.html">LOINC</a>, <a href="ndc.html">NDC</a></li>
- <li>Generally, allocation of URLs is hierarchical, and most care is required in choosing the Base URL. Once sub-URL policies are clearly defined, URIs can often be automatically assigned</li>
+ <li>A scope of the code system URI and the correct usage of codes and displays in its namespace will be clearly defined by HTA.
+   See examples for <a href="http://build.fhir.org/snomedct.html">SNOMED CT</a>, <a href="http://build.fhir.org/rxnorm.html">RxNorm</a>, <a href="http://build.fhir.org/loinc.html">LOINC</a>, <a href="http://build.fhir.org/ndc.html">NDC</a></li>
+ <li>All code systems internal to HL7 use <a href="http://terminology.hl7.org/">Terminology.hl7.org</a> as the base. Generally, allocation of URLs is hierarchical, and most care is required in choosing the Base URL.
+  <ul>
+   <li>The url pattern is:  terminology.hl7.org/CodeSystem/xxxxxx/xxxxxxx</li>
+  </ul>
+ </li>
 </ul>
 <p>
 Note: if the code system is made available packaged inside a <a href="valueset.html">ValueSet</a> resource, the
@@ -218,7 +271,7 @@ This example shows a SNOMED CT expression:
 }
 </pre>
 <p>
-Note that there is no display defined for SNOMED CT expressions.
+No display is provided in this example. See the discussion here: <a href="https://confluence.ihtsdotools.org/x/UwbJAQ">https://confluence.ihtsdotools.org/x/UwbJAQ</a>
 </p>
 </div>
 
@@ -396,7 +449,7 @@ any value set at all. Bindings are to be provided for these elements.
 
 <a name="strength"></a>
 
-<h2>Binding Strengths</h2>
+<h3>Binding Strengths</h3>
 <p>
 Almost all the elements that have a coded data type are bound to a value set. The bindings
 are associated with various degrees of flexibility as to how closely the value set should be
@@ -417,23 +470,18 @@ will work together to choose actual working value sets.
 <a name="simple"></a>
 <a name="code"></a>
 <a name="required"></a>
-<h3>Required</h3>
+<h4>Required Binding Strength</h4>
 <p>
 <i>To be conformant, codes in this element SHALL be from the specified value set.</i>
 </p>
 <p>
-In the standard, this is generally used for elements where the value needs to be strictly controlled so that everyone
-can interpret it with confidence. Generally, this is used for elements with type <a href="datatypes.html#code">code</a>:
+If the binding strength is required, the data element SHALL contain one of the values in the bound value set.
 </p>
-<ul>
- <li>the element is bound to a value set that contains a list of distinct codes with a specified system (and version, where required)</li>
- <li>the element is bound to some external standard that defines the set of valid codes that can be used (typical examples are <a href="http://www.rfc-editor.org/bcp/bcp13.txt">Mime Types</a>,
-<a href="http://tools.ietf.org/html/bcp47">Language Codes</a>, <a href="http://unitsofmeasure.org">UCUM</a>, etc.)</li>
-</ul>
 <p>
-The other place where this is used is when <a href="profiling.html">profiling resources</a>, and there is agreement within a context of use
-that a specified set of codes are the only ones that can be used. In these cases, the data type SHALL contain one of the
-values in the value set.
+Required binding strength is used for elements where the value needs to be strictly controlled so the element can be interpreted with confidence. Required binding strength SHALL be used for elements with type code.
+</p>
+<p>
+In the base FHIR specification, required binding strength is typically only used with the 'code' data type. In profiles, it may be used more broadly when there is agreement within a context of use that a specified set of codes are the only ones that can be used.
 </p>
 <p>
 The following rules apply when required bindings are used with the <a href="datatypes.html#CodeableConcept">CodeableConcept</a> data type:
@@ -454,88 +502,92 @@ Note: when a binding is applied to a <a href="references.html#CodeableReference"
 The following  rules apply when required bindings are used with the <a href="datatypes.html#code">code</a> data type:
 </p>
 <ul>
- <li>Where the value set is defined by FHIR, the list of allowed codes will be fixed in the XML schema</li>
- <li>Comparison between codes is always case sensitive unless the codes are selected by reference (e.g. ValueSet.compose), and the referenced specification clearly states otherwise</li>
+ <li>The codes in the value set expansion must be distinct independent of the code system. </li>
+ <li>If the value set draws from multiple code systems or an HL7 defined code system, the value set must specify a version of each code system.
+  <ul>
+   <li>i.e. If the code system evolves after publication of a specification with the binding, those changes do not have any impact on specification use. </li>
+   <li>Where the value set is defined in the FHIR core specification, the list of allowed codes will be fixed in the core specification XML schema</li>
+  </ul>
+ </li>
+ <li>the element is bound to some external standard that defines the set of valid codes that can be used (typical examples are <a href="http://www.rfc-editor.org/bcp/bcp13.txt">Mime Types</a>,
+<a href="http://tools.ietf.org/html/bcp47">Language Codes</a>, <a href="http://unitsofmeasure.org">UCUM</a>, etc.)</li>
  <li>The list of codes that can be used can only be extended in subsequent releases of the FHIR specification</li>
+ <li>Comparison between codes is always case sensitive unless the codes are selected by reference (e.g. ValueSet.compose), and the referenced specification clearly states otherwise.</li>
+ <li>If the bound value set is defined external to the specification, the binding must specify a value set version.</li>
 </ul>
 <p>
 When an element is bound to a required value set, <a href="profiling.html">derived profiles</a>
-may state rules on which codes can be used, including removing codes from allowed use, but cannot specify new or additional codes for these elements.
+may state rules on which codes can be used, including removing codes from allowed use, but cannot specify additional codes for these elements.
 </p>
 
 <a name="extensible"></a>
-<h3>Extensible</h3>
+<h4>Extensible Binding Strength</h4>
 <p>
-<i>To be conformant, codes in this element SHALL be from the specified value set if any of the codes within the value set
+<i>To be conformant, codes in this element SHALL be from the specified value set if any of the codes within the value set 
 can apply to the concept being communicated.</i>
 </p>
 <p>
-Note that it is the value set <b>binding</b> that is extensible, not the value set itself.
+Extensible bindings are used when there is consensus at the specification or profiling level about the coded values that 
+should be used, but it is impossible to create a bounded list of codes that are known to cover all use cases, including 
+ones that are yet to arise.
 </p>
 <p>
-If <b>there is no applicable concept</b> in  value set (based on human review), an alternate concept (either <code>system</code>/<code>code</code> 
-pair, or <code>text</code>) may be used instead. The alternate concept can have any level of specificity in an <code>is-a</code> hierarchy 
+Note that it is the value set <b>binding</b> that is extensible, not the value set itself. In the interests of brevity 
+and clarity, please consider all references to value set in the text below to refer to an evaluation of the content 
+logical definition (CLD) of the extensibly-bound value set unless the reference is explicitly noted to refer to a 
+value set definition. If the value set can be expanded, then a proper expansion is equivalent to the evaluation of the CLD.
+</p>
+<p>
+If <b>there is no applicable concept</b> in the value set (based on human review), an alternate concept (either <code>system</code>
+/<code>code</code> pair, <code>system</code>/<code>version</code>/<code>code</code> triplet, or <code>text</code>) may be 
+used instead. The alternate concept can have any level of specificity in an <code>is-a</code> hierarchy 
 (see <a href="terminologies-binding-examples.html#extensible.c2">Condition instance #2</a>).
 </p>
+<ol>
+ <li>If there is a concept that matches the meaning in the extensibly-bound value set then use that concept.</li>
+ <li>If there is not a concept that matches the meaning in the extensibly-bound value set and <b>there is at least one 
+ applicable concept</b> in the extensibly-bound value set with a meaning which includes but is more general than the 
+ meaning that is intended to be represented by the element in the resource instance, then:</li>
+  <ul>
+   <li>The code that is used in the instance SHALL be taken from one of the applicable concepts from the 
+   value set and SHOULD be the closest more general available match for the intended element instance meaning. 
+   If the data type is Coding then the only concept that can be sent is the applicable concept from the value set.</li>
+   <li>If the data type is CodeableConcept, a more specific code that is not in the extensibly bound value set 
+   that more completely represents the intended meaning <b>MAY</b> be included in the instance as an additional Coding, 
+   but it cannot be used <b>instead</b> of the code from the value set expansion. This helps ensure that systems know 
+   which codes they should expect to receive and build logic for, and it facilitates interoperability.</li>
+  </ul>
+ <li>Only if the above two cases do not apply then:</li>
+  <ul>
+   <li>Alternate code(s) from outside the value set may be used instead.</li>
+   <li>Text in CodeableConcept.text MAY be sent.</li>
+  </ul>
+</ol>
 <p>
-If <b>there is at least one applicable concept</b> in the extensibly-bound value set with a meaning which includes but is more 
-general than the meaning that is intended to be represented by the element in the resource instance, then the code that is 
-used in the instance SHALL be taken from the value set and should be the closest available match for the intended element 
-instance meaning (i.e. neither more general or more specific). However, a more specific code that more completely represents 
-the intended meaning <b>may also</b> be included in the instance as an additional Coding if the data type is CodeableConcept, 
-but it cannot be used <b>instead of</b> the code from the value set. This helps ensure that systems know which codes 
-they should expect to receive and build logic for and it facilitates interoperability.
+The same rules apply for the <code>concept</code> property of a <a href="references.html#CodeableReference">CodeableReference</a>.   
 </p>
 <p>
-When a code for an applicable concept in the extensibly-bound value set is used it should always be the closest available 
-match for the intended element instance meaning, regardless of hierarchical (i.e. "is-a") relationships in the 
-underlying code system(s) or hierarchical "level" of the concept.  However, as noted above, a code for a concept 
-that is <b>outside</b> of the extensibly-bound value set with a meaning which is "covered by" (i.e. is more specific than or 
-has an "is-a" relationship to) a concept that is included in the value set <b>cannot</b> be used.  In that case a code for a 
-concept that is in the extensibly-bound value set SHALL be used in the element instance and it should be the code for the 
-concept that most closely matches the intended element instance meaning.
+If an extensible binding is applied to an element with maximum cardinality &gt; 1, the binding applies to 
+all the element repetitions.
 </p>
 <p>
-If the data type is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then, as noted above, one of the Coding values 
-SHALL be from the specified extensibly-bound value set if a code in that value set applies, but if no applicable code exists in the 
-value set alternate code(s) from outside the value set may be used instead.  If no codes, including local codes, are available, then 
-text alone (in CodeableConcept.text) may be used. The same rules apply for the <code>concept</code> property of a <a href="references.html#CodeableReference">CodeableReference</a>.   
+For an extensibly-bound element, <a href="profiling.html">derived profiles</a> may state rules on which codes 
+can be used, but cannot select new or additional codes for these elements unless no codes with appropriate 
+meanings are found in the extensibly-bound value set in the parent profile. You can only constrain, not relax.
 </p>
 <p>
-If the data type is <a href="datatypes.html#Coding">Coding</a>, then the code/system SHALL be from the specified value set
-if a code applies, but if no suitable code exists in the value set, an alternate code may be provided in its place.
+Note that if the valueset-reference extension is being used and the code in the element instance is from 
+outside the extensibly-bound value set, the extension must reference a different value set definition that 
+the code was chosen from (or if no other value set reference is available the extension cannot be used in that instance).
 </p>
-<p>
-If an extensible binding is applied to an element with maximum cardinality &gt; 1, the binding applies to
-all the elements.
-</p>
-<p>
-Identified gaps in value sets should be submitted to the organization administering the value
-set in order to improve interoperability in the future.
-</p>
-<p>
-Extensible bindings are used when there is consensus at the specification or profiling level about the coded values
-that should be used, but it is impossible to create a bounded list of codes that are known to cover all
-use cases, including ones that are yet to arise.
-</p>
-<p>
-When an element is extensibly-bound to a value set, <a href="profiling.html">derived profiles</a>
-may state rules on which codes can be used, but cannot select new or additional codes for these elements
-unless no codes with appropriate meanings are found in the base value set.
-</p>
-<p>
-Note that if the valueset-reference extension is being used and the code in the element instance is from outside the extensibly-bound
-value set, the extension must reference a different value set that the code was chosen from (or if no other value set 
-reference is available the extension cannot be used in that instance).
-</p>
-<h4>Examples for Extensible Bindings</h4>
+<h5>Examples for Extensible Bindings</h5>
 <p>
 See <a href="terminologies-binding-examples.html#extensible">examples</a> to help explain the 
 difficult but important subject of Extensible bindings.
 </p>                                                                                                                                                
     
 <a name="preferred"></a>
-<h3>Preferred</h3>
+<h4>Preferred Binding Strength</h4>
 <p>
 <i>Instances are encouraged to draw from the specified codes for interoperability purposes but
 are not required to do so to be considered conformant.</i>
@@ -555,13 +607,13 @@ serve interoperability purposes in the future.
 When an element is bound to a preferred value set, <a href="profiling.html">derived profiles</a>
 may bind the element to any value set they choose.
 </p>
-<h4>Examples for Preferred Bindings</h4>
+<h5>Examples for Preferred Bindings</h5>
 <p>
 See <a href="terminologies-binding-examples.html#preferred">examples</a> of how Preferred bindings work.
 </p>                                                                                                                                                
 
 <a name="example"></a>
-<h4>Example Bindings</h4>
+<h4>Example Binding Strength</h4>
 <p>
 <i>Instances are not expected or even encouraged to draw from the specified value set.  The value set merely
 provides examples of the types of concepts intended to be included.</i>
@@ -586,6 +638,27 @@ ValueSets may also be used as example bindings in the base specification.
 When an element is bound to an example value set, <a href="profiling.html">derived profiles</a>
 may bind the element to any value set they choose.
 </p>
+
+<a name="expectations"></a>
+<h4>Binding Strengths and Conformance Expectations</h4>
+<p>
+A binding strength of 'required' or 'extensible' does not indicate that ALL of the codes in the bound value set will be supported. It constrains the set of codes that are allowed to be shared. If systems flag an element as <a href="conformance-rules.html#mustSupport">mustSupport</a>, the <a href="extension-elementdefinition-minvalueset.html">minimumValueSet extension</a> SHOULD be used to identify a specific subset (possibly the full set) of the bound codes that must be supported by implementers.
+</p>
+<p>
+If no MIN value set is specified, then there is no guidance for implementers regarding which code(s) must be supported. However, at least one of the codes MUST be supported.
+</p>
+
+
+<a name="max"></a>
+<h3>Max Value Set</h3>
+<p>
+When binding a ValueSet to an element, values may be limited by declaring a maximum value set with the extension:
+maxValueSet http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet
+</p>
+<ul>
+ <li>When the binding strength is extensible or preferred, and a maximum ValueSet is defined,
+ any codes provided beyond the bound value set must be in the expansion of the maxValueSet.</li>
+</ul>
 
 <a name="other"></a>
 <h2>Other notes</h2>
@@ -614,8 +687,6 @@ and display values are ignored.
 FHIR has defined a <a href="terminology-service.html">Terminology Service</a> specification which sets requirements for systems that
 support the use of codes, value sets and code systems.
 </p>
-</div>
-
 [%file newfooter%]
 
 </body>

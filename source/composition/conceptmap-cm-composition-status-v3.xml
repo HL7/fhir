@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ConceptMap xmlns="http://hl7.org/fhir">
+  <id value="cm-composition-status-v3"/> 
+  <url value="http://hl7.org/fhir/ConceptMap/cm-composition-status-v3"/> 
+  <version value="4.6.0"/> 
+  <name value="v3.CompositionStatus"/> 
+  <title value="v3 map for CompositionStatus"/> 
+  <status value="draft"/> 
+  <date value="2020-12-24T21:13:15+00:00"/> 
+  <publisher value="HL7 (FHIR Project)"/> 
+  <sourceCanonical value="http://hl7.org/fhir/ValueSet/composition-status"/> 
+  <targetCanonical value="http://terminology.hl7.org/ValueSet/v3-ActStatus"/> 
+  <group> 
+    <source value="http://hl7.org/fhir/composition-status"/> 
+    <target value="http://terminology.hl7.org/CodeSystem/v3-ActStatus"/> 
+    <element> 
+      <code value="preliminary"/> 
+      <target> 
+        <code value="active"/> 
+        <relationship value="equivalent"/> 
+      </target> 
+    </element> 
+    <element> 
+      <code value="final"/> 
+      <target> 
+        <code value="completed"/> 
+        <relationship value="source-is-narrower-than-target"/> 
+      </target> 
+    </element> 
+    <element> 
+      <code value="amended"/> 
+      <target> 
+        <code value="completed"/> 
+        <relationship value="source-is-narrower-than-target"/> 
+      </target> 
+    </element> 
+    <element> 
+      <code value="entered-in-error"/> 
+      <target> 
+        <code value="nullified"/> 
+        <relationship value="equivalent"/> 
+      </target> 
+    </element> 
+  </group> 
+</ConceptMap> 

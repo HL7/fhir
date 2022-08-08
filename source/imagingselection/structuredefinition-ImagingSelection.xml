@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ImagingSelection"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Diagnostics"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="ii"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+  <version value="4.6.0"/>
+  <name value="ImagingSelection"/>
+  <status value="draft"/>
+  <date value="2022-06-29T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Imaging Integration)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/imagemgt/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation UID or a Segmentation Number, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="dicom"/>
+    <uri value="http://nema.org/dicom"/>
+    <name value="DICOM Tag Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="ImagingSelection"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="ImagingSelection">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="ImagingSelection"/>
+      <short value="A selection of DICOM SOP instances and/or frames"/>
+      <definition value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation UID or a Segmentation Number, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Reference DICOM PS 3 Table 10-3b"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.diagnostics"/>
+      </mapping>
+	</element>
+    <element id="ImagingSelection.identifier">
+      <path value="ImagingSelection.identifier"/>
+      <short value="Business Identifier for Imaging Selection"/>
+      <definition value="A unique identifier assigned to this imaging selection."/>
+      <comment value="This is a business identifier, not a resource identifier -- see discussion under [Business Identifiers](resource.html#identifiers). "/>
+      <requirements value="Allows imaging selections to be distinguished and referenced."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.status">
+      <path value="ImagingSelection.status"/>
+      <short value="available | entered-in-error | unknown"/>
+      <definition value="The current state of the ImagingSelection resource. This is not the status of any ImagingStudy, ServiceRequest, or Task resources associated with the ImagingSelection."/>
+      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImagingSelectionStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The status of the ImagingSelection."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.subject">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint">
+        <valueString value="dicom=http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.2.2.html"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/hint">
+        <valueString value="dicom=http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.2.2.html"/>
+      </extension>
+      <path value="ImagingSelection.subject"/>
+      <short value="Subject of the selected instances"/>
+      <definition value="The patient, or group of patients, location, device, organization, procedure or practitioner this imaging selection is about and into whose or what record the imaging selection is placed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="(0010/*)"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.issued">
+      <path value="ImagingSelection.issued"/>
+      <short value="Date / Time when this imaging selection was created"/>
+      <definition value="The date and time this imaging selection was created."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="instant"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.performer">
+      <path value="ImagingSelection.performer"/>
+      <short value="Selector of the instances (human or machine)"/>
+      <definition value="Selector of the instances – human or machine."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="(0008, 1050) | (0008, 1052) | (0008, 1070) | (0008, 1072)"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.performer.function">
+      <path value="ImagingSelection.performer.function"/>
+      <short value="Type of performer"/>
+      <definition value="Distinguishes the type of involvement of the performer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EventPerformerFunction"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The type of involvement of the performer."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/series-performer-function"/>
+      </binding>
+      <requirements value="Allows disambiguation of the types and involvement of different performers."/>
+      <isSummary value="true"/>
+    </element>
+    <element id="ImagingSelection.performer.actor">
+      <path value="ImagingSelection.performer.actor"/>
+      <short value="Author (human or machine)"/>
+      <definition value="Author – human or machine."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ImagingSelection.basedOn">
+      <path value="ImagingSelection.basedOn"/>
+      <short value="Associated request"/>
+      <definition value="A list of the diagnostic requests that resulted in this imaging selection being performed."/>
+      <alias value="AccessionNumber"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AppointmentResponse"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.cause"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Accession Number and Issuer (0080,0050)+(0080,0051)"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.category">
+      <path value="ImagingSelection.category"/>
+      <short value="Classifies the imaging selection"/>
+      <definition value="Classifies the imaging selection."/>
+      <requirements value="Used for filtering what imaging selections are retrieved and displayed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImagingSelectionCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Key Object Selection Document Title."/>
+        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_7010.html"/>
+      </binding>
+    </element>
+    <element id="ImagingSelection.code">
+      <path value="ImagingSelection.code"/>
+      <short value="Imaging Selection purpose text or code"/>
+      <definition value="Reason for referencing the selected content."/>
+      <comment value="*All* code-value and, if present, component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation."/>
+      <requirements value="Knowing what kind of observation is being made is essential to understanding the observation."/>
+      <alias value="Description"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImagingSelectionCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Key Object Selection Document Title."/>
+        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_7010.html"/>
+      </binding>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Concept Name Code Sequence (0040,A043)"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.studyUid">
+      <path value="ImagingSelection.studyUid"/>
+      <short value="DICOM Study Instance UID"/>
+      <definition value="The Study Instance UID for the DICOM Study from which the images were selected."/>
+      <comment value="See [DICOM PS3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html)."/>
+      <requirements value="DICOM Study Instance UID.&#xA;
+      Required unless frameOfReferenceUid and imageRegion are present and instance is not present."/>
+      <alias value="StudyInstanceUID"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
+      <isSummary value="true"/>
+      <example>
+        <label value="General"/>
+        <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793"/>
+      </example>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Study Instance UID (0020,000D)"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.derivedFrom">
+      <path value="ImagingSelection.derivedFrom"/>
+      <short value="The imaging study from which the imaging selection is derived"/>
+      <definition value="The imaging study from which the imaging selection is made."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ImagingSelection.endpoint">
+      <path value="ImagingSelection.endpoint"/>
+      <short value="The network service providing retrieval for the images referenced in the imaging selection"/>
+      <definition value="The network service providing retrieval access to the selected images, frames, etc. See implementation notes for information about using DICOM endpoints."/>
+      <comment value="Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG) formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach."/>
+      <requirements value="Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the selected images, frames, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ImagingSelection.seriesUid">
+      <path value="ImagingSelection.seriesUid"/>
+      <short value="DICOM Series Instance UID"/>
+      <definition value="The Series Instance UID for the DICOM Series from which the images were selected."/>
+      <comment value="See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html)."/>
+      <requirements value="DICOM Series Instance UID.&#xA;
+      Required unless frameOfReferenceUid and imageRegion are present and instance is not present."/>
+      <alias value="SeriesInstanceUID"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.1"/>
+      </example>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Series Instance UID (0020,000E)"/>
+      </mapping>
+      <isSummary value="true"/>
+    </element>
+    <element id="ImagingSelection.seriesNumber">
+      <path value="ImagingSelection.seriesNumber"/>
+      <short value="DICOM Series Number"/>
+      <definition value="The Series Number for the DICOM Series from which the images were selected."/>
+      <comment value="See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html)."/>
+      <requirements value="DICOM Series Number."/>
+      <alias value="SeriesNumber"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Series Number (0020,0011)"/>
+      </mapping>
+      <isSummary value="true"/>
+    </element>
+    <element id="ImagingSelection.frameOfReferenceUid">
+      <path value="ImagingSelection.frameOfReferenceUid"/>
+      <short value="The Frame of Reference UID for the selected images"/>
+      <definition value="The Frame of Reference UID identifying the coordinate system that conveys spatial and/or temporal information for the selected images or frames."/>
+      <comment value="See [DICOM PS3.3 C.7.4.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.4.html)."/>
+      <requirements value="DICOM Frame of Reference UID.&#xA;
+                           Required if studyInstanceUid and seriesInstanceUid are not present."/>
+      <alias value="FrameOfReferenceUID"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.2"/>
+      </example>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Frame of Reference UID (0020,0052)"/>
+      </mapping>
+      <isSummary value="true"/>
+    </element>
+    <element id="ImagingSelection.bodySite">
+      <path value="ImagingSelection.bodySite"/>
+      <short value="Body part examined"/>
+      <definition value="The anatomic structures examined. See DICOM Part 16 Annex L (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings."/>
+      <alias value="BodyPartExamined"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodySite"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes describing anatomical locations. May include laterality."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT Body site concepts"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
+      </binding>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Body Part Examined (0018,0015)"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.focus">
+      <path value="ImagingSelection.focus"/>
+      <short value="Related resource that is the focus for the imaging selection"/>
+      <definition value="The actual focus of an observation when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, fetus, or donor. For example, fetus observations in a mother&#39;s record.  The focus of an observation could also be an existing condition,  an intervention, the subject&#39;s diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child&#39;s tracheostomy tube. In this example, the child is the patient of record and the mother is the focus."/>
+      <comment value="An imaging selection may reference a DICOM resource that itself references other DICOM resources.&#xA;
+      e.g. a presentation state references a set of source images or frames."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ImagingSelection.instance">
+      <path value="ImagingSelection.instance"/>
+      <short value="The selected instances"/>
+      <definition value="Each imaging selection includes one or more selected DICOM SOP instances."/>
+      <requirements value="Required if the the selection does not include all instances in the specified series."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ImagingSelection.instance.uid">
+      <path value="ImagingSelection.instance.uid"/>
+      <short value="DICOM SOP Instance UID"/>
+      <definition value="The SOP Instance UID for the selected DICOM instance."/>
+      <comment value="See [DICOM PS3.3 C.12.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.12.html)."/>
+      <requirements value="DICOM SOP Instance UID."/>
+      <alias value="SOPInstanceUID"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
+      <isSummary value="true"/>
+      <example>
+        <label value="General"/>
+        <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.1.1"/>
+      </example>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="SOP Instance UID (0008,0018)"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.instance.number">
+      <path value="ImagingSelection.instance.number"/>
+      <short value="DICOM Instance Number"/>
+      <definition value="The Instance Number for the selected DICOM instance."/>
+      <comment value="See [DICOM PS3.3 C.7.6.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.6.html#sect_C.7.6.1).&#xA;
+      Note: A multiframe instance has a single instance number with each frame identified by a frame number."/>
+      <requirements value="DICOM Instance Number."/>
+      <alias value="InstanceNumber"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Instance Number (0020,0011)"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.instance.sopClass">
+      <path value="ImagingSelection.instance.sopClass"/>
+      <short value="DICOM SOP Class UID"/>
+      <definition value="The SOP Class UID for the selected DICOM instance."/>
+      <comment value="See [DICOM PS3.3 C.12.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.12.html)."/>
+      <requirements value="DICOM SOP Class UID."/>
+      <alias value="SOPClassUID"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="sopClass"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
+          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="DICOM SOP Classes."/>
+        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1"/>
+      </binding>
+      <example>
+        <label value="General"/>
+        <valueId value="1.2.840.10008.5.1.4.1.1.2"/>
+      </example>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="SOP Class UID (0008,0016)"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.instance.subset">
+      <path value="ImagingSelection.instance.subset"/>
+      <short value="The selected subset of the SOP Instance"/>
+      <definition value="Selected subset of the SOP Instance. The content and format of the subset item is determined by the SOP Class of the selected instance.&#xA;
+      May be one of:&#xA;
+      - A list of frame numbers selected from a multiframe SOP Instance.&#xA;
+      - A list of Content Item Observation UID values selected from a DICOM SR or other structured document SOP Instance.&#xA;
+      - A list of segment numbers selected from a segmentation SOP Instance.&#xA;
+      - A list of Region of Interest (ROI) numbers selected from a radiotherapy structure set SOP Instance."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="false"/>
+      <example>
+        <label value="Frame Number"/>
+        <valueString value="1" />
+        <valueString value="2" />
+        <valueString value="3" />
+        <valueString value="6" />
+      </example>
+      <example>
+        <label value="Observation UID"/>
+        <valueString value="1.2.840.113747.20080222.324856729726854657132726086516575"/>
+      </example>
+    </element>
+    <element id="ImagingSelection.instance.imageRegion">
+      <path value="ImagingSelection.instance.imageRegion"/>
+      <short value="A specific 2D region in a DICOM image / frame"/>
+      <definition value="Each imaging selection instance or frame list might includes an image region, specified by a region type and a set of 2D coordinates.&#xA;
+      If the parent imagingSelection.instance contains a subset element of type frame, the image region applies to all frames in the subset list."/>
+      <requirements value="Shall not be present if the parent imagingSelection.instance is not an image."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ImagingSelection.instance.imageRegion.regionType">
+      <path value="ImagingSelection.instance.imageRegion.regionType"/>
+      <short value="point | polyline | interpolated | circle | ellipse"/>
+      <definition value="Specifies the type of image region."/>
+      <comment value="See [DICOM PS3.3 C.10.5.1.2](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.10.5.html#sect_C.10.5.1.2)."/>
+      <alias value="GraphicType"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImagingSelection2DGraphicType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type of image region."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-2dgraphictype"/>
+      </binding>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Graphic Type (0070,0023)"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.instance.imageRegion.coordinate">
+      <path value="ImagingSelection.instance.imageRegion.coordinate"/>
+      <short value="Specifies the coordinates that define the image region"/>
+      <definition value="The coordinates describing the image region. Encoded as a set of (column, row) pairs that denote positions in the selected image / frames specified with sub-pixel resolution.&#xA;
+      The origin at the TLHC of the TLHC pixel is 0.0\0.0, the BRHC of the TLHC pixel is 1.0\1.0, and the BRHC of the BRHC pixel is the number of columns\rows in the image / frames. The values must be within the range 0\0 to the number of columns\rows in the image / frames."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <orderMeaning value="The values are an ordered set of (x, y) coordinates." />
+      <requirements value="The number of values must be a multiple of two." />
+      <alias value="GraphicData"/>
+      <comment value="For a description of how 2D coordinates are encoded, see [DICOM PS3.3 C.18.6](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.6.html)."/>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Graphic Data (0070,0022)"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.imageRegion">
+      <path value="ImagingSelection.imageRegion"/>
+      <short value="A specific 3D region in a DICOM frame of reference"/>
+      <definition value="Each imaging selection might includes a 3D image region, specified by a region type and a set of 3D coordinates."/>
+      <requirements value="Requires that the ImagingSelection.frameOfReferenceUid element is present."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ImagingSelection.imageRegion.regionType">
+      <path value="ImagingSelection.imageRegion.regionType"/>
+      <short value="point | multipoint | polyline | polygon | ellipse | ellipsoid"/>
+      <definition value="Specifies the type of image region."/>
+      <comment value="See [DICOM PS3.3 C.18.9.1.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html#sect_C.18.9.1.2)."/>
+      <alias value="GraphicType"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImagingSelection3DGraphicType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type of image region."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-3dgraphictype"/>
+      </binding>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Graphic Type (0070,0023)"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.imageRegion.coordinate">
+      <path value="ImagingSelection.imageRegion.coordinate"/>
+      <short value="Specifies the coordinates that define the image region"/>
+      <definition value="The coordinates describing the image region. Encoded as an ordered set of (x,y,z) triplets (in mm and may be negative) that define a region of interest in the patient-relative Reference Coordinate System defined by ImagingSelection.frameOfReferenceUid element."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <orderMeaning value="The values are an ordered set of (x, y, z) coordinates." />
+      <requirements value="The number of values must be a multiple of three." />
+      <alias value="GraphicData"/>
+      <comment value="For a description of how 3D coordinates are encoded, see [DICOM PS3.3 C.18.9](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html)."/>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Graphic Data (0070,0022)"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

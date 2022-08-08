@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="resource-effectivePeriod"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod"/>
+  <version value="4.6.0"/>
+  <name value="effectivePeriod"/>
+  <title value="Effective Period"/>
+  <status value="draft"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="The period during which the resource content was or is planned to be effective."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="StructureDefinition"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="StructureMap"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="OperationDefinition"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="SearchParameter"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CompartmentDefinition"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="ImplementationGuide"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CodeSystem"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="ValueSet"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="ConceptMap"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="NamingSystem"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="The effective date range for the resource"/>
+      <definition value="The period during which the resource content was or is planned to be effective."/>
+      <comment value="The effective period for a resource  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/resource-effectivePeriod"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

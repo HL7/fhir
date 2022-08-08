@@ -75,14 +75,7 @@
       </batch>
     </Medication>
   </contained>
-  <status value="active"/>
-  <statusReason>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="166643006"/>
-      <display value="Liver enzymes abnormal"/>
-    </coding>
-  </statusReason>
+  <status value="recorded"/>
   <medication> <!-- Linked to a RESOURCE Medication -->
     <reference>
     <reference value="#med0309"/>
@@ -98,9 +91,32 @@
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
   </informationSource>
-
-
+  <reason>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="166643006"/>
+        <display value="Liver enzymes abnormal"/>
+      </coding>
+		</concept>
+  </reason>
   <note>
     <text value="Patient cannot take acetaminophen as per Dr instructions" />
   </note>  
+  <adherence>
+    <code> 
+      <coding> 
+        <system value="http://hl7.org/fhir/CodeSystem/medication-usage-adherence"/> 
+        <code value="not-taking"/> 
+        <display value="Not Taking"/> 
+      </coding> 
+    </code> 
+    <reason> 
+      <coding> 
+        <system value="http://snomed.info/sct"/> 
+        <code value="266710000"/> 
+        <display value="Drugs not taken/completed"/> 
+      </coding> 
+    </reason> 
+  </adherence>
 </MedicationUsage>

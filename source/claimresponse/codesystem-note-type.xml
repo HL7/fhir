@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="note-type"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/note-type defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">display
+            
+            <a name="note-type-display"> </a>
+          
+          </td>
+          
+          <td>Display</td>
+          
+          <td>Display the note.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">print
+            
+            <a name="note-type-print"> </a>
+          
+          </td>
+          
+          <td>Print (Form)</td>
+          
+          <td>Print the note on the form.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">printoper
+            
+            <a name="note-type-printoper"> </a>
+          
+          </td>
+          
+          <td>Print (Operator)</td>
+          
+          <td>Print the note for the operator.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/note-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.16"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="NoteType"/>
+  <title value="NoteType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <description value="The presentation types of notes."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/note-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="display"/>
+    <display value="Display"/>
+    <definition value="Display the note."/>
+  </concept>
+  <concept>
+    <code value="print"/>
+    <display value="Print (Form)"/>
+    <definition value="Print the note on the form."/>
+  </concept>
+  <concept>
+    <code value="printoper"/>
+    <display value="Print (Operator)"/>
+    <definition value="Print the note for the operator."/>
+  </concept>
+</CodeSystem>

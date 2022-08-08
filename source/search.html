@@ -6,9 +6,9 @@
 [%file newheader%]
 </head>
 <body>
-[%file newnavbar%]  
+[%file newnavbar%]
 
-<div class="col-12">
+
 
 <a name="base"></a>
 <h2>Search</h2>
@@ -102,11 +102,19 @@ parameter works for search <a href="http.html#mime-type">like for other interact
 <ul>
  <li>A specified resource type: <code>GET [base]/[type]?parameter(s)</code></li>
  <li>A specified <a href="compartmentdefinition.html">compartment</a>, perhaps with a specified resource type in that compartment: <code>GET [base]/Patient/[id]/[type]?parameter(s)</code></li>
- <li>All resource types: <code>GET [base]?parameter(s)</code> (parameters common to all types). If the _type parameter is included, all other 
+ <li>All resource types: <code>GET [base]?parameter(s)</code> (parameters common to all types). If the _type parameter is included, all other
    search parameters SHALL be common to all provided types.  If _type is not included, all parameters SHALL be common to all resource types.</li>
 </ul>
 <p>
 Search operations can also be implemented in <a href="messaging.html#search">the messaging framework</a>.
+</p>
+<p>
+In the absence of any search filters, e.g. <code>GET [base]/Patient</code> or <code>POST [base]/Patient/_search</code> with empty body, server SHOULD return
+all records. NOTE: Sever MAY impose expectations prohibiting queries without or with insufficient parameters. 
+</p>
+<p>
+Order of operations is not driven by order in the URL - with the exception of sort. First all filters are applied, 
+then the result set is sorted, then paging is applied, and includes/revincludes are returned for each page.
 </p>
 <p>
 The server determines which of their resources meet the criteria
@@ -121,7 +129,7 @@ Search using <code>GET</code> may include sensitive information in the search pa
 secure communications and endpoint management are recommended, see <a href="security.html#http">Security Communications</a>
 </p>
 <p>
-The response to any search operation is always a list of resources in a Bundle. 
+The response to any search operation is always a list of resources in a Bundle.
 An alternative approach is to <a href="graphql.html">use GraphQL</a>.
 </p>
 
@@ -153,13 +161,13 @@ Note: Empty parameters are not an error - they are just ignored by the server.
 Where the content of the parameter is syntactically incorrect, servers SHOULD return an error.
 However, where the issue is a logical condition (e.g. unknown subject or code), the server
 SHOULD process the search, including processing the parameter - with the result of returning
-an empty search set, since the parameter cannot be satisfied. 
+an empty search set, since the parameter cannot be satisfied.
 </p>
 <p>
 In such cases, the search process MAY include an <a href="operationoutcome.html">OperationOutcome</a>
 in the search set that contains additional hints and warnings about the search process.
 This is included in the search results as an entry with <a href="bundle-definitions.html#Bundle.entry.search.mode">search mode</a> = <a href="valueset-search-entry-mode.html"><code>outcome</code></a>.
-Clients can use this information to improve future searches. If, for example, a client 
+Clients can use this information to improve future searches. If, for example, a client
 performed the following search:
 </p>
 <pre>
@@ -222,7 +230,7 @@ resource itself. Additional parameters can be added which may provide
 additional functionality on top of this base read equivalence (e.g. <a href="#include"><code>_include</code></a>).
 Note that although the _id parameter has a type of token, because servers SHALL use exact match with it, there is
 no system for the _id parameter. Note that matches on <code>_id</code>
-are always case sensitive. 
+are always case sensitive.
 </p>
 <a name="lastUpdated"></a>
 <p>
@@ -265,7 +273,7 @@ In the same manner:
 </p>
 <pre>
  GET [base]/DiagnosticReport?_profile=http://hl7.org/fhir/StructureDefinition/lipid
- GET [base]/DiagnosticReport?_profile=Profile/lipid
+ GET [base]/DiagnosticReport?_profile=StructureDefinition/lipid
 </pre>
 <p>
 restricts the search to only DiagnosticReport resources that are tagged as conforming to a particular profile.
@@ -273,7 +281,7 @@ The second reference is relative and refers a local profile on the same server.
 </p>
 <p>
 <a href="resource.html#simple-tags">_tag</a>, and <a href="resource.html#security-labels">_security</a> parameters are token types (see <a href="#token">below</a>),
-and <a href="resource.html#profile-tags">_profile</a> is a <a href="#reference">reference</a> search parameter.
+and <a href="resource.html#profile-tags">_profile</a> is a <a href="#uri">uri</a> search parameter.
 </p>
 
 
@@ -326,12 +334,12 @@ The modifiers are separated from the parameter name by a colon. Modifiers are:</
  <li>For all parameters (except combination): <code>:missing</code>; e.g. gender:missing=true (or false).
   Searching for <code>gender:missing=true</code> will return all the resources that don't have a value for the gender parameter (which usually
   equates to not having the relevant element in the resource). Searching for <code>gender:missing=false</code>
-  will return all the resources that have a value for the <code>gender</code> parameter. 
+  will return all the resources that have a value for the <code>gender</code> parameter.
   For simple data type elements, :missing=true will match on all elements where either the underlying element is omitted or where the element is present with extensions but no @value is specified
   </li>
- <li>For string: <code>:exact</code> returns results that match the entire supplied parameter, including casing and combining characters. 
-    Note that the handling of (extended) <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters</a> is within 
-		the discretion of the server, i.e. the server decides if a string search parameter matches on canonically equivalent characters, or matches on 
+ <li>For string: <code>:exact</code> returns results that match the entire supplied parameter, including casing and combining characters.
+    Note that the handling of (extended) <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters</a> is within
+		the discretion of the server, i.e. the server decides if a string search parameter matches on canonically equivalent characters, or matches on
 		the actual used Unicode code points, or <code>:contains</code> (case insensitive and combining character-insensitive, search text matched anywhere in the string), instead of the default behavior (case insensitive and accent-insensitive, partial matches at the start of the string).</li>
  <li>For token: <code>:text</code> (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes. Other defined modifiers are <code>:in</code>, <code>:below</code>, <code>:above</code> and <code>:not-in</code> which are described below.</li>
  <li>For reference: <code>:[type]</code> where [type] is the name of a type of resource, :identifier, and, for some parameters, :above and :below</li>
@@ -392,7 +400,7 @@ the following prefixes are used:
  <tr>
 	<td><code>eb</code></td>
 	<td>the value for the parameter in the resource ends before the provided value</td>
-  <td>the range of the search value does overlap not with the range of the target value, and the range below the search value contains the range of the target value</td>
+  <td>the range of the search value does not overlap with the range of the target value, and the range below the search value contains the range of the target value</td>
  </tr>
  <tr>
 	<td><code>ap</code></td>
@@ -459,15 +467,15 @@ Searching on a simple numerical value in a resource. Examples:
 Notes about searching on Numbers:
 </p>
 <ul>
- <li>When a number search is used against a resource element that stores a simple integer (e.g. 
+ <li>When a number search is used against a resource element that stores a simple integer (e.g.
  <a href="immunizationrecommendation-definitions.html#ImmunizationRecommendation.recommendation.doseNumber_x_">ImmunizationRecommendation.recommendation.doseNumber</a>), and the search parameter
-    is not expressed using the exponential forms, and does not include any non-zero digits after a decimal point, 
+    is not expressed using the exponential forms, and does not include any non-zero digits after a decimal point,
     the significance issues cancel out and searching is based on exact matches.  Note that if there are non-zero digits after a decimal point,
     there cannot be any matches</li>
- <li>When a comparison prefix in the set <code>lgt, lt, ge, le, sa &amp; eb</code> is provided, the 
+ <li>When a comparison prefix in the set <code>gt, lt, ge, le, sa &amp; eb</code> is provided, the
      implicit precision of the number is ignored, and they are treated as if they have arbitrarily high precision</li>
  <li>The way search parameters operate in resources is not the same as whether two numbers are equal to each other in a mathematical sense</li>
- <li>Searching on decimals involves an implicit range.  The number of significant digits of the implicit range is the number of digits specified in 
+ <li>Searching on decimals involves an implicit range.  The number of significant digits of the implicit range is the number of digits specified in
      the search parameter value, excluding leading zeros. So 100 and 1.00e2 both have the same number of significant digits - three</li>
 </ul>
 
@@ -512,7 +520,7 @@ Date parameters may be used with the following data types:
 </table>
 <p>
 Implicitly, a missing lower boundary is "less than" any actual date.  A missing upper boundary is "greater than" any actual date.
-The use of the prefixes:
+Date searches can be controlled through the use of prefixes as described in the following table:
 </p>
 <table class="grid">
  <tr>
@@ -619,11 +627,11 @@ To search for all the procedures in a patient compartment that occurred over a 2
 <pre>
  GET [base]/Patient/23/Procedure?date=ge2010-01-01&amp;date=le2011-12-31
 </pre>
-[%dragons-start%] 
+[%dragons-start%]
 <p>
 Managing time zones and offsets and their impact on search is a very difficult area. The FHIR
 implementation community is still investigating and debating the best way to handle time zones.
-Implementation guides may make additional rules in this regard. 
+Implementation guides may make additional rules in this regard.
 </p>
 <p>
 Future versions of this specification may impose rules around the use of time zones with dates.
@@ -637,11 +645,11 @@ Implementer feedback is welcome <a href="http://hl7.org/fhir-issues">on the issu
 <a name="string"></a>
 <h4>string</h4>
 <p>
-For a simple string search, a string parameter serves as the input for a search against 
-sequences of characters. This search is insensitive to casing and included combining characters, like accents or other diacritical marks. 
+For a simple string search, a string parameter serves as the input for a search against
+sequences of characters. This search is insensitive to casing and included combining characters, like accents or other diacritical marks.
 Punctuation and non-significant whitespace (e.g. repeated space characters, tab vs space) should also be ignored.
-By default, a field matches a string query if the value of the field equals or starts with the supplied parameter value, after both have 
-been normalized by case and combining characters. Therefore, the default string search only operates on the base characters of the string parameter. 
+By default, a field matches a string query if the value of the field equals or starts with the supplied parameter value, after both have
+been normalized by case and combining characters. Therefore, the default string search only operates on the base characters of the string parameter.
 The <code>:contains</code> modifier returns results that include the supplied parameter value anywhere within the field
 being searched. The <code>:exact</code> modifier returns results that match
 the entire supplied parameter, including casing and accents.
@@ -704,10 +712,10 @@ that partial matching is used. For example:
 </ul>
 <p>
 The search type <code>uri</code> is used with elements of type <a href="datatypes.html#uri">uri</a> and <a href="datatypes.html#url">url</a>.
-The type <a href="#reference">reference</a> is used for the types <a href="references.html#Reference">Reference</a> and 
-<a href="datatypes.html#canonical">canonical</a>. Note that for <code>uri</code> parameters that refer to 
-the <a href="references.html#canonical">Canonical URLs</a> of the conformance and knowledge resources (e.g. 
-<a href="structuredefinition.html">StructureDefinition</a>, <a href="valueset.html">ValueSet</a>, 
+The type <a href="#reference">reference</a> is used for the types <a href="references.html#Reference">Reference</a> and
+<a href="datatypes.html#canonical">canonical</a>. Note that for <code>uri</code> parameters that refer to
+the <a href="references.html#canonical">Canonical URLs</a> of the conformance and knowledge resources (e.g.
+<a href="structuredefinition.html">StructureDefinition</a>, <a href="valueset.html">ValueSet</a>,
 <a href="plandefinition.html">PlanDefinition</a> etc), servers SHOULD support searching by
 canonical references, and SHOULD support automatically detecting a <code>|[version]</code> portion as part of the
 search parameter, and interpreting that portion as a search on the version.
@@ -724,19 +732,19 @@ booleans, and <a href="datatypes.html#ContactPoint">ContactPoints</a>. In these 
 </p>
 <p>
 For tokens, matches are literal (e.g. not based on <a href="codesystem.html#subsumption">subsumption</a> or other code system features).
-Match is case sensitive unless the underlying semantics for the context indicate that the token should be interpreted case-insensitively 
+Match is case sensitive unless the underlying semantics for the context indicate that the token should be interpreted case-insensitively
 (see, e.g. <a href="codesystem-definitions.html#CodeSystem.caseSensitive">CodeSystem.caseSensitive</a>). Note that matches on <code>_id</code>
 are always case sensitive. If the underlying data type is <code><a href="datatypes.html#string">string</a></code>
 then the search is not case sensitive.
 </p>
 <p>
-<b>Note</b>: There are many challenging issues around case sensitivity and token searches. Some 
+<b>Note</b>: There are many challenging issues around case sensitivity and token searches. Some
 code systems are case sensitive (e.g. UCUM) while others are known not to be. For many code
 systems, it's ambiguous. Other kinds of values are also ambiguous. When in doubt, servers
 SHOULD treat tokens in a case-insensitive manner, on the grounds that including undesired
-data has less safety implications than excluding desired behavior. Clients SHOULD always 
+data has less safety implications than excluding desired behavior. Clients SHOULD always
 use the correct case when possible, and allow for the server to perform case-insensitive
-matching. 
+matching.
 </p>
 <p>
 To use subsumption-based logic, use the modifiers below, or list
@@ -755,7 +763,7 @@ Notes:
  <li>The namespace URI and code both must be <a href="#escaping">escaped</a> correctly.
 If a system is not applicable (e.g. an element of type <a href="datatypes.html#uri">uri</a>,
 then just the form [parameter]=[code] is used.</li>
- <li>For token parameters on elements of type <a href="datatypes.html#ContactPoint">ContactPoint</a>, <a href="datatypes.html#uri">uri</a>, 
+ <li>For token parameters on elements of type <a href="datatypes.html#ContactPoint">ContactPoint</a>, <a href="datatypes.html#uri">uri</a>,
  or <a href="datatypes.html#boolean">boolean</a>, the presence of the pipe symbol SHALL NOT be used - only the <code>[parameter]=[code]</code> form is allowed</li>
  <li></li>
 </ul>
@@ -785,7 +793,7 @@ Token search parameters are used for the following data types:
   <td><a href="datatypes.html#Identifier">Identifier</a></td>
   <td>Identifier.system</td>
   <td>Identifier.value</td>
-  <td>Clients can search by <code>type</code> not <code>system</code> using the :of-type modifier, see below. To search on a CDA <code>II.root</code> - which 
+  <td>Clients can search by <code>type</code> not <code>system</code> using the :of-type modifier, see below. To search on a CDA <code>II.root</code> - which
 	    may appear in either <code>Identifier.system</code> or <code>Identifier.value</code>, use the syntax <code>identifier=|[root],[root]</code></td>
  </tr>
  <tr>
@@ -805,6 +813,12 @@ Token search parameters are used for the following data types:
   <td></td>
   <td>boolean</td>
   <td>The implicit system for boolean values is <a href="valueset-special-values.html">http://hl7.org/fhir/special-values</a> but this is never actually used</td>
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#id">id</a></td>
+  <td></td>
+  <td>id</td>
+  <td></td>
  </tr>
  <tr>
   <td><a href="datatypes.html#uri">uri</a></td>
@@ -835,7 +849,7 @@ http://hl7.org/fhir/special-values, though there is usually no reason to use thi
  <tr> <td><code>:below</code></td> <td>the search parameter is a concept with the form <code>[system]|[code]</code>, and the search parameter tests whether the coding in a resource is subsumed by the specified search code. For example, the coding in the resource has an is-a relationship with the search concept, and this includes the coding itself.</td> </tr>
  <tr> <td><code>:in</code></td> <td>The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified <a href="valueset.html">value set</a>. The reference may be literal (to an address where the value set can be found) or logical (a reference to ValueSet.url). If the server can treat the reference as a literal URL, it does, else it tries to match known logical ValueSet.url values.</td> </tr>
  <tr> <td><code>:not-in</code></td> <td>The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set.</td> </tr>
- <tr> <td><code>:of-type</code></td> <td>The search parameter has the format system|code|value, where the system and code refer to a <code>Identifier.type.coding.system</code> and <code>.code</code>, and match 
+ <tr> <td><code>:of-type</code></td> <td>The search parameter has the format system|code|value, where the system and code refer to a <code>Identifier.type.coding.system</code> and <code>.code</code>, and match
     if any of the type codes match. All 3 parts must be present</td> </tr>
 </table>
 <p>
@@ -851,9 +865,9 @@ Example searches:
  <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
  <tr><td><pre> GET [base]/Patient?identifier=http://acme.org/patient|2345</pre></td><td>Search for all the patients with an identifier with key = "2345" in the system "http://acme.org/patient"</td></tr>
  <tr><td><pre> GET [base]/Patient?gender=male</pre></td><td>Search for any patient with a gender that has the code "male"</td></tr>
- <tr><td><pre> GET [base]/Patient?gender:not=male</pre></td><td>Search for any patient with a gender that does not have the code "male". Note that for <code>:not</code>, the search does not return any resources that have a gen</td></tr>
+ <tr><td><pre> GET [base]/Patient?gender:not=male</pre></td><td>Search for any patient with a gender that does not have the code "male", including those that do not have a code for gender at all.</td></tr>
  <tr><td><pre> GET [base]/Composition?section=48765-2</pre></td><td>Search for any Composition that contains an Allergies and adverse reaction section</td></tr>
- <tr><td><pre> GET [base]/Composition?section:not=48765-2</pre></td><td>Search for any Composition that does not contain an Allergies and adverse reaction section. Note that this search does not return "any document that has a section 
+ <tr><td><pre> GET [base]/Composition?section:not=48765-2</pre></td><td>Search for any Composition that does not contain an Allergies and adverse reaction section. Note that this search does not return "any document that has a section
     that is not an Allergies and adverse reaction section" (e.g. in the presence of multiple possible matches, the <i>negation</i> applies to the set, not each individual entry)</td></tr>
  <tr><td><pre> GET [base]/Patient?active=true</pre></td><td>Search for any patients that are active</td></tr>
  <tr><td><pre> GET [base]/Condition?code=http://acme.org/conditions/codes|ha125</pre></td><td>Search for any condition with a code "ha125" in the code system "http://acme.org/conditions/codes"</td></tr>
@@ -875,17 +889,17 @@ which refers to <a href="datatypes.html#Attachment">Attachment.contentType</a>. 
 GET [base]/DocumentReference?contenttype=text/xml
 </pre>
 <p>
-will miss documents with a mime type such as <code>text/xml; charset=UTF-8</code>. This 
+will miss documents with a mime type such as <code>text/xml; charset=UTF-8</code>. This
 search will find all text/xml documents:
 </p>
 <pre>
 GET [base]/DocumentReference?contenttype:below=text/xml
 </pre>
 <p>
-For ease of processing on the server, servers are only required to support <code>:below</code> on the 
-base part of the mime type; servers are not required to sort between different parameters and do 
-formal subsumption logic. 
-</p> 
+For ease of processing on the server, servers are only required to support <code>:below</code> on the
+base part of the mime type; servers are not required to sort between different parameters and do
+formal subsumption logic.
+</p>
 
 <a name="quantity"></a>
 <h4>quantity</h4>
@@ -897,8 +911,8 @@ The syntax for the value follows the form:
  <li><b>[parameter]=[prefix][number]|[system]|[code]</b> matches a quantity with the given unit</li>
 </ul>
 <p>
-The prefix is optional, and is as described <a href="#prefix">above</a>, both regarding how 
-precision and comparator/range operators are interpreted. Like a number parameter, the 
+The prefix is optional, and is as described <a href="#prefix">above</a>, both regarding how
+precision and comparator/range operators are interpreted. Like a number parameter, the
 number part of the search value can be a decimal in exponential format. The <code>system</code> and <code>code</code>
 follow the same pattern as <a href="#token">token parameters</a> are also optional. Example searches:
 </p>
@@ -913,16 +927,16 @@ follow the same pattern as <a href="#token">token parameters</a> are also option
  <tr><td><pre> GET [base]/Observation?value-quantity=ap5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is about 5.4 mg where mg is understood as a UCUM unit (typically, within 10% of the value - see above)</td></tr>
 </table>
 <p>
-Specifying a system and a code for the search implies that the search is based on a particular code system - usually <a href="http://unitsofmeasure.org">UCUM</a>, and 
-that a precise (and potentially canonical) match is desired. In this case, it is inappropriate to search on the human display for the unit, which can be 
-is uncontrolled and may unpredictable. 
+Specifying a system and a code for the search implies that the search is based on a particular code system - usually <a href="http://unitsofmeasure.org">UCUM</a>, and
+that a precise (and potentially canonical) match is desired. In this case, it is inappropriate to search on the human display for the unit, which can be
+is uncontrolled and may unpredictable.
 </p>
 
 <p>
 The search processor may choose to perform a search based on <a href="datatypes.html#quantity">canonical units</a>
 (e.g. any value where the units can be converted to a value in mg in the case above). For example, an observation
-may have a value of <code>23 mm/hr</code>. This is equal to <code>0.23 m/hr</code>. The search processer can 
-choose to normalise all the values to a canonical unit such as <code>6.4e-6 m/sec</code>, and convert 
+may have a value of <code>23 mm/hr</code>. This is equal to <code>0.23 m/hr</code>. The search processer can
+choose to normalise all the values to a canonical unit such as <code>6.4e-6 m/sec</code>, and convert
 search terms to the same units (m/sec). Such conversions can be performed based on the semantics defined
 in <a href="http://unitsofmeasure.org">UCUM</a>
 </p>
@@ -938,7 +952,7 @@ The interpretation of a <i>reference</i> parameter is either:
  <li><b><code>[parameter]=[id]</code></b> the logical [id] of a resource using a local reference (i.e. a relative reference)</li>
  <li><b><code>[parameter]=[type]/[id]</code></b> the logical [id] of a resource of a specified type using a local reference (i.e. a relative reference),
    for when the reference can point to different types of resources (e.g. <a href="observation-definitions.html#Observation.subject">Observation.subject</a>)</li>
- <li><b><code>[parameter]=[url]</code></b> where the [url] is an absolute URL - a reference to a resource by its absolute location, or by it's canonical URL</li>
+ <li><b><code>[parameter]=[url]</code></b> where the [url] is an absolute URL - a reference to a resource by its absolute location, or by its canonical URL</li>
 </ul>
 <p>
 Note: A relative reference resolving to the same value as a specified absolute URL, or vice versa, qualifies as a match.
@@ -997,7 +1011,7 @@ the patient search parameter, there is no need to specify ":Patient" as a modifi
 in the search value, as this must always be true.
 </p>
 <p>
-References are also allowed to have an <code>identifier</code>. The modifier :identifier 
+References are also allowed to have an <code>identifier</code>. The modifier :identifier
 allows for searching by the identifier rather than the literal reference:
 </p>
 <pre>
@@ -1015,9 +1029,9 @@ or reverse includes supported for reference elements that do not have a <code>re
 element.
 </p>
 <p>
-The reference search parameter is mostly used for resource elements of type <code>Reference</code> or <code>canonical</code>. 
-However, it is also be used to search resource elements of type Resource - i.e. where 
-one resource is directly nested within another - see the <a href="bundle.html#search">Bundle 
+The reference search parameter is mostly used for resource elements of type <code>Reference</code> or <code>canonical</code>.
+However, it is also be used to search resource elements of type Resource - i.e. where
+one resource is directly nested within another - see the <a href="bundle.html#search">Bundle
 search parameters</a> 'message' and 'composition' as an example of this.
 </p>
 
@@ -1051,11 +1065,11 @@ but this version is different in both meaning and format to version specific ref
   &nbsp;&lt;valueSet value=&quot;http://hl7.org/fhir/ValueSet/example|3.0&quot;/&gt;
 </pre>
 <p>
-This version is a reference to the business version of the resource. 
+This version is a reference to the business version of the resource.
 </p>
 <p>
-For canonical references, servers SHOULD support searching by Canonical URLs, and SHOULD support 
-automatically detecting a |[version] portion as part of the search parameter and 
+For canonical references, servers SHOULD support searching by Canonical URLs, and SHOULD support
+automatically detecting a |[version] portion as part of the search parameter and
 interpreting that portion as a search on the business version of the target resource.
 The modifier <code>:below</code> is used with canonical references, to control
 whether the version is considered in the search. The search:
@@ -1084,7 +1098,7 @@ matches the first two element values.
 <a name="recursive"></a>
 <h4>Searching Hierarchies</h4>
 <p>
-Some references are <a href="references.html#circular">circular</a> - that is, the reference 
+Some references are <a href="references.html#circular">circular</a> - that is, the reference
 points to another resource of the same type. When the reference establishes a strict hierarchy,
 the modifiers :above and :below may be used to search transitively through the hierarchy:
 </p>
@@ -1093,18 +1107,18 @@ GET [base]/Procedure?location:below=42
 </pre>
 <p>
 This search returns no only all procedures that occurred at location with id 42, but also any procedures
-that occurred in locations that are part of location with id 42. 
+that occurred in locations that are part of location with id 42.
 </p>
 <pre>
 GET [base]/MedicationAdministration?encounter:above=21
 </pre>
 <p>
-Returns all medication administrations that happened during encounter with id 21 or during any "parent" 
+Returns all medication administrations that happened during encounter with id 21 or during any "parent"
 encounter of that encounter.
 </p>
 <p>
-Servers indicate that :above/:below is supported on a search parameter by defining them as 
-<a href="searchparameter-definitions.html#SearchParameter.modifier">Modifiers</a> on the 
+Servers indicate that :above/:below is supported on a search parameter by defining them as
+<a href="searchparameter-definitions.html#SearchParameter.modifier">Modifiers</a> on the
 Search Parameter definition.
 </p>
 
@@ -1146,7 +1160,7 @@ GET Patient?general-practitioner.name=Joe&amp;general-practitioner.address-state
 </pre>
 <p>
 may return Patients cared for by Joe from CA and Jane from MN: no one practitioner need satisfy both conditions.
-E.g. the chains are evaluated separately. For use cases where the joins must be evaluated in groups, 
+E.g. the chains are evaluated separately. For use cases where the joins must be evaluated in groups,
 there are either <a href="#composite">Composite</a> search parameters, or the <a href="#filter">_filter</a>
 parameter.
 </p>
@@ -1207,8 +1221,8 @@ server is expected to respond only with results which match both values.
 If, instead, the search is to find patients that speak either
 language, then this is a single parameter with multiple values, separated by a <code>,</code>.
 For example, <code>/Patient?language=FR,NL</code>. This is known as an OR search parameter,
-since the server is expected to respond with results which match either value. Every search parameter 
-may be used with comma-separated values in this fashion; this includes the use of search parameters 
+since the server is expected to respond with results which match either value. Every search parameter
+may be used with comma-separated values in this fashion; this includes the use of search parameters
 with modifiers, such as `?code:text=this,that.
 </p>
 <p>
@@ -1331,7 +1345,7 @@ GET [base]/Observation?code=a\,b
 is a request for any Observation that has a code of <code>a,b</code>.
 </p>
 <p>
-This escaping is at a different level to the % encoding that applies to all 
+This escaping is at a different level to the % encoding that applies to all
 URL parameters. Standard % escaping still applies, such that these URLs
 have the same meaning:
 </p>
@@ -1347,7 +1361,7 @@ GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/V
 GET [base]/ValueSet?url=http%58%47%47acme%46org%47fhir%47ValueSet%47123%44http%58%47%47acme%46org%47fhir%47ValueSet%47124%92%46125
 </pre>
 <p>
-This specification defines this additional form of escape because the escape syntax using \ applies 
+This specification defines this additional form of escape because the escape syntax using \ applies
 to all parameter values after they have been 'unescaped' on the server while being read from the
 HTTP headers.
 </p>
@@ -1381,7 +1395,7 @@ OData specification for the $<code>search</code> parameter</a>. Typical implemen
 <h4>Special Parameters</h4>
 <p>
 A few parameters have the type 'special'. That indicates that the way this parameter works is
-unique to the parameter and described with the parameter. The general 
+unique to the parameter and described with the parameter. The general
 modifiers and comparators do not apply, except as stated in the description.
 </p>
 <p>
@@ -1401,10 +1415,12 @@ The <code>_list</code> parameter allows for the retrieval of resources that are 
 resource.
 </p>
 <pre>
+ GET [base]?_list=42
  GET [base]/Patient?_list=42
 </pre>
 <p>
-This request returns all Patient resources that are referenced from the list found at <code>[base]/List/42</code>) in List.entry.item.
+The first request returns all resources that are referenced from the list found at <code>[base]/List/42</code>) in List.entry.item.
+The second request returns all Patient resources that are referenced from the list found at <code>[base]/List/42</code>) in List.entry.item.
 While it is possible to retrieve the list, and then iterate the entries in the list fetching each
 patient, using a list as a search criterion allows for additional search criteria to be specified. For
 instance:
@@ -1484,9 +1500,9 @@ resource types that the search applies to. This can be done by using the
 GET [base]/?_type=Observation,Condition&amp;other params...
 </pre>
 <p>
-If no type is specified, the only search parameters that be can be used in global search like
-this are the base parameters that apply to all resources. 
-If multiple types are specified, any search parameters shared across the entire set of 
+If no type is specified, the only search parameters that can be used in global search like
+this are the base parameters that apply to all resources.
+If multiple types are specified, any search parameters shared across the entire set of
 specified resources may be used (see <a href="searchparameter-registry.html#common">search parameter registry</a>).
 </p>
 <p>
@@ -1531,7 +1547,7 @@ Notes:
   <li>When sorting on string search parameters, sorting SHOULD be performed
      on a case-insensitive basis. Accents may either be ignored or sorted as
      per realm convention.</li>
-  <li>This specification does not specify exacts rules for consistency of sorting
+  <li>This specification does not specify exact rules for consistency of sorting
      across servers. In general, this is deemed to be not as essential as
      consistency of filtering (though even that is a little variable). The
      purpose of sorting is to provide data in a "reasonable" order for end-users.
@@ -1540,26 +1556,26 @@ Notes:
 
 <div class="trial-content">
 <p>
-The _total parameter has the status <a href="versions.html#std-process" title="Trial Content" class="draft-flag">trial-use</a> 
-pending real world experience of it's use.
+The _total parameter has the status <a href="versions.html#std-process" title="Trial Content" class="draft-flag">trial-use</a>
+pending real world experience of its use.
 </p>
 
 <a name="total"></a>
 <h4>Total number of matching resources</h4>
 <p>
 The return <a href="bundle.html">Bundle</a> has an element <code>total</code>
-which is the number of resources that match the search parameters. 
+which is the number of resources that match the search parameters.
 </p>
 <p>
-Note that <code>Bundle.total</code> represents the total 
-number of matches, not how many resources are returned in 
+Note that <code>Bundle.total</code> represents the total
+number of matches, not how many resources are returned in
 a particular response (see <a href="#count">paging</a>, immediately below).
 </p>
 <p>
-Providing a precise number of matching resources may be onerous for the 
-server, depending on how the server is designed. To help reduce the server 
+Providing a precise number of matching resources may be onerous for the
+server, depending on how the server is designed. To help reduce the server
 load, a client can provide the parameter <code>_total</code> to indicate
-it's preference with regard to the total, which can have one of the 
+its preference with regard to the total, which can have one of the
 following values:
 </p>
 <table class="codes">
@@ -1568,7 +1584,7 @@ following values:
  <tr><td>accurate</td><td>The client requests that the server provide an exact total of the number of matching resources</td></tr>
 </table>
 <p>
-The <code>Bundle.total</code> element is still optional, and the servers can ignore the <code>_total</code> 
+The <code>Bundle.total</code> element is still optional, and the servers can ignore the <code>_total</code>
 parameter: it is just an optimization hint, that might possibly save the server some work.
 </p>
 </div>
@@ -1594,9 +1610,10 @@ or processed by the client.
 <p>
 The parameter <code>_count</code> is defined as an instruction to the server
 regarding how many resources should be returned in a
-single page. Servers SHALL NOT return more resources than
-requested, even if they don't support paging, but may
-return less than the client requested. The server should repeat
+single page. Servers SHALL NOT return more resources in a single page than requested, 
+even if they don't support paging, but may return less than the client requested. 
+NOTE: This means that all servers that support search or history SHALL support 
+checking the _count parameter. The server should repeat
 the original <code>_count</code> parameter in its returned page links so that
 subsequent paging requests honor the original <code>_count</code>.  Note:
 It is at the discretion of the search engine as to how to
@@ -1617,11 +1634,11 @@ server returns a bundle that reports the total number of resources that match in
 but with no entries, and no prev/next/last links. Note that the <code>Bundle.total</code> only
 include the total number of matching resources. It does not count extra resources such as
 <a href="operationoutcome.html">OperationOutcome</a> or <a href="#include">included</a> resources that may also be returned.
-In the same way, the _count parameter only applies to resources with <code>entry.search.mode = search</code>, and does not include 
+In the same way, the _count parameter only applies to resources with <code>entry.search.mode = match</code>, and does not include
 included resources or operation outcomes.
 </p>
 <p>
-The _count parameter has no impact on the value of <code>Bundle.total</code> as the latter represents the total 
+The _count parameter has no impact on the value of <code>Bundle.total</code> as the latter represents the total
 number of matches, not how many are returned in a single Bundle response.
 </p>
 
@@ -1679,6 +1696,9 @@ cannot be retrieved (e.g. on a different server), then the resource is omitted, 
 error is returned.
 </p>
 <p>
+Servers SHOULD resolve _include requests for version-specific references by resolving the version named in the reference.
+</p>
+<p>
 The inclusion process can be iterative, if (and only if) the modifier <code>:iterate</code> is included.
 For example, this search returns all <a href="medicationrequest.html">Medication
 Request</a> resources and their <a href="practitioner.html">prescribing Practitioner</a> Resources
@@ -1723,8 +1743,8 @@ alone as a coherent package.
 </p>
 <p>
 Note: when considering using _include and _revinclude, implementers
-should also consider whether using <a href="graphql.html">GraphQL</a> and/or 
-<a href="graphdefinition.html">GraphDefinition</a> are more appropriate 
+should also consider whether using <a href="graphql.html">GraphQL</a> and/or
+<a href="graphdefinition.html">GraphDefinition</a> are more appropriate
 approaches in their context.
 </p>
 
@@ -1900,9 +1920,13 @@ resource will be retrieved when the user selects a resource.
 Servers are not obliged to return just a summary as requested. There are only
 a limited number of summary forms defined for resources in order to allow servers
 to store the summarized form(s) in advance. Servers SHOULD mark the resources with the
-tag <a href="v3/SecurityIntegrityObservationValue/cs.html#SUBSETTED"><code>SUBSETTED</code></a>
+tag <a href="v3/ObservationValue/cs.html#v3-ObservationValue-SUBSETTED"><code>SUBSETTED</code></a>
 to ensure that the incomplete resource is not accidentally used to overwrite
 a complete resource.
+</p>
+<p>
+The self link in the search result Bundle is important for the interpretation of the result 
+and should always be returned, regardless of the type of _summary.  
 </p>
 <p>
 Note that the <code>_include</code> and <code>_revinclude</code> parameters cannot be mixed with <code>_summary=text</code>.
@@ -1910,7 +1934,7 @@ Note that the <code>_include</code> and <code>_revinclude</code> parameters cann
 
 [%impl-note%]
 <a name="dstu-tc"></a>
-There is some question about the inclusion of extensions in the summary. Additional rules may be made 
+There is some question about the inclusion of extensions in the summary. Additional rules may be made
 around this in the future.
 [%end-note%]
 
@@ -1935,7 +1959,7 @@ does not apply to <a href="#include">included resources</a>.
 Servers are not obliged to return just the requested elements.
 Servers SHOULD always return mandatory elements whether they are
 requested or not. Servers SHOULD mark the resources with the
-tag <a href="v3/SecurityIntegrityObservationValue/cs.html#SUBSETTED"><code>SUBSETTED</code></a>
+tag <a href="v3/ObservationValue/cs.html#v3-ObservationValue-SUBSETTED"><code>SUBSETTED</code></a>
 to ensure that the incomplete resource is not actually used to overwrite
 a complete resource.
 </p>
@@ -2060,7 +2084,7 @@ auditing the search itself.
 <tr><td><a href="#id"><code>_id</code></a></td><td><a href="#token">token</a></td><td>Resource id (not a full URL)</td><td>Resource.id</td></tr>
 <tr><td><a href="#lastUpdated"><code>_lastUpdated</code></a></td><td><a href="#date">date</a></td><td>Date last updated. Server has discretion on the boundary precision</td><td>Resource.meta.lastUpdated</td></tr>
 <tr><td><a href="#tag">_tag</a></td><td><a href="#token">token</a></td><td>Search by a resource tag</td><td>Resource.meta.tag</td></tr>
-<tr><td><a href="#profile"><code>_profile</code></a></td><td><a href="#uri">uri</a></td><td>Search for all resources tagged with a profile</td><td>Resource.meta.profile</td></tr>
+<tr><td><a href="#profile"><code>_profile</code></a></td><td><a href="#reference">reference</a></td><td>Search for all resources tagged with a profile</td><td>Resource.meta.profile</td></tr>
 <tr><td><a href="#security"><code>_security</code></a></td><td><a href="#token">token</a></td><td>Search by a security label</td><td>Resource.meta.security</td></tr>
 <tr><td><a href="#text"><code>_text</code></a></td><td><a href="#string">string</a></td><td>Text search against the narrative</td><td></td></tr>
 <tr><td><a href="#content"><code>_content</code></a></td><td><a href="#string">string</a></td><td>Text search against the entire resource</td><td></td></tr>
@@ -2190,15 +2214,15 @@ Cross-map between search parameter types and Data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#markdown">markdown</a></td>
-  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk markdown%>Not used in search</td> 
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk markdown%>Not used in search</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#oid">oid</a></td>
-  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk oid%>Not used in search (but see uri)</td> 
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk oid%>Not used in search (but see uri)</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#positiveInt">positiveInt</a></td>
-  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk positiveInt%>Not used in search (but see integer)</td> 
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk positiveInt%>Not used in search (but see integer)</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#string">string</a></td>
@@ -2212,11 +2236,11 @@ Cross-map between search parameter types and Data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#time">time</a></td>
-  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk time%>Not used in search</td> 
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk time%>Not used in search</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#unsignedInt">unsignedInt</a></td>
-  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk unsignedInt%>Not used in search (but see integer)</td> 
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk unsignedInt%>Not used in search (but see integer)</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#uri">uri</a></td>
@@ -2230,11 +2254,11 @@ Cross-map between search parameter types and Data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#url">url</a></td>
-  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk url%>Not used in search (but see uri)</td> 
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk url%>Not used in search (but see uri)</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#uuid">uuid</a></td>
-  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk uuid%>Not used in search (but see uri)</td> 
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk uuid%>Not used in search (but see uri)</td>
  </tr>
  <tr>
    <td colspan="8" style="background-color: #efefef"><b>Data Types</b></td>
@@ -2261,11 +2285,11 @@ Cross-map between search parameter types and Data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#Annotation">Annotation</a></td>
-  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Annotation%>Not used in search</td> 
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Annotation%>Not used in search</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#Annotation">Attachment</a></td>
-  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Attachment%>Not used in search</td> 
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Attachment%>Not used in search</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td>
@@ -2289,7 +2313,7 @@ Cross-map between search parameter types and Data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#Count">Count</a></td>
-  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Count%>Not used in search</td> 
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Count%>Not used in search</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#ContactPoint">ContactPoint</a></td>
@@ -2303,7 +2327,7 @@ Cross-map between search parameter types and Data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#Distance">Distance</a></td>
-  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Distance%>Not used in search</td> 
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Distance%>Not used in search</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#Duration">Duration</a></td>
@@ -2377,7 +2401,7 @@ Cross-map between search parameter types and Data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#Ratio">Ratio</a></td>
-  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk base64Binary%>Not used in search</td> 
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk base64Binary%>Not used in search</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#Reference">Reference</a></td>
@@ -2391,11 +2415,11 @@ Cross-map between search parameter types and Data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#base64Binary">SampledData</a></td>
-  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk SampledData%>Not used in search</td> 
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk SampledData%>Not used in search</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#Signature">Signature</a></td>
-  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Signature%>Not used in search</td> 
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk Signature%>Not used in search</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#Timing">Timing</a></td>
@@ -2408,8 +2432,6 @@ Cross-map between search parameter types and Data types:
   <td><%xcm Timing:token%></td> <!-- token -->
  </tr>
 </table>
-
-</div>
 
 [%file newfooter%]
 </body>

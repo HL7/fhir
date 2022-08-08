@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicinalProductDefinition xmlns="http://hl7.org/fhir">
+<MedicinalProductDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicinalproductdefinition.xsd">
 	<id value="drug-and-device"/>
 	<text>
 		<status value="generated"/>
@@ -122,18 +122,23 @@
 	<contained>
 		<PackagedProductDefinition>
 			<id value="package"/>
-			<package>
+			<packageFor>
+				<reference value="#"/>
+			</packageFor>
+			<packaging>
 				<!-- can be more details of the package here, but not necessary for this use case -->
 				<containedItem>
 					<item>
 						<reference>
-						<reference value="#liquidItem"/>
+							<reference value="#liquidItem"/>
 						</reference>
 					</item>
-					<amountQuantity>
+					<amount>
 						<value value="20"/>
 						<unit value="ml"/>
-					</amountQuantity>
+						<system value="http://unitsofmeasure.org"/> 
+						<code value="mL"/>
+					</amount>
 				</containedItem>
 				<containedItem>
 					<item>
@@ -142,15 +147,17 @@
 						</reference>
 					</item>
 				</containedItem>
-			</package>
+			</packaging>
 		</PackagedProductDefinition>
 	</contained>
 	<contained>
 		<DeviceDefinition>
 			<id value="syringeDevice"/>
-			<type>
-				<text value="syringe"/>
-			</type>
+			<classification>
+				<type>
+					<text value="syringe"/>
+				</type>
+			</classification>
 			<!-- Schema appears to be broken, deviceName is not present in XSD -->
 			<!--deviceName>
 				<name value="WonderSyringe"/>
@@ -161,22 +168,22 @@
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="liquidItem"/>
+			<status value="active"/> 
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
 					<code value="solution for injection"/>
 				</coding>
 			</manufacturedDoseForm>
-			<ingredient>
-				<reference>
-					<reference value="#ingredient"/>
-				</reference>
-			</ingredient>
 		</ManufacturedItemDefinition>
 	</contained>
-	<contained>
+	<!--contained>
 		<Ingredient>
 			<id value="ingredient"/>
+			<status value="active"/>
+			<for>
+				<reference value="ManufacturedItemDefinition/liquidItem"/>
+			</for>
 			<role>
 				<coding>
 					<system value="http://example.org.uk/fhir/ingredientRole"/>
@@ -186,18 +193,16 @@
 			<substance>
 				<code>
 					<concept>
-					<coding>
-						<system value="http://example.org.uk/fhir/ingredients"/>
-						<!-- SNOMED perhaps -->
-						<code value="12345"/>
-						<display value="Wondersubstance BP"/>
-					</coding>
+						<coding>
+							<system value="http://example.org.uk/fhir/ingredients"/>
+							<code value="12345"/>
+							<display value="Wondersubstance BP"/>
+						</coding>
 					</concept>
 				</code>
-				<!-- can be strength here but not necessary for this use case -->
 			</substance>
 		</Ingredient>
-	</contained>
+	</contained-->
 	<identifier>
 		<system value="http://example.org.uk/fhir/product"/>
 		<value value="Wonderdrug+"/>
@@ -208,11 +213,6 @@
 			<code value="solution for injection"/>
 		</coding>
 	</combinedPharmaceuticalDoseForm>
-	<packagedMedicinalProduct>
-		<reference>
-			<reference value="#package"/>
-		</reference>
-	</packagedMedicinalProduct>
 	<name>
 		<productName value="Wonderdrug+ liquid 20ml"/>
 	</name>

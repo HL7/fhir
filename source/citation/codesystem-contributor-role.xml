@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="contributor-role"/>
+  <meta>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/contributor-role defines the following codes:</p>
+      
+      
+      <table class="codes">
+        
+
+        <tr>
+          
+          <td style="white-space:nowrap">publisher
+            
+            <a name="contributor-role-publisher"> </a>
+          
+          </td>
+          
+          <td>Publisher</td>
+          
+          <td>Entity that makes the content available for public use</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">author
+            
+            <a name="contributor-role-author"> </a>
+          
+          </td>
+          
+          <td>Author/Creator</td>
+          
+          <td>An entity primarily responsible for making the resource, often called author or creator</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">reviewer
+            
+            <a name="contributor-role-reviewer"> </a>
+          
+          </td>
+          
+          <td>Reviewer</td>
+          
+          <td>Entity that examines the content, formally or informally, and suggests revisions or comments</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">endorser
+            
+            <a name="contributor-role-endorser"> </a>
+          
+          </td>
+          
+          <td>Endorser</td>
+          
+          <td>Entity that supports, approves, or advocates for the content</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">editor
+            
+            <a name="contributor-role-editor"> </a>
+          
+          </td>
+          
+          <td>Editor</td>
+          
+          <td>Entity that revises or has authority to control the content</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">informant
+            
+            <a name="contributor-role-informant"> </a>
+          
+          </td>
+          
+          <td>Informant</td>
+          
+          <td>Entity that supplies information</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">funder
+            
+            <a name="contributor-role-funder"> </a>
+          
+          </td>
+          
+          <td>Funder</td>
+          
+          <td>Entity that supplies financial support</td>
+        
+        </tr>
+      
+      
+      </table>
+    
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/contributor-role"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ContributorRole"/>
+  <title value="ContributorRole"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-03-11T16:55:11+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Used to code the format of the display string."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/contributor-role"/>
+  <content value="complete"/>
+  <concept>
+    <code value="publisher"/>
+    <display value="Publisher"/>
+    <definition value="Entity that makes the content available for public use"/>
+  </concept>
+  <concept>
+    <code value="author"/>
+    <display value="Author/Creator"/>
+    <definition value="An entity primarily responsible for making the resource, often called author or creator"/>
+  </concept>
+  <concept>
+    <code value="reviewer"/>
+    <display value="Reviewer"/>
+    <definition value="Entity that examines the content, formally or informally, and suggests revisions or comments"/>
+  </concept>
+  <concept>
+    <code value="endorser"/>
+    <display value="Endorser"/>
+    <definition value="Entity that supports, approves, or advocates for the content"/>
+  </concept>
+  <concept>
+    <code value="editor"/>
+    <display value="Editor"/>
+    <definition value="Entity that revises or has authority to control the content"/>
+  </concept>
+  <concept>
+    <code value="informant"/>
+    <display value="Informant"/>
+    <definition value="Entity that supplies information"/>
+  </concept>
+  <concept>
+    <code value="funder"/>
+    <display value="Funder"/>
+    <definition value="Entity that supplies financial support"/>
+  </concept>
+</CodeSystem>

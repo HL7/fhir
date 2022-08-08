@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="map-source-list-mode"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/map-source-list-mode defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">first
+            
+            <a name="map-source-list-mode-first"> </a>
+          
+          </td>
+          
+          <td>First</td>
+          
+          <td>Only process this rule for the first in the list.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">not_first
+            
+            <a name="map-source-list-mode-not_first"> </a>
+          
+          </td>
+          
+          <td>All but the first</td>
+          
+          <td>Process this rule for all but the first.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">last
+            
+            <a name="map-source-list-mode-last"> </a>
+          
+          </td>
+          
+          <td>Last</td>
+          
+          <td>Only process this rule for the last in the list.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">not_last
+            
+            <a name="map-source-list-mode-not_last"> </a>
+          
+          </td>
+          
+          <td>All but the last</td>
+          
+          <td>Process this rule for all but the last.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">only_one
+            
+            <a name="map-source-list-mode-only_one"> </a>
+          
+          </td>
+          
+          <td>Enforce only one</td>
+          
+          <td>Only process this rule is there is only item.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/map-source-list-mode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.684"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="StructureMapSourceListMode"/>
+  <title value="StructureMapSourceListMode"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="If field is a list, how to manage the source."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/map-source-list-mode"/>
+  <content value="complete"/>
+  <concept>
+    <code value="first"/>
+    <display value="First"/>
+    <definition value="Only process this rule for the first in the list."/>
+  </concept>
+  <concept>
+    <code value="not_first"/>
+    <display value="All but the first"/>
+    <definition value="Process this rule for all but the first."/>
+  </concept>
+  <concept>
+    <code value="last"/>
+    <display value="Last"/>
+    <definition value="Only process this rule for the last in the list."/>
+  </concept>
+  <concept>
+    <code value="not_last"/>
+    <display value="All but the last"/>
+    <definition value="Process this rule for all but the last."/>
+  </concept>
+  <concept>
+    <code value="only_one"/>
+    <display value="Enforce only one"/>
+    <definition value="Only process this rule is there is only item."/>
+  </concept>
+</CodeSystem>

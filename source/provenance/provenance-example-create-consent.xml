@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Provenance xmlns="http://hl7.org/fhir">
+	<id value="example-create-consent"/>
+
+	<target>
+		<reference value="Consent/consent-example"/>
+	</target>
+	<recorded value="2021-09-10T07:08:21.722+00:00"/>
+	<activity>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-DataOperation"/>
+			<code value="CREATE"/>
+			<display value="create"/>
+		</coding>
+	</activity>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+	<agent>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/>
+				<code value="assembler"/>
+				<display value="Assembler"/>
+			</coding>
+		</type>
+		<who>
+			<display value="LEAP Consent Management Service"/>
+		</who>
+	</agent>
+	<entity>
+		<role value="source"/>
+		<what>
+			<reference value="http://example.org/fhir/QuestionnaireResponse/some-questionnaire-response"/>
+		</what>
+	</entity>
+</Provenance>

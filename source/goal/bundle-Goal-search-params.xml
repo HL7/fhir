@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Goal-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Goal-achievement-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Goal.achievementStatus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Goal-achievement-status"/>
+        <description value="in-progress | improving | worsening | no-change | achieved | sustaining | not-achieved | no-progress | not-attainable"/>
+        <code value="achievement-status"/>
+        <type value="token"/>
+        <expression value="Goal.achievementStatus"/>
+        <xpath value="f:Goal/f:achievementStatus"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Goal-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Goal.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Goal-category"/>
+        <description value="E.g. Treatment, dietary, behavioral, etc."/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="Goal.category"/>
+        <xpath value="f:Goal/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Goal-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Goal.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Goal-identifier"/>
+        <description value="External Ids for this goal"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Goal.identifier"/>
+        <xpath value="f:Goal/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Goal-lifecycle-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Goal.lifecycleStatus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Goal-lifecycle-status"/>
+        <description value="proposed | planned | accepted | active | on-hold | completed | cancelled | entered-in-error | rejected"/>
+        <code value="lifecycle-status"/>
+        <type value="token"/>
+        <expression value="Goal.lifecycleStatus"/>
+        <xpath value="f:Goal/f:lifecycleStatus"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Goal-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Goal.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Goal-patient"/>
+        <description value="Who this goal is intended for"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Goal.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Goal/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Goal-start-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Goal.startDate"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Goal-start-date"/>
+        <description value="When goal pursuit begins"/>
+        <code value="start-date"/>
+        <type value="date"/>
+        <expression value="(Goal.start as date)"/>
+        <xpath value="f:Goal/f:startDate"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Goal-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Goal.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Goal-subject"/>
+        <description value="Who this goal is intended for"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Goal.subject"/>
+        <xpath value="f:Goal/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Goal-target-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Goal.target.dueDate"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Goal-target-date"/>
+        <description value="Reach goal on or before"/>
+        <code value="target-date"/>
+        <type value="date"/>
+        <expression value="(Goal.target.due as date)"/>
+        <xpath value="f:Goal/f:target/f:dueDate"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+          <valueString value="J#35833"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Goal.addresses"/>
+        </extension>
+        <description value="Issues addressed by this goal"/>
+        <code value="addresses"/>
+        <type value="reference"/>
+        <expression value="Goal.addresses"/>
+        <xpath value="f:Goal/f:addresses"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

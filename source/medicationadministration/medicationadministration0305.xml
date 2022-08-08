@@ -13,9 +13,9 @@
             <display value="Adcetris"/>
           </coding>
         </code>
-        <manufacturer>
+        <marketingAuthorizationHolder>
           <reference value="Organization/mmanu" />
-        </manufacturer>
+        </marketingAuthorizationHolder>
           <doseForm>
             <coding>
               <system value="http://snomed.info/sct"/>

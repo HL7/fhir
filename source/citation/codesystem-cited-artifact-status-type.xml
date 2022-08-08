@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="cited-artifact-status-type"/>
+  <meta>
+    <lastUpdated value="2021-03-11T10:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/cited-artifact-status-type defines the following codes:</p>
+      
+      
+      <table class="codes">
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">
+            
+            
+            <b>Code</b>
+          
+          
+          </td>
+          
+          
+          <td>
+            
+            
+            <b>Display</b>
+          
+          
+          </td>
+          
+          
+          <td>
+            
+            
+            <b>Definition</b>
+          
+          
+          </td>
+        
+        
+        </tr>
+        
+
+        <tr>
+          
+          <td style="white-space:nowrap">created
+            
+            <a name="cited-artifact-status-type-created"> </a>
+          
+          </td>
+          
+          <td>Created</td>
+          
+          <td>The content was originally constructed or composed.</td>
+        
+        </tr>
+		
+                <tr>
+
+          <td style="white-space:nowrap">submitted
+
+            <a name="cited-artifact-status-type-submitted"> </a>
+
+          </td>
+
+          <td>Submitted</td>
+
+          <td>The content was sent to the publisher for consideration of publication.</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">withdrawn
+
+            <a name="cited-artifact-status-type-withdrawn"> </a>
+
+          </td>
+
+          <td>Withdrawn</td>
+
+          <td>The content that was not published has been removed from consideration for publishing by the submitter.</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">pre-review
+
+            <a name="cited-artifact-status-type-pre-review"> </a>
+
+          </td>
+
+          <td>Pre review</td>
+
+          <td>The content is awaiting assignment and delivery to reviewer(s).</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">under-review
+
+            <a name="cited-artifact-status-type-under-review"> </a>
+
+          </td>
+
+          <td>Under review</td>
+
+          <td>he content is in a state of being reviewed.</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">post-review-pre-published
+
+            <a name="cited-artifact-status-type-post-review-pre-published"> </a>
+
+          </td>
+
+          <td>Post review pre published</td>
+
+          <td>The content is in a state between the review(s) being completed and being published.</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">rejected
+
+            <a name="cited-artifact-status-type-rejected"> </a>
+
+          </td>
+
+          <td>Rejected</td>
+
+          <td>The content that was not published has been removed from consideration for publishing by a publisher or editor.</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">published-early-form
+
+            <a name="cited-artifact-status-type-published-early-form"> </a>
+
+          </td>
+
+          <td>Published early form</td>
+
+          <td>The content is published but future changes to the published version are expected.</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">published-final-form
+
+            <a name="cited-artifact-status-type-published-final-form"> </a>
+
+          </td>
+
+          <td>Published final form</td>
+
+          <td>The content is published and further changes to the content are not expected.</td>
+
+        </tr>
+
+        <tr>
+          
+          <td style="white-space:nowrap">accepted
+            
+            <a name="cited-artifact-status-type-accepted"> </a>
+          
+          </td>
+          
+          <td>Accepted</td>
+          
+          <td>The content that was not published yet has been approved for publication by the publisher and/or editor.</td>
+        
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">archived
+
+            <a name="cited-artifact-status-type-archived"> </a>
+
+          </td>
+
+          <td>Archived</td>
+
+          <td>The content is retired or considered no longer current but still available as part of the public record.</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">retracted
+
+            <a name="cited-artifact-status-type-retracted"> </a>
+
+          </td>
+
+          <td>Retracted</td>
+
+          <td>The content that was published is removed from publication and should no longer be considered part of the public record.</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">draft
+
+            <a name="cited-artifact-status-type-draft"> </a>
+
+          </td>
+
+          <td>Draft</td>
+
+          <td>The content is considered unfinished or incomplete and not representative of the current state desired by the content creator.</td>
+
+        </tr>
+
+        <tr>
+
+          <td style="white-space:nowrap">active
+
+            <a name="cited-artifact-status-type-active"> </a>
+
+          </td>
+
+          <td>Active</td>
+
+          <td>The content is considered complete for its current state by the content creator.</td>
+
+        </tr>
+		
+        <tr>
+          
+          <td style="white-space:nowrap">approved
+            
+            <a name="cited-artifact-status-type-approved"> </a>
+          
+          </td>
+          
+          <td>Approved</td>
+          
+          <td>The content has been approved for a state transition, with the focus of approval described in the text associated with this coding.</td>
+        
+        </tr>    
+		
+        <tr>
+          
+          <td style="white-space:nowrap">unknown
+            
+            <a name="cited-artifact-status-type-unknown"> </a>
+          
+          </td>
+          
+          <td>Unknown</td>
+          
+          <td>The status of the content is not recorded in the metadata.</td>
+        
+        </tr>    
+      
+      </table>
+    
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-activity">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/cited-artifact-status-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="CitedArtifactStatusType"/>
+  <title value="CitedArtifactStatusType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-03-11T10:55:11.085+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Cited Artifact Status Type"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-status-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="created"/>
+    <display value="Created"/>
+    <definition value="The content was originally constructed or composed."/>
+  </concept>
+  <concept>
+    <code value="submitted"/>
+    <display value="Submitted"/>
+    <definition value="The content was sent to the publisher for consideration of publication."/>
+  </concept>
+  <concept>
+    <code value="withdrawn"/>
+    <display value="Withdrawn"/>
+    <definition value="The content that was not published has been removed from consideration for publishing by the submitter."/>
+  </concept>
+  <concept>
+    <code value="pre-review"/>
+    <display value="Pre review"/>
+    <definition value="The content is awaiting assignment and delivery to reviewer(s)."/>
+  </concept>
+  <concept>
+    <code value="under-review"/>
+    <display value="Under review"/>
+    <definition value="The content is in a state of being reviewed."/>
+  </concept>
+  <concept>
+    <code value="post-review-pre-published"/>
+    <display value="Post review pre published"/>
+    <definition value="The content is in a state between the review(s) being completed and being published."/>
+  </concept>
+  <concept>
+    <code value="rejected"/>
+    <display value="Rejected"/>
+    <definition value="The content that was not published has been removed from consideration for publishing by a publisher or editor."/>
+  </concept>
+  <concept>
+    <code value="published-early-form"/>
+    <display value="Published early form"/>
+    <definition value="The content is published but future changes to the published version are expected."/>
+  </concept>
+  <concept>
+    <code value="published-final-form"/>
+    <display value="Published final form"/>
+    <definition value="The content is published and further changes to the content are not expected."/>
+  </concept>
+  <concept>
+    <code value="accepted"/>
+    <display value="Accepted"/>
+    <definition value="The content that was not published yet has been approved for publication by the publisher and/or editor."/>
+  </concept>
+  <concept>
+    <code value="archived"/>
+    <display value="Archived"/>
+    <definition value="The content is retired or considered no longer current but still available as part of the public record."/>
+  </concept>
+  <concept>
+    <code value="retracted"/>
+    <display value="Retracted"/>
+    <definition value="The content that was published is removed from publication and should no longer be considered part of the public record."/>
+  </concept>
+  <concept>
+    <code value="draft"/>
+    <display value="Draft"/>
+    <definition value="The content is considered unfinished or incomplete and not representative of the current state desired by the content creator."/>
+  </concept>
+  <concept>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="The content is considered complete for its current state by the content creator."/>
+  </concept>
+  <concept>
+    <code value="approved"/>
+    <display value="Approved"/>
+    <definition value="The content has been approved for a state transition, with the focus of approval described in the text associated with this coding."/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The status of the content is not recorded in the metadata."/>
+  </concept>
+</CodeSystem>

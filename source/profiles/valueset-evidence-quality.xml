@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="evidence-quality"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <url value="http://hl7.org/fhir/ValueSet/evidence-quality"/>
+  <version value="4.6.0"/>
+  <name value="QualityOfEvidenceRating"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/evidence-quality"/>
+    </include>
+  </compose>
+</ValueSet>

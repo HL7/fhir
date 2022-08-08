@@ -122,6 +122,7 @@
         <system value="http://unitsofmeasure.org"/>
         <code value="d"/>
     </daysSupply>
+    <recorded value="2015-01-15T10:00:00Z"></recorded>
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <whenHandedOver value="2015-01-15T16:20:00Z"/>   
     <dosageInstruction>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Ingredient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/ingredient.xsd">
 	<id value="example"/>
+	<!-- note this doesn't indicate an "active ingredient" as opposed to an excipient (for which see ingredient.role) -->
+	<status value="active"/> 
 	<role>
 		<coding>
 			<system value="http://ema.europa.eu/example/ingredientRole"/>
@@ -8,7 +10,9 @@
 		</coding>
 	</role>
 	<manufacturer>
-		<reference value="Organization/example"/>
+		<manufacturer>
+			<reference value="Organization/example"/>
+		</manufacturer>
 	</manufacturer>
 	<substance>
 		<code>
@@ -20,16 +24,20 @@
 			</concept>
 		</code>
 		<strength>
-			<presentation>
+			<presentationRatio>
 				<numerator>
 					<value value="2.5"/>
 					<unit value="mg"/>
+					<system value="http://unitsofmeasure.org"/> 
+					<code value="mg"/>
 				</numerator>
 				<denominator>
 					<value value="1"/>
-					<unit value="{tablet}"/>
+					<unit value="tablet"/>
+					<system value="http://unitsofmeasure.org"/> 
+					<code value="{tablet}"/>
 				</denominator>
-			</presentation>
+			</presentationRatio>
 		</strength>
 	</substance>
 </Ingredient>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="CoverageEligibilityRequest-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Person Primary Coverage Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="coverageeligibilityrequest-example"/>
+    </extension>
+    <item>
+      <reference value="CoverageEligibilityRequest/52345"/>
+      <display value="General-Primary"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Primary Coverage specifying Benefit Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="coverageeligibilityrequest-example-2"/>
+    </extension>
+    <item>
+      <reference value="CoverageEligibilityRequest/52346"/>
+      <display value="Detailed-Primary"/>
+    </item>
+  </entry>
+</List>

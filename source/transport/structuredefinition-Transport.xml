@@ -1,0 +1,1335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Transport"/>
+  <meta> 
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Request &amp;amp; Response"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Transport"/>
+  <version value="4.6.0"/>
+  <name value="Transport"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Record of transport."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Transport"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Transport">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="Transport"/>
+      <short value="Delivery of item"/>
+      <definition value="Record of transport of item."/>
+      <min value="0"/>
+      <max value="*"/> 
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Supply[moodCode=RQO]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="workflow.order"/>
+      </mapping>
+    </element>
+    <element id="Transport.identifier">
+      <path value="Transport.identifier"/>
+      <short value="External identifier"/>
+      <definition value="Identifier for the transport event that is used to identify it across multiple disparate systems."/>
+      <comment value="This identifier is typically assigned by the dispenser, and may be used to reference the delivery when exchanging information about it with other systems."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+
+  <element id="Transport.instantiatesCanonical">
+      <path value="Transport.instantiatesCanonical"/>
+      <short value="Formal definition of transport"/>
+      <definition value="The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Transport."/>
+      <requirements value="Enables a formal definition of how the transport is to be performed, enabling automation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.instantiatesCanonical, Event.instantiatesCanonical"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
+      </mapping>
+    </element>
+    <element id="Transport.instantiatesUri">
+      <path value="Transport.instantiatesUri"/>
+      <short value="Formal definition of transport"/>
+      <definition value="The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Transport."/>
+      <requirements value="Enables a formal definition of how the transport is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation to be associated with a transport), enabling automation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.instantiatesUrl"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
+      </mapping>
+    </element>
+    <element id="Transport.basedOn">
+      <path value="Transport.basedOn"/>
+      <short value="Request fulfilled by this transport"/>
+      <definition value="BasedOn refers to a higher-level authorization that triggered the creation of the transport.  It references a &quot;request&quot; resource such as a ServiceRequest or Transport, which is distinct from the &quot;request&quot; resource the Transport is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a transport is created to fulfill a procedureRequest ( = FocusOn ) to transport a specimen to the lab."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.basedOn, Event.basedOn"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=FLFS].target[moodCode=INT]"/>
+      </mapping>
+    </element>
+    <element id="Transport.groupIdentifier">
+      <path value="Transport.groupIdentifier"/>
+      <short value="Requisition or grouper id"/>
+      <definition value="An identifier that links together multiple transports and other requests that were created in the same context."/>
+      <requirements value="Billing and/or reporting can be linked to whether multiple requests were created as a single unit."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.groupIdentifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[moodCode=INT].id"/>
+      </mapping>
+    </element>
+    <element id="Transport.partOf">
+      <path value="Transport.partOf"/>
+      <short value="Part of referenced event"/>
+      <definition value="A larger event of which this particular event is a component or step."/>
+      <comment value="Not to be used to link an event to an Encounter - use Event.context for that.&#xD;&#xD;[The allowed reference resources may be adjusted as appropriate for the event resource]."/>
+      <requirements value="E.g. Drug administration as part of a procedure, procedure as part of observation, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Transport"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.partOf"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Varies by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="Transport.status">
+      <path value="Transport.status"/>
+      <short value="in-progress | completed | abandoned | cancelled | planned | entered-in-error"/>
+      <definition value="A code specifying the state of the transport event."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TransportStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Status of the transport."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/transport-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".statusCode, also existence of fulfillment events"/>
+      </mapping>
+    </element>
+    <element id="Transport.statusReason">
+      <path value="Transport.statusReason"/>
+      <short value="Reason for current status"/>
+      <definition value="An explanation as to why this transport is held, failed, was refused, etc."/>
+      <comment value="This applies to the current status.  Look at the history of the transport to see reasons for past statuses."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TransportStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes to identify the reason for current status.  These will typically be specific to a particular workflow."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/transport-status-reason"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=&quot;status change&quot;].reasonCode"/>
+      </mapping>
+    </element>
+    <element id="Transport.intent">
+      <path value="Transport.intent"/>
+      <short value="unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
+      <definition value="Indicates the &quot;level&quot; of actionability associated with the Transport, i.e. i+R[9]Cs this a proposed transport, a planned transport, an actionable transport, etc."/>
+      <comment value="This element is immutable.  Proposed transports, planned transports, etc. must be distinct instances.&#xA;&#xA;In most cases, Transports will have an intent of &quot;order&quot;."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TransportIntent"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Distinguishes whether the transport is a proposal, plan or full order."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/transport-intent"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.intent"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".moodCode"/>
+      </mapping>
+    </element>
+    <element id="Transport.priority">
+      <path value="Transport.priority"/>
+      <short value="routine | urgent | asap | stat"/>
+      <definition value="Indicates how quickly the Transport should be addressed with respect to other requests."/>
+      <requirements value="Used to identify the service level expected while performing a transport."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <meaningWhenMissing value="If missing, this transport should be performed with normal priority"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TransportPriority"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The transport&#39;s priority."/>
+        </extension>
+        <strength value="required"/>
+        <description value="The priority of a transport (may affect service level applied to the transport)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.priority"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.grade"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".priorityCode"/>
+      </mapping>
+    </element>
+    <element id="Transport.code">
+      <path value="Transport.code"/>
+      <short value="Transport Type"/>
+      <definition value="A name or code (or both) briefly describing what the transport involves."/>
+      <comment value="The title (eg &quot;My Transports&quot;, &quot;Outstanding Transports for Patient X&quot;) should go into the code."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TransportCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes to identify what the transport involves.  These will typically be specific to a particular workflow."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/transport-code"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.code, Event.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="Transport.description">
+      <path value="Transport.description"/>
+      <short value="Human-readable explanation of transport"/>
+      <definition value="A free-text description of what is to be performed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+    </element>
+    <element id="Transport.focus">
+      <path value="Transport.focus"/>
+      <short value="What transport is acting on"/>
+      <definition value="The request being actioned or the resource being manipulated by this transport."/>
+      <comment value="If multiple resources need to be manipulated, use sub-transports.  (This ensures that status can be tracked independently for each referenced resource.)."/>
+      <requirements value="Used to identify the thing to be done."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=SUBJ].target"/>
+      </mapping>
+    </element>
+    <element id="Transport.for">
+      <path value="Transport.for"/>
+      <short value="Beneficiary of the Transport"/>
+      <definition value="The entity who benefits from the performance of the service specified in the transport (e.g., the patient)."/>
+      <requirements value="Used to track transports outstanding for a beneficiary.  Do not use to track the transport owner or creator (see owner and creator respectively).  This can also affect access control."/>
+      <alias value="Patient"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.subject, Event.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=RCT].role"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="Transport.encounter">
+      <path value="Transport.encounter"/>
+      <short value="Healthcare event during which this transport originated"/>
+      <definition value="The healthcare event  (e.g. a patient and healthcare provider interaction) during which this transport was created."/>
+      <requirements value="For some transports it may be important to know the link between the encounter the transport originated within."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.context, Event.context"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=PCPR, moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="Transport.completionTime">
+      <path value="Transport.completionTime"/>
+      <short value="Completion time of the event (the occurrence)"/>
+      <definition value="Identifies the completion time of the event (the occurrence)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="Transport.authoredOn">
+      <path value="Transport.authoredOn"/>
+      <short value="Transport Creation Date"/>
+      <definition value="The date and time this transport was created."/>
+      <requirements value="Most often used along with lastUpdated to track duration of the transport to supporting monitoring and management."/>
+      <alias value="Created Date"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <condition value="inv-1"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.authoredOn"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].time"/>
+      </mapping>
+    </element>
+    <element id="Transport.lastModified">
+      <path value="Transport.lastModified"/>
+      <short value="Transport Last Modified Date"/>
+      <definition value="The date and time of last modification to this transport."/>
+      <requirements value="Used along with history to track transport activity and time in a particular transport state.  This enables monitoring and management."/>
+      <alias value="Update Date"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <condition value="inv-1"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ, ].source[classCode=CACT, moodCode=EVN].effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="Transport.requester">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,0"/>
+      </extension>
+      <path value="Transport.requester"/>
+      <short value="Who is asking for transport to be done"/>
+      <definition value="The creator of the transport."/>
+      <requirements value="Identifies who created this transport.  May be used by access control mechanisms (e.g., to ensure that only the creator can cancel a transport)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.requester"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].role"/>
+      </mapping>
+    </element>
+    <element id="Transport.performerType">
+      <path value="Transport.performerType"/>
+      <short value="Requested performer"/>
+      <definition value="The kind of participant that should perform the transport."/>
+      <requirements value="Use to distinguish transports on different activity queues."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TransportPerformerType"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The type(s) of transport performers allowed."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/performer-role"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.role, Request.performerType"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRF].role.code"/>
+      </mapping>
+    </element>
+    <element id="Transport.owner">
+      <path value="Transport.owner"/>
+      <short value="Responsible individual"/>
+      <definition value="Individual organization or Device currently responsible for transport execution."/>
+      <comment value="Transports may be created with an owner not yet identified."/>
+      <requirements value="Identifies who is expected to perform this transport."/>
+      <alias value="Performer"/>
+      <alias value="Executer"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor, Request.performer"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRF].role"/>
+      </mapping>
+    </element>
+    <element id="Transport.location">
+      <path value="Transport.location"/>
+      <short value="Where transport occurs"/>
+      <definition value="Principal physical location where the this transport is performed."/>
+      <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.reasonCode, Event.reasonCode"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.where[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=LOC].role"/>
+      </mapping>
+    </element>
+    <element id="Transport.reasonCode">
+      <path value="Transport.reasonCode"/>
+      <short value="Why transport is needed"/>
+      <definition value="A description or code indicating why this transport needs to be performed."/>
+      <comment value="This should only be included if there is no focus or if it differs from the reason indicated on the focus."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TransportReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates why the transport is needed.  E.g. Suspended because patient admitted to hospital."/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.location"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="EVN.7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode"/>
+      </mapping>
+    </element>
+    <element id="Transport.reasonReference">
+      <path value="Transport.reasonReference"/>
+      <short value="Why transport is needed"/>
+      <definition value="A resource reference indicating why this transport needs to be performed."/>
+      <comment value="Transports might be justified based on an Observation, a Condition, a past or planned procedure, etc.   This should only be included if there is no focus or if it differs from the reason indicated on the focus.    Use the CodeableConcept text element in `Transport.reasonCode` if the data is free (uncoded) text."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.reasonReference, Event.reasonReference"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=RSON].target"/>
+      </mapping>
+    </element>
+    <element id="Transport.insurance">
+      <path value="Transport.insurance"/>
+      <short value="Associated insurance coverage"/>
+      <definition value="Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the Transport."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Coverage"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClaimResponse"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.insurance"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1/IN2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COVBY].target"/>
+      </mapping>
+    </element>
+    <element id="Transport.note">
+      <path value="Transport.note"/>
+      <short value="Comments made about the transport"/>
+      <definition value="Free-text information captured about the transport as it progresses."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.note, Event.note"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ, ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value(string)"/>
+      </mapping>
+    </element>
+    <element id="Transport.relevantHistory">
+      <path value="Transport.relevantHistory"/>
+      <short value="Key events in history of the Transport"/>
+      <definition value="Links to Provenance records for past versions of this Transport that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the transport."/>
+      <comment value="This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude."/>
+      <alias value="Status History"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.relevantHistory"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]"/>
+      </mapping>
+    </element>
+
+    <element id="Transport.restriction">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,100"/>
+      </extension>
+      <path value="Transport.restriction"/>
+      <short value="Constraints on fulfillment transports"/>
+      <definition value="If the Transport.focus is a request resource and the transport is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned."/>
+      <requirements value="Sometimes when fulfillment is sought, you don&#39;t want full fulfillment."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Instead of pointing to request, would point to component of request, having these characteristics"/>
+      </mapping>
+    </element>
+    <element id="Transport.restriction.repetitions">
+      <path value="Transport.restriction.repetitions"/>
+      <short value="How many times to repeat"/>
+      <definition value="Indicates the number of times the requested action should occur."/>
+      <requirements value="E.g. order that requests monthly lab tests, fulfillment is sought for 1."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".repeatNumber"/>
+      </mapping>
+    </element>
+    <element id="Transport.restriction.period">
+      <path value="Transport.restriction.period"/>
+      <short value="When fulfillment sought"/>
+      <definition value="Over what time-period is fulfillment sought."/>
+      <comment value="Note that period.high is the due date representing the time by which the transport should be completed."/>
+      <requirements value="E.g. order that authorizes 1 year&#39;s services.  Fulfillment is sought for next 3 months."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime(IVL&lt;TS&gt;)"/>
+      </mapping>
+    </element>
+    <element id="Transport.restriction.recipient">
+      <path value="Transport.restriction.recipient"/>
+      <short value="For whom is fulfillment sought?"/>
+      <definition value="For requests that are targeted to more than one potential recipient/target, to identify who is fulfillment is sought for."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=SBJ].role"/>
+      </mapping>
+    </element>
+    <element id="Transport.input">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Parameter"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,225"/>
+      </extension>
+      <path value="Transport.input"/>
+      <short value="Information used to perform transport"/>
+      <definition value="Additional information that may be needed in the execution of the transport."/>
+      <requirements value="Resources and data used to perform the transport.  This data is used in the business logic of transport execution, and is stored separately because it varies between workflows."/>
+      <alias value="Supporting Information"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="???"/>
+      </mapping>
+    </element>
+    <element id="Transport.input.type">
+      <path value="Transport.input.type"/>
+      <short value="Label for the input"/>
+      <definition value="A code or description indicating how the input is intended to be used as part of the transport execution."/>
+      <comment value="If referencing a BPMN workflow or Protocol, the &quot;system&quot; is the URL for the workflow definition and the code is the &quot;name&quot; of the required input."/>
+      <requirements value="Inputs are named to enable transport automation to bind data and pass it from one transport to the next."/>
+      <alias value="Name"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TransportInputParameterType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc."/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="???"/>
+      </mapping>
+    </element>
+    <element id="Transport.input.value[x]">
+      <path value="Transport.input.value[x]"/>
+      <short value="Content to use in performing the transport"/>
+      <definition value="The value of the input parameter as a basic type."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="base64Binary"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="canonical"/>
+      </type>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <type>
+        <code value="id"/>
+      </type>
+      <type>
+        <code value="instant"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="integer64"/>
+      </type>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <type>
+        <code value="oid"/>
+      </type>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="time"/>
+      </type>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+      <type>
+        <code value="uri"/>
+      </type>
+      <type>
+        <code value="url"/>
+      </type>
+      <type>
+        <code value="uuid"/>
+      </type>
+      <type>
+        <code value="Address"/>
+      </type>
+      <type>
+        <code value="Age"/>
+      </type>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <type>
+        <code value="ContactPoint"/>
+      </type>
+      <type>
+        <code value="Count"/>
+      </type>
+      <type>
+        <code value="Distance"/>
+      </type>
+      <type>
+        <code value="Duration"/>
+      </type>
+      <type>
+        <code value="HumanName"/>
+      </type>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <type>
+        <code value="Money"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Ratio"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+      </type>
+      <type>
+        <code value="SampledData"/>
+      </type>
+      <type>
+        <code value="Signature"/>
+      </type>
+      <type>
+        <code value="Timing"/>
+      </type>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <type>
+        <code value="Contributor"/>
+      </type>
+      <type>
+        <code value="DataRequirement"/>
+      </type>
+      <type>
+        <code value="Expression"/>
+      </type>
+      <type>
+        <code value="ParameterDefinition"/>
+      </type>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
+      <type>
+        <code value="TriggerDefinition"/>
+      </type>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+      <type>
+        <code value="Dosage"/>
+      </type>
+      <type>
+        <code value="Meta"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="???"/>
+      </mapping>
+    </element>
+    <element id="Transport.output">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,300"/>
+      </extension>
+      <path value="Transport.output"/>
+      <short value="Information produced as part of transport"/>
+      <definition value="Outputs produced by the Transport."/>
+      <requirements value="Resources and data produced during the execution the transport.  This data is generated by the business logic of transport execution, and is stored separately because it varies between workflows."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="???"/>
+      </mapping>
+    </element>
+    <element id="Transport.output.type">
+      <path value="Transport.output.type"/>
+      <short value="Label for output"/>
+      <definition value="The name of the Output parameter."/>
+      <requirements value="Outputs are named to enable transport automation to bind data and pass it from one transport to the next."/>
+      <alias value="Name"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TransportOutputParameterType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="???"/>
+      </mapping>
+    </element>
+    <element id="Transport.output.value[x]">
+      <path value="Transport.output.value[x]"/>
+      <short value="Result of output"/>
+      <definition value="The value of the Output parameter as a basic type."/>
+      <requirements value="Transport outputs can take any form."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="base64Binary"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="canonical"/>
+      </type>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <type>
+        <code value="id"/>
+      </type>
+      <type>
+        <code value="instant"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="integer64"/>
+      </type>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <type>
+        <code value="oid"/>
+      </type>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="time"/>
+      </type>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+      <type>
+        <code value="uri"/>
+      </type>
+      <type>
+        <code value="url"/>
+      </type>
+      <type>
+        <code value="uuid"/>
+      </type>
+      <type>
+        <code value="Address"/>
+      </type>
+      <type>
+        <code value="Age"/>
+      </type>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <type>
+        <code value="ContactPoint"/>
+      </type>
+      <type>
+        <code value="Count"/>
+      </type>
+      <type>
+        <code value="Distance"/>
+      </type>
+      <type>
+        <code value="Duration"/>
+      </type>
+      <type>
+        <code value="HumanName"/>
+      </type>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <type>
+        <code value="Money"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Ratio"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+      </type>
+      <type>
+        <code value="SampledData"/>
+      </type>
+      <type>
+        <code value="Signature"/>
+      </type>
+      <type>
+        <code value="Timing"/>
+      </type>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <type>
+        <code value="Contributor"/>
+      </type>
+      <type>
+        <code value="DataRequirement"/>
+      </type>
+      <type>
+        <code value="Expression"/>
+      </type>
+      <type>
+        <code value="ParameterDefinition"/>
+      </type>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
+      <type>
+        <code value="TriggerDefinition"/>
+      </type>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+      <type>
+        <code value="Dosage"/>
+      </type>
+      <type>
+        <code value="Meta"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="???"/>
+      </mapping>
+    </element>
+    <element id="Transport.requestedLocation">
+      <path value="Transport.requestedLocation"/>
+      <short value="The desired location"/>
+      <definition value="The desired or final location for the transport."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.reasonCode, Event.reasonCode"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.where[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=LOC].role"/>
+      </mapping>
+    </element>
+    <element id="Transport.currentLocation">
+      <path value="Transport.currentLocation"/>
+      <short value="The current location"/>
+      <definition value="The current location for the entity to be transported."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.reasonCode, Event.reasonCode"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.where[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=LOC].role"/>
+      </mapping>
+    </element>
+    <element id="Transport.history">
+      <path value="Transport.history"/>
+      <short value="Parent (or preceding) transport"/>
+      <definition value="The transport event prior to this one."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Transport"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.reasonReference, Event.reasonReference"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=RSON].target"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

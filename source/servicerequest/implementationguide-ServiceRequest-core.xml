@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="ServiceRequest-core"/>
+  <version value="0.1"/>
+  <name value="Service Request HL7 Extensions"/>
+  <title value="Service Request HL7 Extensions"/>
+  <status value="draft"/>
+  <date value="2015-02-12T00:00:00.000"/>
+  <publisher value="Health Level Seven, Inc. - FHIR WG"/>
+  <description value="Defines common extensions used with or related to the Service Request resource"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/servicerequest-precondition"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/servicerequest-questionnaireRequest"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

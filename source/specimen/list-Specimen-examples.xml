@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Specimen-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Specimen Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="specimen-example"/>
+    </extension>
+    <item>
+      <reference value="Specimen/101"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Bacterial Isolate from Stool sample"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="specimen-example-isolate"/>
+    </extension>
+    <item>
+      <reference value="Specimen/isolate"/>
+      <display value="Isolate"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="VMA, Random Urine Sample"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="specimen-example-urine"/>
+    </extension>
+    <item>
+      <reference value="Specimen/vma-urine"/>
+      <display value="Urine"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Serum Sample"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="specimen-example-serum"/>
+    </extension>
+    <item>
+      <reference value="Specimen/sst"/>
+      <display value="Serum"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Pooled serum sample"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="specimen-example-pooled-serum"/>
+    </extension>
+    <item>
+      <reference value="Specimen/pooled-serum"/>
+      <display value="Pooled serum"/>
+    </item>
+  </entry>
+</List>

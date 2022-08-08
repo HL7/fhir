@@ -1,4 +1,4 @@
-﻿<Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/observation.xsd">
+<Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<!--This is an example to demonstrate using task for actioning a servicerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen
 example1 action lipid panel -in progress =>. example2 specimen collection subtask -accepted => example4  specimen collection subtask - completed  with output Specimen=>example 5 action lipid panel -in progress specimen collected => example 6 action lipid panel - completed with output DiagnosticReport -->
 	<id value="example1"/>
@@ -61,6 +61,10 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 	<priority value="routine"/>
 	<!--fictive code and description elements populated for this example -->
 	<code>
+    <coding>
+      <system value="http://hl7.org/fhir/CodeSystem/task-code"/>
+      <code value="fulfill"/>
+    </coding>
 		<text value="Lipid Panel"/>
 	</code>
 	<description value="Create order for getting specimen, Set up inhouse testing,  generate order for any sendouts and submit with specimen"/>
@@ -86,17 +90,19 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 	<authoredOn value="2016-10-31T08:25:05+10:00"/>
 	<lastModified value="2016-10-31T09:45:05+10:00"/>
 	<requester>
-			<reference value="Practitioner/example"/>
-			<display value="Dr Adam Careful"/>
+		<reference value="Practitioner/example"/>
+		<display value="Dr Adam Careful"/>
 	</requester>
-	<performerType>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/task-performer-type"/>
-			<code value="performer"/>
-			<display value="Performer"/>
-		</coding>
-		<text value="Performer"/>
-	</performerType>
+	<requestedPerformer>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="18850004"/>
+        <display value="Laboratory hematologist"/>
+      </coding>
+      <text value="Performer"/>
+    </concept>
+	</requestedPerformer>
 	<owner>
 		<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 		<display value="Clinical Laboratory @ Acme Hospital"/>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Bundle-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a search response"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bundle-example"/>
+    </extension>
+    <item>
+      <reference value="Bundle/bundle-example"/>
+      <display value="search"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example transaction"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bundle-transaction"/>
+    </extension>
+    <item>
+      <reference value="Bundle/bundle-transaction"/>
+      <display value="transaction"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Response for the example transaction"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bundle-response"/>
+    </extension>
+    <item>
+      <reference value="Bundle/bundle-response"/>
+      <display value="response"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Retrieve a patients medications, allergies, problems and immunizations"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bundle-request-medsallergies"/>
+    </extension>
+    <item>
+      <reference value="Bundle/bundle-request-medsallergies"/>
+      <display value="batch request - meds  &amp; allergies"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Response for Retrieve a patients medications, allergies, problems and immunizations"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bundle-response-medsallergies"/>
+    </extension>
+    <item>
+      <reference value="Bundle/bundle-response-medsallergies"/>
+      <display value="batch response - meds &amp; allergies"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Retrieve a patient&#x2019;s conditions, medication statements and blood pressure readings since a given date"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bundle-request-simplesummary"/>
+    </extension>
+    <item>
+      <reference value="Bundle/bundle-request-simplesummary"/>
+      <display value="batch request - simple summary"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Response for Retrieve a patient&#x2019;s conditions, medication statements and blood pressure readings since a given date"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bundle-response-simplesummary"/>
+    </extension>
+    <item>
+      <reference value="Bundle/bundle-response-simplesummary"/>
+      <display value="batch response - simple summary"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example an empty search result with a warning"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bundle-search-warning"/>
+    </extension>
+    <item>
+      <reference value="Bundle/bundle-search-warning"/>
+      <display value="search-warning"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example bundle that demonstrates various reference resolution paths"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bundle-references"/>
+    </extension>
+    <item>
+      <reference value="Bundle/bundle-references"/>
+      <display value="references"/>
+    </item>
+  </entry>
+</List>

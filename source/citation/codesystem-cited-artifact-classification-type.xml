@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="cited-artifact-classification-type"/>
+  <meta>
+    <lastUpdated value="2021-03-11T10:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type defines the following codes:</p>
+      
+      
+      <table class="codes">
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">
+            
+            
+            <b>Code</b>
+          
+          
+          </td>
+          
+          
+          <td>
+            
+            
+            <b>Display</b>
+          
+          
+          </td>
+          
+          
+          <td>
+            
+            
+            <b>Definition</b>
+          
+          
+          </td>
+        
+        
+        </tr>
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">publication-type
+            
+            
+            <a name="cited-artifact-classification-type-publication-type"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Publication type</td>
+          
+          
+          <td>Publication type</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">mesh-heading
+            
+            
+            <a name="cited-artifact-classification-type-mesh-heading"> </a>
+          
+          
+          </td>
+          
+          
+          <td>MeSH heading</td>
+          
+          
+          <td>MeSH heading</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">supplemental-mesh-protocol
+            
+            
+            <a name="cited-artifact-classification-type-supplemental-mesh-protocol"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Supplemental MeSH for Protocol</td>
+          
+          
+          <td>Supplemental MeSH for Protocol</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">supplemental-mesh-disease
+            
+            
+            <a name="cited-artifact-classification-type-supplemental-mesh-disease"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Supplemental MeSH for Disease</td>
+          
+          
+          <td>Supplemental MeSH for Disease</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">supplemental-mesh-organism
+            
+            
+            <a name="cited-artifact-classification-type-supplemental-mesh-organism"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Supplemental MeSH for Organism</td>
+          
+          
+          <td>Supplemental MeSH for Organism</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">keyword
+            
+            
+            <a name="cited-artifact-classification-type-keyword"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Keyword</td>
+          
+          
+          <td>Keyword</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">citation-subset
+            
+            
+            <a name="cited-artifact-classification-type-citation-subset"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Citation subset</td>
+          
+          
+          <td>Citation subset</td>
+        
+        
+        </tr>
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">chemical
+            
+            
+            <a name="cited-artifact-classification-type-chemical"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Chemical</td>
+          
+          
+          <td>Chemical</td>
+        
+        
+        </tr>
+		
+        <tr>
+          
+          
+          <td style="white-space:nowrap">publishing-model
+            
+            
+            <a name="cited-artifact-classification-type-publishing-model"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Publishing Model</td>
+          
+          
+          <td>Used for PubModel attribute in Medline</td>
+        
+        
+        </tr>
+		
+        <tr>
+          
+          
+          <td style="white-space:nowrap">knowledge-artifact-type
+            
+            
+            <a name="cited-artifact-classification-type-knowledge-artifact-type"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Knowledge Artifact Type</td>
+          
+          
+          <td>Knowledge Artifact Type</td>
+        
+        
+        </tr>
+
+        <tr>
+          
+          <td style="white-space:nowrap">coverage
+            
+            <a name="cited-artifact-classification-type-coverage"> </a>
+          
+          </td>
+          
+          <td>Coverage</td>
+          
+          <td>The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant</td>
+        
+        </tr>
+      
+      </table>
+    
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-classification">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="CitedArtifactClassificationType"/>
+  <title value="CitedArtifactClassificationType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-03-11T10:55:11.085+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Cited Artifact Classification Type"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-classification-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="publication-type"/>
+    <display value="Publication type"/>
+    <definition value="Publication type"/>
+  </concept>
+  <concept>
+    <code value="mesh-heading"/>
+    <display value="MeSH heading"/>
+    <definition value="MeSH heading"/>
+  </concept>
+  <concept>
+    <code value="supplemental-mesh-protocol"/>
+    <display value="Supplemental MeSH for Protocol"/>
+    <definition value="Supplemental MeSH for Protocol"/>
+  </concept>
+  <concept>
+    <code value="supplemental-mesh-disease"/>
+    <display value="Supplemental MeSH for Disease"/>
+    <definition value="Supplemental MeSH for Disease"/>
+  </concept>
+  <concept>
+    <code value="supplemental-mesh-organism"/>
+    <display value="Supplemental MeSH for Organism"/>
+    <definition value="Supplemental MeSH for Organism"/>
+  </concept>
+  <concept>
+    <code value="keyword"/>
+    <display value="Keyword"/>
+    <definition value="Keyword"/>
+  </concept>
+  <concept>
+    <code value="citation-subset"/>
+    <display value="Citation subset"/>
+    <definition value="Citation subset"/>
+  </concept>
+  <concept>
+    <code value="chemical"/>
+    <display value="Chemical"/>
+    <definition value="Chemical"/>
+  </concept>
+  <concept>
+    <code value="publishing-model"/>
+    <display value="Publishing Model"/>
+    <definition value="Used for PubModel attribute in Medline"/>
+  </concept>
+  <concept>
+    <code value="knowledge-artifact-type"/>
+    <display value="Knowledge Artifact Type"/>
+    <definition value="Knowledge Artifact Type"/>
+  </concept>
+  <concept>
+    <code value="coverage"/>
+    <display value="Coverage"/>
+    <definition value="The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant"/>
+  </concept>
+</CodeSystem>

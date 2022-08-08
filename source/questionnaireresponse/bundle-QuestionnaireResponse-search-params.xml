@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="QuestionnaireResponse-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-author"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.author"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-author"/>
+        <description value="The author of the questionnaire response"/>
+        <code value="author"/>
+        <type value="reference"/>
+        <expression value="QuestionnaireResponse.author"/>
+        <xpath value="f:QuestionnaireResponse/f:author"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-authored"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.authored"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-authored"/>
+        <description value="When the questionnaire response was last changed"/>
+        <code value="authored"/>
+        <type value="date"/>
+        <expression value="QuestionnaireResponse.authored"/>
+        <xpath value="f:QuestionnaireResponse/f:authored"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-based-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.basedOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-based-on"/>
+        <description value="Plan/proposal/order fulfilled by this questionnaire response"/>
+        <code value="based-on"/>
+        <type value="reference"/>
+        <expression value="QuestionnaireResponse.basedOn"/>
+        <xpath value="f:QuestionnaireResponse/f:basedOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-encounter"/>
+        <description value="Encounter associated with the questionnaire response"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="QuestionnaireResponse.encounter"/>
+        <xpath value="f:QuestionnaireResponse/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-identifier"/>
+        <description value="The unique identifier for the questionnaire response"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="QuestionnaireResponse.identifier"/>
+        <xpath value="f:QuestionnaireResponse/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-part-of"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.partOf"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-part-of"/>
+        <description value="Procedure or observation this questionnaire response was performed as a part of"/>
+        <code value="part-of"/>
+        <type value="reference"/>
+        <expression value="QuestionnaireResponse.partOf"/>
+        <xpath value="f:QuestionnaireResponse/f:partOf"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-patient"/>
+        <description value="The patient that is the subject of the questionnaire response"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="QuestionnaireResponse.subject.where(resolve() is Patient)"/>
+        <xpath value="f:QuestionnaireResponse/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-questionnaire"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.questionnaire"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-questionnaire"/>
+        <description value="The questionnaire the answers are provided for"/>
+        <code value="questionnaire"/>
+        <type value="reference"/>
+        <expression value="QuestionnaireResponse.questionnaire"/>
+        <xpath value="f:QuestionnaireResponse/f:questionnaire"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-source"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.source"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-source"/>
+        <description value="The individual providing the information reflected in the questionnaire respose"/>
+        <code value="source"/>
+        <type value="reference"/>
+        <expression value="QuestionnaireResponse.source"/>
+        <xpath value="f:QuestionnaireResponse/f:source"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-status"/>
+        <description value="The status of the questionnaire response"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="QuestionnaireResponse.status"/>
+        <xpath value="f:QuestionnaireResponse/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="QuestionnaireResponse.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/QuestionnaireResponse-subject"/>
+        <description value="The subject of the questionnaire response"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="QuestionnaireResponse.subject"/>
+        <xpath value="f:QuestionnaireResponse/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="QuestionnaireResponse-item-subject"/>
+        <url value="http://hl7.org/fhir/SearchParameter/QuestionnaireResponse-item-subject"/>
+        <version value="4.6.0"/>
+        <name value="item-subject"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <description value="Allows searching for QuestionnaireResponses by item value where the item has isSubject=true"/>
+        <code value="item-subject"/>
+        <base value="QuestionnaireResponse"/>
+        <type value="reference"/>
+        <expression value="QuestionnaireResponse.item.where(extension('http://hl7.org/fhir/StructureDefinition/questionnaireresponse-isSubject').exists()).answer.value.ofType(Reference)"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

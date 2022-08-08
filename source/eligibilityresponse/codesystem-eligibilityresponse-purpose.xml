@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="eligibilityresponse-purpose"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/eligibilityresponse-purpose"/>
+  <version value="4.6.0"/>
+  <name value="EligibilityResponsePurpose"/>
+  <concept>
+    <code value="auth-requirements"/>
+    <display value="Coverage auth-requirements"/>
+    <definition value="The prior authorization requirements for the listed, or discovered if specified, converages for the categories of service and/or specifed biling codes are requested."/>
+  </concept>
+  <concept>
+    <code value="benefits"/>
+    <display value="Coverage benefits"/>
+    <definition value="The plan benefits and optionally benefits consumed  for the listed, or discovered if specified, converages are requested."/>
+  </concept>
+  <concept>
+    <code value="discovery"/>
+    <display value="Coverage Discovery"/>
+    <definition value="The insurer is requested to report on any coverages which they are aware of in addition to any specifed."/>
+  </concept>
+  <concept>
+    <code value="validation"/>
+    <display value="Coverage Validation"/>
+    <definition value="A check that the specified coverages are in-force is requested."/>
+  </concept>
+</CodeSystem>

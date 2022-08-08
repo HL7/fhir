@@ -25,7 +25,7 @@
   <severity value="high"/>
   <identifiedDateTime value="2014-01-05"/>
   <author>
-    <reference value="Device/software"/>
+    <reference value="Device/example"/>
   </author>
   <implicated>
     <reference value="MedicationUsage/example001"/>

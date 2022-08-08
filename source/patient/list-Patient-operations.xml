@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Patient-operations"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Patient-match"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Patient-everything"/>
+    </item>
+  </entry>
+</List>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="characteristic-offset"/>
+  <meta>
+    <lastUpdated value="2022-03-04T16:55:11+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/characteristic-offset defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+                <tr>
+          
+          <td style="white-space:nowrap">UNL
+            
+            <a name="characteristic-offset-UNL"> </a>
+          
+          </td>
+          
+          <td>Upper Normal Limit</td>
+          
+          <td>The upper bound of the reference range.</td>
+        
+        </tr>
+
+        <tr>
+          
+          <td style="white-space:nowrap">LNL
+            
+            <a name="characteristic-offset-LNL"> </a>
+          
+          </td>
+          
+          <td>Lower Normal Limit</td>
+          
+          <td>The lower bound of the reference range.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/characteristic-offset"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1455"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="CharacteristicOffset"/>
+  <title value="CharacteristicOffset"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2022-03-04T16:55:11+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Reference point for characteristic.valueQuantity."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/characteristic-offset"/>
+  <content value="complete"/>
+  <concept>
+    <code value="UNL"/>
+    <display value="Upper Normal Limit"/>
+    <definition value="The upper bound of the reference range."/>
+  </concept>
+  <concept>
+    <code value="LNL"/>
+    <display value="Lower Normal Limit"/>
+    <definition value="The lower bound of the reference range."/>
+  </concept>
+</CodeSystem>

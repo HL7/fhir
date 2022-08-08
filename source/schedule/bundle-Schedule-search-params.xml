@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Schedule-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Schedule-active"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Schedule.active"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Schedule-active"/>
+        <description value="Is the schedule in active use"/>
+        <code value="active"/>
+        <type value="token"/>
+        <expression value="Schedule.active"/>
+        <xpath value="f:Schedule/f:active"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Schedule-actor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Schedule.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Schedule-actor"/>
+        <description value="The individual(HealthcareService, Practitioner, Location, ...) to find a Schedule for"/>
+        <code value="actor"/>
+        <type value="reference"/>
+        <expression value="Schedule.actor"/>
+        <xpath value="f:Schedule/f:actor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Schedule-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Schedule.planningHorizon"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Schedule-date"/>
+        <description value="Search for Schedule resources that have a period that contains this date specified"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="Schedule.planningHorizon"/>
+        <xpath value="f:Schedule/f:planningHorizon"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Schedule-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Schedule.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Schedule-identifier"/>
+        <description value="A Schedule Identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Schedule.identifier"/>
+        <xpath value="f:Schedule/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Schedule-service-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Schedule.serviceCategory"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Schedule-service-category"/>
+        <description value="High-level category"/>
+        <code value="service-category"/>
+        <type value="token"/>
+        <expression value="Schedule.serviceCategory"/>
+        <xpath value="f:Schedule/f:serviceCategory"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Schedule-service-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Schedule.serviceType.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Schedule-service-type"/>
+        <description value="The type (by coding) of appointments that can be booked into associated slot(s)"/>
+        <code value="service-type"/>
+        <type value="token"/>
+        <expression value="Schedule.serviceType.concept"/>
+        <xpath value="f:Schedule/f:serviceType/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Schedule-service-type-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Schedule.serviceType.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Schedule-service-type-reference"/>
+        <description value="The type (by HealthcareService) of appointments that can be booked into associated slot(s)"/>
+        <code value="service-type-reference"/>
+        <type value="reference"/>
+        <expression value="Schedule.serviceType.reference"/>
+        <xpath value="f:Schedule/f:serviceType/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Schedule-specialty"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Schedule.specialty"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Schedule-specialty"/>
+        <description value="Type of specialty needed"/>
+        <code value="specialty"/>
+        <type value="token"/>
+        <expression value="Schedule.specialty"/>
+        <xpath value="f:Schedule/f:specialty"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

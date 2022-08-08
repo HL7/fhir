@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ImmunizationRecommendation"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Medications"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pher"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value="Immunization recommendations are generated on &quot;just in time&quot; and typically are not retained by the system generating them so there isn&#39;t an expected workflow where a previous recommendation would be re-evaluated and found to be &quot;in error&quot;."/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+  <version value="4.6.0"/>
+  <name value="ImmunizationRecommendation"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Public Health and Emergency Response)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/pher/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A patient&#39;s point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="ImmunizationRecommendation"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="ImmunizationRecommendation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="ImmunizationRecommendation"/>
+      <short value="Guidance or advice relating to an immunization"/>
+      <definition value="A patient&#39;s point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="VXU_V04"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="SubstanceAdministration[moodCode=RMD]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.medication"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.identifier">
+      <path value="ImmunizationRecommendation.identifier"/>
+      <short value="Business identifier"/>
+      <definition value="A unique identifier assigned to this particular recommendation record."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.instantiatesCanonical">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Added - Jira 27016."/>
+      </extension>
+      <path value="ImmunizationRecommendation.instantiatesCanonical"/>
+      <short value="Instantiates FHIR protocol or definition for the immunization recommendation"/>
+      <definition value="The URL pointing to a FHIR-defined protocol, guideline or other definition that is adhered to in whole or in part by this ImmunizationRecommendation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-pattern">
+          <valueCanonical value="http://hl7.org/fhir/StructureDefinition/Definition"/>
+        </extension>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EventDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubscriptionTopic"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.instantiatesCanonical"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.instantiatesUri">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Added - Jira 27016."/>
+      </extension>
+      <path value="ImmunizationRecommendation.instantiatesUri"/>
+      <short value="Instantiates external protocol or definition for the immunization recommendation"/>
+      <definition value="The URL pointing to an externally maintained protocol, guideline or other definition that is adhered to in whole or in part by this ImmunizationRecommendation."/>
+      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.instantiatesUri"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.patient">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="PID, PD1, NK1 | #3706."/>
+      </extension>
+      <path value="ImmunizationRecommendation.patient"/>
+      <short value="Who this profile is for"/>
+      <definition value="The patient the recommendation(s) are for."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".partipication[typeCode=SUBJ].role"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.date">
+      <path value="ImmunizationRecommendation.date"/>
+      <short value="Date recommendation(s) created"/>
+      <definition value="The date the immunization recommendation(s) were created."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.authoredOn"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-15"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".partipication[typeCode=AUTH].time"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.authority">
+      <path value="ImmunizationRecommendation.authority"/>
+      <short value="Who is responsible for protocol"/>
+      <definition value="Indicates the authority who published the protocol (e.g. ACIP)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5 : OBX-3 = 59779-9"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT]"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#17773."/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="300,120"/>
+      </extension>
+      <path value="ImmunizationRecommendation.recommendation"/>
+      <short value="Vaccine administration recommendations"/>
+      <definition value="Vaccine administration recommendations."/>
+      <comment value="A given instance of the .recommendation backbone element should correspond to a single recommended administration."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="imr-1"/>
+        <severity value="error"/>
+        <human value="One of vaccineCode or targetDisease SHALL be present"/>
+        <expression value="vaccineCode.exists() or targetDisease.exists()"/>
+        <xpath value="exists(f:vaccineCode) or exists(f:targetDisease)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+      </constraint>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&#39;COMP&#39;].target[classCode=SBADM, moodCode=RMD]"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.vaccineCode">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#12484."/>
+      </extension>
+      <path value="ImmunizationRecommendation.recommendation.vaccineCode"/>
+      <short value="Vaccine  or vaccine group recommendation applies to"/>
+      <definition value="Vaccine(s) or vaccine group that pertain to the recommendation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VaccineCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of vaccine administered."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/vaccine-code"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.code"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5 : OBX-3 = ( 30956-7 | 38890-0 )"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".partipication[typeCode=CSM].role[classCode=ADMM].code"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.targetDisease">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#12484, #17773."/>
+      </extension>
+      <path value="ImmunizationRecommendation.recommendation.targetDisease"/>
+      <short value="Disease to be immunized against"/>
+      <definition value="The targeted disease for the recommendation."/>
+      <comment value="A given instance of the .recommendation backbone element should correspond to a single recommended administration but sometimes that administration (eg. MMR) will encompass multiple diseases, thus the targetDisease element is allowed to repeat."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TargetDisease"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The disease that the recommended vaccination targets."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-target-disease"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5 : OBX-3 = ( 30956-7 | 38890-0 )"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".partipication[typeCode=CSM].role[classCode=ADMM].code"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.contraindicatedVaccineCode">
+      <path value="ImmunizationRecommendation.recommendation.contraindicatedVaccineCode"/>
+      <short value="Vaccine which is contraindicated to fulfill the recommendation"/>
+      <definition value="Vaccine(s) which should not be used to fulfill the recommendation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VaccineCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of vaccine administered."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/vaccine-code"/>
+      </binding>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.forecastStatus">
+      <path value="ImmunizationRecommendation.recommendation.forecastStatus"/>
+      <short value="Vaccine recommendation status"/>
+      <definition value="Indicates the patient status with respect to the path to immunity for the target disease."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because the forecastStatus indicates whether a patient needs additional doses (due, overdue, etc) or not  (contraindicated, complete, etc)."/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImmunizationRecommendationStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The patient&#39;s status with respect to a vaccination protocol."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-recommendation-status"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5 : OBX-3 = 59783-1"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ] .source[classCode=OBS, moodCode=EVN, code=&quot;Immunization Forecast Status&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.forecastReason">
+      <path value="ImmunizationRecommendation.recommendation.forecastReason"/>
+      <short value="Vaccine administration status reason"/>
+      <definition value="The reason for the assigned forecast status."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImmunizationRecommendationReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The reason for the patient&#39;s status with respect to a vaccination protocol."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-recommendation-reason"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5 : OBX-3 = 30982-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.dateCriterion">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="350,0"/>
+      </extension>
+      <path value="ImmunizationRecommendation.recommendation.dateCriterion"/>
+      <short value="Dates governing proposed immunization"/>
+      <definition value="Vaccine date recommendations.  For example, earliest date to administer, latest date to administer, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-3: 30980-7 = Next dose recommended, 59777-3 = Latest next dose should be given, 59778-1 = Dose is overdue"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&#39;LIMIT&#39;].target[classCode=OBS, moodCode=EVN, isCriterionInd=true]"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.dateCriterion.code">
+      <path value="ImmunizationRecommendation.recommendation.dateCriterion.code"/>
+      <short value="Type of date"/>
+      <definition value="Date classification of recommendation.  For example, earliest date to give, latest date to give, etc."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImmunizationRecommendationDateCriterion"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Classifies date criterion with respect to conveying information about a patient&#39;s vaccination status (e.g. due date, latest to give date, etc.)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-recommendation-date-criterion"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.dateCriterion.value">
+      <path value="ImmunizationRecommendation.recommendation.dateCriterion.value"/>
+      <short value="Recommended date"/>
+      <definition value="The date whose meaning is specified by dateCriterion.code."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".value"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.description">
+      <path value="ImmunizationRecommendation.recommendation.description"/>
+      <short value="Protocol details"/>
+      <definition value="Contains the description about the protocol under which the vaccine was administered."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5 : OBX-3 = 30956-7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.series">
+      <path value="ImmunizationRecommendation.recommendation.series"/>
+      <short value="Name of vaccination series"/>
+      <definition value="One possible path to achieve presumed immunity against a disease - within the context of an authority."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXA-5-administered code"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".title"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.doseNumber">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#13185 (add option for string), #25277 (restrict to string data type)."/>
+      </extension>
+      <path value="ImmunizationRecommendation.recommendation.doseNumber"/>
+      <short value="Recommended dose number within series"/>
+      <definition value="Nominal position of the recommended dose in a series as determined by the evaluation and forecasting process (e.g. dose 2 is the next recommended dose)."/>
+      <comment value="The use of an integer is preferred if known. A string should only be used in cases where an integer is not available (such as when documenting a recurring booster dose)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5 : OBX-3 = 30973-2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP, .source[classCode=SBADM, moodCode=INT]].sequenceNumber"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.seriesDoses">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#13185 (add option for string), #25277 (restrict to string data type)."/>
+      </extension>
+      <path value="ImmunizationRecommendation.recommendation.seriesDoses"/>
+      <short value="Recommended number of doses for immunity"/>
+      <definition value="The recommended number of doses to achieve immunity as determined by the evaluation and forecasting process."/>
+      <comment value="The use of an integer is preferred if known."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5 : OBX-3 = 59782-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP, .source[classCode=SBADM, moodCode=DEF]].sequenceNumber"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.supportingImmunization">
+      <path value="ImmunizationRecommendation.recommendation.supportingImmunization"/>
+      <short value="Past immunizations supporting recommendation"/>
+      <definition value="Immunization event history and/or evaluation that supports the status and recommendation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="? No clear way to associate in HL7 v2 or IG"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=RSON].target[classCode=SBADM, moodCode=EVN, code=&quot;immunization&quot;]"/>
+      </mapping>
+    </element>
+    <element id="ImmunizationRecommendation.recommendation.supportingPatientInformation">
+      <path value="ImmunizationRecommendation.recommendation.supportingPatientInformation"/>
+      <short value="Patient observations supporting recommendation"/>
+      <definition value="Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.supportingInfo"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX If OBX is associated with ( RXA : RXA-5-administered code = &#39;998^No vaccine administered^CVX&#39;), could contain the reason the vaccine was not administered"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=RSON].target[classCode=OBS, moodCode=EVN]"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

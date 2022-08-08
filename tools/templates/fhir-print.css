@@ -1,0 +1,23 @@
+
+div.sidebar {
+	display: none;
+}
+
+div.header {
+	display: none;
+}
+
+div.navtop {
+	display: none;
+}
+
+span.forprint 
+{
+  display: inline;
+}
+div.content {
+	margin-left: 5px;
+	padding: 5px;
+	border-left: none;
+}
+

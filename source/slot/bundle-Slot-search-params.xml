@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Slot-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Slot-appointment-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Slot.appointmentType"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Slot-appointment-type"/>
+        <description value="The style of appointment or patient that may be booked in the slot (not service type)"/>
+        <code value="appointment-type"/>
+        <type value="token"/>
+        <expression value="Slot.appointmentType"/>
+        <xpath value="f:Slot/f:appointmentType"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Slot-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Slot.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Slot-identifier"/>
+        <description value="A Slot Identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Slot.identifier"/>
+        <xpath value="f:Slot/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Slot-schedule"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Slot.schedule"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Slot-schedule"/>
+        <description value="The Schedule Resource that we are seeking a slot within"/>
+        <code value="schedule"/>
+        <type value="reference"/>
+        <expression value="Slot.schedule"/>
+        <xpath value="f:Slot/f:schedule"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Slot-service-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Slot.serviceCategory"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Slot-service-category"/>
+        <description value="A broad categorization of the service that is to be performed during this appointment"/>
+        <code value="service-category"/>
+        <type value="token"/>
+        <expression value="Slot.serviceCategory"/>
+        <xpath value="f:Slot/f:serviceCategory"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Slot-service-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Slot.serviceType.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Slot-service-type"/>
+        <description value="The type (by coding) of appointments that can be booked into the slot"/>
+        <code value="service-type"/>
+        <type value="token"/>
+        <expression value="Slot.serviceType.concept"/>
+        <xpath value="f:Slot/f:serviceType/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Slot-service-type-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Slot.serviceType.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Slot-service-type-reference"/>
+        <description value="The type (by HealthcareService) of appointments that can be booked into the slot"/>
+        <code value="service-type-reference"/>
+        <type value="reference"/>
+        <expression value="Slot.serviceType.reference"/>
+        <xpath value="f:Slot/f:serviceType/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Slot-specialty"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Slot.specialty"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Slot-specialty"/>
+        <description value="The specialty of a practitioner that would be required to perform the service requested in this appointment"/>
+        <code value="specialty"/>
+        <type value="token"/>
+        <expression value="Slot.specialty"/>
+        <xpath value="f:Slot/f:specialty"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Slot-start"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Slot.start"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Slot-start"/>
+        <description value="Appointment date/time."/>
+        <code value="start"/>
+        <type value="date"/>
+        <expression value="Slot.start"/>
+        <xpath value="f:Slot/f:start"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Slot-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Slot.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Slot-status"/>
+        <description value="The free/busy status of the appointment"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Slot.status"/>
+        <xpath value="f:Slot/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

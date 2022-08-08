@@ -1,9 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="consent-content-class"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/consent-content-class"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.747"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="ConsentContentClass"/>
   <title value="Consent Content Class"/>
   <status value="draft"/>
@@ -16,17 +26,12 @@
   </contact>
   <description value="This value set includes the FHIR resource types, along with some other important content class codes"/>
   <compose>
-    <!-- CDA specific document types. Use these for IHE published CDA templates -->
     <include>
       <valueSet value="http://hl7.org/fhir/ValueSet/formatcodes"/>
     </include>
-    
-    <!-- FHIR Resource types -->
     <include>
       <system value="http://hl7.org/fhir/resource-types"/>
     </include>
-    
-    <!-- how to do profile references as codes -->
     <include>
       <system value="urn:ietf:rfc:3986"/>
       <concept>
@@ -34,15 +39,12 @@
         <display value="Lipid Lab Report"/>
       </concept>
     </include>
-    
-    <!-- consent by mime type  -->
     <include>
       <system value="urn:ietf:bcp:13"/>
       <concept>
-        <code value="application/hl7-cda+xml"/> <!-- todo: check this value -->
+        <code value="application/hl7-cda+xml"/>
         <display value="CDA Documents"/>
       </concept>
     </include>
-    
   </compose>
 </ValueSet>

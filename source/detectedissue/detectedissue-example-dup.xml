@@ -33,7 +33,7 @@
   </patient>
   <identifiedDateTime value="2013-05-08"/>
   <author>
-    <reference value="Device/software"/>
+    <reference value="Device/example"/>
   </author>
   <!-- test 1 -->
   <implicated>

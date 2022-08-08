@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="CommunicationRequest"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Request &amp;amp; Response"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
+  <version value="4.6.0"/>
+  <name value="CommunicationRequest"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Patient Care)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="CommunicationRequest"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="CommunicationRequest">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="CommunicationRequest"/>
+      <short value="A request for information to be sent to a receiver"/>
+      <definition value="A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="workflow.order"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.identifier">
+      <path value="CommunicationRequest.identifier"/>
+      <short value="Unique identifier"/>
+      <definition value="Business identifiers assigned to this communication request by the performer or other systems which remain constant as the resource is updated and propagates from server to server."/>
+      <comment value="This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <requirements value="Allows identification of the communication request as it is known by various participating systems and in a way that remains consistent across servers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.basedOn">
+      <path value="CommunicationRequest.basedOn"/>
+      <short value="Fulfills plan or proposal"/>
+      <definition value="A plan or proposal that is fulfilled in whole or in part by this request."/>
+      <requirements value="Allows tracing of authorization for the request and tracking whether proposals/recommendations were acted upon."/>
+      <alias value="fulfills"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.basedOn"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=FLFS].target"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.replaces">
+      <path value="CommunicationRequest.replaces"/>
+      <short value="Request(s) replaced by this request"/>
+      <definition value="Completed or terminated request(s) whose function is taken by this new request."/>
+      <comment value="The replacement could be because the initial request was immediately rejected (due to an issue) or because the previous request was completed, but the need for the action described by the request remains ongoing."/>
+      <requirements value="Allows tracing the continuation of a therapy or administrative process instantiated through multiple requests."/>
+      <alias value="supersedes"/>
+      <alias value="prior"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.replaces"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=RPLC].target"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.groupIdentifier">
+      <path value="CommunicationRequest.groupIdentifier"/>
+      <short value="Composite request this is part of"/>
+      <definition value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form."/>
+      <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
+      <alias value="grouperId"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.groupIdentifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship(typeCode=COMP].source[moodCode=INT].identifier"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.status">
+      <path value="CommunicationRequest.status"/>
+      <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+      <definition value="The status of the proposal or order."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid."/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CommunicationRequestStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The status of the communication request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.statusReason">
+      <path value="CommunicationRequest.statusReason"/>
+      <short value="Reason for current status"/>
+      <definition value="Captures the reason for the current state of the CommunicationRequest."/>
+      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;on-hold&quot; or &quot;revoked&quot;.  The reason why the CommunicationRequest was created at all is captured in reasonCode, not here."/>
+      <alias value="Suspended Reason"/>
+      <alias value="Cancelled Reason"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CommunicationRequestStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes identifying the reason for the current state of a request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/communication-request-status-reason"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.statusReason"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCOde"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.intent">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#27153."/>
+      </extension>
+      <path value="CommunicationRequest.intent"/>
+      <short value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+      <definition value="Indicates the level of authority/intentionality associated with the CommunicationRequest and where the request fits into the workflow chain."/>
+      <comment value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance &#39;basedOn&#39; the prior instance should be created with the new &#39;intent&#39; value.&#xA;&#xA;One exception to this is that the granularity of CommunicationRequest.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur."/>
+      <requirements value="Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &quot;the time the request is recommended to occur&quot; vs. &quot;the time the request is authorized to occur&quot; or &quot;who is recommended to perform the request&quot; vs. &quot;who is authorized to perform the request"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CommunicationRequestIntent"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+          <valueMarkdown value="J#27153"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes indicating the degree of authority/intentionality associated with a request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-intent"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.intent"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.category">
+      <path value="CommunicationRequest.category"/>
+      <short value="Message category"/>
+      <definition value="The type of message to be sent such as alert, notification, reminder, instruction, etc."/>
+      <comment value="There may be multiple axes of categorization and one communication request may serve multiple purposes."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CommunicationCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for general categories of communications such as alerts, instruction, etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/communication-category"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.priority">
+      <path value="CommunicationRequest.priority"/>
+      <short value="routine | urgent | asap | stat"/>
+      <definition value="Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <meaningWhenMissing value="If missing, this task should be performed with normal priority"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CommunicationPriority"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes indicating the relative importance of a communication request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.priority"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.grade"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.doNotPerform">
+      <path value="CommunicationRequest.doNotPerform"/>
+      <short value="True if request is prohibiting action"/>
+      <definition value="If true indicates that the CommunicationRequest is asking for the specified action to *not* occur."/>
+      <comment value="The attributes provided with the request qualify what is not to be done."/>
+      <alias value="prohibited"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="If do not perform is not specified, the request is a positive request e.g. &quot;do perform&quot;"/>
+      <isModifier value="true"/>
+      <isModifierReason value="If true this element negates the specified action. For Example,  instead of a request for a communication, it is a request for the communication to not occur."/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.doNotPerform"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.medium">
+      <path value="CommunicationRequest.medium"/>
+      <short value="A channel of communication"/>
+      <definition value="A channel that was used for this communication (e.g. email, fax)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CommunicationMedium"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for communication mediums such as phone, fax, email, in person, etc."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ParticipationMode"/>
+      </binding>
+    </element>
+    <element id="CommunicationRequest.subject">
+      <path value="CommunicationRequest.subject"/>
+      <short value="Focus of message"/>
+      <definition value="The patient or group that is the focus of this communication request."/>
+      <alias value="patient"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.about">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#11381, 13705."/>
+      </extension>
+      <path value="CommunicationRequest.about"/>
+      <short value="Resources that pertain to this communication request"/>
+      <definition value="Other resources that pertain to this communication request and to which this communication request should be associated."/>
+      <comment value="Don&#39;t use CommunicationRequest.about element when a more specific element exists, such as basedOn, reasonReference, or replaces."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.supportingInfo"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.encounter">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#11381."/>
+      </extension>
+      <path value="CommunicationRequest.encounter"/>
+      <short value="The Encounter during which this CommunicationRequest was created"/>
+      <definition value="The Encounter during which this CommunicationRequest was created or to which the creation of this record is tightly associated."/>
+      <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.context"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.payload">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="380,40"/>
+      </extension>
+      <path value="CommunicationRequest.payload"/>
+      <short value="Message payload"/>
+      <definition value="Text, attachment(s), or resource(s) to be communicated to the recipient."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="CommunicationRequest.payload.content[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#20770."/>
+      </extension>
+      <path value="CommunicationRequest.payload.content[x]"/>
+      <short value="Message part content"/>
+      <definition value="The communicated content (or for multi-part communications, one portion of the communication)."/>
+      <comment value="The content can be codified or textual.  As an example of codified content, when working with machine generated communications, the payload may be drawn from a finite, terminology defined set of communications, especially for short, status update kinds of communications where more of a natural language approach isn&#39;t appropriate.&#xA;&#xA;If the content isn&#39;t codified, contentCodeableConcept.text can be used.  &#xA;&#xA;When using contentCodeableConcept, the CodeableConcept is what is being communicated and is not a categorization of the content."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.note"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.occurrence[x]">
+      <path value="CommunicationRequest.occurrence[x]"/>
+      <short value="When scheduled"/>
+      <definition value="The time when this communication is to occur."/>
+      <alias value="timing"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.planned"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.authoredOn">
+      <path value="CommunicationRequest.authoredOn"/>
+      <short value="When request transitioned to being actionable"/>
+      <definition value="For draft requests, indicates the date of initial creation.  For requests with other statuses, indicates the date of activation."/>
+      <alias value="createdOn"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.authoredOn"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.requester">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#14064, GF#22626."/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="380,240"/>
+      </extension>
+      <path value="CommunicationRequest.requester"/>
+      <short value="Who asks for the information to be shared"/>
+      <definition value="The device, individual, or organization who asks for the information to be shared."/>
+      <alias value="author"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.requester"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].role"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.recipient">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#16433, GF#22626, GF#22630."/>
+      </extension>
+      <path value="CommunicationRequest.recipient"/>
+      <short value="Who to share the information with"/>
+      <definition value="The entity (e.g. person, organization, clinical information system, device, group, or care team) which is the intended target of the communication."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.performer"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.informationProvider">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#14064, GF#22626, GF#22631, GF#22630."/>
+      </extension>
+      <path value="CommunicationRequest.informationProvider"/>
+      <short value="Who should share the information"/>
+      <definition value="The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.performer"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.reason">
+      <path value="CommunicationRequest.reason"/>
+      <short value="Why is communication needed?"/>
+      <definition value="Describes why the request is being made in coded or textual form."/>
+      <comment value="Textual reasons can be captured using reasonCode.text."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CommunicationReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for describing reasons for the occurrence of a communication."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActReason"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.reasonCode"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode"/>
+      </mapping>
+    </element>
+    <element id="CommunicationRequest.note">
+      <path value="CommunicationRequest.note"/>
+      <short value="Comments made about communication request"/>
+      <definition value="Comments made about the request by the requester, sender, recipient, subject or other participants."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.note"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

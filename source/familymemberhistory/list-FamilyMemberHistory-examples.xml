@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="FamilyMemberHistory-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Basic Example. Describes the fathers death at age 74 from a heart attack"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="familymemberhistory-example"/>
+    </extension>
+    <item>
+      <reference value="FamilyMemberHistory/father"/>
+      <display value="Father"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Mother died from a stroke aged 56. Brother with diabetes."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="familymemberhistory-example-mother"/>
+    </extension>
+    <item>
+      <reference value="FamilyMemberHistory/mother"/>
+      <display value="Mother"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Mother has no history of malignant tumor of breast"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="familymemberhistory-example-negation"/>
+    </extension>
+    <item>
+      <reference value="FamilyMemberHistory/negation"/>
+      <display value="Negation"/>
+    </item>
+  </entry>
+</List>

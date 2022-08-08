@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="SubstanceReferenceInformation"/>
+  <meta>
+    <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Medication Definition"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="anonymous"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation"/>
+  <version value="4.6.0"/>
+  <name value="SubstanceReferenceInformation"/>
+  <status value="draft"/>
+  <date value="2020-12-31T07:32:20+11:00"/>
+  <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Todo."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="SubstanceReferenceInformation"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="SubstanceReferenceInformation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="320,0"/>
+      </extension>
+      <path value="SubstanceReferenceInformation"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="administrative.medication"/>
+      </mapping>
+    </element>
+    <element id="SubstanceReferenceInformation.comment">
+      <path value="SubstanceReferenceInformation.comment"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.gene">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="258,200"/>
+      </extension>
+      <path value="SubstanceReferenceInformation.gene"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.gene.geneSequenceOrigin">
+      <path value="SubstanceReferenceInformation.gene.geneSequenceOrigin"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.gene.gene">
+      <path value="SubstanceReferenceInformation.gene.gene"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.gene.source">
+      <path value="SubstanceReferenceInformation.gene.source"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.geneElement">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="500,200"/>
+      </extension>
+      <path value="SubstanceReferenceInformation.geneElement"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.geneElement.type">
+      <path value="SubstanceReferenceInformation.geneElement.type"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.geneElement.element">
+      <path value="SubstanceReferenceInformation.geneElement.element"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.geneElement.source">
+      <path value="SubstanceReferenceInformation.geneElement.source"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.target">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="740,30"/>
+      </extension>
+      <path value="SubstanceReferenceInformation.target"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.target.target">
+      <path value="SubstanceReferenceInformation.target.target"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.target.type">
+      <path value="SubstanceReferenceInformation.target.type"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.target.interaction">
+      <path value="SubstanceReferenceInformation.target.interaction"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.target.organism">
+      <path value="SubstanceReferenceInformation.target.organism"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.target.organismType">
+      <path value="SubstanceReferenceInformation.target.organismType"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.target.amount[x]">
+      <path value="SubstanceReferenceInformation.target.amount[x]"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.target.amountType">
+      <path value="SubstanceReferenceInformation.target.amountType"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceReferenceInformation.target.source">
+      <path value="SubstanceReferenceInformation.target.source"/>
+      <short value="Todo"/>
+      <definition value="Todo."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

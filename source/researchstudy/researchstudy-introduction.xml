@@ -3,6 +3,17 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+  [%stu-note%]
+In terms of scope and usage, the  BR and RR workgroup wish to
+draw the attention of reviewers and implementers to the following issue:
+</p>
+			<ol>
+				<li>
+ This is a major restructuring of the resource.  We are seeking input from the implementation community on the appropriateness of these changes
+</li>
+			</ol>
+[%end-note-np%]
+
 <p>This resource is an <a href="workflow.html#definition">
         <em>definition resource</em>
       </a> from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</p>
@@ -20,6 +31,27 @@
       <li>Setting up a Schedule of Activities for the study and its subjects
 	  </li>
       </ul>
+
+  <h3>Extensions</h3>
+  <p>ResearchStudy is aimed at all forms of studies.  For some study types specific extensions have been defined </p>
+
+  <p>
+    <b>Extension: SiteRecruitment</b>
+  </p>
+<p>Some studies need to find sites according to specific criteria - for example site has a freezer capable of very low temperatures and a centrifuge.</p>
+
+  <p>
+    <b>Extension: StudyRegistration</b>
+  </p>
+<p>Used to separate study registration activities from study progress status.</p>
+
+  <p>
+    <b>Deprecated Extension: RelatesTo</b>
+  </p>
+<p>Many clinical studies have a component sub-study and the partOf attribute should be used for this. There may also be documents such as a PDF of the protocol or consent forms or more complex relations to other studies people organizations or artefacts and these should be linked using relatedAretfact.
+
+In the May 2021 release the <a href="http://hl7.org/fhir/2021May/extension-researchstudy-relatesto.html">relatesTo</a> extension was created.  Since then the RelatesTo datatype has been enhanced and the relatedAretfact now provides all the functionality that was in the extension.  This extension has now been removed.  Since there are already (March 2022) some known uses of the extension a link to the previous definition is provided above for reference.  Implementers should now stop using the extension.</p>
+
 </div>
 
 </div>

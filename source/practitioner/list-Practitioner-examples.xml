@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Practitioner-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Person Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-example"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="CDA Example Author"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-example-xcda-author"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/xcda-author"/>
+      <display value="cda author"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="HL7 Defined Practitioner Examples"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-examples-general"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/3ad0687e-f477-468c-afd5-fcc2bf897809"/>
+      <display value="HL7"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Fictive KNO-physician"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-example-f001-evdb"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/f001"/>
+      <display value="Dr. van den Broek"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Fictive Cardiothoracal surgeon"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-example-f002-pv"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/f002"/>
+      <display value="Dr. Voight"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Fictive Cardiothoracal surgeon"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-example-f003-mv"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/f003"/>
+      <display value="Dr. Versteegh"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Fictive KNO-physician"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-example-f004-rb"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/f004"/>
+      <display value="Dr. Briet"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Fictive KNO-physician"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-example-f005-al"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/f005"/>
+      <display value="Dr. Langeveld"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Fictive Oncologist/Pulmonologist"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-example-f201-ab"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/f201"/>
+      <display value="Dr. Bronsig"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Fictive Lab worker"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-example-f202-lm"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/f202"/>
+      <display value="Luigi Maas"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Fictive Physiotherapist"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-example-f203-jvg"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/f203"/>
+      <display value="Juri van Gelder"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Fictive Nurse"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-example-f204-ce"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/f204"/>
+      <display value="Carla Espinosa"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Fictive Pharmacist"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-example-f006-rvdb"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/f006"/>
+      <display value="Dr. van den Berk"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Fictive physician"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-example-f007-sh"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/f007"/>
+      <display value="Dr. Heps"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="2nd CDA Example Author"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="practitioner-example-xcda1"/>
+    </extension>
+    <item>
+      <reference value="Practitioner/xcda1"/>
+      <display value="cdaauthor #2"/>
+    </item>
+  </entry>
+</List>

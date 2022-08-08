@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="submit-data-update-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cqi"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/submit-data-update-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="SubmitDataUpdateType"/>
+  <title value="Submit Data Update Type"/>
+  <status value="active"/>
+  <date value="2021-04-06T19:00:36+00:00"/>
+  <publisher value="HL7 International - Clinical Quality Information Work Group"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cqi/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Concepts for how a measure report consumer and receiver coordinate data exchange updates. The choices are snapshot or incremental updates"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/submit-data-update-type"/>
+    </include>
+  </compose>
+</ValueSet>

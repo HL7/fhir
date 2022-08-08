@@ -12,26 +12,51 @@
     <system value="http://example.org/studysubjectids"/>
     <value value="123"/>
 	</identifier>
-	<status value="candidate"/>
-	<progress>
-		<type><text value="Local enrollment system"/></type>
-		<state><text value="local version of on-study"/></state>
-		<startDate value="2019-06-10"/>
-	</progress>
-	<progress>
-		<type><text value="Local milestone system"/></type>
-		<milestone><text value="Local versdion of signed up"/></milestone>
-		<startDate value="2019-06-06"/>
-	</progress>
-	<progress>
-		<type><text value="Local milestone system"/></type>
-		<milestone><text value="Local version of randomised"/></milestone>
-		<startDate value="2019-06-10"/>
-	</progress>
+	<status value="active"/>
+
+  <progress>
+    <type>
+      <coding>
+        <code value="state"/>
+      </coding>
+    </type>
+    <subjectState>
+      <coding>
+				<code value="on-study"/>
+      </coding>
+    </subjectState>
+    <startDate value="2019-06-10"/>
+  </progress>
+  <progress>
+    <type>
+      <coding>
+        <code value="milestone"/>
+      </coding>
+    </type>
+    <milestone>
+      <coding>
+        <code value="SignedUp"/>
+      </coding>
+    </milestone>
+    <startDate value="2019-06-06"/>
+  </progress>
+  <progress>
+    <type>
+      <coding>
+        <code value="milestone"/>
+      </coding>
+    </type>
+    <milestone>
+      <coding>
+        <code value="Randomized"/>
+      </coding>
+    </milestone>
+    <startDate value="2019-06-10"/>
+  </progress>
 	<study>
     <reference value="ResearchStudy/example"/>
 	</study>
-	<individual>
+	<subject>
     <reference value="Patient/example"/>
-	</individual>
+	</subject>
 </ResearchSubject>

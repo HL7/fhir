@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Medication-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Name element only populated - Amoxicillin 250mg/5ml Suspension"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample1"/>
+    </extension>
+    <item>
+      <reference value="Medication/medicationexample1"/>
+      <display value="Name Only"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Oral Chemotherapy Example - Manufactured Product - Xeloda - includes a reference to a substance in ingredient element"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample15"/>
+    </extension>
+    <item>
+      <reference value="Medication/medexample015"/>
+      <display value="Oncology"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="IV injection (inpatient order) - Manufactured Product - Vancomycin"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0301"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0301"/>
+      <display value="IV Med"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="IV Injection with a Rate Example - Manufactured Product - Piperacillin"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0302"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0302"/>
+      <display value="IV Med"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="IV Chemotherapy Example - Manufactured Product - Alemtuzumab"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0303"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0303"/>
+      <display value="Oncology"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Oral Chemotherapy Example - Manufactured Product - Myleran"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0304"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0304"/>
+      <display value="Oncology"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Eye Drop Example - Manufactured Product - Timoptic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0305"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0305"/>
+      <display value="Eye Drop"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="IV Chemotherapy Example - Manufactured Product - Adcetris"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0306"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0306"/>
+      <display value="Oncology"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Subcutaneous injection Example - Manufactured Product - Novolog"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0307"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0307"/>
+      <display value="Injectable"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="As needed Oral tablet - Manufactured Product - Percocet"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0308"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0308"/>
+      <display value="PRN"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="As needed dosage range - Manufactured Product - Tylenol No 1 Caplet"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0309"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0309"/>
+      <display value="PRN"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Generic Formulation - Oxycodone"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0310"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0310"/>
+      <display value="Generic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Generic Formulation - Prednisone 5mg tablet"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0311"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0311"/>
+      <display value="Generic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Generic Formulation - Nystatin 100,000 u/ml suspension"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0312"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0312"/>
+      <display value="Generic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Generic Formulation - Lorazepam 2mg/ml injection"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0313"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0313"/>
+      <display value="Generic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Generic Formulation - Alprazolam 0.25mg tablet"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0314"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0314"/>
+      <display value="Generic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Generic Formulation - Mometasone Furoate 0.05mg/Actuat"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0315"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0315"/>
+      <display value="Generic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Generic Formulation - Fully populated example of a Medication - Chlorthalidone"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0316"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0316"/>
+      <display value="Generic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Compounded Preparation - KCl in D5W Admixture - includes a reference to a substance in the ingredient element"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0317"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0317"/>
+      <display value="Compound"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Compounded Preparation - TPN Solution  - includes a reference to a substance in the ingredient element"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0318"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0318"/>
+      <display value="Compound"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Compounded Preparation - HC 1%, Salicylic Acid 5% in Glaxal Base  - includes a reference to a substance in the ingredient element"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0319"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0319"/>
+      <display value="Compound"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Generic Formulation - Azithromycin 250mg oral capsule - includes a reference to a substance in the Ingredient element"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0320"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0320"/>
+      <display value="Generic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Generic Formulation - Oral Chemotherapy Example - Capecitabine &#x2013; includes a reference to a substance in the Ingredient element"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0321"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0321"/>
+      <display value="Generic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Compounded Preparation - Hand Sanitizer - includes qs Ingredient strength"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0323"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0323"/>
+      <display value="Compound"/>
+    </item>
+  </entry>
+</List>

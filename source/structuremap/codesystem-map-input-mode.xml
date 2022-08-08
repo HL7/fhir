@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="map-input-mode"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/map-input-mode defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">source
+            
+            <a name="map-input-mode-source"> </a>
+          
+          </td>
+          
+          <td>Source Instance</td>
+          
+          <td>Names an input instance used a source for mapping.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">target
+            
+            <a name="map-input-mode-target"> </a>
+          
+          </td>
+          
+          <td>Target Instance</td>
+          
+          <td>Names an instance that is being populated.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/map-input-mode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.678"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="StructureMapInputMode"/>
+  <title value="StructureMapInputMode"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Mode for this instance of data."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/map-input-mode"/>
+  <content value="complete"/>
+  <concept>
+    <code value="source"/>
+    <display value="Source Instance"/>
+    <definition value="Names an input instance used a source for mapping."/>
+  </concept>
+  <concept>
+    <code value="target"/>
+    <display value="Target Instance"/>
+    <definition value="Names an instance that is being populated."/>
+  </concept>
+</CodeSystem>

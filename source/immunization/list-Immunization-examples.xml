@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Immunization-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Immunization"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="immunization-example"/>
+    </extension>
+    <item>
+      <reference value="Immunization/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Immunization with a Reaction"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="immunization-example-reaction"/>
+    </extension>
+    <item>
+      <reference value="Immunization/reaction"/>
+      <display value="Reaction"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Not Given Immunization Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="immunization-example-refused"/>
+    </extension>
+    <item>
+      <reference value="Immunization/notGiven"/>
+      <display value="Not Given"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a Historical Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="immunization-example-historical"/>
+    </extension>
+    <item>
+      <reference value="Immunization/historical"/>
+      <display value="Historical"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a Subpotent Dose"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="immunization-example-subpotent"/>
+    </extension>
+    <item>
+      <reference value="Immunization/subpotent"/>
+      <display value="Subpotent"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example where the provider indicates the protocol being followed"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="immunization-example-protocol"/>
+    </extension>
+    <item>
+      <reference value="Immunization/protocol"/>
+      <display value="Applied Protocol"/>
+    </item>
+  </entry>
+</List>

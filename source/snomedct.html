@@ -9,7 +9,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <%txheader%>
 
@@ -52,7 +52,6 @@
  <tr><td>Filter Properties</td><td>Several filter properties are defined, as described below</td></tr>
 </table>
 <p>
-This specification publishes a <a href="codesystem-snomedct.html">canonical SNOMED CT</a> <a href="codesystem.html">CodeSystem</a> resource. 
 See also the <a href="snomedct-usage.html">SNOMED CT Usage Summary</a>.
 </p>
 
@@ -171,14 +170,16 @@ In addition to the <a href="terminology-service.html#standard-props">standard pr
 </p>
 <table class="grid">
 <tr><td nowrap><strong>Property Name</strong></td><td nowrap><strong>Data Type</strong></td><td><strong>Comments</strong></td></tr>
+<tr><td>effectiveTime</td><td>dateTime</td><td>This is the effectiveTime value from the RF2 concepts file (from the snapshot).</td></tr>
 <tr><td>inactive</td><td>boolean</td><td>Whether the code is active or not (defaults to false). This is derived from the active column in the Concept file of the RF2 Distribution (by inverting the value).</td></tr>
+<tr><td>moduleId</td><td>code</td><td>The SNOMED CT concept id of the module that the concept belongs to.</td></tr>
+<tr><td>normalForm</td><td>string</td><td>Generated Necessary Normal Form expression for the provided code or expression, with terms.  The normal form expressions are not suitable for use in subsumption testing.</td></tr>
+<tr><td>normalFormTerse</td><td>string</td><td>Generated Necessary Normal form expression for the provided code or expression, concept ids only.  The normal form expressions are not suitable for use in subsumption testing.</td></tr>
+<tr><td>semanticTag</td><td>code</td><td>The phrase inside the last set of brackets of its Fully Specified Name.</td></tr>
 <tr><td>sufficientlyDefined</td><td>boolean</td><td>True if the description logic definition of the concept
   includes sufficient conditions. This is derived from the definitionStatusId
   value in the Concept file of the RF2 distribution (i.e. If 900000000000073002
   |Sufficiently defined concept definition status| then true).</td></tr>
-<tr><td>moduleId</td><td>code</td><td>The SNOMED CT concept id of the module that the concept belongs to.</td></tr>
-<tr><td>normalForm</td><td>string</td><td>Generated Necessary Normal Form expression for the provided code or expression, with terms.  The normal form expressions are not suitable for use in subsumption testing.</td></tr>
-<tr><td>normalFormTerse</td><td>string</td><td>Generated Necessary Normal form expression for the provided code or expression, concept ids only.  The normal form expressions are not suitable for use in subsumption testing.</td></tr>
 </table>
 <p>
 SNOMED CT relationships, where the relationship
@@ -194,9 +195,7 @@ For example, the laterality property is represented using the concept id
 <table class="grid">
 <tr><td nowrap><strong>Property Name</strong></td><td nowrap><strong>Data Type</strong></td><td><strong>Comments</strong></td></tr>
 <tr><td>272741003</td><td>code</td><td>
-  <p>The value of the laterality attribute in the definition of the given code or expression.  The equivalent URI for the laterality property is <code><a href="http://snomed.info/id/272741003">http://snomed.info/id/272741003</a>
-  (see the&nbsp;<a href="http://build.fhir.org/codesystem-snomedct.html">code
-  system definition</a>).</code></p>
+  <p>The value of the laterality attribute in the definition of the given code or expression.  The equivalent URI for the laterality property is <code><a href="http://snomed.info/id/272741003">http://snomed.info/id/272741003</a>.</code></p>
 </td></tr>
 </table>
 <p>
@@ -224,6 +223,15 @@ of the <a href="http://snomed.org/ecl">SNOMED CT Expression Constraint Language<
  <tr><td>Comments</td><td>Includes all concept ids that have a transitive is-a relationship with the concept id provided as the value (including the concept itself)</td></tr>
  <tr><td>Example</td><td><a href="valueset-administration-method-codes.html">Administration Methods</a></td></tr>
  <tr><td><a href="http://snomed.org/ecl">SCT ECL</a></td><td><pre>&lt;&lt; [concept] (Long syntax: descendantOrSelfOf [concept])</pre></td></tr>
+</table>
+
+<table class="grid">
+ <tr><td>Description</td><td>Select a set of concepts based on subsumption testing</td></tr>
+ <tr><td>Property Name</td><td>concept</td></tr>
+ <tr><td>Operations Allowed</td><td>descendant-of</td></tr>
+ <tr><td>Values Allowed</td><td>[concept id]</td></tr>
+ <tr><td>Comments</td><td>Includes all concept ids that have a transitive is-a relationship with the concept id provided as the value (excluding the concept itself)</td></tr>
+ <tr><td><a href="http://snomed.org/ecl">SCT ECL</a></td><td><pre>&lt; [concept] (Long syntax: descendantOf [concept])</pre></td></tr>
 </table>
 
 <h4>By Reference Set</h4>
@@ -517,9 +525,7 @@ A concept map with a URL that follows the pattern "[edition/version]?fhir_cm=[sc
   &lt;targetUri value=&quot;[edition/version]?fhir_vs&quot;/&gt;
   &lt;group&gt;  &lt;!-- 0..* Same source and target systems --&gt;
     &lt;source value=&quot;http://snomed.info/sct&quot;/&gt;
-    &lt;sourceVersion value=&quot;[edition/version]&quot;/&gt;
     &lt;target value=&quot;http://snomed.info/sct&quot;/&gt;
-    &lt;targetVersion value=&quot;[edition/version]&quot;/&gt;
 
     &lt;!-- a mapping for each member of the reference set --&gt;
     &lt;element&gt;
@@ -532,8 +538,6 @@ A concept map with a URL that follows the pattern "[edition/version]?fhir_cm=[sc
   &lt;/group&gt;
 &lt;/ConceptMap&gt;
 </pre>
-
-</div>
 
 [%file newfooter%]
 

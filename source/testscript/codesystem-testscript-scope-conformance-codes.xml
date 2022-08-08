@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="testscript-scope-conformance-codes"/>
+  <meta>
+    <lastUpdated value="2021-01-25T17:01:24-04:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/testscript-conformance-level-codes defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">required
+            
+            <a name="testscript-scope-conformance-codes-request"> </a>
+          
+          </td>
+          
+          <td>Required</td>
+          
+          <td>All tests are expected to pass. Warning statuses are permitted. This is the default value.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">optional
+            
+            <a name="testscript-scope-conformance-codes-optional"> </a>
+          
+          </td>
+          
+          <td>Optional</td>
+          
+          <td>All tests are expected to pass but non-pass statuses may be allowed.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">strict
+            
+            <a name="testscript-scope-conformance-codes-strict"> </a>
+          
+          </td>
+          
+          <td>Strict</td>
+          
+          <td>All tests are expected to pass. Warnings are treated as a failure.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/testscript-scope-conformance-codes"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1535"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="TestScriptScopeConformanceType"/>
+  <title value="TestScriptScopeConformanceType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-25T17:01:24-04:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The expectation of whether the test must pass for the system to be considered conformant with the artifact."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/testscript-scope-conformance-codes"/>
+  <content value="complete"/>
+  <concept>
+    <code value="required"/>
+    <display value="Required"/>
+    <definition value="All tests are expected to pass. Warning statuses are permitted. This is the default value."/>
+  </concept>
+  <concept>
+    <code value="optional"/>
+    <display value="Optional"/>
+    <definition value="All tests are expected to pass but non-pass statuses may be allowed."/>
+  </concept>
+  <concept>
+    <code value="strict"/>
+    <display value="Strict"/>
+    <definition value="All tests are expected to pass. Warnings are treated as a failure."/>
+  </concept>
+</CodeSystem>

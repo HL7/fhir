@@ -1,8 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+	<id value="questionnaire-item-control"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="fhir"/>
+	</extension>
 	<url value="http://hl7.org/fhir/questionnaire-item-control"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.1.932"/>
+	</identifier>
 	<name value="QuestionnaireItemUIControlCodes"/>
-  <title value="Questionnaire Item UI Control Codes"/>
+	<title value="Questionnaire Item UI Control Codes"/>
 	<status value="draft"/>
 	<experimental value="false"/>
 	<description value="Starter set of user interface control/display mechanisms that might be used when rendering an item in a questionnaire."/>
@@ -30,12 +41,12 @@
 		<concept>
 			<code value="table"/>
 			<display value="Vertical Answer Table"/>
-			<definition value="Questions within the group are rows in the table with possible answers as columns.  Used for 'choice' questions."/>
+			<definition value="Questions within the group are rows in the table with possible answers as columns.  Used for &#39;choice&#39; questions."/>
 		</concept>
 		<concept>
 			<code value="htable"/>
 			<display value="Horizontal Answer Table"/>
-			<definition value="Questions within the group are columns in the table with possible answers as rows.  Used for 'choice' questions."/>
+			<definition value="Questions within the group are columns in the table with possible answers as rows.  Used for &#39;choice&#39; questions."/>
 		</concept>
 		<concept>
 			<code value="gtable"/>
@@ -43,9 +54,9 @@
 			<definition value="Questions within the group are columns in the table with each group repetition as a row.  Used for single-answer questions."/>
 		</concept>
 		<concept>
-			<code value="atable"/>
-			<display value="Answer Table"/>
-			<definition value="This table has one row - for the question.  Permitted answers are columns.  Used for choice questions."/>
+			<code value="grid"/>
+			<display value="Group Grid"/>
+			<definition value="Child items of type='group' within the a 'grid' group are rows, and questions beneath the 'row' groups are organized as columns in the grid. The grid might be fully populated, but could be sparse. Questions may support different data types and/or different answer choices."/>
 		</concept>
 		<concept>
 			<code value="header"/>
@@ -57,18 +68,15 @@
 			<display value="Footer"/>
 			<definition value="The group is to be continuously visible at the bottom of the questionnaire"/>
 		</concept>
-    <concept>
-      <code value="page"/>
-      <display value="Page"/>
-      <definition value="Indicates that the content within the group should appear as a logical &quot;page&quot; when rendering the form, such that all enabled items 
-      within the page are displayed at once, but items in subsequent groups are not displayed until the user indicates a desire to move to the 'next' group. 
-      (Header and footer items may still be displayed.) This designation may also influence pagination when printing questionnaires. If there are items at the same 
-      level as a 'page' group that are listed before the 'page' group, they will be treated as a separate page.  Header and footer groups for a questionnaire will be rendered on all pages."/>
-    </concept>
+		<concept>
+			<code value="page"/>
+			<display value="Page"/>
+			<definition value="Indicates that the content within the group should appear as a logical &quot;page&quot; when rendering the form, such that all enabled items        within the page are displayed at once, but items in subsequent groups are not displayed until the user indicates a desire to move to the &#39;next&#39; group.        (Header and footer items may still be displayed.) This designation may also influence pagination when printing questionnaires. If there are items at the same        level as a &#39;page&#39; group that are listed before the &#39;page&#39; group, they will be treated as a separate page.  Header and footer groups for a questionnaire will be rendered on all pages."/>
+		</concept>
 	</concept>
 	<concept>
-		<code value="text"/>
-		<definition value="UI controls relevant to rendering questionnaire text items"/>
+		<code value="display"/>
+		<definition value="UI controls relevant to rendering questionnaire display items"/>
 		<property>
 			<code value="abstract"/>
 			<valueBoolean value="true"/>
@@ -76,37 +84,37 @@
 		<concept>
 			<code value="inline"/>
 			<display value="In-line"/>
-			<definition value="Text is displayed as a paragraph in a sequential position between sibling items (default behavior)"/>
-		</concept>
-		<concept>
-			<code value="prompt"/>
-			<display value="Prompt"/>
-			<definition value="Text is displayed immediately below or within the answer-entry area of the containing question item (typically as a guide for what to enter)"/>
+			<definition value="Display item is rendered as a paragraph in a sequential position between sibling items (default behavior)"/>
 		</concept>
 		<concept>
 			<code value="unit"/>
 			<display value="Unit"/>
-			<definition value="Text is displayed adjacent (horizontally or vertically) to the answer space for the parent question, typically to indicate a unit of measure"/>
+			<definition value="Display item is rendered adjacent (horizontally or vertically) to the answer space for the parent question, typically to indicate a unit of measure"/>
 		</concept>
 		<concept>
 			<code value="lower"/>
 			<display value="Lower-bound"/>
-			<definition value="Text is displayed to the left of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the &#39;lower&#39; bound.  E.g. &#39;Strongly disagree&#39;"/>
+			<definition value="Display item is rendered to the left of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the &#39;lower&#39; bound.  E.g. &#39;Strongly disagree&#39;"/>
 		</concept>
 		<concept>
 			<code value="upper"/>
 			<display value="Upper-bound"/>
-			<definition value="Text is displayed to the right of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the &#39;upper&#39; bound.  E.g. &#39;Strongly agree&#39;"/>
+			<definition value="Display item is rendered to the right of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the &#39;upper&#39; bound.  E.g. &#39;Strongly agree&#39;"/>
 		</concept>
 		<concept>
 			<code value="flyover"/>
 			<display value="Fly-over"/>
-			<definition value="Text is temporarily visible over top of an item if the mouse is positioned over top of the text for the containing item"/>
+			<definition value="Display item is temporarily visible over top of an item if the mouse is positioned over top of the text for the containing item"/>
 		</concept>
 		<concept>
 			<code value="help"/>
 			<display value="Help-Button"/>
-			<definition value="Text is displayed in a dialog box or similar control if invoked by pushing a button or some other UI-appropriate action to request &#39;help&#39; for a question, group or the questionnaire as a whole (depending what the text is nested within)"/>
+			<definition value="Display item is rendered in a dialog box or similar control if invoked by pushing a button or some other UI-appropriate action to request &#39;help&#39; for a question, group or the questionnaire as a whole (depending what the display item is nested within)"/>
+		</concept>
+		<concept>
+			<code value="legal"/>
+			<display value="legal-Button"/>
+			<definition value="Display item is rendered in a dialog box or similar control if invoked by pushing a button or some other UI-appropriate action to request 'legal' info for a question, group or the questionnaire as a whole (depending what the display item is nested within)"/>
 		</concept>
 	</concept>
 	<concept>

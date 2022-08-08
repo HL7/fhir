@@ -5,20 +5,20 @@
 <h2>Scope and Usage</h2>
 
 <p>An evidence report is a structured presentation of any combination of evidence and related concepts. Evidence reports may bundle knowledge related to a single study or citation, and may bundle knowledge spanning multiple related studies or citations. Publishing such reports are extensively used by researchers, scholars, and evaluators to advance scientific knowledge, to decide whether more research is needed, to inform policy, to determine whether the literature has reached consensus, to inform clinical decision support, to substantiate the decisions being recommended, and for many other uses.</p>
-<p>The <i>subject</i> of the report defines its scope and can be expressed with one or more <i>subject.characteristic</i> elements (for structured definitions) or one or more <i>subject.note</i> elements (for human-readable expressions). Specifying a research question by the population, exposure, comparator, and outcome (PICO) could be expressed with four characteristics.</p>
+<p>The <i>subject</i> of the report defines its scope and can be expressed with one or more <i>subject.characteristic</i> elements (for structured definitions) or one or more <i>subject.note</i> elements (for human-readable expressions). Specifying a research question by the population, intervention/exposure, comparator, and outcome (PICO) could be expressed with four characteristics.</p>
 <p>Evidence reports may be dynamic, changing as new evidence accrues. The <i>relatesTo</i> element supports coding the relationships between EvidenceReport Resources.</p>
 
 <p>The content of the EvidenceReport Resource is contained in any number of <i>sections</i> that can each contain any number of <i>sections</i>. Each <i>section</i> can have its focus defined using a codeable concept or reference to another resource. Each <i>section</i> can have designated <i>authors</i> that can be distinct from authors for the EvidenceReport Resource. </p>
-<p>The content in a <i>section</i> can be of different forms and can include text (which itself can be uniquely represented human-expressed content and/or machine-generated from other content), <i>entryClassifier</i> (to express codeable concepts), <i>entryReference</i> (to express other FHIR resources), <i>entryReason</i> (to represent empty <i>sections</i> as content), and <i>section</i> elements. </p>
+<p>The content in a <i>section</i> can be of different forms and can include text (which itself can be uniquely represented human-expressed content and/or machine-generated from other content), <i>entryClassifier</i> (to express codeable concepts), <i>entryReference</i> (to express other FHIR Resources), <i>entryReason</i> (to represent empty <i>sections</i> as content), and <i>section</i> elements. </p>
 </div>
 
 <div>
 <a name="boundaries"></a>
 <h2>Boundaries and Relationships</h2>
 
-<p>The EvidenceReport Resource is used for structured bundles and is not expected to replace simple lists or bundles where List and Bundle Resources can be used.</p>
-<p>The EvidenceReport Resource is similar to a Composition Resource but the EvidenceReport is better suited for communicating reports about research and data analysis not specific to individual persons while the Composition Resource is better suited for healthcare related reports specific to individual persons as the subject.</p>
-<p>The EvidenceReport Resource is used for data exchange for concepts beyond identification, location and contributor attribution. Where data exchange is limited to such things a Citation Resource may be used. An EvidenceReport Resource may reference a Citation Resource to itself in the <i>citeAs</i> element.</p>
+<p>The EvidenceReport Resource is used for structured bundles and is not expected to replace simple lists or bundles where <a href="list.html">List</a> and <a href="bundle.html">Bundle</a> Resources can be used.</p>
+<p>The EvidenceReport Resource is similar to a <a href="composition.html">Composition</a> Resource but the EvidenceReport is better suited for communicating reports about research and data analysis not specific to individual persons while the <a href="composition.html">Composition</a> Resource is better suited for healthcare related reports specific to individual persons as the subject.</p>
+<p>The EvidenceReport Resource is used for data exchange for concepts beyond identification, location and contributor attribution. Where data exchange is limited to such things a <a href="citation.html">Citation</a> Resource may be used. An EvidenceReport Resource may reference a <a href="citation.html">Citation</a> Resource to itself in the <i>citeAs</i> element.</p>
 
 </div>
 

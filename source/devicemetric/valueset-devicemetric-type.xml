@@ -1,24 +1,38 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
-	<identifier> 
-    <system value="urn:iso:std:iso:11073:10101"/> 
-    <value value="urn:oid:2.16.840.1.113883.6.24"/> 
-    </identifier> 
-	<name value="DeviceMetricAndComponentTypes"/>
+  <id value="devicemetric-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="dev"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/devicemetric-type"/>
+  <identifier>
+    <system value="urn:iso:std:iso:11073:10101"/>
+    <value value="urn:oid:2.16.840.1.113883.6.24"/>
+  </identifier>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.645"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="DeviceMetricAndComponentTypes"/>
   <title value="Device Metric and Component Types"/>
-	<status value="draft"/>
-	<publisher value="HL7 Health Care Devices Workgroup"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<description value="Codes used to identify health care device metric types and units and component types as part of the ISO/IEEE 11073-10101 Medical Device Communication Nomenclature."/>
-	<copyright value="This value set is available IEEE (https://standards.ieee.org/findstds/standard/11073-10101a-2015.html) as well as at https://rtmms.nist.gov/rtmms/index.htm#!hrosetta through NIST's Rosetta Terminology Mapping Management System which has a Royalty Free Agreement with IEEE to make the terminology [specifically five attributes: Reference ID, Terminology Code, Description, Systematic Name, and Common Term] available for development of IEEE 11073 compliant products."/>
-	<compose>
-		<include>
-			<system value="urn:iso:std:iso:11073:10101"/>
-		</include>
-	</compose>
+  <status value="draft"/>
+  <publisher value="HL7 Health Care Devices Workgroup"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Codes used to identify health care device metric types and units and component types as part of the ISO/IEEE 11073-10101 Medical Device Communication Nomenclature."/>
+  <copyright value="This value set is available IEEE (https://standards.ieee.org/findstds/standard/11073-10101a-2015.html) as well as at https://rtmms.nist.gov/rtmms/index.htm#!hrosetta through NIST&#39;s Rosetta Terminology Mapping Management System which has a Royalty Free Agreement with IEEE to make the terminology [specifically five attributes: Reference ID, Terminology Code, Description, Systematic Name, and Common Term] available for development of IEEE 11073 compliant products."/>
+  <compose>
+    <include>
+      <system value="urn:iso:std:iso:11073:10101"/>
+    </include>
+  </compose>
 </ValueSet>

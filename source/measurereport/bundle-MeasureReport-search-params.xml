@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="MeasureReport-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MeasureReport-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MeasureReport.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MeasureReport-date"/>
+        <description value="The date of the measure report"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="MeasureReport.date"/>
+        <xpath value="f:MeasureReport/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MeasureReport-evaluated-resource"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MeasureReport.evaluatedResource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MeasureReport-evaluated-resource"/>
+        <description value="An evaluated resource referenced by the measure report"/>
+        <code value="evaluated-resource"/>
+        <type value="reference"/>
+        <expression value="MeasureReport.evaluatedResource"/>
+        <xpath value="f:MeasureReport/f:evaluatedResource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MeasureReport-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MeasureReport.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MeasureReport-identifier"/>
+        <description value="External identifier of the measure report to be returned"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="MeasureReport.identifier"/>
+        <xpath value="f:MeasureReport/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MeasureReport-measure"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MeasureReport.measure"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MeasureReport-measure"/>
+        <description value="The measure to return measure report results for"/>
+        <code value="measure"/>
+        <type value="reference"/>
+        <expression value="MeasureReport.measure"/>
+        <xpath value="f:MeasureReport/f:measure"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MeasureReport-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MeasureReport.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MeasureReport-patient"/>
+        <description value="The identity of a patient to search for individual measure report results for"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="MeasureReport.subject.where(resolve() is Patient)"/>
+        <xpath value="f:MeasureReport/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MeasureReport-period"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MeasureReport.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MeasureReport-period"/>
+        <description value="The period of the measure report"/>
+        <code value="period"/>
+        <type value="date"/>
+        <expression value="MeasureReport.period"/>
+        <xpath value="f:MeasureReport/f:period"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MeasureReport-reporter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MeasureReport.reporter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MeasureReport-reporter"/>
+        <description value="The reporter to return measure report results for"/>
+        <code value="reporter"/>
+        <type value="reference"/>
+        <expression value="MeasureReport.reporter"/>
+        <xpath value="f:MeasureReport/f:reporter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MeasureReport-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MeasureReport.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MeasureReport-status"/>
+        <description value="The status of the measure report"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="MeasureReport.status"/>
+        <xpath value="f:MeasureReport/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MeasureReport-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MeasureReport.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MeasureReport-subject"/>
+        <description value="The identity of a subject to search for individual measure report results for"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="MeasureReport.subject"/>
+        <xpath value="f:MeasureReport/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

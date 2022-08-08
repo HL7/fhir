@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+
+ 
+[%settitle Version 2 Table http://terminology.hl7.org/CodeSystem/v2-{id}%]
+[%setlevel 2%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+
+<%txheader l2%>
+
+<a name="table"></a>
+<h1>HL7 Version 2 Table <%id%></h1>
+<table class="<%fmm-style%>">
+ <tr><td><a href="<%wg%>"><%wgt%></a> Work Group</td><td><%fmm%></td><td><%sstatus%></td><!--!ns!--><td><%profile-context%></td></tr>
+</table>
+<p>
+This is a table defined as part of <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a><%v2xref l2%>
+</p>
+<p><b>Summary</b></p>
+<table class="grid">
+ <tr><td>Value Set URL:</td><td><code><%vsurl%></code></td></tr>
+ <tr><td>Version:</td><td><%vsver%></td></tr>
+ <tr><td>Name:</td><td><%vsnamed%></td></tr>
+ <tr><td>Title:</td><td><%vstitle%></td></tr>
+ <tr><td>Definition:</td><td><%vsdef%></td></tr>
+ <tr><td>OID:</td><td>??</td></tr>
+ <tr><td>ValueSet Resource</td><td><a href="v2-<%txname%>.vs.xml.html">XML</a> / <a href="v2-<%txname%>.vs.json.html">JSON</a></td></tr>
+</table>
+
+<%conceptmaplistv2 l2%>
+
+<%vsusage%>
+
+
+<a name="definition"></a>
+<h2>Logical Definition</h2>
+
+<%v2Table%>
+
+</div>
+
+[%file newfooter%]
+    
+</body>
+</html>

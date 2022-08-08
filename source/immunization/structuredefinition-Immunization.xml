@@ -1,0 +1,1227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Immunization"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Medications"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pher"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
+  <version value="4.6.0"/>
+  <name value="Immunization"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Public Health and Emergency Response)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/pher/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="cda"/>
+    <uri value="http://hl7.org/v3/cda"/>
+    <name value="CDA (R2)"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Immunization"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Immunization">
+      <path value="Immunization"/>
+      <short value="Immunization event information"/>
+      <definition value="Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="VXU_V04"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="SubstanceAdministration"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.medication"/>
+      </mapping>
+    </element>
+    <element id="Immunization.identifier">
+      <path value="Immunization.identifier"/>
+      <short value="Business identifier"/>
+      <definition value="A unique identifier assigned to this immunization record."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/id"/>
+      </mapping>
+    </element>
+    <element id="Immunization.instantiatesCanonical">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Added - Jira 27016."/>
+      </extension>
+      <path value="Immunization.instantiatesCanonical"/>
+      <short value="Instantiates FHIR protocol or definition for the immunization event"/>
+      <definition value="The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Immunization."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-pattern">
+          <valueCanonical value="http://hl7.org/fhir/StructureDefinition/Definition"/>
+        </extension>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EventDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubscriptionTopic"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.instantiatesCanonical"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
+      </mapping>
+    </element>
+    <element id="Immunization.instantiatesUri">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Added - Jira 27016."/>
+      </extension>
+      <path value="Immunization.instantiatesUri"/>
+      <short value="Instantiates external protocol or definition for the immunization event"/>
+      <definition value="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Immunization."/>
+      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.instantiatesUri"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
+      </mapping>
+    </element>
+    <element id="Immunization.basedOn">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Added - Jira 27015."/>
+      </extension>
+      <path value="Immunization.basedOn"/>
+      <short value="Authority that the immunization event is based on"/>
+      <definition value="A plan, order or recommendation fulfilled in whole or in part by this immunization."/>
+      <comment value="Allows tracing of an authorization for the Immunization."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Immunization.status">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#7867."/>
+      </extension>
+      <path value="Immunization.status"/>
+      <short value="completed | entered-in-error | not-done"/>
+      <definition value="Indicates the current status of the immunization event."/>
+      <comment value="Will generally be set to show that the immunization has been completed or not done.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains statuses entered-in-error and not-done which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImmunizationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A set of codes indicating the current status of an Immunization."/>
+        </extension>
+        <strength value="required"/>
+        <description value="x"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="statusCode"/>
+      </mapping>
+    </element>
+    <element id="Immunization.statusReason">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#14377, #17811, #17763 (updates to the value set)."/>
+      </extension>
+      <path value="Immunization.statusReason"/>
+      <short value="Reason for current status"/>
+      <definition value="Indicates the reason the immunization event was not performed."/>
+      <comment value="This is generally only used for the status of &quot;not-done&quot;. The reason for performing the immunization event is captured in reasonCode, not here."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImmunizationStatusReason"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The reason why a vaccine was not administered."/>
+        </extension>
+        <strength value="example"/>
+        <description value="x"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-status-reason"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.statusReason"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCOde"/>
+      </mapping>
+    </element>
+    <element id="Immunization.vaccineCode">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#6128."/>
+      </extension>
+      <path value="Immunization.vaccineCode"/>
+      <short value="Vaccine product administered"/>
+      <definition value="Vaccine that was administered or was to be administered."/>
+      <comment value="The code for the administered vaccine may be reported at various levels of granularity from a very generic code for a general type of vaccine (e.g. the SNOMED or CVX code for the flu vaccine) to a very discrete code for a specific product including the form and packaging (e.g. an NDC code). Because vaccineCode uses the CodeableConcept data type, multiple codes at different levels of granularity may be reported for a single immunization event provided that all codes are appropriate for the same vaccine. For example, both NDC and CVX codes may be provided for a given immunization event by repeating the coding element within vaccineCode."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VaccineCode"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The code for vaccine product administered."/>
+        </extension>
+        <strength value="example"/>
+        <description value="x"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/vaccine-code"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXA-5"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code"/>
+      </mapping>
+    </element>
+    <element id="Immunization.manufacturer">
+      <path value="Immunization.manufacturer"/>
+      <short value="Vaccine manufacturer"/>
+      <definition value="Name of vaccine manufacturer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXA-17"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=ORG]"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacuturerOrganization/name"/>
+      </mapping>
+    </element>
+    <element id="Immunization.lotNumber">
+      <path value="Immunization.lotNumber"/>
+      <short value="Vaccine lot number"/>
+      <definition value="Lot number of the  vaccine product."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXA-15"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].id"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/lotNumberText"/>
+      </mapping>
+    </element>
+    <element id="Immunization.expirationDate">
+      <path value="Immunization.expirationDate"/>
+      <short value="Vaccine expiration date"/>
+      <definition value="Date vaccine batch expires."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXA-16"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].expirationTime"/>
+      </mapping>
+    </element>
+    <element id="Immunization.patient">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="PID, PD1, NK1 | #3705."/>
+      </extension>
+      <path value="Immunization.patient"/>
+      <short value="Who was immunized"/>
+      <definition value="The patient who either received or did not receive the immunization."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".partipication[ttypeCode=].role"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="Immunization.encounter">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#3840."/>
+      </extension>
+      <path value="Immunization.encounter"/>
+      <short value="Encounter immunization was part of"/>
+      <definition value="The visit or admission or other contact between patient and health care provider the immunization was performed as part of."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.context"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-19"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="component-&gt;EncounterEvent"/>
+      </mapping>
+    </element>
+    <element id="Immunization.occurrence[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#7887, #16223."/>
+      </extension>
+      <path value="Immunization.occurrence[x]"/>
+      <short value="Vaccine administration date"/>
+      <definition value="Date vaccine administered or was to be administered."/>
+      <comment value="When immunizations are given a specific date and time should always be known.   When immunizations are patient reported, a specific date might not be known.  Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given. An exact date is always preferable, but the use of the String data type is acceptable when an exact date is not known. A small number of vaccines (e.g. live oral typhoid vaccine) are given as a series of patient self-administered dose over a span of time. In cases like this, often, only the first dose (typically a provider supervised dose) is recorded with the occurrence indicating the date/time of the first dose."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXA-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/effectiveTime/value"/>
+      </mapping>
+    </element>
+    <element id="Immunization.primarySource">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="gForge #15696 and #20327."/>
+      </extension>
+      <path value="Immunization.primarySource"/>
+      <short value="Indicates context the data was recorded in"/>
+      <definition value="Indicates whether this record was captured as an original primary source-of-truth record rather than a secondary 'reported' record. A value &quot;true&quot; means this is a primary record of the immunization."/>
+      <comment value="Reflects the &#x201C;reliability&#x201D; of the content."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.reportedBoolean"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.source"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXA-9"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="immunization.uncertaintycode (if primary source=false, uncertainty=U)"/>
+      </mapping>
+    </element>
+    <element id="Immunization.informationSource">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="gForge #15696 and #20327."/>
+      </extension>
+      <path value="Immunization.informationSource"/>
+      <short value="Indicates the source of a  reported record"/>
+      <definition value="Typically the source of the data when the report of the immunization event is not based on information from the person who administered the vaccine."/>
+      <comment value="Typically will not be populated if primarySource = True, not required even if primarySource = False."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImmunizationReportOrigin"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The source of the data for a record which is not from a primary source."/>
+        </extension>
+        <strength value="example"/>
+        <description value="x"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-origin"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.reportedReference"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.source"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXA-9"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=INF].role[classCode=PAT] (this syntax for self-reported) .participation[typeCode=INF].role[classCode=LIC] (this syntax for health care professional) .participation[typeCode=INF].role[classCode=PRS] (this syntax for family member)"/>
+      </mapping>
+    </element>
+    <element id="Immunization.location">
+      <path value="Immunization.location"/>
+      <short value="Where immunization occurred"/>
+      <definition value="The service delivery location where the vaccine administration occurred."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.location"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.where[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXA-27  (or RXA-11, deprecated as of v2.7)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=LOC].COCT_MT240000UV"/>
+      </mapping>
+    </element>
+    <element id="Immunization.site">
+      <path value="Immunization.site"/>
+      <short value="Body site vaccine  was administered"/>
+      <definition value="Body site where vaccine was administered."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImmunizationSite"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The site at which the vaccine was administered."/>
+        </extension>
+        <strength value="example"/>
+        <description value="x"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-site"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXR-2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="observation.targetSiteCode"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/approachSiteCode/code"/>
+      </mapping>
+    </element>
+    <element id="Immunization.route">
+      <path value="Immunization.route"/>
+      <short value="How vaccine entered body"/>
+      <definition value="The path by which the vaccine product is taken into the body."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImmunizationRoute"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The route by which the vaccine was administered."/>
+        </extension>
+        <strength value="example"/>
+        <description value="x"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-route"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXR-1"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".routeCode"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/routeCode/code"/>
+      </mapping>
+    </element>
+    <element id="Immunization.doseQuantity">
+      <path value="Immunization.doseQuantity"/>
+      <short value="Amount of vaccine administered"/>
+      <definition value="The quantity of vaccine product that was administered."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXA-6 / RXA-7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".doseQuantity"/>
+      </mapping>
+    </element>
+    <element id="Immunization.performer">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#13290."/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,360"/>
+      </extension>
+      <path value="Immunization.performer"/>
+      <short value="Who performed event"/>
+      <definition value="Indicates who performed the immunization event."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC-12 / RXA-10"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
+      </mapping>
+    </element>
+    <element id="Immunization.performer.function">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#13290."/>
+      </extension>
+      <path value="Immunization.performer.function"/>
+      <short value="What type of performance was done"/>
+      <definition value="Describes the type of performance (e.g. ordering provider, administering provider, etc.)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImmunizationFunction"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The role a practitioner or organization plays in the immunization event."/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="x"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-function"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.function"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation.functionCode"/>
+      </mapping>
+    </element>
+    <element id="Immunization.performer.actor">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#13290."/>
+      </extension>
+      <path value="Immunization.performer.actor"/>
+      <short value="Individual or organization who was performing"/>
+      <definition value="The practitioner or organization who performed the action."/>
+      <comment value="When the individual practitioner who performed the action is known, it is best to send."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player"/>
+      </mapping>
+    </element>
+    <element id="Immunization.note">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#7866."/>
+      </extension>
+      <path value="Immunization.note"/>
+      <short value="Additional immunization notes"/>
+      <definition value="Extra information about the immunization that is not conveyed by the other attributes."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.note"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5 : OBX-3 = 48767-8"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="note"/>
+      </mapping>
+    </element>
+    <element id="Immunization.reason">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#17811."/>
+      </extension>
+      <path value="Immunization.reason"/>
+      <short value="Why immunization occurred"/>
+      <definition value="Describes why the immunization occurred in coded or textual form, or Indicates another resource (Condition, Observation or DiagnosticReport) whose existence justifies this immunization."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImmunizationReason"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The reason why a vaccine was administered."/>
+        </extension>
+        <strength value="example"/>
+        <description value="x"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-reason"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.reason"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="[actionNegationInd=false].reasonCode"/>
+      </mapping>
+    </element>
+    <element id="Immunization.isSubpotent">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#14366; #18867."/>
+      </extension>
+      <path value="Immunization.isSubpotent"/>
+      <short value="Dose potency"/>
+      <definition value="Indication if a dose is considered to be subpotent. By default, a dose should be considered to be potent."/>
+      <comment value="Typically, the recognition of the dose being sub-potent is retrospective, after the administration (ex. notification of a manufacturer recall after administration). However, in the case of a partial administration (the patient moves unexpectedly and only some of the dose is actually administered), subpotency may be recognized immediately, but it is still important to record the event."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="By default, a dose should be considered to be potent."/>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because an immunization event with a subpotent vaccine doesn&#39;t protect the patient the same way as a potent dose."/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXA-20 = PA (partial administration)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Immunization.subpotentReason">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#14366."/>
+      </extension>
+      <path value="Immunization.subpotentReason"/>
+      <short value="Reason for being subpotent"/>
+      <definition value="Reason why a dose is considered to be subpotent."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubpotentReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The reason why a dose is considered to be subpotent."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-subpotent-reason"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Immunization.education">
+      <path value="Immunization.education"/>
+      <short value="Educational material presented to patient"/>
+      <definition value="Educational material presented to the patient (or guardian) at the time of vaccine administration."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="imm-1"/>
+        <severity value="error"/>
+        <human value="One of documentType or reference SHALL be present"/>
+        <expression value="documentType.exists() or reference.exists()"/>
+        <xpath value="exists(f:documentType) or exists(f:reference)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Immunization.education.documentType">
+      <path value="Immunization.education.documentType"/>
+      <short value="Educational material document identifier"/>
+      <definition value="Identifier of the material presented to the patient."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5 : OBX-3 = 69764-9"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Immunization.education.reference">
+      <path value="Immunization.education.reference"/>
+      <short value="Educational material reference pointer"/>
+      <definition value="Reference pointer to the educational material given to the patient if the information was on line."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Immunization.education.publicationDate">
+      <path value="Immunization.education.publicationDate"/>
+      <short value="Educational material publication date"/>
+      <definition value="Date the educational material was published."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5 : OBX-3 = 29768-9"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Immunization.education.presentationDate">
+      <path value="Immunization.education.presentationDate"/>
+      <short value="Educational material presentation date"/>
+      <definition value="Date the educational material was given to the patient."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5 : OBX-3 = 29769-7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Immunization.programEligibility">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#5758."/>
+      </extension>
+      <path value="Immunization.programEligibility"/>
+      <short value="Patient eligibility for a vaccination program"/>
+      <definition value="Indicates a patient&#39;s eligibility for a funding program."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProgramEligibility"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The patient&#39;s eligibility for a vaccation program."/>
+        </extension>
+        <strength value="example"/>
+        <description value="x"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-program-eligibility"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5 : OBX-3 = 64994-7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Immunization.fundingSource">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#5758."/>
+      </extension>
+      <path value="Immunization.fundingSource"/>
+      <short value="Funding source for the vaccine"/>
+      <definition value="Indicates the source of the vaccine actually administered. This may be different than the patient eligibility (e.g. the patient may be eligible for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FundingSource"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The source of funding used to purchase the vaccine administered."/>
+        </extension>
+        <strength value="example"/>
+        <description value="x"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-funding-source"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Immunization.reaction">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Restored for R4 after an initial attempt to migrate to AdverseEvent (see #15124)."/>
+      </extension>
+      <path value="Immunization.reaction"/>
+      <short value="Details of a reaction that follows immunization"/>
+      <definition value="Categorical data indicating that an adverse event is associated in time to an immunization."/>
+      <comment value="A reaction may be an indication of an allergy or intolerance and, if this is determined to be the case, it should be recorded as a new AllergyIntolerance resource instance as most systems will not query against past Immunization.reaction elements."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Observation[classCode=obs].code"/>
+      </mapping>
+    </element>
+    <element id="Immunization.reaction.date">
+      <path value="Immunization.reaction.date"/>
+      <short value="When reaction started"/>
+      <definition value="Date of reaction to the immunization."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the HL7 v2 VXU message - most likely would appear in OBX segments if at all)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="Immunization.reaction.manifestation">
+      <path value="Immunization.reaction.manifestation"/>
+      <short value="Additional information on reaction"/>
+      <definition value="Details of the reaction."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".value"/>
+      </mapping>
+    </element>
+    <element id="Immunization.reaction.reported">
+      <path value="Immunization.reaction.reported"/>
+      <short value="Indicates self-reported reaction"/>
+      <definition value="Self-reported indicator."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="(HL7 v2 doesn&#39;t seem to provide for this)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=INF].role[classCode=PAT] (this syntax for self-reported=true)"/>
+      </mapping>
+    </element>
+    <element id="Immunization.protocolApplied">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#16520."/>
+      </extension>
+      <path value="Immunization.protocolApplied"/>
+      <short value="Protocol followed by the provider"/>
+      <definition value="The protocol (set of recommendations) being followed by the provider who administered the dose."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Immunization.protocolApplied.series">
+      <path value="Immunization.protocolApplied.series"/>
+      <short value="Name of vaccine series"/>
+      <definition value="One possible path to achieve presumed immunity against a disease - within the context of an authority."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Immunization.protocolApplied.authority">
+      <path value="Immunization.protocolApplied.authority"/>
+      <short value="Who is responsible for publishing the recommendations"/>
+      <definition value="Indicates the authority who published the protocol (e.g. ACIP) that is being followed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Immunization.protocolApplied.targetDisease">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#19487 (cardinality changed), #15972 (changes to the value set)."/>
+      </extension>
+      <path value="Immunization.protocolApplied.targetDisease"/>
+      <short value="Vaccine preventatable disease being targetted"/>
+      <definition value="The vaccine preventable disease the dose is being administered against."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TargetDisease"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The vaccine preventable disease the dose is being administered for."/>
+        </extension>
+        <strength value="example"/>
+        <description value="x"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-target-disease"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Immunization.protocolApplied.doseNumber">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#25277 (restrict to string data type)."/>
+      </extension>
+      <path value="Immunization.protocolApplied.doseNumber"/>
+      <short value="Dose number within series"/>
+      <definition value="Nominal position in a series as intended by the practitioner administering the dose."/>
+      <comment value="The use of an integer is preferred if known. Text should only be used in cases where an integer is not available (such as when documenting a recurring booster dose)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Immunization.protocolApplied.seriesDoses">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#18868, #25277 (restrict to string data type)."/>
+      </extension>
+      <path value="Immunization.protocolApplied.seriesDoses"/>
+      <short value="Recommended number of doses for immunity"/>
+      <definition value="The recommended number of doses to achieve immunity as intended by the practitioner administering the dose."/>
+      <comment value="The use of an integer is preferred if known."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -20,7 +20,7 @@ to make more granular updates with individual provenance statements.
 </p>
 
 <p>
-The <a href="composition-clinicaldocument.html">Clinical Document profile</a> constrains Composition to specify a clinical document
+The <a href="composition-core.html">Clinical Document profile</a> constrains Composition to specify a clinical document
 (matching <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>).  
 See also the <a href="comparison-cda.html">comparison with CDA</a>.
 </p>
@@ -65,15 +65,8 @@ The Composition resource organizes clinical and administrative content into sect
 and references other resources for supporting data. The narrative content of the various sections in a Composition are 
 supported by the resources referenced in the section entries.  The complete set of content to make up a document includes 
 the Composition resource together with various resources pointed to or indirectly
-connected to the Composition, all gathered together into a <a href="bundle.html">Bundle</a> for transport and persistence.
-Resources associated with the following list of Composition references SHALL be included in the <a href="bundle.html">Bundle</a>:
-</p>
-<%res-ref-list Composition%>
-
-<p>
-Other resources referred to by those resources MAY be included in the <a href="bundle.html">Bundle</a> at the discretion of the authoring 
-system as documented in the system's operation definition (such as <a href="composition-operation-document.html">$document</a> operation), 
-or as specified by any applicable profiles. 
+connected to the Composition. See the <a href="documents.html">FHIR Documents</a> documentation for guidance on how a Composition 
+is used when creating a document bundle.
 </p>
 </div>
 
@@ -88,7 +81,7 @@ Every composition has a status element, which describes the status of the conten
 <%codelist http://hl7.org/fhir/composition-status%>
 
 <p>
-Composition status generally only moves down through this list - it moves from <code>preliminary</code> to <code>final</code> and then it may progress to <code>amended</code>. 
+Composition status generally only moves down through this list - it moves from <code>registered</code> or <code>preliminary</code> to <code>final</code> and then it may progress to <code>amended</code>. 
 Note that in many workflows, only <code>final</code> compositions are made available and the <code>preliminary</code> status is not used. 
 </p>
 <p>
@@ -113,15 +106,15 @@ CDA is a primary design input to the Composition resource (other principal input
 differences between CDA and the Composition resource:
 </p>
 <ul>
- <li>A composition is a logical construct- its identifier matches to the CDA ClinicalDocument.setId. 
+ <li>A composition is a logical construct - its <code>identifier</code> matches to the CDA <code>ClinicalDocument.setId</code>. 
  Composition resources are wrapped into <a href="documents.html">Document</a> structures, for exchange
  of the whole package (the composition and its parts), and this wrapped, sealed entity is equivalent to a CDA document, 
- where the Bundle.id is equivalent in function to ClinicalDocument.id (but it is not identical when interconverting, since it's a transform between them).</li>
+ where the where the <code>Bundle.identifier</code> is equivalent to <code>ClinicalDocument.id</code> and <code>Bundle.meta.security</code> is equivalent to <code>ClinicalDocument.confidentialityCode</code>.</li>
  <li>The composition section defines a section (or sub-section) of the document, but unlike CDA, the section entries are 
    actually references to other <a href="resourcelist.html">resources</a> that hold the supporting data content for the section. 
    This design means that the data can be reused in many other ways. 
    </li>
-  <li>Unlike CDA, the context defined in the <code>Composition</code> (the confidentiality, subject, author, event, event period and encounter) apply to the composition and do not specifically apply to the resources referenced from 
+  <li>Unlike CDA, the context defined in the <code>Composition</code> (the subject, author, event, event period and encounter) apply to the composition and do not specifically apply to the resources referenced from 
   the <code>section.entry</code>. There is no context flow model in FHIR, so each resource referenced from 
   within a <code>Composition</code> expresses its own individual context.  In this way, clinical content can 
   safely be extracted from the composition.</li>

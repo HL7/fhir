@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="group-measure"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/group-measure"/>
+  <version value="4.6.0"/>
+  <name value="GroupMeasure"/>
+  <concept>
+    <code value="mean"/>
+    <display value="Mean"/>
+    <definition value="Aggregated using Mean."/>
+  </concept>
+  <concept>
+    <code value="median"/>
+    <display value="Median"/>
+    <definition value="Aggregated using Median."/>
+  </concept>
+</CodeSystem>

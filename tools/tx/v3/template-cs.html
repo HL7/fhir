@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+
+
+<%settitle v3 Code System http://terminology.hl7.org/CodeSystem/v3-{id}%>
+<%setlevel 2%>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<%file newheader%>
+</head>
+<body>
+<%file newnavbar%>
+
+<div class="col-12">
+
+<%txheader l2%>
+
+<h1>HL7 v3 Code System <%id%></h1>
+<table class="<%fmm-style%>">
+ <tr><td><a href="<%wg%>"><%wgt%></a> Work Group</td><td><%fmm%></td><td><%sstatus%></td><!--!ns!--><td><%profile-context%></td></tr>
+</table>
+<p>
+This code system (http://terminology.hl7.org/CodeSystem/v3-<%id%>) is defined as part of HL7 v3<%v3xref%>
+</p>
+<p><b>Summary</b></p>
+<table class="grid">
+ <tr><td>Defining URL:</td><td><code><%vsurl%></code></td></tr>
+ <tr><td>Version:</td><td><%vsver%></td></tr>
+ <tr><td>Name:</td><td><%vsnamed%></td></tr>
+ <tr><td>Title:</td><td><%vstitle%></td></tr>
+ <tr><td>Definition:</td><td><%vsdef%></td></tr>
+ <tr><td>OID:</td><td><%txoid%> (for OID based terminology systems)</td></tr>
+<%txsummary%>
+ <tr><td>Source Resource</td><td><a href="v3-<%id%>.cs.xml.html">XML</a> / <a href="v3-<%id%>.cs.json.html">JSON</a></td></tr>
+</table>
+
+<%csusage%>
+
+<a name="definition"></a>
+<h2>Code System Content</h2>
+
+<%v3CodeSystem%>
+
+</div>
+
+<%file newfooter%>
+    
+
+<script src="external/jquery/jquery.js"> </script>
+<script src="../../jquery-ui.min.js"> </script>
+<script>
+try {
+  var currentTabIndex = sessionStorage.getItem('fhir-cslang-tab-index');
+}
+catch(exception){
+}
+
+if (!currentTabIndex)
+  currentTabIndex = '0';
+
+$( '#tabs' ).tabs({
+         active: currentTabIndex,
+         activate: function( event, ui ) {
+             var active = $('.selector').tabs('option', 'active');
+             currentTabIndex = ui.newTab.index();
+             document.activeElement.blur();
+             try {
+               sessionStorage.setItem('fhir-cslang-tab-index', currentTabIndex);
+             }
+             catch(exception){
+             }
+         }
+     });
+</script>
+    
+</body>
+</html>

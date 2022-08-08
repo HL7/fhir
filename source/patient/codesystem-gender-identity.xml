@@ -1,46 +1,47 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-	<url value="http://hl7.org/fhir/gender-identity"/>
-	<name value="GenderIdentity"/>
-	<status value="draft"/>
-	<experimental value="true"/>
-	<description value="This example code System defines a set of codes that can be used to indicate a patient's gender identity."/>
-	<caseSensitive value="true"/>
-	<content value="complete"/>
-	<concept>
-		<code value="transgender-female"/>
-		<display value="transgender female"/>
-		<definition value="the patient identifies as transgender male-to-female"/>
-	</concept>
-	<concept>
-		<code value="transgender-male"/>
-		<display value="transgender male"/>
-		<definition value="the patient identifies as transgender female-to-male"/>
-	</concept>
-	<concept>
-		<code value="non-binary"/>
-		<display value="non-binary"/>
-		<definition value="the patient identifies with neither/both female and male"/>
-	</concept>
-	<concept>
-		<code value="male"/>
-		<display value="male"/>
-		<definition value="the patient identifies as male"/>
-	</concept>
-	<concept>
-		<code value="female"/>
-		<display value="female"/>
-		<definition value="the patient identifies as female"/>
-	</concept>
-	<concept>
-		<code value="other"/>
-		<display value="other"/>
-		<definition value="other gender identity"/>
-	</concept>
-	<concept>
-		<code value="non-disclose"/>
-		<display value="does not wish to disclose"/>
-		<definition value="the patient does not wish to disclose his gender identity"/>
-	</concept>
+  <id value="gender-identity"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://hl7.org/fhir/gender-identity"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.973"/>
+  </identifier>
+  <name value="GenderIdentity"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="This example code system defines a set of codes that can be used to indicate a individual&#39;s gender identity."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="non-binary"/>
+    <display value="Non-binary"/>
+    <definition value="the individual identifies with neither/both female and male"/>
+  </concept>
+  <concept>
+    <code value="male"/>
+    <display value="Male"/>
+    <definition value="the individual identifies as male"/>
+  </concept>
+  <concept>
+    <code value="female"/>
+    <display value="Female"/>
+    <definition value="the individual identifies as female"/>
+  </concept>
+  <concept>
+    <code value="other"/>
+    <display value="Other"/>
+    <definition value="other gender identity"/>
+  </concept>
+  <concept>
+    <code value="non-disclose"/>
+    <display value="Does not wish to disclose"/>
+    <definition value="the individual does not wish to disclose his gender identity"/>
+  </concept>
 </CodeSystem>

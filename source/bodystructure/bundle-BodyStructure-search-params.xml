@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="BodyStructure-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BodyStructure-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BodyStructure.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-identifier"/>
+        <description value="Bodystructure identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="BodyStructure.identifier"/>
+        <xpath value="f:BodyStructure/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BodyStructure-includedStructure-structure"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BodyStructure.includedStrcture.structure"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-includedStructure-structure"/>
+        <description value="Body site includedStructure structure"/>
+        <code value="structure"/>
+        <type value="token"/>
+        <expression value="BodyStructure.includedStructure.structure"/>
+        <xpath value="f:BodyStructure/f:includedStructure/f:structure"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+<entry>
+    <resource>
+      <SearchParameter>
+        <id value="BodyStructure-excludedStructure-structure"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BodyStructure.excludedStrcture.structure"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-excludedStructure-structure"/>
+        <description value="Body site excludedStructure structure"/>
+        <code value="structure"/>
+        <type value="token"/>
+        <expression value="BodyStructure.excludedStructure.structure"/>
+        <xpath value="f:BodyStructure/f:excludedStructure/f:structure"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BodyStructure-morphology"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BodyStructure.morphology"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-morphology"/>
+        <description value="Kind of Structure"/>
+        <code value="morphology"/>
+        <type value="token"/>
+        <expression value="BodyStructure.morphology"/>
+        <xpath value="f:BodyStructure/f:morphology"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BodyStructure-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BodyStructure.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-patient"/>
+        <description value="Who this is about"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="BodyStructure.patient"/>
+        <xpath value="f:BodyStructure/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

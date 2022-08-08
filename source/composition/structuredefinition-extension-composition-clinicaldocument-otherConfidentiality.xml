@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="composition-clinicaldocument-otherConfidentiality"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sd"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-otherConfidentiality"/>
+  <version value="4.6.0"/>
+  <name value="otherConfidentiality"/>
+  <status value="draft"/>
+  <date value="2015-03-17"/>
+  <publisher value="Health Level Seven, Inc. - Structured Documents WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/special/committees/structure"/>
+    </telecom>
+  </contact>
+  <description value="Carries additional confidentiality codes beyond the base fixed code specified in the CDA document."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="Composition"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Additional confidentiality codes"/>
+      <definition value="Carries additional confidentiality codes beyond the base fixed code specified in the CDA document."/>
+      <comment value="Typically, this is used where an institution has their own set of confidentiality codes that have different granularity that the base CDA codes, or for legacy reasons. For security-related codes other than confidentiality, see [[security-labels-html]]."/>
+      <min value="0"/>
+      <max value="*"/>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-otherConfidentiality"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

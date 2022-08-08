@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="NutritionIntake"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/NutritionIntake"/>
+  <version value="4.6.0"/>
+  <name value="NutritionIntake"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A record of food or fluid that is being consumed by a patient.  A NutritionIntake may indicate that the patient may be consuming the food or fluid now or has consumed the food or fluid in the past.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay or through an app that tracks food or fluids consumed.   The consumption information may come from sources such as the patient&#39;s memory, from a nutrition label,  or from a clinician documenting observed intake."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="NutritionIntake"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="NutritionIntake">
+      <path value="NutritionIntake"/>
+      <short value="Record of food or fluid being taken by a patient"/>
+      <definition value="A record of food or fluid that is being consumed by a patient.   A NutritionIntake may indicate that the patient may be consuming the food or fluid now or has consumed the food or fluid in the past.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay or through an app that tracks food or fluids consumed.   The consumption information may come from sources such as the patient&#39;s memory, from a nutrition label,  or from a clinician documenting observed intake."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.careprovision"/>
+      </mapping>
+    </element>
+    <element id="NutritionIntake.identifier">
+      <path value="NutritionIntake.identifier"/>
+      <short value="External identifier"/>
+      <definition value="Identifiers associated with this Nutrition Intake that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server."/>
+      <comment value="This is a business identifier, not a resource identifier."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="NutritionIntake.instantiatesCanonical">
+      <path value="NutritionIntake.instantiatesCanonical"/>
+      <short value="Instantiates FHIR protocol or definition"/>
+      <definition value="Instantiates FHIR protocol or definition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-pattern">
+          <valueCanonical value="http://hl7.org/fhir/StructureDefinition/Definition"/>
+        </extension>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EventDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubscriptionTopic"/>
+      </type>
+    </element>
+    <element id="NutritionIntake.instantiatesUri">
+      <path value="NutritionIntake.instantiatesUri"/>
+      <short value="Instantiates external protocol or definition"/>
+      <definition value="Instantiates external protocol or definition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="NutritionIntake.basedOn">
+      <path value="NutritionIntake.basedOn"/>
+      <short value="Fulfils plan, proposal or order"/>
+      <definition value="A plan, proposal or order that is fulfilled in whole or in part by this event."/>
+      <requirements value="Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
+    </element>
+    <element id="NutritionIntake.partOf">
+      <path value="NutritionIntake.partOf"/>
+      <short value="Part of referenced event"/>
+      <definition value="A larger event of which this particular event is a component or step."/>
+      <requirements value="This should not be used when indicating which resource a NutritionIntake has been derived from.  If that is the use case, then NutritionIntake.derivedFrom should be used."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionIntake"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.partOf"/>
+      </mapping>
+    </element>
+    <element id="NutritionIntake.status">
+      <path value="NutritionIntake.status"/>
+      <short value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
+      <definition value="A code representing the patient or other source&#39;s judgment about the state of the intake that this assertion is about.  Generally, this will be active or completed."/>
+      <comment value="NutritionIntake is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for NutritionIntake.status contains codes that assert the status of the consumption of the food or fluid by the patient (for example, stopped or on hold) as well as codes that assert the status of the Nutrition Intake itself (for example, entered in error).&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NutritionIntakeStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
+          <valueString value="ActStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="A coded concept indicating the current status of a NutritionIntake."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/event-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="NutritionIntake.statusReason">
+      <path value="NutritionIntake.statusReason"/>
+      <short value="Reason for current status"/>
+      <definition value="Captures the reason for the current state of the NutritionIntake."/>
+      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-taken&quot;, &quot;on-hold&quot;, &quot;cancelled&quot; or &quot;entered-in-error&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NutritionIntakeStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept indicating the reason for the status of the statement."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/clinicalimpression-status-reason"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.statusReason"/>
+      </mapping>
+    </element>
+    <element id="NutritionIntake.code">
+      <path value="NutritionIntake.code"/>
+      <short value="Code representing an overall type of nutrition intake"/>
+      <definition value="Overall type of nutrition intake."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NutritionIntakeCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept identifying an overall type of diet or nutrition that is represented by this intake.  See consumedItem for more details."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/diet-type"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="NutritionIntake.subject">
+      <path value="NutritionIntake.subject"/>
+      <short value="Who is/was consuming the food or fluid"/>
+      <definition value="The person, animal or group who is/was consuming the food or fluid."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="NutritionIntake.encounter">
+      <path value="NutritionIntake.encounter"/>
+      <short value="Encounter associated with NutritionIntake"/>
+      <definition value="The encounter that establishes the context for this NutritionIntake."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.context"/>
+      </mapping>
+    </element>
+    <element id="NutritionIntake.occurrence[x]">
+      <path value="NutritionIntake.occurrence[x]"/>
+      <short value="The date/time or interval when the food or fluid is/was consumed"/>
+      <definition value="The interval of time during which it is being asserted that the patient is/was consuming the food or fluid."/>
+      <comment value="This attribute reflects the period over which the patient consumed the food fluid and is expected to be populated on the majority of NutritionIntake. If the food or fluid is still being taken and is expected to continue indefinitely at the time the usage is recorded, the &quot;end&quot; date will be omitted.  If the end date is known, then it is included as the &quot;end date&quot;.  The date/time attribute supports a variety of dates - year, year/month and exact date.  If something more than this is required, this should be conveyed as text."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+    </element>
+    <element id="NutritionIntake.recorded">
+      <path value="NutritionIntake.recorded"/>
+      <short value="When the intake was recorded"/>
+      <definition value="The date when the Nutrition Intake was asserted by the information source."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="NutritionIntake.reported[x]">
+      <path value="NutritionIntake.reported[x]"/>
+      <short value="Person or organization that provided the information about the consumption of this food or fluid"/>
+      <definition value="The person or organization that provided the information about the consumption of this food or fluid. Note: Use derivedFrom when a NutritionIntake is derived from other resources."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.source"/>
+      </mapping>
+    </element>
+    <element id="NutritionIntake.consumedItem">
+      <path value="NutritionIntake.consumedItem"/>
+      <short value="What food or fluid product or item was consumed"/>
+      <definition value="What food or fluid product or item was consumed."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="NutritionIntake.consumedItem.type">
+      <path value="NutritionIntake.consumedItem.type"/>
+      <short value="The type of food or fluid product"/>
+      <definition value="Indicates what a category of item that was consumed: eg., food, fluid, enteral, etc."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FoodType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Types of food."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/edible-substance-type"/>
+      </binding>
+    </element>
+    <element id="NutritionIntake.consumedItem.nutritionProduct">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="In MedicationUsage, this element was a choice of a resource reference or a codeable concept; however choice of data type fields can only have a maximum cardinality of 1. MedicationUsage included Reference(Medication), however there is currently no Reference(nutritionProduct) equivalent so this should be investigated in the future to determine if nutritionProduct needs a separate resource so that nutrients/ingredients can be captured through that resource (or if there is another way to capture nutrients/ingredients associated with this element. For the present, SNOMED terms can be used to capture food or fluid products without getting the detailed nutrients/ingredients of those food or fluid products."/>
+      </extension>
+      <path value="NutritionIntake.consumedItem.nutritionProduct"/>
+      <short value="Code that identifies the food or fluid product that was consumed"/>
+      <definition value="Identifies the food or fluid product that was consumed. This is potentially a link to a resource representing the details of the food product (TBD) or a simple attribute carrying a code that identifies the food from a known list of foods."/>
+      <comment value="If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of a new nutritionProduct resource is recommended."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FoodProduct"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Specific food that can be consumed by a patient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/food-type"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+    </element>
+    <element id="NutritionIntake.consumedItem.schedule">
+      <path value="NutritionIntake.consumedItem.schedule"/>
+      <short value="Scheduled frequency of consumption"/>
+      <definition value="Scheduled frequency of consumption."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Timing"/>
+      </type>
+    </element>
+    <element id="NutritionIntake.consumedItem.amount">
+      <path value="NutritionIntake.consumedItem.amount"/>
+      <short value="Quantity of the specified food"/>
+      <definition value="Quantity of the specified food."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="NutritionIntake.consumedItem.rate">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Used to document the enteral feeding rate, especially if different from the order."/>
+      </extension>
+      <path value="NutritionIntake.consumedItem.rate"/>
+      <short value="Rate at which enteral feeding was administered"/>
+      <definition value="Rate at which enteral feeding was administered."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="NutritionIntake.consumedItem.notConsumed">
+      <path value="NutritionIntake.consumedItem.notConsumed"/>
+      <short value="Flag to indicate if the food or fluid item was refused or otherwise not consumed"/>
+      <definition value="Indicator when a patient is in a setting where it is helpful to know if food was not consumed, such as it was refused, held (as in tube feedings), or otherwise not provided. If a consumption is being recorded from an app, such as MyFitnessPal, this indicator will likely not be used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="NutritionIntake.consumedItem.notConsumedReason">
+      <path value="NutritionIntake.consumedItem.notConsumedReason"/>
+      <short value="Reason food or fluid was not consumed"/>
+      <definition value="Document the reason the food or fluid was not consumed, such as refused, held, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NotConsumedReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Reasons for why something was not consumed."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/not-consumed-reason"/>
+      </binding>
+    </element>
+    <element id="NutritionIntake.ingredientLabel">
+      <path value="NutritionIntake.ingredientLabel"/>
+      <short value="Total nutrient for the whole meal, product, serving"/>
+      <definition value="Total nutrient amounts for the whole meal, product, serving, etc."/>
+      <comment value="Individual item nutrients are not currently included in the resource and will likely end up as a reference in nutritionProduct to represent the individual items."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="NutritionIntake.ingredientLabel.nutrient">
+      <path value="NutritionIntake.ingredientLabel.nutrient"/>
+      <short value="Total nutrient consumed"/>
+      <definition value="Total nutrient consumed. This could be a macronutrient (protein, fat, carbohydrate), or a vitamin and mineral."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NutrientType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Types of nutrients that can be found in a nutrition product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/nutrient-code"/>
+      </binding>
+    </element>
+    <element id="NutritionIntake.ingredientLabel.amount">
+      <path value="NutritionIntake.ingredientLabel.amount"/>
+      <short value="Total amount of nutrient consumed"/>
+      <definition value="Total amount of nutrient consumed."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+    </element>
+    <element id="NutritionIntake.performer">
+      <path value="NutritionIntake.performer"/>
+      <short value="Who was performed in the intake"/>
+      <definition value="Who performed the intake and how they were involved."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="NutritionIntake.performer.function">
+      <path value="NutritionIntake.performer.function"/>
+      <short value="Type of performer"/>
+      <definition value="Type of performer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NutritionPerformerType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Type of performance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/performer-role"/>
+      </binding>
+    </element>
+    <element id="NutritionIntake.performer.actor">
+      <path value="NutritionIntake.performer.actor"/>
+      <short value="Who performed the intake"/>
+      <definition value="Who performed the intake."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+    </element>
+    <element id="NutritionIntake.location">
+      <path value="NutritionIntake.location"/>
+      <short value="Where the intake occurred"/>
+      <definition value="Where the intake occurred."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+    </element>
+    <element id="NutritionIntake.derivedFrom">
+      <path value="NutritionIntake.derivedFrom"/>
+      <short value="Additional supporting information"/>
+      <definition value="Allows linking the NutritionIntake to the underlying NutritionOrder, or to other information, such as AllergyIntolerance, that supports or is used to derive the NutritionIntake."/>
+      <comment value="Likely references would be to AllergyIntolerance,  Observation or QuestionnaireAnswers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+    <element id="NutritionIntake.reason">
+      <path value="NutritionIntake.reason"/>
+      <short value="Reason for why the food or fluid is /was consumed"/>
+      <definition value="A reason, Condition or observation for why the food or fluid is /was consumed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="IntakeReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Reason for why something was ingested."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.reason"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+    </element>
+    <element id="NutritionIntake.note">
+      <path value="NutritionIntake.note"/>
+      <short value="Further information about the consumption"/>
+      <definition value="Provides extra information about the Nutrition Intake that is not conveyed by the other attributes."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.note"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

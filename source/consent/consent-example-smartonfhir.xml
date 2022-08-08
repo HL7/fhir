@@ -1,39 +1,34 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
   <!--
-  This example provides a basic template for recording 
+  This example provides a basic template for recording
   the consent associated with a SMART on FHIR OAuth dance.
 
-  In SMART on FHIR, the user grants (consents) to a set 
-  of actions that the server can take when with regard to 
+  In SMART on FHIR, the user grants (consents) to a set
+  of actions that the server can take when with regard to
   release of information from their own record to the application
 
   This is not the main intended use of the Consent resource,
-  and there's no need for the consent resource as part of 
-  the SMART on FHIR Authorization process, or when using 
+  and there's no need for the consent resource as part of
+  the SMART on FHIR Authorization process, or when using
   Heart UMA. Using a Consent resource to record and exchange
-  the users consent may be useful for recording and storing 
+  the users consent may be useful for recording and storing
   the consent and making it available to the user later,
   or for exchanging the patient's consent between AS and RS,
   or between systems in a multi-system virtual RS a very
-  common scenario) 
+  common scenario)
 
   Note that whichever system builds this Content resource,
-  it needs access to information from both the AS and the 
+  it needs access to information from both the AS and the
   RS.
-  
+
   Note also, that a situation where a practitioner type user
   authorises the application to access information on a general
-  set of patients does not count as 'consent'. 
+  set of patients does not count as 'consent'.
 -->
   <id value="consent-example-smartonfhir"/>
   <status value="active"/>
-  <scope>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
-      <code value="patient-privacy"/>
-    </coding>
-  </scope>
+
   <category>
     <coding>
       <system value="http://loinc.org"/>
@@ -45,23 +40,23 @@
     <reference value="Patient/xcda"/>
   </subject>
   <dateTime value="2016-06-23T17:02:33+10:00"/>
-  <performer>
+  <grantor>
     <!-- this is the patient record that matches the person
       making the decision. note: it's not always a related person -->
     <reference value="RelatedPerson/peter"/>
-  </performer>
+  </grantor>
   <controller>
     <!-- The organization running the Authentication server -->
     <reference value="Organization/f001"/>
   </controller>
-  <!-- there's no source record for a Smart on FHIR consent 
+  <!-- there's no source record for a Smart on FHIR consent
     smart on fhir requires a base opt-in policy -->
-  <policyRule>
+  <regulatoryBasis>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="INFA"/>
     </coding>
-  </policyRule>
+  </regulatoryBasis>
   <!-- each scope that relates to FHIR resource access is represented as an exception -->
   <provision>
     <type value="deny"/>

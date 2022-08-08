@@ -999,7 +999,7 @@
     <stratifier>
       <code><text value="stratifier-ages-up-to-9"/></code>
       <stratum>
-        <value><text value="true"/></value>
+        <valueBoolean value="true"/>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="250"/>
@@ -1018,7 +1018,7 @@
         </population>
       </stratum>
       <stratum>
-        <value><text value="false"/></value>
+        <valueBoolean value="false"/>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="250"/>
@@ -1040,7 +1040,7 @@
     <stratifier>
       <code><text value="stratifier-ages-10-plus"/></code>
       <stratum>
-        <value><text value="true"/></value>
+        <valueBoolean value="true"/>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="250"/>
@@ -1059,7 +1059,7 @@
         </population>
       </stratum>
       <stratum>
-        <value><text value="false"/></value>
+        <valueBoolean value="false"/>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="250"/>
@@ -1081,7 +1081,7 @@
     <stratifier>
       <code><text value="stratifier-gender"/></code>
       <stratum>
-        <value><text value="male"/></value>
+        <valueCodeableConcept><text value="male"/></valueCodeableConcept>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="250"/>
@@ -1100,7 +1100,7 @@
         </population>
       </stratum>
       <stratum>
-        <value><text value="female"/></value>
+        <valueCodeableConcept><text value="female"/></valueCodeableConcept>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="250"/>
@@ -1119,7 +1119,7 @@
         </population>
       </stratum>
       <stratum>
-        <value><text value="other"/></value>
+        <valueCodeableConcept><text value="other"/></valueCodeableConcept>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="0"/>
@@ -1138,7 +1138,7 @@
         </population>
       </stratum>
       <stratum>
-        <value><text value="unknown"/></value>
+        <valueCodeableConcept><text value="unknown"/></valueCodeableConcept>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="0"/>

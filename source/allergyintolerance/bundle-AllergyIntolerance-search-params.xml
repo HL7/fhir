@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="AllergyIntolerance-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.participant.actor"/>
+        </extension>
+        <description value="Who or what participated in the activities related to the allergy or intolerance"/>
+        <code value="participant"/>
+        <type value="reference"/>
+        <expression value="AllergyIntolerance.participant.actor"/>
+        <xpath value="f:AllergyIntolerance/f:participant/f:actor"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AllergyIntolerance-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-category"/>
+        <description value="food | medication | environment | biologic"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="AllergyIntolerance.category"/>
+        <xpath value="f:AllergyIntolerance/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AllergyIntolerance-clinical-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.clinicalStatus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-clinical-status"/>
+        <description value="active | inactive | resolved"/>
+        <code value="clinical-status"/>
+        <type value="token"/>
+        <expression value="AllergyIntolerance.clinicalStatus"/>
+        <xpath value="f:AllergyIntolerance/f:clinicalStatus"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AllergyIntolerance-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.code,AllergyIntolerance.reaction.substance"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-code"/>
+        <description value="Code that identifies the allergy or intolerance"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="AllergyIntolerance.code | AllergyIntolerance.reaction.substance"/>
+        <xpath value="f:AllergyIntolerance/f:code | f:AllergyIntolerance/f:reaction/f:substance"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AllergyIntolerance-criticality"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.criticality"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-criticality"/>
+        <description value="low | high | unable-to-assess"/>
+        <code value="criticality"/>
+        <type value="token"/>
+        <expression value="AllergyIntolerance.criticality"/>
+        <xpath value="f:AllergyIntolerance/f:criticality"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AllergyIntolerance-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.recordedDate"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-date"/>
+        <description value="Date first version of the resource instance was recorded"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="AllergyIntolerance.recordedDate"/>
+        <xpath value="f:AllergyIntolerance/f:recordedDate"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AllergyIntolerance-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-identifier"/>
+        <description value="External ids for this item"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="AllergyIntolerance.identifier"/>
+        <xpath value="f:AllergyIntolerance/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AllergyIntolerance-last-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.lastOccurrence"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-last-date"/>
+        <description value="Date(/time) of last known occurrence of a reaction"/>
+        <code value="last-date"/>
+        <type value="date"/>
+        <expression value="AllergyIntolerance.lastOccurrence"/>
+        <xpath value="f:AllergyIntolerance/f:lastOccurrence"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.reaction.manifestation.concept"/>
+        </extension>
+        <description value="Clinical symptoms/signs associated with the Event"/>
+        <code value="manifestation-code"/>
+        <type value="token"/>
+        <expression value="AllergyIntolerance.reaction.manifestation.concept"/>
+        <xpath value="f:AllergyIntolerance/f:reaction/f:manifestation/f:concept"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.reaction.manifestation.reference"/>
+        </extension>
+        <description value="Clinical symptoms/signs associated with the Event"/>
+        <code value="manifestation-reference"/>
+        <type value="reference"/>
+        <expression value="AllergyIntolerance.reaction.manifestation.reference"/>
+        <xpath value="f:AllergyIntolerance/f:reaction/f:manifestation/f:reference"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AllergyIntolerance-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-patient"/>
+        <description value="Who the sensitivity is for"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="AllergyIntolerance.patient"/>
+        <xpath value="f:AllergyIntolerance/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AllergyIntolerance-route"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.reaction.exposureRoute"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-route"/>
+        <description value="How the subject was exposed to the substance"/>
+        <code value="route"/>
+        <type value="token"/>
+        <expression value="AllergyIntolerance.reaction.exposureRoute"/>
+        <xpath value="f:AllergyIntolerance/f:reaction/f:exposureRoute"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AllergyIntolerance-severity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.reaction.severity"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-severity"/>
+        <description value="mild | moderate | severe (of event as a whole)"/>
+        <code value="severity"/>
+        <type value="token"/>
+        <expression value="AllergyIntolerance.reaction.severity"/>
+        <xpath value="f:AllergyIntolerance/f:reaction/f:severity"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AllergyIntolerance-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-type"/>
+        <description value="allergy | intolerance - Underlying mechanism (if known)"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="AllergyIntolerance.type"/>
+        <xpath value="f:AllergyIntolerance/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AllergyIntolerance-verification-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AllergyIntolerance.verificationStatus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-verification-status"/>
+        <description value="unconfirmed | presumed | confirmed | refuted | entered-in-error"/>
+        <code value="verification-status"/>
+        <type value="token"/>
+        <expression value="AllergyIntolerance.verificationStatus"/>
+        <xpath value="f:AllergyIntolerance/f:verificationStatus"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Goal"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Care Provision"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Goal"/>
+  <version value="4.6.0"/>
+  <name value="Goal"/>
+  <status value="draft"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="Health Level Seven International (Patient Care)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Goal"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Goal">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="Goal"/>
+      <short value="Describes the intended objective(s) for a patient, group or organization"/>
+      <definition value="Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc."/>
+      <comment value="Goal can be achieving a particular change or merely maintaining a current state or even slowing a decline."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="GOL.1"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode&lt;=OBJ]."/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.careprovision"/>
+      </mapping>
+    </element>
+    <element id="Goal.identifier">
+      <path value="Goal.identifier"/>
+      <short value="External Ids for this goal"/>
+      <definition value="Business identifiers assigned to this goal by the performer or other systems which remain constant as the resource is updated and propagates from server to server."/>
+      <comment value="This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <requirements value="Allows identification of the goal as it is known by various participating systems and in a way that remains consistent across servers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+    <element id="Goal.lifecycleStatus">
+      <path value="Goal.lifecycleStatus"/>
+      <short value="proposed | planned | accepted | active | on-hold | completed | cancelled | entered-in-error | rejected"/>
+      <definition value="The state of the goal throughout its lifecycle."/>
+      <comment value="This element is labeled as a modifier because the lifecycleStatus contains codes that mark the resource as not currently valid."/>
+      <requirements value="Allows knowing whether goal needs to be further tracked."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GoalLifecycleStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes that reflect the current state of a goal and whether the goal is still being targeted."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/goal-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="GOL-18-goal life cycle status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".statusCode in-progress = active (classCode = OBJ) cancelled = aborted"/>
+      </mapping>
+    </element>
+    <element id="Goal.achievementStatus">
+      <path value="Goal.achievementStatus"/>
+      <short value="in-progress | improving | worsening | no-change | achieved | sustaining | not-achieved | no-progress | not-attainable"/>
+      <definition value="Describes the progression, or lack thereof, towards the goal against the target."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GoalAchievementStatus"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Indicates the progression, or lack thereof, towards the goal against the target."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/goal-achievement"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".statusCode achieved = complete sustaining = active"/>
+      </mapping>
+    </element>
+    <element id="Goal.category">
+      <path value="Goal.category"/>
+      <short value="E.g. Treatment, dietary, behavioral, etc."/>
+      <definition value="Indicates a category the goal falls within."/>
+      <requirements value="Allows goals to be filtered and sorted."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GoalCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for grouping and sorting goals."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/goal-category"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="Goal.continuous">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#17755."/>
+      </extension>
+      <path value="Goal.continuous"/>
+      <short value="After meeting the goal, ongoing activity is needed to sustain the goal objective"/>
+      <definition value="After meeting the goal, ongoing activity is needed to sustain the goal objective."/>
+      <comment value="For example, getting a yellow fever vaccination for a planned trip is a goal that is designed to be completed (continuous = false).  A goal to sustain HbA1c levels would not be a one-time goal (continuous = true)."/>
+      <requirements value="Allows for a system to programmatically update achievementStatus upon finding evidence the goal has been met."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Goal.priority">
+      <path value="Goal.priority"/>
+      <short value="high-priority | medium-priority | low-priority"/>
+      <definition value="Identifies the mutually agreed level of importance associated with reaching/sustaining the goal."/>
+      <comment value="Extensions are available to track priorities as established by each participant (i.e. Priority from the patient&#39;s perspective, different practitioners&#39; perspectives, family member&#39;s perspectives)&#xD;&#xD;The ordinal extension on Coding can be used to convey a numerically comparable ranking to priority.  (Keep in mind that different coding systems may use a &quot;low value=important&quot;."/>
+      <requirements value="Used for sorting and presenting goals."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GoalPriority"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The level of importance associated with a goal."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/goal-priority"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.grade"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".priorityCode"/>
+      </mapping>
+    </element>
+    <element id="Goal.description">
+      <path value="Goal.description"/>
+      <short value="Code or text describing goal"/>
+      <definition value="Human-readable and/or coded description of a specific desired objective of care, such as &quot;control blood pressure&quot; or &quot;negotiate an obstacle course&quot; or &quot;dance with child at wedding&quot;."/>
+      <comment value="If no code is available, use CodeableConcept.text."/>
+      <requirements value="Without a description of what&#39;s trying to be achieved, element has no purpose."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GoalDescription"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes providing the details of a particular goal.  This will generally be system or implementation guide-specific.  In many systems, only the text element will be used."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="GOL-3.2-goal ID.text"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+    </element>
+    <element id="Goal.subject">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Goal can exist out of context of care plan, so subject is needed per GF#12776."/>
+      </extension>
+      <path value="Goal.subject"/>
+      <short value="Who this goal is intended for"/>
+      <definition value="Identifies the patient, group or organization for whom the goal is being established."/>
+      <requirements value="Subject is optional to support annonymized reporting."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3-patient ID list"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PAT].role[classCode=PAT]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="Goal.start[x]">
+      <path value="Goal.start[x]"/>
+      <short value="When goal pursuit begins"/>
+      <definition value="The date or event after which the goal should begin being pursued."/>
+      <requirements value="Goals can be established prior to there being an intention to start pursuing them; e.g. Goals for post-surgical recovery established prior to surgery."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GoalStartEvent"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing events that can trigger the initiation of a goal."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/goal-start-event"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.planned"/>
+      </mapping>
+    </element>
+    <element id="Goal.target">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#12090, GF#17572."/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,0"/>
+      </extension>
+      <path value="Goal.target"/>
+      <short value="Target outcome for the goal"/>
+      <definition value="Indicates what should be done by when."/>
+      <comment value="When multiple targets are present for a single goal instance, all targets must be met for the overall goal to be met."/>
+      <requirements value="Allows the progress of the goal to be monitored against an observation or due date.  Target is 0..* to support Observations with multiple components, such as blood pressure goals with both a systolic and diastolic target."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <condition value="gol-1"/>
+      <constraint>
+        <key value="gol-1"/>
+        <severity value="error"/>
+        <human value="Goal.target.measure is required if Goal.target.detail is populated"/>
+        <expression value="(detail.exists() and measure.exists()) or detail.exists().not()"/>
+        <xpath value="(exists(f:*[starts-with(local-name(.), &#39;detail&#39;)]) and exists(f:measure)) or not(exists(f:*[starts-with(local-name(.), &#39;detail&#39;)]))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Goal"/>
+      </constraint>
+    </element>
+    <element id="Goal.target.measure">
+      <path value="Goal.target.measure"/>
+      <short value="The parameter whose value is being tracked"/>
+      <definition value="The parameter whose value is being tracked, e.g. body weight, blood pressure, or hemoglobin A1c level."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <condition value="gol-1"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GoalTargetMeasure"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes to identify the value being tracked, e.g. body weight, blood pressure, or hemoglobin A1c level."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
+      </binding>
+    </element>
+    <element id="Goal.target.detail[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#17573."/>
+      </extension>
+      <path value="Goal.target.detail[x]"/>
+      <short value="The target value to be achieved"/>
+      <definition value="The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value."/>
+      <comment value="A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Goal.target.measure defines a coded value."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="Ratio"/>
+      </type>
+      <condition value="gol-1"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GoalTargetDetail"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes to identify the target value of the focus to be achieved to signify the fulfillment of the goal."/>
+      </binding>
+    </element>
+    <element id="Goal.target.due[x]">
+      <path value="Goal.target.due[x]"/>
+      <short value="Reach goal on or before"/>
+      <definition value="Indicates either the date or the duration after start by which the goal should be met."/>
+      <requirements value="Identifies when the goal should be evaluated."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="Duration"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+    </element>
+    <element id="Goal.statusDate">
+      <path value="Goal.statusDate"/>
+      <short value="When goal status took effect"/>
+      <definition value="Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc."/>
+      <comment value="To see the date for past statuses, query history."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="Goal.statusReason">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#10615."/>
+      </extension>
+      <path value="Goal.statusReason"/>
+      <short value="Reason for current status"/>
+      <definition value="Captures the reason for the current status."/>
+      <comment value="This will typically be captured for statuses such as rejected, on-hold or cancelled, but could be present for others."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Goal.source">
+      <path value="Goal.source"/>
+      <short value="Who&#39;s responsible for creating Goal?"/>
+      <definition value="Indicates whose goal this is - patient goal, practitioner goal, etc."/>
+      <comment value="This is the individual or team responsible for establishing the goal, not necessarily who recorded it.  (For that, use the Provenance resource.)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.source"/>
+      </mapping>
+    </element>
+    <element id="Goal.addresses">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#19335."/>
+      </extension>
+      <path value="Goal.addresses"/>
+      <short value="Issues addressed by this goal"/>
+      <definition value="The identified conditions and other health record elements that are intended to be addressed by the goal."/>
+      <requirements value="Allows specific goals to explicitly linked to the concerns they&#39;re dealing with - makes the goal more understandable."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=SUBJ].target[classCode=CONC]"/>
+      </mapping>
+    </element>
+    <element id="Goal.note">
+      <path value="Goal.note"/>
+      <short value="Comments about the goal"/>
+      <definition value="Any comments related to the goal."/>
+      <comment value="May be used for progress notes, concerns or other related information that doesn&#39;t actually describe the goal itself."/>
+      <requirements value="There&#39;s a need to capture information about the goal that doesn&#39;t actually describe the goal."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="GOL-16-goal evaluation + NTE?"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="Goal.outcome">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#11116."/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,100"/>
+      </extension>
+      <path value="Goal.outcome"/>
+      <short value="What result was achieved regarding the goal?"/>
+      <definition value="Identifies the change (or lack of change) at the point when the status of the goal is assessed."/>
+      <comment value="Note that this should not duplicate the goal status; The goal outcome is independent of the outcome of the related activities.  For example, if the Goal is to achieve a target body weight of 150 lb and a care plan activity is defined to diet, then the care plan&#x2019;s activity outcome could be calories consumed whereas goal outcome is an observation for the actual body weight measured."/>
+      <requirements value="Outcome tracking is a key aspect of care planning."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GoalOutcome"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The result of the goal; e.g. &quot;25% increase in shoulder mobility&quot;, &quot;Anxiety reduced to moderate levels&quot;.  &quot;15 kg weight loss sustained over 6 months&quot;."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

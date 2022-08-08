@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="title-type"/>
+  <meta>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/title-type defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+
+        <tr>
+          
+          <td style="white-space:nowrap">primary
+            
+            <a name="title-type-primary"> </a>
+          
+          </td>
+          
+          <td>Primary title</td>
+          
+          <td>Main title for common use. The primary title used for representation if multiple titles exist.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">official
+            
+            <a name="title-type-official"> </a>
+          
+          </td>
+          
+          <td>Official title</td>
+          
+          <td>The official or authoritative title.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">scientific
+            
+            <a name="title-type-scientific"> </a>
+          
+          </td>
+          
+          <td>Scientific title</td>
+          
+          <td>Title using scientific terminology.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">plain-language
+            
+            <a name="title-type-plain-language"> </a>
+          
+          </td>
+          
+          <td>Plain language title</td>
+          
+          <td>Title using language common to lay public discourse.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">subtitle
+            
+            <a name="title-type-subtitle"> </a>
+          
+          </td>
+          
+          <td>Subtitle</td>
+          
+          <td>Subtitle or secondary title.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">short-title
+            
+            <a name="title-type-short-title"> </a>
+          
+          </td>
+          
+          <td>Short title</td>
+          
+          <td>Brief title (e.g. 'running title' or title used in page headers)</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">acronym
+            
+            <a name="title-type-acronym"> </a>
+          
+          </td>
+          
+          <td>Acronym</td>
+          
+          <td>Abbreviation used as title</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">earlier-title
+            
+            <a name="title-type-earlier-title"> </a>
+          
+          </td>
+          
+          <td>Different text in an earlier version</td>
+          
+          <td>Alternative form of title in an earlier version such as epub ahead of print.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">language
+            
+            <a name="title-type-language"> </a>
+          
+          </td>
+          
+          <td>Different language</td>
+          
+          <td>Additional form of title in a different language.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">autotranslated
+            
+            <a name="title-type-autotranslated"> </a>
+          
+          </td>
+          
+          <td>Different language derived from autotranslation</td>
+          
+          <td>Machine translated form of title in a different language, language element codes the language into which it was translated by machine.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">human-use
+            
+            <a name="title-type-human-use"> </a>
+          
+          </td>
+          
+          <td>Human use</td>
+          
+          <td>Human-friendly title</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">machine-use
+            
+            <a name="title-type-machine-use"> </a>
+          
+          </td>
+          
+          <td>Machine use</td>
+          
+          <td>Machine-friendly title</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">duplicate-uid
+            
+            <a name="title-type-duplicate-uid"> </a>
+          
+          </td>
+          
+          <td>Different text for the same object with a different identifier</td>
+          
+          <td>An alternative form of the title in two or more entries, e.g. in multiple medline entries</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/title-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1492"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="TitleType"/>
+  <title value="TitleType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Used to express the reason and specific aspect for the variant title, such as language and specific language."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/title-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="primary"/>
+    <display value="Primary title"/>
+    <definition value="Main title for common use. The primary title used for representation if multiple titles exist."/>
+  </concept>
+  <concept>
+    <code value="official"/>
+    <display value="Official title"/>
+    <definition value="The official or authoritative title."/>
+  </concept>
+  <concept>
+    <code value="scientific"/>
+    <display value="Scientific title"/>
+    <definition value="Title using scientific terminology."/>
+  </concept>
+  <concept>
+    <code value="plain-language"/>
+    <display value="Plain language title"/>
+    <definition value="Title using language common to lay public discourse."/>
+  </concept>
+  <concept>
+    <code value="subtitle"/>
+    <display value="Subtitle"/>
+    <definition value="Subtitle or secondary title."/>
+  </concept>
+  <concept>
+    <code value="short-title"/>
+    <display value="Short title"/>
+    <definition value="Brief title (e.g. 'running title' or title used in page headers)"/>
+  </concept>
+  <concept>
+    <code value="acronym"/>
+    <display value="Acronym"/>
+    <definition value="Abbreviation used as title"/>
+  </concept>
+  <concept>
+    <code value="earlier-title"/>
+    <display value="Different text in an earlier version"/>
+    <definition value="Alternative form of title in an earlier version such as epub ahead of print."/>
+  </concept>
+  <concept>
+    <code value="language"/>
+    <display value="Different language"/>
+    <definition value="Additional form of title in a different language."/>
+  </concept>
+  <concept>
+    <code value="autotranslated"/>
+    <display value="Different language derived from autotranslation"/>
+    <definition value="Machine translated form of title in a different language, language element codes the language into which it was translated by machine."/>
+  </concept>
+  <concept>
+    <code value="human-use"/>
+    <display value="Human use"/>
+    <definition value="Human-friendly title"/>
+  </concept>
+  <concept>
+    <code value="machine-use"/>
+    <display value="Machine use"/>
+    <definition value="Machine-friendly title"/>
+  </concept>
+  <concept>
+    <code value="duplicate-uid"/>
+    <display value="Different text for the same object with a different identifier"/>
+    <definition value="An alternative form of the title in two or more entries, e.g. in multiple medline entries"/>
+  </concept>
+</CodeSystem>

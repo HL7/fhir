@@ -1,59 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
-	<id value="status"/>
-	<url value="http://hl7.org/fhir/CodeSystem/status"/>
-	<identifier>
-		<system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.4.642.1.885"/>
-	</identifier>
-	<version value="4.5.0"/>
-	<name value="status"/>
-	<status value="draft"/>
-	<experimental value="false"/>
-	<date value="2018-06-05T14:06:02+00:00"/>
-	<publisher value="HL7 (FHIR Project)"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-		<telecom>
-			<system value="email"/>
-			<value value="fhir@lists.hl7.org"/>
-		</telecom>
-	</contact>
-	<description value="The validation status of the target"/>
-	<caseSensitive value="true"/>
-	<valueSet value="http://hl7.org/fhir/ValueSet/status"/>
-	<content value="complete"/>
-	<concept>
-		<code value="attested"/>
-		<display value="Attested"/>
-		<definition value="***TODO***"/>
-	</concept>
-	<concept>
-		<code value="validated"/>
-		<display value="Validated"/>
-		<definition value="***TODO***"/>
-	</concept>
-	<concept>
-		<code value="in-process"/>
-		<display value="In process"/>
-		<definition value="***TODO***"/>
-	</concept>
-	<concept>
-		<code value="req-revalid"/>
-		<display value="Requires revalidation"/>
-		<definition value="***TODO***"/>
-	</concept>
-	<concept>
-		<code value="val-fail"/>
-		<display value="Validation failed"/>
-		<definition value="***TODO***"/>
-	</concept>
-	<concept>
-		<code value="reval-fail"/>
-		<display value="Re-Validation failed"/>
-		<definition value="***TODO***"/>
-	</concept>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="verificationresult-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/verificationresult-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.885"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="status"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2018-06-05T14:06:02+00:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The validation status of the target"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="attested"/>
+    <display value="Attested"/>
+    <definition value="***TODO***"/>
+  </concept>
+  <concept>
+    <code value="validated"/>
+    <display value="Validated"/>
+    <definition value="***TODO***"/>
+  </concept>
+  <concept>
+    <code value="in-process"/>
+    <display value="In process"/>
+    <definition value="***TODO***"/>
+  </concept>
+  <concept>
+    <code value="req-revalid"/>
+    <display value="Requires revalidation"/>
+    <definition value="***TODO***"/>
+  </concept>
+  <concept>
+    <code value="val-fail"/>
+    <display value="Validation failed"/>
+    <definition value="***TODO***"/>
+  </concept>
+  <concept>
+    <code value="reval-fail"/>
+    <display value="Re-Validation failed"/>
+    <definition value="***TODO***"/>
+  </concept>
 </CodeSystem>

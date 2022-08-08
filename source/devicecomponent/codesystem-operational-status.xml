@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="operational-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/operational-status"/>
+  <version value="4.6.0"/>
+  <name value="DeviceComponentOperationalStatus"/>
+  <concept>
+    <code value="off"/>
+    <display value="Off"/>
+    <definition value="The device is off."/>
+  </concept>
+  <concept>
+    <code value="on"/>
+    <display value="On"/>
+    <definition value="The device is fully operational."/>
+  </concept>
+  <concept>
+    <code value="not-ready"/>
+    <display value="Not Ready"/>
+    <definition value="The device is not ready."/>
+  </concept>
+  <concept>
+    <code value="standby"/>
+    <display value="Standby"/>
+    <definition value="The device is ready but not actively operating."/>
+  </concept>
+  <concept>
+    <code value="transduc-discon"/>
+    <display value="Transducer Disconnected"/>
+    <definition value="The device transducer is disconnected."/>
+  </concept>
+  <concept>
+    <code value="hw-discon"/>
+    <display value="Hardware Disconnectd"/>
+    <definition value="The device hardware is disconnected."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered In Error"/>
+    <definition value="The device was entered in error."/>
+  </concept>
+</CodeSystem>

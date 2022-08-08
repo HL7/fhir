@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="questionnaire-answer-constraint"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/questionnaire-answer-constraint"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="QuestionnaireAnswerConstraint"/>
+  <title value="Questionnaire answer constraints value set"/>
+  <status value="active"/>
+  <description value="Codes that describe the types of constraints possible on a question item that has a list of permitted answers"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/questionnaire-answer-constraint"/>
+    </include>
+  </compose>
+</ValueSet>

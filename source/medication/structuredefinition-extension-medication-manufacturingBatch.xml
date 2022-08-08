@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="medication-manufacturingBatch"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/medication-manufacturingBatch"/>
+  <version value="4.6.0"/>
+  <name value="manufacturingBatch"/>
+  <status value="draft"/>
+  <date value="2015-02-19"/>
+  <publisher value="Health Level Seven, Inc. - FHIR WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="HL7"/>
+    </telecom>
+  </contact>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="Medication.batch"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="Substance"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Extension.extension:manufacturingDate">
+      <path value="Extension.extension"/>
+      <sliceName value="manufacturingDate"/>
+      <definition value="The date at which the drug substance or drug product was manufactured.  The specific operation/step in the process used to determine the date is specified by the manufacturingDateClassification element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:manufacturingDate.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:manufacturingDate.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="manufacturingDate"/>
+    </element>
+    <element id="Extension.extension:manufacturingDate.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="Extension.extension:manufacturingDateClassification">
+      <path value="Extension.extension"/>
+      <sliceName value="manufacturingDateClassification"/>
+      <definition value="A code that provides a rationale for the selection of the manufacturing date."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:manufacturingDateClassification.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:manufacturingDateClassification.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="manufacturingDateClassification"/>
+    </element>
+    <element id="Extension.extension:manufacturingDateClassification.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="Extension.extension:assignedManufacturer">
+      <path value="Extension.extension"/>
+      <sliceName value="assignedManufacturer"/>
+      <definition value="Describes the details of the actual manufacturer who produced this product on behalf of the sponsor or who wholly or partially produced the medication product. This is intended to identify the exact manufacturing location."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:assignedManufacturer.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:assignedManufacturer.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="assignedManufacturer"/>
+    </element>
+    <element id="Extension.extension:assignedManufacturer.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="Extension.extension:expirationDateClassification">
+      <path value="Extension.extension"/>
+      <sliceName value="expirationDateClassification"/>
+      <definition value="A code that provides a rationale for the selection of the expiration date."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:expirationDateClassification.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:expirationDateClassification.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="expirationDateClassification"/>
+    </element>
+    <element id="Extension.extension:expirationDateClassification.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="Extension.extension:batchUtilization">
+      <path value="Extension.extension"/>
+      <sliceName value="batchUtilization"/>
+      <definition value="A categorization of the batch that identifies its usage.  Examples: commercial, development, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:batchUtilization.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:batchUtilization.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="batchUtilization"/>
+    </element>
+    <element id="Extension.extension:batchUtilization.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="Extension.extension:batchQuantity">
+      <path value="Extension.extension"/>
+      <sliceName value="batchQuantity"/>
+      <definition value="The amount of drug product produced in this batch."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:batchQuantity.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:batchQuantity.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="batchQuantity"/>
+    </element>
+    <element id="Extension.extension:batchQuantity.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+    </element>
+    <element id="Extension.extension:additionalInformation">
+      <path value="Extension.extension"/>
+      <sliceName value="additionalInformation"/>
+      <definition value="A placeholder for providing any comments that are relevant to the batch.  Examples: first batch manufactured at a new facility; first batch manufactured using a new Active Pharmaceutical Ingredient (API) source, new process, new container closure, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:additionalInformation.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:additionalInformation.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="additionalInformation"/>
+    </element>
+    <element id="Extension.extension:additionalInformation.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Extension.extension:container">
+      <path value="Extension.extension"/>
+      <sliceName value="container"/>
+      <definition value="Information that applies to how the batch was packaged."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:container.extension:lotNumber">
+      <path value="Extension.extension.extension"/>
+      <sliceName value="lotNumber"/>
+      <definition value="A combination of letters, numbers, or symbols, or any combination of them to uniquely identify the container&#39;s manufacturing lot."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:container.extension:lotNumber.extension">
+      <path value="Extension.extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:container.extension:lotNumber.url">
+      <path value="Extension.extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="lotNumber"/>
+    </element>
+    <element id="Extension.extension:container.extension:lotNumber.value[x]">
+      <path value="Extension.extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Extension.extension:container.extension:type">
+      <path value="Extension.extension.extension"/>
+      <sliceName value="type"/>
+      <definition value="The kind of container that drug substances and finished dosage forms are contained in, which could include both the immediate (or primary) and secondary containers."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:container.extension:type.extension">
+      <path value="Extension.extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:container.extension:type.url">
+      <path value="Extension.extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="type"/>
+    </element>
+    <element id="Extension.extension:container.extension:type.value[x]">
+      <path value="Extension.extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="Extension.extension:container.extension:quantity">
+      <path value="Extension.extension.extension"/>
+      <sliceName value="quantity"/>
+      <definition value="Amount or volume of the drug product in the container.  Expressed as a ratio of the amount of drug per volume of container."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:container.extension:quantity.extension">
+      <path value="Extension.extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:container.extension:quantity.url">
+      <path value="Extension.extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="quantity"/>
+    </element>
+    <element id="Extension.extension:container.extension:quantity.value[x]">
+      <path value="Extension.extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="Ratio"/>
+      </type>
+    </element>
+    <element id="Extension.extension:container.extension:closureSystemDescription">
+      <path value="Extension.extension.extension"/>
+      <sliceName value="closureSystemDescription"/>
+      <definition value="A description of the sum of container closure system (CCS) components that together contain and protect the dosage form or drug substance."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:container.extension:closureSystemDescription.extension">
+      <path value="Extension.extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:container.extension:closureSystemDescription.url">
+      <path value="Extension.extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="closureSystemDescription"/>
+    </element>
+    <element id="Extension.extension:container.extension:closureSystemDescription.value[x]">
+      <path value="Extension.extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Extension.extension:container.extension:closureType">
+      <path value="Extension.extension.extension"/>
+      <sliceName value="closureType"/>
+      <definition value="The kind of closures used for the container in which the drug substances and finished dosage forms are stored."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:container.extension:closureType.extension">
+      <path value="Extension.extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:container.extension:closureType.url">
+      <path value="Extension.extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="closureType"/>
+    </element>
+    <element id="Extension.extension:container.extension:closureType.value[x]">
+      <path value="Extension.extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="Extension.extension:container.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="container"/>
+    </element>
+    <element id="Extension.extension:container.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/medication-manufacturingBatch"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+  </differential>
+</StructureDefinition>

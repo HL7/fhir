@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Immunization-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.occurrenceDateTime"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-date"/>
+        <description value="Vaccination  (non)-Administration Date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="(Immunization.occurrence as dateTime)"/>
+        <xpath value="f:Immunization/f:occurrenceDateTime"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-identifier"/>
+        <description value="Business identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Immunization.identifier"/>
+        <xpath value="f:Immunization/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-location"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.location"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-location"/>
+        <description value="The service delivery location or facility in which the vaccine was / was to be administered"/>
+        <code value="location"/>
+        <type value="reference"/>
+        <expression value="Immunization.location"/>
+        <xpath value="f:Immunization/f:location"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-lot-number"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.lotNumber"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-lot-number"/>
+        <description value="Vaccine Lot Number"/>
+        <code value="lot-number"/>
+        <type value="string"/>
+        <expression value="Immunization.lotNumber"/>
+        <xpath value="f:Immunization/f:lotNumber"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-manufacturer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.manufacturer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-manufacturer"/>
+        <description value="Vaccine Manufacturer"/>
+        <code value="manufacturer"/>
+        <type value="reference"/>
+        <expression value="Immunization.manufacturer"/>
+        <xpath value="f:Immunization/f:manufacturer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-patient"/>
+        <description value="The patient for the vaccination record"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Immunization.patient"/>
+        <xpath value="f:Immunization/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-performer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.performer.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-performer"/>
+        <description value="The practitioner, individual or organization who played a role in the vaccination"/>
+        <code value="performer"/>
+        <type value="reference"/>
+        <expression value="Immunization.performer.actor"/>
+        <xpath value="f:Immunization/f:performer/f:actor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-reaction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.reaction.manifestation.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-reaction"/>
+        <description value="Additional information on reaction"/>
+        <code value="reaction"/>
+        <type value="reference"/>
+        <expression value="Immunization.reaction.manifestation.reference"/>
+        <xpath value="f:Immunization/f:reaction/f:manifestation.reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-reaction-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.reaction.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-reaction-date"/>
+        <description value="When reaction started"/>
+        <code value="reaction-date"/>
+        <type value="date"/>
+        <expression value="Immunization.reaction.date"/>
+        <xpath value="f:Immunization/f:reaction/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-reason-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.reason.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-reason-code"/>
+        <description value="Reason why the vaccine was administered"/>
+        <code value="reason-code"/>
+        <type value="token"/>
+        <expression value="Immunization.reason.concept"/>
+        <xpath value="f:Immunization/f:reason/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-reason-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.reason.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-reason-reference"/>
+        <description value="Reference to a resource (by instance)"/>
+        <code value="reason-reference"/>
+        <type value="reference"/>
+        <expression value="Immunization.reason.reference"/>
+        <xpath value="f:Immunization/f:reason/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-series"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.protocolApplied.series"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-series"/>
+        <description value="The series being followed by the provider"/>
+        <code value="series"/>
+        <type value="string"/>
+        <expression value="Immunization.protocolApplied.series"/>
+        <xpath value="f:Immunization/f:protocolApplied/f:series"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-status"/>
+        <description value="Immunization event status"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Immunization.status"/>
+        <xpath value="f:Immunization/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-status-reason"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.statusReason"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-status-reason"/>
+        <description value="Reason why the vaccine was not administered"/>
+        <code value="status-reason"/>
+        <type value="token"/>
+        <expression value="Immunization.statusReason"/>
+        <xpath value="f:Immunization/f:statusReason"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-target-disease"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.protocolApplied.targetDisease"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-target-disease"/>
+        <description value="The target disease the dose is being administered against"/>
+        <code value="target-disease"/>
+        <type value="token"/>
+        <expression value="Immunization.protocolApplied.targetDisease"/>
+        <xpath value="f:Immunization/f:protocolApplied/f:targetDisease"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Immunization-vaccine-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Immunization.vaccineCode"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-vaccine-code"/>
+        <description value="Vaccine Product Administered"/>
+        <code value="vaccine-code"/>
+        <type value="token"/>
+        <expression value="Immunization.vaccineCode"/>
+        <xpath value="f:Immunization/f:vaccineCode"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

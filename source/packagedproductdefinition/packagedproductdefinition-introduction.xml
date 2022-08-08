@@ -2,12 +2,73 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
-		<p><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></p>
+		<p style="border:2px; border-style:solid; border-color:#999999; padding: 1em; border-radius: 4px 4px 4px 4px;"><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
 		<p>
-			A medically related item or items of any type, in a container or package, representing the unit that has been prepared for sale, supply or similar use.
-			These can include packaged medications, devices and other items such as food, biologicals, raw materials, medical fluids, gases etc.
-			This resource represents the whole package of items, and all the packaging within, rather than the individual items themselves. 
-			In some cases a "product" exists at a logically higher level, which has a variety of available packages associated with it, typically of different sizes.
+			A medically related item or items of any type, in a container or package, representing the unit that has been prepared for sale, supply, shipping or storage.
+			These can include packaged medications, devices and other items such as food, biologicals, raw materials, cosmetics, medical fluids, gases etc.
+			This resource represents the whole package of items, and all the packaging within, rather than the individual items themselves 
+			and may contain other packages (parent/child relationships). 
+			In some cases a "product" exists at exists at logically different levels, and therefore has a variety of available packages associated with it.  
+			Typically the packages are associated with different sizes/quantities.
 		</p>
+		<p>
+			This resource is usually used with MedicinalProductDefinition, via the productFor relationship. For cases where only a subset of PackagedProductDefinition
+			is need in a product, use as a contained resource to MPD may be appropriate. 
+			See <a href="medicinalproductdefinition.html#contained">MedicinalProductDefinition</a> for an example.
+		</p>
+
+		<h2>Consistent representation of different package aspects</h2>
+		
+		<p>The PackagedProductDefinition resource covers two main areas - package types that exist for a product (linked via productFor), and the packaging within those packages.</p> 
+		
+		<p>These can be thought of as the "package type" and the "packaging" respectively.
+		The package type is covered by the PackagedProductDefinition class and the packaging by the Package backbone element 
+		(broadly the left and right of the UML model).
+		It is possible to leave either part un-populated.</p>
+		
+		<p>A package type can be documented without needing to say in detail what physical packaging or items are within it. 
+		This is common in many drug dictionaries, which list package types, but not their internals.</p>  
+		<p>Conversely it is possible to only populate the Package backbone, and child classes, to cover packaging of an item but not say anything 
+		about the product outer packaging or the overall package that will eventually be on sale. 
+		This would be appropriate when focusing on the physical product and the inner packaging, perhaps at a manufacturing stage, 
+		without needing to populate package details not relevant (or not existing) at that phase.</p>
+		
+		<p>Other implementations will use both "halves". A single application could start by using the Package class for packaging 
+		and then populate the package type data later on.</p>
+		
+		<p>It is very important that a consistent representation is used. Packaging always uses the Package backbone, 
+		whether or not there are any package type properties documented. 
+		A diagram of this is shown on the Medication Definition <a href="medication-definition-module.html#package-detail-consistency">module page</a>.
+		</p>
+		
+		<h2>Recursive relationships in this resource</h2>
+		<p>
+			This resource has two recursive relationships. 
+			One is primarily intended to be "internal" to the package - for package layers and contents, and the other for aggregated packages (e.g. for wholesaling) that are 
+			made up of other packages.
+		</p>
+		<ul>
+			<li>
+				PackagedProductDefinition.package.package<br/>
+				This recursive relationship is used for the inner parts and containers within a package - the package being indivisible and marketed or prescribed as a whole entity. 
+				However see also the "referenceable" packaging case in the next bullet.
+			</li>
+			<li>
+				PackagedProductDefinition.package.containedItem.item(PackagedProductDefinition)<br/> 
+				This recursive route is primarily for cases where the whole (indivisible) package is then aggregated into another, divisible, package -  
+				for example a warehousing or transport pack. This represents a package of packages. 
+				It is not generally used for the internal parts of a single package (see previous bullet). 
+				However for cases where there is a need to represent the distinct regulation of specific inner parts of a package, 
+				and so a need for these to be directly referenceable as packaging layers by other resources, this relationship SHOULD 
+				also be used for packaging within the package.  
+			</li>
+		</ul>
+
+		<p/>
+		<p><b>Feedback</b><br/>
+		In order to properly meet all packaging uses cases, 
+				consistent representation of different package information and recursive relationships are aspects of this 
+				resource that BR&amp;R workgroup are particularly seeking implementation feedback on. 
+				(Comments links are found at the bottom of each page.)</p> 
 	</div>
 </div>

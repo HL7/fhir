@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArtifactAssessment xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/artifactassessment.xsd">
+    <id value="example-certainty-rating"/>
+	<identifier>
+		<type>
+			<text value="FEvIR Object Identifier"/>
+		</type>
+		<system value="https://fevir.net"/>
+		<value value="27756"/>
+		<assigner>
+			<display value="Computable Publishing LLC"/>
+		</assigner>
+	</identifier>
+	<date value="2021-11-02T14:48:59.890Z"/>
+	<copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+	<artifactReference>
+		<reference value="Evidence/18812"/>
+		<type value="Evidence"/>
+		<display value="Critically appraised summary of all-cause mortality in meta-analysis of RCTs of heparin for moderately ill patients with COVID-19"/>
+	</artifactReference>
+	<content>
+		<informationType value="rating"/>
+		<summary value="serious concerns with risk of bias, inconsistency, and imprecision"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+				<code value="Overall"/>
+				<display value="Overall certainty"/>
+			</coding>
+		</type>
+		<classifier>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+				<code value="very-low"/>
+				<display value="Very low quality"/>
+			</coding>
+		</classifier>
+		<author>
+			<display value="Brian S. Alper"/>
+		</author>
+		<freeToShare value="true"/>
+		<component>
+			<informationType value="rating"/>
+			<summary value="risk of bias in both included trials"/>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<code value="RiskOfBias"/>
+					<display value="Risk of bias"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+					<code value="serious-concern"/>
+					<display value="serious concern"/>
+				</coding>
+			</classifier>
+			<author>
+				<display value="Brian S. Alper"/>
+			</author>
+		</component>
+		<component>
+			<informationType value="rating"/>
+			<summary value="high degree of heterogeneity (I-squared 80.7%) with confidence intervals of 2 trial effect estimates barely overlapping"/>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<code value="Inconsistency"/>
+					<display value="Inconsistency"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+					<code value="serious-concern"/>
+					<display value="serious concern"/>
+				</coding>
+			</classifier>
+			<author>
+				<display value="Brian S. Alper"/>
+			</author>
+		</component>
+		<component>
+			<informationType value="rating"/>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<code value="Indirectness"/>
+					<display value="Indirectness"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+					<code value="no-concern"/>
+					<display value="no serious concern"/>
+				</coding>
+			</classifier>
+			<author>
+				<display value="Brian S. Alper"/>
+			</author>
+		</component>
+		<component>
+			<informationType value="rating"/>
+			<summary value="95% confidence interval includes both large effects and no effects"/>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<code value="Imprecision"/>
+					<display value="Imprecision"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+					<code value="serious-concern"/>
+					<display value="serious concern"/>
+				</coding>
+			</classifier>
+			<author>
+				<display value="Brian S. Alper"/>
+			</author>
+		</component>
+		<component>
+			<informationType value="rating"/>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<code value="PublicationBias"/>
+					<display value="Publication bias"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+					<code value="no-concern"/>
+					<display value="no serious concern"/>
+				</coding>
+			</classifier>
+			<author>
+				<display value="Brian S. Alper"/>
+			</author>
+		</component>
+	</content>
+</ArtifactAssessment>

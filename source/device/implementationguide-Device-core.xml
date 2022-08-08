@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="Device-core"/>
+  <version value="0.1"/>
+  <name value="Device HL7 Extensions"/>
+  <title value="Device HL7 Extensions"/>
+  <status value="draft"/>
+  <date value="2015-02-21T00:00:00.000"/>
+  <publisher value="Health Level Seven, Inc. - FHIR WG"/>
+  <description value="Defines common extensions used with or related to the Device resource"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/device-implantStatus"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/device-commercialBrand"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="SearchParameter/device-extensions-Device-din"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

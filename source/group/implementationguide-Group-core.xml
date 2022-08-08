@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="Group-core"/>
+  <version value="0.01"/>
+  <name value="Actual Group"/>
+  <title value="Actual Group"/>
+  <status value="draft"/>
+  <date value="1970-01-01T10:00:00+10:00"/>
+  <publisher value="HL7"/>
+  <description value="Enforces an actual group, rather than a definitional group"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/actualgroup"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/groupdefinition"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

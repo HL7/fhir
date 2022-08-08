@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="MeasureReport-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="CMS 146 Summary Report"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measurereport-cms146-cat3-example"/>
+    </extension>
+    <item>
+      <reference value="MeasureReport/measurereport-cms146-cat3-example"/>
+      <display value="CMS146Summary"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="CMS 146 Individual Report"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measurereport-cms146-cat1-example"/>
+    </extension>
+    <item>
+      <reference value="MeasureReport/measurereport-cms146-cat1-example"/>
+      <display value="CMS146Individual"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example MeasureReport for reporting public health data elements"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measurereport-hiv-indicators"/>
+    </extension>
+    <item>
+      <reference value="MeasureReport/hiv-indicators"/>
+      <display value="HIV Indicators"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example MeasureReport for a single patient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measurereport-general-example"/>
+    </extension>
+    <item>
+      <reference value="MeasureReport/general-example-of-report"/>
+      <display value="General Example"/>
+    </item>
+  </entry>
+</List>

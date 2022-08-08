@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="TestReport"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Quality Reporting &amp;amp; Testing"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/TestReport"/>
+  <version value="4.6.0"/>
+  <name value="TestReport"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A summary of information based on the results of executing a TestScript."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="TestReport"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="TestReport">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="200,150"/>
+      </extension>
+      <path value="TestReport"/>
+      <short value="Describes the results of a TestScript execution"/>
+      <definition value="A summary of information based on the results of executing a TestScript."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="BaseConformance"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="conformance.misc"/>
+      </mapping>
+    </element>
+    <element id="TestReport.identifier">
+      <path value="TestReport.identifier"/>
+      <short value="External identifier"/>
+      <definition value="Identifier for the TestReport assigned for external purposes outside the context of FHIR."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="TestReport.name">
+      <path value="TestReport.name"/>
+      <short value="Informal name of the executed TestReport"/>
+      <definition value="A free text natural language name identifying the executed TestReport."/>
+      <comment value="Not expected to be globally unique."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="BaseConformance.name"/>
+      </mapping>
+    </element>
+    <element id="TestReport.status">
+      <path value="TestReport.status"/>
+      <short value="completed | in-progress | waiting | stopped | entered-in-error"/>
+      <definition value="The current state of this test report."/>
+      <comment value="The status represents where the execution is currently within the test script execution life cycle.&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TestReportStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The current status of the test report."/>
+        </extension>
+        <strength value="required"/>
+        <description value="The current status of the test script execution."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/report-status-codes"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="TestReport.testScript">
+      <path value="TestReport.testScript"/>
+      <short value="Canonical URL to the  version-specific TestScript that was executed to produce this TestReport"/>
+      <definition value="Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="TestReport.result">
+      <path value="TestReport.result"/>
+      <short value="pass | fail | pending"/>
+      <definition value="The overall result from the execution of the TestScript."/>
+      <comment value="The pass and fail result represents a completed test script execution. The pending result represents a test script execution that has not yet started or is currently in progress."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TestReportResult"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The reported execution result."/>
+        </extension>
+        <strength value="required"/>
+        <description value="The overall execution result of the TestScript."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/report-result-codes"/>
+      </binding>
+    </element>
+    <element id="TestReport.score">
+      <path value="TestReport.score"/>
+      <short value="The final score (percentage of tests passed) resulting from the execution of the TestScript"/>
+      <definition value="The final score (percentage of tests passed) resulting from the execution of the TestScript."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="TestReport.tester">
+      <path value="TestReport.tester"/>
+      <short value="Name of the tester producing this report (Organization or individual)"/>
+      <definition value="Name of the tester producing this report (Organization or individual)."/>
+      <comment value="Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the TestReport.  May also allow for contact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="TestReport.issued">
+      <path value="TestReport.issued"/>
+      <short value="When the TestScript was executed and this TestReport was generated"/>
+      <definition value="When the TestScript was executed and this TestReport was generated."/>
+      <comment value="Additional specific dates may be added as extensions."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="BaseConformance.date"/>
+      </mapping>
+    </element>
+    <element id="TestReport.participant">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="500,150"/>
+      </extension>
+      <path value="TestReport.participant"/>
+      <short value="A participant in the test execution, either the execution engine, a client, or a server"/>
+      <definition value="A participant in the test execution, either the execution engine, a client, or a server."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestReport.participant.type">
+      <path value="TestReport.participant.type"/>
+      <short value="test-engine | client | server"/>
+      <definition value="The type of participant."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TestReportParticipantType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type of participant."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/report-participant-type"/>
+      </binding>
+    </element>
+    <element id="TestReport.participant.uri">
+      <path value="TestReport.participant.uri"/>
+      <short value="The uri of the participant. An absolute URL is preferred"/>
+      <definition value="The uri of the participant. An absolute URL is preferred."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="TestReport.participant.display">
+      <path value="TestReport.participant.display"/>
+      <short value="The display name of the participant"/>
+      <definition value="The display name of the participant."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestReport.setup">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="30,240"/>
+      </extension>
+      <path value="TestReport.setup"/>
+      <short value="The results of the series of required setup operations before the tests were executed"/>
+      <definition value="The results of the series of required setup operations before the tests were executed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestReport.setup.action">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="SetupAction"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="50,380"/>
+      </extension>
+      <path value="TestReport.setup.action"/>
+      <short value="A setup operation or assert that was executed"/>
+      <definition value="Action would contain either an operation or an assertion."/>
+      <comment value="An action should contain either an operation or an assertion but not both.  It can contain any number of variables."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="inv-1"/>
+        <severity value="error"/>
+        <human value="Setup action SHALL contain either an operation or assert but not both."/>
+        <expression value="operation.exists() xor assert.exists()"/>
+        <xpath value="(f:operation or f:assert) and not(f:operation and f:assert)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/TestReport"/>
+      </constraint>
+    </element>
+    <element id="TestReport.setup.action.operation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="280,480"/>
+      </extension>
+      <path value="TestReport.setup.action.operation"/>
+      <short value="The operation to perform"/>
+      <definition value="The operation performed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestReport.setup.action.operation.result">
+      <path value="TestReport.setup.action.operation.result"/>
+      <short value="pass | skip | fail | warning | error"/>
+      <definition value="The result of this operation."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TestReportActionResult"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The results of executing an action."/>
+        </extension>
+        <strength value="required"/>
+        <description value="The result of the execution of an individual action."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/report-action-result-codes"/>
+      </binding>
+    </element>
+    <element id="TestReport.setup.action.operation.message">
+      <path value="TestReport.setup.action.operation.message"/>
+      <short value="A message associated with the result"/>
+      <definition value="An explanatory message associated with the result."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="TestReport.setup.action.operation.detail">
+      <path value="TestReport.setup.action.operation.detail"/>
+      <short value="A link to further details on the result"/>
+      <definition value="A link to further details on the result."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="TestReport.setup.action.assert">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,480"/>
+      </extension>
+      <path value="TestReport.setup.action.assert"/>
+      <short value="The assertion to perform"/>
+      <definition value="The results of the assertion performed on the previous operations."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestReport.setup.action.assert.result">
+      <path value="TestReport.setup.action.assert.result"/>
+      <short value="pass | skip | fail | warning | error"/>
+      <definition value="The result of this assertion."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TestReportActionResult"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The results of executing an action."/>
+        </extension>
+        <strength value="required"/>
+        <description value="The result of the execution of an individual action."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/report-action-result-codes"/>
+      </binding>
+    </element>
+    <element id="TestReport.setup.action.assert.message">
+      <path value="TestReport.setup.action.assert.message"/>
+      <short value="A message associated with the result"/>
+      <definition value="An explanatory message associated with the result."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="TestReport.setup.action.assert.detail">
+      <path value="TestReport.setup.action.assert.detail"/>
+      <short value="A link to further details on the result"/>
+      <definition value="A link to further details on the result."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestReport.test">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="580,270"/>
+      </extension>
+      <path value="TestReport.test"/>
+      <short value="A test executed from the test script"/>
+      <definition value="A test executed from the test script."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestReport.test.name">
+      <path value="TestReport.test.name"/>
+      <short value="Tracking/logging name of this test"/>
+      <definition value="The name of this test used for tracking/logging purposes by test engines."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestReport.test.description">
+      <path value="TestReport.test.description"/>
+      <short value="Tracking/reporting short description of the test"/>
+      <definition value="A short description of the test used by test engines for tracking and reporting purposes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestReport.test.action">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="TestAction"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="450,380"/>
+      </extension>
+      <path value="TestReport.test.action"/>
+      <short value="A test operation or assert that was performed"/>
+      <definition value="Action would contain either an operation or an assertion."/>
+      <comment value="An action should contain either an operation or an assertion but not both.  It can contain any number of variables."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="inv-2"/>
+        <severity value="error"/>
+        <human value="Test action SHALL contain either an operation or assert but not both."/>
+        <expression value="operation.exists() xor assert.exists()"/>
+        <xpath value="(f:operation or f:assert) and not(f:operation and f:assert)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/TestReport"/>
+      </constraint>
+    </element>
+    <element id="TestReport.test.action.operation">
+      <path value="TestReport.test.action.operation"/>
+      <short value="The operation performed"/>
+      <definition value="An operation would involve a REST request to a server."/>
+      <min value="0"/>
+      <max value="1"/>
+      <contentReference value="#TestReport.setup.action.operation"/>
+    </element>
+    <element id="TestReport.test.action.assert">
+      <path value="TestReport.test.action.assert"/>
+      <short value="The assertion performed"/>
+      <definition value="The results of the assertion performed on the previous operations."/>
+      <min value="0"/>
+      <max value="1"/>
+      <contentReference value="#TestReport.setup.action.assert"/>
+    </element>
+    <element id="TestReport.teardown">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="70,290"/>
+      </extension>
+      <path value="TestReport.teardown"/>
+      <short value="The results of running the series of required clean up steps"/>
+      <definition value="The results of the series of operations required to clean up after all the tests were executed (successfully or otherwise)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestReport.teardown.action">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="TeardownAction"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="200,380"/>
+      </extension>
+      <path value="TestReport.teardown.action"/>
+      <short value="One or more teardown operations performed"/>
+      <definition value="The teardown action will only contain an operation."/>
+      <comment value="An action should contain either an operation or an assertion but not both.  It can contain any number of variables."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestReport.teardown.action.operation">
+      <path value="TestReport.teardown.action.operation"/>
+      <short value="The teardown operation performed"/>
+      <definition value="An operation would involve a REST request to a server."/>
+      <min value="1"/>
+      <max value="1"/>
+      <contentReference value="#TestReport.setup.action.operation"/>
+    </element>
+  </differential>
+</StructureDefinition>

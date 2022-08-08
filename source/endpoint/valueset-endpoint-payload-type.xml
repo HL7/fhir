@@ -1,9 +1,20 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="endpoint-payload-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-endpoint-payload-type"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/endpoint-payload-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.496"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="EndpointPayloadType"/>
   <title value="Endpoint Payload Type"/>
   <status value="draft"/>
@@ -15,7 +26,7 @@
     </telecom>
   </contact>
   <description value="This is an example value set defined by the FHIR project, that could be used to represent possible payload document types."/>
-  <copyright value="Some content from IHE® Copyright © 2015 IHE International, Inc.    This content is from the IHE Technical Frameworks and Supplements,    available for free download and use at http://www.ihe.net/Technical_Frameworks/"/>
+  <copyright value="Some content from IHE&#xAE; Copyright &#xA9; 2015 IHE International, Inc.    This content is from the IHE Technical Frameworks and Supplements,    available for free download and use at http://www.ihe.net/Technical_Frameworks/"/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/endpoint-payload-type"/>

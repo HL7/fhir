@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
+  <id value="MedicationRequest-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-authoredon"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.authoredOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-authoredon"/>
+        <description value="Return prescriptions written on this date"/>
+        <code value="authoredon"/>
+        <type value="date"/>
+        <expression value="MedicationRequest.authoredOn"/>
+        <xpath value="f:MedicationRequest/f:authoredOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-category"/>
+        <description value="Returns prescriptions with different categories"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="MedicationRequest.category"/>
+        <xpath value="f:MedicationRequest/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.medication.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-code"/>
+        <description value="Return prescriptions of this medication code"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="MedicationRequest.medication.concept"/>
+        <xpath value="f:MedicationRequest/f:medication/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-combo-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.dose.dosageInstruction.timing.event,MedicationRequest.dose.dosageInstruction.timing.repeat.boundsPeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-combo-date"/>
+        <description value="Returns medication request to be administered on a specific date or within a date range"/>
+        <code value="combo-date"/>
+        <type value="date"/>
+        <expression value="MedicationRequest.dose.dosageInstruction.timing.event | (MedicationRequest.dose.dosageInstruction.timing.repeat.bounds as Period)"/>
+        <xpath value="f:MedicationRequest/f:dose.dosageInstruction/f:timing/f:event | f:MedicationRequest/f:dose.dosageInstruction/f:timing/f:repeat/f:boundsPeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-encounter"/>
+        <description value="Return prescriptions with this encounter identifier"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="MedicationRequest.encounter"/>
+        <xpath value="f:MedicationRequest/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-identifier"/>
+        <description value="Return prescriptions with this external identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="MedicationRequest.identifier"/>
+        <xpath value="f:MedicationRequest/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-intended-dispenser"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.dispenseRequest.dispenser"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-intended-dispenser"/>
+        <description value="Returns prescriptions intended to be dispensed by this Organization"/>
+        <code value="intended-dispenser"/>
+        <type value="reference"/>
+        <expression value="MedicationRequest.dispenseRequest.dispenser"/>
+        <xpath value="f:MedicationRequest/f:dispenseRequest/f:dispenser"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-intended-performer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.performer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-intended-performer"/>
+        <description value="Returns the intended performer of the administration of the medication request"/>
+        <code value="intended-performer"/>
+        <type value="reference"/>
+        <expression value="MedicationRequest.performer"/>
+        <xpath value="f:MedicationRequest/f:performer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-intended-performertype"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.performerType"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-intended-performertype"/>
+        <description value="Returns requests for a specific type of performer"/>
+        <code value="intended-performertype"/>
+        <type value="token"/>
+        <expression value="MedicationRequest.performerType"/>
+        <xpath value="f:MedicationRequest/f:performerType"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-intent"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.intent"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-intent"/>
+        <description value="Returns prescriptions with different intents"/>
+        <code value="intent"/>
+        <type value="token"/>
+        <expression value="MedicationRequest.intent"/>
+        <xpath value="f:MedicationRequest/f:intent"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-medication"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.medication.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-medication"/>
+        <description value="Return prescriptions for this medication reference"/>
+        <code value="medication"/>
+        <type value="reference"/>
+        <expression value="MedicationRequest.medication.reference"/>
+        <xpath value="f:MedicationRequest/f:medication/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-patient"/>
+        <description value="Returns prescriptions for a specific patient"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="MedicationRequest.subject.where(resolve() is Patient)"/>
+        <xpath value="f:MedicationRequest/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-priority"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.priority"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-priority"/>
+        <description value="Returns prescriptions with different priorities"/>
+        <code value="priority"/>
+        <type value="token"/>
+        <expression value="MedicationRequest.priority"/>
+        <xpath value="f:MedicationRequest/f:priority"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-requester"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.requester"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-requester"/>
+        <description value="Returns prescriptions prescribed by this prescriber"/>
+        <code value="requester"/>
+        <type value="reference"/>
+        <expression value="MedicationRequest.requester"/>
+        <xpath value="f:MedicationRequest/f:requester"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-status"/>
+        <description value="Status of the prescription"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="MedicationRequest.status"/>
+        <xpath value="f:MedicationRequest/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationRequest-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationRequest.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-subject"/>
+        <description value="The identity of a patient to list orders  for"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="MedicationRequest.subject"/>
+        <xpath value="f:MedicationRequest/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

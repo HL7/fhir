@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Consent-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Consent Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-basic"/>
+      <display value="Consent-In"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Consent withholding access"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-Out"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-Out"/>
+      <display value="Consent-Out"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Consent withholding access to data for Treatment exept for Emergency Treatment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-Emergency"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-Emergency"/>
+      <display value="Consent-Emergency"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-notThis"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-notThis"/>
+      <display value="Consent-Not-This"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Withhold or withdraw consent for disclosure of a specific timeframe"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-notTime"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-notTime"/>
+      <display value="Consent-Not-Time"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Withhold or withdraw consent for disclosure to a specific provider organization"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-notOrg"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-notOrg"/>
+      <display value="Consent-Not-Org"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Withhold or withdraw consent for disclosure to a specific provider agent (an individual within an organization)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-notThem"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-notThem"/>
+      <display value="Consent-Not-Them"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Withhold or withdraw consent for disclosure of records that were authored by a specific organization (or service delivery location)."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-notAuthor"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-notAuthor"/>
+      <display value="Consent-Not-Author"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient grants access to a specified individual for read-only access"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-grantor"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-grantor"/>
+      <display value="Consent-Grantor"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Patients Know Best Usage"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-pkb"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-pkb"/>
+      <display value="Consent from Patients Know Best"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Template for recording a Smart on FHIR Authorization"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-smartonfhir"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-smartonfhir"/>
+      <display value="Smart on FHIR example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Share CDA documents from a specific author to a specific recipient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="consent-example-CDA"/>
+    </extension>
+    <item>
+      <reference value="Consent/consent-example-CDA"/>
+      <display value="consent-example-CDA"/>
+    </item>
+  </entry>
+</List>

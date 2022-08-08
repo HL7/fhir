@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="AuditEvent-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General AuditEvent Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="auditevent-example"/>
+    </extension>
+    <item>
+      <reference value="AuditEvent/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Login example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="audit-event-example-login"/>
+    </extension>
+    <item>
+      <reference value="AuditEvent/example-login"/>
+      <display value="Login"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Logout example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="audit-event-example-logout"/>
+    </extension>
+    <item>
+      <reference value="AuditEvent/example-logout"/>
+      <display value="Logout"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="RESTful vread Operation"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="audit-event-example-vread"/>
+    </extension>
+    <item>
+      <reference value="AuditEvent/example-rest"/>
+      <display value="RESTful Operation"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="RESTful create with TraceID"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="audit-event-example-create-traceID"/>
+    </extension>
+    <item>
+      <reference value="AuditEvent/example-rest-create-traceID"/>
+      <display value="RESTful create"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Accounting of a Disclosure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="auditevent-example-disclosure"/>
+    </extension>
+    <item>
+      <reference value="AuditEvent/example-disclosure"/>
+      <display value="Disclosure"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="RESTful search operation"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="audit-event-example-search"/>
+    </extension>
+    <item>
+      <reference value="AuditEvent/example-search"/>
+      <display value="Search"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Converted ATNA message from a PIX query"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="audit-event-example-pixQuery"/>
+    </extension>
+    <item>
+      <reference value="AuditEvent/example-pixQuery"/>
+      <display value="PIX Query"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Export of DocumentManifest to Media"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="audit-event-example-media"/>
+    </extension>
+    <item>
+      <reference value="AuditEvent/example-media"/>
+      <display value="Export to Media"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Audit of a transaction that was failed resulting in OperationOutcome"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="auditevent-example-error"/>
+    </extension>
+    <item>
+      <reference value="AuditEvent/example-error"/>
+      <display value="Transaction Failure"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Record that a Break-Glass event has started"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="auditevent-example-breakglass-start"/>
+    </extension>
+    <item>
+      <reference value="AuditEvent/example-breakglass-start"/>
+      <display value="BreakGlass Start"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An AuditEvent recording a 'permit' authorization decision by a Consent Decision Service, based on a Consent resource (C1) filed by a patient (P1), in response to a request by an organization (Org1) for the purpose of treatment (TREAT)."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="auditevent-example-consent-authz"/>
+    </extension>
+    <item>
+      <reference value="AuditEvent/example-consent-permit-authz"/>
+      <display value="Consent Permit Authorization"/>
+    </item>
+  </entry>
+</List>

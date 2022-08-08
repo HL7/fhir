@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Medication"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Medications"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value="Medication does not have a status"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+  <version value="4.6.0"/>
+  <name value="Medication"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Pharmacy)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/medication/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="script10.6"/>
+    <uri value="http://ncpdp.org/SCRIPT10_6"/>
+    <name value="Mapping to NCPDP SCRIPT 10.6"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Medication"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Medication">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="Medication"/>
+      <short value="Definition of a Medication"/>
+      <definition value="This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="script10.6"/>
+        <map value="NewRx/MedicationPrescribed&#xD;-or-&#xD;RxFill/MedicationDispensed&#xD;-or-&#xD;RxHistoryResponse/MedicationDispensed&#xD;-or-&#xD;RxHistoryResponse/MedicationPrescribed"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode=ADMM]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.medication"/>
+      </mapping>
+    </element>
+    <element id="Medication.identifier">
+      <path value="Medication.identifier"/>
+      <short value="Business identifier for this medication"/>
+      <definition value="Business identifier for this medication."/>
+      <comment value="The serial number could be included as an identifier."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+    <element id="Medication.code">
+      <path value="Medication.code"/>
+      <short value="Codes that identify this medication"/>
+      <definition value="A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems."/>
+      <comment value="Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc.) will have the coding.userSelected set to true.  As described in the coding datatype: &quot;A coding may be marked as a &quot;userSelected&quot; if a user selected the particular coded value in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists, it is the preferred choice for performing translations etc. Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g. a generic code for a vendor-specific primary one)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationFormalRepresentation"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept that defines the type of a medication."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
+      </binding>
+      <mapping>
+        <identity value="script10.6"/>
+        <map value="coding.code = //element(*,MedicationType)/DrugCoded/ProductCode&#xD;&#xD;coding.system = //element(*,MedicationType)/DrugCoded/ProductCodeQualifier&#xD;&#xD;coding.display = //element(*,MedicationType)/DrugDescription"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXO-1.1 Requested Give Code.code / RXE-2.1 Give Code.code / RXD-2.1 Dispense/Give Code.code / RXG-4.1 Give Code.code /RXA-5.1 Administered Code.code / RXC-2.1 Component Code"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="Medication.status">
+      <path value="Medication.status"/>
+      <short value="active | inactive | entered-in-error"/>
+      <definition value="A code to indicate if the medication is in active use."/>
+      <comment value="This status is intended to identify if the medication in a local system is in active use within a drug database or inventory.  For example, a pharmacy system may create a new drug file record for a compounded product &quot;ABC Hospital Special Cream&quot; with an active status.  At some point in the future, it may be determined that the drug record was created with an error and the status is changed to &quot;entered in error&quot;.   This status is not intended to specify if a medication is part of a particular formulary.  It is possible that the drug record may be referenced by multiple formularies or catalogues and each of those entries would have a separate status."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element changes the interpretation of all descriptive attributes."/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="A coded concept defining if the medication is in active use."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-status"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".statusCode"/>
+      </mapping>
+    </element>
+    <element id="Medication.marketingAuthorizationHolder">
+      <path value="Medication.marketingAuthorizationHolder"/>
+      <short value="Organization that has authorization to market medication"/>
+      <definition value="The company or other legal entity that has authorization, from the appropriate drug regulatory authority,  to market a medicine in one or more jurisdictions.  Typically abbreviated MAH.Note:  The MAH may manufacture the product and may also contract the manufacturing of the product to one or more companies (organizations)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player.scopingRole[typeCode=MANU].scoper"/>
+      </mapping>
+    </element>
+    <element id="Medication.doseForm">
+      <path value="Medication.doseForm"/>
+      <short value="powder | tablets | capsule +"/>
+      <definition value="Describes the form of the item.  Powder; tablets; capsule."/>
+      <comment value="When Medication is referenced from MedicationRequest, this is the ordered form.  When Medication is referenced within MedicationDispense, this is the dispensed form.  When Medication is referenced within MedicationAdministration, this is administered form."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationForm"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept defining the form of a medication."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-form-codes"/>
+      </binding>
+      <mapping>
+        <identity value="script10.6"/>
+        <map value="coding.code =  //element(*,DrugCodedType)/FormCode&#xD;&#xD;coding.system = //element(*,DrugCodedType)/FormSourceCode"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXO-5 Requested Dosage Form / RXE-6 Give Dosage Form / RXD-6 Actual Dosage Form / RXG-8 Give Dosage Form / RXA-8 Administered Dosage Form"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".formCode"/>
+      </mapping>
+    </element>
+    <element id="Medication.totalVolume">
+      <path value="Medication.totalVolume"/>
+      <short value="When the specified product code does not infer a package size, this is the specific amount of drug in the product"/>
+      <definition value="When the specified product code does not infer a package size, this is the specific amount of drug in the product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Ratio"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".quantity"/>
+      </mapping>
+    </element>
+    <element id="Medication.ingredient">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,200"/>
+      </extension>
+      <path value="Medication.ingredient"/>
+      <short value="Active or inactive ingredient"/>
+      <definition value="Identifies a particular constituent of interest in the product."/>
+      <comment value="The ingredients need not be a complete list.  If an ingredient is not specified, this does not indicate whether an ingredient is present or absent.  If an ingredient is specified it does not mean that all ingredients are specified.  It is possible to specify both inactive and active ingredients."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".scopesRole[typeCode=INGR]"/>
+      </mapping>
+    </element>
+    <element id="Medication.ingredient.item">
+      <path value="Medication.ingredient.item"/>
+      <short value="The ingredient (substance or medication) that the ingredient.strength relates to"/>
+      <definition value="The ingredient (substance or medication) that the ingredient.strength relates to.  This is represented as a concept from a code system or described in another resource (Substance or Medication)."/>
+      <requirements value="The ingredient may reference a substance (for example, amoxicillin) or another medication (for example in the case of a compounded product, Glaxal Base)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationFormalRepresentation"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
+      </binding>
+      <mapping>
+        <identity value="script10.6"/>
+        <map value="coding.code = //element(*,MedicationType)/DrugCoded/ProductCode&#xD;&#xD;coding.system = //element(*,MedicationType)/DrugCoded/ProductCodeQualifier&#xD;&#xD;coding.display = //element(*,MedicationType)/DrugDescription"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXC-2 Component Code  if medication: RXO-1 Requested Give Code / RXE-2 Give Code / RXD-2-Dispense Give Code / RXG-4 Give Code / RXA-5 Administered Code"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player"/>
+      </mapping>
+    </element>
+    <element id="Medication.ingredient.isActive">
+      <path value="Medication.ingredient.isActive"/>
+      <short value="Active ingredient indicator"/>
+      <definition value="Indication of whether this ingredient affects the therapeutic action of the drug."/>
+      <requirements value="True indicates that the ingredient affects the therapeutic action of the drug (i.e. active). &#xD;False indicates that the ingredient does not affect the therapeutic action of the drug (i.e. inactive)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="NA"/>
+      </mapping>
+    </element>
+    <element id="Medication.ingredient.strength[x]">
+      <path value="Medication.ingredient.strength[x]"/>
+      <short value="Quantity of ingredient present"/>
+      <definition value="Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet but can also be expressed a quantity when the denominator is assumed to be 1 tablet."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Ratio"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationIngredientStrength"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="A coded concpet defining the strength of an ingredient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-ingredientstrength"/>
+      </binding>
+      <mapping>
+        <identity value="script10.6"/>
+        <map value="//element(*,DrugCodedType)/Strength"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXC-3 Component Amount &amp; RXC-4 Component Units  if medication: RXO-2 Requested Give Amount - Minimum &amp; RXO-4 Requested Give Units / RXO-3 Requested Give Amount - Maximum &amp; RXO-4 Requested Give Units / RXO-11 Requested Dispense Amount &amp; RXO-12 Requested Dispense Units / RXE-3 Give Amount - Minimum &amp; RXE-5 Give Units / RXE-4 Give Amount - Maximum &amp; RXE-5 Give Units / RXE-10 Dispense Amount &amp; RXE-10 Dispense Units"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".quantity"/>
+      </mapping>
+    </element>
+    <element id="Medication.batch">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="380,40"/>
+      </extension>
+      <path value="Medication.batch"/>
+      <short value="Details about packaged medications"/>
+      <definition value="Information that only applies to packages (not products)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="script10.6"/>
+        <map value="no mapping"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player[classCode=CONT]"/>
+      </mapping>
+    </element>
+    <element id="Medication.batch.lotNumber">
+      <path value="Medication.batch.lotNumber"/>
+      <short value="Identifier assigned to batch"/>
+      <definition value="The assigned lot number of a batch of the specified product."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="script10.6"/>
+        <map value="no mapping"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXA-15 Substance Lot Number / RXG-19 Substance Lot Number"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+    <element id="Medication.batch.expirationDate">
+      <path value="Medication.batch.expirationDate"/>
+      <short value="When batch will expire"/>
+      <definition value="When this specific batch of product will expire."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="script10.6"/>
+        <map value="no mapping"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXA-16 Substance Expiration Date / RXG-20 Substance Expiration Date"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].expirationTime"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

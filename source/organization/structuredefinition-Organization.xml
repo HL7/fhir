@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Organization"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Base.Entities"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".active = false"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+  <version value="4.6.0"/>
+  <name value="Organization"/>
+  <status value="draft"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="Health Level Seven International (Patient Administration)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="interface"/>
+    <uri value="http://hl7.org/fhir/interface"/>
+    <name value="Interface Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="servd"/>
+    <uri value="http://www.omg.org/spec/ServD/1.0/"/>
+    <name value="ServD"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Organization"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Organization">
+      <path value="Organization"/>
+      <short value="A grouping of people or organizations with a common purpose"/>
+      <definition value="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="org-1"/>
+        <severity value="error"/>
+        <human value="The organization SHALL at least have a name or an identifier, and possibly more than one"/>
+        <expression value="(identifier.count() + name.count()) &gt; 0"/>
+        <xpath value="count(f:identifier | f:name) &gt; 0"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </constraint>
+      <mapping>
+        <identity value="v2"/>
+        <map value="(also see master files messages)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Organization(classCode=ORG, determinerCode=INST)"/>
+      </mapping>
+      <mapping>
+        <identity value="interface"/>
+        <map value="ParticipantContactable"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="Organization"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="administrative.group"/>
+      </mapping>
+    </element>
+    <element id="Organization.identifier">
+      <path value="Organization.identifier"/>
+      <short value="Identifies this organization  across multiple systems"/>
+      <definition value="Identifier for the organization that is used to identify the organization across multiple disparate systems."/>
+      <requirements value="Organizations are known by a variety of ids. Some institutions maintain several, and most collect identifiers for exchange with other organizations concerning the organization."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <condition value="org-1"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="XON.10 / XON.3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".scopes[Role](classCode=IDENT)"/>
+      </mapping>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Participant.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./Identifiers"/>
+      </mapping>
+    </element>
+    <element id="Organization.active">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Lloyd(?): This isn&#39;t data we record about an organization but is data about this organization&#39;s record. I would argue about including this metadata here. It also implies effects on functionality, like not showing up in queries anymore, which cannot be guaranteed. All in all, this belongs to record infrastructure, not data. Status of Organization is different type to Location as the status of a Location is not always binary, as it can be on hold, whereas for the Organizations either they are active or not."/>
+      </extension>
+      <path value="Organization.active"/>
+      <short value="Whether the organization&#39;s record is still in active use"/>
+      <definition value="Whether the organization&#39;s record is still in active use."/>
+      <comment value="This active flag is not intended to be used to mark an organization as temporarily closed or under construction. Instead the Location(s) within the Organization should have the suspended status. If further details of the reason for the suspension are required, then an extension on this element should be used.&#xA;&#xA;This element is labeled as a modifier because it may be used to mark that the resource was created in error."/>
+      <requirements value="Need a flag to indicate a record is no longer to be used and should generally be hidden for the user in the UI."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="This resource is generally assumed to be active if no value is provided for the active element"/>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="No equivalent in HL7 v2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".status"/>
+      </mapping>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Participant.active"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./Status (however this concept in ServD more covers why the organization is active or not, could be delisted, deregistered, not operational yet) this could alternatively be derived from ./StartDate and ./EndDate and given a context date."/>
+      </mapping>
+    </element>
+    <element id="Organization.type">
+      <path value="Organization.type"/>
+      <short value="Kind of organization"/>
+      <definition value="The kind(s) of organization that this is."/>
+      <comment value="Organizations can be corporations, wards, sections, clinical teams, government departments, etc. Note that code is generally a classifier of the type of organization; in many applications, codes are used to identity a particular organization (say, ward) as opposed to another of the same type - these are identifiers, not codes&#xA;&#xA;When considering if multiple types are appropriate, you should evaluate if child organizations would be a more appropriate use of the concept, as different types likely are in different sub-areas of the organization. This is most likely to be used where type values have orthogonal values, such as a religious, academic and medical center.&#xA;&#xA;We expect that some jurisdictions will profile this optionality to be a single cardinality."/>
+      <requirements value="Need to be able to track the kind of organization that this is - different organization types have different uses."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="OrganizationType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Used to categorize the organization."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/organization-type"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="No equivalent in v2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Organization.name">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="If you need multiple names to cater for acronyms and &quot;trading under&quot; names, use an extension &quot;alias&quot; instead."/>
+      </extension>
+      <path value="Organization.name"/>
+      <short value="Name used for the organization"/>
+      <definition value="A name associated with the organization."/>
+      <comment value="If the name of an organization changes, consider putting the old name in the alias column so that it can still be located through searches."/>
+      <requirements value="Need to use the name as the label of the organization."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="org-1"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="XON.1"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".name"/>
+      </mapping>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Participant.name"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value=".PreferredName/Name"/>
+      </mapping>
+    </element>
+    <element id="Organization.alias">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="This is used in many registries, and is often very important in searching."/>
+      </extension>
+      <path value="Organization.alias"/>
+      <short value="A list of alternate names that the organization is known as, or was known as in the past"/>
+      <definition value="A list of alternate names that the organization is known as, or was known as in the past."/>
+      <comment value="There are no dates associated with the alias/historic names, as this is not intended to track when names were used, but to assist in searching so that older names can still result in identifying the organization."/>
+      <requirements value="Over time locations and organizations go through many changes and can be known by different names.&#xA;&#xA;For searching knowing previous names that the organization was known by can be very useful."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".name"/>
+      </mapping>
+    </element>
+	<element id="Organization.description">
+      <path value="Organization.description"/>
+      <short value="Additional details about the Organization that could be displayed as further information to identify the Organization beyond its name"/>
+      <definition value="Description of the organization, which helps provide additional general context on the organization to ensure that the correct organization is selected."/>
+      <requirements value="Humans need additional information to verify a correct Organization has been selected."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity[classCode=PLC determinerCode=INSTANCE].desc"/>
+      </mapping>
+    </element>
+    <element id="Organization.contact">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="Organization.contact"/>
+      <short value="Official contact details for the Organization"/>
+      <definition value="The contact details of communication devices available relevant to the specific Organization. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
+      <comment value="The address/telecom use code &#39;home&#39; are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the Organization itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc."/>
+      <requirements value="Need to keep track of assigned contact points within bigger organization."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ExtendedContactDetail"/>
+      </type>
+      <constraint>
+        <key value="org-3"/>
+        <severity value="error"/>
+        <human value="The telecom of an organization can never be of use &#39;home&#39;"/>
+        <expression value="telecom.where(use = &#39;home&#39;).empty()"/>
+        <xpath value="f:telecom.count(f:use[@value=&#39;home&#39;]) = 0"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </constraint>
+      <constraint>
+        <key value="org-4"/>
+        <severity value="error"/>
+        <human value="The address of an organization can never be of use &#39;home&#39;"/>
+        <expression value="address.where(use = &#39;home&#39;).empty()"/>
+        <xpath value="f:address.count(f:use[@value=&#39;home&#39;]) = 0"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".contactParty"/>
+      </mapping>
+    </element>
+    <element id="Organization.telecom">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/>
+      </extension>
+      <path value="Organization.telecom"/>
+      <short value="Deprecated - use contact.telecom"/>
+      <definition value="A contact detail for the organization."/>
+      <comment value="The use code &#39;home&#39; is not to be used. Note that these contacts are not the contact details of people who are employed by or represent the organization, but official contacts for the organization itself."/>
+      <requirements value="Human contact for the organization."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactPoint"/>
+      </type>
+      <condition value="org-3"/>
+      <constraint>
+        <key value="org-3"/>
+        <severity value="error"/>
+        <human value="The telecom of an organization can never be of use &#39;home&#39;"/>
+        <expression value="where(use = &#39;home&#39;).empty()"/>
+        <xpath value="count(f:use[@value=&#39;home&#39;]) = 0"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </constraint>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC-22?"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".telecom"/>
+      </mapping>
+      <mapping>
+        <identity value="interface"/>
+        <map value="ParticipantContactable.telecom"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./ContactPoints"/>
+      </mapping>
+    </element>
+    <element id="Organization.address">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/>
+      </extension>
+      <path value="Organization.address"/>
+      <short value="Deprecated - use contact.address"/>
+      <definition value="An address for the organization."/>
+      <comment value="Organization may have multiple addresses with different uses or applicable periods. The use code &#39;home&#39; is not to be used."/>
+      <requirements value="May need to keep track of the organization&#39;s addresses for contacting, billing or reporting requirements."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Address"/>
+      </type>
+      <condition value="org-2"/>
+      <constraint>
+        <key value="org-2"/>
+        <severity value="error"/>
+        <human value="An address of an organization can never be of use &#39;home&#39;"/>
+        <expression value="where(use = &#39;home&#39;).empty()"/>
+        <xpath value="count(f:use[@value=&#39;home&#39;]) = 0"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </constraint>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC-23?"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".address"/>
+      </mapping>
+      <mapping>
+        <identity value="interface"/>
+        <map value="ParticipantContactable.address"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./PrimaryAddress and ./OtherAddresses"/>
+      </mapping>
+    </element>
+    <element id="Organization.partOf">
+      <path value="Organization.partOf"/>
+      <short value="The organization of which this organization forms a part"/>
+      <definition value="The organization of which this organization forms a part."/>
+      <requirements value="Need to be able to track the hierarchy of organizations within an organization."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
+          <valueBoolean value="true"/>
+        </extension>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="No equivalent in HL7 v2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playedBy[classCode=Part].scoper"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Organization.endpoint">
+      <path value="Organization.endpoint"/>
+      <short value="Technical endpoints providing access to services operated for the organization"/>
+      <definition value="Technical endpoints providing access to services operated for the organization."/>
+      <requirements value="Organizations have multiple systems that provide various services and need to be able to define the technical connection details for how to connect to them, and for what purpose."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

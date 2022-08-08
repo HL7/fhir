@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="PractitionerRole-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PractitionerRole-active"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PractitionerRole.active"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-active"/>
+        <description value="Whether this practitioner role record is in active use"/>
+        <code value="active"/>
+        <type value="token"/>
+        <expression value="PractitionerRole.active"/>
+        <xpath value="f:PractitionerRole/f:active"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PractitionerRole-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PractitionerRole.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-date"/>
+        <description value="The period during which the practitioner is authorized to perform in these role(s)"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="PractitionerRole.period"/>
+        <xpath value="f:PractitionerRole/f:period"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PractitionerRole-email"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PractitionerRole.telecom(system=email)"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-email"/>
+        <description value="A value in an email contact"/>
+        <code value="email"/>
+        <type value="token"/>
+        <expression value="PractitionerRole.telecom.where(system=&#39;email&#39;)"/>
+        <xpath value="f:PractitionerRole/f:telecom[system/@value=&#39;email&#39;]"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PractitionerRole-endpoint"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PractitionerRole.endpoint"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-endpoint"/>
+        <description value="Technical endpoints providing access to services operated for the practitioner with this role"/>
+        <code value="endpoint"/>
+        <type value="reference"/>
+        <expression value="PractitionerRole.endpoint"/>
+        <xpath value="f:PractitionerRole/f:endpoint"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PractitionerRole-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PractitionerRole.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-identifier"/>
+        <description value="A practitioner&#39;s Identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="PractitionerRole.identifier"/>
+        <xpath value="f:PractitionerRole/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PractitionerRole-location"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PractitionerRole.location"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-location"/>
+        <description value="One of the locations at which this practitioner provides care"/>
+        <code value="location"/>
+        <type value="reference"/>
+        <expression value="PractitionerRole.location"/>
+        <xpath value="f:PractitionerRole/f:location"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PractitionerRole-organization"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PractitionerRole.organization"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-organization"/>
+        <description value="The identity of the organization the practitioner represents / acts on behalf of"/>
+        <code value="organization"/>
+        <type value="reference"/>
+        <expression value="PractitionerRole.organization"/>
+        <xpath value="f:PractitionerRole/f:organization"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PractitionerRole-phone"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PractitionerRole.telecom(system=phone)"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-phone"/>
+        <description value="A value in a phone contact"/>
+        <code value="phone"/>
+        <type value="token"/>
+        <expression value="PractitionerRole.telecom.where(system=&#39;phone&#39;)"/>
+        <xpath value="f:PractitionerRole/f:telecom[system/@value=&#39;phone&#39;]"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PractitionerRole-practitioner"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PractitionerRole.practitioner"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-practitioner"/>
+        <description value="Practitioner that is able to provide the defined services for the organization"/>
+        <code value="practitioner"/>
+        <type value="reference"/>
+        <expression value="PractitionerRole.practitioner"/>
+        <xpath value="f:PractitionerRole/f:practitioner"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PractitionerRole-role"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PractitionerRole.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-role"/>
+        <description value="The practitioner can perform this role at for the organization"/>
+        <code value="role"/>
+        <type value="token"/>
+        <expression value="PractitionerRole.code"/>
+        <xpath value="f:PractitionerRole/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PractitionerRole-service"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PractitionerRole.healthcareService"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-service"/>
+        <description value="The list of healthcare services that this worker provides for this role&#39;s Organization/Location(s)"/>
+        <code value="service"/>
+        <type value="reference"/>
+        <expression value="PractitionerRole.healthcareService"/>
+        <xpath value="f:PractitionerRole/f:healthcareService"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PractitionerRole-specialty"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PractitionerRole.specialty"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-specialty"/>
+        <description value="The practitioner has this specialty at an organization"/>
+        <code value="specialty"/>
+        <type value="token"/>
+        <expression value="PractitionerRole.specialty"/>
+        <xpath value="f:PractitionerRole/f:specialty"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PractitionerRole-telecom"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PractitionerRole.telecom"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-telecom"/>
+        <description value="The value in any kind of contact"/>
+        <code value="telecom"/>
+        <type value="token"/>
+        <expression value="PractitionerRole.telecom"/>
+        <xpath value="f:PractitionerRole/f:telecom"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

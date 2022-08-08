@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<a name="notes"></a>
+<a name="notes"> </a>
 <h2>
 Notes
 </h2>
@@ -10,9 +10,9 @@ may author questionnaire responses, where the answers are provided by others on 
 the subject and the source of information.</li>
 <li>The QuestionnaireResponse's <i>encounter</i> element can be used to link to the encounter when the questionnaire response was authored. This can be relevant since the
 encounter gives context to the answers and can be used to relate information in the QuestionnaireResponse to orders and observations that were done during the same Encounter.</li>
-<li>The QuestionnaireResponse's <i>language</i> element can be used to indicte the language in which the patient completed the survey/questionnaire</li>
-<li>The order of questions within groups, groups within groups and groups within questions is relevant and must be retained for display and capture.  The hierarchy items within the Questionnaire SHALL mirror 
-the hierarchy of the corresponding Questionnaire (if any).</li>
+<li>The QuestionnaireResponse's <i>language</i> element can be used to indicate the language in which the patient completed the survey/questionnaire</li>
+<li>The order of questions within groups, groups within groups and groups within questions is relevant and must be retained for display and capture.  The hierarchy of the items within the QuestionnaireResponse SHALL mirror 
+the hierarchy of the items in the corresponding Questionnaire (if any).</li>
 <li>For use of QuestionnaireResponse.item.definition, see notes on <a href="questionnaire.html#definition">Questionnaire</a></li>
 <li>Because of the lack of explicit support for Questionnaires in <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>, 
 <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> Documents frequently used named sections with
@@ -23,11 +23,10 @@ Observations to model questionnaires. Such use cases should now utilize the Ques
 Refer to additional guidance provided in the <a href="questionnaire.html">Questionnaire</a> resource dealing with the design of questionnaires.
 </p>
 
-<a name="link"></a>
+<a name="link"> </a>
 <h3>
 Links to Questionnaire
 </h3>
-
 <p>
 A <code>QuestionnaireResponse</code> may be stand-alone or may point to the definition of the questions in <a href="questionnaire.html">Questionnaire</a>.  
 If the QuestionnaireResponse refers to a Questionnaire:
@@ -37,10 +36,34 @@ If the QuestionnaireResponse refers to a Questionnaire:
  <li>The linkage between the questions and groups in the two resources is established using the <code>linkId</code> element</li>
  <li>When a QuestionnaireResponse references a Questionnaire, all the items in the questionnaire SHOULD be included in the QuestionnaireResponse 
    if they are relevant to the interpretation of the  answers, including items of type = <code>display</code>. This might also include items 
-   that were <a href="questionnaire-definitions.html#Questionnaire.item.enableWhen">>not enabled</a> when the Questionnaire was answered, though of course these will not have answers</li>
+   that were <a href="questionnaire-definitions.html#Questionnaire.item.enableWhen">not enabled</a> when the Questionnaire was answered, though of course these will not have answers</li>
 </ul>
 
-<a name="security"></a>
+<a name="validation"> </a>
+<h3>
+Validating QuestionnaireResponses
+</h3>
+<p>
+Rules imposed by a Questionnaire about expectations for answers are not expected to be met until a Questionnaire is deemed to be 'completed' (or 'amended').  For example, items
+that are marked as 'required' may be omitted, minimum numbers of answers might not be met, length requirement for answers, co-occurrence constraints, etc. might all be violated when
+the QuestionnaireResponse is still in the process of being completed.  QuestionnaireResponses may be stored in this 'incomplete' state.  Such QuestionnaireResponses might also include
+data for disabled questions, entries and text for non-answered questions, etc.  However, once a QuestionnaireResponse is marked as 'completed' (including if it is subsequently changed
+to 'amended'), all requirements of the associated Questionnaire must be met, all non-answered question items must be removed, all non-enabled items must be removed, etc.  (Display items
+MAY be retained.  Certain extensions on the Questionnaire item may mandate that a display item needed for a human reviewer to interpret the QuestionnaireResponse be retained in a
+completed QuestionnaireResponse.)
+</p>
+
+<a name="nesting"> </a>
+<h3>
+Nested Items
+</h3>
+<p>
+QuestioinnaireResponse has two different mechanisms to support nesting of items - <code>item.item</code> and <code>item.answer.item</code>.  The former is used when nesting items within a
+'group' and the latter is always used when nesting items within a question.  This is because items nested within a question always nest within each <i>answer</i> to the question.  If the
+question allows multiple answers, each will have its own set of nested items.
+</p>
+
+<a name="security"> </a>
 <h3>
 Security
 </h3>
@@ -50,7 +73,7 @@ this selection may be done in an uncontrolled environment.  Systems should ensur
 rendering or executing any attached content.
 </p>
 
-<a name="access"></a>
+<a name="access"> </a>
 <h3>
 Access Control
 </h3>
@@ -61,6 +84,14 @@ sensitivity of an instance is dependent on what type of Questionnaire it is asso
 sensitivity could be the answers to any of the questions.  This makes automatically enforcing access control rules more challenging.  Designers
 should take these challenges into account and may need to place stricter access controls around QuestionnaireResponse to ensure that access to
 information is not granted improperly.
+</p>
+
+<a name="profiling"> </a>
+<h3>
+Profiling QuestionnaireResponses
+</h3>
+<p>
+It is possible to <a href="profiling.html">profile</a> QuestionnaireResponse in the same way as any other resource.  However, such profiling should not be used to constrain QuestionnaireResponse to only be able to capture the answers associated with a single type of form - that is what the <a href="questionnaire.html">Questionnaire</a> resource is for.  Profiling QuestionnaireResponse is appropriate when there's a need to enforce that certain metadata is always present, to indicate limitations on what types of answers can be handled, etc. - independent of what Questionnaire is being completed.
 </p>
 
 </div>

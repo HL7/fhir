@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="familymemberhistory-genetic"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/familymemberhistory-genetic"/>
+  <version value="4.6.0"/>
+  <name value="Family member history for genetics analysis"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2019-05-29"/>
+  <publisher value="Health Level Seven International (Clinical Genomics)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/clingenomics"/>
+    </telecom>
+  </contact>
+  <description value="Adds additional information to a family member history supporting both the capture of mother/father relationships as well as additional observations necessary to enable genetics-based risk analysis for patients"/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="FamilyMemberHistory"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="FamilyMemberHistory">
+      <path value="FamilyMemberHistory"/>
+      <min value="0"/>
+      <max value="*"/>
+    </element>
+    <element id="FamilyMemberHistory.extension:parent">
+      <path value="FamilyMemberHistory.extension"/>
+      <sliceName value="parent"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="FamilyMemberHistory.extension:sibling">
+      <path value="FamilyMemberHistory.extension"/>
+      <sliceName value="sibling"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-sibling"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="FamilyMemberHistory.extension:observations">
+      <path value="FamilyMemberHistory.extension"/>
+      <sliceName value="observations"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-observation"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="FamilyMemberHistory.relationship">
+      <path value="FamilyMemberHistory.relationship"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="FamilyMemberHistory.sex">
+      <path value="FamilyMemberHistory.sex"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="FamilyMemberHistory.born[x]">
+      <path value="FamilyMemberHistory.born[x]"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="FamilyMemberHistory.age[x]">
+      <path value="FamilyMemberHistory.age[x]"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="FamilyMemberHistory.deceased[x]">
+      <path value="FamilyMemberHistory.deceased[x]"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="FamilyMemberHistory.condition">
+      <path value="FamilyMemberHistory.condition"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="FamilyMemberHistory.condition.code">
+      <path value="FamilyMemberHistory.condition.code"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="FamilyMemberHistory.condition.outcome">
+      <path value="FamilyMemberHistory.condition.outcome"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="FamilyMemberHistory.condition.onset[x]">
+      <path value="FamilyMemberHistory.condition.onset[x]"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="FamilyMemberHistory.condition.note">
+      <path value="FamilyMemberHistory.condition.note"/>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SearchParameter xmlns="http://hl7.org/fhir">
+  <id value="codesystem-extensions-CodeSystem-workflow"/>
+  <url value="http://hl7.org/fhir/SearchParameter/codesystem-extensions-CodeSystem-workflow"/>
+  <version value="4.6.0"/>
+  <name value="workflow"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="Optional Extensions Element"/>
+  <code value="workflow"/>
+  <type value="token"/>
+  <xpath value="f:CodeSystem/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/codesystem-workflowStatus&#39;] | /f:#workflowStatus"/>
+  <xpathUsage value="normal"/>
+</SearchParameter>

@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="MedicationDispense"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Medications"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
+  <version value="4.6.0"/>
+  <name value="MedicationDispense"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Pharmacy)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/medication/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rx-dispense-rmim"/>
+    <uri value="http://www.hl7.org/v3/PORX_RM020070UV"/>
+    <name value="V3 Pharmacy Dispense RMIM"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="MedicationDispense"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="MedicationDispense">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Need to add confidentiality."/>
+      </extension>
+      <path value="MedicationDispense"/>
+      <short value="Dispensing a medication to a named patient"/>
+      <definition value="Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order."/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="mdd-1"/>
+        <severity value="error"/>
+        <human value="whenHandedOver cannot be before whenPrepared"/>
+        <expression value="whenHandedOver.empty() or whenPrepared.empty() or whenHandedOver &gt;= whenPrepared"/>
+        <xpath value="not(exists(f:whenHandedOver/@value)) or not(exists(f:whenPrepared/@value)) or ( f:whenHandedOver/@value &gt;= f:whenPrepared/@value)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
+      </constraint>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Supply[moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.medication"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.identifier">
+      <path value="MedicationDispense.identifier"/>
+      <short value="External identifier"/>
+      <definition value="Identifiers associated with this Medication Dispense that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server."/>
+      <comment value="This is a business identifier, not a resource identifier."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationDispense.id"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.basedOn">
+      <path value="MedicationDispense.basedOn"/>
+      <short value="Plan that is fulfilled by this dispense"/>
+      <definition value="A plan that is fulfilled in whole or in part by this MedicationDispense."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=FLFS].target"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.partOf">
+      <path value="MedicationDispense.partOf"/>
+      <short value="Event that dispense is part of"/>
+      <definition value="The procedure or medication administration that triggered the dispense."/>
+      <comment value="While both a procedure and a medication administration may have triggered the dispense, but it is not expected that multiple procedures and/or multiple medication administrations would be triggers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.partOf"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP]/target[classCode=PROC,moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.status">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Active - processed but not pickup Completed - process and pickup Aborted - process and put back in stock  This is not related to partialFill whioch is really a partialFulfillment of the order."/>
+      </extension>
+      <path value="MedicationDispense.status"/>
+      <short value="preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown"/>
+      <definition value="A code specifying the state of the set of dispense events."/>
+      <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationDispenseStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A coded concept specifying the state of the dispense event."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
+          <valueString value="ActStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Describes the lifecycle of the dispense."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".statusCode"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationDispense.SupplyEvent.statusCode"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.notPerformedReason">
+      <path value="MedicationDispense.notPerformedReason"/>
+      <short value="Why a dispense was not performed"/>
+      <definition value="Indicates the reason why a dispense was not performed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DetectedIssue"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationDispenseStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-status-reason"/>
+      </binding>
+    </element>
+    <element id="MedicationDispense.statusChanged">
+      <path value="MedicationDispense.statusChanged"/>
+      <short value="When the status changed"/>
+      <definition value="The date (and maybe time) when the status of the dispense record changed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".subjectOf Observation[code = statusChange].value = date"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.category">
+      <path value="MedicationDispense.category"/>
+      <short value="Type of medication dispense"/>
+      <definition value="Indicates the type of medication dispense (for example, drug classification like ATC, where meds would be administered, legal category of the medication.)."/>
+      <comment value="The category can be used to include where the medication is expected to be consumed or other types of dispenses.  Invariants can be used to bind to different value sets when profiling to bind."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationDispenseAdminLocation"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code describing where the dispensed medication is expected to be consumed or administered."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-admin-location"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=&quot;type of medication dispense&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.medication">
+      <path value="MedicationDispense.medication"/>
+      <short value="What medication was supplied"/>
+      <definition value="Identifies the medication supplied. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications."/>
+      <comment value="If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example, if you require form or lot number, then you must reference the Medication resource."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept identifying which substance or product can be dispensed."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXD-2 Dispense/Give Code"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRD].role"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationRequest.component1.AdministrationRequest.consumable"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.subject">
+      <path value="MedicationDispense.subject"/>
+      <short value="Who the dispense is for"/>
+      <definition value="A link to a resource representing the person or the group to whom the medication will be given."/>
+      <comment value="SubstanceAdministration-&gt;subject-&gt;Patient."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3 Patient ID List"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=SBJ].role[classCode=PAT]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.encounter">
+      <path value="MedicationDispense.encounter"/>
+      <short value="Encounter associated with event"/>
+      <definition value="The encounter that establishes the context for this event."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.context"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=&quot;type of encounter or episode&quot;]"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.supportingInformation">
+      <path value="MedicationDispense.supportingInformation"/>
+      <short value="Information that supports the dispensing of the medication"/>
+      <definition value="Additional information that supports the medication being dispensed.  For example, there may be requirements that a specific lab test has been completed prior to dispensing or the patient&#39;s weight at the time of dispensing is documented."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=PERT].target[A_SupportingClinicalStatement CMET minimal with many different choices of classCodes(ORG, ENC, PROC, SPLY, SBADM, OBS) and each of the act class codes draws from one or more of the following moodCodes (EVN, DEF, INT PRMS, RQO, PRP, APT, ARQ, GOL)]"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.performer">
+      <path value="MedicationDispense.performer"/>
+      <short value="Who performed event"/>
+      <definition value="Indicates who or what performed the event."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRF]"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.performer.function">
+      <path value="MedicationDispense.performer.function"/>
+      <short value="Who performed the dispense and what they did"/>
+      <definition value="Distinguishes the type of performer in the dispense.  For example, date enterer, packager, final checker."/>
+      <requirements value="Allows disambiguation of the types of involvement of different performers."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationDispensePerformerFunction"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code describing the role an individual played in dispensing a medication."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-performer-function"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=PRF].functionCode"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.performer.actor">
+      <path value="MedicationDispense.performer.actor"/>
+      <short value="Individual who was performing"/>
+      <definition value="The device, practitioner, etc. who performed the action.  It should be assumed that the actor is the dispenser of the medication."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.location">
+      <path value="MedicationDispense.location"/>
+      <short value="Where the dispense occurred"/>
+      <definition value="The principal physical location where the dispense was performed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=LOC].role"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.authorizingPrescription">
+      <path value="MedicationDispense.authorizingPrescription"/>
+      <short value="Medication order that authorizes the dispense"/>
+      <definition value="Indicates the medication order that is being dispensed against."/>
+      <comment value="Maps to basedOn in Event logical model."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC-2 Placer Order Number"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=FLFS].target[moodCode=RQO]"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationDispense.inFulfillmentOf"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.type">
+      <path value="MedicationDispense.type"/>
+      <short value="Trial fill, partial fill, emergency fill, etc."/>
+      <definition value="Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationDispenseType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc."/>
+        </extension>
+        <strength value="example"/>
+        <description value="ActPharmacySupplyType "/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActPharmacySupplyType"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXD-33 Dispense Type"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationDispense.SupplyEvent.code"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.quantity">
+      <path value="MedicationDispense.quantity"/>
+      <short value="Amount dispensed"/>
+      <definition value="The amount of medication that has been dispensed. Includes unit of measure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXD-4 Actual Dispense Amount / RXD-5.1 Actual Dispense Units.code / RXD-5.3 Actual Dispense Units.name of coding system"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".quantity"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationDispense.SupplyEvent.quantity"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.daysSupply">
+      <path value="MedicationDispense.daysSupply"/>
+      <short value="Amount of medication expressed as a timing amount"/>
+      <definition value="The amount of medication expressed as a timing amount."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="TQ1.6 Timing/Quantity Segment Service Duration.&#xD;Prior to v2.5, ORC.7.3 Common Order Segment / Quantity/Timing / Duration component.  This is a formatted string, first character for the time unit (e.g., D=days), followed by the value.  For example, “D14” represents “14 days supply”&#xD;From v2.5 on, TQ1.6 Timing/Quantity Segment / Service Duration.  This is a CQ data type (&lt;Quantity (NM)&gt; ^ &lt;Units (CWE)&gt;), thus for days supply, assuming the unit of measure is “days”, the numeric value is TQ1.6.1 (…|14^&#xD;For backwards compatibility, ORC.7 was permitted through v2.6.  Both forms (field and segment) may be present in v2.5, v2.5.1, and v2.6"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="effectiveUseTime"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.recorded">
+      <path value="MedicationDispense.recorded"/>
+      <short value="When the recording of the dispense started"/>
+      <definition value="The date (and maybe time) when the dispense activity started if whenPrepared or whenHandedOver is not populated."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".MedicationDispense.dataEnterer..time"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.whenPrepared">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="This is time of dispense (preparation).  The time of supply to the patient is a separate attribute."/>
+      </extension>
+      <path value="MedicationDispense.whenPrepared"/>
+      <short value="When product was packaged and reviewed"/>
+      <definition value="The time when the dispensed product was packaged and reviewed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXD-3 Date/Time Dispensed"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime[xmi:type=IVL_TS].low"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationDispense.SupplyEvent.effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.whenHandedOver">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="The time of supply to the patient (pickup/handover in community or supply in inpatient)."/>
+      </extension>
+      <path value="MedicationDispense.whenHandedOver"/>
+      <short value="When product was given out"/>
+      <definition value="The time the dispensed product was provided to the patient or their representative."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXD-3 Date/Time Dispensed"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime[xmi:type=IVL_TS].high"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationDispense.SupplyEvent.effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.destination">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="for inpatient setting this is core, but this might not be core for community setting.  Also core for internet pharmacy.  Core for radioactive materials  Will service delivery location be defined by another group?"/>
+      </extension>
+      <path value="MedicationDispense.destination"/>
+      <short value="Where the medication was sent"/>
+      <definition value="Identification of the facility/location where the medication was shipped to, as part of the dispense event."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXD-13 Dispense-to Location; RXD-30 Dispense to Pharmacy; RXD-31 Dispense to Pharmacy Address"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=DST].role"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationDispense.SupplyEvent.destination"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.receiver">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="This is in the core because Controlled Drugs must be signed for and the recievers identiy must be recorded."/>
+      </extension>
+      <path value="MedicationDispense.receiver"/>
+      <short value="Who collected the medication or where the medication was delivered"/>
+      <definition value="Identifies the person who picked up the medication or the location of where the medication was delivered.  This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional or a location."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=RCV].role"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationDispense.SupplyEvent.receiver"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.note">
+      <path value="MedicationDispense.note"/>
+      <short value="Information about the dispense"/>
+      <definition value="Extra information about the dispense that could not be conveyed in the other attributes."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.note"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXD-9 Dispense Notes"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=ACT,moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.renderedDosageInstruction">
+      <path value="MedicationDispense.renderedDosageInstruction"/>
+      <short value="Full representation of the dosage instructions"/>
+      <definition value="The full representation of the dose of the medication included in all dosage instructions.  To be used when multiple dosage instructions are included to represent complex dosing such as increasing or tapering doses."/>
+      <comment value="The content of the renderedDosageInstructions must not be different than the dose represented in the dosageInstruction content."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="SubstanceAdministration.text"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.dosageInstruction">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="The RMIM has priority code on the act relationship.  How do we handle this?"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="MedicationDispense.dosageInstruction"/>
+      <short value="How the medication is to be used by the patient or administered by the caregiver"/>
+      <definition value="Indicates how the medication is to be used by the patient."/>
+      <comment value="When the dose or rate is intended to change over the entire administration period (e.g. Tapering dose prescriptions), multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.&#xD;The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Dosage"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=INT]"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.substitution">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Significant discssion around this topic.  Might not have it right yet. What about the attribution?"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="MedicationDispense.substitution"/>
+      <short value="Whether a substitution was performed on the dispense"/>
+      <definition value="Indicates whether or not substitution was made as part of the dispense.  In some cases, substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP].target[classCode=SUBST, moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationDispense.substitutionMade"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.substitution.wasSubstituted">
+      <path value="MedicationDispense.substitution.wasSubstituted"/>
+      <short value="Whether a substitution was or was not performed on the dispense"/>
+      <definition value="True if the dispenser dispensed a different drug or product from what was prescribed."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".actionNegationInd"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.substitution.type">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="No substitution made or expected Subtitution made but not expected Substitution expected but not made Substitution made and expected."/>
+      </extension>
+      <path value="MedicationDispense.substitution.type"/>
+      <short value="Code signifying whether a different drug was dispensed from what was prescribed"/>
+      <definition value="A code signifying whether a different drug was dispensed from what was prescribed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationIntendedSubstitutionType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A coded concept describing whether a different medicinal product may be dispensed other than the product as specified exactly in the prescription."/>
+        </extension>
+        <strength value="example"/>
+        <description value="ActSubstanceAdminSubstitutionCode"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActSubstanceAdminSubstitutionCode"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXO-9 Allow Substitutions / RXE-9 Substitution Status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationDispense.substitutionMade.code"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.substitution.reason">
+      <path value="MedicationDispense.substitution.reason"/>
+      <short value="Why was substitution made"/>
+      <definition value="Indicates the reason for the substitution (or lack of substitution) from what was prescribed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationIntendedSubstitutionReason"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A coded concept describing the reason that a different medication should (or should not) be substituted from what was prescribed."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SubstanceAdminSubstitutionReason"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-SubstanceAdminSubstitutionReason"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationDispense.substitutionMade.reasonCode"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.substitution.responsibleParty">
+      <path value="MedicationDispense.substitution.responsibleParty"/>
+      <short value="Who is responsible for the substitution"/>
+      <definition value="The person or organization that has primary responsibility for the substitution."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PFM].role[classCode=ASSIGN]"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationDispense.substitutionMade.ResponsibleParty"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.eventHistory">
+      <path value="MedicationDispense.eventHistory"/>
+      <short value="A list of relevant lifecycle events"/>
+      <definition value="A summary of the events of interest that have occurred, such as when the dispense was verified."/>
+      <comment value="This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

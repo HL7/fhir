@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="BodyStructure"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Diagnostics"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".active = false"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
+  <version value="4.6.0"/>
+  <name value="BodyStructure"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="openehr"/>
+    <uri value="http://openehr.org"/>
+    <name value="Open EHR Archetype Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="BodyStructure"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="BodyStructure">
+      <path value="BodyStructure"/>
+      <short value="Specific and identified anatomical structure"/>
+      <definition value="Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case."/>
+      <alias value="anatomical location"/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Archetype ID   openEHR-EHR-CLUSTER.anatomical_location.v1      Concept name   Anatomical Location      Concept description   Record details about an anatomical location.      Keywords   location, site, anatomical      Copyright   &#xA9; openEHR Foundation      Purpose   To record details about anatomical location.      Misuse   Not for specifiying unilateral/bilateral occurrence - this is related to an evaluation which perhaps includes multiple locations.      Author   Author name: Heather Leslie Organization: Ocean Informatics Email: heather.leslie@oceaninformatics.com Date of Origination: 2008-11-10       Translator   Norwegian Bokm&#xE5;l: Lars Bitsch-Larsen, Haukeland University Hospital of Bergen, Norway, MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine. Arabic (Syria): Mona Saleh       Other contributors   Heather Leslie, Ocean Informatics, Australia (Editor) Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (Editor) Dunmail Hodkinson, Black Pear Software Ltd, UK      References   Use cases: - 5LICS, midclavicular line - L forearm, 2cm anterior to the cubital fossa - Right iliac fossa - 5 cm below L tibial tuberosity - 2 cm medial to R nipple - 4 cm below R costal margin in midclavicular line - R femur - midline nose - medial aspect of R great toe nail."/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.diagnostics"/>
+      </mapping>
+    </element>
+    <element id="BodyStructure.identifier">
+      <path value="BodyStructure.identifier"/>
+      <short value="Bodystructure identifier"/>
+      <definition value="Identifier for this instance of the anatomical structure."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Specific location  Cluster Optional (0..1) Cardinality: Mandatory, repeating, unordered (1..*)"/>
+      </mapping>
+    </element>
+    <element id="BodyStructure.active">
+      <path value="BodyStructure.active"/>
+      <short value="Whether this record is in active use"/>
+      <definition value="Whether this body site is in active use."/>
+      <comment value="This element is labeled as a modifier because it may be used to mark that the resource was created in error."/>
+      <requirements value="Need to be able to mark a body site entry as not to be used because it was created in error."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="This resource is generally assumed to be active if no value is provided for the active element"/>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="statusCode"/>
+      </mapping>
+    </element>
+    <element id="BodyStructure.morphology">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#13394."/>
+      </extension>
+      <path value="BodyStructure.morphology"/>
+      <short value="Kind of Structure"/>
+      <definition value="The kind of structure being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies."/>
+      <comment value="The minimum cardinality of 0 supports the use case of specifying a location without defining a morphology."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructureCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing anatomic morphology."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-code"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="SPM-4/SPM-5"/>
+      </mapping>
+    </element>
+<element id="BodyStructure.includedStructure">
+  <path value="BodyStructure.includedStructure"/>
+      <short value="Included anatomic location(s)"/>
+      <definition value="The anatomical location(s) or region(s) of the specimen, lesion, or body structure."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+</element>
+<element id="BodyStructure.includedStructure.structure">
+      <path value="BodyStructure.includedStructure.structure"/>
+      <short value="Code that represents the included structure"/>
+      <definition value="Code that represents the included structure."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodySite"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes describing anatomical locations. May include laterality."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT Body site concepts"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-20/SPM-8/SPM-10"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".targetSiteCode"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Name of location"/>
+      </mapping>
+  </element>
+  <element id="BodyStructure.includedStructure.laterality">
+      <path value="BodyStructure.includedStructure.laterality"/>
+      <short value="Code that represents the included structure laterality"/>
+      <definition value="Code that represents the included structure laterality."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructureQualifier"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Concepts modifying the anatomic location."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-relative-location"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="No distinct element defined in V2.x. The IHE Radiology Technical Framework directs the use of OBR-15-specimen source to contain laterality for imaging studies./SPM-9"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".targetSiteCode"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Combines Side, Numerical identifier, Anatomical plane,and Aspect"/>
+      </mapping>
+  </element>
+  <element id="BodyStructure.includedStructure.qualifier">
+      <path value="BodyStructure.includedStructure.qualifier"/>
+      <short value="Code that represents the included structure qualifier"/>
+      <definition value="Code that represents the included structure qualifier."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructureQualifier"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Concepts modifying the anatomic location."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-relative-location"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="No distinct element defined in V2.x. The IHE Radiology Technical Framework directs the use of OBR-15-specimen source to contain laterality for imaging studies./SPM-9"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".targetSiteCode"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Combines Side, Numerical identifier, Anatomical plane,and Aspect"/>
+      </mapping>
+  </element>
+<element id="BodyStructure.excludedStructure">
+  <path value="BodyStructure.excludedStructure"/>
+      <short value="Excluded anatomic locations(s)"/>
+      <definition value="The anatomical location(s) or region(s) not occupied or represented by the specimen, lesion, or body structure."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>   
+</element>
+<element id="BodyStructure.excludedStructure.structure">
+      <path value="BodyStructure.excludedStructure.structure"/>
+      <short value="Code that represents the excluded structure"/>
+      <definition value="Code that represents the excluded structure."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/> 
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodySite"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes describing anatomical locations. May include laterality."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT Body site concepts"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-20/SPM-8/SPM-10"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".targetSiteCode"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Name of location"/>
+      </mapping>
+  </element>
+  <element id="BodyStructure.excludedStructure.laterality">
+      <path value="BodyStructure.excludedStructure.laterality"/>
+      <short value="Code that represents the excluded structure laterality"/>
+      <definition value="Code that represents the excluded structure laterality."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructureQualifier"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Concepts modifying the anatomic location."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-relative-location"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="No distinct element defined in V2.x. The IHE Radiology Technical Framework directs the use of OBR-15-specimen source to contain laterality for imaging studies./SPM-9"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".targetSiteCode"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Combines Side, Numerical identifier, Anatomical plane,and Aspect"/>
+      </mapping>
+  </element>
+  <element id="BodyStructure.excludedStructure.qualifier">
+      <path value="BodyStructure.excludedStructure.qualifier"/>
+      <short value="Code that represents the excluded structure qualifier"/>
+      <definition value="Code that represents the excluded structure qualifier."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructureQualifier"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Concepts modifying the anatomic location."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-relative-location"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="No distinct element defined in V2.x. The IHE Radiology Technical Framework directs the use of OBR-15-specimen source to contain laterality for imaging studies./SPM-9"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".targetSiteCode"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Combines Side, Numerical identifier, Anatomical plane,and Aspect"/>
+      </mapping>
+  </element>
+    <element id="BodyStructure.description">
+      <path value="BodyStructure.description"/>
+      <short value="Text description"/>
+      <definition value="A summary, characterization or explanation of the body structure."/>
+      <comment value="This description could include any visual markings used to orientate the viewer e.g. external reference points, special sutures, ink markings."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="NTE"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Description of anatomical location/Visual markings/orientation"/>
+      </mapping>
+    </element>
+    <element id="BodyStructure.image">
+      <path value="BodyStructure.image"/>
+      <short value="Attached images"/>
+      <definition value="Image or images used to identify a location."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=COMP].target"/>
+      </mapping>
+      <mapping>
+        <identity value="openehr"/>
+        <map value="Image"/>
+      </mapping>
+    </element>
+    <element id="BodyStructure.patient">
+      <path value="BodyStructure.patient"/>
+      <short value="Who this is about"/>
+      <definition value="The person to which the body site belongs."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".scoper or .scoper.playsRole"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

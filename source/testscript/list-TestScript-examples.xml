@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="TestScript-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General TestScript Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="testscript-example"/>
+    </extension>
+    <item>
+      <reference value="TestScript/testscript-example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="History TestScript Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="testscript-example-history"/>
+    </extension>
+    <item>
+      <reference value="TestScript/testscript-example-history"/>
+      <display value="History Test"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Multisystem TestScript Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="testscript-example-multisystem"/>
+    </extension>
+    <item>
+      <reference value="TestScript/testscript-example-multisystem"/>
+      <display value="Multisystem"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Read TestScript Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="testscript-example-readtest"/>
+    </extension>
+    <item>
+      <reference value="TestScript/testscript-example-readtest"/>
+      <display value="Read Test"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Search TestScript Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="testscript-example-search"/>
+    </extension>
+    <item>
+      <reference value="TestScript/testscript-example-search"/>
+      <display value="Search Test"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Update TestScript Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="testscript-example-update"/>
+    </extension>
+    <item>
+      <reference value="TestScript/testscript-example-update"/>
+      <display value="Update Test"/>
+    </item>
+  </entry>
+</List>

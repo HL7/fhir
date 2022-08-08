@@ -12,38 +12,40 @@
 		<system value="http://www.acmehosp.com/bodystructures"/>
 		<value value="12345"/>
 	</identifier>
-	<location>
-		<coding>
+	<includedStructure>
+		<structure>
+		  <coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="53120007"/>
 			<display value="Arm"/>
-		</coding>
-		<text value="Arm"/>
-	</location>
-	<locationQualifier>
-		<coding>
+	      </coding>
+		  <text value="Arm"/>
+		</structure>
+		<laterality>
+	      <coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="419161000"/>
 			<display value="Unilateral left"/>
-		</coding>
-		<text value="Left"/>
-	</locationQualifier>
-	<locationQualifier>
-		<coding>
+		  </coding>
+		  <text value="Left"/>
+		</laterality>
+		<qualifier>
+		  <coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="261183002"/>
 			<display value="Upper"/>
-		</coding>
-		<text value="Upper"/>
-	</locationQualifier>
-	<locationQualifier>
-		<coding>
+		  </coding>
+		  <text value="Upper"/>
+		</qualifier>
+		<qualifier>
+		  <coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="255549009"/>
 			<display value="Anterior"/>
-		</coding>
-		<text value="Anterior"/>
-	</locationQualifier>
+		  </coding>
+		  <text value="Anterior"/>
+		</qualifier>
+	</includedStructure>
 	<description value="front of upper left arm directly below the tattoo"/>
 	<image>
 		<contentType value="image/png;base64"/>

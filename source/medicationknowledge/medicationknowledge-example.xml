@@ -1,12 +1,6 @@
 <MedicationKnowledge xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationknowledge.xsd" xmlns="http://hl7.org/fhir">
   <id value="example"/>
-  <contained>
-    <Organization>
-      <id value="org4"/>
-      <name value="Pfizer Laboratories Div Pfizer Inc" />
-    </Organization>
-  </contained>
   <code>
     <coding>
       <system value="http://hl7.org/fhir/sid/ndc"/>
@@ -14,20 +8,15 @@
       <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
     </coding>
   </code>
-<status value="active"/>
-  <manufacturer>
-    <reference value="#org4" />
-  </manufacturer>
-  <doseForm>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="385268001"/>
-      <display value="Oral Dose Form (qualifier value)"/>
-    </coding>
-  </doseForm>
-  <amount>
-    <value value="50"></value>
-    <unit value="mg/ml"/>
-  </amount>
-  <synonym value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"></synonym>
+  <status value="active"/>
+  <name value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
+  <definitional>
+    <doseForm>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="385268001"/>
+        <display value="Oral Dose Form (qualifier value)"/>
+      </coding>
+    </doseForm>
+  </definitional>
 </MedicationKnowledge>

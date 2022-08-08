@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="RequestGroup-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RequestGroup-author"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RequestGroup.author"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RequestGroup-author"/>
+        <description value="The author of the request group"/>
+        <code value="author"/>
+        <type value="reference"/>
+        <expression value="RequestGroup.author"/>
+        <xpath value="f:RequestGroup/f:author"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RequestGroup-authored"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RequestGroup.authoredOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RequestGroup-authored"/>
+        <description value="The date the request group was authored"/>
+        <code value="authored"/>
+        <type value="date"/>
+        <expression value="RequestGroup.authoredOn"/>
+        <xpath value="f:RequestGroup/f:authoredOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RequestGroup-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RequestGroup.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RequestGroup-code"/>
+        <description value="The code of the request group"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="RequestGroup.code"/>
+        <xpath value="f:RequestGroup/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RequestGroup-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RequestGroup.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RequestGroup-encounter"/>
+        <description value="The encounter the request group applies to"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="RequestGroup.encounter"/>
+        <xpath value="f:RequestGroup/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RequestGroup-group-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RequestGroup.groupIdentifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RequestGroup-group-identifier"/>
+        <description value="The group identifier for the request group"/>
+        <code value="group-identifier"/>
+        <type value="token"/>
+        <expression value="RequestGroup.groupIdentifier"/>
+        <xpath value="f:RequestGroup/f:groupIdentifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RequestGroup-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RequestGroup.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RequestGroup-identifier"/>
+        <description value="External identifiers for the request group"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="RequestGroup.identifier"/>
+        <xpath value="f:RequestGroup/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RequestGroup-instantiates-canonical"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RequestGroup.instantiatesCanonical"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RequestGroup-instantiates-canonical"/>
+        <description value="The FHIR-based definition from which the request group is realized"/>
+        <code value="instantiates-canonical"/>
+        <type value="reference"/>
+        <expression value="RequestGroup.instantiatesCanonical"/>
+        <xpath value="f:RequestGroup/f:instantiatesCanonical"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RequestGroup-instantiates-uri"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RequestGroup.instantiatesUri"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RequestGroup-instantiates-uri"/>
+        <description value="The external definition from which the request group is realized"/>
+        <code value="instantiates-uri"/>
+        <type value="uri"/>
+        <expression value="RequestGroup.instantiatesUri"/>
+        <xpath value="f:RequestGroup/f:instantiatesUri"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RequestGroup-intent"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RequestGroup.intent"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RequestGroup-intent"/>
+        <description value="The intent of the request group"/>
+        <code value="intent"/>
+        <type value="token"/>
+        <expression value="RequestGroup.intent"/>
+        <xpath value="f:RequestGroup/f:intent"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RequestGroup-participant"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RequestGroup.action.participant.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RequestGroup-participant"/>
+        <description value="The participant in the requests in the group"/>
+        <code value="participant"/>
+        <type value="reference"/>
+        <expression value="RequestGroup.action.participant.actor"/>
+        <xpath value="f:RequestGroup/f:action/f:participant/f:actor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RequestGroup-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RequestGroup.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RequestGroup-patient"/>
+        <description value="The identity of a patient to search for request groups"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="RequestGroup.subject.where(resolve() is Patient)"/>
+        <xpath value="f:RequestGroup/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RequestGroup-priority"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RequestGroup.priority"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RequestGroup-priority"/>
+        <description value="The priority of the request group"/>
+        <code value="priority"/>
+        <type value="token"/>
+        <expression value="RequestGroup.priority"/>
+        <xpath value="f:RequestGroup/f:priority"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RequestGroup-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RequestGroup.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RequestGroup-status"/>
+        <description value="The status of the request group"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="RequestGroup.status"/>
+        <xpath value="f:RequestGroup/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RequestGroup-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RequestGroup.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RequestGroup-subject"/>
+        <description value="The subject that the request group is about"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="RequestGroup.subject"/>
+        <xpath value="f:RequestGroup/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

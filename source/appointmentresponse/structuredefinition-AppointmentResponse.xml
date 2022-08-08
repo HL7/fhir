@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="AppointmentResponse"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Base.Workflow"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".participantStatus=entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/AppointmentResponse"/>
+  <version value="4.6.0"/>
+  <name value="AppointmentResponse"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Patient Administration)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="ical"/>
+    <uri value="http://ietf.org/rfc/2445"/>
+    <name value="iCalendar"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="AppointmentResponse"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="AppointmentResponse">
+      <path value="AppointmentResponse"/>
+      <short value="A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection"/>
+      <definition value="A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection."/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="apr-1"/>
+        <severity value="error"/>
+        <human value="Either the participantType or actor must be specified"/>
+        <expression value="participantType.exists() or actor.exists()"/>
+        <xpath value="(exists(f:participantType) or exists(f:actor))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/AppointmentResponse"/>
+      </constraint>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act[@moodCode &amp;lt;= &#39;PRMS&#39;]"/>
+      </mapping>
+      <mapping>
+        <identity value="ical"/>
+        <map value="VEVENT"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="workflow.scheduling"/>
+      </mapping>
+    </element>
+    <element id="AppointmentResponse.identifier">
+      <path value="AppointmentResponse.identifier"/>
+      <short value="External Ids for this item"/>
+      <definition value="This records identifiers associated with this appointment response concern that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+      <mapping>
+        <identity value="ical"/>
+        <map value="UID"/>
+      </mapping>
+    </element>
+    <element id="AppointmentResponse.appointment">
+      <path value="AppointmentResponse.appointment"/>
+      <short value="Appointment this response relates to"/>
+      <definition value="Appointment that this response is replying to."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.basedOn"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="scheduleRequest.ActAppointmentRequest[@moodCode &amp;lt;= &#39;ARQ&#39;]"/>
+      </mapping>
+    </element>
+    <element id="AppointmentResponse.proposedNewTime">
+      <path value="AppointmentResponse.proposedNewTime"/>
+      <short value="Indicator for a counter proposal"/>
+      <definition value="Indicates that the response is proposing a different time that was initially requested.  The new proposed time will be indicated in the start and end properties."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="n/a"/>
+      </mapping>	  
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="ical"/>
+        <map value="n/a"/>
+      </mapping>	  
+    </element>	
+    <element id="AppointmentResponse.start">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Should we include the existing times, or rely on resource histories. Decision to wait for implementer feedback to see if these are used."/>
+      </extension>
+      <path value="AppointmentResponse.start"/>
+      <short value="Time from appointment, or requested new start time"/>
+      <definition value="Date/Time that the appointment is to take place, or requested new start time."/>
+      <comment value="This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the start time."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="instant"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.init"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime.low"/>
+      </mapping>
+    </element>
+    <element id="AppointmentResponse.end">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Should we include the existing times, or rely on resource histories. Decision to wait for implementer feedback to see if these are used."/>
+      </extension>
+      <path value="AppointmentResponse.end"/>
+      <short value="Time from appointment, or requested new end time"/>
+      <definition value="This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="instant"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime.high"/>
+      </mapping>
+    </element>
+    <element id="AppointmentResponse.participantType">
+      <path value="AppointmentResponse.participantType"/>
+      <short value="Role of participant in the appointment"/>
+      <definition value="Role of participant in the appointment."/>
+      <comment value="The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.&#xD;&#xD;If the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.&#xD;&#xD;This value SHALL be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ParticipantType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Role of participant in encounter."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-participant-type"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.performerType"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="(performer | reusableDevice | subject | location).@typeCode"/>
+      </mapping>
+      <mapping>
+        <identity value="ical"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="AppointmentResponse.actor">
+      <path value="AppointmentResponse.actor"/>
+      <short value="Person(s), Location, HealthcareService, or Device"/>
+      <definition value="A Person, Location, HealthcareService, or Device that is participating in the appointment."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.performer"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.who"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3-Patient ID List"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="performer.person | reusableDevice.manufacturedDevice | subject.patient | location.serviceDeliveryLocation"/>
+      </mapping>
+      <mapping>
+        <identity value="ical"/>
+        <map value="ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource)"/>
+      </mapping>
+    </element>
+    <element id="AppointmentResponse.participantStatus">
+      <path value="AppointmentResponse.participantStatus"/>
+      <short value="accepted | declined | tentative | needs-action"/>
+      <definition value="Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty."/>
+      <comment value="This element is labeled as a modifier because the status contains the code entered-in-error that marks the participant as not currently valid."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Not known why this is labelled a modifier"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ParticipantStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The Participation status of an appointment."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participationstatus"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="(performer | reusableDevice | subject | location).statusCode"/>
+      </mapping>
+      <mapping>
+        <identity value="ical"/>
+        <map value="ATTENDEE;CN=&quot;Brian Postlethwaite&quot;;RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)"/>
+      </mapping>
+    </element>
+    <element id="AppointmentResponse.comment">
+      <path value="AppointmentResponse.comment"/>
+      <short value="Additional comments"/>
+      <definition value="Additional comments about the appointment."/>
+      <comment value="This comment is particularly important when the responder is declining, tentatively accepting or requesting another time to indicate the reasons why."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.note"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".subjectOf.observation[@moodCode = &#39;EVN&#39;][code = &#39;annotation&#39;].value"/>
+      </mapping>
+      <mapping>
+        <identity value="ical"/>
+        <map value="COMMENT"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

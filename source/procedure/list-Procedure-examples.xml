@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Procedure-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Procedure Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example"/>
+    </extension>
+    <item>
+      <reference value="Procedure/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a Biopsy"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-biopsy"/>
+    </extension>
+    <item>
+      <reference value="Procedure/biopsy"/>
+      <display value="Biopsy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world procedure example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-f201-tpf"/>
+    </extension>
+    <item>
+      <reference value="Procedure/f201"/>
+      <display value="TPF chemotherapy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world procedure example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-f001-heart"/>
+    </extension>
+    <item>
+      <reference value="Procedure/f001"/>
+      <display value="Heart"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world procedure example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-f002-lung"/>
+    </extension>
+    <item>
+      <reference value="Procedure/f002"/>
+      <display value="Lung"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world procedure example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-f003-abscess"/>
+    </extension>
+    <item>
+      <reference value="Procedure/f003"/>
+      <display value="AbXXXscess"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world procedure example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-f004-tracheotomy"/>
+    </extension>
+    <item>
+      <reference value="Procedure/f004"/>
+      <display value="Tracheotomy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a device manipulation"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-implant"/>
+    </extension>
+    <item>
+      <reference value="Procedure/example-implant"/>
+      <display value="Device Example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of ambulation procedure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-ambulation"/>
+    </extension>
+    <item>
+      <reference value="Procedure/ambulation"/>
+      <display value="Ambulation"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of biopsy procedure that was part of a colonoscopy"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-colon-biopsy"/>
+    </extension>
+    <item>
+      <reference value="Procedure/colon-biopsy"/>
+      <display value="Colon Biopsy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of colonoscopy procedure with complication"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-colonoscopy"/>
+    </extension>
+    <item>
+      <reference value="Procedure/colonoscopy"/>
+      <display value="Colonoscopy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an appendectomy procedure that is primarily narrative"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-appendectomy-narrative"/>
+    </extension>
+    <item>
+      <reference value="Procedure/appendectomy-narrative"/>
+      <display value="Appendectomy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an obstetric procedure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-ob"/>
+    </extension>
+    <item>
+      <reference value="Procedure/ob"/>
+      <display value="OB"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a physical therapy evaluation procedure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-physical-therapy"/>
+    </extension>
+    <item>
+      <reference value="Procedure/physical-therapy"/>
+      <display value="Physical Therapy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of patient education"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-education"/>
+    </extension>
+    <item>
+      <reference value="Procedure/education"/>
+      <display value="Education"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of personal care services provided at person&#39;s home"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-HCBS"/>
+    </extension>
+    <item>
+      <reference value="Procedure/HCBS"/>
+      <display value="HCBS"/>
+    </item>
+  </entry>
+</List>

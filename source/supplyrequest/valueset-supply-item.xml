@@ -1,40 +1,49 @@
-﻿<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<id value="supply-item"/>
-	<url value="http://hl7.org/fhir/ValueSet/supply-item"/>
-	<version value="1.0"/>
-	<name value="SNOMEDCTSupplyItem"/>
-  <title value="SNOMED CT Supply Item"/>
+<?xml version="1.0" encoding="UTF-8"?>
 
-	<status value="draft"/>
-	<experimental value="true"/>
-	<date value="2016-05-18T16:57:59+00:00"/>
-	<publisher value="FHIR Project team"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<description value="This value set includes [SNOMED CT](http://snomed.info/sct) where concept is-a 105590001 (Substance (substance)) or
- concept is-a 260787004 (Physical object)
- and provided as an example value set."/>
-	<copyright value="This value set includes content from SNOMED CT, which is copyright &#169; 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
-	<compose>
-		<include>
-			<system value="http://snomed.info/sct"/>
-			<filter>
-				<property value="concept"/>
-				<op value="is-a"/>
-				<value value="105590001"/>
-			</filter>
-		</include>
-		<include>
-			<system value="http://snomed.info/sct"/>
-			<filter>
-				<property value="concept"/>
-				<op value="is-a"/>
-				<value value="260787004"/>
-			</filter>
-		</include>
-	</compose>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="supply-item"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/supply-item"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.699"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="SNOMEDCTSupplyItem"/>
+  <title value="SNOMED CT Supply Item"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2016-05-18T16:57:59+00:00"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes [SNOMED CT](http://snomed.info/sct) where concept is-a 105590001 (Substance (substance)) or  concept is-a 260787004 (Physical object)  and provided as an example value set."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright &#xA9; 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="105590001"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="260787004"/>
+      </filter>
+    </include>
+  </compose>
 </ValueSet>

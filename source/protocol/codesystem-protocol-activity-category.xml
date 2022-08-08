@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="protocol-activity-category"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/protocol-activity-category"/>
+  <version value="4.6.0"/>
+  <name value="ProtocolActivityDefinitionCategory"/>
+  <concept>
+    <code value="communication"/>
+    <display value="Communication"/>
+    <definition value="To communicate with a participant in some way."/>
+  </concept>
+  <concept>
+    <code value="diet"/>
+    <display value="Diet"/>
+    <definition value="To consume food of a specified nature."/>
+  </concept>
+  <concept>
+    <code value="drug"/>
+    <display value="Drug"/>
+    <definition value="To consume/receive a drug, vaccine or other product."/>
+  </concept>
+  <concept>
+    <code value="encounter"/>
+    <display value="Encounter"/>
+    <definition value="To meet with the patient (in-patient, out-patient, etc.)."/>
+  </concept>
+  <concept>
+    <code value="observation"/>
+    <display value="Observation"/>
+    <definition value="To capture information about a patient (vitals, labs, diagnostic images, etc.)."/>
+  </concept>
+  <concept>
+    <code value="procedure"/>
+    <display value="Procedure"/>
+    <definition value="To modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)."/>
+  </concept>
+  <concept>
+    <code value="referral"/>
+    <display value="Referral"/>
+    <definition value="To refer the patient to receive some service."/>
+  </concept>
+  <concept>
+    <code value="supply"/>
+    <display value="Supply"/>
+    <definition value="To provide something to the patient (medication, medical supply, etc.)."/>
+  </concept>
+  <concept>
+    <code value="other"/>
+    <display value="Other"/>
+    <definition value="Some other form of action."/>
+  </concept>
+</CodeSystem>

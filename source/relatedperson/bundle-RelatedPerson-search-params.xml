@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="RelatedPerson-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-active"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.active"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-active"/>
+        <description value="Indicates if the related person record is active"/>
+        <code value="active"/>
+        <type value="token"/>
+        <expression value="RelatedPerson.active"/>
+        <xpath value="f:RelatedPerson/f:active"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-address"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.address"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-address"/>
+        <description value="A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"/>
+        <code value="address"/>
+        <type value="string"/>
+        <expression value="RelatedPerson.address"/>
+        <xpath value="f:RelatedPerson/f:address"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-address-city"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.address.city"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-address-city"/>
+        <description value="A city specified in an address"/>
+        <code value="address-city"/>
+        <type value="string"/>
+        <expression value="RelatedPerson.address.city"/>
+        <xpath value="f:RelatedPerson/f:address/f:city"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-address-country"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.address.country"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-address-country"/>
+        <description value="A country specified in an address"/>
+        <code value="address-country"/>
+        <type value="string"/>
+        <expression value="RelatedPerson.address.country"/>
+        <xpath value="f:RelatedPerson/f:address/f:country"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-address-postalcode"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.address.postalCode"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-address-postalcode"/>
+        <description value="A postal code specified in an address"/>
+        <code value="address-postalcode"/>
+        <type value="string"/>
+        <expression value="RelatedPerson.address.postalCode"/>
+        <xpath value="f:RelatedPerson/f:address/f:postalCode"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-address-state"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.address.state"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-address-state"/>
+        <description value="A state specified in an address"/>
+        <code value="address-state"/>
+        <type value="string"/>
+        <expression value="RelatedPerson.address.state"/>
+        <xpath value="f:RelatedPerson/f:address/f:state"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-address-use"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.address.use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-address-use"/>
+        <description value="A use code specified in an address"/>
+        <code value="address-use"/>
+        <type value="token"/>
+        <expression value="RelatedPerson.address.use"/>
+        <xpath value="f:RelatedPerson/f:address/f:use"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-birthdate"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.birthDate"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-birthdate"/>
+        <description value="The Related Person&#39;s date of birth"/>
+        <code value="birthdate"/>
+        <type value="date"/>
+        <expression value="RelatedPerson.birthDate"/>
+        <xpath value="f:RelatedPerson/f:birthDate"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-email"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.telecom(system=email)"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-email"/>
+        <description value="A value in an email contact"/>
+        <code value="email"/>
+        <type value="token"/>
+        <expression value="RelatedPerson.telecom.where(system=&#39;email&#39;)"/>
+        <xpath value="f:RelatedPerson/f:telecom[system/@value=&#39;email&#39;]"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-gender"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.gender"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-gender"/>
+        <description value="Gender of the related person"/>
+        <code value="gender"/>
+        <type value="token"/>
+        <expression value="RelatedPerson.gender"/>
+        <xpath value="f:RelatedPerson/f:gender"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-identifier"/>
+        <description value="An Identifier of the RelatedPerson"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="RelatedPerson.identifier"/>
+        <xpath value="f:RelatedPerson/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-name"/>
+        <description value="A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="RelatedPerson.name"/>
+        <xpath value="f:RelatedPerson/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-family"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.name.family"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-family"/>
+        <description value="A portion of the family name of the related person"/>
+        <code value="family"/>
+        <type value="string"/>
+        <expression value="RelatedPerson.name.family"/>
+        <xpath value="f:RelatedPerson/f:name/f:family"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-given"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.name.given"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-given"/>
+        <description value="A portion of the given name of the related person"/>
+        <code value="given"/>
+        <type value="string"/>
+        <expression value="RelatedPerson.name.given"/>
+        <xpath value="f:RelatedPerson/f:name/f:given"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-patient"/>
+        <description value="The patient this related person is related to"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="RelatedPerson.patient"/>
+        <xpath value="f:RelatedPerson/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-phone"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.telecom(system=phone)"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-phone"/>
+        <description value="A value in a phone contact"/>
+        <code value="phone"/>
+        <type value="token"/>
+        <expression value="RelatedPerson.telecom.where(system=&#39;phone&#39;)"/>
+        <xpath value="f:RelatedPerson/f:telecom[system/@value=&#39;phone&#39;]"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-phonetic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-phonetic"/>
+        <description value="A portion of name using some kind of phonetic matching algorithm"/>
+        <code value="phonetic"/>
+        <type value="string"/>
+        <expression value="RelatedPerson.name"/>
+        <xpath value="f:RelatedPerson/f:name"/>
+        <xpathUsage value="phonetic"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-relationship"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.relationship"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-relationship"/>
+        <description value="The relationship between the patient and the relatedperson"/>
+        <code value="relationship"/>
+        <type value="token"/>
+        <expression value="RelatedPerson.relationship"/>
+        <xpath value="f:RelatedPerson/f:relationship"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RelatedPerson-telecom"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RelatedPerson.telecom"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RelatedPerson-telecom"/>
+        <description value="The value in any kind of contact"/>
+        <code value="telecom"/>
+        <type value="token"/>
+        <expression value="RelatedPerson.telecom"/>
+        <xpath value="f:RelatedPerson/f:telecom"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

@@ -1,11 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
- <url value="http://hl7.org/fhir/ValueSet/bodystructure-relative-location"/> 
+  <id value="bodystructure-relative-location"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/bodystructure-relative-location"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.140"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="BodystructureLocationQualifier"/>
   <title value="Bodystructure Location Qualifier"/>
   <status value="draft"/>
   <publisher value="Order and Observation Workgroup"/>
-<!--   author Eric Haas, Health eData Inc.  -->
   <contact>
     <telecom>
       <system value="url"/>
@@ -13,7 +25,7 @@
     </telecom>
   </contact>
   <description value="SNOMED-CT concepts modifying the anatomic location"/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright &#xA9; 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>

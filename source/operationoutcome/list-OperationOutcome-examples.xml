@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="OperationOutcome-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Outcome Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operationoutcome-example"/>
+    </extension>
+    <item>
+      <reference value="OperationOutcome/101"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An error that might be returned when an unexpected exception happens on a server"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operationoutcome-example-exception"/>
+    </extension>
+    <item>
+      <reference value="OperationOutcome/exception"/>
+      <display value="internal Exception"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An operation outcome that could be returned after a successful operation (no issues)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operationoutcome-example-allok"/>
+    </extension>
+    <item>
+      <reference value="OperationOutcome/allok"/>
+      <display value="All OK"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A validator has found problems with a resource"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operationoutcome-example-validationfail"/>
+    </extension>
+    <item>
+      <reference value="OperationOutcome/validationfail"/>
+      <display value="Validation Failed"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A search error (illegal modifier)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operationoutcome-example-searchfail"/>
+    </extension>
+    <item>
+      <reference value="OperationOutcome/searchfail"/>
+      <display value="Search Error"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A note that additional information might be available if Break-The-Glass is used"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operationoutcome-example-break-the-glass"/>
+    </extension>
+    <item>
+      <reference value="OperationOutcome/break-the-glass"/>
+      <display value="Break-The-Glass Hint"/>
+    </item>
+  </entry>
+</List>

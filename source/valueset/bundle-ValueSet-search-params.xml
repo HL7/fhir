@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ValueSet-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ValueSet.expansion.contains.code,ValueSet.compose.include.concept.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-code"/>
+        <description value="This special parameter searches for codes in the value set. See additional notes on the ValueSet resource"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="ValueSet.expansion.contains.code | ValueSet.compose.include.concept.code"/>
+        <xpath value="f:ValueSet/f:expansion/f:contains/f:code | f:ValueSet/f:compose/f:include/f:concept/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-context"/>
+        <description value="A use context assigned to the value set"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(ValueSet.useContext.value as CodeableConcept)"/>
+        <xpath value="f:ValueSet/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the value set"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(ValueSet.useContext.value as Quantity) | (ValueSet.useContext.value as Range)"/>
+        <xpath value="f:ValueSet/f:useContext/f:valueQuantity | f:ValueSet/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-context-type"/>
+        <description value="A type of use context assigned to the value set"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="ValueSet.useContext.code"/>
+        <xpath value="f:ValueSet/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the value set"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="ValueSet.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-context-type-value"/>
+        <description value="A use context type and value assigned to the value set"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="ValueSet.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-date"/>
+        <description value="The value set publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="ValueSet.date"/>
+        <xpath value="f:ValueSet/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-description"/>
+        <description value="The description of the value set"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="ValueSet.description"/>
+        <xpath value="f:ValueSet/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-expansion"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ValueSet.expansion.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-expansion"/>
+        <description value="Identifies the value set expansion (business identifier)"/>
+        <code value="expansion"/>
+        <type value="uri"/>
+        <expression value="ValueSet.expansion.identifier"/>
+        <xpath value="f:ValueSet/f:expansion/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-identifier"/>
+        <description value="External identifier for the value set"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="ValueSet.identifier"/>
+        <xpath value="f:ValueSet/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-jurisdiction"/>
+        <description value="Intended jurisdiction for the value set"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="ValueSet.jurisdiction"/>
+        <xpath value="f:ValueSet/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-name"/>
+        <description value="Computationally friendly name of the value set"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="ValueSet.name"/>
+        <xpath value="f:ValueSet/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-publisher"/>
+        <description value="Name of the publisher of the value set"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="ValueSet.publisher"/>
+        <xpath value="f:ValueSet/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ValueSet.compose.include.system"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-reference"/>
+        <description value="A code system included or excluded in the value set or an imported value set"/>
+        <code value="reference"/>
+        <type value="uri"/>
+        <expression value="ValueSet.compose.include.system"/>
+        <xpath value="f:ValueSet/f:compose/f:include/f:system"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-status"/>
+        <description value="The current status of the value set"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="ValueSet.status"/>
+        <xpath value="f:ValueSet/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-title"/>
+        <description value="The human-friendly name of the value set"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="ValueSet.title"/>
+        <xpath value="f:ValueSet/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-url"/>
+        <description value="The uri that identifies the value set"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="ValueSet.url"/>
+        <xpath value="f:ValueSet/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-version"/>
+        <description value="The business version of the value set"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="ValueSet.version"/>
+        <xpath value="f:ValueSet/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-effective"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ValueSet.effectivePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MetadataResource-effective"/>
+        <description value="The time during which the ValueSet is intended to be in use"/>
+        <code value="effective"/>
+        <type value="date"/>
+        <expression value="ValueSet.effectivePeriod"/>
+        <xpath value="f:ValueSet/f:effectivePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ValueSet.relatedArtifact.resource"/>
+        </extension>
+        <description value="A resource that the ValueSet is derived from"/>
+        <code value="derived-from"/>
+        <type value="reference"/>
+        <expression value="ValueSet.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
+        <xpath value="f:ValueSet/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ValueSet.relatedArtifact.resource"/>
+        </extension>
+        <description value="The predecessor of the ValueSet"/>
+        <code value="predecessor"/>
+        <type value="reference"/>
+        <expression value="ValueSet.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <xpath value="f:ValueSet/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ValueSet.topic"/>
+        </extension>
+        <description value="Topics associated with the ValueSet"/>
+        <code value="topic"/>
+        <type value="token"/>
+        <expression value="ValueSet.topic"/>
+        <xpath value="f:ValueSet/f:topic"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

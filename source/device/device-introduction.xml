@@ -5,13 +5,27 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-This is a base resource that tracks individual instances of a device and their location. It is referenced by other resources for recording which device performed an action such as a procedure or an observation, which device was implanted in or explanted from a patient, dispensing a device to a patient for their use, managing inventory, or when requesting a specific device for a patient’s use.  The resource may be used to document the <a href="#udi">Unique Device Identifier (UDI)</a> information about a device where appropriate or necessary, such as a patient's implant.
+This is a base resource that tracks individual instances of a device and their location. It is referenced by other resources for recording which device performed an action such as a procedure or an observation, which device was implanted in or explanted from a patient, dispensing a device to a patient for their use, managing inventory, or when requesting a specific device for a patient’s use. The resource may be used to document the Unique Device Identifier (UDI) and information about a device where appropriate or necessary.  Additional information about UDI is provided in the <a href="#udi">Unique Device Identifier (UDI)</a> section.
 </p>
 <p>
 Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health. Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
 </p>
 
+<p>Devices can also be subdivded as follows:</p>
+<p><b>Implantable device</b></p>
+<ul>
+  <li>
+     a device that is intended to be placed in a surgically or naturally formed cavity of the human body…for a continuous period of 30 days or more <a href="https://www.fda.gov/medical-devices/home-health-and-consumer-devices/home-use-devices">US Food and Drug Administration Center for Devices and Radiological Health. Home Use Devices.</a> Accessed 13 March 2020.
+  </li>
+  <li>
+     any active medical device which is intended to be totally or partially introduced, surgically or medically, into the human body or by medical intervention into a natural orifice, and which is intended to remain after the procedure <a href="https://www.bsigroup.com/en-US/medical-devices/Technologies/Active-Implantable-Medical-Devices/">BSI Group. Active implantable medical devices.</a> Accessed 13 March 2020.
+  </li>
+</ul>
 </div>
+ <p><b>Patient-use device</b></p>
+<ul>
+<li>Patient-use, or home use devices, intended for users in any environment outside of a professional healthcare facility. This includes devices intended for use in both professional healthcare facilities and homes <a href="https://www.fda.gov/medical-devices/home-health-and-consumer-devices/home-use-devices">US Food and Drug Administration Center for Devices and Radiological Health. Home Use Devices.</a> Accessed 13 March 2020.</li>
+</ul>
 
 <div>
 <a name="bnr"></a>
@@ -21,7 +35,7 @@ These are the device related resources
 </p>
 <ul>
  <li>Device (this resource)</li>
- <li><a href="devicedefinition.html">DeviceDefinition</a> - Describes a "kind" of device - not a physical instance A kind of device is frequently defined and documented by the manufacturer, reseller, or regulatory.  Documentation would include general information any information that applies to any instance of a device, and may be published through a catalog.  For example, the characteristics of a test analyzer, x-ray machine, or wheelchair.</li>
+ <li><a href="devicedefinition.html">DeviceDefinition</a> - Describes a "kind" of device - not a physical instance. A kind of device is frequently defined and documented by the manufacturer, reseller, or regulatory. Documentation would include general information any information that applies to any instance of a device, and may be published through a catalog. For example, the characteristics of a test analyzer, x-ray machine, or wheelchair.</li>
  <li><a href="devicemetric.html">DeviceMetric</a> - Describes a measurement, calculation or setting capability of a device.  A Device may include multiple device metrics, each yielding a different observation.</li>
 </ul>
 <p>

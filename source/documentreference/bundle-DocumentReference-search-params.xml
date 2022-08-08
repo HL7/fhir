@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
+  <id value="DocumentReference-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-attester"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.attester.party"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-attester"/>
+        <description value="Who attested the document"/>
+        <code value="attester"/>
+        <type value="reference"/>
+        <expression value="DocumentReference.attester.party"/>
+        <xpath value="f:DocumentReference/f:attester/f:party"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-author"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.author"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-author"/>
+        <description value="Who and/or what authored the document"/>
+        <code value="author"/>
+        <type value="reference"/>
+        <expression value="DocumentReference.author"/>
+        <xpath value="f:DocumentReference/f:author"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-based-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.basedOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-based-on"/>
+        <description value="Procedure that caused this media to be created"/>
+        <code value="based-on"/>
+        <type value="reference"/>
+        <expression value="DocumentReference.basedOn"/>
+        <xpath value="f:DocumentReference/f:basedOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-category"/>
+        <description value="Categorization of document"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="DocumentReference.category"/>
+        <xpath value="f:DocumentReference/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-contenttype"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.content.attachment.contentType"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-contenttype"/>
+        <description value="Mime type of the content, with charset etc."/>
+        <code value="contenttype"/>
+        <type value="token"/>
+        <expression value="DocumentReference.content.attachment.contentType"/>
+        <xpath value="f:DocumentReference/f:content/f:attachment/f:contentType"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-creation"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.content.attachment.creation"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-creation"/>
+        <description value="Date attachment was first created"/>
+        <code value="creation"/>
+        <type value="date"/>
+        <expression value="DocumentReference.content.attachment.creation"/>
+        <xpath value="f:DocumentReference/f:content/f:attachment/f:creation"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-custodian"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.custodian"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-custodian"/>
+        <description value="Organization which maintains the document"/>
+        <code value="custodian"/>
+        <type value="reference"/>
+        <expression value="DocumentReference.custodian"/>
+        <xpath value="f:DocumentReference/f:custodian"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-date"/>
+        <description value="When this document reference was created"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="DocumentReference.date"/>
+        <xpath value="f:DocumentReference/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-description"/>
+        <description value="Human-readable description"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="DocumentReference.description"/>
+        <xpath value="f:DocumentReference/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-doc-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.docStatus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-doc-status"/>
+        <description value="preliminary | final | amended | entered-in-error"/>
+        <code value="doc-status"/>
+        <type value="token"/>
+        <expression value="DocumentReference.docStatus"/>
+        <xpath value="f:DocumentReference/f:docStatus"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.context"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-context"/>
+        <description value="Context of the document content"/>
+        <code value="context"/>
+        <type value="reference"/>
+        <expression value="DocumentReference.context"/>
+        <xpath value="f:DocumentReference/f:context"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-event-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.event.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-event-code"/>
+        <description value="Main clinical acts documented"/>
+        <code value="event-code"/>
+        <type value="token"/>
+        <expression value="DocumentReference.event.concept"/>
+        <xpath value="f:DocumentReference/f:event/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-event-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.event.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-event-reference"/>
+        <description value="Main clinical acts documented"/>
+        <code value="event-reference"/>
+        <type value="reference"/>
+        <expression value="DocumentReference.event.reference"/>
+        <xpath value="f:DocumentReference/f:event/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-facility"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.facilityType"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-facility"/>
+        <description value="Kind of facility where patient was seen"/>
+        <code value="facility"/>
+        <type value="token"/>
+        <expression value="DocumentReference.facilityType"/>
+        <xpath value="f:DocumentReference/f:facilityType"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-format-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.content.profile.valueCoding"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-format-code"/>
+        <description value="Format code content rules for the document"/>
+        <code value="format-code"/>
+        <type value="token"/>
+        <expression value="(DocumentReference.content.profile.value as Coding)"/>
+        <xpath value="f:DocumentReference/f:content/f:profile/f:valueCoding"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-format-uri"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.content.profile.valueUri"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-format-uri"/>
+        <description value="Profile URI content rules for the document"/>
+        <code value="format-uri"/>
+        <type value="uri"/>
+        <expression value="(DocumentReference.content.profile.value as uri)"/>
+        <xpath value="f:DocumentReference/f:content/f:profile/f:valueUri"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-format-canonical"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.content.profile.valueCanonical"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-format-canonical"/>
+        <description value="Profile canonical content rules for the document"/>
+        <code value="format-canonical"/>
+        <type value="reference"/>
+        <expression value="(DocumentReference.content.profile.value as canonical)"/>
+        <xpath value="f:DocumentReference/f:content/f:profile/f:valueCanonical"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-identifier"/>
+        <description value="Identifier of the attachment binary"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="DocumentReference.identifier"/>
+        <xpath value="f:DocumentReference/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-language"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.content.attachment.language"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-language"/>
+        <description value="Human language of the content (BCP-47)"/>
+        <code value="language"/>
+        <type value="token"/>
+        <expression value="DocumentReference.content.attachment.language"/>
+        <xpath value="f:DocumentReference/f:content/f:attachment/f:language"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-location"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.content.attachment.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-location"/>
+        <description value="Uri where the data can be found"/>
+        <code value="location"/>
+        <type value="uri"/>
+        <expression value="DocumentReference.content.attachment.url"/>
+        <xpath value="f:DocumentReference/f:content/f:attachment/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-patient"/>
+        <description value="Who/what is the subject of the document"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="DocumentReference.subject.where(resolve() is Patient)"/>
+        <xpath value="f:DocumentReference/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-period"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-period"/>
+        <description value="Time of service that is being documented"/>
+        <code value="period"/>
+        <type value="date"/>
+        <expression value="DocumentReference.period"/>
+        <xpath value="f:DocumentReference/f:period"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-relatesto"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.relatesTo.target"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-relatesto"/>
+        <description value="Target of the relationship"/>
+        <code value="relatesto"/>
+        <type value="reference"/>
+        <expression value="DocumentReference.relatesTo.target"/>
+        <xpath value="f:DocumentReference/f:relatesTo/f:target"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-relation"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.relatesTo.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-relation"/>
+        <description value="replaces | transforms | signs | appends"/>
+        <code value="relation"/>
+        <type value="token"/>
+        <expression value="DocumentReference.relatesTo.code"/>
+        <xpath value="f:DocumentReference/f:relatesTo/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-relationship"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-relationship"/>
+        <description value="Combination of relation and relatesTo"/>
+        <code value="relationship"/>
+        <type value="composite"/>
+        <expression value="DocumentReference.relatesTo"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="relatesto"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="relation"/>
+          <expression value="target"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-security-label"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.securityLabel"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-security-label"/>
+        <description value="Document security-tags"/>
+        <code value="security-label"/>
+        <type value="token"/>
+        <expression value="DocumentReference.securityLabel"/>
+        <xpath value="f:DocumentReference/f:securityLabel"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-setting"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.practiceSetting"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-setting"/>
+        <description value="Additional details about where the content was created (e.g. clinical specialty)"/>
+        <code value="setting"/>
+        <type value="token"/>
+        <expression value="DocumentReference.practiceSetting"/>
+        <xpath value="f:DocumentReference/f:practiceSetting"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-status"/>
+        <description value="current | superseded | entered-in-error"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="DocumentReference.status"/>
+        <xpath value="f:DocumentReference/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-subject"/>
+        <description value="Who/what is the subject of the document"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="DocumentReference.subject"/>
+        <xpath value="f:DocumentReference/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentReference-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentReference.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-type"/>
+        <description value="Kind of document (LOINC if possible)"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="DocumentReference.type"/>
+        <xpath value="f:DocumentReference/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

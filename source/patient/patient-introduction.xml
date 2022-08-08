@@ -14,6 +14,7 @@ This Resource covers data about patients and animals involved in a wide range of
 <li>Nursing and assisted living</li>
 <li>Dietary services</li>
 <li>Tracking of personal health and exercise data</li>
+<li>Tracking financial services (e.g. insurance subscriber/policy holder)</li>
 </ul>
 <p>
 The data in the Resource covers the "who" information about the patient: its attributes are focused on the demographic
@@ -24,7 +25,7 @@ organizations may therefore have its information present in multiple Patient Res
 <p>
 Not all concepts are included within the base resource (such as race, ethnicity, organ donor status, nationality, etc.), 
 but may be found in <a href="patient-profiles.html">profiles</a> defined for specific jurisdictions (e.g., US Meaningful Use Program) 
-or <a href="patient-extensions.html">standard extensions</a>. Such fields vary widely between jurisdictions and often have different 
+or <a href="patient-core.html">standard extensions</a>. Such fields vary widely between jurisdictions and often have different 
 names and valuesets for the similar concepts, but they are not similar enough to be able to map and exchange.
 </p>
 </div>

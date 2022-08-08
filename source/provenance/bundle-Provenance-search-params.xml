@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Provenance-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Provenance-activity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Provenance.activity"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-activity"/>
+        <description value="Activity that occurred"/>
+        <code value="activity"/>
+        <type value="token"/>
+        <expression value="Provenance.activity"/>
+        <xpath value="f:Provenance/f:activity"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Provenance-agent"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Provenance.agent.who"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-agent"/>
+        <description value="Who participated"/>
+        <code value="agent"/>
+        <type value="reference"/>
+        <expression value="Provenance.agent.who"/>
+        <xpath value="f:Provenance/f:agent/f:who"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Provenance-agent-role"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Provenance.agent.role"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-agent-role"/>
+        <description value="What the agents role was"/>
+        <code value="agent-role"/>
+        <type value="token"/>
+        <expression value="Provenance.agent.role"/>
+        <xpath value="f:Provenance/f:agent/f:role"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Provenance-agent-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Provenance.agent.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-agent-type"/>
+        <description value="How the agent participated"/>
+        <code value="agent-type"/>
+        <type value="token"/>
+        <expression value="Provenance.agent.type"/>
+        <xpath value="f:Provenance/f:agent/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Provenance-based-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Provenance.basedOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-based-on"/>
+        <description value="Reference to the service request."/>
+        <code value="based-on"/>
+        <type value="reference"/>
+        <expression value="Provenance.basedOn"/>
+        <xpath value="f:Provenance/f:basedOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Provenance-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Provenance.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-encounter"/>
+        <description value="Encounter related to the Provenance"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="Provenance.encounter"/>
+        <xpath value="f:Provenance/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Provenance-entity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Provenance.entity.what"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-entity"/>
+        <description value="Identity of entity"/>
+        <code value="entity"/>
+        <type value="reference"/>
+        <expression value="Provenance.entity.what"/>
+        <xpath value="f:Provenance/f:entity/f:what"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Provenance-location"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Provenance.location"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-location"/>
+        <description value="Where the activity occurred, if relevant"/>
+        <code value="location"/>
+        <type value="reference"/>
+        <expression value="Provenance.location"/>
+        <xpath value="f:Provenance/f:location"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Provenance-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Provenance.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-patient"/>
+        <description value="Where the activity involved patient data"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Provenance.patient"/>
+        <xpath value="f:Provenance/f:patient"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Provenance-recorded"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Provenance.recorded"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-recorded"/>
+        <description value="When the activity was recorded / updated"/>
+        <code value="recorded"/>
+        <type value="date"/>
+        <expression value="Provenance.recorded"/>
+        <xpath value="f:Provenance/f:recorded"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Provenance-signature-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Provenance.signature.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-signature-type"/>
+        <description value="Indication of the reason the entity signed the object(s)"/>
+        <code value="signature-type"/>
+        <type value="token"/>
+        <expression value="Provenance.signature.type"/>
+        <xpath value="f:Provenance/f:signature/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Provenance-target"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Provenance.target"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-target"/>
+        <description value="Target Reference(s) (usually version specific)"/>
+        <code value="target"/>
+        <type value="reference"/>
+        <expression value="Provenance.target"/>
+        <xpath value="f:Provenance/f:target"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Provenance-when"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Provenance.occurredDateTime"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-when"/>
+        <description value="When the activity occurred"/>
+        <code value="when"/>
+        <type value="date"/>
+        <expression value="(Provenance.occurred as dateTime)"/>
+        <xpath value="f:Provenance/f:occurredDateTime"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

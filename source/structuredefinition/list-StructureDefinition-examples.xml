@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="StructureDefinition-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example showing how to define Section Level Profiles"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="structuredefinition-example-section-library"/>
+    </extension>
+    <item>
+      <reference value="StructureDefinition/example-section-library"/>
+      <display value="Section Level profiles"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example showing how to use Section Level Profiles"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="structuredefinition-example-composition"/>
+    </extension>
+    <item>
+      <reference value="StructureDefinition/example-composition"/>
+      <display value="Composition Example"/>
+    </item>
+  </entry>
+</List>

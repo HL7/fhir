@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Group-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Group-actual"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Group.actual"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-actual"/>
+        <description value="Descriptive or actual"/>
+        <code value="actual"/>
+        <type value="token"/>
+        <expression value="Group.actual"/>
+        <xpath value="f:Group/f:actual"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Group-characteristic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Group.characteristic.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-characteristic"/>
+        <description value="Kind of characteristic"/>
+        <code value="characteristic"/>
+        <type value="token"/>
+        <expression value="Group.characteristic.code"/>
+        <xpath value="f:Group/f:characteristic/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Group-characteristic-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-characteristic-value"/>
+        <description value="A composite of both characteristic and value"/>
+        <code value="characteristic-value"/>
+        <type value="composite"/>
+        <expression value="Group.characteristic"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="characteristic"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="value"/>
+          <expression value="(value as CodeableConcept) | (value as boolean)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Group-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Group.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-code"/>
+        <description value="The kind of resources contained"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="Group.code"/>
+        <xpath value="f:Group/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Group-exclude"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Group.characteristic.exclude"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-exclude"/>
+        <description value="Group includes or excludes"/>
+        <code value="exclude"/>
+        <type value="token"/>
+        <expression value="Group.characteristic.exclude"/>
+        <xpath value="f:Group/f:characteristic/f:exclude"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Group-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Group.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-identifier"/>
+        <description value="Unique id"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Group.identifier"/>
+        <xpath value="f:Group/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Group-managing-entity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Group.managingEntity"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-managing-entity"/>
+        <description value="Entity that is the custodian of the Group&#39;s definition"/>
+        <code value="managing-entity"/>
+        <type value="reference"/>
+        <expression value="Group.managingEntity"/>
+        <xpath value="f:Group/f:managingEntity"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Group-member"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Group.member.entity"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-member"/>
+        <description value="Reference to the group member"/>
+        <code value="member"/>
+        <type value="reference"/>
+        <expression value="Group.member.entity"/>
+        <xpath value="f:Group/f:member/f:entity"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Group-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Group.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-type"/>
+        <description value="The type of resources the group contains"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="Group.type"/>
+        <xpath value="f:Group/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Group-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Group.characteristic.value[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-value"/>
+        <description value="Value held by characteristic"/>
+        <code value="value"/>
+        <type value="token"/>
+        <expression value="(Group.characteristic.value as CodeableConcept) | (Group.characteristic.value as boolean)"/>
+        <xpath value="f:Group/f:characteristic/f:valueCodeableConcept | f:Group/f:characteristic/f:valueBoolean | f:Group/f:characteristic/f:valueQuantity | f:Group/f:characteristic/f:valueRange | f:Group/f:characteristic/f:valueReference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

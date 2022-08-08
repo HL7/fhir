@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="graph-compartment-rule"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/graph-compartment-rule defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">identical
+            
+            <a name="graph-compartment-rule-identical"> </a>
+          
+          </td>
+          
+          <td>Identical</td>
+          
+          <td>The compartment must be identical (the same literal reference).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">matching
+            
+            <a name="graph-compartment-rule-matching"> </a>
+          
+          </td>
+          
+          <td>Matching</td>
+          
+          <td>The compartment must be the same - the record must be about the same patient, but the reference may be different.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">different
+            
+            <a name="graph-compartment-rule-different"> </a>
+          
+          </td>
+          
+          <td>Different</td>
+          
+          <td>The compartment must be different.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">custom
+            
+            <a name="graph-compartment-rule-custom"> </a>
+          
+          </td>
+          
+          <td>Custom</td>
+          
+          <td>The compartment rule is defined in the accompanying FHIRPath expression.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/graph-compartment-rule"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.281"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="GraphCompartmentRule"/>
+  <title value="GraphCompartmentRule"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="How a compartment must be linked."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/graph-compartment-rule"/>
+  <content value="complete"/>
+  <concept>
+    <code value="identical"/>
+    <display value="Identical"/>
+    <definition value="The compartment must be identical (the same literal reference)."/>
+  </concept>
+  <concept>
+    <code value="matching"/>
+    <display value="Matching"/>
+    <definition value="The compartment must be the same - the record must be about the same patient, but the reference may be different."/>
+  </concept>
+  <concept>
+    <code value="different"/>
+    <display value="Different"/>
+    <definition value="The compartment must be different."/>
+  </concept>
+  <concept>
+    <code value="custom"/>
+    <display value="Custom"/>
+    <definition value="The compartment rule is defined in the accompanying FHIRPath expression."/>
+  </concept>
+</CodeSystem>

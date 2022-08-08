@@ -1,41 +1,45 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-    <id value="example"/>
-    <meta>
-        <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
-    </meta>
-    <text>
-        <status value="generated"/>
-        <div xmlns="http://www.w3.org/1999/xhtml">Each definition includes usage notes explaining
+  <id value="contract-security-category"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Each definition includes usage notes explaining
             the precedence order in contract lifecycle - i.e., while only some stages are required,
             the order in which they may occur is deterministic; and a map to comparable FHIR and v.3
             status codes. It follows guidance about use of status codes in FHIR at
             http://build.fhir.org/sc.html.</div>
-    </text>
-    <url value="http://hl7.org/fhir/contract-security-category"/>
-    <version value="4.5.0"/>
-    <name value="ContractSecurityCategory"/>
-    <status value="draft"/>
-    <experimental value="true"/>
-    <date value="2017-02-13"/>
-    <publisher value="HL7 International"/>
-    <contact>
-        <name value="FHIR project team"/>
-        <telecom>
-            <system value="url"/>
-            <value value="http://hl7.org/fhir"/>
-        </telecom>
-    </contact>
-    <description
-        value="This CodeSystem contains FHIR-defined contract security category types."/>
-    <caseSensitive value="true"/>
-    <content value="complete"/>
-    <concept>
-        <code value="policy"/>
-        <display value="Policy"/>
-        <definition
-            value="To be completed"
-        />
-    </concept>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <url value="http://hl7.org/fhir/contract-security-category"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1221"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ContractSecurityCategory"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2017-02-13"/>
+  <publisher value="HL7 International"/>
+  <contact>
+    <name value="FHIR project team"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This CodeSystem contains FHIR-defined contract security category types."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="policy"/>
+    <display value="Policy"/>
+    <definition value="To be completed"/>
+  </concept>
 </CodeSystem>

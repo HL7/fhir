@@ -15,7 +15,7 @@ POST [base]/CodeSystem/$subsumes
   <!-- Australian distribution -->
   <parameter>
     <name value="version"/>
-    <valuString value="http://snomed.info/sct/32506021000036107/version/20160430"/>
+    <valueString value="http://snomed.info/sct/32506021000036107/version/20160430"/>
   </parameter>
   <parameter>
     <name value="codingA"/>

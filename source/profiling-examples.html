@@ -11,7 +11,7 @@
 
 [%profilesheader examples%]
 
-<div class="col-12">
+
 
 <h2>Slicing and Discriminator Examples</h2>
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
@@ -95,7 +95,7 @@ In a StructureDefinition, this will look like:
   &lt;!-- first slice: home phone --&gt;
   &lt;element&gt; 
     &lt;path value=&quot;Patient.telecom&quot;/&gt;
-    &lt;name value=&quot;HomePhone&quot;/&gt; &lt;!-- mandatory - gives the slice a name --&gt;
+    &lt;sliceName value=&quot;HomePhone&quot;/&gt; &lt;!-- mandatory - gives the slice a name --&gt;
     &lt;min value=&quot;1&quot;/&gt;
     &lt;max value=&quot;1&quot;/&gt;
   &lt;/element&gt;
@@ -536,7 +536,7 @@ Here is a patient example that conforms to this profile:
 <p>
 In this example, a profile on a diagnostic report says that it must have
 four observations, each with a different LOINC code (e.g. a classic lab panel).
-In this case (taken from the <a href="lipid-report.html">Example
+In this case (taken from the <a href="lipidprofile.html">Example
 Lipid Profile</a>), the structure that applies to DiagnosticReport will say that
 there are four slices on DiagnosticReport.result, each conforming to a different structure,
 which are also contained in the same profile. Each of those structures will constrain
@@ -1284,11 +1284,6 @@ prohibits the 3rd:
     &lt;max value=&quot;0&quot;/&gt;
   &lt;/element&gt;
 </pre>  
-
-</div>
-
-
-
 
 [%file newfooter%]
 </body>

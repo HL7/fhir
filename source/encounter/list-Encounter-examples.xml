@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Encounter-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Encounter example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="encounter-example"/>
+    </extension>
+    <item>
+      <reference value="Encounter/example"/>
+      <display value="example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Encounter example - virtual encounter"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="encounter-example-home"/>
+    </extension>
+    <item>
+      <reference value="Encounter/home"/>
+      <display value="example-home"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world encounter example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="encounter-example-f201-20130404"/>
+    </extension>
+    <item>
+      <reference value="Encounter/f201"/>
+      <display value="April 4th 2013"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world encounter example (with primaryDiagnosis extension added)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="encounter-example-f202-20130128"/>
+    </extension>
+    <item>
+      <reference value="Encounter/f202"/>
+      <display value="January 28th 2013"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world encounter example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="encounter-example-f203-20130311"/>
+    </extension>
+    <item>
+      <reference value="Encounter/f203"/>
+      <display value="March 11th 2013"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world encounter example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="encounter-example-f001-heart"/>
+    </extension>
+    <item>
+      <reference value="Encounter/f001"/>
+      <display value="Heart"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world encounter example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="encounter-example-f002-lung"/>
+    </extension>
+    <item>
+      <reference value="Encounter/f002"/>
+      <display value="Lung"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world encounter example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="encounter-example-f003-abscess"/>
+    </extension>
+    <item>
+      <reference value="Encounter/f003"/>
+      <display value="Abscess"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="for Clinical Document example patient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="encounter-example-xcda"/>
+    </extension>
+    <item>
+      <reference value="Encounter/xcda"/>
+      <display value="XCDA"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Emergency transitioning into inpatient example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="encounter-example-emerg"/>
+    </extension>
+    <item>
+      <reference value="Encounter/emerg"/>
+      <display value="emergency"/>
+    </item>
+  </entry>
+</List>

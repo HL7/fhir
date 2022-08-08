@@ -8,7 +8,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <table class="cols"><tbody><tr><td id="wg">Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></tbody></table>
 
@@ -59,7 +59,8 @@
 	<li>FHIRPath - <code>text/fhirpath</code></li>
 	<li>FHIR Query - <code>text/x-fhir-query</code></li>
 	<li>Clinical Quality Language - <code>text/cql</code></li>
-	<li>Clinical Quality Language Identifier - <code>text/cql.identifier</code></li>
+	<li>Clinical Quality Language Identifier - <code>text/cql-identifier</code></li>
+  <li>Clinical Quality Language Expression - <code>text/cql-expression</code></li>
 </ul>
 
 <p>For example, the following fragment illustrates the use of CQL to define a dynamicValue as part of an activity definition:</p>
@@ -67,7 +68,7 @@
 <pre><code>&lt;dynamicValue&gt;
   &lt;path value=&quot;timing.event&quot;/&gt;
   &lt;expression&gt;
-    &lt;language value=&quot;text/cql&quot;/&gt;
+    &lt;language value=&quot;text/cql-expression&quot;/&gt;
     &lt;expression value=&quot;Now()&quot;/&gt;
   &lt;/expression&gt;
 &lt;/dynamicValue&gt;
@@ -79,7 +80,7 @@
 <pre><code>&lt;event&gt;
   &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqf-expression&quot;&gt;
     &lt;valueExpression&gt;
-      &lt;language value=&quot;text/cql&quot;/&gt;
+      &lt;language value=&quot;text/cql-expression&quot;/&gt;
       &lt;expression value=&quot;Now()&quot;/&gt;
     &gt;/valueExpression&gt;
   &lt;/extension&gt;
@@ -94,7 +95,7 @@
 <pre><code>&lt;dynamicValue&gt;
   &lt;path value=&quot;reasonCode&quot;/&gt;
   &lt;expression&gt;
-    &lt;language value=&quot;text/cql.identifier&quot;/&gt;
+    &lt;language value=&quot;text/cql-identifier&quot;/&gt;
     &lt;expression value=&quot;RiskAssessmentScore&quot;/&gt;
   &lt;/expression&gt;
 &lt;/dynamicValue&gt;
@@ -185,8 +186,6 @@
 <p><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">HL7 Standard: Clinical Quality Language Specification, Release 1.4</a>.</p>
 
 <p>CQL is used to describe the logic used by knowledge artifacts such as clinical decision support rules, quality measure logic, and conditions and actions within order sets and protocols. CQL expressions generally provide a means of computing new information from existing data.</p>
-
-</div>
 [%file newfooter%]
 </body>
 </html>

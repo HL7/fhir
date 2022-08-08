@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="issue-severity"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/issue-severity defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">fatal
+            
+            <a name="issue-severity-fatal"> </a>
+          
+          </td>
+          
+          <td>Fatal</td>
+          
+          <td>The issue caused the action to fail and no further checking could be performed.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">error
+            
+            <a name="issue-severity-error"> </a>
+          
+          </td>
+          
+          <td>Error</td>
+          
+          <td>The issue is sufficiently important to cause the action to fail.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">warning
+            
+            <a name="issue-severity-warning"> </a>
+          
+          </td>
+          
+          <td>Warning</td>
+          
+          <td>The issue is not important enough to cause the action to fail but may cause it to be performed suboptimally or in a way that is not as desired.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">information
+            
+            <a name="issue-severity-information"> </a>
+          
+          </td>
+          
+          <td>Information</td>
+          
+          <td>The issue has no relation to the degree of success of the action.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="4.0.0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <url value="http://hl7.org/fhir/issue-severity"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.409"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="IssueSeverity"/>
+  <title value="IssueSeverity"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="How the issue affects the success of the action."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/issue-severity"/>
+  <content value="complete"/>
+  <concept>
+    <code value="fatal"/>
+    <display value="Fatal"/>
+    <definition value="The issue caused the action to fail and no further checking could be performed."/>
+  </concept>
+  <concept>
+    <code value="error"/>
+    <display value="Error"/>
+    <definition value="The issue is sufficiently important to cause the action to fail."/>
+  </concept>
+  <concept>
+    <code value="warning"/>
+    <display value="Warning"/>
+    <definition value="The issue is not important enough to cause the action to fail but may cause it to be performed suboptimally or in a way that is not as desired."/>
+  </concept>
+  <concept>
+    <code value="information"/>
+    <display value="Information"/>
+    <definition value="The issue has no relation to the degree of success of the action."/>
+  </concept>
+</CodeSystem>

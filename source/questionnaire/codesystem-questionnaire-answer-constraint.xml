@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="questionnaire-answer-constraint"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/questionnaire-answer-constraint"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="QuestionnaireAnswerConstraint"/>
+  <title value="Questionnaire answer constraint codes"/>
+  <status value="active"/>
+  <description value="Codes that describe the types of constraints possible on a question item that has a list of permitted answers"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="optionsOnly"/>
+    <display value="Options only"/>
+    <definition value="Only values listed as answerOption or in the expansion of the answerValueSet are permitted"/>
+  </concept>
+  <concept>
+    <code value="optionsOrType"/>
+    <display value="Options or &#39;type&#39;"/>
+    <definition value="In addition to the values listed as answerOption or in the expansion of the answerValueSet, any other values that correspond to the specified item.type are permitted"/>
+  </concept>
+  <concept>
+    <code value="optionsOrString"/>
+    <display value="Options or string"/>
+    <definition value="In addition to the values listed as answerOption or in the expansion of the answerValueSet, free-text strings are permitted.  Answers will have a type of &#39;string&#39;."/>
+  </concept>
+</CodeSystem>

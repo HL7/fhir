@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Specimen-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-accession"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.accessionIdentifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-accession"/>
+        <description value="The accession number associated with the specimen"/>
+        <code value="accession"/>
+        <type value="token"/>
+        <expression value="Specimen.accessionIdentifier"/>
+        <xpath value="f:Specimen/f:accessionIdentifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-bodysite"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.collection.bodySite.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-bodysite"/>
+        <description value="Reference to a resource (by instance)"/>
+        <code value="bodysite"/>
+        <type value="reference"/>
+        <expression value="Specimen.collection.bodySite.reference"/>
+        <xpath value="f:Specimen/f:collection/f:bodySite/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-collected"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.collection.collected[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-collected"/>
+        <description value="The date the specimen was collected"/>
+        <code value="collected"/>
+        <type value="date"/>
+        <expression value="Specimen.collection.collected"/>
+        <xpath value="f:Specimen/f:collection/f:collectedDateTime | f:Specimen/f:collection/f:collectedPeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-collector"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.collection.collector"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-collector"/>
+        <description value="Who collected the specimen"/>
+        <code value="collector"/>
+        <type value="reference"/>
+        <expression value="Specimen.collection.collector"/>
+        <xpath value="f:Specimen/f:collection/f:collector"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-container-device"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.container.device"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-container-device"/>
+        <description value="The unique identifier associated with the specimen container"/>
+        <code value="container-device"/>
+        <type value="reference"/>
+        <expression value="Specimen.container.device.where(resolve() is Device)"/>
+        <xpath value="f:Specimen/f:container/f:device"/>
+        <xpathUsage value="normal"/>
+        <target value="Device"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-identifier"/>
+        <description value="The unique identifier associated with the specimen"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Specimen.identifier"/>
+        <xpath value="f:Specimen/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-parent"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.parent"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-parent"/>
+        <description value="The parent of the specimen"/>
+        <code value="parent"/>
+        <type value="reference"/>
+        <expression value="Specimen.parent"/>
+        <xpath value="f:Specimen/f:parent"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-patient"/>
+        <description value="The patient the specimen comes from"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Specimen.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Specimen/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-status"/>
+        <description value="available | unavailable | unsatisfactory | entered-in-error"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Specimen.status"/>
+        <xpath value="f:Specimen/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-subject"/>
+        <description value="The subject of the specimen"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Specimen.subject"/>
+        <xpath value="f:Specimen/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-type"/>
+        <description value="The specimen type"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="Specimen.type"/>
+        <xpath value="f:Specimen/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

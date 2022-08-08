@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Contract-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Contract-authority"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Contract.authority"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Contract-authority"/>
+        <description value="The authority of the contract"/>
+        <code value="authority"/>
+        <type value="reference"/>
+        <expression value="Contract.authority"/>
+        <xpath value="f:Contract/f:authority"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Contract-domain"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Contract.domain"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Contract-domain"/>
+        <description value="The domain of the contract"/>
+        <code value="domain"/>
+        <type value="reference"/>
+        <expression value="Contract.domain"/>
+        <xpath value="f:Contract/f:domain"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Contract-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Contract.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Contract-identifier"/>
+        <description value="The identity of the contract"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Contract.identifier"/>
+        <xpath value="f:Contract/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Contract-instantiates"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Contract.instantiatesUri"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Contract-instantiates"/>
+        <description value="A source definition of the contract"/>
+        <code value="instantiates"/>
+        <type value="uri"/>
+        <expression value="Contract.instantiatesUri"/>
+        <xpath value="f:Contract/f:instantiatesUri"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Contract-issued"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Contract.issued"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Contract-issued"/>
+        <description value="The date/time the contract was issued"/>
+        <code value="issued"/>
+        <type value="date"/>
+        <expression value="Contract.issued"/>
+        <xpath value="f:Contract/f:issued"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Contract-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Contract.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Contract-patient"/>
+        <description value="The identity of the subject of the contract (if a patient)"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Contract.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Contract/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Contract-signer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Contract.signer.party"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Contract-signer"/>
+        <description value="Contract Signatory Party"/>
+        <code value="signer"/>
+        <type value="reference"/>
+        <expression value="Contract.signer.party"/>
+        <xpath value="f:Contract/f:signer/f:party"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Contract-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Contract.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Contract-status"/>
+        <description value="The status of the contract"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Contract.status"/>
+        <xpath value="f:Contract/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Contract-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Contract.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Contract-subject"/>
+        <description value="The identity of the subject of the contract"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Contract.subject"/>
+        <xpath value="f:Contract/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Contract-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Contract.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Contract-url"/>
+        <description value="The basal contract definition"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="Contract.url"/>
+        <xpath value="f:Contract/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

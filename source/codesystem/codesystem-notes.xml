@@ -55,13 +55,13 @@ The following rules apply to code system fragments:
 <ul>
  <li>All fragments SHALL have the same CodeSystem.url</li>
  <li>Fragments can only be published by the code system authority, or according to a process defined by the authority, if they have defined one</li>
- <li>Fragments cannot contain any codes, concepts or properties that would not be found in a complete representation of the code system, if one exists</li>
+ <li>Fragments cannot contain any codes, concepts or properties that would not be found in a complete representation of the code system, if one exists. Implementers should note that a "complete representation" of the code system might not exist in a single authoritative publication (e.g., SNOMED International with all modules/extensions)</li>
  <li>Publishing a code system in multiple fragments can create confusion for terminology servers and terminology service consumers. 
    Code System authorities that publish fragments should be careful and communicate their intent clearly</li>
 </ul>
 
 <a name="supplements"></a>
-<h2>Code System Supplements</h2>
+<h2>Code System Supplements <a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6" href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a></h2>
 <p>
 If the <code>CodeSystem.content</code> value is <code>supplement</code>, then the resource 
 describes a code system supplement. The following rules apply to code system supplements:
@@ -295,8 +295,7 @@ This <a href="versions.html#std-process" title="Draft Content" class="draft-flag
 <h2>Implicit Code Systems</h2>
 <p>
 Some other parts of the FHIR infrastructure define set of concepts that may also be treated 
-as code systems. This is most useful when mapping between systems using <a href="conceptmap.html">Concept Maps</a>,
-but might also be useful for other code system related functionality (e.g. subsetting use <a href="valueset.html">Value Sets</a>). 
+as code systems. This is most useful when mapping between systems using <a href="conceptmap.html">Concept Maps</a>. 
 This table summarizes how to treat these items as a terminology:
 </p>
 <table class="grid">

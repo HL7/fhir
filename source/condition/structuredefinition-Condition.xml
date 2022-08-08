@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Condition"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Summary"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".verificationStatus = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+  <version value="4.6.0"/>
+  <name value="Condition"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Patient Care)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="sct-concept"/>
+    <uri value="http://snomed.info/conceptdomain"/>
+    <name value="SNOMED CT Concept Domain Binding"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="sct-attr"/>
+    <uri value="http://snomed.org/attributebinding"/>
+    <name value="SNOMED CT Attribute Binding"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Condition"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Condition">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="Condition"/>
+      <short value="Detailed information about conditions, problems or diagnoses"/>
+      <definition value="A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern."/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="con-3"/>
+        <severity value="error"/>
+        <human value="If condition is abated, then clinicalStatus must be either inactive, resolved, or remission."/>
+        <expression value="abatement.exists() implies (clinicalStatus.coding.where(system=&#39;http://terminology.hl7.org/CodeSystem/condition-clinical&#39; and (code=&#39;inactive&#39; or code=&#39;resolved&#39; or code=&#39;remission&#39;)).exists())"/>
+        <xpath value="not(exists(f:*[starts-with(local-name(.), &#39;abatement&#39;)])) or (not(exists(f:clinicalStatus)) or exists(f:clinicalStatus/f:coding[f:system/@value=&#39;http://terminology.hl7.org/CodeSystem/condition-clinical&#39; and f:code/@value=(&#39;inactive&#39;, &#39;resolved&#39;, &#39;remission&#39;)]))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+      </constraint>
+      <constraint>
+        <key value="con-2"/>
+        <severity value="warning"/>
+        <human value="If category is problems list item, the clinicalStatus should not be unknown"/>
+        <expression value="category.coding.where(system=&#39;http://terminology.hl7.org/CodeSystem/condition-category&#39; and code=&#39;problem-list-item&#39;).exists() implies clinicalStatus.coding.where(system=&#39;http://terminology.hl7.org/CodeSystem/condition-clinical&#39; and code=&#39;unknown&#39;).exists().not()"/>
+        <xpath value="not(exists(f:category/f:coding[f:system/@value=&#39;http://terminology.hl7.org/CodeSystem/condition-category&#39; and f:code/@value=&#39;problem-list-item&#39;])) or not(exists(f:clinicalStatus/f:coding[f:system/@value=&#39;http://terminology.hl7.org/CodeSystem/condition-clinical&#39; and f:code/@value=&#39;unknown&#39;]))"/>
+      </constraint>
+      <mapping>
+        <identity value="sct-concept"/>
+        <map value="&lt; 243796009 |Situation with explicit context| : 246090004 |Associated finding| = ( ( &lt; 404684003 |Clinical finding| MINUS ( &lt;&lt; 420134006 |Propensity to adverse reactions| OR &lt;&lt; 473010000 |Hypersensitivity condition| OR &lt;&lt; 79899007 |Drug interaction| OR &lt;&lt; 69449002 |Drug action| OR &lt;&lt; 441742003 |Evaluation finding| OR &lt;&lt; 307824009 |Administrative status| OR &lt;&lt; 385356007 |Tumor stage finding|)) OR &lt; 272379006 |Event|)"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PPR message"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Observation[classCode=OBS, moodCode=EVN, code=ASSERTION, value&lt;Diagnosis]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.general"/>
+      </mapping>
+    </element>
+    <element id="Condition.identifier">
+      <path value="Condition.identifier"/>
+      <short value="External Ids for this condition"/>
+      <definition value="Business identifiers assigned to this condition by the performer or other systems which remain constant as the resource is updated and propagates from server to server."/>
+      <comment value="This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <requirements value="Allows identification of the condition as it is known by various participating systems and in a way that remains consistent across servers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+    <element id="Condition.clinicalStatus">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#16193."/>
+      </extension>
+      <path value="Condition.clinicalStatus"/>
+      <short value="active | recurrence | relapse | inactive | remission | resolved"/>
+      <definition value="The clinical status of the condition."/>
+      <comment value="The data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.  clinicalStatus is required since it is a modifier element.  For conditions that are problems list items, the clinicalStatus should not be unknown.  For conditions that are not problem list items, the clinicalStatus may be unknown.  For example, conditions derived from a claim are point in time, so those conditions may have a clinicalStatus of unknown"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <condition value="con-2"/>
+      <condition value="con-3"/>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because the status contains codes that mark the condition as no longer active."/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConditionClinicalStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The clinical status of the condition or diagnosis."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/condition-clinical"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="sct-concept"/>
+        <map value="&lt; 303105007 |Disease phases|"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRB-14"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Observation ACT&#xA;.inboundRelationship[typeCode=COMP].source[classCode=OBS, code=&quot;clinicalStatus&quot;, moodCode=EVN].value"/>
+      </mapping>
+    </element>
+    <element id="Condition.verificationStatus">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#11281, GF#16193, J#28458."/>
+      </extension>
+      <path value="Condition.verificationStatus"/>
+      <short value="unconfirmed | provisional | differential | confirmed | refuted | entered-in-error"/>
+      <definition value="The verification status to support the clinical status of the condition.  The verification status pertains to the condition, itself, not to any specific condition attribute."/>
+      <comment value="verificationStatus is not required.  For example, when a patient has abdominal pain in the ED, there is not likely going to be a verification status.&#xA;The data type is CodeableConcept because verificationStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because the status contains the code refuted and entered-in-error that mark the Condition as not currently valid."/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConditionVerificationStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The verification status to support or decline the clinical status of the condition or diagnosis."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/condition-ver-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="sct-concept"/>
+        <map value="&lt; 410514004 |Finding context value|"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRB-13"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Observation ACT&#xA;.inboundRelationship[typeCode=COMP].source[classCode=OBS, code=&quot;verificationStatus&quot;, moodCode=EVN].value"/>
+      </mapping>
+      <mapping>
+        <identity value="sct-attr"/>
+        <map value="408729009"/>
+      </mapping>
+    </element>
+    <element id="Condition.category">
+      <path value="Condition.category"/>
+      <short value="problem-list-item | encounter-diagnosis"/>
+      <definition value="A category assigned to the condition."/>
+      <comment value="The categorization is often highly contextual and may appear poorly differentiated or not very useful in other contexts."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <condition value="con-2"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConditionCategory"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="A category assigned to the condition."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/condition-category"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="sct-concept"/>
+        <map value="&lt; 404684003 |Clinical finding|"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="&#39;problem&#39; if from PRB-3. &#39;diagnosis&#39; if from DG1 segment in PV1 message"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="Condition.severity">
+      <path value="Condition.severity"/>
+      <short value="Subjective severity of condition"/>
+      <definition value="A subjective assessment of the severity of the condition as evaluated by the clinician."/>
+      <comment value="Coding of the severity with a terminology is preferred, where possible."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConditionSeverity"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="A subjective assessment of the severity of the condition as evaluated by the clinician."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/condition-severity"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.grade"/>
+      </mapping>
+      <mapping>
+        <identity value="sct-concept"/>
+        <map value="&lt; 272141005 |Severities|"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRB-26 / ABS-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Can be pre/post-coordinated into value.  Or ./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;severity&quot;].value"/>
+      </mapping>
+      <mapping>
+        <identity value="sct-attr"/>
+        <map value="246112005"/>
+      </mapping>
+    </element>
+    <element id="Condition.code">
+      <path value="Condition.code"/>
+      <short value="Identification of the condition, problem or diagnosis"/>
+      <definition value="Identification of the condition, problem or diagnosis."/>
+      <requirements value="0..1 to account for primarily narrative only resources."/>
+      <alias value="type"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConditionKind"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Identification of the condition or diagnosis."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="sct-concept"/>
+        <map value="(&lt; 404684003 |Clinical finding| MINUS (&#xA;&lt;&lt; 420134006 |Propensity to adverse reactions| OR &#xA;&lt;&lt; 473010000 |Hypersensitivity condition| OR &#xA;&lt;&lt; 79899007 |Drug interaction| OR&#xA;&lt;&lt; 69449002 |Drug action| OR &#xA;&lt;&lt; 441742003 |Evaluation finding| OR &#xA;&lt;&lt; 307824009 |Administrative status| OR &#xA;&lt;&lt; 385356007 |Tumor stage finding|)) &#xA;OR &lt; 413350009 |Finding with explicit context|&#xA;OR &lt; 272379006 |Event|"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRB-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".value"/>
+      </mapping>
+      <mapping>
+        <identity value="sct-attr"/>
+        <map value="246090004"/>
+      </mapping>
+    </element>
+    <element id="Condition.bodySite">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#31027"/>
+      </extension>
+      <path value="Condition.bodySite"/>
+      <short value="Anatomical location, if relevant"/>
+      <definition value="The anatomical location where this condition manifests itself."/>
+      <comment value="Only used if not implicit in code found in Condition.code. If the use case requires attributes from the BodyStructure resource (e.g. to identify and track separately) then use the standard extension [bodyStructure](extension-bodysite.html).  May be a summary code, or a reference to a very precise definition of the location, or both."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodySite"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes describing anatomical locations. May include laterality."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT Body site concepts"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
+      </binding>
+      <mapping>
+        <identity value="sct-concept"/>
+        <map value="&lt; 442083009  |Anatomical or acquired body structure|"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".targetBodySiteCode"/>
+      </mapping>
+      <mapping>
+        <identity value="sct-attr"/>
+        <map value="363698007"/>
+      </mapping>
+    </element>
+    <element id="Condition.subject">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="[#3701]."/>
+      </extension>
+      <path value="Condition.subject"/>
+      <short value="Who has the condition?"/>
+      <definition value="Indicates the patient or group who the condition record is associated with."/>
+      <requirements value="Group is typically used for veterinary or public health use cases."/>
+      <alias value="patient"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=SBJ].role[classCode=PAT]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="Condition.encounter">
+      <path value="Condition.encounter"/>
+      <short value="The Encounter during which this Condition was created"/>
+      <definition value="The Encounter during which this Condition was created or to which the creation of this record is tightly associated."/>
+      <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter. This record indicates the encounter this particular record is associated with.  In the case of a &quot;new&quot; diagnosis reflecting ongoing/revised information about the condition, this might be distinct from the first encounter in which the underlying condition was first &quot;known&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-19 (+PV1-54)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="Condition.onset[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="[#2952]."/>
+      </extension>
+      <path value="Condition.onset[x]"/>
+      <short value="Estimated or actual date,  date-time, or age"/>
+      <definition value="Estimated or actual date or date-time  the condition began, in the opinion of the clinician."/>
+      <comment value="Age is generally used when the patient reports an age at which the Condition began to occur.  Period is generally used to convey an imprecise onset that occurred within the time period.  For example, Period is not intended to convey the transition period before the chronic bronchitis or COPD condition was diagnosed, but Period can be used to convey an imprecise diagnosis date.&#xA;Because a Condition.code can represent multiple levels of granularity and can be modified over time, the onset and abatement dates can have ambiguity whether those dates apply to the current Condition.code or an earlier representation of that Condition.code.   For example, if the Condition.code was initially documented as severe asthma, then it is ambiguous whether the onset and abatement dates apply to asthma (overall in that subject&#39;s lifetime) or when asthma transitioned to become severe."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Age"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.init"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRB-16"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime.low or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;age at onset&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="Condition.abatement[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#23020."/>
+      </extension>
+      <path value="Condition.abatement[x]"/>
+      <short value="When in resolution/remission"/>
+      <definition value="The date or estimated date that the condition resolved or went into remission. This is called &quot;abatement&quot; because of the many overloaded connotations associated with &quot;remission&quot; or &quot;resolution&quot; - Some conditions, such as chronic conditions, are never really resolved, but they can abate."/>
+      <comment value="There is no explicit distinction between resolution and remission because in many cases the distinction is not clear. Age is generally used when the patient reports an age at which the Condition abated.  If there is no abatement element, it is unknown whether the condition has resolved or entered remission; applications and users should generally assume that the condition is still valid.  When abatementString exists, it implies the condition is abated.&#xA;Because a Condition.code can represent multiple levels of granularity and can be modified over time, the onset and abatement dates can have ambiguity whether those dates apply to the current Condition.code or an earlier representation of that Condition.code.   For example, if the Condition.code was initially documented as severe asthma, then it is ambiguous whether the onset and abatement dates apply to asthma (overall in that subject&#39;s lifetime) or when asthma transitioned to become severe."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Age"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="con-3"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime.high or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;age at remission&quot;].value or .inboundRelationship[typeCode=SUBJ]source[classCode=CONC, moodCode=EVN].status=completed"/>
+      </mapping>
+    </element>
+    <element id="Condition.recordedDate">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#11089, GF#17285, J#27808, J#34392, J#34394, J#34395"/>
+      </extension>
+      <path value="Condition.recordedDate"/>
+      <short value="Date condition was first recorded"/>
+      <definition value="The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date."/>
+      <comment value="When onset date is unknown, recordedDate can be used to establish if the condition was present on or before a given date.  If the recordedDate is known and provided by a sending system, it is preferred that the receiving system preserve that recordedDate value. If the recordedDate is not provided by the sending system, the receipt timestamp is sometimes used as the recordedDate."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="REL-11"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].time"/>
+      </mapping>
+    </element>
+    <element id="Condition.participant">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#34395"/>
+      </extension>
+      <path value="Condition.participant"/>
+      <short value="Who or what participated in the activities related to the condition and how they were involved"/>
+      <definition value="Indicates who or what participated in the activities related to the condition and how they were involved."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRF]"/>
+      </mapping>
+    </element>
+    <element id="Condition.participant.function">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#14007, J#34394, J#34395"/>
+      </extension>
+      <path value="Condition.participant.function"/>
+      <short value="Type of involvement"/>
+      <definition value="Distinguishes the type of involvement of the actor in the activities related to the condition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConditionParticipantFunction"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participation-role-type"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation.functionCode"/>
+      </mapping>
+    </element>
+    <element id="Condition.participant.actor">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#11089, GF#22270, J#34395"/>
+      </extension>
+      <path value="Condition.participant.actor"/>
+      <short value="Who or what participated in the activities related to the condition"/>
+      <definition value="Indicates who or what participated in the activities related to the condition."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.who"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player"/>
+      </mapping>
+    </element>
+    <element id="Condition.stage">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="370,0"/>
+      </extension>
+      <path value="Condition.stage"/>
+      <short value="Stage/grade, usually assessed formally"/>
+      <definition value="A simple summary of the stage such as &quot;Stage 3&quot; or &quot;Early Onset&quot;. The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer&#39;s, or Parkinson disease."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="con-1"/>
+        <severity value="error"/>
+        <human value="Stage SHALL have summary or assessment"/>
+        <expression value="summary.exists() or assessment.exists()"/>
+        <xpath value="exists(f:summary) or exists(f:assessment)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;stage/grade&quot;]"/>
+      </mapping>
+    </element>
+    <element id="Condition.stage.summary">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#26847."/>
+      </extension>
+      <path value="Condition.stage.summary"/>
+      <short value="Simple summary (disease specific)"/>
+      <definition value="A simple summary of the stage such as &quot;Stage 3&quot; or &quot;Early Onset&quot;. The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer&#39;s, or Parkinson disease."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <condition value="con-1"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConditionStage"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing condition stages (e.g. Cancer stages)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/condition-stage"/>
+      </binding>
+      <mapping>
+        <identity value="sct-concept"/>
+        <map value="&lt; 254291000 |Staging and scales|"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PRB-14"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".value"/>
+      </mapping>
+    </element>
+    <element id="Condition.stage.assessment">
+      <path value="Condition.stage.assessment"/>
+      <short value="Formal record of assessment"/>
+      <definition value="Reference to a formal record of the evidence on which the staging assessment is based."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalImpression"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </type>
+      <condition value="con-1"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".self"/>
+      </mapping>
+    </element>
+    <element id="Condition.stage.type">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Added per GF#12943."/>
+      </extension>
+      <path value="Condition.stage.type"/>
+      <short value="Kind of staging"/>
+      <definition value="The kind of staging, such as pathological or clinical staging."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConditionStageType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing the kind of condition staging (e.g. clinical or pathological)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/condition-stage-type"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;stage type&quot;]"/>
+      </mapping>
+    </element>
+    <element id="Condition.evidence">
+	  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#32481"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="370,180"/>
+      </extension>
+      <path value="Condition.evidence"/>
+      <short value="Supporting evidence for the verification status"/>
+      <definition value="Supporting evidence / manifestations that are the basis of the Condition&#39;s verification status, such as evidence that confirmed or refuted the condition."/>
+      <comment value="If the condition was confirmed, but subsequently refuted, then the evidence can be cumulative including all evidence over time.  The evidence may be a simple list of coded symptoms/manifestations, or references to observations or formal assessments, or both.  For example, if the Condition.code is pneumonia, then there could be an evidence list where Condition.evidence.concept = fever (CodeableConcept), Condition.evidence.concept = cough (CodeableConcept), and Condition.evidence.reference = bronchitis (reference to Condition). "/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ManifestationOrSymptom"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+          <valueMarkdown value="J#32755"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=SPRT].target[classCode=OBS, moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="Condition.note">
+      <path value="Condition.note"/>
+      <short value="Additional information about the Condition"/>
+      <definition value="Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="NTE child of PRB"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="OrganizationAffiliation-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OrganizationAffiliation-active"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OrganizationAffiliation.active"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-active"/>
+        <description value="Whether this organization affiliation record is in active use"/>
+        <code value="active"/>
+        <type value="token"/>
+        <expression value="OrganizationAffiliation.active"/>
+        <xpath value="f:OrganizationAffiliation/f:active"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OrganizationAffiliation-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OrganizationAffiliation.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-date"/>
+        <description value="The period during which the participatingOrganization is affiliated with the primary organization"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="OrganizationAffiliation.period"/>
+        <xpath value="f:OrganizationAffiliation/f:period"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OrganizationAffiliation-email"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OrganizationAffiliation.telecom(system=email)"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-email"/>
+        <description value="A value in an email contact"/>
+        <code value="email"/>
+        <type value="token"/>
+        <expression value="OrganizationAffiliation.telecom.where(system=&#39;email&#39;)"/>
+        <xpath value="f:OrganizationAffiliation/f:telecom[system/@value=&#39;email&#39;]"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OrganizationAffiliation-endpoint"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OrganizationAffiliation.endpoint"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-endpoint"/>
+        <description value="Technical endpoints providing access to services operated for this role"/>
+        <code value="endpoint"/>
+        <type value="reference"/>
+        <expression value="OrganizationAffiliation.endpoint"/>
+        <xpath value="f:OrganizationAffiliation/f:endpoint"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OrganizationAffiliation-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OrganizationAffiliation.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-identifier"/>
+        <description value="An organization affiliation&#39;s Identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="OrganizationAffiliation.identifier"/>
+        <xpath value="f:OrganizationAffiliation/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OrganizationAffiliation-location"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OrganizationAffiliation.location"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-location"/>
+        <description value="The location(s) at which the role occurs"/>
+        <code value="location"/>
+        <type value="reference"/>
+        <expression value="OrganizationAffiliation.location"/>
+        <xpath value="f:OrganizationAffiliation/f:location"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OrganizationAffiliation-network"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OrganizationAffiliation.network"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-network"/>
+        <description value="Health insurance provider network in which the participatingOrganization provides the role&#39;s services (if defined) at the indicated locations (if defined)"/>
+        <code value="network"/>
+        <type value="reference"/>
+        <expression value="OrganizationAffiliation.network"/>
+        <xpath value="f:OrganizationAffiliation/f:network"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OrganizationAffiliation-participating-organization"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OrganizationAffiliation.participatingOrganization"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-participating-organization"/>
+        <description value="The organization that provides services to the primary organization"/>
+        <code value="participating-organization"/>
+        <type value="reference"/>
+        <expression value="OrganizationAffiliation.participatingOrganization"/>
+        <xpath value="f:OrganizationAffiliation/f:participatingOrganization"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OrganizationAffiliation-phone"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OrganizationAffiliation.telecom(system=phone)"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-phone"/>
+        <description value="A value in a phone contact"/>
+        <code value="phone"/>
+        <type value="token"/>
+        <expression value="OrganizationAffiliation.telecom.where(system=&#39;phone&#39;)"/>
+        <xpath value="f:OrganizationAffiliation/f:telecom[system/@value=&#39;phone&#39;]"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OrganizationAffiliation-primary-organization"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OrganizationAffiliation.organization"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-primary-organization"/>
+        <description value="The organization that receives the services from the participating organization"/>
+        <code value="primary-organization"/>
+        <type value="reference"/>
+        <expression value="OrganizationAffiliation.organization"/>
+        <xpath value="f:OrganizationAffiliation/f:organization"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OrganizationAffiliation-role"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OrganizationAffiliation.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-role"/>
+        <description value="Definition of the role the participatingOrganization plays"/>
+        <code value="role"/>
+        <type value="token"/>
+        <expression value="OrganizationAffiliation.code"/>
+        <xpath value="f:OrganizationAffiliation/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OrganizationAffiliation-service"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OrganizationAffiliation.healthcareService"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-service"/>
+        <description value="Healthcare services provided through the role"/>
+        <code value="service"/>
+        <type value="reference"/>
+        <expression value="OrganizationAffiliation.healthcareService"/>
+        <xpath value="f:OrganizationAffiliation/f:healthcareService"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OrganizationAffiliation-specialty"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OrganizationAffiliation.specialty"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-specialty"/>
+        <description value="Specific specialty of the participatingOrganization in the context of the role"/>
+        <code value="specialty"/>
+        <type value="token"/>
+        <expression value="OrganizationAffiliation.specialty"/>
+        <xpath value="f:OrganizationAffiliation/f:specialty"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="OrganizationAffiliation-telecom"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="OrganizationAffiliation.telecom"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-telecom"/>
+        <description value="The value in any kind of contact"/>
+        <code value="telecom"/>
+        <type value="token"/>
+        <expression value="OrganizationAffiliation.telecom"/>
+        <xpath value="f:OrganizationAffiliation/f:telecom"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

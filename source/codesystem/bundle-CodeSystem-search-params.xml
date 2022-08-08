@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="CodeSystem-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CodeSystem.concept.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-code"/>
+        <description value="A code defined in the code system"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="CodeSystem.concept.code"/>
+        <xpath value="f:CodeSystem/f:concept/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-content-mode"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CodeSystem.content"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-content-mode"/>
+        <description value="not-present | example | fragment | complete | supplement"/>
+        <code value="content-mode"/>
+        <type value="token"/>
+        <expression value="CodeSystem.content"/>
+        <xpath value="f:CodeSystem/f:content"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-context"/>
+        <description value="A use context assigned to the code system"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(CodeSystem.useContext.value as CodeableConcept)"/>
+        <xpath value="f:CodeSystem/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the code system"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(CodeSystem.useContext.value as Quantity) | (CodeSystem.useContext.value as Range)"/>
+        <xpath value="f:CodeSystem/f:useContext/f:valueQuantity | f:CodeSystem/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-context-type"/>
+        <description value="A type of use context assigned to the code system"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="CodeSystem.useContext.code"/>
+        <xpath value="f:CodeSystem/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the code system"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="CodeSystem.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-context-type-value"/>
+        <description value="A use context type and value assigned to the code system"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="CodeSystem.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-date"/>
+        <description value="The code system publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="CodeSystem.date"/>
+        <xpath value="f:CodeSystem/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-description"/>
+        <description value="The description of the code system"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="CodeSystem.description"/>
+        <xpath value="f:CodeSystem/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-identifier"/>
+        <description value="External identifier for the code system"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="CodeSystem.identifier"/>
+        <xpath value="f:CodeSystem/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-jurisdiction"/>
+        <description value="Intended jurisdiction for the code system"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="CodeSystem.jurisdiction"/>
+        <xpath value="f:CodeSystem/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-language"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CodeSystem.concept.designation.language"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-language"/>
+        <description value="A language in which a designation is provided"/>
+        <code value="language"/>
+        <type value="token"/>
+        <expression value="CodeSystem.concept.designation.language"/>
+        <xpath value="f:CodeSystem/f:concept/f:designation/f:language"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-name"/>
+        <description value="Computationally friendly name of the code system"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="CodeSystem.name"/>
+        <xpath value="f:CodeSystem/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-publisher"/>
+        <description value="Name of the publisher of the code system"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="CodeSystem.publisher"/>
+        <xpath value="f:CodeSystem/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-status"/>
+        <description value="The current status of the code system"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="CodeSystem.status"/>
+        <xpath value="f:CodeSystem/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-supplements"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CodeSystem.supplements"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-supplements"/>
+        <description value="Find code system supplements for the referenced code system"/>
+        <code value="supplements"/>
+        <type value="reference"/>
+        <expression value="CodeSystem.supplements"/>
+        <xpath value="f:CodeSystem/f:supplements"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-system"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CodeSystem.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-system"/>
+        <description value="The system for any codes defined by this code system (same as &#39;url&#39;)"/>
+        <code value="system"/>
+        <type value="uri"/>
+        <expression value="CodeSystem.url"/>
+        <xpath value="f:CodeSystem/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-title"/>
+        <description value="The human-friendly name of the code system"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="CodeSystem.title"/>
+        <xpath value="f:CodeSystem/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-url"/>
+        <description value="The uri that identifies the code system"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="CodeSystem.url"/>
+        <xpath value="f:CodeSystem/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-version"/>
+        <description value="The business version of the code system"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="CodeSystem.version"/>
+        <xpath value="f:CodeSystem/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CodeSystem-effective"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CodeSystem.effectivePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MetadataResource-effective"/>
+        <description value="The time during which the CodeSystem is intended to be in use"/>
+        <code value="effective"/>
+        <type value="date"/>
+        <expression value="CodeSystem.effectivePeriod"/>
+        <xpath value="f:CodeSystem/f:effectivePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CodeSystem.relatedArtifact.resource"/>
+        </extension>
+        <description value="A resource that the CodeSystem is derived from"/>
+        <code value="derived-from"/>
+        <type value="reference"/>
+        <expression value="CodeSystem.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
+        <xpath value="f:CodeSystem/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CodeSystem.relatedArtifact.resource"/>
+        </extension>
+        <description value="The predecessor of the CodeSystem"/>
+        <code value="predecessor"/>
+        <type value="reference"/>
+        <expression value="CodeSystem.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <xpath value="f:CodeSystem/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CodeSystem.topic"/>
+        </extension>
+        <description value="Topics associated with the CodeSystem"/>
+        <code value="topic"/>
+        <type value="token"/>
+        <expression value="CodeSystem.topic"/>
+        <xpath value="f:CodeSystem/f:topic"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

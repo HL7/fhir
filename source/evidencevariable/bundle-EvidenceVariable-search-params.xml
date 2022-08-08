@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
+  <id value="EvidenceVariable-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-composed-of"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EvidenceVariable.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-composed-of"/>
+        <description value="What resource is being referenced"/>
+        <code value="composed-of"/>
+        <type value="reference"/>
+        <expression value="EvidenceVariable.relatedArtifact.where(type=&#39;composed-of&#39;).resource"/>
+        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value=&#39;composed-of&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-context"/>
+        <description value="A use context assigned to the evidence variable"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(EvidenceVariable.useContext.value as CodeableConcept)"/>
+        <xpath value="f:EvidenceVariable/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the evidence variable"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(EvidenceVariable.useContext.value as Quantity) | (EvidenceVariable.useContext.value as Range)"/>
+        <xpath value="f:EvidenceVariable/f:useContext/f:valueQuantity | f:EvidenceVariable/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-context-type"/>
+        <description value="A type of use context assigned to the evidence variable"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="EvidenceVariable.useContext.code"/>
+        <xpath value="f:EvidenceVariable/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the evidence variable"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="EvidenceVariable.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-context-type-value"/>
+        <description value="A use context type and value assigned to the evidence variable"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="EvidenceVariable.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-date"/>
+        <description value="The evidence variable publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="EvidenceVariable.date"/>
+        <xpath value="f:EvidenceVariable/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-depends-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EvidenceVariable.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-depends-on"/>
+        <description value="What resource is being referenced"/>
+        <code value="depends-on"/>
+        <type value="reference"/>
+        <expression value="EvidenceVariable.relatedArtifact.where(type=&#39;depends-on&#39;).resource"/>
+        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value=&#39;depends-on&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-derived-from"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EvidenceVariable.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-derived-from"/>
+        <description value="What resource is being referenced"/>
+        <code value="derived-from"/>
+        <type value="reference"/>
+        <expression value="EvidenceVariable.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
+        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-description"/>
+        <description value="The description of the evidence variable"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="EvidenceVariable.description"/>
+        <xpath value="f:EvidenceVariable/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-identifier"/>
+        <description value="External identifier for the evidence variable"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="EvidenceVariable.identifier"/>
+        <xpath value="f:EvidenceVariable/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-name"/>
+        <description value="Computationally friendly name of the evidence variable"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="EvidenceVariable.name"/>
+        <xpath value="f:EvidenceVariable/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-predecessor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EvidenceVariable.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-predecessor"/>
+        <description value="What resource is being referenced"/>
+        <code value="predecessor"/>
+        <type value="reference"/>
+        <expression value="EvidenceVariable.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-publisher"/>
+        <description value="Name of the publisher of the evidence variable"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="EvidenceVariable.publisher"/>
+        <xpath value="f:EvidenceVariable/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-status"/>
+        <description value="The current status of the evidence variable"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="EvidenceVariable.status"/>
+        <xpath value="f:EvidenceVariable/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-successor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EvidenceVariable.relatedArtifact.resource"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-successor"/>
+        <description value="What resource is being referenced"/>
+        <code value="successor"/>
+        <type value="reference"/>
+        <expression value="EvidenceVariable.relatedArtifact.where(type=&#39;successor&#39;).resource"/>
+        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value=&#39;successor&#39;]/f:resource"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-title"/>
+        <description value="The human-friendly name of the evidence variable"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="EvidenceVariable.title"/>
+        <xpath value="f:EvidenceVariable/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-topic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-topic"/>
+        <description value="Topics associated with the EvidenceVariable"/>
+        <code value="topic"/>
+        <type value="token"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-url"/>
+        <description value="The uri that identifies the evidence variable"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="EvidenceVariable.url"/>
+        <xpath value="f:EvidenceVariable/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EvidenceVariable-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EvidenceVariable-version"/>
+        <description value="The business version of the evidence variable"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="EvidenceVariable.version"/>
+        <xpath value="f:EvidenceVariable/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

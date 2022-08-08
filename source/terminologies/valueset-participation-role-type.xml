@@ -2,20 +2,20 @@
   <id value="participation-role-type"/>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml"> This value set includes example participation role. </div>
+    <div xmlns="http://www.w3.org/1999/xhtml"> This value set includes agent participation types. </div>
   </text>
 	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
 	  <valueBoolean value="true"/>
 	</extension>
 
   <url value="http://hl7.org/fhir/ValueSet/participation-role-type"/>
-  <version value="1.8.0"/>
+  <version value="1.9.0"/>
   <name value="ParticipationRoleType"/>
 
   <status value="draft"/>
   <experimental value="false"/>
 
-  <date value="2017-01-30T18:00:00+01:00"/>
+  <date value="2021-12-06T18:00:00+01:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -29,254 +29,26 @@
   </contact>
 
   <description
-        value="This FHIR value set is comprised of Actor participation Type codes, which can be used to value FHIR agents, actors, and other role
-        elements. The FHIR Actor participation type value set is based on 
-		DICOM Audit Message, C402;
-		ASTM Standard, E1762-95 [2013]; selected codes and 
-        derived actor roles from HL7 RoleClass OID 2.16.840.1.113883.5.110; 
-		HL7 Role Code 2.16.840.1.113883.5.111, including AgentRoleType; 
-        HL7 ParticipationType OID: 2.16.840.1.113883.5.90; and 
-		HL7 ParticipationFunction codes OID: 2.16.840.1.113883.5.88. 
-
-        This value set includes, by reference, role codes from external code systems: NUCC Health Care Provider Taxonomy OID: 2.16.840.1.113883.6.101; 
-        North American Industry Classification System [NAICS]OID: 2.16.840.1.113883.6.85; IndustryClassificationSystem 2.16.840.1.113883.1.11.16039; 
-        and US Census Occupation Code OID: 2.16.840.1.113883.6.243 for relevant recipient or custodian codes not included in this value set.  
-
-        If no source is indicated in the definition comments, then these are example FHIR codes."/>
+        value="This FHIR value set is comprised of Actor participation Type codes, which can be used to value FHIR agents, actors, and other role elements. The codes are intended to express how the agent participated in some activity. Sometimes refered to the agent functional-role relative to the activity."/>
 
   <copyright
-        value="This is an example FHIR value set based on ASTM Standard, E1762-95 (2013) HL7 RoleClass OID 2.16.840.1.113883.5.110, 
-        HL7 Role Code 2.16.840.1.113883.5.111, HL7 ParticipationType OID: 2.16.840.1.113883.5.90, HL7 ParticipationFunction codes at OID: 2.16.840.1.113883.5.88, 
-        and HL7 Security and Privacy Domain Analysis Model roles classes.
-		These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
+        value="This is an example FHIR value set based on ASTM Standard, E1762-95 (2013) 
+		Some codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
 
   <compose>
     <include>
-      <!-- Include all codes from the HL7-defined codesystem contract-signer-type -->
-      <system value="http://terminology.hl7.org/CodeSystem/contractsignertypecodes"/>
-      <concept>
-        <code value="AMENDER"/>
-      </concept>
-      <concept>
-        <code value="COAUTH"/>
-      </concept>
-      <concept>
-        <code value="CONT"/>
-      </concept>
-      <concept>
-        <code value="EVTWIT"/>
-      </concept>
-      <concept>
-        <code value="PRIMAUTH"/>
-      </concept>
-      <concept>
-        <code value="REVIEWER"/>
-      </concept>
-
-      <concept>
-        <code value="SOURCE"/>
-      </concept>
-
-      <concept>
-        <code value="TRANS"/>
-      </concept>
-
-      <concept>
-        <code value="VALID"/>
-      </concept>
-      <concept>
-        <code value="VERF"/>
-      </concept>
-
-    </include>
+      <valueSet value="http://terminology.hl7.org/ValueSet/provenance-agent-type"/>
+	</include>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
-      <concept>
-        <code value="AFFL"/>
-      </concept>
-      <concept>
-        <code value="AGNT"/>
-      </concept>
-      <concept>
-        <code value="ASSIGNED"/>
-      </concept>
-      <concept>
-        <code value="CLAIM"/>
-      </concept>
-      <concept>
-        <code value="COVPTY"/>
-      </concept>
-      <concept>
-        <code value="DEPEN"/>
-      </concept>
-      <concept>
-        <code value="ECON"/>
-      </concept>
-      <concept>
-        <code value="EMP"/>
-      </concept>
-      <concept>
-        <code value="GUARD"/>
-      </concept>
-      <concept>
-        <code value="INVSBJ"/>
-      </concept>
-      <concept>
-        <code value="NAMED"/>
-      </concept>
-      <concept>
-        <code value="NOK"/>
-      </concept>
-      <concept>
-        <code value="PAT"/>
-      </concept>
-      <concept>
-        <code value="PROV"/>
-      </concept>
-      <!-- TODO: Was "NOTARY" - and it seems the description does not come from v3 RoleClass? Did I chose the right CodeSystem? -->
-      <concept>
-        <code value="NOT"/>
-      </concept>
-    </include>
-    <include>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
-      <concept>
-        <code value="CLASSIFIER"/>
-      </concept>
-      <concept>
-        <code value="CONSENTER"/>
-      </concept>
-      <concept>
-        <code value="CONSWIT"/>
-      </concept>
-      <concept>
-        <code value="COPART"/>
-      </concept>
-      <concept>
-        <code value="DECLASSIFIER"/>
-      </concept>
-      <concept>
-        <code value="DELEGATEE"/>
-      </concept>
-      <concept>
-        <code value="DELEGATOR"/>
-      </concept>
-      <concept>
-        <code value="DOWNGRDER"/>
-      </concept>
-      <concept>
-        <code value="DPOWATT"/>
-      </concept>
-      <concept>
-        <code value="EXCEST"/>
-      </concept>
-      <concept>
-        <code value="GRANTEE"/>
-      </concept>
-      <concept>
-        <code value="GRANTOR"/>
-      </concept>
-      <concept>
-        <code value="GT"/>
-      </concept>
-
-      <concept>
-        <code value="GUADLTM"/>
-      </concept>
-      <concept>
-        <code value="HPOWATT"/>
-      </concept>
-      <concept>
-        <code value="INTPRTER"/>
-      </concept>
-
-      <concept>
-        <code value="POWATT"/>
-      </concept>
-      <concept>
-        <code value="RESPRSN"/>
-      </concept>
-
-
-      <concept>
-        <code value="SPOWATT"/>
-      </concept>
-    </include>
-    <include>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
-
-      <filter>
-        <!-- The member of a jurisdiction afforded certain rights and encumbered with certain obligation in accordance with 
-                jurisdictional policy. For example, a person with a citizen's right to receive a copy of a consent directive or 
-                personal information collected or processed by another, who may be a patient.[Synonymous with HL7 RoleClass CIT (citizen)
-                defined as: 'Citizen of a political entity'. May be further specialized using HL7 RoleCode, _CitizenRoleType (CitizenRoleType)
-                such as CAS (asylum seeker)] -->
-        <property value="concept"/>
-        <op value="is-a"/>
-        <value value="_CitizenRoleType"/>
-      </filter>
-
-    </include>
-    <include>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationFunction"/>
-      <concept>
-        <code value="AUCG"/>
-      </concept>
-      <concept>
-        <code value="AULR"/>
-      </concept>
-      <concept>
-        <code value="AUTM"/>
-      </concept>
-      <concept>
-        <code value="AUWA"/>
-      </concept>
-      <concept>
-        <code value="PROMSK"/>
-      </concept>
-    </include>
-    <include>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-      <concept>
-        <code value="AUT"/>
-      </concept>
-      <concept>
-        <code value="CST"/>
-      </concept>
-      <concept>
-        <code value="INF"/>
-      </concept>
-      <concept>
-        <code value="IRCP"/>
-      </concept>
-      <concept>
-        <code value="LA"/>
-      </concept>
-
-      <concept>
-        <code value="IRCP"/>
-      </concept>
-      <concept>
-        <code value="TRC"/>
-      </concept>
-
-      <concept>
-        <code value="WIT"/>
-      </concept>
-
+	<!-- DICOM codes for AuditEvent agent type -->
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+	  <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_402.html" />
     </include>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/extra-security-role-type"/>
     </include>
 
-    <include>
-	<!-- DICOM codes for AuditEvent agent role -->
-      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-	  <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_402.html" />
-    </include>
-    <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/provenance-participant-type"/>
-	</include>
 	</compose>
 
 </ValueSet>
+

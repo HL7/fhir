@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="DocumentReference-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="XDS example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="xds-example"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/xds"/>
+      <display value="XDS example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Generic example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example"/>
+      <display value="Generic example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Generic Diagram Image"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-diagram"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-diagram"/>
+      <display value="example diagram"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DICOM Ultrasound Image"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-dicom"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/1.2.840.11361907579238403408700.3.1.04.19970327150033"/>
+      <display value="DICOM example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Sound recording of speech"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-sound"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/sound"/>
+      <display value="Sound example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Xray of left hand"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-xray"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/xray"/>
+      <display value="Xray example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="XDS Comprehensive metadata"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-comprehensive"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-comprehensive"/>
+      <display value="XDS Comprehensive Metadata example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Metadata pointing at a Composition"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-composition"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-composition"/>
+      <display value="Metadata pointing at Composition example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Metadata pointing at a FHIR Document Bundle"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentreference-example-bundle"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/example-bundle"/>
+      <display value="Metadata pointing at a FHIR Document Bundle example"/>
+    </item>
+  </entry>
+</List>

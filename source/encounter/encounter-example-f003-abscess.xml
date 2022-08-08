@@ -8,10 +8,11 @@
 	</identifier>
 	<status value="completed"/>
 	<class>
-		<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-		<code value="AMB"/>
-		<!-- outpatient -->
-		<display value="ambulatory"/>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<code value="AMB"/> <!-- outpatient -->
+			<display value="ambulatory"/>
+		</coding>
 	</class>
 	<type>
 		<coding>
@@ -31,11 +32,14 @@
 		<reference value="Patient/f001"/>
 		<display value="P. van de Heuvel"/>
 	</subject>
+	<serviceProvider>
+		<reference value="Organization/f001"/>
+	</serviceProvider>
 	<participant>
-		<individual>
+		<actor>
 			<reference value="Practitioner/f001"/>
 			<display value="E.M. van den Broek"/>
-		</individual>
+		</actor>
 	</participant>
 	<length>
 		<value value="90"/>
@@ -52,7 +56,7 @@
       </coding>
     </concept>
 	</reason>
-	<hospitalization>
+	<admission>
 		<preAdmissionIdentifier>
 			<use value="official"/>
 			<system value="http://www.bmc.nl/zorgportal/identifiers/pre-admissions"/>
@@ -84,8 +88,5 @@
 				<display value="Discharge to home"/>
 			</coding>
 		</dischargeDisposition>
-	</hospitalization>
-	<serviceProvider>
-		<reference value="Organization/f001"/>
-	</serviceProvider>
+	</admission>
 </Encounter>

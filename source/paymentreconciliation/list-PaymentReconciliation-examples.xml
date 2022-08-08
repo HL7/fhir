@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="PaymentReconciliation-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Payment Reconciliation Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="paymentreconciliation-example"/>
+    </extension>
+    <item>
+      <reference value="PaymentReconciliation/ER2500"/>
+      <display value="General-Primary"/>
+    </item>
+  </entry>
+</List>

@@ -1,28 +1,59 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Supply Status"/>
+  <id value="supplydelivery-status"/>
+  <meta>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <ul>
+        <li>Include all codes defined in 
+          <a href="codesystem-supplydelivery-status.html">
+            <code>http://hl7.org/fhir/supplydelivery-status</code>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/supplydelivery-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.700"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="SupplyDeliveryStatus"/>
+  <title value="SupplyDeliveryStatus"/>
   <status value="draft"/>
-  <publisher value="FHIR Project team"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
   </contact>
-  <description value="This value sets refers to a supply status"/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/supply-status"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="dispensed"/>
-      <display value="Dispensed"/>
-      <definition value="Supply is part of a pharmacy order and has been dispensed"/>
-    </concept>
-    <concept>
-      <code value="received"/>
-      <display value="Received"/>
-      <definition value="Supply has been received by the requestor"/>
-    </concept>
-  </codeSystem>
+  <description value="Status of the supply delivery."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/supplydelivery-status"/>
+    </include>
+  </compose>
 </ValueSet>

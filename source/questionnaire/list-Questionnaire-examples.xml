@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<List xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+	<id value="Questionnaire-examples"/>
+	<status value="current"/>
+	<mode value="working"/>
+	<entry>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+			<valueString value="General questionnaire example"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+			<valueString value="questionnaire-example"/>
+		</extension>
+		<item>
+			<reference value="Questionnaire/3141"/>
+			<display value="General"/>
+		</item>
+	</entry>
+	<entry>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+			<valueString value="Real-world lifelines questionnaire (fictively taken from the patient)"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+			<valueString value="questionnaire-example-f201-lifelines"/>
+		</extension>
+		<item>
+			<reference value="Questionnaire/f201"/>
+			<display value="Lifelines"/>
+		</item>
+	</entry>
+	<entry>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+			<valueString value="Neonate record from New South Wales, Australia &quot;My Personal Health Record&quot; example"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+			<valueString value="questionnaire-example-bluebook"/>
+		</extension>
+		<item>
+			<reference value="Questionnaire/bb"/>
+			<display value="BlueBook"/>
+		</item>
+	</entry>
+	<entry>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+			<valueString value="Glasgow Coma Score example form"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+			<valueString value="questionnaire-example-gcs"/>
+		</extension>
+		<item>
+			<reference value="Questionnaire/gcs"/>
+			<display value="Glasgow Coma Score"/>
+		</item>
+	</entry>
+	<entry>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+			<valueString value="Example instrument for assessing Zika virus exposure potential"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+			<valueString value="questionnaire-zika-virus-exposure-assessment"/>
+		</extension>
+		<item>
+			<reference value="Questionnaire/zika-virus-exposure-assessment"/>
+			<display value="Zika Virus Exposure Assessment"/>
+		</item>
+	</entry>
+	<entry>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+			<valueString value="LOINC US Surgeon General family history including value sets"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+			<valueString value="questionnaire-profile-example-ussg-fht"/>
+		</extension>
+		<item>
+			<reference value="Questionnaire/ussg-fht"/>
+			<display value="LOINC USSG Family History"/>
+		</item>
+	</entry>
+	<entry>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+			<valueString value="Questionnaire for Practitioner information with metadata inferred from definitions"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+			<valueString value="questionnaire-example-practitioner-info"/>
+		</extension>
+		<item>
+			<reference value="Questionnaire/example-practitioner-info"/>
+			<display value="Practtitioner info 'definition' example"/>
+		</item>
+	</entry>
+</List>

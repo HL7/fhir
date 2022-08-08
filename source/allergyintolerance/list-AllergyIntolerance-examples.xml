@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="AllergyIntolerance-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A typical Food Allergy"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="allergyintolerance-example"/>
+    </extension>
+    <item>
+      <reference value="AllergyIntolerance/example"/>
+      <display value="Food Allergy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A typical Medication allergy from a clinical system"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="allergyintolerance-medication"/>
+    </extension>
+    <item>
+      <reference value="AllergyIntolerance/medication"/>
+      <display value="Medication Allergy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An allergy to a substance with additional details in notes"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="allergyintolerance-fishallergy"/>
+    </extension>
+    <item>
+      <reference value="AllergyIntolerance/fishallergy"/>
+      <display value="Fish Allergy with notes"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="No Known Allergy"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="allergyintolerance-nka"/>
+    </extension>
+    <item>
+      <reference value="AllergyIntolerance/nka"/>
+      <display value="No Known Allergy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="No Known Drug Allergy"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="allergyintolerance-nkda"/>
+    </extension>
+    <item>
+      <reference value="AllergyIntolerance/nkda"/>
+      <display value="No Known Drug Allergy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="No Known Latext Allergy"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="allergyintolerance-nkla"/>
+    </extension>
+    <item>
+      <reference value="AllergyIntolerance/nkla"/>
+      <display value="No Known Latex Allergy"/>
+    </item>
+  </entry>
+</List>

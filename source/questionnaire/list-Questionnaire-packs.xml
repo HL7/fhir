@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<List xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+	<id value="Questionnaire-packs"/>
+	<status value="current"/>
+	<mode value="working"/>
+	<entry>
+		<item>
+			<reference value="ImplementationGuide/Questionnaire-core"/>
+		</item>
+	</entry>
+</List>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="VisionPrescription-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="VisionPrescription-datewritten"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="VisionPrescription.dateWritten"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/VisionPrescription-datewritten"/>
+        <description value="Return prescriptions written on this date"/>
+        <code value="datewritten"/>
+        <type value="date"/>
+        <expression value="VisionPrescription.dateWritten"/>
+        <xpath value="f:VisionPrescription/f:dateWritten"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="VisionPrescription-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="VisionPrescription.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/VisionPrescription-encounter"/>
+        <description value="Return prescriptions with this encounter identifier"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="VisionPrescription.encounter"/>
+        <xpath value="f:VisionPrescription/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="VisionPrescription-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="VisionPrescription.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/VisionPrescription-identifier"/>
+        <description value="Return prescriptions with this external identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="VisionPrescription.identifier"/>
+        <xpath value="f:VisionPrescription/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="VisionPrescription-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="VisionPrescription.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/VisionPrescription-patient"/>
+        <description value="The identity of a patient to list dispenses for"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="VisionPrescription.patient"/>
+        <xpath value="f:VisionPrescription/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="VisionPrescription-prescriber"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="VisionPrescription.prescriber"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/VisionPrescription-prescriber"/>
+        <description value="Who authorized the vision prescription"/>
+        <code value="prescriber"/>
+        <type value="reference"/>
+        <expression value="VisionPrescription.prescriber"/>
+        <xpath value="f:VisionPrescription/f:prescriber"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="VisionPrescription-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="VisionPrescription.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/VisionPrescription-status"/>
+        <description value="The status of the vision prescription"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="VisionPrescription.status"/>
+        <xpath value="f:VisionPrescription/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

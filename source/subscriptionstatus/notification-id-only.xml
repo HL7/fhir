@@ -11,8 +11,13 @@
         <id value="c144782b-da2f-4125-a9e2-9fa4b9085a40"/>
         <status value="active"/>
         <type value="event-notification"/>
-        <eventsSinceSubscriptionStart value="310"/>
-        <eventsInNotification value="1"/>
+        <eventsSinceSubscriptionStart value="2"/>
+        <notificationEvent>
+          <eventNumber value="2"/>
+          <focus>
+            <reference value="http://example.org/FHIR/R5/Encounter/2"/>
+          </focus>
+        </notificationEvent>
         <subscription>
           <reference value="http://example.org/FHIR/R5/Subscription/123"/>
         </subscription>
@@ -21,7 +26,7 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="https://example.org/FHIR/R5/Encounter/2" />
+    <fullUrl value="http://example.org/FHIR/R5/Encounter/2" />
     <request>
       <method value="PUT" />
       <url value="Encounter/2" />

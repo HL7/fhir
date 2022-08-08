@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="valueset-status-activityStatusDate"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/valueset-status-activityStatusDate"/>
+  <version value="4.6.0"/>
+  <name value="activityStatusDate"/>
+  <status value="draft"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="The date when the associated Value Set Definition Version activity status is in effect."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="ValueSet"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Date when the activity status is in effect"/>
+      <definition value="The date when the associated Value Set Definition Version activity status is in effect."/>
+      <comment value="When the Activity Status is set to &#x201C;Active&#x201D;, the Activity Status Date defines the Effective Date which is the date-time the Value Set Definition Version becomes active. When the Activity Status is set to &#x201C;Inactive&#x201D;, the Activity Status Date is the date-time when the Value Set Definition version becomes Inactive. This cycle may happen multiple times. The specified time is expected to be one second after midnight UTC of the Activity Status Date. The date may be in the future. &#xA;&#xA;It is strongly encouraged that the Activity Status be set such that no more than one Value Set Definition Version for a single Value Set Identifier can have an Activity Status of ACTIVE at the same time within a single realm. In cases where this is not true, evaluation of the alignment of a Value Set Expansion Code Set to a specific Value Set Definition, as referenced in a CD, will be problematic.&#xA;&#xA;Changes to this element should never result in a new Value Set Definition Version."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-status-activityStatusDate"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

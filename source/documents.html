@@ -16,7 +16,7 @@ Outstanding issues:
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <h1>FHIR Documents</h1>
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
@@ -108,7 +108,7 @@ There are two key identifiers in the document:
 The document has several dates in it:
 </p>
 <ul>
- <li>The document date (mandatory). This is found in <i>Bundle.meta.lastUpdated</i> and identifies when the document bundle was assembled from the underlying resources</li>
+ <li>The document date (mandatory). This is found in <i>Bundle.timestamp</i> and identifies when the document bundle was assembled from the underlying resources</li>
  <li>The Composition date (mandatory). This is found in <i>Composition.date</i>, which is when the author wrote the document logically</li>
  <li>The Attestation dates (optional). This is found in <i>Composition.attester.time</i> and is when the document was witnessed by the attesters. This would usually be at the same time as the composition date or afterwards</li>
  <li>The Composition last modified time (optional). This is found in <i>Composition.meta.lastUpdated</i> for the composition and is the last date of change of the composition. This must be &gt;= the composition date</li>
@@ -312,8 +312,6 @@ A client can ask a server to generate a fully bundled document from a compositio
 For details, see <a href="composition-operations.html">Generate Document Operation</a>.
 </p>
 
-
-</div>
 
 [%file newfooter%]
 

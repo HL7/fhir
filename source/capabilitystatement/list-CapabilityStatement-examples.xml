@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="CapabilityStatement-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Condition Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="capabilitystatement-example"/>
+    </extension>
+    <item>
+      <reference value="CapabilityStatement/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="PHR Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="capabilitystatement-phr-example"/>
+    </extension>
+    <item>
+      <reference value="CapabilityStatement/phr"/>
+      <display value="PHR"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Complete Capability Statement"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="capabilitystatement-base"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="tool"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="null/capabilitystatement-base"/>
+      <display value="Base"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="EmptyCapabilityStatement"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="capabilitystatement-base2"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="tool"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="null/capabilitystatement-base2"/>
+      <display value="Base2"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Terminology Server Base Capability Statement"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="capabilitystatement-terminology-server"/>
+    </extension>
+    <item>
+      <reference value="CapabilityStatement/terminology-server"/>
+      <display value="TerminologyServer"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Knowledge Repository Base Capability Statement"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="capabilitystatement-knowledge-repository"/>
+    </extension>
+    <item>
+      <reference value="CapabilityStatement/knowledge-repository"/>
+      <display value="KnowledgeRepository"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Measure Processor Base Capability Statement"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="capabilitystatement-measure-processor"/>
+    </extension>
+    <item>
+      <reference value="CapabilityStatement/measure-processor"/>
+      <display value="MeasureProcessor"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Showing new message definition structure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="capabilitystatement-messagedefinition"/>
+    </extension>
+    <item>
+      <reference value="CapabilityStatement/messagedefinition"/>
+      <display value="MessageDefinition"/>
+    </item>
+  </entry>
+  <!--
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="System which records information about EHR events"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/ig">
+      <valueCode value="ehrsrle"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/registered">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="conformance-ehrs-rle"/>
+    </extension>
+    <item>
+      <reference value="CapabilityStatement/conformance-ehrs-rle"/>
+      <display value="EHRS FM Record Lifecycle Event"/>
+    </item>
+  </entry>
+  -->
+</List>

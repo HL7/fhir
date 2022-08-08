@@ -1,12 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="immunization-recommendation-date-criterion"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pher"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/immunization-recommendation-date-criterion"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.308"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="ImmunizationRecommendationDateCriterionCodes"/>
   <title value="Immunization Recommendation Date Criterion Codes"/>
-
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -16,22 +25,22 @@
     </telecom>
   </contact>
   <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the definition of dates relevant to recommendations for future doses of vaccines. This value set is provided as a suggestive example."/>
-  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
+  <copyright value="This content from LOINC&#xAE; is copyright &#xA9; 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
   <compose>
     <include>
       <system value="http://loinc.org"/>
-	<concept>
-	 <code value="30981-5"/>
-	</concept>
-	<concept>
-	 <code value="30980-7"/>
-	</concept>
-	<concept>
-	 <code value="59777-3"/>
-	</concept>
-	<concept>
-	 <code value="59778-1"/>
-	</concept>
+      <concept>
+        <code value="30981-5"/>
+      </concept>
+      <concept>
+        <code value="30980-7"/>
+      </concept>
+      <concept>
+        <code value="59777-3"/>
+      </concept>
+      <concept>
+        <code value="59778-1"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

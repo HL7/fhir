@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="Condition-core"/>
+  <version value="0.1"/>
+  <name value="Condition HL7 Extensions"/>
+  <title value="Condition HL7 Extensions"/>
+  <status value="draft"/>
+  <date value="2015-02-21T00:00:00.000"/>
+  <publisher value="Health Level Seven, Inc. - FHIR WG"/>
+  <description value="Defines common extensions used with or related to the Condition resource"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/condition-dueTo"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/condition-occurredFollowing"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/condition-outcome"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/condition-ruledOut"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/condition-related"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/condition-assertedDate"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/condition-diseaseCourse"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/condition-reviewed"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

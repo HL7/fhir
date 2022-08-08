@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="map-transform"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/map-transform defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">create
+            
+            <a name="map-transform-create"> </a>
+          
+          </td>
+          
+          <td>create</td>
+          
+          <td>create(type : string) - type is passed through to the application on the standard API, and must be known by it.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">copy
+            
+            <a name="map-transform-copy"> </a>
+          
+          </td>
+          
+          <td>copy</td>
+          
+          <td>copy(source).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">truncate
+            
+            <a name="map-transform-truncate"> </a>
+          
+          </td>
+          
+          <td>truncate</td>
+          
+          <td>truncate(source, length) - source must be stringy type.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">escape
+            
+            <a name="map-transform-escape"> </a>
+          
+          </td>
+          
+          <td>escape</td>
+          
+          <td>escape(source, fmt1, fmt2) - change source from one kind of escaping to another (plain, java, xml, json). note that this is for when the string itself is escaped.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">cast
+            
+            <a name="map-transform-cast"> </a>
+          
+          </td>
+          
+          <td>cast</td>
+          
+          <td>cast(source, type?) - case source from one type to another. target type can be left as implicit if there is one and only one target type known.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">append
+            
+            <a name="map-transform-append"> </a>
+          
+          </td>
+          
+          <td>append</td>
+          
+          <td>append(source...) - source is element or string.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">translate
+            
+            <a name="map-transform-translate"> </a>
+          
+          </td>
+          
+          <td>translate</td>
+          
+          <td>translate(source, uri_of_map) - use the translate operation.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">reference
+            
+            <a name="map-transform-reference"> </a>
+          
+          </td>
+          
+          <td>reference</td>
+          
+          <td>reference(source : object) - return a string that references the provided tree properly.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">dateOp
+            
+            <a name="map-transform-dateOp"> </a>
+          
+          </td>
+          
+          <td>dateOp</td>
+          
+          <td>Perform a date operation. *Parameters to be documented*.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">uuid
+            
+            <a name="map-transform-uuid"> </a>
+          
+          </td>
+          
+          <td>uuid</td>
+          
+          <td>Generate a random UUID (in lowercase). No Parameters.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">pointer
+            
+            <a name="map-transform-pointer"> </a>
+          
+          </td>
+          
+          <td>pointer</td>
+          
+          <td>Return the appropriate string to put in a reference that refers to the resource provided as a parameter.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">evaluate
+            
+            <a name="map-transform-evaluate"> </a>
+          
+          </td>
+          
+          <td>evaluate</td>
+          
+          <td>Execute the supplied FHIRPath expression and use the value returned by that.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">cc
+            
+            <a name="map-transform-cc"> </a>
+          
+          </td>
+          
+          <td>cc</td>
+          
+          <td>Create a CodeableConcept. Parameters = (text) or (system. Code[, display]).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">c
+            
+            <a name="map-transform-c"> </a>
+          
+          </td>
+          
+          <td>c</td>
+          
+          <td>Create a Coding. Parameters = (system. Code[, display]).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">qty
+            
+            <a name="map-transform-qty"> </a>
+          
+          </td>
+          
+          <td>qty</td>
+          
+          <td>Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text is the natural representation e.g. [comparator]value[space]unit.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">id
+            
+            <a name="map-transform-id"> </a>
+          
+          </td>
+          
+          <td>id</td>
+          
+          <td>Create an identifier. Parameters = (system, value[, type]) where type is a code from the identifier type value set.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">cp
+            
+            <a name="map-transform-cp"> </a>
+          
+          </td>
+          
+          <td>cp</td>
+          
+          <td>Create a contact details. Parameters = (value) or (system, value). If no system is provided, the system should be inferred from the content of the value.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/map-transform"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.682"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="StructureMapTransform"/>
+  <title value="StructureMapTransform"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="How data is copied/created."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/map-transform"/>
+  <content value="complete"/>
+  <concept>
+    <code value="create"/>
+    <display value="create"/>
+    <definition value="create(type : string) - type is passed through to the application on the standard API, and must be known by it."/>
+  </concept>
+  <concept>
+    <code value="copy"/>
+    <display value="copy"/>
+    <definition value="copy(source)."/>
+  </concept>
+  <concept>
+    <code value="truncate"/>
+    <display value="truncate"/>
+    <definition value="truncate(source, length) - source must be stringy type."/>
+  </concept>
+  <concept>
+    <code value="escape"/>
+    <display value="escape"/>
+    <definition value="escape(source, fmt1, fmt2) - change source from one kind of escaping to another (plain, java, xml, json). note that this is for when the string itself is escaped."/>
+  </concept>
+  <concept>
+    <code value="cast"/>
+    <display value="cast"/>
+    <definition value="cast(source, type?) - case source from one type to another. target type can be left as implicit if there is one and only one target type known."/>
+  </concept>
+  <concept>
+    <code value="append"/>
+    <display value="append"/>
+    <definition value="append(source...) - source is element or string."/>
+  </concept>
+  <concept>
+    <code value="translate"/>
+    <display value="translate"/>
+    <definition value="translate(source, uri_of_map) - use the translate operation."/>
+  </concept>
+  <concept>
+    <code value="reference"/>
+    <display value="reference"/>
+    <definition value="reference(source : object) - return a string that references the provided tree properly."/>
+  </concept>
+  <concept>
+    <code value="dateOp"/>
+    <display value="dateOp"/>
+    <definition value="Perform a date operation. *Parameters to be documented*."/>
+  </concept>
+  <concept>
+    <code value="uuid"/>
+    <display value="uuid"/>
+    <definition value="Generate a random UUID (in lowercase). No Parameters."/>
+  </concept>
+  <concept>
+    <code value="pointer"/>
+    <display value="pointer"/>
+    <definition value="Return the appropriate string to put in a reference that refers to the resource provided as a parameter."/>
+  </concept>
+  <concept>
+    <code value="evaluate"/>
+    <display value="evaluate"/>
+    <definition value="Execute the supplied FHIRPath expression and use the value returned by that."/>
+  </concept>
+  <concept>
+    <code value="cc"/>
+    <display value="cc"/>
+    <definition value="Create a CodeableConcept. Parameters = (text) or (system. Code[, display])."/>
+  </concept>
+  <concept>
+    <code value="c"/>
+    <display value="c"/>
+    <definition value="Create a Coding. Parameters = (system. Code[, display])."/>
+  </concept>
+  <concept>
+    <code value="qty"/>
+    <display value="qty"/>
+    <definition value="Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text is the natural representation e.g. [comparator]value[space]unit."/>
+  </concept>
+  <concept>
+    <code value="id"/>
+    <display value="id"/>
+    <definition value="Create an identifier. Parameters = (system, value[, type]) where type is a code from the identifier type value set."/>
+  </concept>
+  <concept>
+    <code value="cp"/>
+    <display value="cp"/>
+    <definition value="Create a contact details. Parameters = (value) or (system, value). If no system is provided, the system should be inferred from the content of the value."/>
+  </concept>
+</CodeSystem>

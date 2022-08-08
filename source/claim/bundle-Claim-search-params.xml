@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Claim-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-care-team"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.careTeam.provider"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-care-team"/>
+        <description value="Member of the CareTeam"/>
+        <code value="care-team"/>
+        <type value="reference"/>
+        <expression value="Claim.careTeam.provider"/>
+        <xpath value="f:Claim/f:careTeam/f:provider"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-created"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.created"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-created"/>
+        <description value="The creation date for the Claim"/>
+        <code value="created"/>
+        <type value="date"/>
+        <expression value="Claim.created"/>
+        <xpath value="f:Claim/f:created"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-detail-udi"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.item.detail.udi"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-detail-udi"/>
+        <description value="UDI associated with a line item, detail product or service"/>
+        <code value="detail-udi"/>
+        <type value="reference"/>
+        <expression value="Claim.item.detail.udi"/>
+        <xpath value="f:Claim/f:item/f:detail/f:udi"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.item.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-encounter"/>
+        <description value="Encounters associated with a billed line item"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="Claim.item.encounter"/>
+        <xpath value="f:Claim/f:item/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-enterer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.enterer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-enterer"/>
+        <description value="The party responsible for the entry of the Claim"/>
+        <code value="enterer"/>
+        <type value="reference"/>
+        <expression value="Claim.enterer"/>
+        <xpath value="f:Claim/f:enterer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-facility"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.facility"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-facility"/>
+        <description value="Facility where the products or services have been or will be provided"/>
+        <code value="facility"/>
+        <type value="reference"/>
+        <expression value="Claim.facility"/>
+        <xpath value="f:Claim/f:facility"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-identifier"/>
+        <description value="The primary identifier of the financial resource"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Claim.identifier"/>
+        <xpath value="f:Claim/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-insurer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.insurer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-insurer"/>
+        <description value="The target payor/insurer for the Claim"/>
+        <code value="insurer"/>
+        <type value="reference"/>
+        <expression value="Claim.insurer"/>
+        <xpath value="f:Claim/f:insurer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-item-udi"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.item.udi"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-item-udi"/>
+        <description value="UDI associated with a line item product or service"/>
+        <code value="item-udi"/>
+        <type value="reference"/>
+        <expression value="Claim.item.udi"/>
+        <xpath value="f:Claim/f:item/f:udi"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-patient"/>
+        <description value="Patient receiving the products or services"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Claim.patient"/>
+        <xpath value="f:Claim/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-payee"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.payee.party"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-payee"/>
+        <description value="The party receiving any payment for the Claim"/>
+        <code value="payee"/>
+        <type value="reference"/>
+        <expression value="Claim.payee.party"/>
+        <xpath value="f:Claim/f:payee/f:party"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-priority"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.priority"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-priority"/>
+        <description value="Processing priority requested"/>
+        <code value="priority"/>
+        <type value="token"/>
+        <expression value="Claim.priority"/>
+        <xpath value="f:Claim/f:priority"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-procedure-udi"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.procedure.udi"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-procedure-udi"/>
+        <description value="UDI associated with a procedure"/>
+        <code value="procedure-udi"/>
+        <type value="reference"/>
+        <expression value="Claim.procedure.udi"/>
+        <xpath value="f:Claim/f:procedure/f:udi"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-provider"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.provider"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-provider"/>
+        <description value="Provider responsible for the Claim"/>
+        <code value="provider"/>
+        <type value="reference"/>
+        <expression value="Claim.provider"/>
+        <xpath value="f:Claim/f:provider"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-status"/>
+        <description value="The status of the Claim instance."/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Claim.status"/>
+        <xpath value="f:Claim/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-subdetail-udi"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.item.detail.subDetail.udi"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-subdetail-udi"/>
+        <description value="UDI associated with a line item, detail, subdetail product or service"/>
+        <code value="subdetail-udi"/>
+        <type value="reference"/>
+        <expression value="Claim.item.detail.subDetail.udi"/>
+        <xpath value="f:Claim/f:item/f:detail/f:subDetail/f:udi"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Claim-use"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Claim.use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Claim-use"/>
+        <description value="The kind of financial resource"/>
+        <code value="use"/>
+        <type value="token"/>
+        <expression value="Claim.use"/>
+        <xpath value="f:Claim/f:use"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

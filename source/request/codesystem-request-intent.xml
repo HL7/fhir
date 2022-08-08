@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="request-intent"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/request-intent"/>
+  <version value="4.6.0"/>
+  <name value="RequestIntent"/>
+  <concept>
+    <code value="proposal"/>
+    <display value="Proposal"/>
+    <definition value="The request is a suggestion made by someone/something that does not have an intention to ensure it occurs and without providing an authorization to act."/>
+  </concept>
+  <concept>
+    <code value="plan"/>
+    <display value="Plan"/>
+    <definition value="The request represents an intention to ensure something occurs without providing an authorization for others to act."/>
+  </concept>
+  <concept>
+    <code value="directive"/>
+    <display value="Directive"/>
+    <definition value="The request represents a legally binding instruction authored by a Patient or RelatedPerson."/>
+  </concept>
+  <concept>
+    <code value="order"/>
+    <display value="Order"/>
+    <definition value="The request represents a request/demand and authorization for action."/>
+    <concept>
+      <code value="original-order"/>
+      <display value="Original Order"/>
+      <definition value="The request represents an original authorization for action. Original orders should not have a 'based on' link to any other orders, though they might reference plans or proposals."/>
+    </concept>
+    <concept>
+      <code value="reflex-order"/>
+      <display value="Reflex Order"/>
+      <definition value="The request represents an automatically generated supplemental authorization for action based on a parent authorization together with initial results of the action taken against that parent authorization."/>
+    </concept>
+    <concept>
+      <code value="filler-order"/>
+      <display value="Filler Order"/>
+      <definition value="The request represents the view of an authorization instantiated by a fulfilling system.  It expresses the details of the fulfiller's intention to act upon a submitted order. Filler orders should have a 'based on' link to another order. Filler orders will generally represent the full scope and timing of the original order, though not always. (Also see 'instance-order'.)"/>
+    </concept>
+    <concept>
+      <code value="instance-order"/>
+      <display value="Instance Order"/>
+      <definition value="An order created in fulfillment of a broader order that represents the authorization for a single activity occurrence. E.g. The administration of a single dose of a drug. Instance orders might be defined by either placing or filling systems. Instance orders should have a 'based on' link to another order."/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="option"/>
+    <display value="Option"/>
+    <definition value="The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.  Refer to [[[RequestGroup]]] for additional information on how this status is used."/>
+  </concept>
+</CodeSystem>

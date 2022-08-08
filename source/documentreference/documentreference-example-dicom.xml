@@ -46,6 +46,12 @@
     <system value="urn:dicom:uid"/>
     <value value="urn:oid:1.2.840.113619.2.21.3408.700.0.757923840.3.0"/>
   </identifier>
+  <identifier>
+    <use value="official"/>
+    <type><text value="InstanceUID"/></type>
+    <system value="urn:dicom:uid"/>
+    <value value="urn:oid:1.2.840.11361907579238403408700.3.1.04.19970327150033"/>
+  </identifier>
 
   <status value="current"/>
 
@@ -53,19 +59,23 @@
     <reference value="Patient/example"/>
   </subject>
   <event>
+  <concept>
     <!-- modality -->
     <coding>
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
       <code value="US"/>
     </coding>
+	</concept>
   </event>
   <event>
+  <concept>
 	<!-- view -->
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="399067008"/>
       <display value="Lateral projection"/>
     </coding>
+	</concept>
   </event>
   <author>
     <display value="G.E. Medical Systems"/>
@@ -80,11 +90,5 @@
       <height value="480"/>
       <width value="640"/>
     </attachment>
-  <identifier>
-    <use value="official"/>
-    <type><text value="InstanceUID"/></type>
-    <system value="urn:dicom:uid"/>
-    <value value="urn:oid:1.2.840.11361907579238403408700.3.1.04.19970327150033"/>
-  </identifier>
   </content>
 </DocumentReference>

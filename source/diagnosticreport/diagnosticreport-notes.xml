@@ -57,7 +57,7 @@ The DiagnosticReport.code always contains the name of the report itself. The rep
 </ul>
 <h3>Associated Images</h3>
 <p>
-ImagingStudy and ImageObjectStudy and the <code>media</code> element are somewhat overlapping - typically, the list of image references in the image element will also be found in one of the imaging study resources. However, each caters to different types of displays for different types of purposes. Neither, either, or both may be provided.
+ImagingStudy and the <code>media</code> element are somewhat overlapping - typically, the list of image references in the image element will also be found in one of the imaging study resources. However, each caters to different types of displays for different types of purposes. Neither, either, or both may be provided.
 </p>
 <h3>Diagnostic Report Status</h3>
 <ul>

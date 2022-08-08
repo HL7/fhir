@@ -106,9 +106,11 @@
   <status value="draft"/>
   <description value="Order Serum Zika and Dengue Virus IgM"/>
   <relatedArtifact>
-	<type value="documentation"/>
-	<display value="Explanation of diagnostic tests for Zika virus and which to use based on the patient’s clinical and exposure history."/>
-	<url value="http://www.cdc.gov/zika/hc-providers/diagnostic.html"/>
+		<type value="documentation"/>
+		<display value="Explanation of diagnostic tests for Zika virus and which to use based on the patient’s clinical and exposure history."/>
+		<document>
+			<url value="http://www.cdc.gov/zika/hc-providers/diagnostic.html"/>
+		</document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="derived-from"/>

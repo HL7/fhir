@@ -13,6 +13,7 @@
   </link>
 
   <entry>
+    <fullUrl value="urn:uuid:2866af9c-137d-4458-a8a9-eeeec0ce5583"/>
     <!-- the matching resource -->
     <resource>
       <OperationOutcome>

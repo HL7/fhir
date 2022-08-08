@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="actionlist"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/actionlist"/>
+  <version value="4.6.0"/>
+  <name value="ActionList"/>
+  <concept>
+    <code value="cancel"/>
+    <display value="Cancel, Reverse or Nullify"/>
+    <definition value="Cancel, reverse or nullify the target resource."/>
+  </concept>
+  <concept>
+    <code value="poll"/>
+    <display value="Poll"/>
+    <definition value="Check for previously un-read/ not-retrieved resources."/>
+  </concept>
+  <concept>
+    <code value="reprocess"/>
+    <display value="Re-Process"/>
+    <definition value="Re-process the target resource."/>
+  </concept>
+  <concept>
+    <code value="status"/>
+    <display value="Status Check"/>
+    <definition value="Retrieve the processing status of the target resource."/>
+  </concept>
+</CodeSystem>

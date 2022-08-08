@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-all.xsd">
 	<id value="drug-combo-product-bundle"/>
 	<type value="collection"/>
 	<entry>
@@ -180,11 +180,6 @@
 						<code value="Tablet and Cream for topical application"/>
 					</coding>
 				</combinedPharmaceuticalDoseForm>
-				<packagedMedicinalProduct>
-					<reference>
-					<reference value="PackagedProductDefinition/packageCombo"/>
-					</reference>
-				</packagedMedicinalProduct>
 				<name>
 					<productName value="ThrushTreat Combo"/>
 				</name>
@@ -203,13 +198,16 @@
 						(left blank to stop example creating something automatically)
 					</div>
 				</text>
-				<package>
+				<packageFor>
+					<reference value="MedicinalProductDefinition/drug-combo-product-bundle-mp"/>
+				</packageFor>
+				<packaging>
 					<type>
 						<coding>
 							<code value="Box"/>
 						</coding>
 					</type>
-					<package>
+					<packaging>
 						<type>
 							<coding>
 								<code value="blister pack"/>
@@ -221,12 +219,12 @@
 								<reference value="ManufacturedItemDefinition/tabletItem"/>
 								</reference>
 							</item>
-							<amountQuantity>
+							<amount>
 								<value value="1"/>
-							</amountQuantity>
+							</amount>
 						</containedItem>
-					</package>
-					<package>
+					</packaging>
+					<packaging>
 						<type>
 							<coding>
 								<code value="tube"/>
@@ -238,12 +236,12 @@
 								<reference value="ManufacturedItemDefinition/creamItem"/>
 								</reference>
 							</item>
-							<amountQuantity>
+							<amount>
 								<value value="1"/>
-							</amountQuantity>
+							</amount>
 						</containedItem>
-					</package>
-				</package>
+					</packaging>
+				</packaging>
 			</PackagedProductDefinition>
 		</resource>
 	</entry>
@@ -259,6 +257,7 @@
 						(left blank to stop example creating something automatically)
 					</div>
 				</text>
+				<status value="active"/>
 				<manufacturedDoseForm>
 					<coding>
 						<system value="http://example.org.uk/fhir/doseform"/>
@@ -281,6 +280,7 @@
 						(left blank to stop example creating something automatically)
 					</div>
 				</text>
+				<status value="active"/>
 				<manufacturedDoseForm>
 					<coding>
 						<system value="http://example.org.uk/fhir/doseform"/>

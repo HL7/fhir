@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xmlns="http://hl7.org/fhir">
+    <id value="medrx0340"/>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <status value="draft"/>
+    <intent value="plan"/>
+
+    <medication>
+    <concept>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+        <code value="884308"/>
+        <display value="Nystatin 100UNT/MG Topical Ointment"/>
+        </coding>
+    </concept>
+    </medication>
+    <subject>
+        <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>   
+    </subject>
+    <informationSource>
+        <reference value="Patient/pat1"></reference>
+        <display value="Donald Duck"></display>
+    </informationSource>
+    <authoredOn value="2015-01-15"/>
+    <requester>
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/> 
+    </requester>
+    <reported value="true"></reported>
+    <dose>
+    <dosageInstruction>
+        <sequence value="1"/>
+        <text value="Apply to affected areas four times daily"/>
+    </dosageInstruction>
+    </dose>
+</MedicationRequest>

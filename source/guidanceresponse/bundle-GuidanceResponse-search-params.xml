@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="GuidanceResponse-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="GuidanceResponse-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="GuidanceResponse.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/GuidanceResponse-identifier"/>
+        <description value="The identifier of the guidance response"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="GuidanceResponse.identifier"/>
+        <xpath value="f:GuidanceResponse/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="GuidanceResponse-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="GuidanceResponse.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/GuidanceResponse-patient"/>
+        <description value="The identity of a patient to search for guidance response results"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="GuidanceResponse.subject.where(resolve() is Patient)"/>
+        <xpath value="f:GuidanceResponse/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="GuidanceResponse-request"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="GuidanceResponse.requestIdentifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/GuidanceResponse-request"/>
+        <description value="The identifier of the request associated with the response"/>
+        <code value="request"/>
+        <type value="token"/>
+        <expression value="GuidanceResponse.requestIdentifier"/>
+        <xpath value="f:GuidanceResponse/f:requestIdentifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="GuidanceResponse-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="GuidanceResponse.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/GuidanceResponse-subject"/>
+        <description value="The subject that the guidance response is about"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="GuidanceResponse.subject"/>
+        <xpath value="f:GuidanceResponse/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="GuidanceResponse.status"/>
+        </extension>
+        <description value="The status of the guidance response"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="GuidanceResponse.status"/>
+        <xpath value="f:GuidanceResponse/f:status"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

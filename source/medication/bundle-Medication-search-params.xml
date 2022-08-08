@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Medication-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Medication-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Medication.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Medication-code"/>
+        <description value="Returns medications for a specific code"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="Medication.code"/>
+        <xpath value="f:Medication/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Medication-expiration-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Medication.batch.expirationDate"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Medication-expiration-date"/>
+        <description value="Returns medications in a batch with this expiration date"/>
+        <code value="expiration-date"/>
+        <type value="date"/>
+        <expression value="Medication.batch.expirationDate"/>
+        <xpath value="f:Medication/f:batch/f:expirationDate"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Medication-form"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Medication-form"/>
+        <description value="Returns medications for a specific dose form"/>
+        <code value="form"/>
+        <type value="token"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Medication-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Medication.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Medication-identifier"/>
+        <description value="Returns medications with this external identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Medication.identifier"/>
+        <xpath value="f:Medication/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Medication-ingredient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Medication.ingredient.item.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Medication-ingredient"/>
+        <description value="Returns medications for this ingredient reference"/>
+        <code value="ingredient"/>
+        <type value="reference"/>
+        <expression value="Medication.ingredient.item.reference"/>
+        <xpath value="f:Medication/f:ingredient/f:item/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Medication-ingredient-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Medication.ingredient.item.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Medication-ingredient-code"/>
+        <description value="Returns medications for this ingredient code"/>
+        <code value="ingredient-code"/>
+        <type value="token"/>
+        <expression value="Medication.ingredient.item.concept"/>
+        <xpath value="f:Medication/f:ingredient/f:item/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Medication-lot-number"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Medication.batch.lotNumber"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Medication-lot-number"/>
+        <description value="Returns medications in a batch with this lot number"/>
+        <code value="lot-number"/>
+        <type value="token"/>
+        <expression value="Medication.batch.lotNumber"/>
+        <xpath value="f:Medication/f:batch/f:lotNumber"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Medication.marketingAuthorizationHolder"/>
+        </extension>
+        <description value="Returns medications made or sold for this marketing authorization holder"/>
+        <code value="marketingauthorizationholder"/>
+        <type value="reference"/>
+        <expression value="Medication.marketingAuthorizationHolder"/>
+        <xpath value="f:Medication/f:marketingAuthorizationHolder"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Medication-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Medication.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Medication-status"/>
+        <description value="Returns medications for this status"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Medication.status"/>
+        <xpath value="f:Medication/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

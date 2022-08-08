@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Condition-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-abatement-age"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.abatement[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-abatement-age"/>
+        <description value="Abatement as age or age range"/>
+        <code value="abatement-age"/>
+        <type value="quantity"/>
+        <expression value="Condition.abatement.as(Age) | Condition.abatement.as(Range)"/>
+        <xpath value="f:Condition/f:abatementAge | f:Condition/f:abatementRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-abatement-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.abatement[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-abatement-date"/>
+        <description value="Date-related abatements (dateTime and period)"/>
+        <code value="abatement-date"/>
+        <type value="date"/>
+        <expression value="Condition.abatement.as(dateTime) | Condition.abatement.as(Period)"/>
+        <xpath value="f:Condition/f:abatementDateTime | f:Condition/f:abatementPeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-abatement-string"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.abatement[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-abatement-string"/>
+        <description value="Abatement as a string"/>
+        <code value="abatement-string"/>
+        <type value="string"/>
+        <expression value="Condition.abatement.as(string)"/>
+        <xpath value="f:Condition/f:abatementString"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.participant.actor"/>
+        </extension>
+        <description value="Who or what participated in the activities related to the condition"/>
+        <code value="participant-actor"/>
+        <type value="reference"/>
+        <expression value="Condition.participant.actor"/>
+        <xpath value="f:Condition/f:participant/f:actor"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.participant.function"/>
+        </extension>
+        <description value="Type of involvement of the actor in the activities related to the condition"/>
+        <code value="participant-function"/>
+        <type value="token"/>
+        <expression value="Condition.participant.function"/>
+        <xpath value="f:Condition/f:participant/f:function"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-body-site"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.bodySite"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-body-site"/>
+        <description value="Anatomical location, if relevant"/>
+        <code value="body-site"/>
+        <type value="token"/>
+        <expression value="Condition.bodySite"/>
+        <xpath value="f:Condition/f:bodySite"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-category"/>
+        <description value="The category of the condition"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="Condition.category"/>
+        <xpath value="f:Condition/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-clinical-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.clinicalStatus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-clinical-status"/>
+        <description value="The clinical status of the condition"/>
+        <code value="clinical-status"/>
+        <type value="token"/>
+        <expression value="Condition.clinicalStatus"/>
+        <xpath value="f:Condition/f:clinicalStatus"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-code"/>
+        <description value="Code for the condition"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="Condition.code"/>
+        <xpath value="f:Condition/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-encounter"/>
+        <description value="The Encounter during which this Condition was created"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="Condition.encounter"/>
+        <xpath value="f:Condition/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-evidence"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.evidence.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-evidence"/>
+        <description value="Manifestation/symptom"/>
+        <code value="evidence"/>
+        <type value="token"/>
+        <expression value="Condition.evidence.concept"/>
+        <xpath value="f:Condition/f:evidence/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-evidence-detail"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.evidence.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-evidence-detail"/>
+        <description value="Supporting information found elsewhere"/>
+        <code value="evidence-detail"/>
+        <type value="reference"/>
+        <expression value="Condition.evidence.reference"/>
+        <xpath value="f:Condition/f:evidence/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-identifier"/>
+        <description value="A unique identifier of the condition record"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Condition.identifier"/>
+        <xpath value="f:Condition/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-onset-age"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.onset[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-onset-age"/>
+        <description value="Onsets as age or age range"/>
+        <code value="onset-age"/>
+        <type value="quantity"/>
+        <expression value="Condition.onset.as(Age) | Condition.onset.as(Range)"/>
+        <xpath value="f:Condition/f:onsetAge | f:Condition/f:onsetRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-onset-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.onset[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-onset-date"/>
+        <description value="Date related onsets (dateTime and Period)"/>
+        <code value="onset-date"/>
+        <type value="date"/>
+        <expression value="Condition.onset.as(dateTime) | Condition.onset.as(Period)"/>
+        <xpath value="f:Condition/f:onsetDateTime | f:Condition/f:onsetPeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-onset-info"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.onset[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-onset-info"/>
+        <description value="Onsets as a string"/>
+        <code value="onset-info"/>
+        <type value="string"/>
+        <expression value="Condition.onset.as(string)"/>
+        <xpath value="f:Condition/f:onsetString"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-patient"/>
+        <description value="Who has the condition?"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Condition.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Condition/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-recorded-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.recordedDate"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-recorded-date"/>
+        <description value="Date record was first recorded"/>
+        <code value="recorded-date"/>
+        <type value="date"/>
+        <expression value="Condition.recordedDate"/>
+        <xpath value="f:Condition/f:recordedDate"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-severity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.severity"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-severity"/>
+        <description value="The severity of the condition"/>
+        <code value="severity"/>
+        <type value="token"/>
+        <expression value="Condition.severity"/>
+        <xpath value="f:Condition/f:severity"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-stage"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.stage.summary"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-stage"/>
+        <description value="Simple summary (disease specific)"/>
+        <code value="stage"/>
+        <type value="token"/>
+        <expression value="Condition.stage.summary"/>
+        <xpath value="f:Condition/f:stage/f:summary"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-subject"/>
+        <description value="Who has the condition?"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Condition.subject"/>
+        <xpath value="f:Condition/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Condition-verification-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Condition.verificationStatus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Condition-verification-status"/>
+        <description value="unconfirmed | provisional | differential | confirmed | refuted | entered-in-error"/>
+        <code value="verification-status"/>
+        <type value="token"/>
+        <expression value="Condition.verificationStatus"/>
+        <xpath value="f:Condition/f:verificationStatus"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

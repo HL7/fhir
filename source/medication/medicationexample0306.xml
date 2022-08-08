@@ -3,8 +3,8 @@
   <id value="med0306"/>
   <contained>
     <Organization>
-      <id value="org3"/>
-      <name value="Seattle Genetics Inc" />
+      <id value="mmanu"/>
+      <name value="Medication Manufacturer" />
     </Organization>
   </contained>
   <code>
@@ -14,10 +14,9 @@
       <display value="Adcetris"/>
     </coding>
   </code>
-  
-  <manufacturer>
-    <reference value="#org3" />
-  </manufacturer>
+  <marketingAuthorizationHolder>
+    <reference value="#mmanu" />
+  </marketingAuthorizationHolder>
     <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>

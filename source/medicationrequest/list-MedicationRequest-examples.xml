@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="MedicationRequest-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Order for a medication that includes the dosage of a prescription in text"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequestexample2"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx002"/>
+      <display value="Text Dose"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Active Order with link to encounter, reasonCode, note multiple dosage lines, dispenseRequest and substitution - Azithromycin"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0302"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0302"/>
+      <display value="Multiple dosage lines"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Order with as needed (PRN) dosage with pre-condition - Oxycodone - active with reasonCode, note, dispenseRequest and substitution"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0301"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0301"/>
+      <display value="PRN dose"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Order for Tapering Dose - Prednisone - active with note and multiple DosageInstructions with boundsPeriod"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0303"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0303"/>
+      <display value="Tapering dose"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Order for Oral Drops - Nystatin Suspension - completed - with Dispense Request"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0304"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0304"/>
+      <display value="Oral Drops"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Order with Dosage with a Pre-Condition - Alprazolam - dosageInstructions includes boundsPeriod with periodMax and asNeededCodeableConcept"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0305"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0305"/>
+      <display value="Pre Condition"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Oral Chemotherapy Order - Myleran - completed - with reasonCode"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0306"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0306"/>
+      <display value="Oral Chemo"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Order with as needed (PRN) dosage - Percocet - completed with link to encounter, dispenseRequest and substitution"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0307"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0307"/>
+      <display value="PRN dose"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Order for as needed (PRN) dosage - Vicodin - completed with dosageInstruction with additionalInstruction (coded) and as needed with reason, dispenseRequest and substitution"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0308"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0308"/>
+      <display value="PRN dose"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Oral Chemotherapy Order - Capecitabine - active medication with dosing by Body Surface Area (BSA) (mg/m2)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0309"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0309"/>
+      <display value="Oral Chemo"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for Over the Counter Medication - Tylenol PM - with dosage range as needed with pre-condition for use"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0310"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0310"/>
+      <display value="OTC"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Fully populated example of a MedicationRequest - Chlorthalidone - active - with link to encounter, reasonReference, note, dispenseRequest, substitution and eventHistory"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequestexample1"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0311"/>
+      <display value="Fully populated"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Liquid Medication - Phenytoin with link to prior prescription"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0312"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0312"/>
+      <display value="Liquid"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request with a single dosage line - Azithromycin - completed - with link to prior prescription and reason code"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0313"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0313"/>
+      <display value="Single Dosage line"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request - Levothyroxine - completed with reasonCode, dosageInstructions and dispenseRequest"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0314"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0314"/>
+      <display value="Multiple dosage lines"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for an injectable medication - Lorazepam - active - with link to encounter, reasonCode and dosageInstruction"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0315"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0315"/>
+      <display value="Injectable"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for Intravenous Chemotherapy (inpatient order) - Brentuximab Vedotin - completed"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0316"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0316"/>
+      <display value="Fully populated"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for Intravenous Chemotherapy (inpatient order) - Alemtuzumab - completed with multiple dosageInstruction lines"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0317"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0317"/>
+      <display value="IV Chemo"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for Intravenous Antibiotic - Vancomycin - active - with link to encounter, reasonCode, and note"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0318"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0318"/>
+      <display value="IV Antibiotic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for Intravenous Antibiotic with a Dosage Rate - Piperacillin - completed with reason code"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0319"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0319"/>
+      <display value="IV with rate"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for Subcutaneous injection - Insulin - Lantus - completed, with reason code and dispense request"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0320"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0320"/>
+      <display value="SC Injection"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for Subcutaneous injection with multiple dosage lines - Insulin - Novolog - active - includes reasonCode and note.  Dosage includes additionalInstructions as text"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0321"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0321"/>
+      <display value="SC Injection"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for Intravenous Admixture - Potassium Chloride in D5W - completed with reason code"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0322"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0322"/>
+      <display value="IV admixture"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for TPN Solution - completed"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0323"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0323"/>
+      <display value="TPN"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request using Medication Code for Rectal Suppository - Acetaminophen - completed with reasonCode, dispenseRequest and substitution"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0324"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0324"/>
+      <display value="Suppository"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request using Medication Code for Topical Ointment - Nystatin - on hold and with dispense request"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0325"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0325"/>
+      <display value="Topical"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request using Medication Code for Inhaler - Proventil - on hold with dispenseRequest and substitution"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0326"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0326"/>
+      <display value="Inhaler"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request using Medication Code for Patch - Fentanyl - active, with dispense request"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0327"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0327"/>
+      <display value="Patch"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request referencing Medication Resource for Nasal Spray - Nasonex"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0328"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0328"/>
+      <display value="Spray"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request referencing Medication Resource for Compounded Product - HC 1%, Salicylic Acid 5% in Glaxal Base - on hold with dispenseRequest"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0329"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0329"/>
+      <display value="Compound"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request referencing Medication Resource for Eye Drops - Timoptic - active - with link to encounter, dispenseRequest and substitution flag"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0330"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0330"/>
+      <display value="Eye Drop"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for a Dosage that needs to be dispensed as different strength tablets - Warfarin - active"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0331"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0331"/>
+      <display value="Warfarin"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for a medication that is intended to be given as a single, once only dose"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0332"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0332"/>
+      <display value="One time dose"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for a medication that is intended to be given in the morning"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0333"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0333"/>
+      <display value="Morning"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for a medication that is intended to be given on a specific day"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0334"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0334"/>
+      <display value="Monday"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for a medication that is intended to be given at a specific time"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0335"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0335"/>
+      <display value="Time"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for Intravenous Dopamine - Weight based calculation with rateQuantity"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0336"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0336"/>
+      <display value="Wt Based"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for Intravenous Admixture Dopamine - with rateQuantity"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0337"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0337"/>
+      <display value="RateQuantity"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for Intravenous Admixture Dopamine - with doseQuantity and rateQuantity"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0338"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0338"/>
+      <display value="RateQty and DoseQty"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request for a product that contains multiple dosage forms"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0339"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0339"/>
+      <display value="Combination"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request medication where there is an option of the route of administration - includes group identifier"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0343a"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0343a"/>
+      <display value="Grouped MedicationRequest for same drug with different route of administrations"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request medication where there is an option of the route of administration - includes group identifier"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0343b"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0343b"/>
+      <display value="Grouped MedicationRequest for same drug with different route of administrations"/>
+    </item>
+  </entry>
+</List>

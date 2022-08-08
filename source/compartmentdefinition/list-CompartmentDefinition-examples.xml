@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="CompartmentDefinition-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Full Patient Compartment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="compartmentdefinition-patient"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="tool"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="null/patient"/>
+      <display value="Patient"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Full Practitioner Compartment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="compartmentdefinition-practitioner"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="tool"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="null/practitioner"/>
+      <display value="Practitioner"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Full RelatedPerson Compartment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="compartmentdefinition-relatedperson"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="tool"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="null/relatedperson"/>
+      <display value="RelatedPerson"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Full Device Compartment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="compartmentdefinition-device"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="tool"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="null/device"/>
+      <display value="Device"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Full Encounter Compartment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="compartmentdefinition-encounter"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="tool"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="null/encounter"/>
+      <display value="Encounter"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Compartment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="compartmentdefinition-example"/>
+    </extension>
+    <item>
+      <reference value="CompartmentDefinition/example"/>
+      <display value="Example"/>
+    </item>
+  </entry>
+</List>

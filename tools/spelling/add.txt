@@ -1,0 +1,9 @@
+﻿_query
+_profile
+_tag
+_security
+_source
+_id
+_content
+_text
+_lastupdated

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Account-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Account-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Account.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Account-identifier"/>
+        <description value="Account number"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Account.identifier"/>
+        <xpath value="f:Account/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Account-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Account.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Account-name"/>
+        <description value="Human-readable label"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="Account.name"/>
+        <xpath value="f:Account/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Account-owner"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Account.owner"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Account-owner"/>
+        <description value="Entity managing the Account"/>
+        <code value="owner"/>
+        <type value="reference"/>
+        <expression value="Account.owner"/>
+        <xpath value="f:Account/f:owner"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Account-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Account.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Account-patient"/>
+        <description value="The entity that caused the expenses"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Account.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Account/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Account-period"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Account.servicePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Account-period"/>
+        <description value="Transaction window"/>
+        <code value="period"/>
+        <type value="date"/>
+        <expression value="Account.servicePeriod"/>
+        <xpath value="f:Account/f:servicePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Account-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Account.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Account-status"/>
+        <description value="active | inactive | entered-in-error | on-hold | unknown"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Account.status"/>
+        <xpath value="f:Account/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Account-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Account.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Account-subject"/>
+        <description value="The entity that caused the expenses"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Account.subject"/>
+        <xpath value="f:Account/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Account-guarantor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Account.guarantor.party"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Account-guarantor"/>
+        <description value="The parties ultimately responsible for balancing the Account"/>
+        <code value="guarantor"/>
+        <type value="reference"/>
+        <expression value="Account.guarantor.party"/>
+        <xpath value="f:Account/f:guarantor/f:party"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Account-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Account.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Account-type"/>
+        <description value="E.g. patient, expense, depreciation"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="Account.type"/>
+        <xpath value="f:Account/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

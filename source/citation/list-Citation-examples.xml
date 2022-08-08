@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Citation-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="NInFEA Citation"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="citation-example-research-doi"/>
+    </extension>
+    <item>
+      <reference value="Citation/citation-example-research-doi"/>
+      <display value="NInFEA Citation"/>
+    </item>
+  </entry>
+</List>

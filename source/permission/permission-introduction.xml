@@ -4,21 +4,21 @@
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 <p>
-The Permission resource is intended to capture why data can be shared. It can be applied in two complementary situations:
+A declarative <a href="security.html#binding">attribute-based access control</a> policy statement to express <a href="security-labels.html#6.1.1.4.0.2">policies, refrains, and obligations</a>.
+The Permission resource may be used to record the access control constraints under which data were collected or shared.
 </p>
-<ol>
-<li>
-Describe why a specific capability or implementation is permitted to process data
-</li>
-<li>
-Describe why a given resource or set of resources are allowed to exist and/or be shared
-</li>
-
-</ol>
+[%stu-note%]
+<a name="dstu"></a>
 <p>
-The Permission model is related to privacy laws like GDPR, and it intended to support implementations meet some of regulatory requirements. For example, having a Permission  associated with an interface (data transfer) supports a registry of Processing Activities (Art. 30 of GDPR).
+STU Note: This resource is under-development,
+consult the <a href="https://confluence.hl7.org/display/SEC/FHIR+Permission">FHIR Permission Confluence page</a> 
+for development details, plans, and use-case analysis.
 </p>
 
+<p>
+The Permission resource may in the future be used as a provision within a <a href="consent.html">Consent</a> resource.
+</p>
+[%end-note%]
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 
 </div>
@@ -26,18 +26,12 @@ The Permission model is related to privacy laws like GDPR, and it intended to su
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
+The Permission resource is intended to be used where <a href="consent.html">Consent</a> resource does not apply or where exposure of the full <a href="consent.html">Consent</a> details are not needed or desired.
+The Permission resource may be used to express transactional access control rules that may be derived from a <a href="consent.html">Consent</a>.
+The Permission resource is intended to be used when access control policy rules need to be expressed in an interoperable way other than <a href="consent.html">Consent</a>. 
+Examples are use-cases that are not involving a patient subject.
+The Permission resource should not be used in a conflicting way with <a href="security-labels.html">security labels in the .meta.security element</a>.
 </p>
-<h3>Consent</h3>
-In many situations in healthcare, Consent is not necessary or a valid reason for processing data or sharing. Data can be shared due to 
-<ol>
-<li>
-Legal reasons: For example, mandatory reporting of infectious diseases - regardless of any positive or negative consent from the patient, some diagnosis must be submitted to the authorities
-</li>
-Contractual reasons: For provision of services e.g. reimbursement, performing a contract requires sharing information
-<li>
-</li>
-</ol>
-
 
 </div>
 

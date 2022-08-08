@@ -9,7 +9,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <%txheader%>
 
@@ -52,9 +52,12 @@ valid UCUM codes (FHIR includes a <a href="valueset-ucum-common.html">common UCU
 set</a> for this purpose). 
 </p>
 <p>
-UCUM us always documented as a compositional code system. If 
+UCUM is a compositional code system. If 
 a server does not support the full grammar, it should document
 that in its <a href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.version.compositional">Terminology Capabilities Statement</a>.
+</p>
+<p>
+Curly braces {} in the code element are discouraged. Curly braces provide additional descriptive text in the code expression but do not contribute to the meaning of the code.
 </p>
 
 <a name="filters"></a>
@@ -136,8 +139,6 @@ conform to this template, where [expression] is a valid UCUM expression:
 &lt;/ValueSet&gt;
 </pre>
 
-
-</div>
 
 [%file newfooter%]
     

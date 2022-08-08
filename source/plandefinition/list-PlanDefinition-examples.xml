@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="PlanDefinition-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Low Suicide Risk Order Set"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-example"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/low-suicide-risk-order-set"/>
+      <display value="OrderSetExample"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Chlamydia Screening CDS example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-chlamydia-screening-intervention"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/chlamydia-screening-intervention"/>
+      <display value="CSExample"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Exclusive Breastfeeding Intervention 01"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-exclusive-breastfeeding-intervention-01"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/exclusive-breastfeeding-intervention-01"/>
+      <display value="CMS9CDS01"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Exclusive Breastfeeding Intervention 02"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-exclusive-breastfeeding-intervention-02"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/exclusive-breastfeeding-intervention-02"/>
+      <display value="CMS9CDS02"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Exclusive Breastfeeding Intervention 03"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-exclusive-breastfeeding-intervention-03"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/exclusive-breastfeeding-intervention-03"/>
+      <display value="CMS9CDS03"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Exclusive Breastfeeding Intervention 04"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-exclusive-breastfeeding-intervention-04"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/exclusive-breastfeeding-intervention-04"/>
+      <display value="CMS9CDS04"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Obesity Assessment Protocol"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-protocol-example"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/protocol-example"/>
+      <display value="ProtocolExample"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Chemotherapy Regimen"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-example-kdn5-simplified"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/KDN5"/>
+      <display value="KDN5"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Zika Virus Infection Management Process"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-zika-virus-intervention"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/zika-virus-intervention"/>
+      <display value="ZikaVirusInfection"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Plan Definition Illustrating Related Actions"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-options-example"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/options-example"/>
+      <display value="OptionsExample"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Plan Definition Illustrating Predecessor Relationship"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-predecessor-example"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/zika-virus-intervention-initial"/>
+      <display value="PredecessorExample"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Opioid CDS Recommendation 4 ECA Rule"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-opioidcds-04"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/opioidcds-04"/>
+      <display value="OpioidCDSRecommendation4"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Opioid CDS Recommendation 5 ECA Rule"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-opioidcds-05"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/opioidcds-05"/>
+      <display value="OpioidCDSRecommendation5"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Opioid CDS Recommendation 7 ECA Rule"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-opioidcds-07"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/opioidcds-07"/>
+      <display value="OpioidCDSRecommendation7"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Opioid CDS Recommendation 8 ECA Rule"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-opioidcds-08"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/opioidcds-08"/>
+      <display value="OpioidCDSRecommendation8"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Opioid CDS Recommendation 10 ECA Rule"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-opioidcds-10"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/opioidcds-10"/>
+      <display value="OpioidCDSRecommendation10"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Opioid CDS Recommendation 11 ECA Rule"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-opioidcds-11"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/opioidcds-11"/>
+      <display value="OpioidCDSRecommendation11"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Chest Pain Coronary Artery Disease Order Set KNART"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="plandefinition-example-cardiology-os"/>
+    </extension>
+    <item>
+      <reference value="PlanDefinition/example-cardiology-os"/>
+      <display value="ChestPainCoronaryArteryDiseaseOrderSetKNART"/>
+    </item>
+  </entry>
+</List>

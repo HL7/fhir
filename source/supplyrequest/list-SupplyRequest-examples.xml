@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="SupplyRequest-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple order for resupply"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="supplyrequest-example-simpleorder"/>
+    </extension>
+    <item>
+      <reference value="SupplyRequest/simpleorder"/>
+      <display value="Simple Order"/>
+    </item>
+  </entry>
+</List>

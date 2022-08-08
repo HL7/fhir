@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="EpisodeOfCare-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EpisodeOfCare-care-manager"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EpisodeOfCare.careManager"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-care-manager"/>
+        <description value="Care manager/care coordinator for the patient"/>
+        <code value="care-manager"/>
+        <type value="reference"/>
+        <expression value="EpisodeOfCare.careManager.where(resolve() is Practitioner)"/>
+        <xpath value="f:EpisodeOfCare/f:careManager"/>
+        <xpathUsage value="normal"/>
+        <target value="Practitioner"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EpisodeOfCare-condition"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EpisodeOfCare.diagnosis.condition"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-condition"/>
+        <description value="Conditions/problems/diagnoses this episode of care is for"/>
+        <code value="condition"/>
+        <type value="reference"/>
+        <expression value="EpisodeOfCare.diagnosis.condition"/>
+        <xpath value="f:EpisodeOfCare/f:diagnosis/f:condition"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EpisodeOfCare-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EpisodeOfCare.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-date"/>
+        <description value="The provided date search value falls within the episode of care&#39;s period"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="EpisodeOfCare.period"/>
+        <xpath value="f:EpisodeOfCare/f:period"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EpisodeOfCare-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EpisodeOfCare.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-identifier"/>
+        <description value="Business Identifier(s) relevant for this EpisodeOfCare"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="EpisodeOfCare.identifier"/>
+        <xpath value="f:EpisodeOfCare/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EpisodeOfCare-incoming-referral"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EpisodeOfCare.referralRequest"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-incoming-referral"/>
+        <description value="Incoming Referral Request"/>
+        <code value="incoming-referral"/>
+        <type value="reference"/>
+        <expression value="EpisodeOfCare.referralRequest"/>
+        <xpath value="f:EpisodeOfCare/f:referralRequest"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EpisodeOfCare-organization"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EpisodeOfCare.managingOrganization"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-organization"/>
+        <description value="The organization that has assumed the specific responsibilities of this EpisodeOfCare"/>
+        <code value="organization"/>
+        <type value="reference"/>
+        <expression value="EpisodeOfCare.managingOrganization"/>
+        <xpath value="f:EpisodeOfCare/f:managingOrganization"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EpisodeOfCare-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EpisodeOfCare.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-patient"/>
+        <description value="The patient who is the focus of this episode of care"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="EpisodeOfCare.patient"/>
+        <xpath value="f:EpisodeOfCare/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EpisodeOfCare-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EpisodeOfCare.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-status"/>
+        <description value="The current status of the Episode of Care as provided (does not check the status history collection)"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="EpisodeOfCare.status"/>
+        <xpath value="f:EpisodeOfCare/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EpisodeOfCare-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EpisodeOfCare.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-type"/>
+        <description value="Type/class  - e.g. specialist referral, disease management"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="EpisodeOfCare.type"/>
+        <xpath value="f:EpisodeOfCare/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

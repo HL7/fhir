@@ -1,13 +1,6 @@
-<!-- 
-Document structure definition
+<?xml version="1.0" encoding="UTF-8"?>
 
-uses the section library to require 3 sections, each 
-with a different code: 
- - code a
- - code b
- - code c
- -->
-<StructureDefinition xmlns="http://hl7.org/fhir"> 
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="example-composition"/>
   <url value="http://hl7.org/fhir/StructureDefinition/example-composition"/>
   <name value="DocumentStructure"/>
@@ -15,37 +8,34 @@ with a different code:
   <status value="active"/>
   <experimental value="false"/>
   <date value="2018-11-05T17:47:00+11:00"/>
-  <kind value="complex-type"/>
+  <kind value="resource"/>
   <abstract value="false"/>
   <type value="Composition"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition"/>
   <derivation value="constraint"/>
   <differential>
     <element id="Composition">
-      <!-- this is present to work around a bug in the snapshot generator -->
       <path value="Composition"/>
     </element>
     <element id="Composition.section">
-      <!-- set up slicing on Composition.section - by the code -->  
       <path value="Composition.section"/>
-      <slicing>  
-        <discriminator> 
+      <slicing>
+        <discriminator>
           <type value="pattern"/>
           <path value="code"/>
         </discriminator>
         <description value="Slice by .section.code"/>
         <ordered value="true"/>
         <rules value="closed"/>
-       </slicing>
+      </slicing>
     </element>
     <element id="Composition.section:procedure">
-       <!-- first slice -->  
       <path value="Composition.section"/>
       <sliceName value="procedure"/>
       <min value="1"/>
       <type>
-        <code value="BackboneElement"/> 
-        <profile value="http://hl7.org/fhir/StructureDefinition/document-section-library">
+        <code value="BackboneElement"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/example-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
             <valueString value="Composition.section:procedure"/>
           </extension>
@@ -53,13 +43,12 @@ with a different code:
       </type>
     </element>
     <element id="Composition.section:medications">
-       <!-- first slice -->  
       <path value="Composition.section"/>
       <sliceName value="medications"/>
       <min value="1"/>
       <type>
-        <code value="BackboneElement"/> 
-        <profile value="http://hl7.org/fhir/StructureDefinition/document-section-library">
+        <code value="BackboneElement"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/example-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
             <valueString value="Composition.section:medications"/>
           </extension>
@@ -67,18 +56,17 @@ with a different code:
       </type>
     </element>
     <element id="Composition.section:plan">
-       <!-- first slice -->  
       <path value="Composition.section"/>
       <sliceName value="plan"/>
       <min value="0"/>
       <type>
-        <code value="BackboneElement"/> 
-        <profile value="http://hl7.org/fhir/StructureDefinition/document-section-library">
+        <code value="BackboneElement"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/example-section-library">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element">
             <valueString value="Composition.section:plan"/>
           </extension>
         </profile>
       </type>
-    </element>    
- </differential>
+    </element>
+  </differential>
 </StructureDefinition>

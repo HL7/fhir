@@ -9,7 +9,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <h1>Security Labels</h1>
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
@@ -72,7 +72,7 @@ that allow much finer grained management of the information.
 A security label is represented as a <a href="datatypes.html#Coding">Coding</a>, with the
 following important properties:
 </p>
-<table>
+<table  class="grid">
   <tr> <td>system</td> <td>The coding scheme from which label is taken (see <a href="terminologies-systems.html">code system URI</a>, and below) </td></tr>
   <tr> <td>code</td> <td>a code from the coding scheme that identifies the security label  and code is a value from the code system</td> </tr>
   <tr> <td>display</td> <td>The display form for the code (mostly for use when a system doesn't recognize the code)</td> </tr>
@@ -152,6 +152,16 @@ This specification defines a set of core security labels for all FHIR systems.
 All conformant FHIR Applications SHOULD use these labels where appropriate.
 For all these labels, how they are operationalized - their use and interpretation - is subject
 to the applicable Mutual Trust Framework agreement as described above.
+</p><p>
+The Security Label vocabulary has three patterns of use: (1) Bundle: Security/Privacy considerations of a data set, (2) Context: Describe security/privacy context of a request for data, and (3) Meta Data: to indicate security/privacy meta about that data. 
+</p><p>
+Bundle: A bundle is a container for a collection of data. Some uses of bundle are for communicating search results, sending data, or persisting data (See Bundle). The Bundle would carry meta about the data contained in the bundle. Specifically the confidentiality 'high water" mark, the authorized purposeOfUse, the required compartment clearance, Refrain, and Obligations that must be maintained. Where the "high water" mark is an indication of the most high confidentiality. Depending on Policy, the Bundle might include the cross-section of sensitivity or integrity, although this is usually not included. Provided in the <a href="valueset-security-label-event-examples.html">Security Label Event Examples</a> valueSet contains of some security-label codes that would be used on Bundle.meta.security.
+</p><p>
+Context: Requests (e.g. Read, Query, message triggers) - would describe the context of the request using purposeOfUse and compartment/clearance. The request might declare the highest confidentiality desired. It is unlikely to see in a request a declaration of sensitivity or integrity. It is also unlikely to see Obligations within a Request. (See Bundle for Response, where these are appropriate)
+</p><p>
+Meta Data: All resources have a meta.security element to hold descriptions (meta) about the data relative to privacy and security risk. Thus data may be tagged with confidentiality, sensitivity, and integrity. The data might be tagged with the indication of collection context using compartment or purposeOfUse. Data would not typically be tagged with Refrain, or Obligations. Provided in the <a href="valueset-security-label-data-examples.html">Security Label Data Examples</a> valueSet contains of some security-label codes that would be used on data.
+</p><p>
+ More complex use of tagging in the data resource, bundle, context, or in Provenance, is possible.
 </p>
 
 <table class="grid">
@@ -289,85 +299,122 @@ discussion of the issues involved in break-the-glass operations.
 <p>
 The security labels described above are a subset of the full set of security labels defined by the
 HL7 <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=345">Healthcare Privacy and Security Classification System</a>. 
-The HCS defines 5 categories of security labels that may be applied to a resource:
+Note the use of "security label" is used broadly in FHIR to for all security tags. There is a more formal definition in the security labeling community of "security label" that refers to an overall assessment, in HL7 this would be represented with a value from the ConfidentialityCode value set. For more detailed on how to implement security tagging and labeling, HL7 has published <a href="http://www.hl7.org/fhir/uv/security-label-ds4p/index.html">Data Segmentation for Privacy Implementation Guide for FHIR</a>
 </p>
 
+<p>Type of security metadata observation made about the classification of an IT resource (data, information object, service, or system capability), which may be used to make access control decisions. Security classification is defined by <a href="https://www.iso.org/standard/7243.html">ISO/IEC 2382-8:1998(E/F)/ T-REC-X.812-1995</a> as: <em>&quot;the determination of which specific degree of protection against access the data or information requires, together with a designation of that degree of protection.&quot;</em> </p>
+<p>Security classification metadata is based on an analysis of applicable policies and the risk of financial, reputational, or other harm that could result from unauthorized disclosure.</p>
 <table class="grid">
- <tr> <td><b>Security Label</b></td> <td><b>Card.</b></td> <td><b>Values</b></td>  <td><b>Description</b></td> </tr>
-
- <tr> <td>Confidentiality Classification</td> <td>0..1</td> <td><a href="v3/ConfidentialityClassification/vs.html">ConfidentialityClassification</a></td>  <td>Security label metadata classifying an IT
-resource (clinical fact, data, information
-object, service, or system capability)
-according to its level of sensitivity, which is
-based on an analysis of applicable privacy
-policies and the risk of financial,
-reputational, or other harm to an individual
-or entity that could result if made available
-or disclosed to unauthorized individuals,
-entities, or processes.
-<br/>Example Uses: Unrestricted, Normal, Very restricted</td> </tr>
-
- <tr> <td>Sensitivity Category</td> <td>0..*</td> <td><a href="v3/InformationSensitivityPolicy/vs.html">InformationSensitivityPolicy</a></td>  <td>Security label metadata that "segments" an
-IT resource by categorizing the value,
-importance, and vulnerability of an IT
-resource perceived as undesirable to share.
-<br/>Example Uses: STDs, Psychiatric care, Celebrity status
-</td> </tr>
-
- <tr> <td>Compartment Category</td> <td>0..*</td> <td><a href="v3/Compartment/vs.html">Compartment</a></td>  <td>Security label metadata that "segments" an
-IT resource by indicating that access and
-use is restricted to members of a defined
-community or project
-<br/>Note: this is a different use of "Compartment" to the <a href="compartmentdefinition.html">Patient Compartment</a> use.
-<br/>Example Uses: Research, HR records
-</td> </tr>
-
- <tr> <td>Integrity Category</td> <td>0..*</td> <td><a href="v3/SecurityIntegrityObservationValue/vs.html">SecurityIntegrityObservationValue</a></td>  <td>Security label metadata that "segments" an
-IT resource by conveying the completeness,
-veracity, reliability, trustworthiness, and
-provenance of an IT resource
-<br/>Example Uses: Anonymized, signed, patient reported
-
-</td> </tr>
-
- <tr> <td>Handling Caveat</td> <td>0..*</td> <td><a href="v3/SecurityControlObservationValue/vs.html">SecurityControlObservationValue</a></td>  <td>Security label metadata conveying dissemination
-controls and information handling instructions
-such as obligations and retention policies to which an
-IT resource custodian or receiver must comply.<br/>
-This type of handling caveat SHALL be assigned
-to a clinical fact if required by jurisdictional or
-organizational policy, which may be triggered by a
-patient consent directive
-<br/>Example Uses: do not disclose, various restrictions on use, and policy marks
-</td> </tr>
+<thead>
+<tr>
+<th>Tag Set</th>
+<th>Car.</th>
+<th>Description</th>
+<th>Example Tags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://terminology.hl7.org/ValueSet-v3-Confidentiality.html">Confidentiality</a></td>
+<td><code>1..1</code></td>
+<td>Security label metadata classifying an IT resource (clinical fact, data, information object, service, or system capability) according to its level of sensitivity, which is based on an analysis of applicable privacy policies and the risk of financial, reputational, or other harm to an individual or entity that could result if made available or disclosed to unauthorized individuals, entities, or processes.</td>
+<td>Unrestricted, Normal, Very Restricted</td>
+</tr>
+</tbody>
 </table>
-
-<p>
-Each of these security labels identifies a <a href="valueset.html">ValueSet</a> that
-lists a set of possible codes for the security label.
-</p>
-
-<!-- Removed under J#23703 commented out due to future need
-<a name="jurisdictions"></a>
-<h3>Jurisdiction Specific Security Labels</h3>
-
-<p>
-The HL7 Healthcare Classification System also allows for Realm-specific privacy law or policy category codes for use in security labels in specific domains. These
-domains are included with this specification:
-</p>
-
+<h4 id="-security-category-https-terminology-hl7-org-valueset-v3-securitycategoryobservationtype-html-"><a href="https://terminology.hl7.org/ValueSet-v3-SecurityCategoryObservationType.html">Security Category</a></h4>
+<p>Type of security metadata observation made about the category of an IT resource (data, information object, service, or system capability), which may be used to make access control decisions. Security category metadata is defined by <a href="https://www.iso.org/standard/7243.html">ISO/IEC 2382-8:1998(E/F)/ T-REC-X.812-1995</a> as: <em>&quot;a nonhierarchical grouping of sensitive information used to control access to data more finely than with hierarchical security classification alone.&quot;</em></p>
 <table class="grid">
- <tr> <td><b>Security Label</b></td> <td><b>Card.</b></td> <td><b>Values</b></td>  <td><b>Description</b></td> </tr>
-
- <tr> <td>US Privacy Law</td> <td>0..*</td> <td><a href="	http://terminology.hl7.org/ValueSet/v3-ActUSPrivacyLaw">ActUSPrivacyLaw</a></td>  <td>Security label metadata that "segments" an IT resource by indicating the legal provisions to which the assignment of a Confidentiality Classification complies in the US.
-
-</td> </tr>
-
+<thead>
+<tr>
+<th>Tag Set</th>
+<th>Car.</th>
+<th>Description</th>
+<th>Example Tags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://terminology.hl7.org/ValueSet-v3-ActPolicyType.html">Policy</a></td>
+<td><code>0..1</code></td>
+<td>Security label metadata that segments an IT resource by conveying a mandate, obligation, requirement, rule, or expectation relating to its privacy.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://terminology.hl7.org/ValueSet-v3-InformationSensitivityPolicy.html">Sensitivity</a></td>
+<td><code>0..*</code></td>
+<td>Security label metadata that segments an IT resource by categorizing the value, importance, and vulnerability of an IT resource perceived as undesirable to share.</td>
+<td><code>STD</code>, <code>HIV</code>, <code>SUD</code></td>
+</tr>
+<tr>
+<td><a href="https://terminology.hl7.org/ValueSet-v3-Compartment.html">Compartment</a></td>
+<td><code>0..*</code></td>
+<td>Security label metadata that segments an IT resource by indicating that access and use is restricted to members of a defined community or project.</td>
+<td>Care Team, Research Project</td>
+</tr>
+<tr>
+<td><a href="https://terminology.hl7.org/ValueSet-v3-SecurityIntegrityObservationValue.html">Integrity</a></td>
+<td><code>0..*</code></td>
+<td>Security label metadata that segments an IT resource by conveying the completeness, veracity, reliability, trustworthiness, and provenance of an IT resource.</td>
+<td>Anonymized,  Digitally signed</td>
+</tr>
+<tr>
+<td><a href="https://terminology.hl7.org/ValueSet-v3-SecurityIntegrityProvenanceObservationValue.html">Provenance</a></td>
+<td><code>0..*</code></td>
+<td>Security label metadata that segments an IT resource by conveying the provenance of the IT resource&#39;s asserted or reported source.</td>
+<td>Patient reported, Clinician asserted</td>
+</tr>
+<tr>
+<td><a href="https://terminology.hl7.org/ValueSet-v3-SecurityTrustObservationValue.html">Trust</a></td>
+<td><code>0..*</code></td>
+<td>Security label metadata that segments an IT resource by conveying the basis for trusting the source.</td>
+<td>Trust Accreditation, Trust Agreement</td>
+</tr>
+</tbody>
 </table>
--->
+<p></p>
+<h4 id="securitycontrolobservationtype"><a href="https://terminology.hl7.org/ValueSet-v3-SecurityControlObservationType.html">Security Control</a></h4>
+<p>Type of security metadata observation made about the control of an IT resource (data, information object, service, or system capability), which may be used to make access control decisions. Security control metadata conveys instructions for secure distribution, transmission, storage or use.</p>
+<table class="grid">
+<thead>
+<tr>
+<th>Tag Set</th>
+<th>Car.</th>
+<th>Description</th>
+<th>Example Tags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://terminology.hl7.org/ValueSet-v3-PurposeOfUse.html">Purpose of Use</a></td>
+<td><code>0..*</code></td>
+<td>Security label metadata that segments an IT resource by conveying the reason for performing one or more operations on information, which may be permitted by source system&#39;s security policy in accordance with one or more privacy policies and consent directives.</td>
+<td>Treatment, Payment, Operation, Research</td>
+</tr>
+<tr>
+<td><a href="https://terminology.hl7.org/ValueSet-v3-GeneralPurposeOfUse.html">General Purpose of Use</a></td>
+<td><code>0..*</code></td>
+<td>Security label metadata that segments an IT resource by conveying the reason for performing one or more operations on information of purpose of use at a general level.</td>
+<td>Coverage, Patient Requested, Emergency Treatment</td>
+</tr>
+<tr>
+<td><a href="https://terminology.hl7.org/ValueSet-v3-ObligationPolicy.html">Obligation</a>**</td>
+<td><code>0..*</code></td>
+<td>Security label metadata that segments an IT resource by conveying the mandated workflow action that an information custodian, receiver, or user must perform.</td>
+<td>Encrypt, mask, comply with policy</td>
+</tr>
+<tr>
+<td><a href="https://terminology.hl7.org/ValueSet-v3-RefrainPolicy.html">Refrain</a>**</td>
+<td><code>0..*</code></td>
+<td>Security label metadata that segments an IT resource by conveying actions which an information custodian, receiver, or user is not permitted to perform unless otherwise authorized or permitted under specified circumstances.</td>
+<td>Do not disclose without consent, no reuse</td>
+</tr>
+</tbody>
+</table>
+<p>(**) Privacy-revealing Obligation or Refrain tags such as the Obligation Policy <code>MASK</code> (mask) or the Refrain Policy <code>NODSCLCD</code> (no disclosure without consent directive), shall not be included in the high-watermark labels of a <code>Bundle</code>, <code>DocumentReference</code>, or <code>Message Resources</code>.</p>
+<p>Other Value-sets are defined by the <a href="http://www.hl7.org/fhir/uv/security-label-ds4p/index.html">FHIR DS4P IG</a>.</p>
 
 
-</div>
 
 [%file newfooter%]
 

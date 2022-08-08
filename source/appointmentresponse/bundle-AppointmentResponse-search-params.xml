@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="AppointmentResponse-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AppointmentResponse-actor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AppointmentResponse.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AppointmentResponse-actor"/>
+        <description value="The Person, Location/HealthcareService or Device that this appointment response replies for"/>
+        <code value="actor"/>
+        <type value="reference"/>
+        <expression value="AppointmentResponse.actor"/>
+        <xpath value="f:AppointmentResponse/f:actor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AppointmentResponse-appointment"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AppointmentResponse.appointment"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AppointmentResponse-appointment"/>
+        <description value="The appointment that the response is attached to"/>
+        <code value="appointment"/>
+        <type value="reference"/>
+        <expression value="AppointmentResponse.appointment"/>
+        <xpath value="f:AppointmentResponse/f:appointment"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AppointmentResponse-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AppointmentResponse.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AppointmentResponse-identifier"/>
+        <description value="An Identifier in this appointment response"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="AppointmentResponse.identifier"/>
+        <xpath value="f:AppointmentResponse/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AppointmentResponse-location"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AppointmentResponse.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AppointmentResponse-location"/>
+        <description value="This Response is for this Location"/>
+        <code value="location"/>
+        <type value="reference"/>
+        <expression value="AppointmentResponse.actor.where(resolve() is Location)"/>
+        <xpath value="f:AppointmentResponse/f:actor"/>
+        <xpathUsage value="normal"/>
+        <target value="Location"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AppointmentResponse-part-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AppointmentResponse.participantStatus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AppointmentResponse-part-status"/>
+        <description value="The participants acceptance status for this appointment"/>
+        <code value="part-status"/>
+        <type value="token"/>
+        <expression value="AppointmentResponse.participantStatus"/>
+        <xpath value="f:AppointmentResponse/f:participantStatus"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AppointmentResponse-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AppointmentResponse.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AppointmentResponse-patient"/>
+        <description value="This Response is for this Patient"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="AppointmentResponse.actor.where(resolve() is Patient)"/>
+        <xpath value="f:AppointmentResponse/f:actor"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AppointmentResponse-group"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AppointmentResponse.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AppointmentResponse-group"/>
+        <description value="This Response is for this Group"/>
+        <code value="group"/>
+        <type value="reference"/>
+        <expression value="AppointmentResponse.actor.where(resolve() is Group)"/>
+        <xpath value="f:AppointmentResponse/f:actor"/>
+        <xpathUsage value="normal"/>
+        <target value="Group"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AppointmentResponse-practitioner"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AppointmentResponse.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AppointmentResponse-practitioner"/>
+        <description value="This Response is for this Practitioner"/>
+        <code value="practitioner"/>
+        <type value="reference"/>
+        <expression value="AppointmentResponse.actor.where(resolve() is Practitioner)"/>
+        <xpath value="f:AppointmentResponse/f:actor"/>
+        <xpathUsage value="normal"/>
+        <target value="Practitioner"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

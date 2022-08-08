@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Patient-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-active"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.active"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-active"/>
+        <description value="Whether the patient record is active"/>
+        <code value="active"/>
+        <type value="token"/>
+        <expression value="Patient.active"/>
+        <xpath value="f:Patient/f:active"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-address"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.address"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-address"/>
+        <description value="A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"/>
+        <code value="address"/>
+        <type value="string"/>
+        <expression value="Patient.address"/>
+        <xpath value="f:Patient/f:address"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-address-city"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.address.city"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-address-city"/>
+        <description value="A city specified in an address"/>
+        <code value="address-city"/>
+        <type value="string"/>
+        <expression value="Patient.address.city"/>
+        <xpath value="f:Patient/f:address/f:city"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-address-country"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.address.country"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-address-country"/>
+        <description value="A country specified in an address"/>
+        <code value="address-country"/>
+        <type value="string"/>
+        <expression value="Patient.address.country"/>
+        <xpath value="f:Patient/f:address/f:country"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-address-postalcode"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.address.postalCode"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-address-postalcode"/>
+        <description value="A postalCode specified in an address"/>
+        <code value="address-postalcode"/>
+        <type value="string"/>
+        <expression value="Patient.address.postalCode"/>
+        <xpath value="f:Patient/f:address/f:postalCode"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-address-state"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.address.state"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-address-state"/>
+        <description value="A state specified in an address"/>
+        <code value="address-state"/>
+        <type value="string"/>
+        <expression value="Patient.address.state"/>
+        <xpath value="f:Patient/f:address/f:state"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-address-use"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.address.use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-address-use"/>
+        <description value="A use code specified in an address"/>
+        <code value="address-use"/>
+        <type value="token"/>
+        <expression value="Patient.address.use"/>
+        <xpath value="f:Patient/f:address/f:use"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-birthdate"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.birthDate"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-birthdate"/>
+        <description value="The patient&#39;s date of birth"/>
+        <code value="birthdate"/>
+        <type value="date"/>
+        <expression value="Patient.birthDate"/>
+        <xpath value="f:Patient/f:birthDate"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-death-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.deceasedDateTime"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-death-date"/>
+        <description value="The date of death has been provided and satisfies this search value"/>
+        <code value="death-date"/>
+        <type value="date"/>
+        <expression value="(Patient.deceased as dateTime)"/>
+        <xpath value="f:Patient/f:deceasedDateTime"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-deceased"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.deceased[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-deceased"/>
+        <description value="This patient has been marked as deceased, or has a death date entered"/>
+        <code value="deceased"/>
+        <type value="token"/>
+        <expression value="Patient.deceased.exists() and Patient.deceased != false"/>
+        <xpath value="f:Patient/f:deceasedBoolean | f:Patient/f:deceasedDateTime"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-email"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.telecom(system=email)"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-email"/>
+        <description value="A value in an email contact"/>
+        <code value="email"/>
+        <type value="token"/>
+        <expression value="Patient.telecom.where(system=&#39;email&#39;)"/>
+        <xpath value="f:Patient/f:telecom[system/@value=&#39;email&#39;]"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-family"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.name.family"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-family"/>
+        <description value="A portion of the family name of the patient"/>
+        <code value="family"/>
+        <type value="string"/>
+        <expression value="Patient.name.family"/>
+        <xpath value="f:Patient/f:name/f:family"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-gender"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.gender"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-gender"/>
+        <description value="Gender of the patient"/>
+        <code value="gender"/>
+        <type value="token"/>
+        <expression value="Patient.gender"/>
+        <xpath value="f:Patient/f:gender"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-general-practitioner"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.generalPractitioner"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-general-practitioner"/>
+        <description value="Patient&#39;s nominated general practitioner, not the organization that manages the record"/>
+        <code value="general-practitioner"/>
+        <type value="reference"/>
+        <expression value="Patient.generalPractitioner"/>
+        <xpath value="f:Patient/f:generalPractitioner"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-given"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.name.given"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-given"/>
+        <description value="A portion of the given name of the patient"/>
+        <code value="given"/>
+        <type value="string"/>
+        <expression value="Patient.name.given"/>
+        <xpath value="f:Patient/f:name/f:given"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-identifier"/>
+        <description value="A patient identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Patient.identifier"/>
+        <xpath value="f:Patient/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-language"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.communication.language"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-language"/>
+        <description value="Language code (irrespective of use value)"/>
+        <code value="language"/>
+        <type value="token"/>
+        <expression value="Patient.communication.language"/>
+        <xpath value="f:Patient/f:communication/f:language"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-link"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.link.other"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-link"/>
+        <description value="All patients linked to the given patient"/>
+        <code value="link"/>
+        <type value="reference"/>
+        <expression value="Patient.link.other"/>
+        <xpath value="f:Patient/f:link/f:other"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-name"/>
+        <description value="A server defined search that may match any of the string fields in the HumanName, including family, given, prefix, suffix, and/or text"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="Patient.name"/>
+        <xpath value="f:Patient/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-organization"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.managingOrganization"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-organization"/>
+        <description value="The organization that is the custodian of the patient record"/>
+        <code value="organization"/>
+        <type value="reference"/>
+        <expression value="Patient.managingOrganization"/>
+        <xpath value="f:Patient/f:managingOrganization"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-phone"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.telecom(system=phone)"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-phone"/>
+        <description value="A value in a phone contact"/>
+        <code value="phone"/>
+        <type value="token"/>
+        <expression value="Patient.telecom.where(system=&#39;phone&#39;)"/>
+        <xpath value="f:Patient/f:telecom[system/@value=&#39;phone&#39;]"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-phonetic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-phonetic"/>
+        <description value="A portion of either family or given name using some kind of phonetic matching algorithm"/>
+        <code value="phonetic"/>
+        <type value="string"/>
+        <expression value="Patient.name"/>
+        <xpath value="f:Patient/f:name"/>
+        <xpathUsage value="phonetic"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Patient-telecom"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Patient.telecom"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Patient-telecom"/>
+        <description value="The value in any kind of telecom details of the patient"/>
+        <code value="telecom"/>
+        <type value="token"/>
+        <expression value="Patient.telecom"/>
+        <xpath value="f:Patient/f:telecom"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

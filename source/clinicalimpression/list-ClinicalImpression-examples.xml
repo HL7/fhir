@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="ClinicalImpression-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of clinicalimpression"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="clinicalimpression-example"/>
+    </extension>
+    <item>
+      <reference value="ClinicalImpression/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+</List>

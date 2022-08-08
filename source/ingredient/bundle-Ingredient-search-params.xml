@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Ingredient-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-for"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Ingredient.for"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-for"/>
+        <description value="The product which this ingredient is a constituent part of"/>
+        <code value="for"/>
+        <type value="reference"/>
+        <expression value="Ingredient.for"/>
+        <xpath value="f:Ingredient/f:for"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-function"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Ingredient.function"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-function"/>
+        <description value="A classification of the ingredient identifying its precise purpose(s) in the drug product. This extends the Ingredient.role to add more detail. Example: Antioxidant, Alkalizing Agent"/>
+        <code value="function"/>
+        <type value="token"/>
+        <expression value="Ingredient.function"/>
+        <xpath value="f:Ingredient/f:function"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Ingredient.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-identifier"/>
+        <description value="An identifier or code by which the ingredient can be referenced"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Ingredient.identifier"/>
+        <xpath value="f:Ingredient/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-manufacturer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Ingredient.manufacturer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-manufacturer"/>
+        <description value="The organization that manufactures this ingredient"/>
+        <code value="manufacturer"/>
+        <type value="reference"/>
+        <expression value="Ingredient.manufacturer"/>
+        <xpath value="f:Ingredient/f:manufacturer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-role"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Ingredient.role"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-role"/>
+        <description value="A classification of the ingredient identifying its purpose within the product, e.g. active, inactive"/>
+        <code value="role"/>
+        <type value="token"/>
+        <expression value="Ingredient.role"/>
+        <xpath value="f:Ingredient/f:role"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-substance"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Ingredient.substance.code.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-substance"/>
+        <description value="Reference to a resource (by instance)"/>
+        <code value="substance"/>
+        <type value="reference"/>
+        <expression value="Ingredient.substance.code.reference"/>
+        <xpath value="f:Ingredient/f:substance/f:code/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-substance-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Ingredient.substance.code.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-substance-code"/>
+        <description value="Reference to a concept (by class)"/>
+        <code value="substance-code"/>
+        <type value="token"/>
+        <expression value="Ingredient.substance.code.concept"/>
+        <xpath value="f:Ingredient/f:substance/f:code/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-substance-definition"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Ingredient.substance.code.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-substance-definition"/>
+        <description value="Reference to a resource (by instance)"/>
+        <code value="substance-definition"/>
+        <type value="reference"/>
+        <expression value="Ingredient.substance.code.reference"/>
+        <xpath value="f:Ingredient/f:substance/f:code/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="HealthcareService-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="HealthcareService-active"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="HealthcareService.active"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/HealthcareService-active"/>
+        <description value="The Healthcare Service is currently marked as active"/>
+        <code value="active"/>
+        <type value="token"/>
+        <expression value="HealthcareService.active"/>
+        <xpath value="f:HealthcareService/f:active"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="HealthcareService-characteristic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="HealthcareService.characteristic"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/HealthcareService-characteristic"/>
+        <description value="One of the HealthcareService&#39;s characteristics"/>
+        <code value="characteristic"/>
+        <type value="token"/>
+        <expression value="HealthcareService.characteristic"/>
+        <xpath value="f:HealthcareService/f:characteristic"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="HealthcareService-coverage-area"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="HealthcareService.coverageArea"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/HealthcareService-coverage-area"/>
+        <description value="Location(s) service is intended for/available to"/>
+        <code value="coverage-area"/>
+        <type value="reference"/>
+        <expression value="HealthcareService.coverageArea"/>
+        <xpath value="f:HealthcareService/f:coverageArea"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="HealthcareService-endpoint"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="HealthcareService.endpoint"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/HealthcareService-endpoint"/>
+        <description value="Technical endpoints providing access to electronic services operated for the healthcare service"/>
+        <code value="endpoint"/>
+        <type value="reference"/>
+        <expression value="HealthcareService.endpoint"/>
+        <xpath value="f:HealthcareService/f:endpoint"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="HealthcareService-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="HealthcareService.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/HealthcareService-identifier"/>
+        <description value="External identifiers for this item"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="HealthcareService.identifier"/>
+        <xpath value="f:HealthcareService/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="HealthcareService-location"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="HealthcareService.location"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/HealthcareService-location"/>
+        <description value="The location of the Healthcare Service"/>
+        <code value="location"/>
+        <type value="reference"/>
+        <expression value="HealthcareService.location"/>
+        <xpath value="f:HealthcareService/f:location"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="HealthcareService-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="HealthcareService.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/HealthcareService-name"/>
+        <description value="A portion of the Healthcare service name"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="HealthcareService.name"/>
+        <xpath value="f:HealthcareService/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="HealthcareService-organization"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="HealthcareService.providedBy"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/HealthcareService-organization"/>
+        <description value="The organization that provides this Healthcare Service"/>
+        <code value="organization"/>
+        <type value="reference"/>
+        <expression value="HealthcareService.providedBy"/>
+        <xpath value="f:HealthcareService/f:providedBy"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="HealthcareService-program"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="HealthcareService.program"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/HealthcareService-program"/>
+        <description value="One of the Programs supported by this HealthcareService"/>
+        <code value="program"/>
+        <type value="token"/>
+        <expression value="HealthcareService.program"/>
+        <xpath value="f:HealthcareService/f:program"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="HealthcareService-service-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="HealthcareService.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/HealthcareService-service-category"/>
+        <description value="Service Category of the Healthcare Service"/>
+        <code value="service-category"/>
+        <type value="token"/>
+        <expression value="HealthcareService.category"/>
+        <xpath value="f:HealthcareService/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="HealthcareService-service-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="HealthcareService.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/HealthcareService-service-type"/>
+        <description value="The type of service provided by this healthcare service"/>
+        <code value="service-type"/>
+        <type value="token"/>
+        <expression value="HealthcareService.type"/>
+        <xpath value="f:HealthcareService/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="HealthcareService-specialty"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="HealthcareService.specialty"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/HealthcareService-specialty"/>
+        <description value="The specialty of the service provided by this healthcare service"/>
+        <code value="specialty"/>
+        <type value="token"/>
+        <expression value="HealthcareService.specialty"/>
+        <xpath value="f:HealthcareService/f:specialty"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

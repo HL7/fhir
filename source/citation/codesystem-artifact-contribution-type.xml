@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="artifact-contribution-type"/>
+  <meta>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://terminology.hl7.org/CodeSystem/artifact-contribution-type defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">conceptualization
+            
+            <a name="artifact-contribution-type-conceptualization"> </a>
+          
+          </td>
+          
+          <td>Conceptualization</td>
+          
+          <td>Conceptualization (see https://jats4r.org/credit-taxonomy).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">data-curation
+            
+            <a name="artifact-contribution-type-data-curation"> </a>
+          
+          </td>
+          
+          <td>Data curation</td>
+          
+          <td>Data curation (see https://jats4r.org/credit-taxonomy).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">formal-analysis
+            
+            <a name="artifact-contribution-type-formal-analysis"> </a>
+          
+          </td>
+          
+          <td>Formal analysis</td>
+          
+          <td>Formal analysis (see https://jats4r.org/credit-taxonomy).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">funding-acquisition
+            
+            <a name="artifact-contribution-type-funding-acquisition"> </a>
+          
+          </td>
+          
+          <td>Funding acquisition</td>
+          
+          <td>Funding acquisition (see https://jats4r.org/credit-taxonomy).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">investigation
+            
+            <a name="artifact-contribution-type-investigation"> </a>
+          
+          </td>
+          
+          <td>Investigation</td>
+          
+          <td>Investigation (see https://jats4r.org/credit-taxonomy).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">methodology
+            
+            <a name="artifact-contribution-type-methodology"> </a>
+          
+          </td>
+          
+          <td>Methodology</td>
+          
+          <td>Methodology (see https://jats4r.org/credit-taxonomy).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">project-administration
+            
+            <a name="artifact-contribution-type-project-administration"> </a>
+          
+          </td>
+          
+          <td>Project administration</td>
+          
+          <td>Project administration (see https://jats4r.org/credit-taxonomy).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">resources
+            
+            <a name="artifact-contribution-type-resources"> </a>
+          
+          </td>
+          
+          <td>Resources</td>
+          
+          <td>Resources (see https://jats4r.org/credit-taxonomy).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">software
+            
+            <a name="artifact-contribution-type-software"> </a>
+          
+          </td>
+          
+          <td>Software</td>
+          
+          <td>Software (see https://jats4r.org/credit-taxonomy).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">supervision
+            
+            <a name="artifact-contribution-type-supervision"> </a>
+          
+          </td>
+          
+          <td>Supervision</td>
+          
+          <td>Supervision (see https://jats4r.org/credit-taxonomy).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">validation
+            
+            <a name="artifact-contribution-type-validation"> </a>
+          
+          </td>
+          
+          <td>Validation</td>
+          
+          <td>Validation (see https://jats4r.org/credit-taxonomy).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">visualization
+            
+            <a name="artifact-contribution-type-visualization"> </a>
+          
+          </td>
+          
+          <td>Visualization</td>
+          
+          <td>Visualization (see https://jats4r.org/credit-taxonomy).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">writing-original-draft
+            
+            <a name="artifact-contribution-type-writing-original-draft"> </a>
+          
+          </td>
+          
+          <td>Writing - original draft</td>
+          
+          <td>Writing - original draft (see https://jats4r.org/credit-taxonomy).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">writing-review-editing
+            
+            <a name="artifact-contribution-type-writing-review-editing"> </a>
+          
+          </td>
+          
+          <td>Writing - review &amp; editing</td>
+          
+          <td>Writing - review &amp; editing (see https://jats4r.org/credit-taxonomy).</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/artifact-contribution-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1505"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ArtifactContributionType"/>
+  <title value="ArtifactContributionType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Citation contribution."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/artifact-contribution-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="conceptualization"/>
+    <display value="Conceptualization"/>
+    <definition value="Conceptualization (see https://jats4r.org/credit-taxonomy)."/>
+  </concept>
+  <concept>
+    <code value="data-curation"/>
+    <display value="Data curation"/>
+    <definition value="Data curation (see https://jats4r.org/credit-taxonomy)."/>
+  </concept>
+  <concept>
+    <code value="formal-analysis"/>
+    <display value="Formal analysis"/>
+    <definition value="Formal analysis (see https://jats4r.org/credit-taxonomy)."/>
+  </concept>
+  <concept>
+    <code value="funding-acquisition"/>
+    <display value="Funding acquisition"/>
+    <definition value="Funding acquisition (see https://jats4r.org/credit-taxonomy)."/>
+  </concept>
+  <concept>
+    <code value="investigation"/>
+    <display value="Investigation"/>
+    <definition value="Investigation (see https://jats4r.org/credit-taxonomy)."/>
+  </concept>
+  <concept>
+    <code value="methodology"/>
+    <display value="Methodology"/>
+    <definition value="Methodology (see https://jats4r.org/credit-taxonomy)."/>
+  </concept>
+  <concept>
+    <code value="project-administration"/>
+    <display value="Project administration"/>
+    <definition value="Project administration (see https://jats4r.org/credit-taxonomy)."/>
+  </concept>
+  <concept>
+    <code value="resources"/>
+    <display value="Resources"/>
+    <definition value="Resources (see https://jats4r.org/credit-taxonomy)."/>
+  </concept>
+  <concept>
+    <code value="software"/>
+    <display value="Software"/>
+    <definition value="Software (see https://jats4r.org/credit-taxonomy)."/>
+  </concept>
+  <concept>
+    <code value="supervision"/>
+    <display value="Supervision"/>
+    <definition value="Supervision (see https://jats4r.org/credit-taxonomy)."/>
+  </concept>
+  <concept>
+    <code value="validation"/>
+    <display value="Validation"/>
+    <definition value="Validation (see https://jats4r.org/credit-taxonomy)."/>
+  </concept>
+  <concept>
+    <code value="visualization"/>
+    <display value="Visualization"/>
+    <definition value="Visualization (see https://jats4r.org/credit-taxonomy)."/>
+  </concept>
+  <concept>
+    <code value="writing-original-draft"/>
+    <display value="Writing - original draft"/>
+    <definition value="Writing - original draft (see https://jats4r.org/credit-taxonomy)."/>
+  </concept>
+  <concept>
+    <code value="writing-review-editing"/>
+    <display value="Writing - review &amp; editing"/>
+    <definition value="Writing - review &amp; editing (see https://jats4r.org/credit-taxonomy)."/>
+  </concept>
+</CodeSystem>

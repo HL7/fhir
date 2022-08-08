@@ -45,6 +45,7 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
+    <dose>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="7mg once daily"/>
@@ -72,6 +73,7 @@
         </doseAndRate>
         
     </dosageInstruction>
+    </dose>
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>

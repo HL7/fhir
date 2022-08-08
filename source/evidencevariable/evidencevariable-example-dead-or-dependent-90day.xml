@@ -12,42 +12,54 @@
   <title value="Dead or functionally dependent at 90 days"/>
   <status value="draft"/>
   <actual value="false"/>
-  <characteristicCombination value="union"/>
   <characteristic>
-		<description value="functionally dependent at 90 days"/>
-		<definitionCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="718705001"/>
-				<display value="Functionally dependent (finding)"/>
-			</coding>
-		</definitionCodeableConcept>
-		<timeFromStart>
-			<quantity>
-				<value value="90"/>
-				<unit value="day"/>
-				<system value="http://unitsofmeasure.org"/>
-				<code value="d"/>
-			</quantity>
-		</timeFromStart>
-  </characteristic>
-  <characteristic>
-		<description value="dead at 90 days"/>
-		<definitionCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="419099009"/>
-				<display value="Dead (finding)"/>
-			</coding>
-		</definitionCodeableConcept>
-		<timeFromStart>
-			<quantity>
-				<value value="90"/>
-				<unit value="day"/>
-				<system value="http://unitsofmeasure.org"/>
-				<code value="d"/>
-			</quantity>
-		</timeFromStart>
+	  <description value="Dead or functionally dependent at 90 days"/>
+	  <definitionByCombination>
+		  <code value="any-of" />
+		  <characteristic>
+				<description value="functionally dependent at 90 days"/>
+				<definitionCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="718705001"/>
+						<display value="Functionally dependent (finding)"/>
+					</coding>
+				</definitionCodeableConcept>
+				<timeFromEvent>
+					<eventCodeableConcept>
+						<coding>
+							<system value="http://hl7.org/fhir/evidence-variable-event"/>
+							<code value="study-start"/>
+							<display value="Study Start"/>
+						</coding>
+					</eventCodeableConcept>
+					<quantity>
+						<value value="90"/>
+						<unit value="day"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="d"/>
+					</quantity>
+				</timeFromEvent>
+		  </characteristic>
+		  <characteristic>
+				<description value="dead at 90 days"/>
+				<definitionCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="419099009"/>
+						<display value="Dead (finding)"/>
+					</coding>
+				</definitionCodeableConcept>
+				<timeFromEvent>
+					<quantity>
+						<value value="90"/>
+						<unit value="day"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="d"/>
+					</quantity>
+				</timeFromEvent>
+		  </characteristic>
+	  </definitionByCombination>
   </characteristic>
   <handling value="dichotomous"/>
 </EvidenceVariable>

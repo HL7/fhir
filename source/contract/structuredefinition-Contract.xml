@@ -1,0 +1,2280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Contract"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Financial.General"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Contract"/>
+  <version value="4.6.0"/>
+  <name value="Contract"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Financial Management)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Contract"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Contract">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,70"/>
+      </extension>
+      <path value="Contract"/>
+      <short value="Legal Agreement"/>
+      <definition value="Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="FinancialContract"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="financial.other"/>
+      </mapping>
+    </element>
+    <element id="Contract.identifier">
+      <path value="Contract.identifier"/>
+      <short value="Contract number"/>
+      <definition value="Unique identifier for this Contract or a derivative that references a Source Contract."/>
+      <requirements value="This is the business identifier of the contract content conveyed.  It may be a derivative of the legally binding contract, in which case, the identifier of the basal contract is  contained in the Contract.binding referenced Contract."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="FinancialContract id"/>
+      </mapping>
+    </element>
+    <element id="Contract.url">
+      <path value="Contract.url"/>
+      <short value="Basal definition"/>
+      <definition value="Canonical identifier for this contract, represented as a URI (globally unique)."/>
+      <comment value="Used in a domain that uses a supplied contract repository."/>
+      <requirements value="An absolute URI that is used to identify this contract when it is referenced in a specification, model, design, instance or a contract derivative; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this plan definition is (or will be) published."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="Contract.version">
+      <path value="Contract.version"/>
+      <short value="Business edition"/>
+      <definition value="An edition identifier used for business purposes to label business significant variants."/>
+      <comment value="Note -  This is a business versionId, not a resource version id (see discussion http://build.fhir.org/resource.html#versions) &#xD;Comments - There may be different contract instances that have the same identifier but different versions. The version can be appended to the url in a reference to allow a reference to a particular business version of the plan definition with the format [url]|[version]."/>
+      <requirements value="The identifier that is used to identify this version of the contract when it is referenced in a specification, model, design, instance, or contract derivative. This is an arbitrary value managed by the contract author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Contract.status">
+      <path value="Contract.status"/>
+      <short value="amended | appended | cancelled | disputed | entered-in-error | executable +"/>
+      <definition value="The status of the resource instance."/>
+      <comment value="This element is labeled as a modifier because the status contains codes that mark the contract as not currently valid or active."/>
+      <requirements value="This is the Contract Business Workflow Status."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="A code specifying the state of the resource instance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act.status"/>
+      </mapping>
+    </element>
+    <element id="Contract.legalState">
+      <path value="Contract.legalState"/>
+      <short value="Negotiation status"/>
+      <definition value="Legal states of the formation of a legal instrument, which is a formally executed written document that can be formally attributed to its author, records and formally expresses a legally enforceable act, process, or contractual duty, obligation, or right, and therefore evidences that act, process, or agreement."/>
+      <requirements value="The legal state of a contract follows a prescribed flow as defined by the legal community and these state may be indepenedent of the workflow state."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractLegalState"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Detailed codes for the legal state of a contract."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-legalstate"/>
+      </binding>
+    </element>
+    <element id="Contract.instantiatesCanonical">
+      <path value="Contract.instantiatesCanonical"/>
+      <short value="Source Contract Definition"/>
+      <definition value="The URL pointing to a FHIR-defined Contract Definition that is adhered to in whole or part by this Contract."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract"/>
+      </type>
+    </element>
+    <element id="Contract.instantiatesUri">
+      <path value="Contract.instantiatesUri"/>
+      <short value="External Contract Definition"/>
+      <definition value="The URL pointing to an externally maintained definition that is adhered to in whole or in part by this Contract."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="Contract.contentDerivative">
+      <path value="Contract.contentDerivative"/>
+      <short value="Content derived from the basal information"/>
+      <definition value="The minimal content derived from the basal information source at a specific stage in its lifecycle."/>
+      <requirements value="In the context of a contract, the information source of the content derivative shall be the information referenced by the contract.binding.&#xD;The Contract Resource may function simply as the computable representation of the executed contract, which may be the attached to the Contract Resource as the &#x201C;binding&#x201D; or as the &#x201C;friendly&#x201D; electronic form.  For example, a Contract Resource may be automatically populated with the values expressed in a related QuestionnaireResponse. &#xD;However, the Contract Resource may be considered the legally binding contract if it is the only &#x201C;executed&#x201D; form of this contract, and includes the signatures as *The Contract Resource may function as the computable representation of an application or offer in a pre-executed Contract if the grantor has not entered any values.  In this case, it is populated with values in a &#x201C;legal&#x201D; form of the application or offer or by the values in an associated Questionnaire.  If the grantor has filled in the legal form or the associated Questionnaire Response, then these values are used to populate a pre-executed Contract Resource.&#xD;If the Contract.topic is considered an application or offer, then the policy is often required to be attached as the &#x201C;legal&#x201D; basis for the application to ensure &#x201C;informed consent&#x201D; to the contract, and that any discrepancy between the application and the policy are interpreted against the policy.  Implementers should check organizational and jurisdictional policies to determine the relationship among multiple representations of a contract pre- and post-execution."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractContentDerivative"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This is an example set of Content Derivative type codes, which represent the minimal content derived from the basal information source."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-content-derivative"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Maps partially to several v3 codes: ActClass: REG (registration) Description: Represents the act of maintaining information about the registration of its associated registered subject. The subject can be either an Act or a Role, and includes subjects such as lab exam definitions, drug protocol definitions, prescriptions, persons, patients, practitioners, and equipment.&#xD;The registration may have a unique identifier - separate from the unique identification of the subject - as well as a core set of related participations and act relationships that characterize the registration event and aid in the disposition of the subject information by a receiving system. Observation: VERIF (Verification) Description: An act which describes the process whereby a &#39;verifying party&#39; validates either the existence of the Role attested to by some Credential or the actual Vetting act and its details. TRFR (transfer) Description: The act of transferring information without the intent of imparting understanding about a topic to the subject that is the recipient or holder of the transferred information where the participation association must be RCV or HLD. _ActDetectedIssueManagementCode [abstract term] Description: Codes dealing with the management of Detected Issue observations. _ActInformationAccessContextCode [abstract term] Description: Concepts conveying the context in which authorization given under jurisdictional law, by organizational policy, or by a patient consent directive permits the collection, access, use or disclosure of specified patient health information. _ActListCode [abstract term]vDescription: Provides codes associated with ActClass value of LIST (working list). RefusalReasonCode [abstract term] Description:&#xD;Description: Identifies why a request to add (or activate) a record is being refused. Examples include the receiving system not able to match the identifier and find that record in the receiving system, having no permission, or a detected issue exists which precludes the requested action."/>
+      </mapping>
+    </element>
+    <element id="Contract.issued">
+      <path value="Contract.issued"/>
+      <short value="When this Contract was issued"/>
+      <definition value="When this  Contract was issued."/>
+      <requirements value="The Contract issuance dateTime often precedes the Contract effective dateTime."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.authoredOn"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act.availabilityTime.  Definition: A time expression specifying when an Observation, Procedure, or other Act occurs, or, depending on the mood, is supposed to occur, scheduled to occur, etc. The activityTime includes the times of component actions (such as preparation and clean-up). For Procedures and SubstanceAdministrations, the activityTime can provide a needed administrative function by providing a more inclusive time to be anticipated in scheduling. UsageNotes:The activityTime is primarily of administrative rather than clinical use. The clinically relevant time is the effectiveTime. When an observation of a prior symptom is made, the activityTime describes the time the observation is made, as opposed to effectiveTime which is the time the symptom is reported to have occurred. Thus the activityTime may be entirely different from the effectiveTime of the same Act. However, even apart from clinical use cases, designers should first consider effectiveTime as the primary relevant time for an Act. ActivityTime indicates when an Act occurs, not when it is recorded."/>
+      </mapping>
+    </element>
+    <element id="Contract.applies">
+      <path value="Contract.applies"/>
+      <short value="Effective time"/>
+      <definition value="Relevant time or time-period when this Contract is applicable."/>
+      <requirements value="The dateTime upon which the Contract is binding."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act.effectiveTime Definition: The clinically or operationally relevant time of an act, exclusive of administrative activity."/>
+      </mapping>
+    </element>
+    <element id="Contract.expirationType">
+      <path value="Contract.expirationType"/>
+      <short value="Contract cessation cause"/>
+      <definition value="Event resulting in discontinuation or termination of this Contract instance by one or more parties to the contract."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractExpiration"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the Cessation of Contracts."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-expiration-type"/>
+      </binding>
+    </element>
+    <element id="Contract.subject">
+      <path value="Contract.subject"/>
+      <short value="Contract Target Entity"/>
+      <definition value="The target entity impacted by or of interest to parties to the agreement."/>
+      <comment value="The Contract.subject is an entity that has some role with respect to the Contract.topic and Contract.topic.term, which is of focal interest to the parties to the contract and likely impacted in a significant way by the Contract.action/Contract.action.reason and the Contract.term.action/Contract.action.reason. &#xD;In many cases, the Contract.subject is a Contract.signer if the subject is an adult; has a legal interest in the contract; and incompetent to participate in the contract agreement."/>
+      <requirements value="The Contract.subject is an entity that has some role with respect to the Contract.topic and Contract.topic.term, which is of focal interest to the parties to the contract and likely impacted in a significant way by the Contract.action/Contract.action.reason and the Contract.term.action/Contract.action.reason.  In many cases, the Contract.subject is a Contract.signer if the subject is an adult; has a legal interest in the contract; and incompetent to participate in the contract agreement."/>
+      <alias value="Patient"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="RoleClass, RoleCode"/>
+      </mapping>
+    </element>
+    <element id="Contract.authority">
+      <path value="Contract.authority"/>
+      <short value="Authority under which this Contract has standing"/>
+      <definition value="A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of contracts and policies."/>
+      <requirements value="The governance framework responsible for ensuring compliance with or enforcement of the contract or policy."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Organization Role.  CONCEPT DOMAIN: OrganizationEntityType Description: Further classifies entities of EntityClass ORG."/>
+      </mapping>
+    </element>
+    <element id="Contract.domain">
+      <path value="Contract.domain"/>
+      <short value="A sphere of control governed by an authoritative jurisdiction, organization, or person"/>
+      <definition value="Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources."/>
+      <requirements value="The entities bound by governance to comply with the enforcement of contracts or policies by a recognized authority."/>
+      <alias value="scope of governance jurisdiction"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="TERR (territory of authority) Description: Relates a place entity (player) as the region over which the scoper (typically an Organization) has certain authority (jurisdiction). For example, the Calgary Regional Health Authority (scoper) has authority over the territory &quot;Region 4 of Alberta&quot; (player) in matters of health.&#xD;Entity Class = Place? A physical place or site with its containing structure. May be natural or man-made. The geographic position of a place might or might not be constant.&#xD;CONCEPT DOMAIN: TerritoryEntityType Description: A territorial entity that may be cited as the body over which an agency exercises jurisdiction, or which defines a sphere in which a party has a particular responsibility. CONCEPT DOMAIN: OrganizationEntityType&#xD;Description: Further classifies entities of EntityClass ORG."/>
+      </mapping>
+    </element>
+    <element id="Contract.site">
+      <path value="Contract.site"/>
+      <short value="Specific Location"/>
+      <definition value="Sites in which the contract is complied with,  exercised, or in force."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+    </element>
+    <element id="Contract.name">
+      <path value="Contract.name"/>
+      <short value="Computer friendly designation"/>
+      <definition value="A natural language name identifying this Contract definition, derivative, or instance in any legal state. Provides additional information about its content. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <requirements value="Support human navigation and code generation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Contract.title">
+      <path value="Contract.title"/>
+      <short value="Human Friendly name"/>
+      <definition value="A short, descriptive, user-friendly title for this Contract definition, derivative, or instance in any legal state.t giving additional information about its content."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Contract.subtitle">
+      <path value="Contract.subtitle"/>
+      <short value="Subordinate Friendly name"/>
+      <definition value="An explanatory or alternate user-friendly title for this Contract definition, derivative, or instance in any legal state.t giving additional information about its content."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Contract.alias">
+      <path value="Contract.alias"/>
+      <short value="Acronym or short name"/>
+      <definition value="Alternative representation of the title for this Contract definition, derivative, or instance in any legal state., e.g., a domain specific contract number related to legislation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Contract.author">
+      <path value="Contract.author"/>
+      <short value="Source of Contract"/>
+      <definition value="The individual or organization that authored the Contract definition, derivative, or instance in any legal state."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="Contract.scope">
+      <path value="Contract.scope"/>
+      <short value="Range of Legal Concerns"/>
+      <definition value="A selector of legal concerns for this Contract definition, derivative, or instance in any legal state."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractScope"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the range of legal concerns."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-scope"/>
+      </binding>
+    </element>
+    <element id="Contract.topic[x]">
+      <path value="Contract.topic[x]"/>
+      <short value="Focus of contract interest"/>
+      <definition value="Narrows the range of legal concerns to focus on the achievement of specific contractual objectives."/>
+      <requirements value="Requirement:  May be used to focus the topic of a Contract definition, derivative, or instance in any legal state.&#xD;Comment: Contractual areas of concern are very broad. This element supports narrowing the area of concern to more specific term topics within this Contract. Given the wide range of contract topics, implementers need to be cognizant of the business use case for which they are designing a FHIR Contract, and narrowly specify the topic being represented with respect to the Contract.type and any specializing Contract.subtype. The same topic, e.g., an asset such as a good or service, such as a real property, medical supply, insurance, information, a procedure or employment, or a manner of conduct, such adherence to a privacy, trust, or security policy, may be the topic of multiple types of contracts. &#xD;One way to determine the Contract.topic is to answer the question: &#x201C;What is the overall objective of this legal instrument. The Contract.topic is described with more detail by the terms of the Contract."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+    <element id="Contract.type">
+      <path value="Contract.type"/>
+      <short value="Legal instrument category"/>
+      <definition value="A high-level category for the legal instrument, whether constructed as a Contract definition, derivative, or instance in any legal state.  Provides additional information about its content within the context of the Contract&#39;s scope to distinguish the kinds of systems that would be interested in the contract."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="List of overall contract codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-type"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Maps to multiple ActClass and ActCode Concept Domains and Code Systems such as the following:   In the ActClass Concept Domain: ActClassPolicy. In the ActCode Concept Domain:   ActContractType, which generalizes ActFinancialContractType, ActCoverageType, ActBillingArrangementType.  ActConsentType, which generalizes ActDataConsentType; ActFinancialParticipationConsentType; ActInformationAccessCode; AdvanceBeneficiaryNoticeType.  ActPolicyType, which generalizes: ActPrivacyPolicyType, ActSensitivityPrivacyPolicyType, ActSecurityPolicyType.  In the ActClass Code System:  CNTRCT (contract) Description: An agreement of obligation between two or more parties that is subject to contractual law and enforcement, lwhich generalizes FCNTRCT (financial contract) and COV (coverage).  POLICY (policy) - Description: A mandate, regulation, obligation, requirement, rule, or expectation unilaterally imposed by one party on: The activity of another party; the behavior of another party; or the manner in which an act is executed. LEAF CONCEPTS: JURISPOL (jurisdictional policy) Description:A mandate, regulation, obligation, requirement, rule, or expectation unilaterally imposed by a jurisdiction on: The activity of another party; the behavior of another party; or the manner in which an act is executed.Examples:A jurisdictional mandate regarding the prescribing and dispensing of a particular medication. A jurisdictional privacy or security regulation dictating the manner in which personal health information is disclosed. A jurisdictional requirement that certain services or health conditions are reported to a monitoring program, e.g., immunizations, methadone treatment, or cancer registries.ORGPOL (organizational policy)Examples:A clinical or research protocols imposed by a payer, a malpractice insurer, or an institution to which a provider must adhere. A mandate imposed by a denominational institution for a provider to provide or withhold certain information from the patient about treatment options.SCOPOL (scope of practice policy)Description:An ethical or clinical obligation, requirement, rule, or expectation imposed or strongly encouraged by organizations that oversee particular clinical domains or provider certification which define the boundaries within which a provider may practice and which may have legal basis or ramifications.Examples:An ethical obligation for a provider to fully inform a patient about all treatment options. An ethical obligation for a provider not to disclose personal health information that meets certain criteria, e.g., where disclosure might result in harm to the patient or another person. The set of health care services which a provider is credentialed or privileged to provide. STDPOL (standard of practice policy) Examples:A payer may require a prescribing provider to adhere to formulary guidelines. An institution may adopt clinical guidelines and protocols and implement these within its electronic health record and decision support systems.  CONS (consent)Description: The Consent class represents informed consents and all similar medico-legal transactions between the patient (or his legal guardian) and the provider. Examples are informed consent for surgical procedures, informed consent for clinical trials, advanced beneficiary notice, against medical advice decline from service, release of information agreement, etc.  The details of consents vary. Often an institution has a number of different consent forms for various purposes, including reminding the physician about the topics to mention. Such forms also include patient education material. In electronic medical record communication, consents thus are information-generating acts on their own and need to be managed similar to medical activities. Thus, Consent is modeled as a special class of Act. The &quot;signatures&quot; to the consent document are represented electronically through Participation instances to the consent object. Typically an informed consent has Participation.typeCode of &quot;performer&quot;, the healthcare provider informing the patient, and &quot;consenter&quot;, the patient or legal guardian. Some consent may associate a witness or a notary public (e.g., living wills, advanced directives). In consents where a healthcare provider is not required (e.g. living will), the performer may be the patient himself or a notary public."/>
+      </mapping>
+    </element>
+    <element id="Contract.subType">
+      <path value="Contract.subType"/>
+      <short value="Subtype within the context of type"/>
+      <definition value="Sub-category for the Contract that distinguishes the kinds of systems that would be interested in the Contract within the context of the Contract&#39;s scope."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractSubtype"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Detailed codes within the above."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-subtype"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Examples of Contract or Policy subtypes in ActCodes:_ActCoverageTypeCode Definition: Set of codes indicating the type of insurance policy or program that pays for the cost of benefits provided to covered parties. Generalizes:  _ActInsurancePolicyCode;  _ActInsuranceTypeCode; ActProgramTypeCode.  _ActPolicyType  Description:Types of policies that further specify the ActClassPolicy value set. Generalizes: _ActPrivacyPolicy; _ActPrivacyLaw; _InformationSensitivityPolicy; ActTrustPolicyType;  SecurityPolicy.  _ActInvoiceAdjudicationPaymentGroupCode  Description: Codes representing adjustments to a Payment Advice such as retroactive, clawback, garnishee, etc., e.g. RECOV (recovery) Description: Retroactive adjustment such as fee rate adjustment due to contract negotiations."/>
+      </mapping>
+    </element>
+    <element id="Contract.contentDefinition">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="ContentDefinition"/>
+      </extension>
+      <path value="Contract.contentDefinition"/>
+      <short value="Contract precursor content"/>
+      <definition value="Precusory content developed with a focus and intent of supporting the formation a Contract instance, which may be associated with and transformable into a Contract."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Contract.contentDefinition.type">
+      <path value="Contract.contentDefinition.type"/>
+      <short value="Content structure and use"/>
+      <definition value="Precusory content structure and use, i.e., a boilerplate, template, application for a contract such as an insurance policy or benefits under a program, e.g., workers compensation."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractDefinitionType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Detailed codes for the definition of contracts."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-definition-type"/>
+      </binding>
+    </element>
+    <element id="Contract.contentDefinition.subType">
+      <path value="Contract.contentDefinition.subType"/>
+      <short value="Detailed Content Type Definition"/>
+      <definition value="Detailed Precusory content type."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractDefinitionSubtype"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Detailed codes for the additional definition of contracts."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-definition-subtype"/>
+      </binding>
+    </element>
+    <element id="Contract.contentDefinition.publisher">
+      <path value="Contract.contentDefinition.publisher"/>
+      <short value="Publisher Entity"/>
+      <definition value="The  individual or organization that published the Contract precursor content."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="Contract.contentDefinition.publicationDate">
+      <path value="Contract.contentDefinition.publicationDate"/>
+      <short value="When published"/>
+      <definition value="The date (and optionally time) when the contract was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the contract changes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="Contract.contentDefinition.publicationStatus">
+      <path value="Contract.contentDefinition.publicationStatus"/>
+      <short value="amended | appended | cancelled | disputed | entered-in-error | executable +"/>
+      <definition value="amended | appended | cancelled | disputed | entered-in-error | executable +."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractPublicationStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Status of the publication of contract content."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-publicationstatus"/>
+      </binding>
+    </element>
+    <element id="Contract.contentDefinition.copyright">
+      <path value="Contract.contentDefinition.copyright"/>
+      <short value="Publication Ownership"/>
+      <definition value="A copyright statement relating to Contract precursor content. Copyright statements are generally legal restrictions on the use and publishing of the Contract precursor content."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Contract.term">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Term"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="20,560"/>
+      </extension>
+      <path value="Contract.term"/>
+      <short value="Contract Term List"/>
+      <definition value="One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="RIM mechanism for grouping or nesting rules, which are likely Acts and Observations."/>
+      </mapping>
+    </element>
+    <element id="Contract.term.identifier">
+      <path value="Contract.term.identifier"/>
+      <short value="Contract Term Number"/>
+      <definition value="Unique identifier for this particular Contract Provision."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act or Observation identifier."/>
+      </mapping>
+    </element>
+    <element id="Contract.term.issued">
+      <path value="Contract.term.issued"/>
+      <short value="Contract Term Issue Date Time"/>
+      <definition value="When this Contract Provision was issued."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.authoredOn"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act availabilityTime"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.applies">
+      <path value="Contract.term.applies"/>
+      <short value="Contract Term Effective Time"/>
+      <definition value="Relevant time or time-period when this Contract Provision is applicable."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.occurrence[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.topic[x]">
+      <path value="Contract.term.topic[x]"/>
+      <short value="Term Concern"/>
+      <definition value="The entity that the term applies to."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+    <element id="Contract.term.type">
+      <path value="Contract.term.type"/>
+      <short value="Contract Term Type or Form"/>
+      <definition value="A legal clause or condition contained within a contract that requires one or both parties to perform a particular requirement by some specified time or prevents one or both parties from performing a particular requirement by some specified time."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractTermType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Detailed codes for the types of contract provisions."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-term-type"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="See Contract.term mapping."/>
+      </mapping>
+    </element>
+    <element id="Contract.term.subType">
+      <path value="Contract.term.subType"/>
+      <short value="Contract Term Type specific classification"/>
+      <definition value="A specialized legal clause or condition based on overarching contract type."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractTermSubType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Detailed codes for the subtypes of contract provisions."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-term-subtype"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="See Contract.topic mapping."/>
+      </mapping>
+    </element>
+    <element id="Contract.term.text">
+      <path value="Contract.term.text"/>
+      <short value="Term Statement"/>
+      <definition value="Statement of a provision in a policy or a contract."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Contract.term.securityLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="SecurityLabel"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="390,445"/>
+      </extension>
+      <path value="Contract.term.securityLabel"/>
+      <short value="Protection for the Term"/>
+      <definition value="Security labels that protect the handling of information about the term and its elements, which may be specifically identified.."/>
+      <requirements value="Requirement -  Within a Contract, a security label may apply to the one to many nested group of terms or to a term, whether inside a group or a singleton.  This security label protects the term and its contained provision elements.  The security label on the entire set of term provision elements may be different from the security labels on a contained offer, asset, valuedItem, or data such as sensitive information, and must be the high water mark of all security labels within the term. Rationale is that a labelled term, which may be disaggregated from the Contract, and must persist the label on the term and on contained elements within other contexts. &#xD;Requirement - If more than one policy dictates a level of confidentiality of the term, then each applicable policy may be represented by a security label specific to its requirements.&#xD;Comment - A Security Label is comprised of 1..1 confidentiality code and 0..* other security label codes (aka &quot;privacy tags&quot;. A Security Label is metadata assigned (aka &quot;tagged&quot;) to Resources and Resource elements, which specify the confidentiality and sensitivity of the Resource or element and their related attributes, the purposes for which tagged items may be collected, access, used or disclosed, any limitation on the type of entities authorized to engage in permitted purposes, and handling instructions that obligate or prohibit certain actions on the tagged items."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Contract.term.securityLabel.number">
+      <path value="Contract.term.securityLabel.number"/>
+      <short value="Link to Security Labels"/>
+      <definition value="Number used to link this term or term element to the applicable Security Label."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+    </element>
+    <element id="Contract.term.securityLabel.classification">
+      <path value="Contract.term.securityLabel.classification"/>
+      <short value="Confidentiality Protection"/>
+      <definition value="Security label privacy tag that species the level of confidentiality protection required for this term and/or term elements."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractSecurityClassification"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for confidentiality protection."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-security-classification"/>
+      </binding>
+    </element>
+    <element id="Contract.term.securityLabel.category">
+      <path value="Contract.term.securityLabel.category"/>
+      <short value="Applicable Policy"/>
+      <definition value="Security label privacy tag that species the applicable privacy and security policies governing this term and/or term elements."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractSecurityCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for policy category."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-security-category"/>
+      </binding>
+    </element>
+    <element id="Contract.term.securityLabel.control">
+      <path value="Contract.term.securityLabel.control"/>
+      <short value="Handling Instructions"/>
+      <definition value="Security label privacy tag that species the manner in which term and/or term elements are to be protected."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractSecurityControl"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for handling instructions."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-security-control"/>
+      </binding>
+    </element>
+    <element id="Contract.term.offer">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="ContractOffer"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="390,545"/>
+      </extension>
+      <path value="Contract.term.offer"/>
+      <short value="Context of the Contract term"/>
+      <definition value="The matter of concern in the context of this provision of the agrement."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Document"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.offer.identifier">
+      <path value="Contract.term.offer.identifier"/>
+      <short value="Offer business ID"/>
+      <definition value="Unique identifier for this particular Contract Provision."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="Contract.term.offer.party">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="ContractParty"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="740,530"/>
+      </extension>
+      <path value="Contract.term.offer.party"/>
+      <short value="Offer Recipient"/>
+      <definition value="Offer Recipient."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Contract.term.offer.party.reference">
+      <path value="Contract.term.offer.party.reference"/>
+      <short value="Referenced entity"/>
+      <definition value="Participant in the offer."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="Contract.term.offer.party.role">
+      <path value="Contract.term.offer.party.role"/>
+      <short value="Participant engagement type"/>
+      <definition value="How the party participates in the offer."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractPartyRole"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for offer participant roles."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-party-role"/>
+      </binding>
+    </element>
+    <element id="Contract.term.offer.topic">
+      <path value="Contract.term.offer.topic"/>
+      <short value="Negotiable offer asset"/>
+      <definition value="The owner of an asset has the residual control rights over the asset: the right to decide all usages of the asset in any way not inconsistent with a prior contract, custom, or law (Hart, 1995, p. 30)."/>
+      <comment value="The Contract.topic may be an application for or offer of a policy or service (e.g., uri to a consent directive form or a health insurance policy), which becomes the Contract once accepted by both the grantor and grantee. &#xD;The Contract Resource may function simply as the computable representation of the executed contract, which may be the attached to the Contract Resource as the &#x201C;binding&#x201D; or as the &#x201C;friendly&#x201D; electronic form.  For example, a Contract Resource may be automatically populated with the values expressed in a related QuestionnaireResponse. &#xD;However, the Contract Resource may be considered the legally binding contract if it is the only &#x201C;executed&#x201D; form of this contract, and includes the signatures as *The Contract Resource may function as the computable representation of an application or offer in a pre-executed Contract if the grantor has not entered any values.  In this case, it is populated with values in a &#x201C;legal&#x201D; form of the application or offer or by the values in an associated Questionnaire.  If the grantor has filled in the legal form or the associated Questionnaire Response, then these values are used to populate a pre-executed Contract Resource.&#xD;If the Contract.topic is considered an application or offer, then the policy is often required to be attached as the &#x201C;legal&#x201D; basis for the application to ensure &#x201C;informed consent&#x201D; to the contract, and that any discrepancy between the application and the policy are interpreted against the policy.  Implementers should check organizational and jurisdictional policies to determine the relationship among multiple representations of a contract pre- and post-execution."/>
+      <requirements value="In the context of a contract, the topic is the matter under consideration in regards to which specific rights, privileges, obligations, restrictions, and prohibitions are binding on any grantor and grantee parties upon the execution of the contract. &#xD;Given the wide range of contract topics, implementers need to be cognizant of the business use case for which they are designing a FHIR Contract, and narrowly specify the topic being represented with respect to the Contract.type and any specializing Contract.subtype. &#xD;The same topic, e.g., an asset such as a good or service, such as a real property, medical supply, insurance, information, a procedure or employment, or a manner of conduct, such adherence to a privacy, trust, or security policy, may be the topic of multiple types of contracts. &#xD;One way to determine the Contract.topic is to answer the question: &#x201C;What is the object of negotiation?&#x201D;&#xD;Answer: The Contract.topic, which may be described with more detail in the [0..*]Contract.valuedItem @ [0..1] Contract.valuedItem.entity[x] Definition: Specific type of Contract Valued Item that may be priced. CodeableConcept|Reference(Any)&#xD;Contract.topic is &#x201C;the what&#x201D; that a grantor is exchanging with a grantee in return for some benefit. &#xD;Contract.topic is &#x201C;the what&#x201D; to which any Contract.action is being applied for any stipulated Contract.action.reason. &#xD;AContract.topic is &#x201C;the what&#x201D; governed by the execution of the contract to which any party&#x2019;s rights, privileges, obligations, restrictions, and prohibitions apply."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.context"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Includes many ActClass, ActCode, RoleClass, RoleCode, EntityClass, EntityCode, ParticipationType codes from HL7 concept domains and code systems. For example, RoleCode: HLD (held entity) Description: Entity that is currently in the possession of a holder (scoper), who holds, or uses it, usually based on some agreement with the owner. MANU (manufactured product) Description: Scoped by the manufacturer. OWN (owned entity) Description: An Entity (player) for which someone (scoper) is granted by law the right to call the material (player) his own. This entitles the scoper to make decisions about the disposition of that material. WRTE (warranted product) Description:&#xD;A role a product plays when a guarantee is given to the purchaser by the seller (scoping entity) stating that the product is reliable and free from known defects and that the seller will repair or replace defective parts within a given time limit and under certain conditions."/>
+      </mapping>
+    </element>
+    <element id="Contract.term.offer.type">
+      <path value="Contract.term.offer.type"/>
+      <short value="Contract Offer Type or Form"/>
+      <definition value="Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractTermType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Detailed codes for the types of contract provisions."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-term-type"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="See Contract.term mapping."/>
+      </mapping>
+    </element>
+    <element id="Contract.term.offer.decision">
+      <path value="Contract.term.offer.decision"/>
+      <short value="Accepting party choice"/>
+      <definition value="Type of choice made by accepting party with respect to an offer made by an offeror/ grantee."/>
+      <requirements value="In some policy or contract contexts, the &quot;offer&quot; is made by an offeror wishing to be the &quot;grantee&quot; of the offer topic by the grantor.  From this perspective, the grantor is the &quot;offeree&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractDecisionType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The type of decision made by a grantor with respect to an offer made by a grantee."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActConsentDirective"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ActCode: _ActConsentDirective [abstract term] Description: Specifies the type of agreement between one or more grantor and grantee in which rights and obligations related to one or more shared items of interest are allocated. Usage Note: Such agreements may be considered &quot;consent directives&quot; or &quot;contracts&quot; depending on the context, and are considered closely related or synonymous from a legal perspective."/>
+      </mapping>
+    </element>
+    <element id="Contract.term.offer.decisionMode">
+      <path value="Contract.term.offer.decisionMode"/>
+      <short value="How decision is conveyed"/>
+      <definition value="How the decision about a Contract was conveyed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractDecisionMode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for conveying a decision."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-decision-mode"/>
+      </binding>
+    </element>
+    <element id="Contract.term.offer.answer">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Answer"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="740,660"/>
+      </extension>
+      <path value="Contract.term.offer.answer"/>
+      <short value="Response to offer text"/>
+      <definition value="Response to offer text."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Contract.term.offer.answer.value[x]">
+      <path value="Contract.term.offer.answer.value[x]"/>
+      <short value="The actual answer response"/>
+      <definition value="Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="time"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="uri"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+    <element id="Contract.term.offer.text">
+      <path value="Contract.term.offer.text"/>
+      <short value="Human readable offer text"/>
+      <definition value="Human readable form of this Contract Offer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Document.text"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.offer.linkId">
+      <path value="Contract.term.offer.linkId"/>
+      <short value="Pointer to text"/>
+      <definition value="The id of the clause or question text of the offer in the referenced questionnaire/response."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.offer.securityLabelNumber">
+      <path value="Contract.term.offer.securityLabelNumber"/>
+      <short value="Offer restriction numbers"/>
+      <definition value="Security labels that protects the offer."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+    </element>
+    <element id="Contract.term.asset">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="ContractAsset"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="390,730"/>
+      </extension>
+      <path value="Contract.term.asset"/>
+      <short value="Contract Term Asset List"/>
+      <definition value="Contract Term Asset List."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="FinancialContract.paymentTermsCode"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.asset.scope">
+      <path value="Contract.term.asset.scope"/>
+      <short value="Range of asset"/>
+      <definition value="Differentiates the kind of the asset ."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractAssetScope"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for scoping an asset."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-assetscope"/>
+      </binding>
+    </element>
+    <element id="Contract.term.asset.type">
+      <path value="Contract.term.asset.type"/>
+      <short value="Asset category"/>
+      <definition value="Target entity type about which the term may be concerned."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractAssetType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Condes for the type of an asset."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-assettype"/>
+      </binding>
+    </element>
+    <element id="Contract.term.asset.typeReference">
+      <path value="Contract.term.asset.typeReference"/>
+      <short value="Associated entities"/>
+      <definition value="Associated entities."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+    <element id="Contract.term.asset.subtype">
+      <path value="Contract.term.asset.subtype"/>
+      <short value="Asset sub-category"/>
+      <definition value="May be a subtype or part of an offered asset."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractAssetSubtype"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Condes for the sub-type of an asset."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-assetsubtype"/>
+      </binding>
+    </element>
+    <element id="Contract.term.asset.relationship">
+      <path value="Contract.term.asset.relationship"/>
+      <short value="Kinship of the asset"/>
+      <definition value="Specifies the applicability of the term to an asset resource instance, and instances it refers to orinstances that refer to it, and/or are owned by the offeree."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConsentContentClass"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The class (type) of information a consent rule covers."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/consent-content-class"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="FinancialContract.code"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.asset.context">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="AssetContext"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="395,975"/>
+      </extension>
+      <path value="Contract.term.asset.context"/>
+      <short value="Circumstance of the asset"/>
+      <definition value="Circumstance of the asset."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Contract.term.asset.context.reference">
+      <path value="Contract.term.asset.context.reference"/>
+      <short value="Creator,custodian or owner"/>
+      <definition value="Asset context reference may include the creator, custodian, or owning Person or Organization (e.g., bank, repository),  location held, e.g., building,  jurisdiction."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+    <element id="Contract.term.asset.context.code">
+      <path value="Contract.term.asset.context.code"/>
+      <short value="Codeable asset context"/>
+      <definition value="Coded representation of the context generally or of the Referenced entity, such as the asset holder type or location."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractAssetContext"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the context of the asset."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-assetcontext"/>
+      </binding>
+    </element>
+    <element id="Contract.term.asset.context.text">
+      <path value="Contract.term.asset.context.text"/>
+      <short value="Context description"/>
+      <definition value="Context description."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Contract.term.asset.condition">
+      <path value="Contract.term.asset.condition"/>
+      <short value="Quality desctiption of asset"/>
+      <definition value="Description of the quality and completeness of the asset that imay be a factor in its valuation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Contract.term.asset.periodType">
+      <path value="Contract.term.asset.periodType"/>
+      <short value="Asset availability types"/>
+      <definition value="Type of Asset availability for use or ownership."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AssetAvailabilityType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for asset availability."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/asset-availability"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="FinancialContract.code"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.asset.period">
+      <path value="Contract.term.asset.period"/>
+      <short value="Time period of the asset"/>
+      <definition value="Asset relevant contractual time period."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="FinancialContract.activityTime"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.asset.usePeriod">
+      <path value="Contract.term.asset.usePeriod"/>
+      <short value="Time period"/>
+      <definition value="Time period of asset use."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="FinancialContract.effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.asset.text">
+      <path value="Contract.term.asset.text"/>
+      <short value="Asset clause or question text"/>
+      <definition value="Clause or question text (Prose Object) concerning the asset in a linked form, such as a QuestionnaireResponse used in the formation of the contract."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Contract.term.asset.linkId">
+      <path value="Contract.term.asset.linkId"/>
+      <short value="Pointer to asset text"/>
+      <definition value="Id [identifier??] of the clause or question text about the asset in the referenced form or QuestionnaireResponse."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Contract.term.asset.answer">
+      <path value="Contract.term.asset.answer"/>
+      <short value="Response to assets"/>
+      <definition value="Response to assets."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#Contract.term.offer.answer"/>
+    </element>
+    <element id="Contract.term.asset.securityLabelNumber">
+      <path value="Contract.term.asset.securityLabelNumber"/>
+      <short value="Asset restriction numbers"/>
+      <definition value="Security labels that protects the asset."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+    </element>
+    <element id="Contract.term.asset.valuedItem">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="ValuedItem"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="740,760"/>
+      </extension>
+      <path value="Contract.term.asset.valuedItem"/>
+      <short value="Contract Valued Item List"/>
+      <definition value="Contract Valued Item List."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="COCT_RM440000UV09 ValuedItem classCode INVE"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.asset.valuedItem.entity[x]">
+      <path value="Contract.term.asset.valuedItem.entity[x]"/>
+      <short value="Contract Valued Item Type"/>
+      <definition value="Specific type of Contract Valued Item that may be priced."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="COCT_RM440000UV09 ValuedItem code"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.asset.valuedItem.identifier">
+      <path value="Contract.term.asset.valuedItem.identifier"/>
+      <short value="Contract Valued Item Number"/>
+      <definition value="Identifies a Contract Valued Item instance."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="COCT_RM440000UV09 ValuedItem id"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.asset.valuedItem.effectiveTime">
+      <path value="Contract.term.asset.valuedItem.effectiveTime"/>
+      <short value="Contract Valued Item Effective Tiem"/>
+      <definition value="Indicates the time during which this Contract ValuedItem information is effective."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="COCT_RM440000UV09 ValuedItem effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.asset.valuedItem.quantity">
+      <path value="Contract.term.asset.valuedItem.quantity"/>
+      <short value="Count of Contract Valued Items"/>
+      <definition value="Specifies the units by which the Contract Valued Item is measured or counted, and quantifies the countable or measurable Contract Valued Item instances."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="COCT_RM440000UV09 ValuedItem unitQuantity"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.asset.valuedItem.unitPrice">
+      <path value="Contract.term.asset.valuedItem.unitPrice"/>
+      <short value="Contract Valued Item fee, charge, or cost"/>
+      <definition value="A Contract Valued Item unit valuation measure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="COCT_RM440000UV09 ValuedItem unitPriceAmt"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.asset.valuedItem.factor">
+      <path value="Contract.term.asset.valuedItem.factor"/>
+      <short value="Contract Valued Item Price Scaling Factor"/>
+      <definition value="A real number that represents a multiplier used in determining the overall value of the Contract Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="COCT_RM440000UV09 ValuedItem factorNumber"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.asset.valuedItem.points">
+      <path value="Contract.term.asset.valuedItem.points"/>
+      <short value="Contract Valued Item Difficulty Scaling Factor"/>
+      <definition value="An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Valued Item delivered. The concept of Points allows for assignment of point values for a Contract Valued Item, such that a monetary amount can be assigned to each point."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="COCT_RM440000UV09 ValuedItem pointNumber"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.asset.valuedItem.net">
+      <path value="Contract.term.asset.valuedItem.net"/>
+      <short value="Total Contract Valued Item Value"/>
+      <definition value="Expresses the product of the Contract Valued Item unitQuantity and the unitPriceAmt. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="COCT_RM440000UV09 ValuedItem netAmt"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.asset.valuedItem.payment">
+      <path value="Contract.term.asset.valuedItem.payment"/>
+      <short value="Terms of valuation"/>
+      <definition value="Terms of valuation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Contract.term.asset.valuedItem.paymentDate">
+      <path value="Contract.term.asset.valuedItem.paymentDate"/>
+      <short value="When payment is due"/>
+      <definition value="When payment is due."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="Contract.term.asset.valuedItem.responsible">
+      <path value="Contract.term.asset.valuedItem.responsible"/>
+      <short value="Who will make payment"/>
+      <definition value="Who will make payment."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+    </element>
+    <element id="Contract.term.asset.valuedItem.recipient">
+      <path value="Contract.term.asset.valuedItem.recipient"/>
+      <short value="Who will receive payment"/>
+      <definition value="Who will receive payment."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+    </element>
+    <element id="Contract.term.asset.valuedItem.linkId">
+      <path value="Contract.term.asset.valuedItem.linkId"/>
+      <short value="Pointer to specific item"/>
+      <definition value="Id  of the clause or question text related to the context of this valuedItem in the referenced form or QuestionnaireResponse."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Contract.term.asset.valuedItem.securityLabelNumber">
+      <path value="Contract.term.asset.valuedItem.securityLabelNumber"/>
+      <short value="Security Labels that define affected terms"/>
+      <definition value="A set of security labels that define which terms are controlled by this condition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+    </element>
+    <element id="Contract.term.action">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Action"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="10,740"/>
+      </extension>
+      <path value="Contract.term.action"/>
+      <short value="Entity being ascribed responsibility"/>
+      <definition value="An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place."/>
+      <comment value="Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.&#xD;For example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event."/>
+      <requirements value="An agent can be a person, an organization, software, device, or other entities that may be ascribed responsibility."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Participation"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.action.doNotPerform">
+      <path value="Contract.term.action.doNotPerform"/>
+      <short value="True if the term prohibits the  action"/>
+      <definition value="True if the term prohibits the  action."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="If true this element negates the specified action. For Example, instead of a dictate to perform an action, it is a dictate not to perform the action."/>
+    </element>
+    <element id="Contract.term.action.type">
+      <path value="Contract.term.action.type"/>
+      <short value="Type or form of the action"/>
+      <definition value="Activity or service obligation to be done or not done, performed or not performed, effectuated or not by this Contract term."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractAction"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Detailed codes for the contract action."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-action"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.performer"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="RIM Role, Participation Type classes"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.action.subject">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="ActionSubject"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="390,1065"/>
+      </extension>
+      <path value="Contract.term.action.subject"/>
+      <short value="Entity of the action"/>
+      <definition value="Entity of the action."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Contract.term.action.subject.reference">
+      <path value="Contract.term.action.subject.reference"/>
+      <short value="Entity of the action"/>
+      <definition value="The entity the action is performed or not performed on or for."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="Contract.term.action.subject.role">
+      <path value="Contract.term.action.subject.role"/>
+      <short value="Role type of the agent"/>
+      <definition value="Role type of agent assigned roles in this Contract."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractActorRole"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Detailed codes for the contract actor role."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-actorrole"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="RoleClass, RoleCode, ParticipationType, ParticipationFunction codes"/>
+      </mapping>
+    </element>
+    <element id="Contract.term.action.intent">
+      <path value="Contract.term.action.intent"/>
+      <short value="Purpose for the Contract Term Action"/>
+      <definition value="Reason or purpose for the action stipulated by this Contract Provision."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractActionReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Detailed codes for the contract action reason."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.reasonCode"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Examples from ActReason Concept Domains: ActCoverageReason Description:Codes used to specify reasons or criteria relating to coverage provided under a policy or program. May be used to convey reasons pertaining to coverage contractual provisions, including criteria for eligibility, coverage limitations, coverage maximums, or financial participation required of covered parties. ActInformationPrivacyReason Description: The rationale or purpose for an act relating to the management of personal information, such as disclosing personal tax information for the purpose of complying with a court order. ClinicalResearchObservationReason Definition: Specifies the reason that a test was performed or observation collected in a clinical research study. SafetyInvestigationReportReasonType Description: Possible reasons generating a report providing information developed during the investigation of an adverse event or a product problem. ControlActReason Description: Indicates the motivation, cause or rationale of an Act which results in a trigger event.  NonPerformanceReasonCode Description: The reason the action was not performed, e.g. why the medication was not taken. If an action was not performed, it is often clinically important to know why the action was not taken. RefusalReasonCode Description: Identifies why a request to add (or activate) a record is being refused. Examples include the receiving system not able to match the identifier and find that record in the receiving system, having no permission, or a detected issue exists which precludes the requested action.&#xD;&#xD;&#xD;&#xD;&#xD;&#xD;&#xD;&#xD;Examples from HL7 ActReason Code System: QUALIMP (quality improvement) Description:Operational activities conducted for the purposes of improving the quality of an activity, product, or service. _PatientProfileQueryReasonCode Description: A collection of concepts identifying why the patient&#39;s profile is being queried. _ActInformationManagementReason Description:The rationale or purpose for an act relating to information management, such as archiving information for the purpose of complying with an enterprise data retention policy. _ActInvalidReason (ActInvalidReason) Description: Types of reasons why a substance is invalid for use. _NonPerformanceReasonCode Description: The reason the action wasn&#39;t performed, e.g. why the medication was not taken. If an action wasn&quot;t performed, it is often clinically important to know why the action wasn&quot;t taken."/>
+      </mapping>
+    </element>
+    <element id="Contract.term.action.linkId">
+      <path value="Contract.term.action.linkId"/>
+      <short value="Pointer to specific item"/>
+      <definition value="Id [identifier??] of the clause or question text related to this action in the referenced form or QuestionnaireResponse."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Contract.term.action.status">
+      <path value="Contract.term.action.status"/>
+      <short value="State of the action"/>
+      <definition value="Current state of the term action."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractActionStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the status of an term action."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-actionstatus"/>
+      </binding>
+    </element>
+    <element id="Contract.term.action.context">
+      <path value="Contract.term.action.context"/>
+      <short value="Episode associated with action"/>
+      <definition value="Encounter or Episode with primary association to specified term activity."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"/>
+      </type>
+    </element>
+    <element id="Contract.term.action.contextLinkId">
+      <path value="Contract.term.action.contextLinkId"/>
+      <short value="Pointer to specific item"/>
+      <definition value="Id [identifier??] of the clause or question text related to the requester of this action in the referenced form or QuestionnaireResponse."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Contract.term.action.occurrence[x]">
+      <path value="Contract.term.action.occurrence[x]"/>
+      <short value="When action happens"/>
+      <definition value="When action happens."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <type>
+        <code value="Timing"/>
+      </type>
+    </element>
+    <element id="Contract.term.action.requester">
+      <path value="Contract.term.action.requester"/>
+      <short value="Who asked for action"/>
+      <definition value="Who or what initiated the action and has responsibility for its activation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="Contract.term.action.requesterLinkId">
+      <path value="Contract.term.action.requesterLinkId"/>
+      <short value="Pointer to specific item"/>
+      <definition value="Id [identifier??] of the clause or question text related to the requester of this action in the referenced form or QuestionnaireResponse."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Contract.term.action.performerType">
+      <path value="Contract.term.action.performerType"/>
+      <short value="Kind of service performer"/>
+      <definition value="The type of individual that is desired or required to perform or not perform the action."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractActionPerformerType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the types of action perfomer."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participation-role-type"/>
+      </binding>
+    </element>
+    <element id="Contract.term.action.performerRole">
+      <path value="Contract.term.action.performerRole"/>
+      <short value="Competency of the performer"/>
+      <definition value="The type of role or competency of an individual desired or required to perform or not perform the action."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractActionPerformerRole"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the role of the action performer."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/security-role-type"/>
+      </binding>
+    </element>
+    <element id="Contract.term.action.performer">
+      <path value="Contract.term.action.performer"/>
+      <short value="Actor that wil execute (or not) the action"/>
+      <definition value="Indicates who or what is being asked to perform (or not perform) the ction."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+    </element>
+    <element id="Contract.term.action.performerLinkId">
+      <path value="Contract.term.action.performerLinkId"/>
+      <short value="Pointer to specific item"/>
+      <definition value="Id [identifier??] of the clause or question text related to the reason type or reference of this  action in the referenced form or QuestionnaireResponse."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Contract.term.action.reason">
+      <path value="Contract.term.action.reason"/>
+      <short value="Why is action (not) needed?"/>
+      <definition value="Rationale for the action to be performed or not performed. Describes why the action is permitted or prohibited. Either a coded concept, or another resource whose existence justifies permitting or not permitting this action."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractActionReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Detailed codes for the contract action reason."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"/>
+      </binding>
+    </element>
+    <element id="Contract.term.action.reasonLinkId">
+      <path value="Contract.term.action.reasonLinkId"/>
+      <short value="Pointer to specific item"/>
+      <definition value="Id [identifier??] of the clause or question text related to the reason type or reference of this  action in the referenced form or QuestionnaireResponse."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Contract.term.action.note">
+      <path value="Contract.term.action.note"/>
+      <short value="Comments about the action"/>
+      <definition value="Comments made about the term action made by the requester, performer, subject or other participants."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+    </element>
+    <element id="Contract.term.action.securityLabelNumber">
+      <path value="Contract.term.action.securityLabelNumber"/>
+      <short value="Action restriction numbers"/>
+      <definition value="Security labels that protects the action."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+    </element>
+    <element id="Contract.term.group">
+      <path value="Contract.term.group"/>
+      <short value="Nested Contract Term Group"/>
+      <definition value="Nested group of Contract Provisions."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#Contract.term"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="RIM Grouping or Nesting mechanisms"/>
+      </mapping>
+    </element>
+    <element id="Contract.supportingInfo">
+      <path value="Contract.supportingInfo"/>
+      <short value="Extra Information"/>
+      <definition value="Information that may be needed by/relevant to the performer in their execution of this term action."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+    <element id="Contract.relevantHistory">
+      <path value="Contract.relevantHistory"/>
+      <short value="Key event in Contract History"/>
+      <definition value="Links to Provenance records for past versions of this Contract definition, derivative, or instance, which identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the Contract.  The Provence.entity indicates the target that was changed in the update. http://build.fhir.org/provenance-definitions.html#Provenance.entity."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
+      </type>
+    </element>
+    <element id="Contract.signer">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Signatory"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="390,130"/>
+      </extension>
+      <path value="Contract.signer"/>
+      <short value="Contract Signatory"/>
+      <definition value="Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness."/>
+      <comment value="Signers who are principal parties to the contract are bound by the Contract.activity related to the Contract.topic, and the Contract.term(s), which either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions, action reason, or agents with respect to some or all of the topic.&#xD;For example, specifying how policies or obligations shall constrain actions and action reasons permitted or denied on all or a subset of the Contract.topic (e.g., all or a portion of property being transferred by the contract), agents (e.g., who can resell, assign interests, or alter the property being transferred by the contract), actions, and action reasons; or with respect to Contract.terms, stipulating, extending, or limiting the Contract.period of applicability or valuation of items under consideration."/>
+      <requirements value="The Contract.signer applies a signature to the Contract.binding referenced resource, which is the documentation that is the legal &quot;source of truth&quot;. The Contract.signer may delegate, such as a legally recognized personal representative, or have a delegate assigned e.g., by a court of law, to actually sign the Contract, such as a trustee in the case of incompetence."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Participation"/>
+      </mapping>
+    </element>
+    <element id="Contract.signer.type">
+      <path value="Contract.signer.type"/>
+      <short value="Contract Signatory Role"/>
+      <definition value="Role of this Contract signer, e.g. notary, grantee."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContractSignerType"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="List of parties who may be signing."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contract-signer-type"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="RoleClass, RoleCode, ParticipationType, ParticipationFunction class codes."/>
+      </mapping>
+    </element>
+    <element id="Contract.signer.party">
+      <path value="Contract.signer.party"/>
+      <short value="Contract Signatory Party"/>
+      <definition value="Party which is a signator to this Contract."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.requester"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Role Class"/>
+      </mapping>
+    </element>
+    <element id="Contract.signer.signature">
+      <path value="Contract.signer.signature"/>
+      <short value="Contract Documentation Signature"/>
+      <definition value="Legally binding Contract DSIG signature contents in Base64."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Signature"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Participation.signatureCode :: CD (0..1) Definition: Whether the participant has attested participation through a signature, or whether such a signature is needed. Examples: A surgical Procedure act object (representing a procedure report) requires a signature of the performing and responsible surgeon, and possibly other participants; The participant intends to provide a signature.  Participation.signatureText :: ED (0..1) Definition: A textual or multimedia depiction of the signature by which the participant endorses and accepts responsibility for his or her participation in the Act as specified in the Participation.typeCode. UsageNotes: The signature can be represented either inline or by reference according to the ED data type. Typical cases are &#xD;1) Paper-based signatures: the ED data type may refer to a document or other resource that can be retrieved through an electronic interface to a hardcopy archive. 2) Electronic signature: this attribute can represent virtually any electronic signature scheme. 3) Digital signature: this attribute can represent digital signatures by reference to a signature data block that is constructed in accordance to a digital signature standard, such as XML-DSIG, PKCS#7, PGP, etc. Examples: 1) An &quot;author&quot; participant assumes accountability for the truth of the Act statement to the best of his knowledge. 2) An information recipient only attests to the fact that he or she has received the information."/>
+      </mapping>
+    </element>
+    <element id="Contract.friendly">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="FriendlyLanguage"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="740,230"/>
+      </extension>
+      <path value="Contract.friendly"/>
+      <short value="Contract Friendly Language"/>
+      <definition value="The &quot;patient friendly language&quot; versionof the Contract in whole or in parts. &quot;Patient friendly language&quot; means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="LanguageCommunication"/>
+      </mapping>
+    </element>
+    <element id="Contract.friendly.content[x]">
+      <path value="Contract.friendly.content[x]"/>
+      <short value="Easily comprehended representation of this Contract"/>
+      <definition value="Human readable rendering of this Contract in a format and representation intended to enhance comprehension and ensure understandability."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act.text Definition: A renderable textual or multimedia description (or reference to a description) of the complete information which would reasonably be expected to be displayed to a human reader conveyed by the Act."/>
+      </mapping>
+    </element>
+    <element id="Contract.legal">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="LegalLanguage"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="390,295"/>
+      </extension>
+      <path value="Contract.legal"/>
+      <short value="Contract Legal Language"/>
+      <definition value="List of Legal expressions or representations of this Contract."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="LanguageCommunication"/>
+      </mapping>
+    </element>
+    <element id="Contract.legal.content[x]">
+      <path value="Contract.legal.content[x]"/>
+      <short value="Contract Legal Text"/>
+      <definition value="Contract legal text in human renderable form."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Example: Act.text of an Act coded as with ActPrivacyLaw, ActPolicy code"/>
+      </mapping>
+    </element>
+    <element id="Contract.rule">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="ComputableLanguage"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="390,370"/>
+      </extension>
+      <path value="Contract.rule"/>
+      <short value="Computable Contract Language"/>
+      <definition value="List of Computable Policy Rule Language Representations of this Contract."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="LanguageCommunication"/>
+      </mapping>
+    </element>
+    <element id="Contract.rule.content[x]">
+      <path value="Contract.rule.content[x]"/>
+      <short value="Computable Contract Rules"/>
+      <definition value="Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Computable Policy Consent [Observation: templateId 2.16.840.1.113883.3.445.16] This template is used to represent an alternative representation of the Privacy Consent Directive (e.g.,ODRL, XrML, XACML) as a computer-readable set of rules. An implementation may use any appropriate representations of the privacy consent in addition to the &quot;ConsentDirectiveStructuredDefinition&quot; which uses the Clinical Template structure to express the elements of a consent directive in an interoperable way.&#xD;1. SHALL contain exactly one [1..1] templateId ( CONF-CD-16 ) such that it&#xD;a. SHALL contain exactly one [1..1] @root=&quot;2.16.840.1.113883.3.445.16&quot;&#xD;2. SHALL contain exactly one [1..1] @moodCode=&quot;DEF&quot; (CodeSystem: 2.16.840.1.113883.5.1001 HL7ActMood) (CONF:14912)&#xD;3. SHALL contain exactly one [1..1] code (CONF:9139)/@code=&quot;57016-8&quot; Privacy Policy Acknowledgement Document (CodeSystem: 2.16.840.1.113883.6.1 LOINC) (CONF:9138)&#xD;It specifies the LOINC code corresponding to &quot;Privacy Policy Acknowledgement Document&quot;, it is fixed at this value.&#xD;4. SHOULD contain zero or more [0..*] value with @xsi:type=&quot;ANY&quot; (CONF:9140) The value contains the computable representation of the policy. This may be a standard-based access control or attribute control based policy (See&#xD;&quot;References&quot;). Computable Policy Consent example&#xD;&lt;!-- Sample computable policy language representation --&gt;&#xD;&lt;entryRelationship typeCode=&quot;COMP&quot;&gt;&#xD;&lt;templateId root=&quot;2.16.840.1.113883.3.445.16&quot; /&gt;&#xD;&lt;observationMedia classCode=&quot;OBS&quot; moodCode=&quot;EVN&quot;&gt;&#xD;&lt;value mediaType=&quot;text/xml&quot; representation=&quot;TXT&quot;&gt; ... &lt;/value&gt;&#xD;&lt;/observationMedia&gt;&#xD;&lt;/entryRelationship&gt;"/>
+      </mapping>
+    </element>
+    <element id="Contract.legallyBinding[x]">
+      <path value="Contract.legallyBinding[x]"/>
+      <short value="Binding Contract"/>
+      <definition value="Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the &quot;source of truth&quot; and which would be the basis for legal action related to enforcement of this Contract."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="DocumentCompletion code system AU (authenticated) Description: A completion status in which a document has been signed manually or electronically by one or more individuals who attest to its accuracy. No explicit determination is made that the assigned individual has performed the authentication. While the standard allows multiple instances of authentication, it would be typical to have a single instance of authentication, usually by the assigned individual."/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -85,7 +85,7 @@
   <software>
     <name value="ACME Knowledge Repository Service"/>
   </software>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="4.6.0"/>
   <format value="json"/>
   <format value="xml"/>
   <rest>

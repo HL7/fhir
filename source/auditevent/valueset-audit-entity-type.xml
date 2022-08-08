@@ -1,37 +1,47 @@
-﻿<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="audit-entity-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="AuditEventEntityType"/> 
-  <status value="active"/> 
-  <experimental value="false"/> 
-  <date value="2020-08-04"/> 
-  <publisher value="HL7 (FHIR Project)"/> 
-  <contact> 
-    <telecom> 
-      <system value="url"/> 
-      <value value="http://hl7.org/fhir"/> 
-    </telecom> 
-    <telecom> 
-      <system value="email"/> 
-      <value value="fhir@lists.hl7.org"/> 
-    </telecom> 
-  </contact> 
-  <description value="Code for the entity type involved in the audit event."/> 
-  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/> 
-  <immutable value="true"/> 
-
-  <compose> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/audit-entity-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.458"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="AuditEventEntityType"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2020-08-04"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Code for the entity type involved in the audit event."/>
+  <immutable value="true"/>
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/>
+  <compose>
     <include>
-	<!-- DICOM codes for AuditEvent entity type -->
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-	  <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_404.html" />
+      <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_404.html"/>
     </include>
-    <include> 
-      <system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/> 
-    </include> 
-    <include> 
-      <system value="http://hl7.org/fhir/resource-types"/> 
-    </include> 
-  </compose> 
-</ValueSet> 
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/resource-types"/>
+    </include>
+  </compose>
+</ValueSet>

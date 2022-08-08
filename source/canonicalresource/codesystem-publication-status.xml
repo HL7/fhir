@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="publication-status"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/publication-status defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">draft
+            
+            <a name="publication-status-draft"> </a>
+          
+          </td>
+          
+          <td>Draft</td>
+          
+          <td>This resource is still under development and is not yet considered to be ready for normal use.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">active
+            
+            <a name="publication-status-active"> </a>
+          
+          </td>
+          
+          <td>Active</td>
+          
+          <td>This resource is ready for normal use.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">retired
+            
+            <a name="publication-status-retired"> </a>
+          
+          </td>
+          
+          <td>Retired</td>
+          
+          <td>This resource has been withdrawn or superseded and should no longer be used.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">unknown
+            
+            <a name="publication-status-unknown"> </a>
+          
+          </td>
+          
+          <td>Unknown</td>
+          
+          <td>The authoring system does not know which of the status values currently applies for this resource.  Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it&#39;s just not known which one.</td>
+        
+        </tr>
+      
+      </table>
+      
+      <p>
+        
+        <b>Additional Language Displays</b>
+      
+      </p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td>
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Nederlands (Dutch, nl)</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Русский (Russian, ru)</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>draft</td>
+          
+          <td>ontwerp</td>
+          
+          <td>черновик</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>active</td>
+          
+          <td>actief</td>
+          
+          <td>активный</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>retired</td>
+          
+          <td>verouderd</td>
+          
+          <td>удалён</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>unknown</td>
+          
+          <td/>
+          
+          <td/>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="4.0.0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/publication-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.4"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="PublicationStatus"/>
+  <title value="PublicationStatus"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <description value="The lifecycle status of an artifact."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="draft"/>
+    <display value="Draft"/>
+    <definition value="This resource is still under development and is not yet considered to be ready for normal use."/>
+    <designation>
+      <language value="ru"/>
+      <value value="&#x447;&#x435;&#x440;&#x43D;&#x43E;&#x432;&#x438;&#x43A;"/>
+    </designation>
+    <designation>
+      <language value="nl"/>
+      <value value="ontwerp"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="This resource is ready for normal use."/>
+    <designation>
+      <language value="ru"/>
+      <value value="&#x430;&#x43A;&#x442;&#x438;&#x432;&#x43D;&#x44B;&#x439;"/>
+    </designation>
+    <designation>
+      <language value="nl"/>
+      <value value="actief"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="retired"/>
+    <display value="Retired"/>
+    <definition value="This resource has been withdrawn or superseded and should no longer be used."/>
+    <designation>
+      <language value="ru"/>
+      <value value="&#x443;&#x434;&#x430;&#x43B;&#x451;&#x43D;"/>
+    </designation>
+    <designation>
+      <language value="nl"/>
+      <value value="verouderd"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The authoring system does not know which of the status values currently applies for this resource.  Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it&#39;s just not known which one."/>
+  </concept>
+</CodeSystem>

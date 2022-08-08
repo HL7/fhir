@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ChargeItemDefinition-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItemDefinition-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-context"/>
+        <description value="A use context assigned to the charge item definition"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(ChargeItemDefinition.useContext.value as CodeableConcept)"/>
+        <xpath value="f:ChargeItemDefinition/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItemDefinition-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the charge item definition"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(ChargeItemDefinition.useContext.value as Quantity) | (ChargeItemDefinition.useContext.value as Range)"/>
+        <xpath value="f:ChargeItemDefinition/f:useContext/f:valueQuantity | f:ChargeItemDefinition/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItemDefinition-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-context-type"/>
+        <description value="A type of use context assigned to the charge item definition"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="ChargeItemDefinition.useContext.code"/>
+        <xpath value="f:ChargeItemDefinition/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItemDefinition-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the charge item definition"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="ChargeItemDefinition.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItemDefinition-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-context-type-value"/>
+        <description value="A use context type and value assigned to the charge item definition"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="ChargeItemDefinition.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItemDefinition-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-date"/>
+        <description value="The charge item definition publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="ChargeItemDefinition.date"/>
+        <xpath value="f:ChargeItemDefinition/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItemDefinition-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-description"/>
+        <description value="The description of the charge item definition"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="ChargeItemDefinition.description"/>
+        <xpath value="f:ChargeItemDefinition/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItemDefinition-effective"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.effectivePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-effective"/>
+        <description value="The time during which the charge item definition is intended to be in use"/>
+        <code value="effective"/>
+        <type value="date"/>
+        <expression value="ChargeItemDefinition.effectivePeriod"/>
+        <xpath value="f:ChargeItemDefinition/f:effectivePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItemDefinition-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-identifier"/>
+        <description value="External identifier for the charge item definition"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="ChargeItemDefinition.identifier"/>
+        <xpath value="f:ChargeItemDefinition/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItemDefinition-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-jurisdiction"/>
+        <description value="Intended jurisdiction for the charge item definition"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="ChargeItemDefinition.jurisdiction"/>
+        <xpath value="f:ChargeItemDefinition/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItemDefinition-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-publisher"/>
+        <description value="Name of the publisher of the charge item definition"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="ChargeItemDefinition.publisher"/>
+        <xpath value="f:ChargeItemDefinition/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItemDefinition-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-status"/>
+        <description value="The current status of the charge item definition"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="ChargeItemDefinition.status"/>
+        <xpath value="f:ChargeItemDefinition/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItemDefinition-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-title"/>
+        <description value="The human-friendly name of the charge item definition"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="ChargeItemDefinition.title"/>
+        <xpath value="f:ChargeItemDefinition/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItemDefinition-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-url"/>
+        <description value="The uri that identifies the charge item definition"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="ChargeItemDefinition.url"/>
+        <xpath value="f:ChargeItemDefinition/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItemDefinition-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-version"/>
+        <description value="The business version of the charge item definition"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="ChargeItemDefinition.version"/>
+        <xpath value="f:ChargeItemDefinition/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

@@ -42,25 +42,21 @@
 	</collection>
 	<processing>
 		<description value="Acidify to pH &lt; 3.0 with 6 N HCl."/>
-		<procedure>
+		<method>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/v2-0373"/>
 				<code value="ACID"/>
 			</coding>
-		</procedure>
+		</method>
 		<additive>
 			<display value="6 N HCl"/>
 		</additive>
 		<timeDateTime value="2015-08-18T08:10:00Z"/>
 	</processing>
 	<container>
-		<type>
-			<text value="Non-sterile specimen container"/>
-		</type>
-		<capacity>
-			<value value="50"/>
-			<unit value="mls"/>
-		</capacity>
+	<device>
+	      <reference value="Specimen/specimen-device-container-example-polycup"/>
+	   </device>
 		<specimenQuantity>
 			<value value="10"/>
 			<unit value="mls"/>

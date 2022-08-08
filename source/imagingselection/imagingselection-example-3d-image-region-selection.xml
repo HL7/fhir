@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ImagingSelection xmlns="http://hl7.org/fhir">
+  <id value="example-3d-image-region-selection"/>
+  <identifier>
+    <system value="urn:dicom:uid"/>
+    <value value="urn:oid:1.2.840.113747.20080222.189914271934823329266024988586343.2.1"/>
+  </identifier>
+ <status value="available"/> 
+  <subject>
+    <type value="Patient"/>
+    <identifier>
+      <system value="https://fhirhospital.org"/>
+      <value value="PNWYPXNBXMPGMTWX"/>
+    </identifier>
+  </subject>
+  <code>
+    <text value="Region selected from multiframe CT volume"/>
+  </code>
+  <studyUid value="1.2.840.113747.20080222.189914271934870656966024988586343"/>
+  <derivedFrom>
+    <type value="ImagingStudy"/>
+    <identifier>
+      <system value="urn:dicom:uid"/>
+      <value value="urn:oid:1.2.840.113747.20080222.189914271956923329266024988586343"/>
+    </identifier>
+  </derivedFrom>
+  <seriesUid value="1.2.840.113747.20080222.189914271934870659266024988586343.1"/>
+  <frameOfReferenceUid value="1.2.840.113747.20080222.189914270656923329266024988586343.0"/>
+  <instance>
+    <uid value="1.2.840.113747.20080222.189914271934870656923024988586343.1.0"/>
+    <sopClass>
+      <system value="urn:ietf:rfc:3986"/>
+      <code value="urn:oid:1.2.840.10008.5.1.4.1.1.2.1"/>
+    </sopClass>
+  </instance>
+  <imageRegion>
+      <regionType value="ellipse"/>
+      <coordinate value="-50.0"/>
+      <coordinate value="-50.0"/>
+      <coordinate value="-50.0"/>
+      <coordinate value="50.0"/>
+      <coordinate value="50.0"/>
+      <coordinate value="50.0"/>
+      <coordinate value="25.0"/>
+      <coordinate value="-25.0"/>
+      <coordinate value="0.0"/>
+      <coordinate value="-25.0"/>
+      <coordinate value="25.0"/>
+      <coordinate value="0.0"/>
+    </imageRegion>
+
+</ImagingSelection>

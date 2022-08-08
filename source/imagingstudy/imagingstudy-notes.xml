@@ -29,21 +29,26 @@ The ImagingStudy’s DICOM Study Instance UID is encoded in the <code>ImagingStu
 </pre>
 </p>
 <p>
-The study accession number can also be encoded as an <code>Identifier</code> using the <code>“ACSN”</code> identifier type, as follows:
+The study accession number can also be encoded as an <code>Reference.Identifier</code> using the ServiceRequest Reference type and the <code>“ACSN”</code> identifier type, as follows:
 <pre class="json">
 
-  "identifier":{
-		"type" : {
-			"coding" : [
-				{
-					"system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
-					"code" : "ACSN"
-				}
-			]
-		},
-		"system":"http://ginormoushospital.org/accession",
-		"value":"GH334103"
-	} 
+"basedOn": [
+    "reference": {
+        "type": "ServiceRequest",
+        "identifier":{
+            "type" : {
+                "coding" : [
+                    {
+                        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+                        "code" : "ACSN"
+                    }
+                ]
+            },
+            "system":"http://ginormoushospital.org/accession",
+            "value":"GH334103"
+        }
+    }
+]
 
 </pre>
 </p>
@@ -210,12 +215,70 @@ the <a href="http://www.ihe.net/Technical_Frameworks/#radiology">IHE Technical F
 or the introduction on the <a href="http://wiki.ihe.net/index.php/Invoke_Image_Display">IHE IID Profile Wiki</a>.
 </p>
 
+
+<a name="additional-dicom-attributes"></a>
+<h4>Additional DICOM attributes</h4>
+<p>
+Some imaging uses may require information beyond what is present in an ImagingStudy resource. Many of the DICOM patient and study level attributes are found in the FHIR Patient, Procedure, or other resources which are referenced from an ImagingStudy instance. Other DICOM content may be transformed into other FHIR resources, such as DiagnosticReports or Observations, which are not directly referenced, but may be easily found.
+</p><p>
+Although many ImagingStudy consumers are expected to need only the DICOM information contained in FHIR resources, some may need additional DICOM attributes. For these cases, which by their nature involve more imaging-aware consumers, the most flexible solution is to leverage the DICOM WADO-RS metadata-only endpoint to retrieve an XML or JSON representation of the DICOM study, series, instance, or frame information.
+</p><p>
+A benefit of using the metadata endpoint in this way is that the ImagingStudy creator does not need to know each of the attributes that each of the (current or future) ImagingStudy consumers is (or will be) interested in.
+</p>
+<h5>Example Metadata Retrieval</h5>
+<p>
+A client retrieves the following ImagingStudy:
+</p>
+<pre>
+{
+  "resourceType": "ImagingStudy",
+  "id": "example-xr",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "urn:dicom:uid",
+      "value": "urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430046"
+    }
+  ],
+  ...
+  "series": [
+    {
+      "uid": "2.16.124.113543.6003.1154777499.30246.19789.3503430045.1",
+      ...
+      "endpoint": [
+        {
+          "reference": "Endpoint/example-wadors"
+        }
+      ]
+      ...
+    }
+    ...
+  ]
+}
+</pre>
+<p>
+(See <a href="imagingstudy-example-xr.json.html">Example XR</a> for full example)
+</p><p>
+The client retrieves the referenced Endpoint (see <a href="endpoint-example-wadors.json.html">Example WADO-RS</a>) and extracts the WADO-RS URL: <pre>https://pacs.hospital.org/wado-rs</pre>.
+</p><p>
+The client uses the WADO-RS URL, the identifier.value and the series.uid to construct a WADO-RS metadata request:
+</p>
+<pre>
+GET https://pacs.hospital.org/wado-rs/studies/2.16.124.113543.6003.1154777499.30246.19789.3503430046/series/2.16.124.113543.6003.1154777499.30246.19789.3503430045.1/metadata HTTP/1.1
+Accept: application/dicom+json
+</pre>
+<p>
+The WADO-RS server then returns the complete DICOM metadata for the requested series.
+</p>
+
 <a name="use-case"></a>
 <h3>Use Case</h3>
 <a name="ehr-usecase"></a>
 <h4>EHR access to imaging studies</h4>
 <p>
-Amy, a family physician, would like to see a list of available studies for her patient, Alex. Her EHR
+Amy, a family physician, would like to see a list of available studies for her patient, 
+Alex, filtered by ImagingStudy.status=available to exclude studies without images. 
+Her EHR
 client makes a FHIR call for all <a href="imagingstudy.html">ImagingStudy</a> objects available for Alex.
 In the response, she is able to see the study date, procedure, modality, and accession number, for each
 study returned. There is enough information provided in the response to obtain a thumbnail via a WADO-RS
@@ -308,4 +371,16 @@ capable DICOM viewing software.
 </p>
 </blockquote>
 -->
+
+<a name="size"></a>
+<h3>Size Considerations</h3>
+<p>
+Depending on the modality and procedure type, a DICOM study can range from having one or two instances instance (as in many X-ray procedures) to several thousand instances (for some CT exams). The number of series within a study has far less variability, and is usually under twenty, although post-processing, computer-aided detection, and AI applications may cause modest increases. An ImagingStudy resource describing a large DICOM study would itself be of significant size.
+</p><p>
+Issuing narrowly-tailored queries can help a client avoid search results containing many ImagingStudy resources. The _summary=true query parameter will omit several resource elements, including all instance-level elements; this can be used to examine search results before retrieving the full instances. If a server limits the byte size of search bundle, this may impact the number of ImagingStudy resources returned per search result page; a client can use the _count query parameter to influence the number of resources per search result page.
+</p><p>
+When populating an ImagingStudy resource, storing an update for each DICOM instance in the study could result in sending previously sent information repeatedly--an issue that grows as the study size increases. It might also result in a server maintaining thousands of versions of the resource. Repeated, rapid updates of an ImagingStudy may lead to resource contention.
+</p><p>
+Although not reflected in the ImagingStudy resource, the size of an individual referenced instance may be anywhere from a few kilobytes (a compressed 256x256 pixel MR or 640x480 pixel ultrasound image) to a gigabyte or more (for digital breast tomography imaging). When retrieving the referenced content of an ImagingStudy, consider whether all DICOM instances are needed, whether DICOM instances are used concurrently or sequentially, and what rendering or Transfer Syntax is appropriate for the use case.
+</p>
 </div>

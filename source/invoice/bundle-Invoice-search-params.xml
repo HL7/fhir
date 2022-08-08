@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Invoice-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Invoice-account"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Invoice.account"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Invoice-account"/>
+        <description value="Account that is being balanced"/>
+        <code value="account"/>
+        <type value="reference"/>
+        <expression value="Invoice.account"/>
+        <xpath value="f:Invoice/f:account"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Invoice-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Invoice.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Invoice-date"/>
+        <description value="Invoice date / posting date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="Invoice.date"/>
+        <xpath value="f:Invoice/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Invoice-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Invoice.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Invoice-identifier"/>
+        <description value="Business Identifier for item"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Invoice.identifier"/>
+        <xpath value="f:Invoice/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Invoice-issuer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Invoice.issuer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Invoice-issuer"/>
+        <description value="Issuing Organization of Invoice"/>
+        <code value="issuer"/>
+        <type value="reference"/>
+        <expression value="Invoice.issuer"/>
+        <xpath value="f:Invoice/f:issuer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Invoice-participant"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Invoice.participant.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Invoice-participant"/>
+        <description value="Individual who was involved"/>
+        <code value="participant"/>
+        <type value="reference"/>
+        <expression value="Invoice.participant.actor"/>
+        <xpath value="f:Invoice/f:participant/f:actor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Invoice-participant-role"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Invoice.participant.role"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Invoice-participant-role"/>
+        <description value="Type of involvement in creation of this Invoice"/>
+        <code value="participant-role"/>
+        <type value="token"/>
+        <expression value="Invoice.participant.role"/>
+        <xpath value="f:Invoice/f:participant/f:role"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Invoice-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Invoice.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Invoice-patient"/>
+        <description value="Recipient(s) of goods and services"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Invoice.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Invoice/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Invoice-recipient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Invoice.recipient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Invoice-recipient"/>
+        <description value="Recipient of this invoice"/>
+        <code value="recipient"/>
+        <type value="reference"/>
+        <expression value="Invoice.recipient"/>
+        <xpath value="f:Invoice/f:recipient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Invoice-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Invoice.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Invoice-status"/>
+        <description value="draft | issued | balanced | cancelled | entered-in-error"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Invoice.status"/>
+        <xpath value="f:Invoice/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Invoice-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Invoice.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Invoice-subject"/>
+        <description value="Recipient(s) of goods and services"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Invoice.subject"/>
+        <xpath value="f:Invoice/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Invoice-totalgross"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Invoice.totalGross"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Invoice-totalgross"/>
+        <description value="Gross total of this Invoice"/>
+        <code value="totalgross"/>
+        <type value="quantity"/>
+        <expression value="Invoice.totalGross"/>
+        <xpath value="f:Invoice/f:totalGross"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Invoice-totalnet"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Invoice.totalNet"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Invoice-totalnet"/>
+        <description value="Net total of this Invoice"/>
+        <code value="totalnet"/>
+        <type value="quantity"/>
+        <expression value="Invoice.totalNet"/>
+        <xpath value="f:Invoice/f:totalNet"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Invoice-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Invoice.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Invoice-type"/>
+        <description value="Type of Invoice"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="Invoice.type"/>
+        <xpath value="f:Invoice/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

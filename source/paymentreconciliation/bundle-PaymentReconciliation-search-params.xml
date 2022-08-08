@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="PaymentReconciliation-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PaymentReconciliation-created"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentReconciliation.created"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentReconciliation-created"/>
+        <description value="The creation date"/>
+        <code value="created"/>
+        <type value="date"/>
+        <expression value="PaymentReconciliation.created"/>
+        <xpath value="f:PaymentReconciliation/f:created"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PaymentReconciliation-disposition"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentReconciliation.disposition"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentReconciliation-disposition"/>
+        <description value="The contents of the disposition message"/>
+        <code value="disposition"/>
+        <type value="string"/>
+        <expression value="PaymentReconciliation.disposition"/>
+        <xpath value="f:PaymentReconciliation/f:disposition"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PaymentReconciliation-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentReconciliation.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentReconciliation-identifier"/>
+        <description value="The business identifier of the ExplanationOfBenefit"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="PaymentReconciliation.identifier"/>
+        <xpath value="f:PaymentReconciliation/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PaymentReconciliation-outcome"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentReconciliation.outcome"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentReconciliation-outcome"/>
+        <description value="The processing outcome"/>
+        <code value="outcome"/>
+        <type value="token"/>
+        <expression value="PaymentReconciliation.outcome"/>
+        <xpath value="f:PaymentReconciliation/f:outcome"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PaymentReconciliation-payment-issuer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentReconciliation.paymentIssuer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentReconciliation-payment-issuer"/>
+        <description value="The organization which generated this resource"/>
+        <code value="payment-issuer"/>
+        <type value="reference"/>
+        <expression value="PaymentReconciliation.paymentIssuer"/>
+        <xpath value="f:PaymentReconciliation/f:paymentIssuer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PaymentReconciliation-request"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentReconciliation.request"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentReconciliation-request"/>
+        <description value="The reference to the claim"/>
+        <code value="request"/>
+        <type value="reference"/>
+        <expression value="PaymentReconciliation.request"/>
+        <xpath value="f:PaymentReconciliation/f:request"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PaymentReconciliation-requestor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentReconciliation.requestor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentReconciliation-requestor"/>
+        <description value="The reference to the provider who submitted the claim"/>
+        <code value="requestor"/>
+        <type value="reference"/>
+        <expression value="PaymentReconciliation.requestor"/>
+        <xpath value="f:PaymentReconciliation/f:requestor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PaymentReconciliation-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentReconciliation.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentReconciliation-status"/>
+        <description value="The status of the payment reconciliation"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="PaymentReconciliation.status"/>
+        <xpath value="f:PaymentReconciliation/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

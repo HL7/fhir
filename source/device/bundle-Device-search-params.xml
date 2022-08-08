@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Device-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-definition-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.definition.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-definition"/>
+        <description value="The definition / type of the device (code)"/>
+        <code value="definition"/>
+        <type value="token"/>
+        <expression value="Device.definition.concept"/>
+        <xpath value="f:Device/f:definition/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-definition"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.definition.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-definition"/>
+        <description value="The definition / type of the device"/>
+        <code value="definition"/>
+        <type value="reference"/>
+        <expression value="Device.definition.reference"/>
+        <xpath value="f:Device/f:definition/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-device-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.deviceName"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-device-name"/>
+        <description value="A server defined search that may match any of the string fields in Device.deviceName or Device.type."/>
+        <code value="device-name"/>
+        <type value="string"/>
+        <expression value="Device.deviceName.name | Device.type.coding.display | Device.type.text"/>
+        <xpath value="f:Device/f:deviceName"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-expiration-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.expirationDate"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-expiration-date"/>
+        <description value="The expiration date of the device"/>
+        <code value="expiration-date"/>
+        <type value="date"/>
+        <expression value="Device.expirationDate"/>
+        <xpath value="f:Device/f:expirationDate"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-identifier"/>
+        <description value="Instance id from manufacturer, owner, and others"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Device.identifier"/>
+        <xpath value="f:Device/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-location"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.location"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-location"/>
+        <description value="A location, where the resource is found"/>
+        <code value="location"/>
+        <type value="reference"/>
+        <expression value="Device.location"/>
+        <xpath value="f:Device/f:location"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-lot-number"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.lotNumber"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-lot-number"/>
+        <description value="The lot number of the device"/>
+        <code value="lot-number"/>
+        <type value="string"/>
+        <expression value="Device.lotNumber"/>
+        <xpath value="f:Device/f:lotNumber"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-manufacture-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.manufactureDate"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-manufacture-date"/>
+        <description value="The manufacture date of the device"/>
+        <code value="manufacture-date"/>
+        <type value="date"/>
+        <expression value="Device.manufactureDate"/>
+        <xpath value="f:Device/f:manufactureDate"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-manufacturer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.manufacturer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-manufacturer"/>
+        <description value="The manufacturer of the device"/>
+        <code value="manufacturer"/>
+        <type value="string"/>
+        <expression value="Device.manufacturer"/>
+        <xpath value="f:Device/f:manufacturer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-model"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.modelNumber"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-model"/>
+        <description value="The model of the device"/>
+        <code value="model"/>
+        <type value="string"/>
+        <expression value="Device.modelNumber"/>
+        <xpath value="f:Device/f:modelNumber"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-organization"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.owner"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-organization"/>
+        <description value="The organization responsible for the device"/>
+        <code value="organization"/>
+        <type value="reference"/>
+        <expression value="Device.owner"/>
+        <xpath value="f:Device/f:owner"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-parent"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.parent"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-parent"/>
+        <description value="The parent device"/>
+        <code value="parent"/>
+        <type value="reference"/>
+        <expression value="Device.parent"/>
+        <xpath value="f:Device/f:parent"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-subject"/>
+        <description value="Subject information, to which the device is associated of affixed"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Device.subject"/>
+        <xpath value="f:Device/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-patient"/>
+        <description value="Patient information, if the resource is affixed to a person"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Device.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Device/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-serial-number"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.serialNumber"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-serial-number"/>
+        <description value="The serial number of the device"/>
+        <code value="serial-number"/>
+        <type value="string"/>
+        <expression value="Device.serialNumber | Device.identifier.where(type='SNO')"/>
+        <xpath value="f:Device/f:serialNumber"/>       
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-status"/>
+        <description value="active | inactive | entered-in-error | unknown"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Device.status"/>
+        <xpath value="f:Device/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-type"/>
+        <description value="The type of the device"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="Device.type"/>
+        <xpath value="f:Device/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-udi-carrier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.udiCarrier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-udi-carrier"/>
+        <description value="UDI Barcode (RFID or other technology) string in *HRF* format."/>
+        <code value="udi-carrier"/>
+        <type value="string"/>
+        <expression value="Device.udiCarrier.carrierHRF"/>
+        <xpath value="f:Device/f:udiCarrier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-udi-di"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.udiCarrier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-udi-di"/>
+        <description value="The udi Device Identifier (DI)"/>
+        <code value="udi-di"/>
+        <type value="string"/>
+        <expression value="Device.udiCarrier.deviceIdentifier"/>
+        <xpath value="f:Device/f:udiCarrier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-url"/>
+        <description value="Network address to contact device"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="Device.url"/>
+        <xpath value="f:Device/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.version.value"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-version"/>
+        <description value="The specific version of the device"/> 
+        <code value="version"/>
+        <type value="string"/>
+        <expression value="Device.version.value"/>
+        <xpath value="f:Device/f:version/f:value"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-biological-source-event"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.biologicalSourceEvent"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-biological-source-event"/>
+        <description value="The biological source for the device"/>
+        <code value="biological-source-event"/>
+        <type value="token"/>
+        <expression value="Device.biologicalSourceEvent"/>
+        <xpath value="f:Device/f:biologicalSourceEvent"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

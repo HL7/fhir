@@ -8,7 +8,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <%atheader base%>
 
@@ -17,7 +17,7 @@
 
 [%normative page infrastructure%]
 
-<p>   
+<p>
 The FHIR specification defines many different types in the following general categories:
 </p>
 <ol>
@@ -32,9 +32,9 @@ This page defines the base abstract types that provide the foundation for all th
 [%diagram datatypes/abstracts.diagram 3dt%]
 
 <p>Legend: see <a href="versions.html#std-process">Standards Status Colors</a></p>
- 
-<hr/>    
- 
+
+<hr/>
+
 <a name="base"></a>
 <a name="Base"></a>
 <h2 style="margin-bottom: 1px">Base</h2>
@@ -44,7 +44,7 @@ See also <a href="types-definitions.html#Base">Detailed Descriptions</a>, <a hre
 </p>
 
 <p>
-The Base type that all other types specialize. This type has no properties or constraints. 
+The Base type that all other types specialize. This type has no properties or constraints.
 </p>
 [%adt Base 1%]
 
@@ -59,7 +59,7 @@ Specializations:
 In addition, this type is used in <a href="types.html">Logical Models</a> that don't have or want <code>id</code>/<code>extension</code>.
 </p>
 <p>
-Note: implementations often use this type to introduce the navigation features 
+Note: implementations often use this type to introduce the navigation features
 defined in the <a href="http://hl7.org/fhirpath/R2/index.html#navigation-model">FHIRPath specification</a>.
 </p>
 
@@ -147,7 +147,7 @@ object property. The name of the property comes from
 the context in which it is used, not from the type. The internal <code>id</code>
 is represented as a JSON string property named "id". Extensions are represented
 in a JSON array of objects named "extension". E.g., for example, where the element
-is named <code>use</code>: 
+is named <code>use</code>:
 </p>
 <pre class="json">
   {
@@ -173,7 +173,7 @@ Note that there are special rules for representation of Primitive types - see be
 <p>
 The <code>id</code> property of the element is defined to allow implementers
 to build implementation functionality that makes use of internal references
-inside the resource. This specification does not define any general use for 
+inside the resource. This specification does not define any general use for
 the internal id, though some resources (e.g. <a href="elementdefinition.html#id">StructureDefinition</a>) and
 extensions (e.g. <a href="extension-originaltext.html">originalText</a>, <a href="extension-narrativelink.html">narrativeLink</a>) make use of it.
 </p>
@@ -203,13 +203,13 @@ See also <a href="types-definitions.html#BackboneElement">Detailed Descriptions<
 
 <p>
 The base definition for complex elements defined as part of a resource definition - that is, elements that have children that are defined in the resource. <a href="datatypes.html">Data Type</a> elements do not use this type.
-For instance, <a href="patient.html#resource">Patient.contact</a> is an element that is defined as part of the patient resource, so it automatically 
+For instance, <a href="patient.html#resource">Patient.contact</a> is an element that is defined as part of the patient resource, so it automatically
 has the type <code>BackboneElement</code>.
 </p>
 
 <p>
-Note that the descendant types of <code>BackboneElement</code> are all declared implicitly as 
-part of the definitions of the resources. 
+Note that the descendant types of <code>BackboneElement</code> are all declared implicitly as
+part of the definitions of the resources.
 </p>
 
 
@@ -250,9 +250,9 @@ See also <a href="types-definitions.html#BackboneType">Detailed Descriptions</a>
 The base definition for the few data types that allow modifier extensions:
 </p>
 <ul>
- <li><a href="datatypes.html#Timing">Timing</a></li>
- <li><a href="dosage.html">Dosage</a></li>
- <li><a href="elementdefinition.html">ElementDefinition</a></li>
+ <li><a href="datatypes.html#timing">Timing</a></li>
+ <li><a href="dosage.html#Dosage">Dosage</a></li>
+ <li><a href="elementdefinition.html#ElementDefinition">ElementDefinition</a></li>
 </ul>
 
 
@@ -269,8 +269,8 @@ See also <a href="types-definitions.html#PrimitiveType">Detailed Descriptions</a
 
 <p>
 The base type for all re-useable types defined that have a simple property.
-See <a href="datatypes.html#primitive">Primitive Types</a> for the list of 
-defined primitives types. 
+See <a href="datatypes.html#primitive">Primitive Types</a> for the list of
+defined primitives types.
 </p>
 
 
@@ -289,8 +289,8 @@ defined primitives types.
 <b>XML</b>
 </p>
 <p>
-The actual primitive value appears as an XML attribute named <code>value</code>. 
-For example, a property of type <a href="datatypes.html#code">code</a> named 
+The actual primitive value appears as an XML attribute named <code>value</code>.
+For example, a property of type <a href="datatypes.html#code">code</a> named
 <code>status</code> will be represented like this:
 </p>
 <pre name="xml">
@@ -305,10 +305,10 @@ For example, a property of type <a href="datatypes.html#code">code</a> named
 <b>JSON</b>
 </p>
 <p>
-The actual primitive value appears as a JSON string or number property with 
+The actual primitive value appears as a JSON string or number property with
 the name of the element. If an internal id or extensions are present,
 they appear as a JSON object with the name of the primitive value property with
-"_" prepended. For example, a property of type <a href="datatypes.html#code">code</a> named 
+"_" prepended. For example, a property of type <a href="datatypes.html#code">code</a> named
 <code>status</code> will be represented like this:
 </p>
 <pre class="json">
@@ -327,8 +327,6 @@ The exact use of this pattern is <a href="json.html#primitive">described here</a
 </p>
 
 </td></tr></table>
-
-</div>
 
 [%file newfooter%]
 

@@ -37,7 +37,7 @@
   </contained>
   <identifier>
     <value value="requestgroup-1"/>
-  </identifier>  
+  </identifier>
   <groupIdentifier>
     <system value="http://example.org/treatment-group"/>
     <value value="00001"/>
@@ -70,7 +70,9 @@
     <textEquivalent value="Administer medication 1, followed an hour later by medication 2"/>
     <timingDateTime value="2017-03-06T19:00:00Z"/>
     <participant>
-      <reference value="Practitioner/1"/>
+      <actor>
+        <reference value="Practitioner/1"/>
+      </actor>
     </participant>
     <groupingBehavior value="logical-group"/>
     <selectionBehavior value="all"/>
@@ -89,7 +91,7 @@
     <action id="medication-action-2">
       <description value="Administer medication 2"/>
       <relatedAction>
-        <actionId value="medication-action-1"/>
+        <targetId value="medication-action-1"/>
         <relationship value="after-end"/>
         <offsetDuration>
           <value value="1"/>

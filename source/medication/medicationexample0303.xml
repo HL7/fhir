@@ -3,8 +3,8 @@
   <id value="med0303"/>
   <contained>
     <Organization>
-      <id value="org6"/>
-      <name value="Genzyme" />
+      <id value="mmanu"/>
+      <name value="Medication Manufacturer" />
     </Organization>
   </contained>
   <code>
@@ -15,9 +15,9 @@
     </coding>
   </code>
   
-  <manufacturer>
-    <reference value="#org6"/>
-  </manufacturer>
+  <marketingAuthorizationHolder>
+    <reference value="#mmanu" />
+  </marketingAuthorizationHolder>
     <doseForm>
       <coding>
         <system value="http://snomed.info/sct"/>

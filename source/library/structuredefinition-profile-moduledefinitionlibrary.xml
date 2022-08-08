@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="moduledefinitionlibrary"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/moduledefinitionlibrary"/>
+  <version value="4.6.0"/>
+  <name value="ModuleDefinitionLibrary"/>
+  <title value="Module Definition Library"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2019-06-06"/>
+  <publisher value="Health Level Seven, Inc. - CDS WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/special/committees/DSS"/>
+    </telecom>
+  </contact>
+  <description value="The module definition library profile sets the expectations for module definition libraries, including support for terminology and dependency declaration, parameters, and data requirements"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Library"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/shareablelibrary"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Library">
+      <path value="Library"/>
+      <mustSupport value="false"/>
+    </element>
+    <element id="Library.extension:inputParameters">
+      <path value="Library.extension"/>
+      <sliceName value="inputParameters"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-inputParameters"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.extension:directReferenceCode">
+      <path value="Library.extension"/>
+      <sliceName value="directReferenceCode"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.extension:logicDefinition">
+      <path value="Library.extension"/>
+      <sliceName value="logicDefinition"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.type">
+      <path value="Library.type"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <patternCodeableConcept>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/library-type"/>
+          <code value="logic-library"/>
+        </coding>
+      </patternCodeableConcept>
+    </element>
+    <element id="Library.subject[x]">
+      <path value="Library.subject[x]"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.relatedArtifact">
+      <path value="Library.relatedArtifact"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="type"/>
+        </discriminator>
+        <rules value="open"/>
+      </slicing>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.relatedArtifact:dependency">
+      <path value="Library.relatedArtifact"/>
+      <sliceName value="dependency"/>
+      <min value="0"/>
+      <max value="*"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.relatedArtifact:dependency.type">
+      <path value="Library.relatedArtifact.type"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <fixedCode value="depends-on"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.relatedArtifact:dependency.resource">
+      <path value="Library.relatedArtifact.resource"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.parameter">
+      <path value="Library.parameter"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.dataRequirement">
+      <path value="Library.dataRequirement"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.content">
+      <path value="Library.content"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+  </differential>
+</StructureDefinition>

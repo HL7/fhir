@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
 <PlanDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example-cardiology-os" />
   <contained>
@@ -481,7 +481,7 @@
       </compose> -!->
     </ValueSet>
   </contained> -->
-  
+
   <contained>
     <Questionnaire>
       <id value="CollectReferralReason" />
@@ -489,7 +489,7 @@
       <item>
         <linkId value="1" />
         <text value="Reason for Cardiology Consult" />
-        <type value="choice" />
+        <type value="coding" />
         <required value="true" />
         <repeats value="true" />
         <answerValueSet value="#CardiologyReferralReasonValues" />
@@ -584,14 +584,18 @@
   <relatedArtifact>
     <type value="derived-from" />
     <display value="Cardiology: Chest Pain (CP) / Coronary Artery Disease (CAD) Clinical Content White Paper" />
-    <url value="NEED-A-URL-HERE" />
+    <document>
+      <url value="NEED-A-URL-HERE" />
+    </document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="justification" />
     <!-- used the description from HeD example for display here-->
     <display value="Outcome CVD (coronary death, myocardial infarction, coronary insufficiency, angina, ischemic stroke, hemorrhagic stroke, transient ischemic attack, peripheral artery disease, heart failure)" />
     <citation value="Cardiovascular disease          (10-year risk) [Internet].: Framingham Heart Study; cited 2017]. Available from: https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php." />
-    <url value="https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php" />
+    <document>
+      <url value="https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php" />
+    </document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="justification" />
@@ -605,7 +609,9 @@
     <!-- used the title from HeD example for display here-->
     <display value="General cardiovascular risk profile for use in primary care: the Framingham Heart Study" />
     <citation value="Cardiovascular disease          (10-year risk) [Internet].: Framingham Heart Study; cited 2017]. Available from: https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php." />
-    <url value="https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php" />
+    <document>
+      <url value="https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php" />
+    </document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="justification" />
@@ -621,7 +627,9 @@
             value="A report of the American College of Cardiology/American Heart Association Task Force on Practice Guidelines, and the American Association for Thoracic Surgery, Preventive Cardiovascular Nurses Association, Society for Cardiovascular Angiography and Interventions, and Society of Thoracic Surgeons"/>
       -->
     <citation value="Fihn SD, Blankenship JC, Alexander KP, Bittl JA, Byrne JG, Fletcher BJ, et al. 2014 ACC/AHA/AATS/PCNA/SCAI/STS focused update of the guideline for the diagnosis and management of patients with stable ischemic heart disease: A report of the american college of cardiology/american heart association task force on practice guidelines, and the american association for thoracic surgery, preventive cardiovascular nurses association, society for cardiovascular angiography and interventions, and society of thoracic surgeons. J Thorac Cardiovasc Surg. 2015 March 01;149(3):5." />
-    <url value="NEED-A-URL-HERE" />
+    <document>
+      <url value="NEED-A-URL-HERE" />
+    </document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="justification" />
@@ -635,7 +643,9 @@
     <display value="ACC/AHA 2002 guideline update for exercise testing: summary article: A report of the American college of cardiology/American heart association task force on practice guidelines (committee to update the 1997 exercise testing guidelines)" />
     <!-- there was no description in this specific entry -->
     <citation value="Gibbons RJ, Balady GJ, Bricker JT, Chaitman BR, Fletcher GF, Froelicher VF, et al. ACC/AHA 2002 guideline update for exercise testing: Summary article: A report of the american college of cardiology/american heart association task force on practice guidelines (committee to update the 1997 exercise testing guidelines). Circulation. 2002 October 01;106(14):1883-92." />
-    <url value="NEED-A-URL-HERE" />
+    <document>
+      <url value="NEED-A-URL-HERE" />
+    </document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="justification" />
@@ -648,7 +658,9 @@
     <display value="LABEL: ASPIRIN 81 MG- aspirin tablet, coated" />
     <!-- there was no description in this specific entry -->
     <citation value="Label: ASPIRIN 81 MG- aspirin tablet, coated [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b4064039-2345-4227-b83d-54dc13a838d3." />
-    <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b4064039-2345-4227-b83d-54dc13a838d3" />
+    <document>
+      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b4064039-2345-4227-b83d-54dc13a838d3" />
+    </document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="justification" />
@@ -661,7 +673,9 @@
     <display value="LABEL: CLOPIDOGREL- clopidogrel bisulfate tablet, film coated" />
     <!-- there was no description in this specific entry -->
     <citation value="LABEL: CLOPIDOGREL- clopidogrel bisulfate tablet, film coated [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=edae8df1-caf9-ff72-1304-5ae8b355f8e7." />
-    <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7fe85155-bc00-406b-b097-e8aece187a8a" />
+    <document>
+      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7fe85155-bc00-406b-b097-e8aece187a8a" />
+    </document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="justification" />
@@ -674,7 +688,9 @@
     <display value="LABEL: LIPITOR- atorvastatin calcium tablet, film coated" />
     <!-- there was no description in this specific entry -->
     <citation value="LABEL: LIPITOR- atorvastatin calcium tablet, film coated [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7fe85155-bc00-406b-b097-e8aece187a8a." />
-    <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7fe85155-bc00-406b-b097-e8aece187a8a" />
+    <document>
+      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7fe85155-bc00-406b-b097-e8aece187a8a" />
+    </document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="justification" />
@@ -687,7 +703,9 @@
     <display value="LABEL: METOPROLOL SUCCINATE EXTENDED-RELEASE - metoprolol succinate tablet, film coated, extended release" />
     <!-- there was no description in this specific entry -->
     <citation value="LABEL: LIPITOR- atorvastatin calcium tablet, film coated [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7fe85155-bc00-406b-b097-e8aece187a8a." />
-    <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2d948600-35d8-4490-983b-918bdce488c8" />
+    <document>
+      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2d948600-35d8-4490-983b-918bdce488c8" />
+    </document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="justification" />
@@ -700,7 +718,9 @@
     <display value="LABEL: NITROGLYCERIN- nitroglycerin tablet" />
     <!-- there was no description in this specific entry -->
     <citation value="LABEL: NITROGLYCERIN- nitroglycerin tablet [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=67bf2a15-b115-47ac-ae28-ce2dafd6b5c9." />
-    <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=67bf2a15-b115-47ac-ae28-ce2dafd6b5c9" />
+    <document>
+      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=67bf2a15-b115-47ac-ae28-ce2dafd6b5c9" />
+    </document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="justification" />
@@ -713,7 +733,9 @@
     <display value="LABEL: SIMVASTATIN - simvastatin tablet" />
     <!-- there was no description in this specific entry -->
     <citation value="LABEL: SIMVASTATIN - simvastatin tablet [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5c1c694c-4b08-469e-b538-08e69df06146." />
-    <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5c1c694c-4b08-469e-b538-08e69df06146" />
+    <document>
+      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5c1c694c-4b08-469e-b538-08e69df06146" />
+    </document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="justification" />
@@ -726,12 +748,14 @@
     <display value="Chest Pain Guideline Development Group. NICE guidance. Chest          pain of recent onset: assessment and diagnosis of recent onset chest pain or discomfort of suspected cardiac origin." />
     <!-- there was no description in this specific entry -->
     <citation value="Skinner JS, Smeeth L, Kendall JM, Adams PC, Timmis A, Chest Pain Guideline Development Group. NICE guidance. chest pain of recent onset: Assessment and diagnosis of recent onset chest pain or discomfort of suspected cardiac origin. Heart. 2010 June 01;96(12):974-8." />
-    <url value="http://heart.bmj.com/content/96/12/974.long" />
+    <document>
+      <url value="http://heart.bmj.com/content/96/12/974.long" />
+    </document>
   </relatedArtifact>
   <library value="#cardiology-chestPain-logic" />
   <!--  Actions  -->
   <action>
-    <!--  
+    <!--
     <action>
       Patient disposition and triage group
     </action>
@@ -805,19 +829,19 @@
         <definitionCanonical value="#CardiologyConsultationGoal" />
       </action>
     </action>
-    <!--  
+    <!--
     <action>
-      Imaging and ECG group  
+      Imaging and ECG group
     </action>
     -->
-    <!--  
+    <!--
     <action>
-      Laboratory Tests 
+      Laboratory Tests
     </action>
      -->
-     <!--  
+     <!--
     <action>
-      Cardiac Risk Stratification 
+      Cardiac Risk Stratification
     </action>
      -->
     <action>

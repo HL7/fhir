@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<SubscriptionStatus xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionStatus.xsd">
-  <id value="b21e4fae-ce73-45cb-8e37-1e203362b2ae"/>
-  <status value="error"/>
-  <type value="event-notification"/>
-  <eventsSinceSubscriptionStart value="328"/>
-  <eventsInNotification value="0"/>
-  <subscription>
-    <reference value="http://example.org/FHIR/R5/Subscription/123"/>
-  </subscription>
-  <error>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/subscription-error"/>
-      <code value="no-response"/>
-    </coding>
-  </error>
-  <topic value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
-</SubscriptionStatus>
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Bundle.xsd">
+  <id value="e2c9dc20-615e-4603-9005-74deb209cbb0"/>
+  <type value="subscription-notification"/>
+  <timestamp value="2020-04-17T10:24:13.1882432-05:00" />
+  <entry>
+    <fullUrl value="urn:uuid:b21e4fae-ce73-45cb-8e37-1e203362b2ae"/>
+    <resource>
+      <SubscriptionStatus xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionStatus.xsd">
+        <id value="b21e4fae-ce73-45cb-8e37-1e203362b2ae"/>
+        <status value="error"/>
+        <type value="event-notification"/>
+        <eventsSinceSubscriptionStart value="328"/>
+        <notificationEvent>
+          <eventNumber value="328"/>
+          <timestamp value="2020-04-17T10:20:00.0000000-05:00"/>
+        </notificationEvent>
+        <subscription>
+          <reference value="http://example.org/FHIR/R5/Subscription/123"/>
+        </subscription>
+        <topic value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
+        <error>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/subscription-error"/>
+            <code value="no-response"/>
+          </coding>
+        </error>
+      </SubscriptionStatus>
+    </resource>
+  </entry>
+</Bundle>
+

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="CanonicalResource-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CanonicalResource-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-context"/>
+        <description value="A use context assigned to the {{title}}"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="({{name}}.useContext.value as CodeableConcept)"/>
+        <xpath value="f:CanonicalResource/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CanonicalResource-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the {{title}}"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="({{name}}.useContext.value as Quantity) | ({{name}}.useContext.value as Range)"/>
+        <xpath value="f:CanonicalResource/f:useContext/f:valueQuantity | f:CanonicalResource/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CanonicalResource-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-context-type"/>
+        <description value="A type of use context assigned to the {{title}}"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="{{name}}.useContext.code"/>
+        <xpath value="f:CanonicalResource/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CanonicalResource-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the {{title}}"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="{{name}}.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CanonicalResource-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-context-type-value"/>
+        <description value="A use context type and value assigned to the {{title}}"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="{{name}}.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CanonicalResource-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-date"/>
+        <description value="The {{title}} publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="{{name}}.date"/>
+        <xpath value="f:CanonicalResource/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CanonicalResource-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-description"/>
+        <description value="The description of the {{title}}"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="{{name}}.description"/>
+        <xpath value="f:CanonicalResource/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CanonicalResource-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-identifier"/>
+        <description value="External identifier for the {{title}}"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="{{name}}.identifier"/>
+        <xpath value="f:CanonicalResource/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CanonicalResource-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-jurisdiction"/>
+        <description value="Intended jurisdiction for the {{title}}"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="{{name}}.jurisdiction"/>
+        <xpath value="f:CanonicalResource/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CanonicalResource-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-name"/>
+        <description value="Computationally friendly name of the {{title}}"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="{{name}}.name"/>
+        <xpath value="f:CanonicalResource/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CanonicalResource-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-publisher"/>
+        <description value="Name of the publisher of the {{title}}"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="{{name}}.publisher"/>
+        <xpath value="f:CanonicalResource/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CanonicalResource-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-status"/>
+        <description value="The current status of the {{title}}"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="{{name}}.status"/>
+        <xpath value="f:CanonicalResource/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CanonicalResource-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-title"/>
+        <description value="The human-friendly name of the {{title}}"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="{{name}}.title"/>
+        <xpath value="f:CanonicalResource/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CanonicalResource-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-url"/>
+        <description value="The uri that identifies the {{title}}"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="{{name}}.url"/>
+        <xpath value="f:CanonicalResource/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CanonicalResource-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-version"/>
+        <description value="The business version of the {{title}}"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="{{name}}.version"/>
+        <xpath value="f:CanonicalResource/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

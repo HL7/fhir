@@ -6,6 +6,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">To be filled out at a later time</div>
   </text>
   <status value="active"/>
+  <intent value="proposal"/>
   <!-- insert contents here -->
   <subject>
     <reference value="Patient/example"/>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="MessageHeader-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A typical message header"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="messageheader-example"/>
+    </extension>
+    <item>
+      <reference value="MessageHeader/1cbdfb97-5859-48a4-8301-d54eab818d68"/>
+      <display value="General Example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A request to link two patients"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="message-request-link"/>
+    </extension>
+    <item>
+      <reference value="MessageHeader/10bb101f-a121-4264-a920-67be9cb82c74"/>
+      <display value="Link Request"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A response to a request to link two patients"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="message-response-link"/>
+    </extension>
+    <item>
+      <reference value="MessageHeader/3a0707d3-549e-4467-b8b8-5a2ab3800efe"/>
+      <display value="Link Response"/>
+    </item>
+  </entry>
+</List>

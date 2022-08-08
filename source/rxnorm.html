@@ -9,7 +9,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <%txheader%>
 
@@ -33,15 +33,16 @@
 <p>
 The RxNorm scripts are able to populate a MySQL database that contains the data from RxNorm. 
 This page provides SQL statements that describe how to implement the features of the RxNorm 
+This page provides SQL statements that describe how to implement the features of the RxNorm 
 terminology correctly against this database. These are provided for implementer convenience, and 
 do not imply that any particular approach is required to be used in implementations. 
 </p>
 
 <h3>Correct RxNorm Display</h3>
 <p>
-The correct display for a CUI is the string description for it associated with the source RXNORM.
-Given the RxNorm MySQL database, the correct display for a CUI can generally be determined by the 
-SQL:
+The correct display for a CUI is the string description associated with the source RXNORM. 
+Given the RxNorm MySQL database, the correct display for a CUI can generally be determined 
+by the example SQL below that finds the display for two of the available term types:  
 </p>
 <pre>
  Select STR from rxnconso where RXCUI = :code and SAB = 'RXNORM' and TTY in ('SCD', 'SBD')
@@ -164,8 +165,6 @@ does not define implicit value sets.
 The identifier http://www.nlm.nih.gov/research/umls/rxnorm/vs represents a value set that contains all RxNorm CUIs.
 </p>
 
-
-</div>
 
 [%file newfooter%]
     

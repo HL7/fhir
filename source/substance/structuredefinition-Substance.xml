@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Substance"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Base.Entities"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+  <version value="4.5.0"/>
+  <name value="Substance"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A homogeneous material with a definite composition."/>
+  <fhirVersion value="4.5.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="orim"/>
+    <uri value="http://hl7.org/orim"/>
+    <name value="Ontological RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Substance"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Substance">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="Substance"/>
+      <short value="A homogeneous material with a definite composition"/>
+      <definition value="A homogeneous material with a definite composition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Material"/>
+      </mapping>
+      <mapping>
+        <identity value="orim"/>
+        <map value="fhir:Substance rdfs:subClassOf   rim:Entity, [      a owl:Restriction;     owl:onProperty  rim:Act.classCode;     owl:allValuesFrom  cs:EntityClass\#MAT   ]."/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="administrative.entity"/>
+      </mapping>
+    </element>
+    <element id="Substance.identifier">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="6/17/2015 in Reponse to Build warning QA task."/>
+      </extension>
+      <path value="Substance.identifier"/>
+      <short value="Unique identifier"/>
+      <definition value="Unique identifier for the substance. For an instance, an identifier associated with the package/container (usually a label affixed directly)."/>
+      <comment value="This identifier is associated with the kind of substance in contrast to the  Substance.instance.identifier which is associated with the package/container."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+    <element id="Substance.instance">
+      <path value="Substance.instance"/>
+      <short value="Is this an instance of a substance or a kind of one"/>
+      <definition value="A boolean to indicate if this an instance of a substance or a kind of one (a definition)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Not known why this is labelled a modifier"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Substance.status">
+      <path value="Substance.status"/>
+      <short value="active | inactive | entered-in-error"/>
+      <definition value="A code to indicate if the substance is actively used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FHIRSubstanceStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="A code to indicate if the substance is actively used."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".statusCode"/>
+      </mapping>
+    </element>
+    <element id="Substance.category">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#7962."/>
+      </extension>
+      <path value="Substance.category"/>
+      <short value="What class/type of substance this is"/>
+      <definition value="A code that classifies the general type of substance.  This is used  for searching, sorting and display purposes."/>
+      <comment value="The level of granularity is defined by the category concepts in the value set.   More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in Substance.code."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceCategory"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Category or classification of substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-category"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="Substance.code">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#7961."/>
+      </extension>
+      <path value="Substance.code"/>
+      <short value="What substance this is"/>
+      <definition value="A code (or set of codes) that identify this substance."/>
+      <comment value="This could be a reference to an externally defined code.  It could also be a locally assigned code (e.g. a formulary),  optionally with translations to the standard drug codes."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Substance codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-code"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+      <mapping>
+        <identity value="orim"/>
+        <map value="fhir:Substance.code rdfs:subPropertyOf rim:Entity.code"/>
+      </mapping>
+    </element>
+    <element id="Substance.description">
+      <path value="Substance.description"/>
+      <short value="Textual description of the substance, comments"/>
+      <definition value="A description of the substance - its appearance, handling requirements, and other usage notes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player.desc"/>
+      </mapping>
+    </element>
+    <element id="Substance.expiry">
+      <path value="Substance.expiry"/>
+      <short value="When no longer valid to use"/>
+      <definition value="When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".expiryTime"/>
+      </mapping>
+    </element>
+    <element id="Substance.quantity">
+      <path value="Substance.quantity"/>
+      <short value="Amount of substance in the package"/>
+      <definition value="The amount of the substance."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player.quantity"/>
+      </mapping>
+    </element>
+    <element id="Substance.ingredient">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,36"/>
+      </extension>
+      <path value="Substance.ingredient"/>
+      <short value="Composition information about the substance"/>
+      <definition value="A substance can be composed of other substances."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player.scopesRole[classCode=INGR]"/>
+      </mapping>
+    </element>
+    <element id="Substance.ingredient.quantity">
+      <path value="Substance.ingredient.quantity"/>
+      <short value="Optional amount (concentration)"/>
+      <definition value="The amount of the ingredient in the substance - a concentration ratio."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Ratio"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".quantity"/>
+      </mapping>
+    </element>
+    <element id="Substance.ingredient.substance[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="[#9233]."/>
+      </extension>
+      <path value="Substance.ingredient.substance[x]"/>
+      <short value="A component of the substance"/>
+      <definition value="Another substance that is a component of this substance."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceIngredient"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Substance Ingredient codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-code"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

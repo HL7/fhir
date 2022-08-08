@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="goal-status"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/goal-status defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td>
+            
+            <b>Lvl</b>
+          
+          </td>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>1</td>
+          
+          <td style="white-space:nowrap">proposed
+            
+            <a name="goal-status-proposed"> </a>
+          
+          </td>
+          
+          <td>Proposed</td>
+          
+          <td>A goal is proposed for this patient.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>1</td>
+          
+          <td style="white-space:nowrap">planned
+            
+            <a name="goal-status-planned"> </a>
+          
+          </td>
+          
+          <td>Planned</td>
+          
+          <td>A goal is planned for this patient.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>1</td>
+          
+          <td style="white-space:nowrap">accepted
+            
+            <a name="goal-status-accepted"> </a>
+          
+          </td>
+          
+          <td>Accepted</td>
+          
+          <td>A proposed goal was accepted or acknowledged.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>2</td>
+          
+          <td style="white-space:nowrap">  active
+            
+            <a name="goal-status-active"> </a>
+          
+          </td>
+          
+          <td>Active</td>
+          
+          <td>The goal is being sought actively.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>2</td>
+          
+          <td style="white-space:nowrap">  on-hold
+            
+            <a name="goal-status-on-hold"> </a>
+          
+          </td>
+          
+          <td>On Hold</td>
+          
+          <td>The goal remains a long term objective but is no longer being actively pursued for a temporary period of time.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>2</td>
+          
+          <td style="white-space:nowrap">  completed
+            
+            <a name="goal-status-completed"> </a>
+          
+          </td>
+          
+          <td>Completed</td>
+          
+          <td>The goal is no longer being sought.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>1</td>
+          
+          <td style="white-space:nowrap">cancelled
+            
+            <a name="goal-status-cancelled"> </a>
+          
+          </td>
+          
+          <td>Cancelled</td>
+          
+          <td>The goal has been abandoned.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>1</td>
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            <a name="goal-status-entered-in-error"> </a>
+          
+          </td>
+          
+          <td>Entered in Error</td>
+          
+          <td>The goal was entered in error and voided.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>1</td>
+          
+          <td style="white-space:nowrap">rejected
+            
+            <a name="goal-status-rejected"> </a>
+          
+          </td>
+          
+          <td>Rejected</td>
+          
+          <td>A proposed goal was rejected.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/goal-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.272"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="GoalLifecycleStatus"/>
+  <title value="GoalLifecycleStatus"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Codes that reflect the current state of a goal and whether the goal is still being targeted."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/goal-status"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <concept>
+    <code value="proposed"/>
+    <display value="Proposed"/>
+    <definition value="A goal is proposed for this patient."/>
+  </concept>
+  <concept>
+    <code value="planned"/>
+    <display value="Planned"/>
+    <definition value="A goal is planned for this patient."/>
+  </concept>
+  <concept>
+    <code value="accepted"/>
+    <display value="Accepted"/>
+    <definition value="A proposed goal was accepted or acknowledged."/>
+    <concept>
+      <code value="active"/>
+      <display value="Active"/>
+      <definition value="The goal is being sought actively."/>
+    </concept>
+    <concept>
+      <code value="on-hold"/>
+      <display value="On Hold"/>
+      <definition value="The goal remains a long term objective but is no longer being actively pursued for a temporary period of time."/>
+    </concept>
+    <concept>
+      <code value="completed"/>
+      <display value="Completed"/>
+      <definition value="The goal is no longer being sought."/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="cancelled"/>
+    <display value="Cancelled"/>
+    <definition value="The goal has been abandoned."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered in Error"/>
+    <definition value="The goal was entered in error and voided."/>
+  </concept>
+  <concept>
+    <code value="rejected"/>
+    <display value="Rejected"/>
+    <definition value="A proposed goal was rejected."/>
+  </concept>
+</CodeSystem>

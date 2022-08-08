@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="DocumentManifest-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="XDS SubmissionSet example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentmanifest-example"/>
+    </extension>
+    <item>
+      <reference value="DocumentManifest/example"/>
+      <display value="XDS-Example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of FM attachment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="documentmanifest-fm-attachment"/>
+    </extension>
+    <item>
+      <reference value="DocumentManifest/654789"/>
+      <display value="FM-Example"/>
+    </item>
+  </entry>
+</List>

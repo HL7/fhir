@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="guidance-module-code"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/guidance-module-code"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="GuidanceModuleCode"/>
+  <title value="GuidanceModuleCode"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Example guidance module codes."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/guidance-module-code"/>
+  <content value="complete"/>
+  <concept>
+    <code value="bmi-calculator"/>
+    <display value="BMI Calculator"/>
+    <definition value="A Body Mass Index (BMI) calculator."/>
+  </concept>
+  <concept>
+    <code value="mme-calculator"/>
+    <display value="MME Calculator"/>
+    <definition value="A Morphine Milligram Equivalent (MME) calculator."/>
+  </concept>
+  <concept>
+    <code value="opioid-cds"/>
+    <display value="Opioid CDS"/>
+    <definition value="Clinical Decision Support for Opioid Prescribing."/>
+  </concept>
+  <concept>
+    <code value="anc-cds"/>
+    <display value="ANC CDS"/>
+    <definition value="Clinical Decision Support for Antenatal Care."/>
+  </concept>
+  <concept>
+    <code value="chf-pathway"/>
+    <display value="CHF Pathway"/>
+    <definition value="Congestive Heart Failure Pathway"/>
+  </concept>
+  <concept>
+    <code value="covid-19-severity"/>
+    <display value="COVID-19 Severity Score"/>
+    <definition value="A COVID-19 Severity Score Calculator."/>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="OperationDefinition-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="OperationDefinition example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operationdefinition-example"/>
+    </extension>
+    <item>
+      <reference value="OperationDefinition/example"/>
+      <display value="example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ValueSet Expansion"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operation-valueset-expand"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="tool"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="null/ValueSet-expand"/>
+      <display value="vsexpansion"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ValueSet Validation"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operation-valueset-validate-code"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="tool"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="null/ValueSet-validate-code"/>
+      <display value="vsvalidation"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ValueSet Lookup"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operation-codesystem-lookup"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="tool"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="null/CodeSystem-lookup"/>
+      <display value="vslookup"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ConceptMap Translate"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operation-conceptmap-translate"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="tool"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="null/ConceptMap-translate"/>
+      <display value="cmtranslate"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ConceptMap Closure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operation-conceptmap-closure"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="tool"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="null/ConceptMap-closure"/>
+      <display value="cmclosure"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Library data requirements"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operation-library-data-requirements"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="tool"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="null/Library-data-requirements"/>
+      <display value="lib-data-req"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Measure data requirements"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operation-measure-data-requirements"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="tool"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="null/Measure-data-requirements"/>
+      <display value="meas-date-req"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Measure evaluate measure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operation-measure-evaluate-measure"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="tool"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="null/Measure-evaluate-measure"/>
+      <display value="meas-eval"/>
+    </item>
+  </entry>
+</List>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="MedicationAdministration-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationAdministration-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationAdministration.medication.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-code"/>
+        <description value="Return administrations of this medication code"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="MedicationAdministration.medication.concept"/>
+        <xpath value="f:MedicationAdministration/f:medication/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationAdministration-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationAdministration.occurence[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-date"/>
+        <description value="Date administration happened (or did not happen)"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="MedicationAdministration.occurence"/>
+        <xpath value="f:MedicationAdministration/f:occurenceDateTime | f:MedicationAdministration/f:occurencePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationAdministration-device"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationAdministration.device"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-device"/>
+        <description value="Return administrations with this administration device identity"/>
+        <code value="device"/>
+        <type value="reference"/>
+        <expression value="MedicationAdministration.device"/>
+        <xpath value="f:MedicationAdministration/f:device"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationAdministration-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationAdministration.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-encounter"/>
+        <description value="Return administrations that share this encounter"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="MedicationAdministration.encounter"/>
+        <xpath value="f:MedicationAdministration/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationAdministration-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationAdministration.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-identifier"/>
+        <description value="Return administrations with this external identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="MedicationAdministration.identifier"/>
+        <xpath value="f:MedicationAdministration/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationAdministration-medication"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationAdministration.medication.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-medication"/>
+        <description value="Return administrations of this medication reference"/>
+        <code value="medication"/>
+        <type value="reference"/>
+        <expression value="MedicationAdministration.medication.reference"/>
+        <xpath value="f:MedicationAdministration/f:medication/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationAdministration-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationAdministration.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-patient"/>
+        <description value="The identity of a patient to list administrations  for"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="MedicationAdministration.subject.where(resolve() is Patient)"/>
+        <xpath value="f:MedicationAdministration/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationAdministration-performer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationAdministration.performer.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-performer"/>
+        <description value="The identity of the individual who administered the medication"/>
+        <code value="performer"/>
+        <type value="reference"/>
+        <expression value="MedicationAdministration.performer.actor"/>
+        <xpath value="f:MedicationAdministration/f:performer/f:actor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationAdministration-reason-given"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationAdministration.reason.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-reason-given"/>
+        <description value="Reference to a resource (by instance)"/>
+        <code value="reason-given"/>
+        <type value="reference"/>
+        <expression value="MedicationAdministration.reason.reference"/>
+        <xpath value="f:MedicationAdministration/f:reason/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationAdministration-reason-given-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationAdministration.reason.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-reason-given-code"/>
+        <description value="Reasons for administering the medication"/>
+        <code value="reason-given-code"/>
+        <type value="token"/>
+        <expression value="MedicationAdministration.reason.concept"/>
+        <xpath value="f:MedicationAdministration/f:reason/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationAdministration-reason-not-given"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationAdministration.statusReason"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-reason-not-given"/>
+        <description value="Reasons for not administering the medication"/>
+        <code value="reason-not-given"/>
+        <type value="token"/>
+        <expression value="MedicationAdministration.statusReason"/>
+        <xpath value="f:MedicationAdministration/f:statusReason"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationAdministration-request"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationAdministration.request"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-request"/>
+        <description value="The identity of a request to list administrations from"/>
+        <code value="request"/>
+        <type value="reference"/>
+        <expression value="MedicationAdministration.request"/>
+        <xpath value="f:MedicationAdministration/f:request"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationAdministration-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationAdministration.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-status"/>
+        <description value="MedicationAdministration event status (for example one of active/paused/completed/nullified)"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="MedicationAdministration.status"/>
+        <xpath value="f:MedicationAdministration/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationAdministration-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationAdministration.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-subject"/>
+        <description value="The identity of the individual or group to list administrations for"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="MedicationAdministration.subject"/>
+        <xpath value="f:MedicationAdministration/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

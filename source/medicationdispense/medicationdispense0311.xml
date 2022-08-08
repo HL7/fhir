@@ -62,13 +62,13 @@
                 <periodUnit value="d"/>
             </repeat>
         </timing>
-        <asNeededCodeableConcept>
+        <asNeededFor>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="386661006"/>
                 <display value="Fever (finding)"/>
             </coding>
-        </asNeededCodeableConcept>
+        </asNeededFor>
         <doseAndRate>
             <type>
                 <coding>

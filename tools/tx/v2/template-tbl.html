@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%settitle Version 2 Table http://terminology.hl7.org/CodeSystem/v2-{id}%]
+[%setlevel 2%]
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+
+[%txheader l2%]
+
+<a name="table"></a>
+<h1>HL7 Version 2 Table [%id%]</h1>
+<table class="[%fmm-style%]">
+ <tr><td><a href="[%wg%]">[%wgt%]</a> Work Group</td><td>[%fmm%]</td><td>[%sstatus%]</td><!--!ns!--><td>[%profile-context%]</td></tr>
+</table>
+<p>
+This is a table defined as part of <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>[%v2xref l2%]
+</p>
+<p><b>Summary</b></p>
+<table class="grid">
+ <tr><td>Code System URL:</td><td><code>[%csurl%]</code></td></tr>
+ <tr><td>Value Set URL:</td><td><code>[%vsurl%]</code></td></tr>
+ <tr><td>Version:</td><td><%vsver%></td></tr>
+ <tr><td>Name:</td><td>[%vsnamed%]</td></tr>
+ <tr><td>Title:</td><td><%vstitle%></td></tr>
+ <tr><td>Definition:</td><td>[%vsdef%]</td></tr>
+ <tr><td>OID:</td><td>??</td></tr>
+[%txsummary%]
+ <tr><td>CodeSystem Resource</td><td><a href="v2-[%txname%].cs.xml.html">XML</a> / <a href="v2-[%txname%].cs.json.html">JSON</a></td></tr>
+ <tr><td>ValueSet Resource</td><td><a href="v2-[%txname%].vs.xml.html">XML</a> / <a href="v2-[%txname%].vs.json.html">JSON</a></td></tr>
+</table>
+
+  <p>
+  Note: V2 code systems may or may not be case sensitive. V2 Code systems will have the <code>CodeSystem.caseSensitive</code> correctly populated in a future version of this specification.
+  </p>
+
+
+[%conceptmaplistv2 l2%]
+
+[%vsusage%]
+
+<a name="definition"></a>
+<h2>Code System Content</h2>
+
+[%v2Table%]
+
+[%v2Expansion%]
+
+</div>
+
+[%file newfooter%]
+    
+    
+<script src="external/jquery/jquery.js"> </script>
+<script src="../../jquery-ui.min.js"> </script>
+<script>
+try {
+  var currentTabIndex = sessionStorage.getItem('fhir-cslang-tab-index');
+}
+catch(exception){
+}
+
+if (!currentTabIndex)
+  currentTabIndex = '0';
+
+$( '#tabs' ).tabs({
+         active: currentTabIndex,
+         activate: function( event, ui ) {
+             var active = $('.selector').tabs('option', 'active');
+             currentTabIndex = ui.newTab.index();
+             document.activeElement.blur();
+             try {
+               sessionStorage.setItem('fhir-cslang-tab-index', currentTabIndex);
+             }
+             catch(exception){
+             }
+         }
+     });
+</script>
+
+</body>
+</html>

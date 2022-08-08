@@ -11,7 +11,7 @@
 [%file newnavbar%]
 
 
-<div class="col-12">
+
 
 <%extheader base%>
 
@@ -467,7 +467,7 @@ primitive value is not present:
 <pre class="xml">
 &lt;uri&gt;
   &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/data-absent-reason&quot;&gt;
-    &lt;valueCode=&quot;unknown&quot;/&gt;
+    &lt;valueCode value=&quot;unknown&quot;/&gt;
   &lt;/extension&gt;
 &lt;/uri&gt;
 </pre>
@@ -545,8 +545,6 @@ Use the following rules as a guideline for handling resources:
  <li>When reading elements, read and process the extensions you know and use, and ignore other extensions <b>except for modifier extensions</b></li>
  <li>Retain extensions whenever you can</li>
 </ul>
-
-</div>
 
 [%file newfooter%]
 

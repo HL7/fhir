@@ -9,7 +9,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <%txheader%>
 
@@ -21,7 +21,7 @@ ICD is a family of code systems maintained by <a href="http://www.who.int/classi
 publishing their own variants. 
 </p>
 <p>
-There are two principal revisions of ICD in use - ICD-10 and ICD-9 (note that while US usage has recently updated to ICD-10, there is still a lot of legacy data coded in ICD-9). Though these can be referred to as different versions of ICD, they are entirely distinct sets of codes, with significant differences in organization and coding rules.  Plus, if period ('.') characters are disregarded (as occurs in some systems), a few of the codes are overlapping between ICD-9 and ICD-10.  Given these considerations, ICD-9 and ICD-10 are represented as entirely separate code systems.  The next revision, ICD-11, is scheduled for release in 2017.
+There are two principal revisions of ICD in use - ICD-10 and ICD-9 (note that while US usage has recently updated to ICD-10, there is still a lot of legacy data coded in ICD-9). Though these can be referred to as different versions of ICD, they are entirely distinct sets of codes, with significant differences in organization and coding rules.  Plus, if period ('.') characters are disregarded (as occurs in some systems), a few of the codes are overlapping between ICD-9 and ICD-10.  Given these considerations, ICD-9 and ICD-10 are represented as entirely separate code systems. The new version of the ICD (ICD-11) was released on June 18, 2018, as a preliminary version. It was officially presented at the World Health Assembly in May 2019 and will be used as the official reporting system by member states beginning January 1, 2022.
 </p>
 
 <h3>Summary</h3>
@@ -65,7 +65,7 @@ There are two principal revisions of ICD in use - ICD-10 and ICD-9 (note that wh
  </tr>
  <tr>
    <td>Hierarchy</td>
-   <td colspan="2">The tabular representations are organized with headings and multiple levels of codes (typically based on the numbers of digits contained in each code), but an explicit hierarchy is not defined.</td>
+   <td colspan="2">The tabular representations are organized with headings and multiple levels of codes (typically based on the numbers of digits contained in each code), corresponding to CodeSystem.hierarchyMeaning = 'classified-with'.</td>
  </tr>
  <tr>
    <td>Filter Properties</td>
@@ -208,8 +208,6 @@ No need for filters identified yet.
 <p>
 No need for implicit value sets identified yet.
 </p>
-
-</div>
 
 [%file newfooter%]
     

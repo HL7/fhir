@@ -406,7 +406,9 @@
   </topic>
   <relatedArtifact>
     <type value="derived-from"/>
-    <url value="https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w"/>
+    <document>
+      <url value="https://www.cdc.gov/mmwr/volumes/65/wr/mm6539e1.htm?s_cid=mm6539e1_w"/>
+    </document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="predecessor"/>

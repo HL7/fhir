@@ -119,7 +119,7 @@ rmdir devicestatus /s /q
 rmdir DeviceUseRequest /s /q
 rmdir device-use-request-priority /s /q
 rmdir device-use-request-status /s /q
-rmdir DeviceUseStatement /s /q
+rmdir DeviceUsage /s /q
 rmdir DiagnosticOrder /s /q
 rmdir diagnostic-order-priority /s /q
 rmdir diagnostic-order-status /s /q

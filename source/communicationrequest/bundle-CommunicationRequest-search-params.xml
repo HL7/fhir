@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="CommunicationRequest-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-authored"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.authoredOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-authored"/>
+        <description value="When request transitioned to being actionable"/>
+        <code value="authored"/>
+        <type value="date"/>
+        <expression value="CommunicationRequest.authoredOn"/>
+        <xpath value="f:CommunicationRequest/f:authoredOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-based-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.basedOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-based-on"/>
+        <description value="Fulfills plan or proposal"/>
+        <code value="based-on"/>
+        <type value="reference"/>
+        <expression value="CommunicationRequest.basedOn"/>
+        <xpath value="f:CommunicationRequest/f:basedOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-category"/>
+        <description value="Message category"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="CommunicationRequest.category"/>
+        <xpath value="f:CommunicationRequest/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-encounter"/>
+        <description value="The Encounter during which this CommunicationRequest was created"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="CommunicationRequest.encounter"/>
+        <xpath value="f:CommunicationRequest/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-group-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.groupIdentifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-group-identifier"/>
+        <description value="Composite request this is part of"/>
+        <code value="group-identifier"/>
+        <type value="token"/>
+        <expression value="CommunicationRequest.groupIdentifier"/>
+        <xpath value="f:CommunicationRequest/f:groupIdentifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-identifier"/>
+        <description value="Unique identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="CommunicationRequest.identifier"/>
+        <xpath value="f:CommunicationRequest/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-information-provider"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.informationProvider"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-information-provider"/>
+        <description value="Who should share the information"/>
+        <code value="information-provider"/>
+        <type value="reference"/>
+        <expression value="CommunicationRequest.informationProvider"/>
+        <xpath value="f:CommunicationRequest/f:informationProvider"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-medium"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.medium"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-medium"/>
+        <description value="A channel of communication"/>
+        <code value="medium"/>
+        <type value="token"/>
+        <expression value="CommunicationRequest.medium"/>
+        <xpath value="f:CommunicationRequest/f:medium"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-occurrence"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.occurrence[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-occurrence"/>
+        <description value="When scheduled"/>
+        <code value="occurrence"/>
+        <type value="date"/>
+        <expression value="CommunicationRequest.occurrence.as(dateTime) | CommunicationRequest.occurrence.as(Period)"/>
+        <xpath value="f:CommunicationRequest/f:occurrenceDateTime | f:CommunicationRequest/f:occurrencePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-patient"/>
+        <description value="Focus of message"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="CommunicationRequest.subject.where(resolve() is Patient)"/>
+        <xpath value="f:CommunicationRequest/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-priority"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.priority"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-priority"/>
+        <description value="routine | urgent | asap | stat"/>
+        <code value="priority"/>
+        <type value="token"/>
+        <expression value="CommunicationRequest.priority"/>
+        <xpath value="f:CommunicationRequest/f:priority"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-recipient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.recipient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-recipient"/>
+        <description value="Who to share the information with"/>
+        <code value="recipient"/>
+        <type value="reference"/>
+        <expression value="CommunicationRequest.recipient"/>
+        <xpath value="f:CommunicationRequest/f:recipient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-replaces"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.replaces"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-replaces"/>
+        <description value="Request(s) replaced by this request"/>
+        <code value="replaces"/>
+        <type value="reference"/>
+        <expression value="CommunicationRequest.replaces"/>
+        <xpath value="f:CommunicationRequest/f:replaces"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-requester"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.requester"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-requester"/>
+        <description value="Who asks for the information to be shared"/>
+        <code value="requester"/>
+        <type value="reference"/>
+        <expression value="CommunicationRequest.requester"/>
+        <xpath value="f:CommunicationRequest/f:requester"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-status"/>
+        <description value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="CommunicationRequest.status"/>
+        <xpath value="f:CommunicationRequest/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CommunicationRequest-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CommunicationRequest.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CommunicationRequest-subject"/>
+        <description value="Focus of message"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="CommunicationRequest.subject"/>
+        <xpath value="f:CommunicationRequest/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

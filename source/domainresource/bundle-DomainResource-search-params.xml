@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="DomainResource-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DomainResource-_text"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DomainResource-_text"/>
+        <description value="Search on the narrative of the resource"/>
+        <code value="_text"/>
+        <type value="special"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

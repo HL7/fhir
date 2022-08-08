@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+
+
+      
+[%settitle HL7 v3 Namespaces%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+
+<%txheader v3%>
+
+<h1>HL7 v3 Namespaces (Code Systems and Value Sets)</h1>
+<table class="colse"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">External</a></td></tr></table>
+
+<p>
+These namespaces are defined for use in FHIR. Code Systems are used 
+when representing codes that were defined as part of the <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> code systems. 
+So if you are representing the code "M" from
+the code system AdministrativeGender in a FHIR instance, then you would use 
+the system "http://terminology.hl7.org/CodeSystem/v3-AdministrativeGender" (note that the namespace
+is case sensitive).
+</p>
+<p>
+Value Set namespaces are used as part of the specification itself, or in 
+Profiles or other Value Sets where <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> code systems are used.
+</p>
+<p>
+All of these namespaces are subject to further change.
+</p>
+
+<p><b>CodeSystems</b></p>
+<p>
+See below for value sets.
+</p>
+
+<%v3Index-cs%>
+
+<p><b>Value Sets</b></p>
+
+<%v3Index-vs%>
+
+
+</div>
+
+[%file newfooter%]
+
+</body>
+
+</html>

@@ -4,9 +4,7 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationusage.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example005"/>
-  <basedOn>
-    <reference value="CarePlan/gpvisit"></reference>
-  </basedOn>
+
 
   <status value="entered-in-error"/>
   <medication>

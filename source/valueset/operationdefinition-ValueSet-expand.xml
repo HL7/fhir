@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
+  <id value="ValueSet-expand"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="4.0.0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$expand-request.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$expand-response.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
+    <valueMarkdown value="The value set expansion returned by this query should be treated as a transient result that will change over time (whether it does or not depends on how the value set is specified), so applications should repeat the operation each time the value set is used.  &#xA;&#xA;When available, ValueSet.status and ValueSet.version from the ValueSet resource instance which contains the definition SHALL be persisted to the ValueSet resource instance which contains the expansion.   &#xA;&#xA;If the expansion is too large (at the discretion of the server), the server MAY return an error (OperationOutcome with code too-costly). Clients can work through large flat expansions in a set of pages (partial views of the full expansion) instead of just getting the full expansion in a single exchange by using offset and count parameters, or use the count parameter to request a subset of the expansion for limited purposes. Servers are not obliged to support paging, but if they do, SHALL support both the offset and count parameters. Hierarchical expansions are not subject to paging and servers simply return the entire expansion.  &#xA;&#xA;Different servers may return different results from expanding a value set for the following reasons:  &#xA;&#xA;* The underlying code systems are different (e.g. different versions, possibly with different defined behavior) &#xA;* The server optimizes filter includes differently, such as sorting by code frequency &#xA;* Servers introduce arbitrary groups to assist a user to navigate the lists based either on extensions in the definition, or additional knowledge available to the server&#xA;&#xA;When a server cannot correctly expand a value set because it does not fully understand the code systems (e.g. it has the wrong version, or incomplete definitions) then it SHALL return an error. If the value set itself is unbounded due to the inclusion of post-coordinated value sets (e.g. SNOMED CT, UCUM), then the extension [[[http://hl7.org/fhir/StructureDefinition/valueset-unclosed]]] can be used to indicate that the expansion is incomplete"/>
+  </extension>
+  <url value="http://hl7.org/fhir/build/OperationDefinition/ValueSet-expand"/>
+  <version value="4.6.0"/>
+  <name value="expand"/>
+  <title value="Value Set Expansion"/>
+  <status value="draft"/>
+  <kind value="operation"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation. &#xA;&#xA;If the operation is not called at the instance level, one of the in parameters url, context or valueSet must be provided.  An expanded value set will be returned, or an OperationOutcome with an error message."/>
+  <affectsState value="false"/>
+  <code value="expand"/>
+  <comment value="The value set expansion returned by this query should be treated as a transient result that will change over time (whether it does or not depends on how the value set is specified), so applications should repeat the operation each time the value set is used.  &#xA;&#xA;If the expansion is too large (at the discretion of the server), the server MAY return an error (OperationOutcome with code too-costly). Clients can work through large flat expansions in a set of pages (partial views of the full expansion) instead of just getting the full expansion in a single exchange by using offset and count parameters, or use the count parameter to request a subset of the expansion for limited purposes. Servers are not obliged to support paging, but if they do, SHALL support both the offset and count parameters. Hierarchical expansions are not subject to paging and servers simply return the entire expansion.  &#xA;&#xA;Different servers may return different results from expanding a value set for the following reasons:  &#xA;&#xA;* The underlying code systems are different (e.g. different versions, possibly with different defined behavior) &#xA;* The server optimizes filter includes differently, such as sorting by code frequency &#xA;* Servers introduce arbitrary groups to assist a user to navigate the lists based either on extensions in the definition, or additional knowledge available to the server&#xA;&#xA;When a server cannot correctly expand a value set because it does not fully understand the code systems (e.g. it has the wrong version, or incomplete definitions) then it SHALL return an error. If the value set itself is unbounded due to the inclusion of post-coordinated value sets (e.g. SNOMED CT, UCUM), then the extension [http://hl7.org/fhir/StructureDefinition/valueset-unclosed](extension-valueset-unclosed.html) can be used to indicate that the expansion is incomplete"/>
+  <resource value="ValueSet"/>
+  <system value="false"/>
+  <type value="true"/>
+  <instance value="true"/>
+  <parameter>
+    <name value="url"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="A canonical reference to a value set. The server must know the value set (e.g. it is defined explicitly in the server&#39;s value sets, or it is defined implicitly by some code system known to the server"/>
+    <type value="uri"/>
+  </parameter>
+  <parameter>
+    <name value="valueSet"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The value set is provided directly as part of the request. Servers may choose not to accept value sets in this fashion"/>
+    <type value="ValueSet"/>
+  </parameter>
+  <parameter>
+    <name value="valueSetVersion"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The identifier that is used to identify a specific version of the value set to be used when generating the expansion. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available."/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="context"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The context of the value set, so that the server can resolve this to a value set to expand. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g. http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only usable if the terminology server also has access to the conformance registry that the server is using, but can be used to delegate the mapping from an application context to a binding at run-time"/>
+    <type value="uri"/>
+  </parameter>
+  <parameter>
+    <name value="contextDirection"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="If a context is provided, a context direction may also be provided. Valid values are: &#xA;&#xA;* &#39;incoming&#39;: the codes a client can use for PUT/POST operations,  and &#xA;* &#39;outgoing&#39;, the codes a client might receive from the server.&#xA;&#xA;The purpose is to inform the server whether to use the value set associated with the context for reading or writing purposes (note: for most elements, this is the same value set, but there are a few elements where the reading and writing value sets are different)"/>
+    <type value="code"/>
+  </parameter>
+  <parameter>
+    <name value="filter"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="A text filter that is applied to restrict the codes that are returned (this is useful in a UI context). The interpretation of this is delegated to the server in order to allow to determine the most optimal search approach for the context. The server can document the way this parameter works in [TerminologyCapabilities](terminologycapabilities.html)..expansion.textFilter. Typical usage of this parameter includes functionality like:&#xA;&#xA;* using left matching e.g. &quot;acut ast&quot;&#xA;* allowing for wild cards such as %, &amp;, ?&#xA;* searching on definition as well as display(s)&#xA;* allowing for search conditions (and / or / exclusions)&#xA;&#xA;Text Search engines such as Lucene or Solr, long with their considerable functionality, might also be used. The optional text search might also be code system specific, and servers might have different implementations for different code systems"/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="date"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The date for which the expansion should be generated.  if a date is provided, it means that the server should use the value set / code system definitions as they were on the given date, or return an error if this is not possible.  Normally, the date is the current conditions (which is the default value) but under some circumstances, systems need to generate an expansion as it would have been in the past. A typical example of this would be where code selection is constrained to the set of codes that were available when the patient was treated, not when the record is being edited. Note that which date is appropriate is a matter for implementation policy."/>
+    <type value="dateTime"/>
+  </parameter>
+  <parameter>
+    <name value="offset"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Paging support - where to start if a subset is desired (default = 0). Offset is number of records (not number of pages)"/>
+    <type value="integer"/>
+  </parameter>
+  <parameter>
+    <name value="count"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Paging support - how many codes should be provided in a partial page view. Paging only applies to flat expansions - servers ignore paging if the expansion is not flat.  If count = 0, the client is asking how large the expansion is. Servers SHOULD honor this request for hierarchical expansions as well, and simply return the overall count"/>
+    <type value="integer"/>
+  </parameter>
+  <parameter>
+    <name value="includeDesignations"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Controls whether concept designations are to be included or excluded in value set expansions"/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <name value="designation"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="A [token](search.html#token) that specifies a system+code that is either a use or a language. Designations that match by language or use are included in the expansion. If no designation is specified, it is at the server discretion which designations to return"/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="includeDefinition"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Controls whether the value set definition is included or excluded in value set expansions"/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <name value="activeOnly"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Controls whether inactive concepts are included or excluded in value set expansions. Note that if the value set explicitly specifies that inactive codes are included, this parameter can still remove them from a specific expansion, but this parameter cannot include them if the value set excludes them"/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <name value="excludeNested"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Controls whether or not the value set expansion nests codes or not (i.e. ValueSet.expansion.contains.contains)"/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <name value="excludeNotForUI"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Controls whether or not the value set expansion is assembled for a user interface use or not. Value sets intended for User Interface might include [&#39;abstract&#39; codes](codesystem.html#status) or have nested contains with items with no code or abstract = true, with the sole purpose of helping a user navigate through the list efficiently, where as a value set not generated for UI use might be flat, and only contain the selectable codes in the value set. The exact implications of &#39;for UI&#39; depend on the code system, and what properties it exposes for a terminology server to use. In the FHIR Specification itself, the value set expansions are generated with excludeNotForUI = false, and the expansions used when generated schema / code etc, or performing validation, are all excludeNotForUI = true."/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <name value="excludePostCoordinated"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Controls whether or not the value set expansion includes post coordinated codes"/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <name value="displayLanguage"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Specifies the language to be used for description in the expansions i.e. the language to be used for ValueSet.expansion.contains.display"/>
+    <type value="code"/>
+  </parameter>
+  <parameter>
+    <name value="property"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="A request to return a particular property in the expansion. May be either a code from the code system definition (convenient) or a the formal URI that refers to the property. Note that property names can clash, so using a URI is recommended. The special value &#39;*&#39; means all properties known to the server"/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="exclude-system"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Code system, or a particular version of a code system to be excluded from the value set expansion. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56"/>
+    <type value="canonical"/>
+  </parameter>
+  <parameter>
+    <name value="system-version"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Specifies a version to use for a system, if the value set does not specify which one to use. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56"/>
+    <type value="canonical"/>
+  </parameter>
+  <parameter>
+    <name value="check-system-version"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Edge Case: Specifies a version to use for a system. If a value set specifies a different version, an error is returned instead of the expansion. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56"/>
+    <type value="canonical"/>
+  </parameter>
+  <parameter>
+    <name value="force-system-version"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Edge Case: Specifies a version to use for a system. This parameter overrides any specified version in the value set (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is override, the version used SHALL explicitly be represented in the expansion parameters"/>
+    <type value="canonical"/>
+  </parameter>
+  <parameter>
+    <name value="return"/>
+    <use value="out"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="The result of the expansion. Servers generating expansions SHOULD ensure that all the parameters that affect the contents of the expansion are recorded in the ValueSet.expansion.parameter list"/>
+    <type value="ValueSet"/>
+  </parameter>
+</OperationDefinition>

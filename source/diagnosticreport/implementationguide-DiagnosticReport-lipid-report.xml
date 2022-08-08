@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="lipid-report"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <name value="Example Lipid Profile"/>
+  <title value="Example Lipid Profile"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2012-05-12T00:00:00.000"/>
+  <publisher value="Grahame Grieve"/>
+  <description value="Describes how the lab report is used for a standard Lipid Profile - Cholesterol, Triglyceride and Cholesterol fractions. Uses LOINC codes"/>
+  <definition>
+    <resource>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/usage">
+        <valueCode value="core"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/lipidprofile"/>
+      </reference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/usage">
+        <valueCode value="core"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/cholesterol"/>
+      </reference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/usage">
+        <valueCode value="core"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/triglyceride"/>
+      </reference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/usage">
+        <valueCode value="core"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/hdlcholesterol"/>
+      </reference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/usage">
+        <valueCode value="core"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/ldlcholesterol"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Bundle/lipids"/>
+      </reference>
+      <name value="Lipid profile"/>
+      <description value="Lipid profile"/>
+    </resource>
+  </definition>
+</ImplementationGuide>

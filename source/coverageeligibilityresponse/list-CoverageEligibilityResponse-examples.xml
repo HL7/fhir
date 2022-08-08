@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="CoverageEligibilityResponse-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Person Primary Coverage Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="coverageeligibilityresponse-example"/>
+    </extension>
+    <item>
+      <reference value="CoverageEligibilityResponse/E2500"/>
+      <display value="General-Primary"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Person Primary Coverage  with Benefit Details"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="coverageeligibilityresponse-example-benefits"/>
+    </extension>
+    <item>
+      <reference value="CoverageEligibilityResponse/E2501"/>
+      <display value="General-Primary-B1"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Person Primary Coverage  with Benefit Details  and new insurance"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="coverageeligibilityresponse-example-benefits-2"/>
+    </extension>
+    <item>
+      <reference value="CoverageEligibilityResponse/E2502"/>
+      <display value="General-Primary-B2"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Person Primary Coverage  with error"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="coverageeligibilityresponse-example-error"/>
+    </extension>
+    <item>
+      <reference value="CoverageEligibilityResponse/E2503"/>
+      <display value="General-Primary-B3"/>
+    </item>
+  </entry>
+</List>

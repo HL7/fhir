@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="subscription-tag"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/subscription-tag"/>
+  <version value="4.6.0"/>
+  <name value="SubscriptionTag"/>
+  <concept>
+    <code value="queued"/>
+    <display value="Queued"/>
+    <definition value="The message has been queued for processing on a destination systems."/>
+  </concept>
+  <concept>
+    <code value="delivered"/>
+    <display value="Delivered"/>
+    <definition value="The message has been delivered to its intended recipient."/>
+  </concept>
+</CodeSystem>

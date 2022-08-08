@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ChargeItem-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-account"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.account"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-account"/>
+        <description value="Account to place this charge"/>
+        <code value="account"/>
+        <type value="reference"/>
+        <expression value="ChargeItem.account"/>
+        <xpath value="f:ChargeItem/f:account"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-code"/>
+        <description value="A code that identifies the charge, like a billing code"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="ChargeItem.code"/>
+        <xpath value="f:ChargeItem/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.context"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-context"/>
+        <description value="Encounter / Episode associated with event"/>
+        <code value="context"/>
+        <type value="reference"/>
+        <expression value="ChargeItem.context"/>
+        <xpath value="f:ChargeItem/f:context"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-entered-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.enteredDate"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-entered-date"/>
+        <description value="Date the charge item was entered"/>
+        <code value="entered-date"/>
+        <type value="date"/>
+        <expression value="ChargeItem.enteredDate"/>
+        <xpath value="f:ChargeItem/f:enteredDate"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-enterer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.enterer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-enterer"/>
+        <description value="Individual who was entering"/>
+        <code value="enterer"/>
+        <type value="reference"/>
+        <expression value="ChargeItem.enterer"/>
+        <xpath value="f:ChargeItem/f:enterer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-factor-override"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.factorOverride"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-factor-override"/>
+        <description value="Factor overriding the associated rules"/>
+        <code value="factor-override"/>
+        <type value="number"/>
+        <expression value="ChargeItem.factorOverride"/>
+        <xpath value="f:ChargeItem/f:factorOverride"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-identifier"/>
+        <description value="Business Identifier for item"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="ChargeItem.identifier"/>
+        <xpath value="f:ChargeItem/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-occurrence"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.occurrence[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-occurrence"/>
+        <description value="When the charged service was applied"/>
+        <code value="occurrence"/>
+        <type value="date"/>
+        <expression value="ChargeItem.occurrence"/>
+        <xpath value="f:ChargeItem/f:occurrenceDateTime | f:ChargeItem/f:occurrencePeriod | f:ChargeItem/f:occurrenceTiming"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-patient"/>
+        <description value="Individual service was done for/to"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="ChargeItem.subject.where(resolve() is Patient)"/>
+        <xpath value="f:ChargeItem/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-performer-actor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.performer.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-performer-actor"/>
+        <description value="Individual who was performing"/>
+        <code value="performer-actor"/>
+        <type value="reference"/>
+        <expression value="ChargeItem.performer.actor"/>
+        <xpath value="f:ChargeItem/f:performer/f:actor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-performer-function"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.performer.function"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-performer-function"/>
+        <description value="What type of performance was done"/>
+        <code value="performer-function"/>
+        <type value="token"/>
+        <expression value="ChargeItem.performer.function"/>
+        <xpath value="f:ChargeItem/f:performer/f:function"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-performing-organization"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.performingOrganization"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-performing-organization"/>
+        <description value="Organization providing the charged service"/>
+        <code value="performing-organization"/>
+        <type value="reference"/>
+        <expression value="ChargeItem.performingOrganization"/>
+        <xpath value="f:ChargeItem/f:performingOrganization"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-price-override"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.priceOverride"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-price-override"/>
+        <description value="Price overriding the associated rules"/>
+        <code value="price-override"/>
+        <type value="quantity"/>
+        <expression value="ChargeItem.priceOverride"/>
+        <xpath value="f:ChargeItem/f:priceOverride"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.quantity"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-quantity"/>
+        <description value="Quantity of which the charge item has been serviced"/>
+        <code value="quantity"/>
+        <type value="quantity"/>
+        <expression value="ChargeItem.quantity"/>
+        <xpath value="f:ChargeItem/f:quantity"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-requesting-organization"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.requestingOrganization"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-requesting-organization"/>
+        <description value="Organization requesting the charged service"/>
+        <code value="requesting-organization"/>
+        <type value="reference"/>
+        <expression value="ChargeItem.requestingOrganization"/>
+        <xpath value="f:ChargeItem/f:requestingOrganization"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-service"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.service"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-service"/>
+        <description value="Which rendered service is being charged?"/>
+        <code value="service"/>
+        <type value="reference"/>
+        <expression value="ChargeItem.service"/>
+        <xpath value="f:ChargeItem/f:service"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-subject"/>
+        <description value="Individual service was done for/to"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="ChargeItem.subject"/>
+        <xpath value="f:ChargeItem/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

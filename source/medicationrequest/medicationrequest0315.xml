@@ -81,6 +81,7 @@
         </coding>
       </concept>
     </reason>
+    <dose>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="0.05 - 0.1mg/kg IV over 2-5 minutes every 15 minutes as needed" />
@@ -91,7 +92,7 @@
                 <periodUnit value="min"/>
             </repeat>
         </timing>
-        <asNeededBoolean value="true"/>
+        <asNeeded value="true"/>
         <route>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -146,4 +147,5 @@
 
         
     </dosageInstruction>
+    </dose>
 </MedicationRequest>

@@ -12,7 +12,7 @@ in order to support consistent definitions for schema and UML derived code.
 <body>
     [%file newnavbar%]
 
-    <div class="col-12">
+    
         <table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg pa%]">[%wgt pa%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
         <a name="root"></a>
@@ -76,7 +76,9 @@ in order to support consistent definitions for schema and UML derived code.
         <a name="patient-reg"></a>
         <h4>Patient Registers</h4>
         <p>
-            Track people involved in receiving healthcare, the basics nearly everything else references back to
+            Resources that contain details of people and animals that are either receiving care, or are associated with
+            these subjects. Many other resources refer back to these as either the subject of care, or are somehow
+            involved in that patient's record.
         </p>
         <table class="bare">
             <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
@@ -250,8 +252,6 @@ in order to support consistent definitions for schema and UML derived code.
             use first and have formed the basis for most people's first experiences with FHIR.<br />
             However this limited exposure has still to be proven in all contexts, such as veterinary, public health and clinical research.
         </p>
-    </div>
-
     [%file newfooter%]
 </body>
 </html>

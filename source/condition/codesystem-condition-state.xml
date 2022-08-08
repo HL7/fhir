@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="condition-state"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/condition-state"/>
+  <version value="4.6.0"/>
+  <name value="ConditionState"/>
+  <description value="active| inactive| resolved"/>
+  <concept>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="The condition is active."/>
+  </concept>
+  <concept>
+    <code value="inactive"/>
+    <display value="Inactive"/>
+    <definition value="The condition is inactive, but not resolved."/>
+  </concept>
+  <concept>
+    <code value="resolved"/>
+    <display value="Resolved"/>
+    <definition value="The condition is resolved."/>
+  </concept>
+</CodeSystem>

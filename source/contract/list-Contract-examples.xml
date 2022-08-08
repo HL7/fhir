@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Contract-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Contract Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="contract-example"/>
+    </extension>
+    <item>
+      <reference value="Contract/C-123"/>
+      <display value="General-Contract"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ConsentDirective Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="pcd-example-notOrg"/>
+    </extension>
+    <item>
+      <reference value="Contract/pcd-example-notOrg"/>
+      <display value="PCD-notOrg"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ConsentDirective Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="pcd-example-notThem"/>
+    </extension>
+    <item>
+      <reference value="Contract/pcd-example-notThem"/>
+      <display value="PCD-notThem"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ConsentDirective Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="pcd-example-notThis"/>
+    </extension>
+    <item>
+      <reference value="Contract/pcd-example-notThis"/>
+      <display value="PCD-notThis"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ConsentDirective Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="pcd-example-notAuthor"/>
+    </extension>
+    <item>
+      <reference value="Contract/pcd-example-notAuthor"/>
+      <display value="PCD-notAuthor"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ConsentDirective Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="pcd-example-notLabs"/>
+    </extension>
+    <item>
+      <reference value="Contract/pcd-example-notLabs"/>
+      <display value="PCD-notLabs"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="42 CFR Part 2 Consent Directive"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="contract-example-42cfr-part2"/>
+    </extension>
+    <item>
+      <reference value="Contract/C-2121"/>
+      <display value="42CFR-Part2"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Health Insurance Policy"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="contract-example-ins-policy"/>
+    </extension>
+    <item>
+      <reference value="Contract/INS-101"/>
+      <display value="InsurancePolicy"/>
+    </item>
+  </entry>
+</List>

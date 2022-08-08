@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="composition-status"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/composition-status defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">preliminary
+            
+            <a name="composition-status-preliminary"> </a>
+          
+          </td>
+          
+          <td>Preliminary</td>
+          
+          <td>This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">final
+            
+            <a name="composition-status-final"> </a>
+          
+          </td>
+          
+          <td>Final</td>
+          
+          <td>This version of the composition is complete and verified by an appropriate person and no further work is planned. Any subsequent updates would be on a new version of the composition.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">amended
+            
+            <a name="composition-status-amended"> </a>
+          
+          </td>
+          
+          <td>Amended</td>
+          
+          <td>The composition content or the referenced resources have been modified (edited or added to) subsequent to being released as &quot;final&quot; and the composition is complete and verified by an authorized person.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">entered-in-error
+            
+            <a name="composition-status-entered-in-error"> </a>
+          
+          </td>
+          
+          <td>Entered in Error</td>
+          
+          <td>The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sd"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/composition-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.242"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="CompositionStatus"/>
+  <title value="CompositionStatus"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The workflow/clinical status of the composition."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/composition-status"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+
+ <concept> 
+    <code value="registered"/>
+    <display value="Registered"/>
+    <definition value="The existence of the report is registered, but there is nothing yet available."/>
+  </concept>
+  <concept>
+    <code value="partial"/>
+    <display value="Partial"/>
+    <definition value="This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified."/>
+    <concept>
+      <code value="preliminary"/>
+      <display value="Preliminary"/>
+      <definition value="Verified early results are available, but not all results are final."/>
+    </concept>
+  </concept>
+
+  <concept>
+    <code value="final"/>
+    <display value="Final"/>
+    <definition value="This version of the composition is complete and verified by an appropriate person and no further work is planned. Any subsequent updates would be on a new version of the composition."/>
+  </concept>
+  <concept>
+    <code value="amended"/>
+    <display value="Amended"/>
+    <definition value="The composition content or the referenced resources have been modified (edited or added to) subsequent to being released as &quot;final&quot; and the composition is complete and verified by an authorized person."/>
+    <concept>
+      <code value="corrected"/>
+      <display value="Corrected"/>
+      <definition value="Subsequent to being final, the composition content has been modified to correct an error in the report or referenced results."/>
+    </concept>
+    <concept>
+      <code value="appended"/>
+      <display value="Appended"/>
+      <definition value="Subsequent to being final, the composition content has been modified by adding new content. The existing content is unchanged."/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="cancelled"/>
+    <display value="Cancelled"/>
+    <definition value="The composition is unavailable because the measurement was not started or not completed (also sometimes called &quot;aborted&quot;)."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered in Error"/>
+    <definition value="The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid."/>
+  </concept>
+  <concept>
+    <code value="deprecated"/>
+    <display value="Deprecated"/>
+    <definition value="This composition has been withdrawn or superseded and should no longer be used."/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The authoring/source system does not know which of the status values currently applies for this observation. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, but the authoring/source system does not know which."/>
+  </concept>
+</CodeSystem>

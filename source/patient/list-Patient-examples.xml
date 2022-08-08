@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Patient-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Person Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example"/>
+    </extension>
+    <item>
+      <reference value="Patient/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient 1 for linking"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-a"/>
+    </extension>
+    <item>
+      <reference value="Patient/pat1"/>
+      <display value="Patient1"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient 2 for linking"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-b"/>
+    </extension>
+    <item>
+      <reference value="Patient/pat2"/>
+      <display value="Patient2"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Deceased patient (using time)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-c"/>
+    </extension>
+    <item>
+      <reference value="Patient/pat3"/>
+      <display value="Patient3"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Deceased patient (using boolean)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-d"/>
+    </extension>
+    <item>
+      <reference value="Patient/pat4"/>
+      <display value="Patient4"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Stock people (defined by HL7 publishing)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-examples-general"/>
+    </extension>
+    <item>
+      <reference value="Patient/b248b1b2-1686-4b94-9936-37d7a5f94b51"/>
+      <display value="Publishing"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example People from cypress project"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-examples-cypress-template"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="csv"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="Patient/b0a5e4277-83c4-4adb-87e2-e3efe3369b6f"/>
+      <display value="Cypress"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="2nd person example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-xcda"/>
+    </extension>
+    <item>
+      <reference value="Patient/xcda"/>
+      <display value="x-cda"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="XDS Patient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-xds"/>
+    </extension>
+    <item>
+      <reference value="Patient/xds"/>
+      <display value="xds"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of an animal"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-animal"/>
+    </extension>
+    <item>
+      <reference value="Patient/animal"/>
+      <display value="Animal"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Taken from a DICOM sample"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-dicom"/>
+    </extension>
+    <item>
+      <reference value="Patient/dicom"/>
+      <display value="DICOM"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example from IHE-PCD example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-ihe-pcd"/>
+    </extension>
+    <item>
+      <reference value="Patient/ihe-pcd"/>
+      <display value="ihd-pcd"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient example (anonymized)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-f001-pieter"/>
+    </extension>
+    <item>
+      <reference value="Patient/f001"/>
+      <display value="PieterVdH"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient example (anonymized)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-f201-roel"/>
+    </extension>
+    <item>
+      <reference value="Patient/f201"/>
+      <display value="RoelB"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example for glossy"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-glossy-example"/>
+    </extension>
+    <item>
+      <reference value="Patient/glossy"/>
+      <display value="Glossy"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Genetic Risk Assessment Person"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-proband"/>
+    </extension>
+    <item>
+      <reference value="Patient/proband"/>
+      <display value="Proband"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Additional Genetics Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-genetics-example1"/>
+    </extension>
+    <item>
+      <reference value="Patient/genetics-example1"/>
+      <display value="Genetics"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Patient resource with Chinese content"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-chinese"/>
+    </extension>
+    <item>
+      <reference value="Patient/ch-example"/>
+      <display value="Chinese"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Newborn Patient Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-newborn"/>
+    </extension>
+    <item>
+      <reference value="Patient/newborn"/>
+      <display value="Newborn1"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Mother of Newborn Patient Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-mom"/>
+    </extension>
+    <item>
+      <reference value="Patient/mom"/>
+      <display value="Mom"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Newborn Eldest Twin Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-infant-twin-1"/>
+    </extension>
+    <item>
+      <reference value="Patient/infant-twin-1"/>
+      <display value="NewbornTwin1"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Newborn Youngest Twin Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-infant-twin-2"/>
+    </extension>
+    <item>
+      <reference value="Patient/infant-twin-2"/>
+      <display value="NewbornTwin2"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Pre-birth fetal infant Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-infant-fetal"/>
+    </extension>
+    <item>
+      <reference value="Patient/infant-fetal"/>
+      <display value="FetalInfant"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Mother of infant twins and fetal infant."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-infant-mom"/>
+    </extension>
+    <item>
+      <reference value="Patient/infant-mom"/>
+      <display value="NewbornMother"/>
+    </item>
+  </entry>
+</List>

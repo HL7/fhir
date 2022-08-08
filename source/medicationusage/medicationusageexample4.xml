@@ -4,10 +4,7 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationusage.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example004"/>
-  <partOf>
-    <reference value="Observation/blood-pressure"></reference>
-  </partOf>
-  <status value='active'/>
+  <status value='recorded'/>
   <medication>
     <concept>
     <coding>
@@ -29,15 +26,7 @@
   </informationSource>
 
 
-  <reason>
-    <concept>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="65363002"/>
-        <display value="Otitis Media"/>
-      </coding>
-    </concept>
-  </reason>
+  
 
   <note>
     <text value="Patient indicates they miss the occasional dose" />
@@ -51,7 +40,7 @@
         <periodUnit value="d"/>
       </repeat>
     </timing>
-    <asNeededBoolean value="false" />
+    <asNeeded value="false" />
     <route>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -73,4 +62,20 @@
       </denominator>
     </maxDosePerPeriod>
   </dosage>
+<adherence>
+  <code>
+    <coding>
+      <system value="http://hl7.org/fhir/CodeSystem/medication-usage-adherence"/>
+      <code value="not-taking"/>
+      <display value="Not Taking"/>
+    </coding>
+  </code>
+  <reason>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="266710000"/>
+        <display value="Drugs not taken/completed"/>
+      </coding>
+  </reason>
+</adherence>
 </MedicationUsage>

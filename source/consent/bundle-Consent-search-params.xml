@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Consent-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-action"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.provision.action"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-action"/>
+        <description value="Actions controlled by this rule"/>
+        <code value="action"/>
+        <type value="token"/>
+        <expression value="Consent.provision.action"/>
+        <xpath value="f:Consent/f:provision/f:action"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-actor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.provision.actor.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-actor"/>
+        <description value="Resource for the actor (or group, by role)"/>
+        <code value="actor"/>
+        <type value="reference"/>
+        <expression value="Consent.provision.actor.reference"/>
+        <xpath value="f:Consent/f:provision/f:actor/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-category"/>
+        <description value="Classification of the consent statement - for indexing/retrieval"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="Consent.category"/>
+        <xpath value="f:Consent/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-grantee"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.grantee"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-consentor"/>
+        <description value="Who is agreeing to the policy and rules"/>
+        <code value="grantee"/>
+        <type value="reference"/>
+        <expression value="Consent.grantee"/>
+        <xpath value="f:Consent/f:grantee"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-controller"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.controller"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-controller"/>
+        <description value="Consent Enforcer"/>
+        <code value="controller"/>
+        <type value="reference"/>
+        <expression value="Consent.controller"/>
+        <xpath value="f:Consent/f:controller"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-data"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.provision.data.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-data"/>
+        <description value="The actual data reference"/>
+        <code value="data"/>
+        <type value="reference"/>
+        <expression value="Consent.provision.data.reference"/>
+        <xpath value="f:Consent/f:provision/f:data/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.dateTime"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-date"/>
+        <description value="When consent was agreed to"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="Consent.dateTime"/>
+        <xpath value="f:Consent/f:dateTime"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-identifier"/>
+        <description value="Identifier for this record (external references)"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Consent.identifier"/>
+        <xpath value="f:Consent/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-manager"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.manager"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-manager"/>
+        <description value="Consent workflow management"/>
+        <code value="manager"/>
+        <type value="reference"/>
+        <expression value="Consent.manager"/>
+        <xpath value="f:Consent/f:manager"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-patient"/>
+        <description value="Who the consent applies to"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Consent.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Consent/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-period"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.provision.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-period"/>
+        <description value="Timeframe for this rule"/>
+        <code value="period"/>
+        <type value="date"/>
+        <expression value="Consent.provision.period"/>
+        <xpath value="f:Consent/f:provision/f:period"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <!--
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-policy-uri"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.policy.uri"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-policy-uri"/>
+        <description value="Search for Consents aligned with a specific policy or policy date/version.  URIs should be complete with date/version and not assume the Resource will maintain versioning information"/>
+        <code value="policy-uri"/>
+        <type value="uri"/>
+        <expression value="Consent.policy.uri"/>
+        <xpath value="f:Consent/f:policy/f:uri"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  -->
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-purpose"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.provision.purpose"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-purpose"/>
+        <description value="Context of activities covered by this rule"/>
+        <code value="purpose"/>
+        <type value="token"/>
+        <expression value="Consent.provision.purpose"/>
+        <xpath value="f:Consent/f:provision/f:purpose"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-security-label"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.provision.securityLabel"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-security-label"/>
+        <description value="Security Labels that define affected resources"/>
+        <code value="security-label"/>
+        <type value="token"/>
+        <expression value="Consent.provision.securityLabel"/>
+        <xpath value="f:Consent/f:provision/f:securityLabel"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-source-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.sourceReference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-source-reference"/>
+        <description value="Search by reference to a Consent, DocumentReference, Contract  or QuestionnaireResponse"/>
+        <code value="source-reference"/>
+        <type value="reference"/>
+        <expression value="Consent.sourceReference"/>
+        <xpath value="f:Consent/f:sourceReference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-status"/>
+        <description value="draft | active | inactive | entered-in-error | unknown"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Consent.status"/>
+        <xpath value="f:Consent/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-subject"/>
+        <description value="Who the consent applies to"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Consent.subject"/>
+        <xpath value="f:Consent/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-verified"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.verification.verified"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-verified"/>
+        <description value="Has been verified"/>
+        <code value="verified"/>
+        <type value="token"/>
+        <expression value="Consent.verification.verified"/>
+        <xpath value="f:Consent/f:verification/f:verified"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Consent-verified-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Consent.verification.verificationDate"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-verified-date"/>
+        <description value="When consent verified"/>
+        <code value="verified-date"/>
+        <type value="date"/>
+        <expression value="Consent.verification.verificationDate"/>
+        <xpath value="f:Consent/f:verification/f:verificationDate"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

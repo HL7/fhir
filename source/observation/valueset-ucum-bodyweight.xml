@@ -1,28 +1,39 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
-	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
-	  <valueBoolean value="false"/>
-	</extension>
-	<id value="valueset-ucum-bodyweight"/>
-	<url value="http://hl7.org/fhir/ValueSet/ucum-bodyweight"/>
-	<name value="BodyWeightUnits"/>
+  <id value="ucum-bodyweight"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
+    <valueBoolean value="false"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/ucum-bodyweight"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.956"/>
+  </identifier>
+  <name value="BodyWeightUnits"/>
   <title value="Body Weight Units"/>
-	<status value="draft"/>
-	<publisher value="FHIR Project"/>
-	<description value="UCUM units for recording Body Weight"/>
-	<copyright value="UCUM is Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details"/>
-	<compose>
-		<include>
-			<system value="http://unitsofmeasure.org"/>
-			<concept>
-				<code value="kg"/>
-			</concept>
-			<concept>
-				<code value="[lb_av]"/>
-			</concept>
-			<concept>
-				<code value="g"/>
-			</concept>
-		</include>
-	</compose>
+  <status value="draft"/>
+  <publisher value="FHIR Project"/>
+  <description value="UCUM units for recording Body Weight"/>
+  <copyright value="UCUM is Copyright &#xA9; 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details"/>
+  <compose>
+    <include>
+      <system value="http://unitsofmeasure.org"/>
+      <concept>
+        <code value="kg"/>
+      </concept>
+      <concept>
+        <code value="[lb_av]"/>
+      </concept>
+      <concept>
+        <code value="g"/>
+      </concept>
+    </include>
+  </compose>
 </ValueSet>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Resource-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Resource-_content"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_content"/>
+        <description value="Search on the entire content of the resource"/>
+        <code value="_content"/>
+        <type value="special"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Resource-_id"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Resource.id"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_id"/>
+        <description value="Logical id of this artifact"/>
+        <code value="_id"/>
+        <type value="token"/>
+        <expression value="Resource.id"/>
+        <xpath value="f:Resource/f:id"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Resource-_lastUpdated"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Resource.meta.lastUpdated"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_lastUpdated"/>
+        <description value="When the resource version last changed"/>
+        <code value="_lastUpdated"/>
+        <type value="date"/>
+        <expression value="Resource.meta.lastUpdated"/>
+        <xpath value="f:Resource/f:meta/f:lastUpdated"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Resource-_list"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_list"/>
+        <description value="Allows for the retrieval of resources that are referenced by a List resource or by one of the pre-defined functional lists"/>
+        <code value="_list"/>
+        <type value="special"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Resource-_profile"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Resource.meta.profile"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_profile"/>
+        <description value="Profiles this resource claims to conform to"/>
+        <code value="_profile"/>
+        <type value="reference"/>
+        <expression value="Resource.meta.profile"/>
+        <xpath value="f:Resource/f:meta/f:profile"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Resource-_query"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_query"/>
+        <description value="A custom search profile that describes a specific defined query operation"/>
+        <code value="_query"/>
+        <type value="special"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Resource-_security"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Resource.meta.security"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_security"/>
+        <description value="Security Labels applied to this resource"/>
+        <code value="_security"/>
+        <type value="token"/>
+        <expression value="Resource.meta.security"/>
+        <xpath value="f:Resource/f:meta/f:security"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Resource-_source"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Resource.meta.source"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_source"/>
+        <description value="Identifies where the resource comes from"/>
+        <code value="_source"/>
+        <type value="uri"/>
+        <expression value="Resource.meta.source"/>
+        <xpath value="f:Resource/f:meta/f:source"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Resource-_tag"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Resource.meta.tag"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_tag"/>
+        <description value="Tags applied to this resource"/>
+        <code value="_tag"/>
+        <type value="token"/>
+        <expression value="Resource.meta.tag"/>
+        <xpath value="f:Resource/f:meta/f:tag"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="audit-event-severity"/>
+  <meta>
+    <lastUpdated value="2022-06-06T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sec"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/audit-event-severity"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1467"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="AuditEventSeverity"/>
+  <title value="AuditEventSeverity"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2022-06-06T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The severity of the audit entry."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-severity"/>
+  <content value="complete"/>
+  <concept>
+    <code value="emergency"/>
+    <display value="Emergency"/>
+    <definition value="System is unusable. e.g., This level should only be reported by infrastructure and should not be used by applications."/>
+  </concept>
+  <concept>
+    <code value="alert"/>
+    <display value="Alert"/>
+    <definition value="Notification should be sent to trigger action be taken. e.g., Loss of the primary network connection needing attention."/>
+  </concept>
+  <concept>
+    <code value="critical"/>
+    <display value="Critical"/>
+    <definition value="Critical conditions. e.g., A failure in the system's primary application that will reset automatically."/>
+  </concept>
+  <concept>
+    <code value="error"/>
+    <display value="Error"/>
+    <definition value="Error conditions. e.g., An application has exceeded its file storage limit and attempts to write are failing. "/>
+  </concept>
+  <concept>
+    <code value="warning"/>
+    <display value="Warning"/>
+    <definition value="Warning conditions. May indicate that an error will occur if action is not taken. e.g., A non-root file system has only 2GB remaining."/>
+  </concept>
+  <concept>
+    <code value="notice"/>
+    <display value="Notice"/>
+    <definition value="Notice messages. Normal but significant condition. Events that are unusual, but not error conditions."/>
+  </concept>
+  <concept>
+    <code value="informational"/>
+    <display value="Informational"/>
+    <definition value="Normal operational messages that require no action. e.g., An application has started, paused, or ended successfully."/>
+  </concept>
+  <concept>
+    <code value="debug"/>
+    <display value="Debug"/>
+    <definition value="Debug-level messages. Information useful to developers for debugging the application."/>
+  </concept>
+</CodeSystem>

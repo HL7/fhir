@@ -40,6 +40,7 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
+    <dose>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Take 1-2 tablets once daily at bedtime as needed for restless legs" />
@@ -53,13 +54,13 @@
                 <periodUnit value="d"/>
             </repeat>
         </timing>
-        <asNeededCodeableConcept>
+        <asNeededFor>
                 <coding>
                     <system value="http://snomed.info/sct"/>
                     <code value="32914008"/>
                     <display value="Restless Legs"/>
                 </coding>
-        </asNeededCodeableConcept>
+        </asNeededFor>
         <route>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -92,4 +93,5 @@
         </doseAndRate>
 
     </dosageInstruction>
+    </dose>
 </MedicationRequest>

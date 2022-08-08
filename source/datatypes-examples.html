@@ -8,7 +8,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <%dtheader examples%>
 <h2>Data Type Examples</h2>
@@ -62,7 +62,7 @@
 	<p>An approximate date of birth:</p><pre class="xml" fragment="date">&lt;date value="1951-06" /&gt;</pre>
 	<p>The instant a document was created, including time zone:</p><pre class="xml" fragment="instant">&lt;instant value="2013-06-08T10:57:34+01:00" /&gt;</pre>
 	<p>The instant a document was created, expressed in UTC, with milliseconds:</p><pre class="xml" fragment="instant">&lt;instant value="2013-06-08T09:57:34.2112Z" /&gt;</pre>
-  <p>2:35pm in the afternoon:</p><pre class="xml" fragment="time">&lt;time value="14:35" /&gt;</pre>
+  <p>2:35pm in the afternoon:</p><pre class="xml" fragment="time">&lt;time value="14:35:00" /&gt;</pre>
 </div>
 
 <a name="strings"></a>
@@ -191,6 +191,21 @@ found in DICOM messages, but this is not a requirement for using <code>urn:dicom
     &lt;/type&gt;
     &lt;system value="http://hl7.org/fhir/sid/us-ssn" /&gt;
     &lt;value value="000111111" /&gt;
+  &lt;/identifier&gt;
+</pre>
+
+<p>A bank card with Identifier.type.text communicating the human readable name of the identifier:</p>
+<pre class="xml" fragment="Identifier">
+  &lt;identifier&gt;
+    &lt;use value="usual" /&gt;
+    &lt;type&gt;
+      &lt;coding&gt;
+        &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v2-0203&quot;/&gt;
+        &lt;code value=&quot;BC&quot;/&gt;
+      &lt;/coding&gt;
+	  &lt;text value=&quot;Visa&quot;/&gt;
+    &lt;/type&gt;
+    &lt;value value="4111111111111111" /&gt;
   &lt;/identifier&gt;
 </pre>
 <p>Notes:</p>
@@ -424,7 +439,7 @@ See also <a href="datatypes.html#Quantity">Base Definition</a>, <a href="datatyp
   &lt;result&gt;
     &lt;value value="40000" /&gt;
     &lt;comparator value="&amp;gt;" /&gt;
-    &lt;unit value="mcg/L" /&gt;
+    &lt;unit value="ug/L" /&gt;
     &lt;system value="http://unitsofmeasure.org" /&gt;
     &lt;code value="ug" /&gt;
   &lt;/result&gt;
@@ -531,6 +546,54 @@ See also <a href="datatypes.html#Ratio">Base Definition</a>, <a href="datatypes-
      &lt;code value="USD" /&gt;
      &lt;system value="urn:iso:std:iso:4217" /&gt;
    &lt;/numerator&gt;
+   &lt;denominator&gt;
+     &lt;value value="1" /&gt;
+     &lt;unit value="day" /&gt;
+     &lt;code value="day" /&gt;
+     &lt;system value="http://unitsofmeasure.org" /&gt;
+   &lt;/denominator&gt;
+  &lt;/charge&gt;
+</pre>
+</div>
+<a name="RatioRange"></a>
+<a name="ratiorange"></a>
+<h3 style="margin-bottom: 1px">
+RatioRange
+</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="datatypes.html#RatioRange">Base Definition</a>, <a href="datatypes-definitions.html#RatioRange">Detailed Descriptions</a>, <a href="datatypes-mappings.html#RatioRange">Mappings</a>, <a href="datatypes-extras.html#RatioRange">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#RatioRange">R2 Conversions</a>.
+</p>
+<div class="example">
+<p><b>Examples</b></p>
+<p>Titer (Range of Ratio of integer:integer)</p>
+<pre class="xml" fragment="RatioRange">
+  &lt;result&gt;
+   &lt;lowNumerator&gt;
+     &lt;value value="1" /&gt;
+   &lt;/lowNumerator&gt;
+   &lt;highNumerator&gt;
+     &lt;value value="2" /&gt;
+   &lt;/highNumerator&gt;
+   &lt;denominator&gt;
+     &lt;value value="128" /&gt;
+   &lt;/denominator&gt;
+  &lt;/result&gt;
+</pre>
+<p>Unit cost (Range of Ratio of Money(as Quantity):Quantity):</p>
+<pre class="xml" fragment="RatioRange">
+  &lt;charge&gt;
+   &lt;lowNumerator&gt;
+     &lt;value value="103.50" /&gt;
+     &lt;unit value="US$" /&gt;
+     &lt;code value="USD" /&gt;
+     &lt;system value="urn:iso:std:iso:4217" /&gt;
+   &lt;/lowNumerator&gt;
+   &lt;highNumerator&gt;
+     &lt;value value="210.99" /&gt;
+     &lt;unit value="US$" /&gt;
+     &lt;code value="USD" /&gt;
+     &lt;system value="urn:iso:std:iso:4217" /&gt;
+   &lt;/highNumerator&gt;
    &lt;denominator&gt;
      &lt;value value="1" /&gt;
      &lt;unit value="day" /&gt;
@@ -1418,8 +1481,6 @@ See also <a href="datatypes.html#Annotation">Base Definition</a>, <a href="datat
     &lt;!-- todo --&gt;
   &lt;/Annotation&gt;
 </pre>
-
-</div>
 
 </div>
 

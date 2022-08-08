@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="TestScript-core"/>
+  <version value="0.01"/>
+  <name value="Shareable TestScript"/>
+  <title value="Shareable TestScript"/>
+  <status value="draft"/>
+  <date value="1970-01-01T10:00:00+10:00"/>
+  <publisher value="HL7"/>
+  <description value="Enforces the minimum information set for the test script metadata required by HL7 and other organizations that share and publish test scripts"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/shareabletestscript"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

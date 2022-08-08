@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="DeviceRequest-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-authored-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.authoredOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-authored-on"/>
+        <description value="When the request transitioned to being actionable"/>
+        <code value="authored-on"/>
+        <type value="date"/>
+        <expression value="DeviceRequest.authoredOn"/>
+        <xpath value="f:DeviceRequest/f:authoredOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-based-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.basedOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-based-on"/>
+        <description value="Plan/proposal/order fulfilled by this request"/>
+        <code value="based-on"/>
+        <type value="reference"/>
+        <expression value="DeviceRequest.basedOn"/>
+        <xpath value="f:DeviceRequest/f:basedOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.code.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-code"/>
+        <description value="Code for what is being requested/ordered"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="DeviceRequest.code.concept"/>
+        <xpath value="f:DeviceRequest/f:code/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-device"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.code.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-device"/>
+        <description value="Reference to resource that is being requested/ordered"/>
+        <code value="device"/>
+        <type value="reference"/>
+        <expression value="DeviceRequest.code.reference"/>
+        <xpath value="f:DeviceRequest/f:code/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-encounter"/>
+        <description value="Encounter during which request was created"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="DeviceRequest.encounter"/>
+        <xpath value="f:DeviceRequest/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-event-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.occurrenceDateTime,DeviceRequest.occurrencePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-event-date"/>
+        <description value="When service should occur"/>
+        <code value="event-date"/>
+        <type value="date"/>
+        <expression value="(DeviceRequest.occurrence as dateTime) | (DeviceRequest.occurrence as Period)"/>
+        <xpath value="f:DeviceRequest/f:occurrenceDateTime | f:DeviceRequest/f:occurrencePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-group-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.groupIdentifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-group-identifier"/>
+        <description value="Composite request this is part of"/>
+        <code value="group-identifier"/>
+        <type value="token"/>
+        <expression value="DeviceRequest.groupIdentifier"/>
+        <xpath value="f:DeviceRequest/f:groupIdentifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-identifier"/>
+        <description value="Business identifier for request/order"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="DeviceRequest.identifier"/>
+        <xpath value="f:DeviceRequest/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-instantiates-canonical"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.instantiatesCanonical"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-instantiates-canonical"/>
+        <description value="Instantiates FHIR protocol or definition"/>
+        <code value="instantiates-canonical"/>
+        <type value="reference"/>
+        <expression value="DeviceRequest.instantiatesCanonical"/>
+        <xpath value="f:DeviceRequest/f:instantiatesCanonical"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-instantiates-uri"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.instantiatesUri"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-instantiates-uri"/>
+        <description value="Instantiates external protocol or definition"/>
+        <code value="instantiates-uri"/>
+        <type value="uri"/>
+        <expression value="DeviceRequest.instantiatesUri"/>
+        <xpath value="f:DeviceRequest/f:instantiatesUri"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-insurance"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.insurance"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-insurance"/>
+        <description value="Associated insurance coverage"/>
+        <code value="insurance"/>
+        <type value="reference"/>
+        <expression value="DeviceRequest.insurance"/>
+        <xpath value="f:DeviceRequest/f:insurance"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-intent"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.intent"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-intent"/>
+        <description value="proposal | plan | original-order |reflex-order"/>
+        <code value="intent"/>
+        <type value="token"/>
+        <expression value="DeviceRequest.intent"/>
+        <xpath value="f:DeviceRequest/f:intent"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-patient"/>
+        <description value="Individual the service is ordered for"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="DeviceRequest.subject.where(resolve() is Patient)"/>
+        <xpath value="f:DeviceRequest/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-performer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.performer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-performer"/>
+        <description value="Desired performer for service"/>
+        <code value="performer"/>
+        <type value="reference"/>
+        <expression value="DeviceRequest.performer"/>
+        <xpath value="f:DeviceRequest/f:performer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-prior-request"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.replaces"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-prior-request"/>
+        <description value="Request takes the place of referenced completed or terminated requests"/>
+        <code value="prior-request"/>
+        <type value="reference"/>
+        <expression value="DeviceRequest.replaces"/>
+        <xpath value="f:DeviceRequest/f:replaces"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-requester"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.requester"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-requester"/>
+        <description value="Who/what is requesting service"/>
+        <code value="requester"/>
+        <type value="reference"/>
+        <expression value="DeviceRequest.requester"/>
+        <xpath value="f:DeviceRequest/f:requester"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-status"/>
+        <description value="entered-in-error | draft | active |suspended | completed"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="DeviceRequest.status"/>
+        <xpath value="f:DeviceRequest/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-subject"/>
+        <description value="Individual the service is ordered for"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="DeviceRequest.subject"/>
+        <xpath value="f:DeviceRequest/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

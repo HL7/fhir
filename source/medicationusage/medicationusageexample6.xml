@@ -4,7 +4,7 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationusage.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="example006"/>
-  <status value="active"/>
+  <status value="recorded"/>
   <medication>
     <concept>
       <coding>
@@ -32,7 +32,7 @@
   <dosage>
     <sequence value="1"/>
     <text value="5ml three times daily" />
-    <asNeededBoolean value="false" />
+    <asNeeded value="false" />
     <route>
      <coding>
        <system value="http://snomed.info/sct"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
+<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="bb"/>
   <text>
     <status value="generated"/>
@@ -49,7 +49,7 @@
       <item>
         <linkId value="sex"/>
         <text value="Sex"/>
-        <type value="choice"/>
+        <type value="coding"/>
         <answerOption>
           <valueCoding>
             <code value="F"/>
@@ -79,7 +79,7 @@
       <item>
         <linkId value="vitaminKgiven"/>
         <text value="Vitamin K given"/>
-        <type value="choice"/>
+        <type value="coding"/>
         <answerOption>
           <valueCoding>
             <code value="INJECTION"/>

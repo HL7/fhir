@@ -1,0 +1,18 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- insert xhtml content here -->
+<a name="notes"></a>
+<h3>Implementation Notes</h3>
+  <h4>Imaging Selection Subsets</h4>
+  <p>Some DICOM SOP Instances contain multiple sub-resources, such as frames, segments, etc.</p>
+  <p>An Imaging Selection resource may specify the subset of these that are included in the selection using the <code>instance.subset</code> element.</p>
+  <p>The defined types of subsets are:</p>
+  <ul>
+    <li>Frames selected from a multiframe SOP Instance</li>
+    <li>Content Item Observation UIDs selected from a DICOM SR or other structured document SOP Instance</li>
+    <li>Segments selected from a segmentation SOP Instance</li>
+    <li>Regions of interest selected from a radiotherapy structure set SOP Instance</li>
+  </ul>
+  <p>The type of subset is determined by the SOP Class of the parent instance.</p>
+  <p>Subsets can only reference sub-resources that are already defined within the selected DICOM SOP Instance.</p>
+</div>

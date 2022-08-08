@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="NamingSystem-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-contact"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.contact.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-contact"/>
+        <description value="Name of an individual to contact"/>
+        <code value="contact"/>
+        <type value="string"/>
+        <expression value="NamingSystem.contact.name"/>
+        <xpath value="f:NamingSystem/f:contact/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-context"/>
+        <description value="A use context assigned to the naming system"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(NamingSystem.useContext.value as CodeableConcept)"/>
+        <xpath value="f:NamingSystem/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the naming system"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(NamingSystem.useContext.value as Quantity) | (NamingSystem.useContext.value as Range)"/>
+        <xpath value="f:NamingSystem/f:useContext/f:valueQuantity | f:NamingSystem/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-context-type"/>
+        <description value="A type of use context assigned to the naming system"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="NamingSystem.useContext.code"/>
+        <xpath value="f:NamingSystem/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the naming system"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="NamingSystem.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.as(Quantity) | value.as(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-context-type-value"/>
+        <description value="A use context type and value assigned to the naming system"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="NamingSystem.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-date"/>
+        <description value="The naming system publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="NamingSystem.date"/>
+        <xpath value="f:NamingSystem/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-description"/>
+        <description value="The description of the naming system"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="NamingSystem.description"/>
+        <xpath value="f:NamingSystem/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-identifier"/>
+        <description value="External identifier for the naming system"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="NamingSystem.identifier"/>
+        <xpath value="f:NamingSystem/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-id-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.uniqueId.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-id-type"/>
+        <description value="oid | uuid | uri | other"/>
+        <code value="id-type"/>
+        <type value="token"/>
+        <expression value="NamingSystem.uniqueId.type"/>
+        <xpath value="f:NamingSystem/f:uniqueId/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-jurisdiction"/>
+        <description value="Intended jurisdiction for the naming system"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="NamingSystem.jurisdiction"/>
+        <xpath value="f:NamingSystem/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-kind"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.kind"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-kind"/>
+        <description value="codesystem | identifier | root"/>
+        <code value="kind"/>
+        <type value="token"/>
+        <expression value="NamingSystem.kind"/>
+        <xpath value="f:NamingSystem/f:kind"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-name"/>
+        <description value="Computationally friendly name of the naming system"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="NamingSystem.name"/>
+        <xpath value="f:NamingSystem/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-period"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.uniqueId.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-period"/>
+        <description value="When is identifier valid?"/>
+        <code value="period"/>
+        <type value="date"/>
+        <expression value="NamingSystem.uniqueId.period"/>
+        <xpath value="f:NamingSystem/f:uniqueId/f:period"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-publisher"/>
+        <description value="Name of the publisher of the naming system"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="NamingSystem.publisher"/>
+        <xpath value="f:NamingSystem/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-responsible"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.responsible"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-responsible"/>
+        <description value="Who maintains system namespace?"/>
+        <code value="responsible"/>
+        <type value="string"/>
+        <expression value="NamingSystem.responsible"/>
+        <xpath value="f:NamingSystem/f:responsible"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-status"/>
+        <description value="The current status of the naming system"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="NamingSystem.status"/>
+        <xpath value="f:NamingSystem/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-telecom"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.contact.telecom"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-telecom"/>
+        <description value="Contact details for individual or organization"/>
+        <code value="telecom"/>
+        <type value="token"/>
+        <expression value="NamingSystem.contact.telecom"/>
+        <xpath value="f:NamingSystem/f:contact/f:telecom"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-type"/>
+        <description value="e.g. driver,  provider,  patient, bank etc."/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="NamingSystem.type"/>
+        <xpath value="f:NamingSystem/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-url"/>
+        <description value="The uri that identifies the naming system"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="NamingSystem.url"/>
+        <xpath value="f:NamingSystem/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.uniqueId.value"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-value"/>
+        <description value="The unique identifier"/>
+        <code value="value"/>
+        <type value="string"/>
+        <expression value="NamingSystem.uniqueId.value"/>
+        <xpath value="f:NamingSystem/f:uniqueId/f:value"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-version"/>
+        <description value="The business version of the naming system"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="NamingSystem.version"/>
+        <xpath value="f:NamingSystem/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NamingSystem-effective"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.effectivePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MetadataResource-effective"/>
+        <description value="The time during which the NamingSystem is intended to be in use"/>
+        <code value="effective"/>
+        <type value="date"/>
+        <expression value="NamingSystem.effectivePeriod"/>
+        <xpath value="f:NamingSystem/f:effectivePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.relatedArtifact.resource"/>
+        </extension>
+        <description value="A resource that the NamingSystem is derived from"/>
+        <code value="derived-from"/>
+        <type value="reference"/>
+        <expression value="NamingSystem.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
+        <xpath value="f:NamingSystem/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.relatedArtifact.resource"/>
+        </extension>
+        <description value="The predecessor of the NamingSystem"/>
+        <code value="predecessor"/>
+        <type value="reference"/>
+        <expression value="NamingSystem.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <xpath value="f:NamingSystem/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NamingSystem.topic"/>
+        </extension>
+        <description value="Topics associated with the NamingSystem"/>
+        <code value="topic"/>
+        <type value="token"/>
+        <expression value="NamingSystem.topic"/>
+        <xpath value="f:NamingSystem/f:topic"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

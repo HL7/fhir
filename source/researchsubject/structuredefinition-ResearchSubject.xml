@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ResearchSubject"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Public Health &amp;amp; Research"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
+  <version value="4.6.0"/>
+  <name value="ResearchSubject"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A physical entity which is the primary unit of operational and/or administrative interest in a study."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="BRIDG5.1"/>
+    <uri value="https://bridgmodel.nci.nih.gov"/>
+    <name value="BRIDG 5.1 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="ResearchSubject"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="ResearchSubject">
+      <path value="ResearchSubject"/>
+      <short value="Physical entity which is the primary unit of interest in the study"/>
+      <definition value="A physical entity which is the primary unit of operational and/or administrative interest in a study."/>
+      <comment value="Need to make sure we encompass public health studies."/>
+      <alias value="Study Subject"/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudySubject"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Observation[classCode=CLNTRL, moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.diagnostics"/>
+      </mapping>
+    </element>
+    <element id="ResearchSubject.identifier">
+      <path value="ResearchSubject.identifier"/>
+      <short value="Business Identifier for research subject in a study"/>
+      <definition value="Identifiers assigned to this research subject for a study."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudySubject &gt; Subject.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".identifier"/>
+      </mapping>
+    </element>
+    <element id="ResearchSubject.status">
+      <path value="ResearchSubject.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The publication state of the resource (not of the subject)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes that convey the current publication status of the research study resource."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudySubject.statusCode"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".status"/>
+      </mapping>
+    </element>
+
+    <!-- Progress -->
+    <element id="ResearchSubject.progress">
+      <path value="ResearchSubject.progress"/>
+      <short value="Subject status"/>
+      <definition value="The current state (status) of the subject and resons for status change where appropriate."/>
+      <comment value="This is intended to deal with the confusion routinely created by haing two conflated concepts of being in a particular state and having achieved a particular milestone.  In strict terms a milestone is a point of time event that results in a change from one state to another.  The state before the milestone is achieved is often given the same name as the milestone, and sometimes the state may have the same description.  For instance &quot;Randomised&quot; and &quot;Visit 1&quot; may be different milestones but the state remains at &quot;on study&quot; after each of them. &#xA;&#xA;It is likely that more than one &quot;state&quot; pattern will be recorded for a subject and a type has been introduced to allow this simultaneous recording."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ResearchSubject.progress.type">
+      <path value="ResearchSubject.progress.type"/>
+      <short value="state | milestone"/>
+      <definition value="Identifies the aspect of the subject&#39;s journey that the state refers to."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchSubjectStateType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Identifies the kind of state being refered to."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-state-type"/>
+      </binding>
+    </element>
+    <element id="ResearchSubject.progress.subjectState">
+      <path value="ResearchSubject.progress.subjectState"/>
+      <short value="candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn"/>
+      <definition value="The current state of the subject."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchSubjectProgresss"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Indicates the progression of a study subject through a study."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-progress"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudySubject.statusCode"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".status"/>
+      </mapping>
+    </element>
+    <element id="ResearchSubject.progress.milestone">
+      <path value="ResearchSubject.progress.milestone"/>
+      <short value="SignedUp | Screened | Randomized"/>
+      <definition value="The milestones the subject has passed through."/>
+      <comment value="There can be multiple entries but it is also valid to just have the most recent.  This should npt be rlied upon as the full path the subject has taken."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchSubjectMilestone"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates the progression of a study subject through the study milestones."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-milestone"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudySubject.statusCode"/>
+      </mapping>
+    </element>
+    <element id="ResearchSubject.progress.reason">
+      <path value="ResearchSubject.progress.reason"/>
+      <short value="State change reason"/>
+      <definition value="The reason for the state change.  If coded it should follow the formal subject state model."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="StateChangeReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates why the state of the subject changed."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/state-change-reason"/>
+      </binding>
+    </element>
+    <element id="ResearchSubject.progress.startDate">
+      <path value="ResearchSubject.progress.startDate"/>
+      <short value="State change date"/>
+      <definition value="The date when the new status started."/>
+      <comment value="This is NOT the date the change in state was recorded."/>
+      <requirements value="This was originally defined as the date when the change in status occurred.  This assumed all 
+                    states were recorded which is not true.  Hence the need to track the end of the state."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="ResearchSubject.progress.endDate">
+      <path value="ResearchSubject.progress.endDate"/>
+      <short value="State change date"/>
+      <definition value="The date when the state ended."/>
+      <requirements value="See the requirement on the start date."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="ResearchSubject.period">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
+        <valueString value=".effectiveTime."/>
+      </extension>
+      <path value="ResearchSubject.period"/>
+      <short value="Start and end of participation"/>
+      <definition value="The dates the subject began and ended their participation in the study."/>
+      <alias value="timing"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="PerformedStudySubjectMilestone.studyReferenceDateRange"/>
+      </mapping>
+    </element>
+    <element id="ResearchSubject.study">
+      <path value="ResearchSubject.study"/>
+      <short value="Study subject is part of"/>
+      <definition value="Reference to the study the subject is participating in."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudySubjectProtocolVersionRelationship"/>
+      </mapping>
+    </element>
+    <element id="ResearchSubject.subject">
+      <path value="ResearchSubject.subject"/>
+      <short value="Who or what is part of study"/>
+      <definition value="The record of the person, animal or other entity involved in the study."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudySubject"/>
+      </mapping>
+    </element>
+    <element id="ResearchSubject.assignedArm">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
+        <valueString value="This ought to have an identifer as well as a name&#xA;&#xA;OR - allocation is to a Group which is part of a planDefinition which represents an Arm."/>
+      </extension>
+      <path value="ResearchSubject.assignedArm"/>
+      <short value="What path should be followed"/>
+      <definition value="The name of the arm in the study the subject is expected to follow as part of this study."/>
+      <comment value="Maybe this is really PlanDefinition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="Arm &gt; ExperimentalUnit &gt; BiologicEntity &gt; Subject &gt; StudySubject"/>
+      </mapping>
+    </element>
+    <element id="ResearchSubject.actualArm">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
+        <valueString value="This ought to have an identifer as well as a name&#xA;&#xA;OR - allocation is to a Group which is part of a planDefinition which represents an Arm."/>
+      </extension>
+      <path value="ResearchSubject.actualArm"/>
+      <short value="What path was followed"/>
+      <definition value="The name of the arm in the study the subject actually followed as part of this study."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="Arm &gt; ExperimentalUnit &gt; BiologicEntity &gt; Subject &gt; StudySubject"/>
+      </mapping>
+    </element>
+    <element id="ResearchSubject.consent">
+      <path value="ResearchSubject.consent"/>
+      <short value="Agreement to participate in study"/>
+      <definition value="A record of the patient&#39;s informed agreement to participate in the study."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Consent"/>
+      </type>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="ResearchStudy.consent is related to PerformedStudySubjectMilestone.informedConsentIndicator in that the informedConsentIndicator can be derived from the data in the Consent resource."/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

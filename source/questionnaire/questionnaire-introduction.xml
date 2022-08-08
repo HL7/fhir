@@ -17,6 +17,12 @@ exactly what questions were asked, in what order, what choices for answers were,
 and as such the Questionnaire is a separately identifiable Resource, whereas the individual questions are not.  (Questionnaire questions can be linked to
 shared data elements using the <code>Questionnaire.item.definition</code> element.)
 </p>
+<p>
+In addition to its use as a means for capturing data, Questionnaires can also be useful as a mechanism of defining a standardized 'presentation' of 
+data that might already exist.  For example, a peri-natal form or diabetes management form.  In this use, the benefit is to expose a large volume of 
+data in a predictable way that can be defined outside the user-interface design of the relevant system.  The form might allow data to be edited or 
+might be read-only.  In some cases, the QuestionnaireResponse might not be intended to be persisted.
+</p>
 <p>Examples of Questionnaires include:</p>
 <ul>
 <li>Past medical history (PMH)</li>
@@ -32,7 +38,7 @@ This resource is limited in scope to support the characteristics of simple quest
 sophisticated behavior.  This includes:
 </p>
 <ul>
-  <li><a href="questionnaire-extensions.html">Questionnaire core extensions</a> which defines the additional descriptive characteristics for questionnaires and their groups and questions</li>
+  <li><a href="questionnaire-core.html">Questionnaire core extensions</a> which defines the additional descriptive characteristics for questionnaires and their groups and questions</li>
   <li><a href="element-extensions.html">Element extensions</a> which can describe additional constraints on allowed answers for questionnaires such as string length and date and numeric ranges</li>
 </ul>
 <p>

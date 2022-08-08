@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="account-billing-status"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/account-billing-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1539"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="AccountBillingStatus"/>
+  <title value="Example Account Billing Statuses"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2021-05-26"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Indicates whether the account is available to be used for billing purposes."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/account-billing-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="open"/>
+    <display value="Open"/>
+    <definition value="The account is open for charging transactions (account.status is active)"/>
+  </concept>
+  <concept>
+    <code value="carecomplete-notbilled"/>
+    <display value="CareComplete/Not Billed"/>
+    <definition value="The account.status is still active and may have charges recorded against it (only for events in the servicePeriod), however the encounters associated are completed. (Also known as Discharged not billed) This BillingStatus is often not used in ongoing accounts. (account.status is active)"/>
+  </concept>
+  <concept>
+    <code value="billing"/>
+    <display value="Billing"/>
+    <definition value="Indicates that all transactions are recorded and the finance system can perform the billing process, including preparing insurance claims, scrubbing charges, invoicing etc. During this time any new charges will not be included in the current billing run/cycle. (account.status is active)"/>
+  </concept>
+  <concept>
+    <code value="closed-baddebt"/>
+    <display value="Closed-Bad Debt"/>
+    <definition value="The balance of this debt has not been able to be recovered, and the organization has decided not to persue debt recovery. (account.status is in-active)"/>
+  </concept>
+  <concept>
+    <code value="closed-voided"/>
+    <display value="Closed-Voided"/>
+    <definition value="The account was not created in error, however the organization has decided that it will not be charging any transactions associated. (account.status is i n-active)"/>
+  </concept>
+  <concept>
+    <code value="closed-completed"/>
+    <display value="Closed-Completed"/>
+    <definition value="The account is closed and all charges are processed and accounted for. (account.status is i n-active)"/>
+  </concept>
+  <concept>
+    <code value="closed-combined"/>
+    <display value="Closed-Combined"/>
+    <definition value="This account has been merged into another account, all charged have been migrated. This account should no longer be used, and will not be billed. (account.status is i n-active)"/>
+  </concept>
+</CodeSystem>

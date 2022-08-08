@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="cdshooksserviceplandefinition"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/cdshooksserviceplandefinition"/>
+  <version value="4.6.0"/>
+  <name value="CDSHooksServicePlanDefinition"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="Defines a PlanDefinition that implements the behavior for a CDS Hooks service"/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="PlanDefinition"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="PlanDefinition">
+      <path value="PlanDefinition"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="PlanDefinition.extension:cdsHooksEndpoint">
+      <path value="PlanDefinition.extension"/>
+      <sliceName value="cdsHooksEndpoint"/>
+      <short value="Service endpoint"/>
+      <definition value="Defines the service endpoint for the behavior implemented by the PlanDefinition."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-cdsHooksEndpoint"/>
+      </type>
+    </element>
+    <element id="PlanDefinition.action">
+      <path value="PlanDefinition.action"/>
+    </element>
+    <element id="PlanDefinition.action.title">
+      <path value="PlanDefinition.action.title"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.action.description">
+      <path value="PlanDefinition.action.description"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.action.priority">
+      <path value="PlanDefinition.action.priority"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.action.trigger">
+      <path value="PlanDefinition.action.trigger"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.action.condition">
+      <path value="PlanDefinition.action.condition"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.action.timing[x]">
+      <path value="PlanDefinition.action.timing[x]"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.action.participant">
+      <path value="PlanDefinition.action.participant"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.action.type">
+      <path value="PlanDefinition.action.type"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.action.selectionBehavior">
+      <path value="PlanDefinition.action.selectionBehavior"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.action.definition[x]">
+      <path value="PlanDefinition.action.definition[x]"/>
+      <mustSupport value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

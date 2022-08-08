@@ -1,5 +1,5 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
- 
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
 <h3>Use of Condition.code</h3>
 <p>
 Many of the code systems used for coding conditions will provide codes that define not only the condition itself, but may 
@@ -7,7 +7,7 @@ also specify a particular stage, location, or causality as part of the code. Thi
 SNOMED CT is used for the condition, and especially if expressions are allowed. 
 </p>
 <p>
-The Condition.code may also include such concepts as "history of X" and "good health", where it is useful or appropriate to make such assertions. 
+The Condition.code may also include such concepts as "history of X" and "good health", where it is useful or appropriate to make such assertions. 
 It can also be used to capture "risk of" and "fear of", in addition to physical conditions, as well as "no known problems" or "negated" conditions (e.g., "no X" or "no history of X" - see the following section for "No Known Problems" and Negated Conditions).
 </p>
 <p>

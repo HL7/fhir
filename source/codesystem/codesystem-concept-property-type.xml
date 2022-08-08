@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="concept-property-type"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/concept-property-type defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">code
+            
+            <a name="concept-property-type-code"> </a>
+          
+          </td>
+          
+          <td>code (internal reference)</td>
+          
+          <td>The property value is a code that identifies a concept defined in the code system.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">Coding
+            
+            <a name="concept-property-type-Coding"> </a>
+          
+          </td>
+          
+          <td>Coding (external reference)</td>
+          
+          <td>The property  value is a code defined in an external code system. This may be used for translations, but is not the intent.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">string
+            
+            <a name="concept-property-type-string"> </a>
+          
+          </td>
+          
+          <td>string</td>
+          
+          <td>The property value is a string.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">integer
+            
+            <a name="concept-property-type-integer"> </a>
+          
+          </td>
+          
+          <td>integer</td>
+          
+          <td>The property value is an integer (often used to assign ranking values to concepts for supporting score assessments).</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">boolean
+            
+            <a name="concept-property-type-boolean"> </a>
+          
+          </td>
+          
+          <td>boolean</td>
+          
+          <td>The property value is a boolean true | false.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">dateTime
+            
+            <a name="concept-property-type-dateTime"> </a>
+          
+          </td>
+          
+          <td>dateTime</td>
+          
+          <td>The property is a date or a date + time.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">decimal
+            
+            <a name="concept-property-type-decimal"> </a>
+          
+          </td>
+          
+          <td>decimal</td>
+          
+          <td>The property value is a decimal number.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="4.0.0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/>
+  </extension>
+  <url value="http://hl7.org/fhir/concept-property-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.781"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="PropertyType"/>
+  <title value="PropertyType"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The type of a property value."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/concept-property-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="code"/>
+    <display value="code (internal reference)"/>
+    <definition value="The property value is a code that identifies a concept defined in the code system."/>
+  </concept>
+  <concept>
+    <code value="Coding"/>
+    <display value="Coding (external reference)"/>
+    <definition value="The property  value is a code defined in an external code system. This may be used for translations, but is not the intent."/>
+  </concept>
+  <concept>
+    <code value="string"/>
+    <display value="string"/>
+    <definition value="The property value is a string."/>
+  </concept>
+  <concept>
+    <code value="integer"/>
+    <display value="integer"/>
+    <definition value="The property value is an integer (often used to assign ranking values to concepts for supporting score assessments)."/>
+  </concept>
+  <concept>
+    <code value="boolean"/>
+    <display value="boolean"/>
+    <definition value="The property value is a boolean true | false."/>
+  </concept>
+  <concept>
+    <code value="dateTime"/>
+    <display value="dateTime"/>
+    <definition value="The property is a date or a date + time."/>
+  </concept>
+  <concept>
+    <code value="decimal"/>
+    <display value="decimal"/>
+    <definition value="The property value is a decimal number."/>
+  </concept>
+</CodeSystem>

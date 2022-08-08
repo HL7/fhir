@@ -1,9 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="immunization-origin"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pher"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/immunization-origin"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.296"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="ImmunizationOriginCodes"/>
   <title value="Immunization Origin Codes"/>
-
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -17,21 +29,21 @@
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/immunization-origin"/>
       <concept>
-    <code value="provider"/>
-    <display value="Other Provider"/>
-  </concept>
-  <concept>
-    <code value="record"/>
-    <display value="Written Record"/>
-  </concept>
-  <concept>
-    <code value="recall"/>
-    <display value="Parent/Guardian/Patient Recall"/>
-  </concept>
-  <concept>
-    <code value="school"/>
-    <display value="School Record"/>
-  </concept>
+        <code value="provider"/>
+        <display value="Other Provider"/>
+      </concept>
+      <concept>
+        <code value="record"/>
+        <display value="Written Record"/>
+      </concept>
+      <concept>
+        <code value="recall"/>
+        <display value="Parent/Guardian/Patient Recall"/>
+      </concept>
+      <concept>
+        <code value="school"/>
+        <display value="School Record"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

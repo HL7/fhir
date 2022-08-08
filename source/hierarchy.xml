@@ -32,10 +32,10 @@ signatures.html
         <page title="ANSI FHIR Terminology &amp; Conformance Standard" filename="ansi-conformance.html"/>
         <page title="ANSI FHIR Patient Standard" filename="ansi-patient.html"/>
         <page title="ANSI FHIR Observation Standard" filename="ansi-observation.html"/>
-      
+
       </page>
       <page title="CI Build Search" filename="search-build.html"/>
-<!--      <page title="Ballot Introduction" filename="ballot-intro.html"/> -->
+      <page title="Ballot Introduction" filename="ballot-intro.html"/>
     </page>
 
     <!-- foundation - quite a lot of documentation -->
@@ -69,7 +69,7 @@ signatures.html
       <page title="Managing Multiple FHIR Versions" filename="versioning.html"/>
       <page title="FHIRPath" filename="fhirpath.html"/>
       <page title="Version History" filename="history.html"/>
-      <page title="Differences from DSTU Release 2" filename="diff.html"/>
+      <page title="Differences from Release 3" filename="diff.html"/>
       <page title="Release 2/3 Transforms" filename="r3maps.html"/>
 
       <page title="Introduction" filename="overview.html"/>
@@ -128,7 +128,6 @@ signatures.html
       <page type="resource" resource="Questionnaire"/>
       <page type="resource" resource="QuestionnaireResponse"/>
       <page type="resource" resource="List"/>
-      <page type="resource" resource="CatalogEntry"/>
       <page type="resource" resource="Composition"/>
       <page type="resource" resource="DocumentReference"/>
       <page type="resource" resource="DocumentManifest"/>
@@ -150,7 +149,10 @@ signatures.html
         <page title="_filter Parameter" filename="search_filter.html"/>
         <page title="Search Parameter Registry" filename="searchparameter-registry.html"/>
         <page title="FHIRPath Patch" filename="fhirpatch.html"/>
-        <page title="Asynchronous API" filename="async.html"/>
+        <page title="Asynchronous API" filename="async.html">
+          <page title="Asynchronous Bulk Data Request" filename="async-bulk.html"/>
+          <page title="Asynchronous Interaction Request" filename="async-bundle.html"/>
+        </page>
       </page>
       <page title="Operations" filename="operations.html">
         <page title="Example" filename="op-example-request.html"/>
@@ -175,7 +177,6 @@ signatures.html
         <page title="LOINC" filename="loinc.html"/>
         <page title="pCLOCD" filename="pclocd.html"/>
         <page title="UCUM" filename="ucum.html"/>
-        <page title="NCI Metothesuaras" filename="ncimeta.html"/>
         <page title="MED-RT" filename="medrt.html"/>
         <page title="NDFRT" filename="ndfrt.html"/>
         <page title="UNII" filename="unii.html"/>
@@ -292,7 +293,6 @@ signatures.html
 	  <page type="resource" resource="ChargeItemDefinition"/>
   	  <page type="resource" resource="ObservationDefinition"/>
   	  <page type="resource" resource="SpecimenDefinition"/>
-  	  <page type="resource" resource="CatalogEntry"/>
       <page title="Product Pattern" filename="product.html"/>
       <page type="resource" resource="NutritionProduct"/>
       <!-- Think these 3 need to be left off as are REALLy drafty -->
@@ -323,8 +323,9 @@ signatures.html
       <page type="resource" resource="Observation"/>
       <page type="resource" resource="DocumentReference"/>
       <page type="resource" resource="DiagnosticReport"/>
+       <page type="resource" resource="GenomicStudy"/>
       <page type="resource" resource="ImagingStudy"/>
-      <page type="resource" resource="ImagingManifest"/>
+      <page type="resource" resource="ImagingSelection"/>
       <page type="resource" resource="MolecularSequence"/>
       <page type="resource" resource="Specimen"/>
       <page type="resource" resource="SpecimenDefinition"/>
@@ -333,7 +334,7 @@ signatures.html
       <page type="resource" resource="BiologicallyDerivedProduct"/>
     </page>
 
-    
+
     <page title="Medications" filename="medications-module.html" icon="medication.png">
       <page type="resource" resource="MedicationRequest"/>
       <page type="resource" resource="MedicationAdministration"/>
@@ -349,11 +350,13 @@ signatures.html
         <page title="Detailed Descriptions" filename="dosage-definitions.html"/>
         <page title="Dosage Mappings" filename="dosage-mappings.html"/>
       </page>
+      <page type="resource" resource="FormularyItem"/>
     </page>
 
-    
+
     <page title="Workflow" filename="workflow-module.html" icon="workflow.png">
       <page type="resource" resource="Task"/>
+      <page type="resource" resource="Transport"/>
 <!--      <page type="resource" resource="Definition"/>
       <page type="resource" resource="Request"/>
       <page type="resource" resource="Event"/> -->
@@ -379,7 +382,8 @@ signatures.html
       <page type="resource" resource="ActivityDefinition"/>
       <page type="resource" resource="PlanDefinition"/>
       <page type="resource" resource="DeviceRequest"/>
-      <page type="resource" resource="DeviceUseStatement"/>
+      <page type="resource" resource="DeviceDispense"/>
+      <page type="resource" resource="DeviceUsage"/>
       <page type="resource" resource="SupplyRequest"/>
       <page type="resource" resource="SupplyDelivery"/>
       <page type="resource" resource="InventoryReport"/>
@@ -400,34 +404,27 @@ signatures.html
       <page type="resource" resource="ExplanationOfBenefit"/>
       <page type="resource" resource="Contract"/>
     </page>
-    
+
 
 
     <page title="Clinical Reasoning" filename="clinicalreasoning-module.html" icon="reasoning.png">
       <page title="Using Expressions" filename="clinicalreasoning-topics-using-expressions.html"/>
       <page title="Definitional Resources" filename="clinicalreasoning-topics-definitional-resources.html"/>
       <page title="Representing Knowledge Artifacts" filename="clinicalreasoning-knowledge-artifact-representation.html">
+        <page title="Shareable Pattern" filename="shareable.html"/>
+        <page title="Publishable Pattern" filename="publishable.html"/>
         <page title="Supporting Documentation" filename="clinicalreasoning-topics-supporting-documentation.html"/>
       </page>
       <page title="Sharing Knowledge Artifacts" filename="clinicalreasoning-knowledge-artifact-distribution.html"/>
       <page title="Clinical Decision Support" filename="clinicalreasoning-cds-on-fhir.html"/>
       <page title="Quality Reporting" filename="clinicalreasoning-quality-reporting.html"/>
       <page title="Evidence and Statistics" filename="clinicalreasoning-evidence-and-statistics.html"/>
+      <page type="resource" resource="ArtifactAssessment"/>
       <page type="resource" resource="ConditionDefinition"/>
       <page type="resource" resource="EventDefinition"/>
 	  <page type="resource" resource="EvidenceReport"/>
 	  <page type="resource" resource="Citation"/>
       <page type="resource" resource="Evidence"/>
-      <page title="Statistic" filename="statistic.html">
-        <page title="Examples" filename="statistic-examples.html"/>
-        <page title="Detailed Descriptions" filename="statistic-definitions.html"/>
-        <page title="Statistic Mappings" filename="statistic-mappings.html"/>
-      </page>
-      <page title="OrderedDistribution" filename="ordereddistribution.html">
-        <page title="Examples" filename="ordereddistribution-examples.html"/>
-        <page title="Detailed Descriptions" filename="ordereddistribution-definitions.html"/>
-        <page title="OrderedDistribution Mappings" filename="ordereddistribution-mappings.html"/>
-      </page>
       <page type="resource" resource="EvidenceVariable"/>
       <page type="resource" resource="Library"/>
       <page type="resource" resource="GuidanceResponse"/>
@@ -443,7 +440,7 @@ signatures.html
       <page type="resource" resource="ManufacturedItemDefinition"/>
       <page type="resource" resource="AdministrableProductDefinition"/>
       <page type="resource" resource="RegulatedAuthorization"/>
-      <page type="resource" resource="ClinicalUseIssue"/>
+      <page type="resource" resource="ClinicalUseDefinition"/>
       <page type="resource" resource="Ingredient"/>
       <page type="resource" resource="SubstanceDefinition"/>
       <page type="resource" resource="SubstancePolymer"/>
@@ -461,18 +458,18 @@ signatures.html
         <page title="Detailed Descriptions" filename="population-definitions.html"/>
         <page title="Mappings" filename="population-mappings.html"/>
       </page>
-      <page title="ProdCharacteristic" filename="prodcharacteristic.html">
+      <!--page title="ProdCharacteristic" filename="prodcharacteristic.html">
         <page title="Examples" filename="prodcharacteristic-examples.html"/>
         <page title="Detailed Descriptions" filename="prodcharacteristic-definitions.html"/>
         <page title="Mappings" filename="prodcharacteristic-mappings.html"/>
-      </page>
+      </page-->
       <page title="ProductShelfLife" filename="productshelflife.html">
         <page title="Examples" filename="productshelflife-examples.html"/>
         <page title="Detailed Descriptions" filename="productshelflife-definitions.html"/>
         <page title="Mappings" filename="productshelflife-mappings.html"/>
       </page>
     </page>
-    
+
   </page>
-    
+
 </fhir>

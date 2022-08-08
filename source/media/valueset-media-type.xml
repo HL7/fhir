@@ -2,7 +2,7 @@
 <ValueSet xmlns="http://hl7.org/fhir">
 	<id value="media-type"/>
 	<url value="http://hl7.org/fhir/ValueSet/media-category"/>
-	<version value="4.5.0"/>
+	<version value="4.6.0"/>
 	<name value="MediaType"/>
 	<title value="Media Type"/>
 	<status value="draft"/>

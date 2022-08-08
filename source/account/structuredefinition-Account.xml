@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Account"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Financial.General"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Account"/>
+  <version value="4.6.0"/>
+  <name value="Account"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Patient Administration)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Account"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Account">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="Account"/>
+      <short value="Tracks balance, charges, for patient or cost center"/>
+      <definition value="A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc."/>
+      <alias value="Cost center"/>
+      <alias value="Record"/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Account"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="financial.support"/>
+      </mapping>
+    </element>
+    <element id="Account.identifier">
+      <path value="Account.identifier"/>
+      <short value="Account number"/>
+      <definition value="Unique identifier used to reference the account.  Might or might not be intended for human use (e.g. credit card number)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+    <element id="Account.status">
+      <path value="Account.status"/>
+      <short value="active | inactive | entered-in-error | on-hold | unknown"/>
+      <definition value="Indicates whether the account is presently used/usable or not."/>
+      <comment value="This element is labeled as a modifier because the status contains the codes inactive and entered-in-error that mark the Account as not currently valid."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AccountStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Indicates whether the account is available to be used."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/account-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".statusCode"/>
+      </mapping>
+    </element>
+    <element id="Account.billingStatus">
+      <path value="Account.billingStatus"/>
+      <short value="Tracks the lifecycle of the account through the billing process"/>
+      <definition value="The BillingStatus tracks the lifecycle of the account through the billing process. It indicates how transactions are treated when they are allocated to the account."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AccountBillingStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates whether the account is available to be used for billing purposes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/account-billing-status"/>
+      </binding>
+    </element>
+    <element id="Account.type">
+      <path value="Account.type"/>
+      <short value="E.g. patient, expense, depreciation"/>
+      <definition value="Categorizes the account for reporting and searching purposes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AccountType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The usage type of this account, permits categorization of accounts."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/account-type"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="Account.name">
+      <path value="Account.name"/>
+      <short value="Human-readable label"/>
+      <definition value="Name used for the account when displaying it to humans in reports, etc."/>
+      <alias value="Title"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".title"/>
+      </mapping>
+    </element>
+    <element id="Account.subject">
+      <path value="Account.subject"/>
+      <short value="The entity that caused the expenses"/>
+      <definition value="Identifies the entity which incurs the expenses. While the immediate recipients of services or goods might be entities related to the subject, the expenses were ultimately incurred by the subject of the Account."/>
+      <comment value="Accounts can be applied to non-patients for tracking other non-patient related activities, such as group services (patients not tracked, and costs charged to another body), or might not be allocated."/>
+      <alias value="target"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="Account.servicePeriod">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Name was coveragePeriod, have renamed simply to period."/>
+      </extension>
+      <path value="Account.servicePeriod"/>
+      <short value="Transaction window"/>
+      <definition value="The date range of services associated with this account."/>
+      <comment value="It is possible for transactions to be posted outside the service period, as long as the service was provided within the defined service period."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".coverage.insurancePolicy.effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="Account.coverage">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Coverage"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="360,0"/>
+      </extension>
+      <path value="Account.coverage"/>
+      <short value="The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account"/>
+      <definition value="The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account."/>
+      <comment value="Typically. this may be some form of insurance, internal charges, or self-pay.&#xA;&#xA;Local or jurisdictional business rules may determine which coverage covers which types of billable items charged to the account, and in which order.&#xA;Where the order is important, a local/jurisdictional extension may be defined to specify the order for the type of charge."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".coverage"/>
+      </mapping>
+    </element>
+    <element id="Account.coverage.coverage">
+      <path value="Account.coverage.coverage"/>
+      <short value="The party(s), such as insurances, that may contribute to the payment of this account"/>
+      <definition value="The party(s) that contribute to payment (or part of) of the charges applied to this account (including self-pay).&#xA;&#xA;A coverage may only be responsible for specific types of charges, and the sequence of the coverages in the account could be important when processing billing."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Coverage"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".coverage.insurancePolicy.author"/>
+      </mapping>
+    </element>
+    <element id="Account.coverage.priority">
+      <path value="Account.coverage.priority"/>
+      <short value="The priority of the coverage in the context of this account"/>
+      <definition value="The priority of the coverage in the context of this account."/>
+      <comment value="It is common in some jurisdictions for there to be multiple coverages allocated to an account, and a sequence is required to order the settling of the account (often with insurance claiming)."/>
+      <alias value="coordination of benefit priority"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".coverage.sequenceNumber"/>
+      </mapping>
+    </element>
+    <element id="Account.owner">
+      <path value="Account.owner"/>
+      <short value="Entity managing the Account"/>
+      <definition value="Indicates the service area, hospital, department, etc. with responsibility for managing the Account."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".holder"/>
+      </mapping>
+    </element>
+    <element id="Account.description">
+      <path value="Account.description"/>
+      <short value="Explanation of purpose/use"/>
+      <definition value="Provides additional information about what the account tracks and how it is used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".subjectOf.observationEvent[code=&quot;annotation&quot;].value"/>
+      </mapping>
+    </element>
+    <element id="Account.guarantor">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Guarantor"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="360,150"/>
+      </extension>
+      <path value="Account.guarantor"/>
+      <short value="The parties ultimately responsible for balancing the Account"/>
+      <definition value="The parties responsible for balancing the account if other payment options fall short."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".holder.guarantorRole"/>
+      </mapping>
+    </element>
+    <element id="Account.guarantor.party">
+      <path value="Account.guarantor.party"/>
+      <short value="Responsible entity"/>
+      <definition value="The entity who is responsible."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".holder.guarantorRole[guarantorPerson|guarantorOrganization]"/>
+      </mapping>
+    </element>
+    <element id="Account.guarantor.onHold">
+      <path value="Account.guarantor.onHold"/>
+      <short value="Credit or other hold applied"/>
+      <definition value="A guarantor may be placed on credit hold or otherwise have their role temporarily suspended."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".holder.guarantorRole.statusCode"/>
+      </mapping>
+    </element>
+    <element id="Account.guarantor.period">
+      <path value="Account.guarantor.period"/>
+      <short value="Guarantee account during"/>
+      <definition value="The timeframe during which the guarantor accepts responsibility for the account."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".holder.guarantorRole.effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="Account.partOf">
+      <path value="Account.partOf"/>
+      <short value="Reference to a parent Account"/>
+      <definition value="Reference to a parent Account."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Account"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

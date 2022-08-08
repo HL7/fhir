@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Provenance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/provenance.xsd">
+	<id value="example2"/>
+	<!-- 
+    Got the patient's nickname from his partner
+  -->
+	<target>
+    <extension url="http://hl7.org/fhir/StructureDefinition/targetElement"> 
+      <valueUri value="n2"/>
+    </extension>
+		<reference value="Patient/pat3/_history/1"/>
+	</target>
+	<recorded value="2021-12-08T16:54:24+11:00"/>
+	<agent>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+				<code value="INF"/>
+			</coding>
+		</type>
+		<who>
+			<reference value="RelatedPerson/f001"/>
+		</who>
+	</agent>
+</Provenance>

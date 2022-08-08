@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Procedure-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-based-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.basedOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-based-on"/>
+        <description value="A request for this procedure"/>
+        <code value="based-on"/>
+        <type value="reference"/>
+        <expression value="Procedure.basedOn"/>
+        <xpath value="f:Procedure/f:basedOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-category"/>
+        <description value="Classification of the procedure"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="Procedure.category"/>
+        <xpath value="f:Procedure/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-code"/>
+        <description value="A code to identify a  procedure"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="Procedure.code"/>
+        <xpath value="f:Procedure/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.occurrence[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-date"/>
+        <description value="When the procedure occurred or is occurring"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="Procedure.occurrence"/>
+        <xpath value="f:Procedure/f:occurrenceDateTime | f:Procedure/f:occurrencePeriod | f:Procedure/f:occurrenceString | f:Procedure/f:occurrenceAge | f:Procedure/f:occurrenceRange | f:Procedure/f:occurrenceTiming"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-encounter"/>
+        <description value="The Encounter during which this Procedure was created"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="Procedure.encounter"/>
+        <xpath value="f:Procedure/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-identifier"/>
+        <description value="A unique identifier for a procedure"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Procedure.identifier"/>
+        <xpath value="f:Procedure/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-instantiates-canonical"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.instantiatesCanonical"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-instantiates-canonical"/>
+        <description value="Instantiates FHIR protocol or definition"/>
+        <code value="instantiates-canonical"/>
+        <type value="reference"/>
+        <expression value="Procedure.instantiatesCanonical"/>
+        <xpath value="f:Procedure/f:instantiatesCanonical"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-instantiates-uri"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.instantiatesUri"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-instantiates-uri"/>
+        <description value="Instantiates external protocol or definition"/>
+        <code value="instantiates-uri"/>
+        <type value="uri"/>
+        <expression value="Procedure.instantiatesUri"/>
+        <xpath value="f:Procedure/f:instantiatesUri"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-location"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.location"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-location"/>
+        <description value="Where the procedure happened"/>
+        <code value="location"/>
+        <type value="reference"/>
+        <expression value="Procedure.location"/>
+        <xpath value="f:Procedure/f:location"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-part-of"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.partOf"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-part-of"/>
+        <description value="Part of referenced event"/>
+        <code value="part-of"/>
+        <type value="reference"/>
+        <expression value="Procedure.partOf"/>
+        <xpath value="f:Procedure/f:partOf"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-patient"/>
+        <description value="Search by subject - a patient"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Procedure.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Procedure/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-performer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.performer.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-performer"/>
+        <description value="Who performed the procedure"/>
+        <code value="performer"/>
+        <type value="reference"/>
+        <expression value="Procedure.performer.actor"/>
+        <xpath value="f:Procedure/f:performer/f:actor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-reason-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.reason.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-reason-code"/>
+        <description value="Reference to a concept (by class)"/>
+        <code value="reason-code"/>
+        <type value="token"/>
+        <expression value="Procedure.reason.concept"/>
+        <xpath value="f:Procedure/f:reason/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-reason-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.reason.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-reason-reference"/>
+        <description value="Reference to a resource (by instance)"/>
+        <code value="reason-reference"/>
+        <type value="reference"/>
+        <expression value="Procedure.reason.reference"/>
+        <xpath value="f:Procedure/f:reason/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-report"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.report"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-report"/>
+        <description value="Any report resulting from the procedure"/>
+        <code value="report"/>
+        <type value="reference"/>
+        <expression value="Procedure.report"/>
+        <xpath value="f:Procedure/f:report"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-status"/>
+        <description value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Procedure.status"/>
+        <xpath value="f:Procedure/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Procedure-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Procedure.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Procedure-subject"/>
+        <description value="Search by subject"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Procedure.subject"/>
+        <xpath value="f:Procedure/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

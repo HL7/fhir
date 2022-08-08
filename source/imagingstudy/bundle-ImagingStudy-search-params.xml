@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ImagingStudy-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-basedon"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.basedOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-basedon"/>
+        <description value="The order for the image, such as Accession Number associated with a ServiceRequest"/>
+        <code value="basedon"/>
+        <type value="reference"/>
+        <expression value="ImagingStudy.basedOn"/>
+        <xpath value="f:ImagingStudy/f:basedOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-bodysite"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.series.bodySite.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-bodysite"/>
+        <description value="The body site studied"/>
+        <code value="bodysite"/>
+        <type value="token"/>
+        <expression value="ImagingStudy.series.bodySite.concept"/>
+        <xpath value="f:ImagingStudy/f:series/f:bodySite/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-dicom-class"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.series.instance.sopClass"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-dicom-class"/>
+        <description value="The type of the instance"/>
+        <code value="dicom-class"/>
+        <type value="token"/>
+        <expression value="ImagingStudy.series.instance.sopClass"/>
+        <xpath value="f:ImagingStudy/f:series/f:instance/f:sopClass"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-encounter"/>
+        <description value="The context of the study"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="ImagingStudy.encounter"/>
+        <xpath value="f:ImagingStudy/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-endpoint"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.endpoint,ImagingStudy.series.endpoint"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-endpoint"/>
+        <description value="The endpoint for the study or series"/>
+        <code value="endpoint"/>
+        <type value="reference"/>
+        <expression value="ImagingStudy.endpoint | ImagingStudy.series.endpoint"/>
+        <xpath value="f:ImagingStudy/f:endpoint | f:ImagingStudy/f:series/f:endpoint"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-identifier"/>
+        <description value="Identifiers for the Study, such as DICOM Study Instance UID"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="ImagingStudy.identifier"/>
+        <xpath value="f:ImagingStudy/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-instance"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.series.instance.uid"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-instance"/>
+        <description value="SOP Instance UID for an instance"/>
+        <code value="instance"/>
+        <type value="token"/>
+        <expression value="ImagingStudy.series.instance.uid"/>
+        <xpath value="f:ImagingStudy/f:series/f:instance/f:uid"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-interpreter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.interpreter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-interpreter"/>
+        <description value="Who interpreted the images"/>
+        <code value="interpreter"/>
+        <type value="reference"/>
+        <expression value="ImagingStudy.interpreter"/>
+        <xpath value="f:ImagingStudy/f:interpreter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-modality"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.series.modality"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-modality"/>
+        <description value="The modality of the series"/>
+        <code value="modality"/>
+        <type value="token"/>
+        <expression value="ImagingStudy.series.modality"/>
+        <xpath value="f:ImagingStudy/f:series/f:modality"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-patient"/>
+        <description value="Who the study is about"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="ImagingStudy.subject.where(resolve() is Patient)"/>
+        <xpath value="f:ImagingStudy/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-performer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.series.performer.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-performer"/>
+        <description value="The person who performed the study"/>
+        <code value="performer"/>
+        <type value="reference"/>
+        <expression value="ImagingStudy.series.performer.actor"/>
+        <xpath value="f:ImagingStudy/f:series/f:performer/f:actor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-reason"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-reason"/>
+        <description value="The reason for the study"/>
+        <code value="reason"/>
+        <type value="token"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-referrer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.referrer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-referrer"/>
+        <description value="The referring physician"/>
+        <code value="referrer"/>
+        <type value="reference"/>
+        <expression value="ImagingStudy.referrer"/>
+        <xpath value="f:ImagingStudy/f:referrer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-series"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.series.uid"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-series"/>
+        <description value="DICOM Series Instance UID for a series"/>
+        <code value="series"/>
+        <type value="token"/>
+        <expression value="ImagingStudy.series.uid"/>
+        <xpath value="f:ImagingStudy/f:series/f:uid"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-started"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.started"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-started"/>
+        <description value="When the study was started"/>
+        <code value="started"/>
+        <type value="date"/>
+        <expression value="ImagingStudy.started"/>
+        <xpath value="f:ImagingStudy/f:started"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-status"/>
+        <description value="The status of the study"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="ImagingStudy.status"/>
+        <xpath value="f:ImagingStudy/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-subject"/>
+        <description value="Who the study is about"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="ImagingStudy.subject"/>
+        <xpath value="f:ImagingStudy/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

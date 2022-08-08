@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="observation-statistics"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/observation-statistics"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.406"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="StatisticsCode"/>
+  <status value="active"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="average"/>
+    <display value="Average"/>
+    <definition value="The [mean](https://en.wikipedia.org/wiki/Arithmetic_mean) of N measurements over the stated period."/>
+  </concept>
+  <concept>
+    <code value="maximum"/>
+    <display value="Maximum"/>
+    <definition value="The [maximum](https://en.wikipedia.org/wiki/Maximal_element) value of N measurements over the stated period."/>
+  </concept>
+  <concept>
+    <code value="minimum"/>
+    <display value="Minimum"/>
+    <definition value="The [minimum](https://en.wikipedia.org/wiki/Minimal_element) value of N measurements over the stated period."/>
+  </concept>
+  <concept>
+    <code value="count"/>
+    <display value="Count"/>
+    <definition value="The [number] of valid measurements over the stated period that contributed to the other statistical outputs."/>
+  </concept>
+  <concept>
+    <code value="total-count"/>
+    <display value="Total Count"/>
+    <definition value="The total [number] of valid measurements over the stated period, including observations that were ignored because they did not contain valid result values."/>
+  </concept>
+  <concept>
+    <code value="median"/>
+    <display value="Median"/>
+    <definition value="The [median](https://en.wikipedia.org/wiki/Median) of N measurements over the stated period."/>
+  </concept>
+  <concept>
+    <code value="std-dev"/>
+    <display value="Standard Deviation"/>
+    <definition value="The [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of N measurements over the stated period."/>
+  </concept>
+  <concept>
+    <code value="sum"/>
+    <display value="Sum"/>
+    <definition value="The [sum](https://en.wikipedia.org/wiki/Summation) of N measurements over the stated period."/>
+  </concept>
+  <concept>
+    <code value="variance"/>
+    <display value="Variance"/>
+    <definition value="The [variance](https://en.wikipedia.org/wiki/Variance) of N measurements over the stated period."/>
+  </concept>
+  <concept>
+    <code value="20-percent"/>
+    <display value="20th Percentile"/>
+    <definition value="The 20th [Percentile](https://en.wikipedia.org/wiki/Percentile) of N measurements over the stated period."/>
+  </concept>
+  <concept>
+    <code value="80-percent"/>
+    <display value="80th Percentile"/>
+    <definition value="The 80th [Percentile](https://en.wikipedia.org/wiki/Percentile) of N measurements over the stated period."/>
+  </concept>
+  <concept>
+    <code value="4-lower"/>
+    <display value="Lower Quartile"/>
+    <definition value="The lower [Quartile](https://en.wikipedia.org/wiki/Quartile) Boundary of N measurements over the stated period."/>
+  </concept>
+  <concept>
+    <code value="4-upper"/>
+    <display value="Upper Quartile"/>
+    <definition value="The upper [Quartile](https://en.wikipedia.org/wiki/Quartile) Boundary of N measurements over the stated period."/>
+  </concept>
+  <concept>
+    <code value="4-dev"/>
+    <display value="Quartile Deviation"/>
+    <definition value="The difference between the upper and lower [Quartiles](https://en.wikipedia.org/wiki/Quartile) is called the Interquartile range. (IQR = Q3-Q1) Quartile deviation or Semi-interquartile range is one-half the difference between the first and the third quartiles."/>
+  </concept>
+  <concept>
+    <code value="5-1"/>
+    <display value="1st Quintile"/>
+    <definition value="The lowest of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population."/>
+  </concept>
+  <concept>
+    <code value="5-2"/>
+    <display value="2nd Quintile"/>
+    <definition value="The second of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population."/>
+  </concept>
+  <concept>
+    <code value="5-3"/>
+    <display value="3rd Quintile"/>
+    <definition value="The third of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population."/>
+  </concept>
+  <concept>
+    <code value="5-4"/>
+    <display value="4th Quintile"/>
+    <definition value="The fourth of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population."/>
+  </concept>
+  <concept>
+    <code value="skew"/>
+    <display value="Skew"/>
+    <definition value="Skewness is a measure of the asymmetry of the probability distribution of a real-valued random variable about its mean. The skewness value can be positive or negative, or even undefined.  Source: [Wikipedia](https://en.wikipedia.org/wiki/Skewness)."/>
+  </concept>
+  <concept>
+    <code value="kurtosis"/>
+    <display value="Kurtosis"/>
+    <definition value="Kurtosis  is a measure of the &quot;tailedness&quot; of the probability distribution of a real-valued random variable.   Source: [Wikipedia](https://en.wikipedia.org/wiki/Kurtosis)."/>
+  </concept>
+  <concept>
+    <code value="regression"/>
+    <display value="Regression"/>
+    <definition value="Linear regression is an approach for modeling two-dimensional sample points with one independent variable and one dependent variable (conventionally, the x and y coordinates in a Cartesian coordinate system) and finds a linear function (a non-vertical straight line) that, as accurately as possible, predicts the dependent variable values as a function of the independent variables. Source: [Wikipedia](https://en.wikipedia.org/wiki/Simple_linear_regression)  This Statistic code will return both a gradient and an intercept value."/>
+  </concept>
+</CodeSystem>

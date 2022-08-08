@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="publishablelibrary"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/publishablelibrary"/>
+  <version value="4.6.0"/>
+  <name value="PublishableLibrary"/>
+  <title value="Publishable Library"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="Supports declaration of the library metadata required by HL7 and other organizations that share and publish libraries with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Library"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/shareablelibrary"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Library">
+      <path value="Library"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Library.extension:logicDefinition">
+      <path value="Library.extension"/>
+      <sliceName value="logicDefinition"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.title">
+      <path value="Library.title"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.type">
+      <path value="Library.type"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="false"/>
+    </element>
+    <element id="Library.date">
+      <path value="Library.date"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.purpose">
+      <path value="Library.purpose"/>
+      <mustSupport value="false"/>
+    </element>
+    <element id="Library.usage">
+      <path value="Library.usage"/>
+      <mustSupport value="false"/>
+    </element>
+    <element id="Library.copyright">
+      <path value="Library.copyright"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.approvalDate">
+      <path value="Library.approvalDate"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.lastReviewDate">
+      <path value="Library.lastReviewDate"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.effectivePeriod">
+      <path value="Library.effectivePeriod"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.topic">
+      <path value="Library.topic"/>
+      <mustSupport value="false"/>
+      <binding>
+        <strength value="preferred"/>
+        <description value="Topics for categorization and searching of artifacts"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
+      </binding>
+    </element>
+    <element id="Library.author">
+      <path value="Library.author"/>
+      <mustSupport value="false"/>
+    </element>
+    <element id="Library.editor">
+      <path value="Library.editor"/>
+      <mustSupport value="false"/>
+    </element>
+    <element id="Library.reviewer">
+      <path value="Library.reviewer"/>
+      <mustSupport value="false"/>
+    </element>
+    <element id="Library.endorser">
+      <path value="Library.endorser"/>
+      <mustSupport value="false"/>
+    </element>
+    <element id="Library.relatedArtifact">
+      <path value="Library.relatedArtifact"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.relatedArtifact.display">
+      <path value="Library.relatedArtifact.display"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.relatedArtifact.document">
+      <path value="Library.relatedArtifact.document"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.relatedArtifact.resource">
+      <path value="Library.relatedArtifact.resource"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.relatedArtifact.resourceReference">
+      <path value="Library.relatedArtifact.resourceReference"/>
+      <mustSupport value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

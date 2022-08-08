@@ -32,6 +32,7 @@
     <li><a href="medicationexample0317.html">Compounded Preparation - KCl in D5W Admixture - includes a reference to a substance in the ingredient element</a></li>
     <li><a href="medicationexample0318.html">Compounded Preparation - TPN Solution  - includes a reference to a substance in the ingredient element</a></li>
     <li><a href="medicationexample0319.html">Compounded Preparation - HC 1%, Salicylic Acid 5% in Glaxal Base  - includes a reference to a substance in the ingredient element</a></li>
+    <li><a href="medicationexample0323.html">Compounded Preparation - Hand Sanitizer - includes qs Ingredient strength </a></li>
 </ul>
 <p>The following is an example where the medication resource is minimally populated: </p>
     <ul>

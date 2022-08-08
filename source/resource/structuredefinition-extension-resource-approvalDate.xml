@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="resource-approvalDate"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/resource-approvalDate"/>
+  <version value="4.6.0"/>
+  <name value="approvalDate"/>
+  <title value="Approval Date"/>
+  <status value="draft"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="StructureDefinition"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="StructureMap"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="OperationDefinition"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="SearchParameter"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CompartmentDefinition"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="ImplementationGuide"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CodeSystem"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="ValueSet"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="ConceptMap"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="NamingSystem"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="When resource approved by publisher"/>
+      <definition value="The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+      <comment value="The date may be more recent than the approval date because of minor changes / editorial corrections."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/resource-approvalDate"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

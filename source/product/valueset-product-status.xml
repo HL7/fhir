@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="product-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <url value="http://hl7.org/fhir/ValueSet/product-status"/>
+  <version value="4.6.0"/>
+  <name value="ProductStatus"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/product-status"/>
+    </include>
+  </compose>
+</ValueSet>

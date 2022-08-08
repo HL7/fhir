@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicinalProductDefinition xmlns="http://hl7.org/fhir">
+<MedicinalProductDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicinalproductdefinition.xsd">
 	<id value="Acetamin-500-20-generic"/>
 	<contained>
 		<PackagedProductDefinition>
 			<id value="Acetamin-pack-20"/>
-			<package>
+			<packageFor>
+				<reference value="#"/>
+			</packageFor>
+			<packaging>
 				<type>
 					<coding>
 						<code value="cardboard box"/>
@@ -17,29 +20,31 @@
 						<reference value="#Acetamin-tab-500"/>
 						</reference>
 					</item>
-					<amountInteger value="20"/>
+					<amount>
+						<value value="20"/>
+					</amount> 
 				</containedItem>
-			</package>
+			</packaging>
 		</PackagedProductDefinition>
 	</contained>
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="Acetamin-tab-500"/>
+			<status value="active"/> 
 			<manufacturedDoseForm>
 				<coding>
 					<code value="tablet"/>
 				</coding>
 			</manufacturedDoseForm>
-			<ingredient>
-				<reference>
-					<reference value="#Acetamin-ing-500"/>
-				</reference>
-			</ingredient>
 		</ManufacturedItemDefinition>
 	</contained>
-	<contained>
+	<!--contained>
 		<Ingredient>
 			<id value="Acetamin-ing-500"/>
+			<status value="active"/>
+			<for>
+				<reference value="ManufacturedItemDefinition/Acetamin-tab-500"/>
+			</for>
 			<role>
 				<coding>
 					<code value="active"/>
@@ -56,7 +61,7 @@
 					</concept>
 				</code>
 				<strength>
-					<presentation>
+					<presentationRatio>
 						<numerator>
 							<value value="500"/>
 							<unit value="mg"/>
@@ -65,20 +70,15 @@
 							<value value="1"/>
 							<unit value="tablet"/>
 						</denominator>
-					</presentation>
+					</presentationRatio>
 				</strength>
 			</substance>
 		</Ingredient>
-	</contained>
+	</contained-->
 	<identifier>
 		<system value="http://example.nation.org/drugs"/>
 		<value value="12345"/>
 	</identifier>
-	<packagedMedicinalProduct>
-		<reference>
-		<reference value="#Acetamin-pack-20"/>
-		</reference>
-	</packagedMedicinalProduct>
 	<name>
 		<productName value="Acetaminophen 500 mg tablets [generic]"/>
 	</name>

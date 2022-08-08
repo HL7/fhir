@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+	<id value="questionnaire-unitValueSet"/>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="fhir"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="1"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/questionnaire-unitValueSet"/>
+	<version value="4.6.0"/>
+	<name value="unitValueSet"/>
+	<status value="draft"/>
+	<date value="2013-07-04"/>
+	<publisher value="HL7"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org"/>
+		</telecom>
+	</contact>
+	<description value="A set of units that the user may choose when providing a quantity value."/>
+	<fhirVersion value="4.6.0"/>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<kind value="complex-type"/>
+	<abstract value="false"/>
+	<context>
+		<type value="element"/>
+		<expression value="Questionnaire.item"/>
+	</context>
+	<contextInvariant value="type=&#39;quantity&#39;"/>
+	<type value="Extension"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+	<derivation value="constraint"/>
+	<differential>
+		<element id="Extension">
+			<path value="Extension"/>
+			<short value="Unit choices"/>
+			<definition value="A set of units that the user may choose when providing a quantity value."/>
+			<comment value="Provide either unitOption(s) or unitValueSet.  If either of the extensions are present, the units for a Quantity element are constrained to only the units listed by the extensions - i.e. it is treated as a &quot;required&quot;, not an &quot;extensible&quot; binding.  In the absence of either, any unit is valid.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior#unitValusSet)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (MIF-level)"/>
+			</mapping>
+		</element>
+		<element id="Extension.extension">
+			<path value="Extension.extension"/>
+			<max value="0"/>
+		</element>
+		<element id="Extension.url">
+			<path value="Extension.url"/>
+			<fixedUri value="http://hl7.org/fhir/StructureDefinition/questionnaire-unitValueSet"/>
+		</element>
+		<element id="Extension.value[x]">
+			<path value="Extension.value[x]"/>
+			<min value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+			</type>
+		</element>
+	</differential>
+</StructureDefinition>

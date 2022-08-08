@@ -27,10 +27,10 @@ This table summarizes common event scenarios, and the codes that should be used 
 				<b>Scenario</b>
 			</td>
 			<td>
-				<b>type</b>
+				<b>category</b>
 			</td>
 			<td>
-				<b>subtype</b>
+				<b>code</b>
 			</td>
 			<td>
 				<b>action</b>
@@ -86,7 +86,7 @@ This table summarizes common event scenarios, and the codes that should be used 
 				<a href="codesystem-dicom-dcim.html#110122">110127</a> Emergency Override Started</td>
 			<td>
 				<a href="valueset-audit-event-action.html">E</a> Execute</td>
-			<td>Agent is the user who is authorized to break-glass and has declared an emergency override. Note there is an Emergency Override Stopped subtype that can be used to indicate the closing of the break-glass event, when it is known.</td>
+			<td>Agent is the user who is authorized to break-glass and has declared an emergency override. Note there is an Emergency Override Stopped code that can be used to indicate the closing of the break-glass event, when it is known.</td>
 		</tr>
 	</table>
 	<p>
@@ -122,7 +122,19 @@ Audit Event Actions for RESTful operations:
 			<td>E</td>
 		</tr>
 	</table>
-
+	<a name="recordingsearch"/>
+	<h4>Recording Search Events</h4>
+	<p>
+A search event is recorded as an Execute action as the server must execute the search parameters to get the results. The category is a <code>rest</code> operation. The code should be <code>search</code>. The Server is identified in an <code>.agent</code> as the role <code>Destination Role ID</code>, and the client is identified in an <code>.agent</code> as the role <code>Source Role ID</code>. Additional <code>.agent</code> elements may be used to identify user, application, organization, etc.
+</p><p>
+A Search Event records one <code>.entity</code> element that holds the search request, and should not record the contents of the search response so as to limit duplication of sensitive health information that is already present in the system, and discoverable by replaying the search request.
+</p><p>
+The <code>AuditEvent.entity.query</code> shall hold the whole WHOLE http header and body encoded as base64binary. This should preserve as much of the raw http header and body as possible to best capture any attempts by clients or intermediaries to misbehave. There should be no sanitization or normalization of this value. 
+</p><p>
+The FHIR specification defines a harmonized search parameter string, which is returned in the searchset bundle as the <code>.link.url</code> on the <code>.link</code> for self. This string could be recorded in the <code>AuditEvent.entry.description</code> as it is well behaved and represents what was actually processed as search parameters. See: <a href="http://hl7.org/fhir/search.html#conformance">conformance</a>
+</p><p>
+Where there are identifiable Patient subject(s) associated with the returned Resource(s), the <a href="auditevent.html#patient">AuditEvent.patient</a> should be  used to record the Patient as the subject of the data or activity. When multiple patient results are returned one AuditEvent is created for every Patient identified in the resulting search set. Note this is true when the search set bundle includes any number of resources that collectively reference multiple Patients. This includes one Resource with multiple subject values, or many Resources with single subject values that are different.
+</p>
 	<a name="operationoutcome"/>
 	<h3>Encoding a FHIR operation outcome</h3>
 	<p>FHIR interactions can result in a rich description of the outcome using 
@@ -136,7 +148,7 @@ the <a href="operationoutcome.html">OperationOutcome</a> from that FHIR interact
 This is done by placing the OperationOutcome into an AuditEvent.entity. 
 Likely as a <a href="references.html#contained">contained</a> resource, given that OperationOutcome resources often are not persisted.</p>
 	<p>
-		<code>entity.who</code> is the OperationOutcome -- Likely <a href="references.html#contained">contained</a>
+		<code>entity.what</code> is the OperationOutcome -- Likely <a href="references.html#contained">contained</a>
 	</p>
 	<p>
 		<code>entity.type</code> is code <code>
@@ -184,18 +196,15 @@ and would omit this element in those cases.
 When the same event is reported from multiple perspectives, the reports can have different knowledge regarding the purpose. 
 	</p>
 <a name="patient" />
-<h3>Patient as subject reference in AuditEvent.entity</h3>
+<h3>Patient as subject of data or activity reference in AuditEvent.patient</h3>
 <p>
-It is a best practice to include a reference to the Patient/Subject affected by any auditable event, in order to enable Privacy Accounting of Disclosures and Access Logs, and to enable privacy office and security office audit log analysis. Reasonable efforts should be taken to assure the Patient/Subject is recorded, but it is recognized that there are times when this is not reasonable.
+It is a best practice to include a reference to the Patient affected by any auditable event, in order to enable Privacy Accounting of Disclosures and Access Logs, and to enable privacy office and security office audit log analysis. Reasonable efforts should be taken to assure the Patient is recorded, but it is recognized that there are times when this is not reasonable.
 </p>
 <p>
-The Patient/Subject of an activity is indicated in an .entity element; with the .entity.who indicating the Patient reference, and the .entity.type indicating “1” Person, and the .entity.role indicating “1” patient. No other elements in this .entity need to be filled out. The indicator of the .entity.who, .entity.type, and .entity.role are enough to indicate that this AuditEvent activity has a subject as indicated.
+Where an activity impacts more than one Patient subject; multiple AuditEvent resources should be recorded, one for each Patient subject. This best enables segmentation of the AuditEvent details so as to limit the Privacy impact. The use of multiple AuditEvent is a best-practice and should be driven by a Policy.  There will be cases where the use of multiple AuditEvent resources are not necessary, such as public health reporting.
 </p>
 <p>
-Where an activity impacts more than one Patient/Subject; multiple AuditEvent resources should be recorded, one for each Patient/Subject. This best enables segmentation of the AuditEvent details so as to limit the Privacy impact. The use of multiple AuditEvent is a best-practice and should be driven by a Policy.  There will be cases where the use of multiple AuditEvent resources are not necessary, such as public health reporting.
-</p>
-<p>
-To record a REST interaction or $operation, it is often necessary to complete the transaction in order to determine the Patient/Subject. Inspection of the potential returned results may be necessary. Some REST and $operations include parameters limiting the results to a specific Patient, in these cases this parameter informs the inclusion of the Patient reference.
+To record a REST interaction or $operation, it is often necessary to complete the transaction in order to determine the Patient subject. Inspection of the potential returned results may be necessary. Some REST and $operations include parameters limiting the results to a specific Patient, in these cases this parameter informs the inclusion of the Patient reference.
 </p>
 <p>
 Implementation Guides may make the AuditEvent requirements more clear given the workflow or security context mandated by the Implementation Guide.

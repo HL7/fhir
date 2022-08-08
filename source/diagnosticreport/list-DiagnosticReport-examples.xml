@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="DiagnosticReport-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General Laboratory Report Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="diagnosticreport-example"/>
+    </extension>
+    <item>
+      <reference value="DiagnosticReport/101"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Various reports gathered from v2 messages"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="diagnosticreport-examples-general"/>
+    </extension>
+    <item>
+      <reference value="DiagnosticReport/72ac8493-52ac-41bd-8d5d-7258c289b5ea"/>
+      <display value="Assorted Collection"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="diagnosticreport-example-f001-bloodexam"/>
+    </extension>
+    <item>
+      <reference value="DiagnosticReport/f001"/>
+      <display value="Blood examination"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="diagnosticreport-example-f201-brainct"/>
+    </extension>
+    <item>
+      <reference value="DiagnosticReport/f201"/>
+      <display value="CT of the brain"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="diagnosticreport-example-f202-bloodculture"/>
+    </extension>
+    <item>
+      <reference value="DiagnosticReport/f202"/>
+      <display value="Blood culture"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Imaging Example (Bone Density DXA)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="diagnosticreport-example-dxa"/>
+    </extension>
+    <item>
+      <reference value="DiagnosticReport/102"/>
+      <display value="Bone Density"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a complex Micro Isolate and Sensitivities."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="diagnosticreport-micro1"/>
+    </extension>
+    <item>
+      <reference value="DiagnosticReport/micro"/>
+      <display value="Micro Isolate and Sensitivities-1"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An collection Bundle showing an example of a complex Micro Isolate and Sensitivities"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bundle-lri-example"/>
+    </extension>
+    <item>
+      <reference value="Bundle/lri-example"/>
+      <display value="Micro Isolate and Sensitivities-2"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Abdominal Ultrasound  example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="diagnosticreport-example-ultrasound"/>
+    </extension>
+    <item>
+      <reference value="DiagnosticReport/ultrasound"/>
+      <display value="Ultrasound"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An Example of a report with multiple specimen and panels"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="diagnosticreport-example-ghp"/>
+    </extension>
+    <item>
+      <reference value="DiagnosticReport/ghp"/>
+      <display value="GHP"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a  principally narrative anatomic pathology report"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="diagnosticreport-example-papsmear"/>
+    </extension>
+    <item>
+      <reference value="DiagnosticReport/pap"/>
+      <display value="Pap smear"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a presented form anatomic pathology report"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="diagnosticreport-example-gingival-mass"/>
+    </extension>
+    <item>
+      <reference value="DiagnosticReport/gingival-mass"/>
+      <display value="Gingival Mass"/>
+    </item>
+  </entry>
+</List>

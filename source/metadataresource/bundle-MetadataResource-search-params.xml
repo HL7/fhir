@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="MetadataResource-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MetadataResource-effective"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.effectivePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MetadataResource-effective"/>
+        <description value="The time during which the {{title}} is intended to be in use"/>
+        <code value="effective"/>
+        <type value="date"/>
+        <expression value="{{name}}.effectivePeriod"/>
+        <xpath value="f:MetadataResource/f:effectivePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.relatedArtifact.resource"/>
+        </extension>
+        <description value="A resource that the {{title}} is composed of"/>
+        <code value="composed-of"/>
+        <type value="reference"/>
+        <expression value="{{name}}.relatedArtifact.where(type=&#39;composed-of&#39;).resource"/>
+        <xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value=&#39;composed-of&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.relatedArtifact.resource"/>
+        </extension>
+        <description value="A resource that the {{title}} depends on"/>
+        <code value="depends-on"/>
+        <type value="reference"/>
+        <expression value="{{name}}.relatedArtifact.where(type=&#39;depends-on&#39;).resource"/>
+        <xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value=&#39;depends-on&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.relatedArtifact.resource"/>
+        </extension>
+        <description value="A resource that the {{title}} is derived from"/>
+        <code value="derived-from"/>
+        <type value="reference"/>
+        <expression value="{{name}}.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
+        <xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.relatedArtifact.resource"/>
+        </extension>
+        <description value="The predecessor of the {{title}}"/>
+        <code value="predecessor"/>
+        <type value="reference"/>
+        <expression value="{{name}}.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.relatedArtifact.resource"/>
+        </extension>
+        <description value="The successor of the {{title}}"/>
+        <code value="successor"/>
+        <type value="reference"/>
+        <expression value="{{name}}.relatedArtifact.where(type=&#39;successor&#39;).resource"/>
+        <xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value=&#39;successor&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.topic"/>
+        </extension>
+        <description value="Topics associated with the {{title}}"/>
+        <code value="topic"/>
+        <type value="token"/>
+        <expression value="{{name}}.topic"/>
+        <xpath value="f:MetadataResource/f:topic"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

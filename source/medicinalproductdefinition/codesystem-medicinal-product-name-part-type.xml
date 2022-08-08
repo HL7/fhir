@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="medicinal-product-name-part-type"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/medicinal-product-name-part-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1575"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ProductNamePartType"/>
+  <title value="ProductNamePartType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Type of part of a name for a Medicinal Product."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-name-part-type"/>
+  <content value="complete"/>
+  <concept><code value="FullName"/><display value="Full name"/></concept>
+  <concept><code value="InventedNamePart"/><display value="Invented name part"/></concept>
+  <concept><code value="ScientificNamePart"/><display value="Scientific name part"/></concept>
+  <concept><code value="StrengthPart"/><display value="Strength part"/></concept>
+  <concept><code value="DoseFormPart"/><display value="Pharmaceutical dose form part"/></concept>
+  <concept><code value="FormulationPart"/><display value="Formulation part"/></concept>
+  <concept><code value="IntendedUsePart"/><display value="Intended use part"/></concept>
+  <concept><code value="PopulationPart"/><display value="Target population part"/></concept>
+  <concept><code value="ContainerPart"/><display value="Container or pack part"/></concept>
+  <concept><code value="DevicePart"/><display value="Device part"/></concept>
+  <concept><code value="TrademarkOrCompanyPart"/><display value="Trademark or company name part"/></concept>
+  <concept><code value="TimeOrPeriodPart"/><display value="Time/Period part"/></concept>
+  <concept><code value="FlavorPart"/><display value="Flavor part"/></concept>
+  <concept><code value="DelimiterPart"/><display value="Delimiter part"/></concept>
+  <concept><code value="LegacyNamePart"/><display value="Legacy name"/></concept>
+  <concept><code value="SpeciesNamePart"/><display value="Target species name part"/></concept>
+</CodeSystem>

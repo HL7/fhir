@@ -1,18 +1,27 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="valueset-ucum-Vitals-common"/>
-	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
-	  <valueBoolean value="true"/>
-	</extension>
-
-  <url value="http://hl7.org/fhir/ValueSet/ucum-common"/>
+  <id value="ucum-vitals-common"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
+    <valueBoolean value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/ucum-vitals-common"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.955"/>
+  </identifier>
   <name value="VitalSignsUnits"/>
   <title value="Vital Signs Units"/>
   <status value="draft"/>
   <publisher value="FHIR Project"/>
   <description value="Common UCUM units for recording Vital Signs"/>
-  <copyright value="UCUM is Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details"/>
+  <copyright value="UCUM is Copyright &#xA9; 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details"/>
   <compose>
     <include>
       <system value="http://unitsofmeasure.org"/>
@@ -24,7 +33,7 @@
         <code value="cm"/>
         <display value="centimeter"/>
       </concept>
-       <concept>
+      <concept>
         <code value="[in_i]"/>
         <display value="inch (international)"/>
       </concept>
@@ -32,11 +41,11 @@
         <code value="kg"/>
         <display value="kilogram"/>
       </concept>
-       <concept>
+      <concept>
         <code value="g"/>
         <display value="gram"/>
       </concept>
-       <concept>
+      <concept>
         <code value="[lb_av]"/>
         <display value="pound (US and British)"/>
       </concept>
@@ -44,7 +53,7 @@
         <code value="Cel"/>
         <display value="degree Celsius"/>
       </concept>
-       <concept>
+      <concept>
         <code value="[degF]"/>
         <display value="degree Fahrenheit"/>
       </concept>

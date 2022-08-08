@@ -2,13 +2,13 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
-		<p><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></p>
+		<p style="border:2px; border-style:solid; border-color:#999999; padding: 1em; border-radius: 4px 4px 4px 4px;"><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
 		<p>
 			A medicinal product may consist of several items, which need to be combined or processed before administration to the patient. 
 			
 			This resource covers the ready-for-use administrable product - the components of which are 
 			<a href="manufactureditemdefinition.html">ManufacturedItemDefinition</a> resources. 
-			Note that often the administrable product is the same as the manufactured item.
+			Note that in some cases the administrable product needs no processing or transformation from the manufactured item. 
 		</p>
 		<p>
 			This resource represents the final form of the product; hence it details properties such as the route, that only apply to the final product. 

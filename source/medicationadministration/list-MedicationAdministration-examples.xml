@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="MedicationAdministration-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an IV administration not given with a note - Alemtuzumab"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationadministrationexample3"/>
+    </extension>
+    <item>
+      <reference value="MedicationAdministration/medadminexample03"/>
+      <display value="IV Admin Not Given"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Intravenous Antibiotic - Vancomycin"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationadministration0301"/>
+    </extension>
+    <item>
+      <reference value="MedicationAdministration/medadmin0301"/>
+      <display value="IV Antibiotic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Intravenous Admixture - Potassium Chloride in D5W"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationadministration0302"/>
+    </extension>
+    <item>
+      <reference value="MedicationAdministration/medadmin0302"/>
+      <display value="IV Admixture"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Intravenous Antibiotic with a Dosage Rate - Piperacillin"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationadministration0303"/>
+    </extension>
+    <item>
+      <reference value="MedicationAdministration/medadmin0303"/>
+      <display value="IV with a rate"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Intravenous Chemotherapy (Inpatient order) - Alemtuzumab - completed"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationadministration0304"/>
+    </extension>
+    <item>
+      <reference value="MedicationAdministration/medadmin0304"/>
+      <display value="IV Chemo on hold"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Intravenous Chemotherapy (Inpatient order) - Brentuximab Vedotin"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationadministration0305"/>
+    </extension>
+    <item>
+      <reference value="MedicationAdministration/medadmin0305"/>
+      <display value="IV Chemo"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Oral Antibiotic - Azithromycin"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationadministration0306"/>
+    </extension>
+    <item>
+      <reference value="MedicationAdministration/medadmin0306"/>
+      <display value="Oral Antibiotic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Lorazepam with a Device"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationadministration0307"/>
+    </extension>
+    <item>
+      <reference value="MedicationAdministration/medadmin0307"/>
+      <display value="Lorazepam"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Subcutaneous Injection - Insulin - Lantus"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationadministration0308"/>
+    </extension>
+    <item>
+      <reference value="MedicationAdministration/medadmin0308"/>
+      <display value="SC Injection"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="TPN Solution with a Device"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationadministration0309"/>
+    </extension>
+    <item>
+      <reference value="MedicationAdministration/medadmin0309"/>
+      <display value="TPN solution"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Oral Chemotherapy - Myleran"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationadministration0310"/>
+    </extension>
+    <item>
+      <reference value="MedicationAdministration/medadmin0310"/>
+      <display value="Oral Chemo"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Dosage with a Pre-Condition - Alprazolam"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationadministration0311"/>
+    </extension>
+    <item>
+      <reference value="MedicationAdministration/medadmin0311"/>
+      <display value="Precondition"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Medication Code - Patch - Fentanyl"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationadministration0312"/>
+    </extension>
+    <item>
+      <reference value="MedicationAdministration/medadmin0312"/>
+      <display value="Patch"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Medication Code - Rectal Suppository - Acetaminophen"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationadministration0313"/>
+    </extension>
+    <item>
+      <reference value="MedicationAdministration/medadmin0313"/>
+      <display value="Rectal"/>
+    </item>
+  </entry>
+</List>

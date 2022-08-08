@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="MedicinalProductDefinition-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicinalproductdefinition-example"/>
+    </extension>
+    <item>
+      <reference value="MedicinalProductDefinition/example"/>
+      <display value="General Example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Basic details of a product, only using MedicinalProductDefinition and no other resources"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicinalproductdefinition-example-equilidem-basics"/>
+    </extension>
+    <item>
+      <reference value="MedicinalProductDefinition/equilidem-basics"/>
+      <display value="Basic Example Equilidem25"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple version of a product (more than basic),  only using MedicinalProductDefinition, Ingredient and RegulatedAuthorization"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicinalproductdefinition-example-equilidem-using-ingredient-and-auth"/>
+    </extension>
+    <item>
+      <reference value="MedicinalProductDefinition/equilidem-with-ing-and-auth"/>
+      <display value="Simple Example Equilidem25"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A liquid that comes with a syringe in the pack, basic details only"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicinalproductdefinition-example-co-packaged-liquid-and-syringe"/>
+    </extension>
+    <item>
+      <reference value="MedicinalProductDefinition/drug-and-device"/>
+      <display value="Drug with co-packaged device"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A powder and solution for injection that comes with a syringe in the pack (complete example)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicinalproductdefinition-example-co-packaged-liquid-and-syringe-complete"/>
+    </extension>
+    <item>
+      <reference value="MedicinalProductDefinition/drug-and-device-complete"/>
+      <display value="Drug with co-packaged device (complete)"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Acetaminophin product, pack and tablet (using contained resources)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicinalproductdefinition-acetaminophen-500mg-tablets-box-of-20"/>
+    </extension>
+    <item>
+      <reference value="MedicinalProductDefinition/Acetamin-500-20-generic"/>
+      <display value="Acetaminopen 500mg box of 20 tablets"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Combination product - tablet and cream co-packaged and showing layers (as one resource, with others contained)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicinalproductdefinition-example-combo-product"/>
+    </extension>
+    <item>
+      <reference value="MedicinalProductDefinition/drug-combo-product"/>
+      <display value="Combination Product"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Combination product - tablet and cream co-packaged and showing layers (same but as a bundle)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicinalproductdefinition-example-combo-product-bundle"/>
+    </extension>
+    <item>
+      <reference value="MedicinalProductDefinition/drug-combo-product-bundle"/>
+      <display value="Combination Product Bundle"/>
+    </item>
+  </entry>
+  
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Product with Contained Package and Ingredient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicinalproductdefinition-with-contained-package-and-ingredient"/>
+    </extension>
+    <item>
+      <reference value="MedicinalProductDefinition/product-with-contained-package-and-ingredient"/>
+      <display value="Product with Contained Package and Ingredient"/>
+    </item>
+  </entry>
+</List>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Endpoint-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Endpoint"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="endpoint-example"/>
+    </extension>
+    <item>
+      <reference value="Endpoint/example"/>
+      <display value="example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Collection of endpoint examples"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="endpoint-examples-general-template"/>
+    </extension>
+    <flag>
+      <coding>
+        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
+        <code value="csv"/>
+      </coding>
+    </flag>
+    <item>
+      <reference value="Endpoint/b0a5e4277-83c4-4adb-87e2-e3efe3369b6f"/>
+      <display value="general"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of IHE-IID endpoint"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="endpoint-example-iid"/>
+    </extension>
+    <item>
+      <reference value="Endpoint/example-iid"/>
+      <display value="ihe-iid"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of DICOM WADO-RS endpoint"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="endpoint-example-wadors"/>
+    </extension>
+    <item>
+      <reference value="Endpoint/example-wadors"/>
+      <display value="dicom-rs"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a DIRECT endpoint"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="endpoint-example-direct"/>
+    </extension>
+    <item>
+      <reference value="Endpoint/direct-endpoint"/>
+      <display value="direct"/>
+    </item>
+  </entry>
+</List>

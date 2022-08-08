@@ -1,9 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="animal-species"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/animal-species"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.420"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="AnimalSpecies"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -14,20 +24,50 @@
     </telecom>
   </contact>
   <description value="This example value set defines a set of codes that can be used to indicate species of animal patients."/>
-	<copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-		<concept><code value="125097000"/><display value="goat"/></concept>
-		<concept><code value="125099002"/><display value="sheep"/></concept>
-		<concept><code value="34618005"/><display value="cow"/></concept>
-		<concept><code value="425134008"/><display value="turkey"/></concept>
-		<concept><code value="47290002"/><display value="chicken"/></concept>
-		<concept><code value="15778005"/><display value="goose"/></concept>
-		<concept><code value="396620009"/><display value="duck"/></concept>
-		<concept><code value="388445009"/><display value="horse"/></concept>
-		<concept><code value="85626006"/><display value="donkey"/></concept>
-		<concept><code value="132950000"/><display value="mule"/></concept>
+      <concept>
+        <code value="125097000"/>
+        <display value="goat"/>
+      </concept>
+      <concept>
+        <code value="125099002"/>
+        <display value="sheep"/>
+      </concept>
+      <concept>
+        <code value="34618005"/>
+        <display value="cow"/>
+      </concept>
+      <concept>
+        <code value="425134008"/>
+        <display value="turkey"/>
+      </concept>
+      <concept>
+        <code value="47290002"/>
+        <display value="chicken"/>
+      </concept>
+      <concept>
+        <code value="15778005"/>
+        <display value="goose"/>
+      </concept>
+      <concept>
+        <code value="396620009"/>
+        <display value="duck"/>
+      </concept>
+      <concept>
+        <code value="388445009"/>
+        <display value="horse"/>
+      </concept>
+      <concept>
+        <code value="85626006"/>
+        <display value="donkey"/>
+      </concept>
+      <concept>
+        <code value="132950000"/>
+        <display value="mule"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

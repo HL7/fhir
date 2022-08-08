@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="encounter-location-status"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/encounter-location-status defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">planned
+            
+            <a name="encounter-location-status-planned"> </a>
+          
+          </td>
+          
+          <td>Planned</td>
+          
+          <td>The patient is planned to be moved to this location at some point in the future.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">active
+            
+            <a name="encounter-location-status-active"> </a>
+          
+          </td>
+          
+          <td>Active</td>
+          
+          <td>The patient is currently at this location, or was between the period specified.
+
+A system may update these records when the patient leaves the location to either reserved, or completed.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">reserved
+            
+            <a name="encounter-location-status-reserved"> </a>
+          
+          </td>
+          
+          <td>Reserved</td>
+          
+          <td>This location is held empty for this patient.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">completed
+            
+            <a name="encounter-location-status-completed"> </a>
+          
+          </td>
+          
+          <td>Completed</td>
+          
+          <td>The patient was at this location during the period specified.
+
+Not to be used when the patient is currently at the location.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/encounter-location-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.263"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="EncounterLocationStatus"/>
+  <title value="EncounterLocationStatus"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The status of the location."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/encounter-location-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="planned"/>
+    <display value="Planned"/>
+    <definition value="The patient is planned to be moved to this location at some point in the future."/>
+  </concept>
+  <concept>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="The patient is currently at this location, or was between the period specified.&#xD;&#xD;A system may update these records when the patient leaves the location to either reserved, or completed."/>
+  </concept>
+  <concept>
+    <code value="reserved"/>
+    <display value="Reserved"/>
+    <definition value="This location is held empty for this patient."/>
+  </concept>
+  <concept>
+    <code value="completed"/>
+    <display value="Completed"/>
+    <definition value="The patient was at this location during the period specified.&#xD;&#xD;Not to be used when the patient is currently at the location."/>
+  </concept>
+</CodeSystem>

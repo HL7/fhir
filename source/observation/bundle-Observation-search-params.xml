@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Observation-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-based-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.basedOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-based-on"/>
+        <description value="Reference to the service request."/>
+        <code value="based-on"/>
+        <type value="reference"/>
+        <expression value="Observation.basedOn"/>
+        <xpath value="f:Observation/f:basedOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-category"/>
+        <description value="The classification of the type of observation"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="Observation.category"/>
+        <xpath value="f:Observation/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-code"/>
+        <description value="The code of the observation type"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="Observation.code"/>
+        <xpath value="f:Observation/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-code-value-concept"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-code-value-concept"/>
+        <description value="Code and coded value parameter pair"/>
+        <code value="code-value-concept"/>
+        <type value="composite"/>
+        <expression value="Observation"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="code"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="value-concept"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-code-value-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-code-value-date"/>
+        <description value="Code and date/time value parameter pair"/>
+        <code value="code-value-date"/>
+        <type value="composite"/>
+        <expression value="Observation"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="code"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="value-date"/>
+          <expression value="value.as(DateTime) | value.as(Period)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-code-value-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-code-value-quantity"/>
+        <description value="Code and quantity value parameter pair"/>
+        <code value="code-value-quantity"/>
+        <type value="composite"/>
+        <expression value="Observation"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="code"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="value-quantity"/>
+          <expression value="value.as(Quantity)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-code-value-string"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-code-value-string"/>
+        <description value="Code and string value parameter pair"/>
+        <code value="code-value-string"/>
+        <type value="composite"/>
+        <expression value="Observation"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="code"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="value-string"/>
+          <expression value="value.as(string)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-combo-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.code,Observation.component.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-combo-code"/>
+        <description value="The code of the observation type or component type"/>
+        <code value="combo-code"/>
+        <type value="token"/>
+        <expression value="Observation.code | Observation.component.code"/>
+        <xpath value="f:Observation/f:code | f:Observation/f:component/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-combo-code-value-concept"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-combo-code-value-concept"/>
+        <description value="Code and coded value parameter pair, including in components"/>
+        <code value="combo-code-value-concept"/>
+        <type value="composite"/>
+        <expression value="Observation | Observation.component"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="combo-code"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="combo-value-concept"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-combo-code-value-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-combo-code-value-quantity"/>
+        <description value="Code and quantity value parameter pair, including in components"/>
+        <code value="combo-code-value-quantity"/>
+        <type value="composite"/>
+        <expression value="Observation | Observation.component"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="combo-code"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="combo-value-quantity"/>
+          <expression value="value.as(Quantity)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-combo-data-absent-reason"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.dataAbsentReason,Observation.component.dataAbsentReason"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-combo-data-absent-reason"/>
+        <description value="The reason why the expected value in the element Observation.value[x] or Observation.component.value[x] is missing."/>
+        <code value="combo-data-absent-reason"/>
+        <type value="token"/>
+        <expression value="Observation.dataAbsentReason | Observation.component.dataAbsentReason"/>
+        <xpath value="f:Observation/f:dataAbsentReason | f:Observation/f:component/f:dataAbsentReason"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-combo-value-concept"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.valueCodeableConcept,Observation.component.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-combo-value-concept"/>
+        <description value="The value or component value of the observation, if the value is a CodeableConcept"/>
+        <code value="combo-value-concept"/>
+        <type value="token"/>
+        <expression value="(Observation.value as CodeableConcept) | (Observation.component.value as CodeableConcept)"/>
+        <xpath value="f:Observation/f:valueCodeableConcept | f:Observation/f:component/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-combo-value-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.value[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-combo-value-quantity"/>
+        <description value="The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)"/>
+        <code value="combo-value-quantity"/>
+        <type value="quantity"/>
+        <expression value="(Observation.value as Quantity) | (Observation.value as SampledData) | (Observation.component.value as Quantity) | (Observation.component.value as SampledData)"/>
+        <xpath value="f:Observation/f:valueQuantity | f:Observation/f:valueCodeableConcept | f:Observation/f:valueString | f:Observation/f:valueBoolean | f:Observation/f:valueInteger | f:Observation/f:valueRange | f:Observation/f:valueRatio | f:Observation/f:valueSampledData | f:Observation/f:valueTime | f:Observation/f:valueDateTime | f:Observation/f:valuePeriod | f:Observation/f:valueAttachment"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-component-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.component.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-code"/>
+        <description value="The component code of the observation type"/>
+        <code value="component-code"/>
+        <type value="token"/>
+        <expression value="Observation.component.code"/>
+        <xpath value="f:Observation/f:component/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-component-code-value-concept"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-code-value-concept"/>
+        <description value="Component code and component coded value parameter pair"/>
+        <code value="component-code-value-concept"/>
+        <type value="composite"/>
+        <expression value="Observation.component"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="component-code"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="component-value-concept"/>
+          <expression value="value.as(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-component-code-value-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-code-value-quantity"/>
+        <description value="Component code and component quantity value parameter pair"/>
+        <code value="component-code-value-quantity"/>
+        <type value="composite"/>
+        <expression value="Observation.component"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="component-code"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="component-value-quantity"/>
+          <expression value="value.as(Quantity)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-component-data-absent-reason"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.component.dataAbsentReason"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-data-absent-reason"/>
+        <description value="The reason why the expected value in the element Observation.component.value[x] is missing."/>
+        <code value="component-data-absent-reason"/>
+        <type value="token"/>
+        <expression value="Observation.component.dataAbsentReason"/>
+        <xpath value="f:Observation/f:component/f:dataAbsentReason"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-component-value-concept"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.component.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-value-concept"/>
+        <description value="The value of the component observation, if the value is a CodeableConcept"/>
+        <code value="component-value-concept"/>
+        <type value="token"/>
+        <expression value="(Observation.component.value as CodeableConcept)"/>
+        <xpath value="f:Observation/f:component/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-component-value-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.component.value[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-value-quantity"/>
+        <description value="The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)"/>
+        <code value="component-value-quantity"/>
+        <type value="quantity"/>
+        <expression value="(Observation.component.value as Quantity) | (Observation.component.value as SampledData)"/>
+        <xpath value="f:Observation/f:component/f:valueQuantity | f:Observation/f:component/f:valueCodeableConcept | f:Observation/f:component/f:valueString | f:Observation/f:component/f:valueBoolean | f:Observation/f:component/f:valueInteger | f:Observation/f:component/f:valueRange | f:Observation/f:component/f:valueRatio | f:Observation/f:component/f:valueSampledData | f:Observation/f:component/f:valueTime | f:Observation/f:component/f:valueDateTime | f:Observation/f:component/f:valuePeriod | f:Observation/f:component/f:valueAttachment"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-data-absent-reason"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.dataAbsentReason"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-data-absent-reason"/>
+        <description value="The reason why the expected value in the element Observation.value[x] is missing."/>
+        <code value="data-absent-reason"/>
+        <type value="token"/>
+        <expression value="Observation.dataAbsentReason"/>
+        <xpath value="f:Observation/f:dataAbsentReason"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.effective[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-date"/>
+        <description value="Obtained date/time. If the obtained element is a period, a date that falls in the period"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="Observation.effective"/>
+        <xpath value="f:Observation/f:effectiveDateTime | f:Observation/f:effectivePeriod | f:Observation/f:effectiveTiming | f:Observation/f:effectiveInstant"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-derived-from"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.derivedFrom"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-derived-from"/>
+        <description value="Related measurements the observation is made from"/>
+        <code value="derived-from"/>
+        <type value="reference"/>
+        <expression value="Observation.derivedFrom"/>
+        <xpath value="f:Observation/f:derivedFrom"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-device"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.device"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-device"/>
+        <description value="The Device that generated the observation data."/>
+        <code value="device"/>
+        <type value="reference"/>
+        <expression value="Observation.device"/>
+        <xpath value="f:Observation/f:device"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-encounter"/>
+        <description value="Encounter related to the observation"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="Observation.encounter"/>
+        <xpath value="f:Observation/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-focus"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.focus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-focus"/>
+        <description value="The focus of an observation when the focus is not the patient of record."/>
+        <code value="focus"/>
+        <type value="reference"/>
+        <expression value="Observation.focus"/>
+        <xpath value="f:Observation/f:focus"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-has-member"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.hasMember"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-has-member"/>
+        <description value="Related resource that belongs to the Observation group"/>
+        <code value="has-member"/>
+        <type value="reference"/>
+        <expression value="Observation.hasMember"/>
+        <xpath value="f:Observation/f:hasMember"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-identifier"/>
+        <description value="The unique id for a particular observation"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Observation.identifier"/>
+        <xpath value="f:Observation/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-method"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.method"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-method"/>
+        <description value="The method used for the observation"/>
+        <code value="method"/>
+        <type value="token"/>
+        <expression value="Observation.method"/>
+        <xpath value="f:Observation/f:method"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-part-of"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.partOf"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-part-of"/>
+        <description value="Part of referenced event"/>
+        <code value="part-of"/>
+        <type value="reference"/>
+        <expression value="Observation.partOf"/>
+        <xpath value="f:Observation/f:partOf"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-patient"/>
+        <description value="The subject that the observation is about (if patient)"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Observation.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Observation/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-performer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.performer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-performer"/>
+        <description value="Who performed the observation"/>
+        <code value="performer"/>
+        <type value="reference"/>
+        <expression value="Observation.performer"/>
+        <xpath value="f:Observation/f:performer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-specimen"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.specimen"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-specimen"/>
+        <description value="Specimen used for this observation"/>
+        <code value="specimen"/>
+        <type value="reference"/>
+        <expression value="Observation.specimen"/>
+        <xpath value="f:Observation/f:specimen"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-status"/>
+        <description value="The status of the observation"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Observation.status"/>
+        <xpath value="f:Observation/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-subject"/>
+        <description value="The subject that the observation is about"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Observation.subject"/>
+        <xpath value="f:Observation/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-value-concept"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-concept"/>
+        <description value="The value of the observation, if the value is a CodeableConcept"/>
+        <code value="value-concept"/>
+        <type value="token"/>
+        <expression value="(Observation.value as CodeableConcept)"/>
+        <xpath value="f:Observation/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-value-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.valueDateTime,Observation.valuePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-date"/>
+        <description value="The value of the observation, if the value is a date or period of time"/>
+        <code value="value-date"/>
+        <type value="date"/>
+        <expression value="(Observation.value as dateTime) | (Observation.value as Period)"/>
+        <xpath value="f:Observation/f:valueDateTime | f:Observation/f:valuePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-value-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.value[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-quantity"/>
+        <description value="The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)"/>
+        <code value="value-quantity"/>
+        <type value="quantity"/>
+        <expression value="(Observation.value as Quantity) | (Observation.value as SampledData)"/>
+        <xpath value="f:Observation/f:valueQuantity | f:Observation/f:valueCodeableConcept | f:Observation/f:valueString | f:Observation/f:valueBoolean | f:Observation/f:valueInteger | f:Observation/f:valueRange | f:Observation/f:valueRatio | f:Observation/f:valueSampledData | f:Observation/f:valueTime | f:Observation/f:valueDateTime | f:Observation/f:valuePeriod | f:Observation/f:valueAttachment"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-value-string"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.value[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-string"/>
+        <description value="The value of the observation, if the value is a string, and also searches in CodeableConcept.text"/>
+        <code value="value-string"/>
+        <type value="string"/>
+        <expression value="(Observation.value as string) | (Observation.value as CodeableConcept).text"/>
+        <xpath value="f:Observation/f:valueQuantity | f:Observation/f:valueCodeableConcept | f:Observation/f:valueString | f:Observation/f:valueBoolean | f:Observation/f:valueInteger | f:Observation/f:valueRange | f:Observation/f:valueRatio | f:Observation/f:valueSampledData | f:Observation/f:valueTime | f:Observation/f:valueDateTime | f:Observation/f:valuePeriod | f:Observation/f:valueAttachment"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

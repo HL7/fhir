@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="action-grouping-behavior"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/action-grouping-behavior defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">visual-group
+            
+            <a name="action-grouping-behavior-visual-group"> </a>
+          
+          </td>
+          
+          <td>Visual Group</td>
+          
+          <td>Any group marked with this behavior should be displayed as a visual group to the end user.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">logical-group
+            
+            <a name="action-grouping-behavior-logical-group"> </a>
+          
+          </td>
+          
+          <td>Logical Group</td>
+          
+          <td>A group with this behavior logically groups its sub-elements, and may be shown as a visual group to the end user, but it is not required to do so.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">sentence-group
+            
+            <a name="action-grouping-behavior-sentence-group"> </a>
+          
+          </td>
+          
+          <td>Sentence Group</td>
+          
+          <td>A group of related alternative actions is a sentence group if the target referenced by the action is the same in all the actions and each action simply constitutes a different variation on how to specify the details for the target. For example, two actions that could be in a SentenceGroup are &quot;aspirin, 500 mg, 2 times per day&quot; and &quot;aspirin, 300 mg, 3 times per day&quot;. In both cases, aspirin is the target referenced by the action, and the two actions represent different options for how aspirin might be ordered for the patient. Note that a SentenceGroup would almost always have an associated selection behavior of &quot;AtMostOne&quot;, unless it&#39;s a required action, in which case, it would be &quot;ExactlyOne&quot;.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/action-grouping-behavior"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.800"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ActionGroupingBehavior"/>
+  <title value="ActionGroupingBehavior"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Defines organization behavior of a group."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/action-grouping-behavior"/>
+  <content value="complete"/>
+  <concept>
+    <code value="visual-group"/>
+    <display value="Visual Group"/>
+    <definition value="Any group marked with this behavior should be displayed as a visual group to the end user."/>
+  </concept>
+  <concept>
+    <code value="logical-group"/>
+    <display value="Logical Group"/>
+    <definition value="A group with this behavior logically groups its sub-elements, and may be shown as a visual group to the end user, but it is not required to do so."/>
+  </concept>
+  <concept>
+    <code value="sentence-group"/>
+    <display value="Sentence Group"/>
+    <definition value="A group of related alternative actions is a sentence group if the target referenced by the action is the same in all the actions and each action simply constitutes a different variation on how to specify the details for the target. For example, two actions that could be in a SentenceGroup are &quot;aspirin, 500 mg, 2 times per day&quot; and &quot;aspirin, 300 mg, 3 times per day&quot;. In both cases, aspirin is the target referenced by the action, and the two actions represent different options for how aspirin might be ordered for the patient. Note that a SentenceGroup would almost always have an associated selection behavior of &quot;AtMostOne&quot;, unless it&#39;s a required action, in which case, it would be &quot;ExactlyOne&quot;."/>
+  </concept>
+</CodeSystem>

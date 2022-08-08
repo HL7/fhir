@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="MolecularSequence-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple sequence example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="molecularsequence-example"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/example"/>
+      <display value="Example of MolecularSequence"/>
+    </item>
+  </entry>
+  <!--
+    <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="MolecularSequence example from precisionFDA"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="sequence-example-fda"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/fda-example"/>
+      <display value="MolecularSequence example for precisionFDA"/>
+    </item>
+  </entry>
+  -->
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of representing complex variants in MolecularSequence resource"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="sequence-complex-variant"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/sequence-complex-variant"/>
+      <display value="Complex Variations"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a single varaint on a reference MolecularSequence related to a haplotype observation in PGx example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="sequence-example-pgx-1"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/example-pgx-1"/>
+      <display value="Variant refer to a haplotype observation"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of another single varaint on a reference MolecularSequence related to a haplotype observation in PGx example, which will form with the other haplotype data to be a diplotype observation."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="sequence-example-pgx-2"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/example-pgx-2"/>
+      <display value="Another variant refer to a haplotype observation"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a TPMT SNP data that support a haplotype observation"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="sequence-example-TPMT-one"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/example-TPMT-one"/>
+      <display value="TPMT sequence refer to a haplotype obs. -1"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of another TPMT SNP data that support a haplotype observation"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="sequence-example-TPMT-two"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/example-TPMT-two"/>
+      <display value="TPMT sequence refer to a haplotype obs. -2"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a record with 0-based coordinatesystem"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="coord-0base-example"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/coord-0-base"/>
+      <display value="MolecularSequence example for 0-based coordinatesytem usage"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a record with 1-based coordinatesystem"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="coord-1base-example"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/coord-1-base"/>
+      <display value="MolecularSequence example for 1-based coordinatesytem usage"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="MolecularSequence example for patient with breast cancer gene variant"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="sequence-genetics-example-breastcancer"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/breastcancer"/>
+      <display value="patient with breast cancer gene variant"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="MolecularSequence example for long fusion RNA molecule of FGFR and MET"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="sequence-example-ordinal"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/seq-ordinal"/>
+      <display value="Long fusion of FGFR and MET"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="BCR-ABL1 fusion (COSMIC https://cancer.sanger.ac.uk/cosmic/fusion/summary?id=1755). 5-prime end comprised of BCR exons 1-14. 3-prime end comprised of ABL1 exons 2-11."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="sequence-example-fusion"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/sequence-example-fusion"/>
+      <display value="BCR-ABL1 fusion"/>
+    </item>
+  </entry>
+
+</List>

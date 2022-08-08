@@ -55,6 +55,7 @@
     <note>
         <text value="Patient told to take with food"/>
     </note>
+    <dose>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Two tablets at once" />
@@ -115,7 +116,13 @@
         </additionalInstruction>
         <timing>
             <repeat>
-                <frequency value="4"/>
+                <boundsDuration>
+                    <value value="4"></value>
+                    <unit value="days"/>
+                    <system value="http://unitsofmeasure.org"></system>
+                    <code value="d"></code>
+                </boundsDuration>
+                <frequency value="1"/>
                 <period value="1"/>
                 <periodUnit value="d"/>
             </repeat>
@@ -143,7 +150,8 @@
             </doseQuantity>
         </doseAndRate>
 
-    </dosageInstruction>   
+    </dosageInstruction> 
+    </dose>
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>

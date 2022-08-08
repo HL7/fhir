@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="EnrollmentResponse-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EnrollmentResponse-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EnrollmentResponse.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EnrollmentResponse-identifier"/>
+        <description value="The business identifier of the EnrollmentResponse"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="EnrollmentResponse.identifier"/>
+        <xpath value="f:EnrollmentResponse/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EnrollmentResponse-request"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EnrollmentResponse.request"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EnrollmentResponse-request"/>
+        <description value="The reference to the claim"/>
+        <code value="request"/>
+        <type value="reference"/>
+        <expression value="EnrollmentResponse.request"/>
+        <xpath value="f:EnrollmentResponse/f:request"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EnrollmentResponse-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EnrollmentResponse.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EnrollmentResponse-status"/>
+        <description value="The status of the enrollment response"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="EnrollmentResponse.status"/>
+        <xpath value="f:EnrollmentResponse/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

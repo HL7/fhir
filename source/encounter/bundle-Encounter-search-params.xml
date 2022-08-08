@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Encounter-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-account"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.account"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-account"/>
+        <description value="The set of accounts that may be used for billing for this Encounter"/>
+        <code value="account"/>
+        <type value="reference"/>
+        <expression value="Encounter.account"/>
+        <xpath value="f:Encounter/f:account"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-appointment"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.appointment"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-appointment"/>
+        <description value="The appointment that scheduled this encounter"/>
+        <code value="appointment"/>
+        <type value="reference"/>
+        <expression value="Encounter.appointment"/>
+        <xpath value="f:Encounter/f:appointment"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-based-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.basedOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-based-on"/>
+        <description value="The ServiceRequest that initiated this encounter"/>
+        <code value="based-on"/>
+        <type value="reference"/>
+        <expression value="Encounter.basedOn"/>
+        <xpath value="f:Encounter/f:basedOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-class"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.class"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-class"/>
+        <description value="Classification of patient encounter"/>
+        <code value="class"/>
+        <type value="token"/>
+        <expression value="Encounter.class"/>
+        <xpath value="f:Encounter/f:class"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.actualPeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-date"/>
+        <description value="A date within the actualPeriod the Encounter lasted"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="Encounter.actualPeriod"/>
+        <xpath value="f:Encounter/f:actualPeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-diagnosis"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.diagnosis.condition"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-diagnosis"/>
+        <description value="The diagnosis or procedure relevant to the encounter"/>
+        <code value="diagnosis"/>
+        <type value="reference"/>
+        <expression value="Encounter.diagnosis.condition"/>
+        <xpath value="f:Encounter/f:diagnosis/f:condition"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-episode-of-care"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.episodeOfCare"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-episode-of-care"/>
+        <description value="Episode(s) of care that this encounter should be recorded against"/>
+        <code value="episode-of-care"/>
+        <type value="reference"/>
+        <expression value="Encounter.episodeOfCare"/>
+        <xpath value="f:Encounter/f:episodeOfCare"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-identifier"/>
+        <description value="Identifier(s) by which this encounter is known"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Encounter.identifier"/>
+        <xpath value="f:Encounter/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-length"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.length"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-length"/>
+        <description value="Length of encounter in days"/>
+        <code value="length"/>
+        <type value="quantity"/>
+        <expression value="Encounter.length"/>
+        <xpath value="f:Encounter/f:length"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-location"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.location.location"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-location"/>
+        <description value="Location the encounter takes place"/>
+        <code value="location"/>
+        <type value="reference"/>
+        <expression value="Encounter.location.location"/>
+        <xpath value="f:Encounter/f:location/f:location"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-location-period"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.location.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-location-period"/>
+        <description value="Time period during which the patient was present at the location"/>
+        <code value="location-period"/>
+        <type value="date"/>
+        <expression value="Encounter.location.period"/>
+        <xpath value="f:Encounter/f:location/f:period"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-part-of"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.partOf"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-part-of"/>
+        <description value="Another Encounter this encounter is part of"/>
+        <code value="part-of"/>
+        <type value="reference"/>
+        <expression value="Encounter.partOf"/>
+        <xpath value="f:Encounter/f:partOf"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-participant"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.participant.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-participant"/>
+        <description value="Persons involved in the encounter other than the patient"/>
+        <code value="participant"/>
+        <type value="reference"/>
+        <expression value="Encounter.participant.actor"/>
+        <xpath value="f:Encounter/f:participant/f:actor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-participant-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.participant.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-participant-type"/>
+        <description value="Role of participant in encounter"/>
+        <code value="participant-type"/>
+        <type value="token"/>
+        <expression value="Encounter.participant.type"/>
+        <xpath value="f:Encounter/f:participant/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-patient"/>
+        <description value="The patient present at the encounter"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Encounter.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Encounter/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-practitioner"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.participant.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-practitioner"/>
+        <description value="Persons involved in the encounter other than the patient"/>
+        <code value="practitioner"/>
+        <type value="reference"/>
+        <expression value="Encounter.participant.actor.where(resolve() is Practitioner)"/>
+        <xpath value="f:Encounter/f:participant/f:actor"/>
+        <xpathUsage value="normal"/>
+        <target value="Practitioner"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-reason-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.reason.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-reason-code"/>
+        <description value="Reference to a concept (by class)"/>
+        <code value="reason-code"/>
+        <type value="token"/>
+        <expression value="Encounter.reason.concept"/>
+        <xpath value="f:Encounter/f:reason/f:concept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-reason-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.reason.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-reason-reference"/>
+        <description value="Reference to a resource (by instance)"/>
+        <code value="reason-reference"/>
+        <type value="reference"/>
+        <expression value="Encounter.reason.reference"/>
+        <xpath value="f:Encounter/f:reason/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-service-provider"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.serviceProvider"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-service-provider"/>
+        <description value="The organization (facility) responsible for this encounter"/>
+        <code value="service-provider"/>
+        <type value="reference"/>
+        <expression value="Encounter.serviceProvider"/>
+        <xpath value="f:Encounter/f:serviceProvider"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-special-arrangement"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.admission.specialArrangement"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-special-arrangement"/>
+        <description value="Wheelchair, translator, stretcher, etc."/>
+        <code value="special-arrangement"/>
+        <type value="token"/>
+        <expression value="Encounter.admission.specialArrangement"/>
+        <xpath value="f:Encounter/f:admission/f:specialArrangement"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-status"/>
+        <description value="planned | in-progress | onhold | completed | cancelled | entered-in-error | unknown"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Encounter.status"/>
+        <xpath value="f:Encounter/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-subject"/>
+        <description value="The patient or group present at the encounter"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Encounter.subject"/>
+        <xpath value="f:Encounter/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-subject-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.subjectStatus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-subject-status"/>
+        <description value="The current status of the subject in relation to the Encounter"/>
+        <code value="subject-status"/>
+        <type value="token"/>
+        <expression value="Encounter.subjectStatus"/>
+        <xpath value="f:Encounter/f:subjectStatus"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-type"/>
+        <description value="Specific type of encounter"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="Encounter.type"/>
+        <xpath value="f:Encounter/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

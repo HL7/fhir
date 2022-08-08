@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="NutritionOrder-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionOrder-additive"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionOrder.enteralFormula.additiveType"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-additive"/>
+        <description value="Type of module component to add to the feeding"/>
+        <code value="additive"/>
+        <type value="token"/>
+        <expression value="NutritionOrder.enteralFormula.additiveType"/>
+        <xpath value="f:NutritionOrder/f:enteralFormula/f:additiveType"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionOrder-datetime"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionOrder.dateTime"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-datetime"/>
+        <description value="Return nutrition orders requested on this date"/>
+        <code value="datetime"/>
+        <type value="date"/>
+        <expression value="NutritionOrder.dateTime"/>
+        <xpath value="f:NutritionOrder/f:dateTime"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionOrder-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionOrder.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-encounter"/>
+        <description value="Return nutrition orders with this encounter identifier"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="NutritionOrder.encounter"/>
+        <xpath value="f:NutritionOrder/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionOrder-formula"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionOrder.enteralFormula.baseFormulaType"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-formula"/>
+        <description value="Type of enteral or infant formula"/>
+        <code value="formula"/>
+        <type value="token"/>
+        <expression value="NutritionOrder.enteralFormula.baseFormulaType"/>
+        <xpath value="f:NutritionOrder/f:enteralFormula/f:baseFormulaType"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionOrder-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionOrder.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-identifier"/>
+        <description value="Return nutrition orders with this external identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="NutritionOrder.identifier"/>
+        <xpath value="f:NutritionOrder/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionOrder-oraldiet"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionOrder.oralDiet.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-oraldiet"/>
+        <description value="Type of diet that can be consumed orally (i.e., take via the mouth)."/>
+        <code value="oraldiet"/>
+        <type value="token"/>
+        <expression value="NutritionOrder.oralDiet.type"/>
+        <xpath value="f:NutritionOrder/f:oralDiet/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionOrder-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionOrder.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-patient"/>
+        <description value="The identity of the person who requires the diet, formula or nutritional supplement"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="NutritionOrder.patient"/>
+        <xpath value="f:NutritionOrder/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionOrder-provider"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionOrder.orderer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-provider"/>
+        <description value="The identity of the provider who placed the nutrition order"/>
+        <code value="provider"/>
+        <type value="reference"/>
+        <expression value="NutritionOrder.orderer"/>
+        <xpath value="f:NutritionOrder/f:orderer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionOrder-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionOrder.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-status"/>
+        <description value="Status of the nutrition order."/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="NutritionOrder.status"/>
+        <xpath value="f:NutritionOrder/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionOrder-supplement"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionOrder.supplement.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-supplement"/>
+        <description value="Type of supplement product requested"/>
+        <code value="supplement"/>
+        <type value="token"/>
+        <expression value="NutritionOrder.supplement.type"/>
+        <xpath value="f:NutritionOrder/f:supplement/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

@@ -8,20 +8,20 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <h2>FHIRPath Patch</h2>
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 <p>
-This page documents how the <a href="parameters.html">Parameters</a> resource is used to define a set of <a href="fhirpath.html">FHIRPath</a> based patch operations.
+This page defines a FHIR <a href="parameters.html">Parameters</a>-based, syntax-agnostic patch mechanism where elements to be manipulated by the <a href="http.html#patch">patch</a> interaction are described using their <a href="fhirpath.html">FHIRpath</a> names and navigation.
 </p>
 
-<a name="concept"></a>
-<h3>Conceptual FHIRPath Operations</h3>
+<a name="operations"></a>
+<h3>Operations</h3>
 
 <p>
-This table documents the FHIRPath operations that may be used to specify changes to a resource:
+This table documents the FHIR Patch operations that may be used to specify changes to a resource:
 </p>
 
 <table class="grid">
@@ -53,7 +53,7 @@ This table documents the FHIRPath operations that may be used to specify changes
   <td>index at which to insert</td>
   <td></td>
   <td></td>
-  <td>The content will be inserted into the nominated list at the index specified (0 based). The index is mandatory and must be equal or less than the number of elements in the list. 
+  <td>The content will be inserted into the nominated list at the index specified (0 based). The index is mandatory and must be equal or less than the number of elements in the list.
     Note: <code>add</code> is easier than <code>insert</code> at the end of the list</td>
  </tr>
  <tr>
@@ -91,8 +91,8 @@ This table documents the FHIRPath operations that may be used to specify changes
 There are a few base rules that apply for all operations:
 </p>
 <ul>
- <li>The FHIRPath statement must return a single element</li> 
- <li>The FHIRPath statement SHALL NOT cross resources using the <code>resolve()</code> function (e.g. like <code>Observation.subject.resolve().identifier</code>). 
+ <li>The FHIRPath statement must return a single element</li>
+ <li>The FHIRPath statement SHALL NOT cross resources using the <code>resolve()</code> function (e.g. like <code>Observation.subject.resolve().identifier</code>).
      <code>resolve()</code> SHALL only be used to refer to contained resource within the resource being patched.
      Servers SHALL NOT allow patch operations to alter other resources than the nominated target, and SHOULD return an error if the patch operation tries</li>
  <li>The type of the value must be correct for the place at which it will be added/inserted. Servers SHALL return an error if the type is wrong</li>
@@ -224,8 +224,6 @@ This pattern repeats as deep as necessary.
 <p>
 There is a set of test cases for implementers as part of the <a href="downloads.html">Test Case Downloads</a>.
 </p>
-
-</div>
 
 [%file newfooter%]
 

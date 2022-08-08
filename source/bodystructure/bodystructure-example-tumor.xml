@@ -14,14 +14,16 @@
 		</coding>
 		<text value="Splenic mass"/>
 	</morphology>
-	<location>
-		<coding>
+	<includedStructure>
+		<structure>
+		  <coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="78961009"/>
 			<display value="Splenic structure (body structure)"/>
-		</coding>
-		<text value="Spleen"/>
-	</location>
+		  </coding>
+		  <text value="Spleen"/>
+		</structure>
+	</includedStructure>
 	<description value="7 cm maximum diameter"/>
 	<image>
 		<!--   The actual image could be anywhere. This is a WADO example using a ficitious url  -->

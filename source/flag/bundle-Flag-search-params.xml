@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Flag-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Flag-author"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Flag.author"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Flag-author"/>
+        <description value="Flag creator"/>
+        <code value="author"/>
+        <type value="reference"/>
+        <expression value="Flag.author"/>
+        <xpath value="f:Flag/f:author"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Flag-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Flag.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Flag-date"/>
+        <description value="Time period when flag is active"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="Flag.period"/>
+        <xpath value="f:Flag/f:period"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Flag-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Flag.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Flag-encounter"/>
+        <description value="Alert relevant during encounter"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="Flag.encounter"/>
+        <xpath value="f:Flag/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Flag-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Flag.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Flag-identifier"/>
+        <description value="Business identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Flag.identifier"/>
+        <xpath value="f:Flag/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Flag-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Flag.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Flag-patient"/>
+        <description value="The identity of a subject to list flags for"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Flag.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Flag/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Flag-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Flag.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Flag-status"/>
+        <description value="active | inactive | entered-in-error"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Flag.status"/>
+        <xpath value="f:Flag/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Flag-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Flag.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Flag-subject"/>
+        <description value="The identity of a subject to list flags for"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Flag.subject"/>
+        <xpath value="f:Flag/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

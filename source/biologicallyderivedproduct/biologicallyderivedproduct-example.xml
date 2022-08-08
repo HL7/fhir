@@ -1,11 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BiologicallyDerivedProduct xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/BiologicallyDerivedProduct.xsd">
   <id value="example"/>
-  <text>
+  <!-- <text>
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
-  </text>
-
-  <!-- insert contents here -->
-  
+  </text> -->
+  <productCode>
+  		<code value="E0398" />
+  </productCode>
+  <identifier>
+    <system value="https://www.isbt128.org/uri/MPHOUniqueIdentifier" />
+    <value value="A9999E0398A999921123456000001" /> 
+  </identifier>
+  <biologicalSourceEvent>
+    <system value="https://www.isbt128.org/uri/DonationIdentificationNumber" />
+	  <value value="A999921123456" />
+  </biologicalSourceEvent>
+  <processingFacility>
+    <reference value="Organization/A9999" />
+  </processingFacility>
+  <division value="A00000" />
+  <productStatus>
+       <code  value="available" />
+  </productStatus>
+  <expirationDate value="2021-08-02T23:59:00-05:00"/>
+  <storageTempRequirements>
+    <low>
+      <value value="1" />
+      <unit value="degrees C" />
+      <system value="http://unitsofmeasure.org"/> 
+    </low>
+    <high>
+      <value value="6" />
+      <unit value="degrees C" /> 
+      <system value="http://unitsofmeasure.org"/>     
+    </high>
+  </storageTempRequirements>
+  <property>
+    <type>
+        <code value="ABORhD" />
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="https://www.isbt128.org/uri/ABORhD"/>
+	  	  <code value="62" />
+        <display value="A RhD Positive" />
+      </coding>
+    </valueCodeableConcept>
+  </property>
+	<property>
+    <type>
+      <code value="V"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="https://www.isbt128.org/uri/CollectionType"/>
+	  	  <code value="V"/>
+        <display value="Volunteer"/>
+      </coding>
+    </valueCodeableConcept>	
+  </property>
 </BiologicallyDerivedProduct>
+  

@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
+  <id value="Composition-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-attester"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.attester.party"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-attester"/>
+        <description value="Who attested the composition"/>
+        <code value="attester"/>
+        <type value="reference"/>
+        <expression value="Composition.attester.party"/>
+        <xpath value="f:Composition/f:attester/f:party"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-author"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.author"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-author"/>
+        <description value="Who and/or what authored the composition"/>
+        <code value="author"/>
+        <type value="reference"/>
+        <expression value="Composition.author"/>
+        <xpath value="f:Composition/f:author"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-category"/>
+        <description value="Categorization of Composition"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="Composition.category"/>
+        <xpath value="f:Composition/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.event.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-context"/>
+        <description value="Code(s) that apply to the event being documented"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="Composition.event.code"/>
+        <xpath value="f:Composition/f:event/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-date"/>
+        <description value="Composition editing time"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="Composition.date"/>
+        <xpath value="f:Composition/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-encounter"/>
+        <description value="Context of the Composition"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="Composition.encounter"/>
+        <xpath value="f:Composition/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-entry"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.section.entry"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-entry"/>
+        <description value="A reference to data that supports this section"/>
+        <code value="entry"/>
+        <type value="reference"/>
+        <expression value="Composition.section.entry"/>
+        <xpath value="f:Composition/f:section/f:entry"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-identifier"/>
+        <description value="Version-independent identifier for the Composition"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Composition.identifier"/>
+        <xpath value="f:Composition/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-patient"/>
+        <description value="Who and/or what the composition is about"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Composition.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Composition/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-period"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.event.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-period"/>
+        <description value="The period covered by the documentation"/>
+        <code value="period"/>
+        <type value="date"/>
+        <expression value="Composition.event.period"/>
+        <xpath value="f:Composition/f:event/f:period"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-related"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.relatesTo.resourceReference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-related-ref"/>
+        <description value="Target of the relationship"/>
+        <code value="related"/>
+        <type value="reference"/>
+        <expression value="Composition.relatesTo.resourceReference"/>
+        <xpath value="f:Composition/f:relatesTo/f:resourceReference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-section"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.section.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-section"/>
+        <description value="Classification of section (recommended)"/>
+        <code value="section"/>
+        <type value="token"/>
+        <expression value="Composition.section.code"/>
+        <xpath value="f:Composition/f:section/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-status"/>
+        <description value="preliminary | final | amended | entered-in-error"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Composition.status"/>
+        <xpath value="f:Composition/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-subject"/>
+        <description value="Who and/or what the composition is about"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Composition.subject"/>
+        <xpath value="f:Composition/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-title"/>
+        <description value="Human Readable name/title"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="Composition.title"/>
+        <xpath value="f:Composition/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Composition.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-type"/>
+        <description value="Kind of composition (LOINC if possible)"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="Composition.type"/>
+        <xpath value="f:Composition/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-url"/>
+        <description value="The uri that identifies the activity definition"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="Composition.url"/>
+        <xpath value="f:Composition/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-version"/>
+        <description value="The business version of the activity definition"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="Composition.version"/>
+        <xpath value="f:Composition/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

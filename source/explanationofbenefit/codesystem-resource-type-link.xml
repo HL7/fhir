@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="resource-type-link"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/resource-type-link"/>
+  <version value="4.6.0"/>
+  <name value="PayeeResourceType"/>
+  <concept>
+    <code value="organization"/>
+    <display value="Organization"/>
+    <definition value="Organization resource."/>
+  </concept>
+  <concept>
+    <code value="patient"/>
+    <display value="Patient"/>
+    <definition value="Patient resource."/>
+  </concept>
+  <concept>
+    <code value="practitioner"/>
+    <display value="Practitioner"/>
+    <definition value="Practitioner resource."/>
+  </concept>
+  <concept>
+    <code value="relatedperson"/>
+    <display value="RelatedPerson"/>
+    <definition value="RelatedPerson resource."/>
+  </concept>
+</CodeSystem>

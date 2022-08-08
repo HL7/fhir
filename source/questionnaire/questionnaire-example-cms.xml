@@ -1,354 +1,354 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/questionnaire.xsd">
-  <id value="questionnaire-example-cms"/>
-  <url value="http://hl7.org/fhir/Questionnaire/questionnaire-example-cms"/>
-  <identifier>
-    <!-- There should be a system, but not sure what URI will choose to use -->
-    <use value="official"/>
-    <value value="0938-070"/>
-  </identifier>
-  <title value="OACIS-C: All Items - Home Health Patient Tracking Sheet"/>
-  <status value="active"/>
-  <date value="2009-08"/>
-  <publisher value="Centers for Medicare &amp; Medicaid Services"/>
-  <item>
-    <linkId value="ROOT"/>
-    <type value="group"/>
-    <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory">
-        <valueCodeableConcept>
-          <coding>
-            <system value="http://hl7.org/fhir/questionnaire-display-category"/>
-            <code value="instructions"/>
-          </coding>
-        </valueCodeableConcept>
-      </extension>
-      <linkId value="INSTR"/>
-      <text value="According to the Paperwork Reduction Act of 1995, no persons are required to respond to a collection of information unless it displays a valid OMB control number. The valid OMB control number for this information collection instrument is 0938-0760. The time required to complete this information collection is estimated to average 0.7 minutes per response, including the time to review instructions, search existing data resources, gather the data needed, and complete and review the information collection. If you have comments concerning this form, please write to: CMS, 7500 Security Boulevard, Attn: PRA Reports Clearance Officer, Baltimore, Maryland 21244-1850."/>
-      <type value="display"/>
-    </item>
-    <item>
-      <linkId value="M0010"/>
-      <text value="C M S Certification Number"/>
-      <type value="string"/>
-      <required value="true"/>
-    </item>
-    <item>
-      <linkId value="M0014"/>
-      <text value="Branch State"/>
-      <type value="string"/>
-      <required value="true"/>
-    </item>
-    <item>
-      <linkId value="M0018"/>
-      <text value="National Provider Identifier (N P I) for the attending physician who has signed the plan of care"/>
-      <type value="string"/>
-      <item>
-        <linkId value="M0018.1"/>
-        <type value="choice"/>
-        <required value="true"/>
-        <answerOption>
-          <valueCoding>
-            <code value="NA"/>
-            <display value="Not Applicable"/>
-          </valueCoding>
-        </answerOption>
-      </item>
-    </item>
-    <item>
-      <linkId value="M0020"/>
-      <text value="Patient I D Number"/>
-      <type value="string"/>
-      <required value="true"/>
-    </item>
-    <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-        <valueString value="month / day / year"/>
-      </extension>
-      <linkId value="M0030"/>
-      <text value="Start of Care Date"/>
-      <type value="date"/>
-      <required value="true"/>
-    </item>
-    <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-        <valueString value="month / day / year"/>
-      </extension>
-      <linkId value="M0030"/>
-      <text value="Resumption of Care Date"/>
-      <type value="date"/>
-      <required value="true"/>
-      <item>
-        <linkId value="M0030.1"/>
-        <type value="choice"/>
-        <required value="true"/>
-        <answerOption>
-          <valueCoding>
-            <code value="NA"/>
-            <display value="Not Applicable"/>
-          </valueCoding>
-        </answerOption>
-      </item>
-    </item>
-    <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-        <valueString value="First  M I  Last  Suffix"/>
-      </extension>
-      <linkId value="M0040"/>
-      <text value="Patient Name"/>
-      <type value="string"/>
-      <required value="true"/>
-    </item>
-    <item>
-      <linkId value="M0050"/>
-      <text value="Patient State of Residence"/>
-      <type value="string"/>
-      <required value="true"/>
-    </item>
-    <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-        <valueString value="nnnnn-nnnn"/>
-      </extension>
-      <linkId value="M0060"/>
-      <text value="Patient Zip Code"/>
-      <type value="string"/>
-      <required value="true"/>
-    </item>
-    <item>
-      <linkId value="M0063"/>
-      <text value="Medicare Number"/>
-      <type value="string"/>
-      <item>
-        <linkId value="M0063.1"/>
-        <type value="choice"/>
-        <required value="true"/>
-        <answerOption>
-          <valueCoding>
-            <code value="NA"/>
-            <display value="No Medicare"/>
-          </valueCoding>
-        </answerOption>
-      </item>
-    </item>
-    <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-        <valueString value="nnn-nn-nnnn"/>
-      </extension>
-      <linkId value="M0064"/>
-      <text value="Social Security Number"/>
-      <type value="string"/>
-      <item>
-        <linkId value="M0064.1"/>
-        <type value="choice"/>
-        <required value="true"/>
-        <answerOption>
-          <valueCoding>
-            <code value="UK"/>
-            <display value="Unknown or Not Available"/>
-          </valueCoding>
-        </answerOption>
-      </item>
-    </item>
-    <item>
-      <linkId value="M0065"/>
-      <text value="Medicaid Number"/>
-      <type value="string"/>
-      <item>
-        <linkId value="M0065.1"/>
-        <type value="choice"/>
-        <required value="true"/>
-        <answerOption>
-          <valueCoding>
-            <code value="NA"/>
-            <display value="No Medicaid"/>
-          </valueCoding>
-        </answerOption>
-      </item>
-    </item>
-    <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
-        <valueString value="month / day / year"/>
-      </extension>
-      <linkId value="M0066"/>
-      <text value="Birth Date"/>
-      <type value="date"/>
-      <required value="true"/>
-    </item>
-    <item>
-      <linkId value="M0069"/>
-      <text value="Gender"/>
-      <type value="choice"/>
-      <required value="true"/>
-      <answerOption>
-        <valueCoding>
-          <code value="1"/>
-          <display value="Male"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="2"/>
-          <display value="Female"/>
-        </valueCoding>
-      </answerOption>
-    </item>
-    <item>
-      <linkId value="M0140"/>
-      <text value="Race/Ethnicity"/>
-      <type value="choice"/>
-      <required value="true"/>
-      <repeats value="true"/>
-      <answerOption>
-        <valueCoding>
-          <code value="1"/>
-          <display value="American Indian or Alaska Native"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="2"/>
-          <display value="Asian"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="3"/>
-          <display value="Black or African-American"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="4"/>
-          <display value="Hispanic or Latino"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="5"/>
-          <display value="Native Hawaiian or Pacific Islander"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="6"/>
-          <display value="White"/>
-        </valueCoding>
-      </answerOption>
-    </item>
-    <item>
-      <linkId value="M0150"/>
-      <text value="Current Payment Sources for Home Care"/>
-      <type value="choice"/>
-      <required value="true"/>
-      <repeats value="true"/>
-      <answerOption>
-        <valueCoding>
-          <code value="0"/>
-          <display value="None; no charge for current services"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="1"/>
-          <display value="Medicare (traditional fee-for-service)"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="2"/>
-          <display value="Medicare (HMO/managed care/Advantage plan)"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="3"/>
-          <display value="Medicaid (traditional fee-for-service)"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="4"/>
-          <display value="Medicaid (HMO/managed care)"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="5"/>
-          <display value="Workers' compensation"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="6"/>
-          <display value="Title programs (e.g. Title III, V, or XX)"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="7"/>
-          <display value="Other government (e.g. TriCare, VA, etc.)"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="8"/>
-          <display value="Private insurance"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="9"/>
-          <display value="Private HMO/managed care"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="10"/>
-          <display value="Self-pay"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="11"/>
-          <display value="Other (specify)"/>
-        </valueCoding>
-      </answerOption>
-      <answerOption>
-        <valueCoding>
-          <code value="UK"/>
-          <display value="Unknown"/>
-        </valueCoding>
-      </answerOption>
-      <item>
-        <linkId value="M0140.1"/>
-        <type value="string"/>
-        <enableWhen>
-          <question value="M0150"/>
-          <operator value="exists"/>
-          <answerBoolean value="true"/>
-        </enableWhen>
-        <required value="true"/>
-      </item>
-    </item>
-  </item>
-  <item>
-    <linkId value="timing"/>
-    <text value="Items to be Used at Specific Time Points"/>
-    <type value="group"/>
-    <item>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory">
-        <valueCodeableConcept>
-          <coding>
-            <system value="http://hl7.org/fhir/questionnaire-display-category"/>
-            <code value="instructions"/>
-          </coding>
-        </valueCodeableConcept>
-      </extension>
-      <linkId value="footer"/>
-      <text value="According to the Paperwork Reduction Act of 1995, no persons are required to respond to a collection of information unless it displays a valid OMB control number. The valid OMB control number for this information collection instrument is 0938-0760. The time required to complete this information collection is estimated to average 0.7 minutes per response, including the time to review instructions, search existing data resources, gather the data needed, and complete and review the information collection. If you have comments concerning this form, please write to: CMS, 7500 Security Boulevard, Attn: PRA Reports Clearance Officer, Baltimore, Maryland 21244-1850."/>
-      <type value="display"/>
-    </item>
-  </item>
+<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+	<id value="questionnaire-example-cms"/>
+	<url value="http://hl7.org/fhir/Questionnaire/questionnaire-example-cms"/>
+	<identifier>
+		<!-- There should be a system, but not sure what URI will choose to use -->
+		<use value="official"/>
+		<value value="0938-070"/>
+	</identifier>
+	<title value="OACIS-C: All Items - Home Health Patient Tracking Sheet"/>
+	<status value="active"/>
+	<date value="2009-08"/>
+	<publisher value="Centers for Medicare &amp; Medicaid Services"/>
+	<item>
+		<linkId value="ROOT"/>
+		<type value="group"/>
+		<item>
+			<extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory">
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://hl7.org/fhir/questionnaire-display-category"/>
+						<code value="instructions"/>
+					</coding>
+				</valueCodeableConcept>
+			</extension>
+			<linkId value="INSTR"/>
+			<text value="According to the Paperwork Reduction Act of 1995, no persons are required to respond to a collection of information unless it displays a valid OMB control number. The valid OMB control number for this information collection instrument is 0938-0760. The time required to complete this information collection is estimated to average 0.7 minutes per response, including the time to review instructions, search existing data resources, gather the data needed, and complete and review the information collection. If you have comments concerning this form, please write to: CMS, 7500 Security Boulevard, Attn: PRA Reports Clearance Officer, Baltimore, Maryland 21244-1850."/>
+			<type value="display"/>
+		</item>
+		<item>
+			<linkId value="M0010"/>
+			<text value="C M S Certification Number"/>
+			<type value="string"/>
+			<required value="true"/>
+		</item>
+		<item>
+			<linkId value="M0014"/>
+			<text value="Branch State"/>
+			<type value="string"/>
+			<required value="true"/>
+		</item>
+		<item>
+			<linkId value="M0018"/>
+			<text value="National Provider Identifier (N P I) for the attending physician who has signed the plan of care"/>
+			<type value="string"/>
+			<item>
+				<linkId value="M0018.1"/>
+				<type value="coding"/>
+				<required value="true"/>
+				<answerOption>
+					<valueCoding>
+						<code value="NA"/>
+						<display value="Not Applicable"/>
+					</valueCoding>
+				</answerOption>
+			</item>
+		</item>
+		<item>
+			<linkId value="M0020"/>
+			<text value="Patient I D Number"/>
+			<type value="string"/>
+			<required value="true"/>
+		</item>
+		<item>
+			<extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+				<valueString value="month / day / year"/>
+			</extension>
+			<linkId value="M0030"/>
+			<text value="Start of Care Date"/>
+			<type value="date"/>
+			<required value="true"/>
+		</item>
+		<item>
+			<extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+				<valueString value="month / day / year"/>
+			</extension>
+			<linkId value="M0030"/>
+			<text value="Resumption of Care Date"/>
+			<type value="date"/>
+			<required value="true"/>
+			<item>
+				<linkId value="M0030.1"/>
+				<type value="coding"/>
+				<required value="true"/>
+				<answerOption>
+					<valueCoding>
+						<code value="NA"/>
+						<display value="Not Applicable"/>
+					</valueCoding>
+				</answerOption>
+			</item>
+		</item>
+		<item>
+			<extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+				<valueString value="First  M I  Last  Suffix"/>
+			</extension>
+			<linkId value="M0040"/>
+			<text value="Patient Name"/>
+			<type value="string"/>
+			<required value="true"/>
+		</item>
+		<item>
+			<linkId value="M0050"/>
+			<text value="Patient State of Residence"/>
+			<type value="string"/>
+			<required value="true"/>
+		</item>
+		<item>
+			<extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+				<valueString value="nnnnn-nnnn"/>
+			</extension>
+			<linkId value="M0060"/>
+			<text value="Patient Zip Code"/>
+			<type value="string"/>
+			<required value="true"/>
+		</item>
+		<item>
+			<linkId value="M0063"/>
+			<text value="Medicare Number"/>
+			<type value="string"/>
+			<item>
+				<linkId value="M0063.1"/>
+				<type value="coding"/>
+				<required value="true"/>
+				<answerOption>
+					<valueCoding>
+						<code value="NA"/>
+						<display value="No Medicare"/>
+					</valueCoding>
+				</answerOption>
+			</item>
+		</item>
+		<item>
+			<extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+				<valueString value="nnn-nn-nnnn"/>
+			</extension>
+			<linkId value="M0064"/>
+			<text value="Social Security Number"/>
+			<type value="string"/>
+			<item>
+				<linkId value="M0064.1"/>
+				<type value="coding"/>
+				<required value="true"/>
+				<answerOption>
+					<valueCoding>
+						<code value="UK"/>
+						<display value="Unknown or Not Available"/>
+					</valueCoding>
+				</answerOption>
+			</item>
+		</item>
+		<item>
+			<linkId value="M0065"/>
+			<text value="Medicaid Number"/>
+			<type value="string"/>
+			<item>
+				<linkId value="M0065.1"/>
+				<type value="coding"/>
+				<required value="true"/>
+				<answerOption>
+					<valueCoding>
+						<code value="NA"/>
+						<display value="No Medicaid"/>
+					</valueCoding>
+				</answerOption>
+			</item>
+		</item>
+		<item>
+			<extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
+				<valueString value="month / day / year"/>
+			</extension>
+			<linkId value="M0066"/>
+			<text value="Birth Date"/>
+			<type value="date"/>
+			<required value="true"/>
+		</item>
+		<item>
+			<linkId value="M0069"/>
+			<text value="Gender"/>
+			<type value="coding"/>
+			<required value="true"/>
+			<answerOption>
+				<valueCoding>
+					<code value="1"/>
+					<display value="Male"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="2"/>
+					<display value="Female"/>
+				</valueCoding>
+			</answerOption>
+		</item>
+		<item>
+			<linkId value="M0140"/>
+			<text value="Race/Ethnicity"/>
+			<type value="coding"/>
+			<required value="true"/>
+			<repeats value="true"/>
+			<answerOption>
+				<valueCoding>
+					<code value="1"/>
+					<display value="American Indian or Alaska Native"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="2"/>
+					<display value="Asian"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="3"/>
+					<display value="Black or African-American"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="4"/>
+					<display value="Hispanic or Latino"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="5"/>
+					<display value="Native Hawaiian or Pacific Islander"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="6"/>
+					<display value="White"/>
+				</valueCoding>
+			</answerOption>
+		</item>
+		<item>
+			<linkId value="M0150"/>
+			<text value="Current Payment Sources for Home Care"/>
+			<type value="coding"/>
+			<required value="true"/>
+			<repeats value="true"/>
+			<answerOption>
+				<valueCoding>
+					<code value="0"/>
+					<display value="None; no charge for current services"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="1"/>
+					<display value="Medicare (traditional fee-for-service)"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="2"/>
+					<display value="Medicare (HMO/managed care/Advantage plan)"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="3"/>
+					<display value="Medicaid (traditional fee-for-service)"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="4"/>
+					<display value="Medicaid (HMO/managed care)"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="5"/>
+					<display value="Workers' compensation"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="6"/>
+					<display value="Title programs (e.g. Title III, V, or XX)"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="7"/>
+					<display value="Other government (e.g. TriCare, VA, etc.)"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="8"/>
+					<display value="Private insurance"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="9"/>
+					<display value="Private HMO/managed care"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="10"/>
+					<display value="Self-pay"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="11"/>
+					<display value="Other (specify)"/>
+				</valueCoding>
+			</answerOption>
+			<answerOption>
+				<valueCoding>
+					<code value="UK"/>
+					<display value="Unknown"/>
+				</valueCoding>
+			</answerOption>
+			<item>
+				<linkId value="M0140.1"/>
+				<type value="string"/>
+				<enableWhen>
+					<question value="M0150"/>
+					<operator value="exists"/>
+					<answerBoolean value="true"/>
+				</enableWhen>
+				<required value="true"/>
+			</item>
+		</item>
+	</item>
+	<item>
+		<linkId value="timing"/>
+		<text value="Items to be Used at Specific Time Points"/>
+		<type value="group"/>
+		<item>
+			<extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory">
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://hl7.org/fhir/questionnaire-display-category"/>
+						<code value="instructions"/>
+					</coding>
+				</valueCodeableConcept>
+			</extension>
+			<linkId value="footer"/>
+			<text value="According to the Paperwork Reduction Act of 1995, no persons are required to respond to a collection of information unless it displays a valid OMB control number. The valid OMB control number for this information collection instrument is 0938-0760. The time required to complete this information collection is estimated to average 0.7 minutes per response, including the time to review instructions, search existing data resources, gather the data needed, and complete and review the information collection. If you have comments concerning this form, please write to: CMS, 7500 Security Boulevard, Attn: PRA Reports Clearance Officer, Baltimore, Maryland 21244-1850."/>
+			<type value="display"/>
+		</item>
+	</item>
 </Questionnaire>
 <!--
 

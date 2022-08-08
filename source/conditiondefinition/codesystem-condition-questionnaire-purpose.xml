@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="condition-questionnaire-purpose"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/condition-questionnaire-purpose defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">preadmit
+            
+            <a name="condition-questionnaire-purpose-preadmit"> </a>
+          
+          </td>
+          
+          <td>Pre-admit</td>
+          
+          <td>A pre-admit questionnaire.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">diff-diagnosis
+            
+            <a name="condition-questionnaire-purpose-diff-diagnosis"> </a>
+          
+          </td>
+          
+          <td>Diff Diagnosis</td>
+          
+          <td>A questionnaire that helps with diferential diagnosis.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">outcome
+            
+            <a name="condition-questionnaire-purpose-outcome"> </a>
+          
+          </td>
+          
+          <td>Outcome</td>
+          
+          <td>A questionnaire to check on outcomes for the patient.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/condition-questionnaire-purpose"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1442"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ConditionQuestionnairePurpose"/>
+  <title value="ConditionQuestionnairePurpose"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The use of a questionnaire."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/condition-questionnaire-purpose"/>
+  <content value="complete"/>
+  <concept>
+    <code value="preadmit"/>
+    <display value="Pre-admit"/>
+    <definition value="A pre-admit questionnaire."/>
+  </concept>
+  <concept>
+    <code value="diff-diagnosis"/>
+    <display value="Diff Diagnosis"/>
+    <definition value="A questionnaire that helps with diferential diagnosis."/>
+  </concept>
+  <concept>
+    <code value="outcome"/>
+    <display value="Outcome"/>
+    <definition value="A questionnaire to check on outcomes for the patient."/>
+  </concept>
+</CodeSystem>

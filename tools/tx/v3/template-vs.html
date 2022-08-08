@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+
+
+<%settitle v3 Value Set http://terminology.hl7.org/CodeSystem/v3-{id}%>
+<%setlevel 2%>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<%file newheader%>
+</head>
+<body>
+<%file newnavbar%>
+
+<div class="col-12">
+
+<%txheader l2%>
+
+<h1>HL7 v3 Value Set <%id%></h1>
+<table class="<%fmm-style%>">
+ <tr><td><a href="<%wg%>"><%wgt%></a> Work Group</td><td><%fmm%></td><td><%sstatus%></td><!--!ns!--><td><%profile-context%></td></tr>
+</table>
+
+<p>
+This value set (http://terminology.hl7.org/ValueSet/v3-<%id%>) is defined as part of HL7 v3<%v3xref%>
+</p>
+<p><b>Summary</b></p>
+<table class="grid">
+ <tr><td>Defining URL:</td><td><%vsurl%></td></tr>
+ <tr><td>Version:</td><td><%vsver%></td></tr>
+ <tr><td>Name:</td><td><%vsnamed%></td></tr>
+ <tr><td>Title:</td><td><%vstitle%></td></tr>
+ <tr><td>Definition:</td><td><%vsdef%></td></tr>
+ <tr><td>OID:</td><td><%vsoid%> (for OID based terminology systems)</td></tr>
+ <tr><td>Source Resource</td><td><a href="v3-<%id%>.xml.html">XML</a> / <a href="v3-<%id%>.json.html">JSON</a></td></tr>
+</table>
+
+<%vsusage%>
+
+<a name="definition"></a>
+<h2>Content Logical Definition</h2>
+
+<%vscld%>
+
+<%vsexpansion%>
+
+<%v3ValueSet%>
+
+
+</div>
+
+<%file newfooter%>
+    
+</body>
+</html>

@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="InventoryReport"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Request &amp;amp; Response"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value="Imaging Study state is managed in PACS."/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/InventoryReport"/>
+  <version value="4.6.0"/>
+  <name value="InventoryReport"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A report of inventory or stock items."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="dicom"/>
+    <uri value="http://nema.org/dicom"/>
+    <name value="DICOM Tag Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="InventoryReport"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="InventoryReport">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="InventoryReport"/>
+      <short value="A report of inventory or stock items"/>
+      <definition value="A report of inventory or stock items."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act[classCode=COMPOSITION, moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Reference IHE radiology TF vol 2 table 4.14-1"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="administrative.entity"/>
+      </mapping>
+    </element>
+    <element id="InventoryReport.identifier">
+      <path value="InventoryReport.identifier"/>
+      <short value="Identifiers for the report"/>
+      <definition value="Identifiers for the InventoryReport."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id and .inboundRelationship[typeCode=COMP].source[classCode=ACSN, moodCode=EVN].id"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="StudyInstanceUID (0020,000D) | Accession Number and Issuer (0080,0050)+(0080,0051) | Study ID (0020,0010)"/>
+      </mapping>
+    </element>
+    <element id="InventoryReport.status">
+      <path value="InventoryReport.status"/>
+      <short value="draft | requested | active | entered-in-error"/>
+      <definition value="The status of the inventory check or notification - whether this is draft (e.g. the report is still pending some updates) or active."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InventoryReportStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The status of the InventoryReport."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/inventoryreport-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Varies by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".status"/>
+      </mapping>
+    </element>
+    <element id="InventoryReport.countType">
+      <path value="InventoryReport.countType"/>
+      <short value="snapshot | difference"/>
+      <definition value="Whether the report is about the current inventory count (snapshot) or a differential change in inventory (change)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Not known why this is labelled a modifier"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InventoryCountType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type of count."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/inventoryreport-counttype"/>
+      </binding>
+    </element>
+    <element id="InventoryReport.operationType">
+      <path value="InventoryReport.operationType"/>
+      <short value="addition | subtraction"/>
+      <definition value="What type of operation is being performed - addition or subtraction."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="InventoryReport.operationTypeReason">
+      <path value="InventoryReport.operationTypeReason"/>
+      <short value="The reason for this count - regular count, ad-hoc count, new arrivals, etc."/>
+      <definition value="The reason for this count - regular count, ad-hoc count, new arrivals, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="InventoryReport.reportedDateTime">
+      <path value="InventoryReport.reportedDateTime"/>
+      <short value="When the report has been submitted"/>
+      <definition value="When the report has been submitted."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="InventoryReport.reporter">
+      <path value="InventoryReport.reporter"/>
+      <short value="Who submits the report"/>
+      <definition value="Who submits the report."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+    </element>
+    <element id="InventoryReport.reportingPeriod">
+      <path value="InventoryReport.reportingPeriod"/>
+      <short value="The period the report refers to"/>
+      <definition value="The period the report refers to."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="InventoryReport.inventoryListing">
+      <path value="InventoryReport.inventoryListing"/>
+      <short value="An inventory listing section (grouped by any of the attributes)"/>
+      <definition value="An inventory listing section (grouped by any of the attributes)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="InventoryReport.inventoryListing.location">
+      <path value="InventoryReport.inventoryListing.location"/>
+      <short value="Location of the inventory items"/>
+      <definition value="Location of the inventory items."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+    </element>
+    <element id="InventoryReport.inventoryListing.itemStatus">
+      <path value="InventoryReport.inventoryListing.itemStatus"/>
+      <short value="The status of the items"/>
+      <definition value="The status of the items."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="InventoryReport.inventoryListing.countingDateTime">
+      <path value="InventoryReport.inventoryListing.countingDateTime"/>
+      <short value="The date and time when the items were counted"/>
+      <definition value="The date and time when the items were counted."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="InventoryReport.inventoryListing.items">
+      <path value="InventoryReport.inventoryListing.items"/>
+      <short value="The item or items in this listing"/>
+      <definition value="The item or items in this listing."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="InventoryReport.inventoryListing.items.category">
+      <path value="InventoryReport.inventoryListing.items.category"/>
+      <short value="The category of the item or items"/>
+      <definition value="The category of the item or items."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="InventoryReport.inventoryListing.items.quantity">
+      <path value="InventoryReport.inventoryListing.items.quantity"/>
+      <short value="The quantity of the item or items"/>
+      <definition value="The quantity of the item or items."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="InventoryReport.inventoryListing.items.item">
+      <path value="InventoryReport.inventoryListing.items.item"/>
+      <short value="The code or reference to the item type"/>
+      <definition value="The code or reference to the item type."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="InventoryReport.inventoryListing.items.lot">
+      <path value="InventoryReport.inventoryListing.items.lot"/>
+      <short value="The lot number of the item or items"/>
+      <definition value="The lot number of the item or items."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="InventoryReport.inventoryListing.items.serial">
+      <path value="InventoryReport.inventoryListing.items.serial"/>
+      <short value="The serial number of the item"/>
+      <definition value="The serial number of the item."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="InventoryReport.inventoryListing.items.expiry">
+      <path value="InventoryReport.inventoryListing.items.expiry"/>
+      <short value="The expiry date of the item or items"/>
+      <definition value="The expiry date of the item or items."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="InventoryReport.inventoryListing.items.manufacturingDate">
+      <path value="InventoryReport.inventoryListing.items.manufacturingDate"/>
+      <short value="The manufacturingDate of the item or items"/>
+      <definition value="The manufacturingDate of the item or items."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="InventoryReport.note">
+      <path value="InventoryReport.note"/>
+      <short value="A note associated with the InventoryReport"/>
+      <definition value="A note associated with the InventoryReport."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

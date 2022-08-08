@@ -47,6 +47,8 @@
     </assigner>
   </identifier>
 
+  <active value="true"/>
+
   <!-- Peter James Chalmers, but called "Jim" -->
   <name>
     <use value="official"/>
@@ -85,8 +87,6 @@
     <state value="Vic"/>
     <postalCode value="3999"/>
   </address>
-
-  <active value="true"/>
 
   <link>
     <target>

@@ -3,7 +3,6 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
-<p>Condition is one of the <a href="workflow.html#event">event</a> resources in the FHIR <a href="workflow.html">workflow</a> specification.</p>
 
 <p>
 This resource is used to record detailed information about a condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.  The condition could be a point in time diagnosis in context of an encounter, it could be an item on the practitioner’s Problem List, or it could be a concern that doesn’t exist on the practitioner’s Problem List.  Often times, a condition is about a clinician's assessment and assertion of a particular aspect of a patient's state of health. It can be used to record information about a disease/illness identified from application of clinical reasoning over the pathologic and pathophysiologic findings (diagnosis), or identification of health issues/situations that a practitioner considers harmful, potentially harmful and may be investigated and managed (problem), or other health issue/situation that may require ongoing monitoring and/or management (health issue/concern).
@@ -48,13 +47,16 @@ For example, each of the following conditions could rise to the level of importa
 </p>
 <p>
 This resource is not typically used to record information about subjective and objective information that might lead to the recording of a Condition resource. Such signs and symptoms are typically captured using the <a href="observation.html">Observation</a> resource;
-although in some cases a persistent symptom, e.g. fever, headache may be captured as a condition before a definitive diagnosis can be discerned by a clinician.   By contrast, headache may be captured as an Observation when it contributes to the establishment of a meningitis Condition.
+although in some cases a persistent symptom, e.g. fever, headache may be captured as a condition before a definitive diagnosis can be discerned by a clinician. In an inpatient scenario, a nursing problem list may document symptoms (such as respiratory alteration) as conditions if they are the focus of care provision. It became a problem because the nurse (clinician) wants to manage it. By contrast, headache may be captured as an Observation when it contributes to the establishment of a meningitis Condition.
 </p>
 <p>
 Use the <a href="observation.html">Observation</a> resource when a symptom is resolved without long term management, tracking, or when a symptom contributes to the establishment of a condition.
 </p>
 <p>
 Use Condition when a symptom requires long term management, tracking, or is used as a proxy for a diagnosis or problem that is not yet determined.
+</p>
+<p>
+Note that a Condition represents an instance of a condition, not the categorical patient state. This can be a subtle distinction for systemic conditions, but it is easier to see with conditions that can happen more than once, e.g. refuting one record of a wound does not mean that the patient does not have any other wounds, and resolving one case of otitis media does not rule out recurrence.  An observation that the patient doesn't have any wounds means the patient doesn't have any wounds at that point in time.
 </p>
 <p>
 When the diagnosis is related to an allergy or intolerance, the Condition and <a href="allergyintolerance.html">AllergyIntolerance</a> resources can both be used.  However, to be actionable for decision support, using Condition alone is not sufficient as the allergy or intolerance condition needs to be represented as an <a href="allergyintolerance.html">AllergyIntolerance</a>.

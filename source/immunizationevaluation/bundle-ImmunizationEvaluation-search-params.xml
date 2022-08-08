@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ImmunizationEvaluation-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImmunizationEvaluation-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImmunizationEvaluation.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImmunizationEvaluation-date"/>
+        <description value="Date the evaluation was generated"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="ImmunizationEvaluation.date"/>
+        <xpath value="f:ImmunizationEvaluation/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImmunizationEvaluation-dose-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImmunizationEvaluation.doseStatus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImmunizationEvaluation-dose-status"/>
+        <description value="The status of the dose relative to published recommendations"/>
+        <code value="dose-status"/>
+        <type value="token"/>
+        <expression value="ImmunizationEvaluation.doseStatus"/>
+        <xpath value="f:ImmunizationEvaluation/f:doseStatus"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImmunizationEvaluation-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImmunizationEvaluation.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImmunizationEvaluation-identifier"/>
+        <description value="ID of the evaluation"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="ImmunizationEvaluation.identifier"/>
+        <xpath value="f:ImmunizationEvaluation/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImmunizationEvaluation-immunization-event"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImmunizationEvaluation.immunizationEvent"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImmunizationEvaluation-immunization-event"/>
+        <description value="The vaccine administration event being evaluated"/>
+        <code value="immunization-event"/>
+        <type value="reference"/>
+        <expression value="ImmunizationEvaluation.immunizationEvent"/>
+        <xpath value="f:ImmunizationEvaluation/f:immunizationEvent"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImmunizationEvaluation-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImmunizationEvaluation.patient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImmunizationEvaluation-patient"/>
+        <description value="The patient being evaluated"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="ImmunizationEvaluation.patient"/>
+        <xpath value="f:ImmunizationEvaluation/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImmunizationEvaluation-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImmunizationEvaluation.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImmunizationEvaluation-status"/>
+        <description value="Immunization evaluation status"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="ImmunizationEvaluation.status"/>
+        <xpath value="f:ImmunizationEvaluation/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImmunizationEvaluation-target-disease"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImmunizationEvaluation.targetDisease"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImmunizationEvaluation-target-disease"/>
+        <description value="The vaccine preventable disease being evaluated against"/>
+        <code value="target-disease"/>
+        <type value="token"/>
+        <expression value="ImmunizationEvaluation.targetDisease"/>
+        <xpath value="f:ImmunizationEvaluation/f:targetDisease"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

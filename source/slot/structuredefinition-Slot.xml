@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Slot"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Base.Workflow"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+  <version value="4.6.0"/>
+  <name value="Slot"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Patient Administration)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A slot of time on a schedule that may be available for booking appointments."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="ical"/>
+    <uri value="http://ietf.org/rfc/2445"/>
+    <name value="iCalendar"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Slot"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Slot">
+      <path value="Slot"/>
+      <short value="A slot of time on a schedule that may be available for booking appointments"/>
+      <definition value="A slot of time on a schedule that may be available for booking appointments."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="ical"/>
+        <map value="(refer to the Schedule resource for the header mapping details)"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="workflow.scheduling"/>
+      </mapping>
+    </element>
+    <element id="Slot.identifier">
+      <path value="Slot.identifier"/>
+      <short value="External Ids for this item"/>
+      <definition value="External Ids for this item."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="Slot.serviceCategory">
+      <path value="Slot.serviceCategory"/>
+      <short value="A broad categorization of the service that is to be performed during this appointment"/>
+      <definition value="A broad categorization of the service that is to be performed during this appointment."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="service-category"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/service-category"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="Slot.serviceType">
+      <path value="Slot.serviceType"/>
+      <short value="The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the Schedule resource"/>
+      <definition value="The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the Schedule resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="service-type"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/service-type"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="Slot.specialty">
+      <path value="Slot.specialty"/>
+      <short value="The specialty of a practitioner that would be required to perform the service requested in this appointment"/>
+      <definition value="The specialty of a practitioner that would be required to perform the service requested in this appointment."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="specialty"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Additional details about where the content was created (e.g. clinical specialty)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/c80-practice-codes"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="Slot.appointmentType">
+      <path value="Slot.appointmentType"/>
+      <short value="The style of appointment or patient that may be booked in the slot (not service type)"/>
+      <definition value="The style of appointment or patient that may be booked in the slot (not service type)."/>
+      <comment value="A slot may be allow multiple appointment types, but when booked, would only be used for one of the given appointment types."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="appointment-type"/>
+        </extension>
+        <strength value="preferred"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v2-0276"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="Slot.schedule">
+      <path value="Slot.schedule"/>
+      <short value="The schedule resource that this slot defines an interval of status information"/>
+      <definition value="The schedule resource that this slot defines an interval of status information."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Schedule"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Slot.status">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="This is not a modifier element as the status of the slot being busy is not a change in the interpretation of the slot."/>
+      </extension>
+      <path value="Slot.status"/>
+      <short value="busy | free | busy-unavailable | busy-tentative | entered-in-error"/>
+      <definition value="busy | free | busy-unavailable | busy-tentative | entered-in-error."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SlotStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The free/busy status of the slot."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/slotstatus"/>
+      </binding>
+      <mapping>
+        <identity value="ical"/>
+        <map value="FREEBUSY;FBTYPE=(freeBusyType):19980314T233000Z/19980315T003000Z If the freeBusyType is BUSY, then this value can be excluded"/>
+      </mapping>
+    </element>
+    <element id="Slot.start">
+      <path value="Slot.start"/>
+      <short value="Date/Time that the slot is to begin"/>
+      <definition value="Date/Time that the slot is to begin."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="instant"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.planned"/>
+      </mapping>
+      <mapping>
+        <identity value="ical"/>
+        <map value="FREEBUSY;FBTYPE=FREE:(start)/19980315T003000Z If the freeBusyType is BUSY, then this value can be excluded"/>
+      </mapping>
+    </element>
+    <element id="Slot.end">
+      <path value="Slot.end"/>
+      <short value="Date/Time that the slot is to conclude"/>
+      <definition value="Date/Time that the slot is to conclude."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="instant"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.planned"/>
+      </mapping>
+      <mapping>
+        <identity value="ical"/>
+        <map value="FREEBUSY:19980314T233000Z/(end) If the freeBusyType is BUSY, then this value can be excluded (as shown)"/>
+      </mapping>
+    </element>
+    <element id="Slot.overbooked">
+      <path value="Slot.overbooked"/>
+      <short value="This slot has already been overbooked, appointments are unlikely to be accepted for this time"/>
+      <definition value="This slot has already been overbooked, appointments are unlikely to be accepted for this time."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="If overbooked is missing, systems may assume that there are still appointments available"/>
+    </element>
+    <element id="Slot.comment">
+      <path value="Slot.comment"/>
+      <short value="Comments on the slot to describe any extended information. Such as custom constraints on the slot"/>
+      <definition value="Comments on the slot to describe any extended information. Such as custom constraints on the slot."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

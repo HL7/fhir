@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Bundle.xsd">
+  <id value="787e69f6-81a8-44e4-b404-257013dec332"/>
+  <type value="subscription-notification" />
+  <timestamp value="2020-04-17T10:24:13.1882432-05:00" />
+  <entry>
+    <fullUrl value="urn:uuid:63c7e4fb-0a83-4cd9-9f42-cdcf7d5cd3ed"/>
+    <resource>
+      <SubscriptionStatus xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionStatus.xsd">
+        <id value="815477f2-a94c-4197-a82a-9f974155debc"/>
+        <status value="active"/>
+        <type value="query-event"/>
+        <eventsSinceSubscriptionStart value="310"/>
+        <notificationEvent>
+          <eventNumber value="307"/>
+          <focus>
+            <reference value="http://example.org/FHIR/R5/Encounter/307"/>
+          </focus>
+          <additionalContext>
+            <reference value="http://example.org/FHIR/R5/Patient/ABC"/>
+          </additionalContext>
+        </notificationEvent>
+        <notificationEvent>
+          <eventNumber value="308"/>
+          <focus>
+            <reference value="http://example.org/FHIR/R5/Encounter/308"/>
+          </focus>
+          <additionalContext>
+            <reference value="http://example.org/FHIR/R5/Patient/ABC"/>
+          </additionalContext>
+        </notificationEvent>
+        <subscription>
+          <reference value="http://example.org/FHIR/R5/Subscription/123"/>
+        </subscription>
+        <topic value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
+      </SubscriptionStatus>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="https://example.org/FHIR/R5/Encounter/307" />
+    <resource>
+      <Encounter xmlns="http://hl7.org/fhir">
+        <id value="307" />
+        <meta>
+          <versionId value="1" />
+          <lastUpdated value="2019-08-07T10:49:22Z" />
+        </meta>
+        <status value="in-progress" />
+        <class>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
+				<code value="VR"/>
+				<display value="virtual" />
+			</coding>
+        </class>
+        <subject>
+          <reference value="Patient/ABC" />
+        </subject>
+      </Encounter>
+    </resource>
+    <request>
+      <method value="PUT" />
+      <url value="Encounter/307" />
+    </request>
+    <response>
+      <status value="201"/>
+    </response>
+  </entry>
+  <entry>
+    <fullUrl value="https://example.org/FHIR/R5/Patient/ABC" />
+    <resource>
+      <Patient xmlns="http://hl7.org/fhir">
+        <id value="ABC" />
+        <meta>
+          <versionId value="1" />
+          <lastUpdated value="2019-08-07T10:49:22Z" />
+        </meta>
+        <name>
+          <use value="official"/>
+          <family value="Example"/>
+          <given value="Patient"/>
+        </name>
+      </Patient>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="https://example.org/FHIR/R5/Encounter/308" />
+    <resource>
+      <Encounter xmlns="http://hl7.org/fhir">
+        <id value="308" />
+        <meta>
+          <versionId value="1" />
+          <lastUpdated value="2019-08-07T10:49:22Z" />
+        </meta>
+        <status value="in-progress" />
+        <class>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
+				<code value="VR"/>
+				<display value="virtual" />
+			</coding>
+        </class>
+        <subject>
+          <reference value="Patient/ABC" />
+        </subject>
+      </Encounter>
+    </resource>
+    <request>
+      <method value="PUT" />
+      <url value="Encounter/308" />
+    </request>
+    <response>
+      <status value="201"/>
+    </response>
+  </entry>
+
+</Bundle>
+

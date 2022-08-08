@@ -7,7 +7,7 @@ INFORMATION: ImmunizationRecommendation.recommendation: Name of child (recommend
 INFORMATION: Reference.reference: Name of child (reference) overlaps with name of parent (Reference)
 INFORMATION: SampledData.data: Name of child (data) overlaps with name of parent (SampledData)
 WARNING: Attachment.contentType: Unable to resolve value set on 'code' Binding
-WARNING: AuditEvent: Resource elements are out of order. The correct order is '[type(=what), subtype(=what), action(=what), outcome(=what), entity(=what), period(=when.done), recorded(=when.recorded), source(=who.witness), agent(=who), purposeOfEvent(=why)]' but the actual order is '[type(=what), subtype(=what), action(=what), period(=when.done), recorded(=when.recorded), outcome(=what), purposeOfEvent(=why), agent(=who), source(=who.witness), entity(=what)]'
+WARNING: AuditEvent: Resource elements are out of order. The correct order is '[category(=what), code(=what), action(=what), outcome(=what), entity(=what), patient(=who.focus), occurred[x](=when.done), recorded(=when.recorded), source(=who.witness), agent(=who), authorization(=why), basedOn(=why), encounter(=why)]' but the actual order is '[category(=what), code(=what), action(=what), occurred[x](=when.done), recorded(=when.recorded), outcome(=what), authorization(=why), basedOn(=why), patient(=who.focus), encounter(=why), agent(=who), source(=who.witness), entity(=what)]' (src = ResourceValidator)
 WARNING: CapabilityStatement.format: Unable to resolve value set on 'code' Binding
 WARNING: CapabilityStatement.patchFormat: Unable to resolve value set on 'code' Binding
 WARNING: CapabilityStatement.rest.security.certificate.type: Unable to resolve value set on 'code' Binding
@@ -31,7 +31,7 @@ WARNING: Observation.comment: MnM must have confirmed this should not be an Anno
 WARNING: OperationDefinition.comment: MnM must have confirmed this should not be an Annotation
 WARNING: OperationDefinition.overload.comment: MnM must have confirmed this should not be an Annotation
 WARNING: Parameters: All resources should have an identifier
-WARNING: Provenance: Resource elements are out of order. The correct order is '[target(=what), occurred[x](=when.done), recorded(=when.recorded), agent(=who), location(=where), reason(=why), activity(=why)]' but the actual order is '[target(=what), occurred[x](=when.done), recorded(=when.recorded), location(=where), reason(=why), activity(=why), agent(=who)]'
+WARNING: Provenance: Resource elements are out of order. The correct order is '[target(=what), patient(=who.focus), occurred[x](=when.done), recorded(=when.recorded), agent(=who), location(=where), authorization(=why), activity(=why), basedOn(=why), encounter(=why)]' but the actual order is '[target(=what), occurred[x](=when.done), recorded(=when.recorded), location(=where), authorization(=why), activity(=why), basedOn(=why), patient(=who.focus), encounter(=why), agent(=who)]' (src = ResourceValidator)
 WARNING: Signature.contentType: Unable to resolve value set on 'code' Binding
 WARNING: StructureDefinition.mapping.comment: MnM must have confirmed this should not be an Annotation
 WARNING: pa:ValueSetComparison: Duplicate Valueset Names: v2/0002/index.html (v2 Marital Status) & valueset-marital-status.html (Marital Status Codes) (name: [statuses, maritals] / [statuses, maritals]))
@@ -53,3 +53,4 @@ INFORMATION: Binding @ Goal.target.detail[x]: Need to provide a binding
 WARNING: AdministrableProductDefinition.routeOfAdministration.targetSpecies: Element names should be singular
 WARNING: MedicinalProductDefinition.specialMeasures: Element names should be singular
 INFORMATION: PlanDefinition.action.relatedAction.actionId: Name of child (actionId) overlaps with name of parent (relatedAction)
+WARNING: NutritionProduct: All resources should have an identifier

@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="InsurancePlan"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Financial.General"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = retired"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/InsurancePlan"/>
+  <version value="4.6.0"/>
+  <name value="InsurancePlan"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Patient Administration)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Details of a Health Insurance product/plan provided by an organization."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="InsurancePlan"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="InsurancePlan">
+      <path value="InsurancePlan"/>
+      <short value="Details of a Health Insurance product/plan provided by an organization"/>
+      <definition value="Details of a Health Insurance product/plan provided by an organization."/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="ipn-1"/>
+        <severity value="error"/>
+        <human value="The organization SHALL at least have a name or an identifier, and possibly more than one"/>
+        <expression value="(identifier.count() + name.count()) &gt; 0"/>
+        <xpath value="count(f:identifier | f:name) &gt; 0"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/InsurancePlan"/>
+      </constraint>
+      <mapping>
+        <identity value="w5"/>
+        <map value="administrative.entity"/>
+      </mapping>
+    </element>
+    <element id="InsurancePlan.identifier">
+      <path value="InsurancePlan.identifier"/>
+      <short value="Business Identifier for Product"/>
+      <definition value="Business identifiers assigned to this health insurance product which remain constant as the resource is updated and propagates from server to server."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <condition value="ipn-1"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".scopes[Role](classCode=IDENT)"/>
+      </mapping>
+    </element>
+    <element id="InsurancePlan.status">
+      <path value="InsurancePlan.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The current state of the health insurance product."/>
+      <requirements value="Need a flag to indicate a record is no longer to be used and should generally be hidden for the user in the UI."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <meaningWhenMissing value="Default interpretation is active."/>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains codes which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".status"/>
+      </mapping>
+    </element>
+    <element id="InsurancePlan.type">
+      <path value="InsurancePlan.type"/>
+      <short value="Kind of product"/>
+      <definition value="The kind of health insurance product."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InsurancePlanType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Used to categorize the product/plan."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/insuranceplan-type"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="InsurancePlan.name">
+      <path value="InsurancePlan.name"/>
+      <short value="Official name"/>
+      <definition value="Official name of the health insurance product as designated by the owner."/>
+      <comment value="If the name of the product/plan changes, consider putting the old name in the alias column so that it can still be located through searches."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="ipn-1"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".name"/>
+      </mapping>
+    </element>
+    <element id="InsurancePlan.alias">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="This is used in many registries, and is often very important in searching."/>
+      </extension>
+      <path value="InsurancePlan.alias"/>
+      <short value="Alternate names"/>
+      <definition value="A list of alternate names that the product is known as, or was known as in the past."/>
+      <comment value="There are no dates associated with the alias/historic names, as this is not intended to track when names were used, but to assist in searching so that older names can still result in identifying the product/plan."/>
+      <requirements value="Over time products/plans go through many changes and can be known by different names.&#xA;&#xA;For searching knowing previous names that the product/plan was known by can be very useful."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".name"/>
+      </mapping>
+    </element>
+    <element id="InsurancePlan.period">
+      <path value="InsurancePlan.period"/>
+      <short value="When the product is available"/>
+      <definition value="The period of time that the health insurance product is available."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.ownedBy">
+      <path value="InsurancePlan.ownedBy"/>
+      <short value="Plan issuer"/>
+      <definition value="The entity that is providing  the health insurance product and underwriting the risk.  This is typically an insurance carriers, other third-party payers, or health plan sponsors comonly referred to as &#39;payers&#39;."/>
+      <alias value="Payer"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="InsurancePlan.administeredBy">
+      <path value="InsurancePlan.administeredBy"/>
+      <short value="Product administrator"/>
+      <definition value="An organization which administer other services such as underwriting, customer service and/or claims processing on behalf of the health insurance product owner."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="InsurancePlan.coverageArea">
+      <path value="InsurancePlan.coverageArea"/>
+      <short value="Where product applies"/>
+      <definition value="The geographic region in which a health insurance product&#39;s benefits apply."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="InsurancePlan.contact">
+      <path value="InsurancePlan.contact"/>
+      <short value="Official contact details relevant to the health insurance plan/product"/>
+      <definition value="The contact details of communication devices available relevant to the specific Insurance Plan/Product. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
+      <requirements value="Need to keep track of both simple contact details and also assigned contacts within larger organizations."/>
+      <comment value="The address/telecom use code &#39;home&#39; are not to be used."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ExtendedContactDetail"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".contactParty"/>
+      </mapping>
+    </element>
+    <element id="InsurancePlan.endpoint">
+      <path value="InsurancePlan.endpoint"/>
+      <short value="Technical endpoint"/>
+      <definition value="The technical endpoints providing access to services operated for the health insurance product."/>
+      <requirements value="Organizations have multiple systems that provide various services and need to be able to define the technical connection details for how to connect to them, and for what purpose."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="InsurancePlan.network">
+      <path value="InsurancePlan.network"/>
+      <short value="What networks are Included"/>
+      <definition value="Reference to the network included in the health insurance product."/>
+      <comment value="Networks are represented as a hierarchy of organization resources."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.coverage">
+      <path value="InsurancePlan.coverage"/>
+      <short value="Coverage details"/>
+      <definition value="Details about the coverage offered by the insurance product."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.coverage.type">
+      <path value="InsurancePlan.coverage.type"/>
+      <short value="Type of coverage"/>
+      <definition value="Type of coverage  (Medical; Dental; Mental Health; Substance Abuse; Vision; Drug; Short Term; Long Term Care; Hospice; Home Health)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.coverage.network">
+      <path value="InsurancePlan.coverage.network"/>
+      <short value="What networks provide coverage"/>
+      <definition value="Reference to the network that providing the type of coverage."/>
+      <comment value="Networks are represented as a hierarchy of organization resources."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.coverage.benefit">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="CoverageBenefit"/>
+      </extension>
+      <path value="InsurancePlan.coverage.benefit"/>
+      <short value="List of benefits"/>
+      <definition value="Specific benefits under this type of coverage."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.coverage.benefit.type">
+      <path value="InsurancePlan.coverage.benefit.type"/>
+      <short value="Type of benefit"/>
+      <definition value="Type of benefit (primary care; speciality care; inpatient; outpatient)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.coverage.benefit.requirement">
+      <path value="InsurancePlan.coverage.benefit.requirement"/>
+      <short value="Referral requirements"/>
+      <definition value="The referral requirements to have access/coverage for this benefit."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.coverage.benefit.limit">
+      <path value="InsurancePlan.coverage.benefit.limit"/>
+      <short value="Benefit limits"/>
+      <definition value="The specific limits on the benefit."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.coverage.benefit.limit.value">
+      <path value="InsurancePlan.coverage.benefit.limit.value"/>
+      <short value="Maximum value allowed"/>
+      <definition value="The maximum amount of a service item a plan will pay for a covered benefit.  For examples. wellness visits, or eyeglasses."/>
+      <comment value="May also be called &#x201C;eligible expense,&#x201D; &#x201C;payment allowance,&#x201D; or &#x201C;negotiated rate.&#x201D;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.coverage.benefit.limit.code">
+      <path value="InsurancePlan.coverage.benefit.limit.code"/>
+      <short value="Benefit limit details"/>
+      <definition value="The specific limit on the benefit."/>
+      <comment value="Use `CodeableConcept.text` element if the data is free (uncoded) text."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan">
+      <path value="InsurancePlan.plan"/>
+      <short value="Plan details"/>
+      <definition value="Details about an insurance plan."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan.identifier">
+      <path value="InsurancePlan.plan.identifier"/>
+      <short value="Business Identifier for Product"/>
+      <definition value="Business identifiers assigned to this health insurance plan which remain constant as the resource is updated and propagates from server to server."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".scopes[Role](classCode=IDENT)"/>
+      </mapping>
+    </element>
+    <element id="InsurancePlan.plan.type">
+      <path value="InsurancePlan.plan.type"/>
+      <short value="Type of plan"/>
+      <definition value="Type of plan. For example, &quot;Platinum&quot; or &quot;High Deductable&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan.coverageArea">
+      <path value="InsurancePlan.plan.coverageArea"/>
+      <short value="Where product applies"/>
+      <definition value="The geographic region in which a health insurance plan&#39;s benefits apply."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="InsurancePlan.plan.network">
+      <path value="InsurancePlan.plan.network"/>
+      <short value="What networks provide coverage"/>
+      <definition value="Reference to the network that providing the type of coverage."/>
+      <comment value="Networks are represented as a hierarchy of organization resources."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan.generalCost">
+      <path value="InsurancePlan.plan.generalCost"/>
+      <short value="Overall costs"/>
+      <definition value="Overall costs associated with the plan."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan.generalCost.type">
+      <path value="InsurancePlan.plan.generalCost.type"/>
+      <short value="Type of cost"/>
+      <definition value="Type of cost."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan.generalCost.groupSize">
+      <path value="InsurancePlan.plan.generalCost.groupSize"/>
+      <short value="Number of enrollees"/>
+      <definition value="Number of participants enrolled in the plan."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan.generalCost.cost">
+      <path value="InsurancePlan.plan.generalCost.cost"/>
+      <short value="Cost value"/>
+      <definition value="Value of the cost."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan.generalCost.comment">
+      <path value="InsurancePlan.plan.generalCost.comment"/>
+      <short value="Additional cost information"/>
+      <definition value="Additional information about the general costs associated with this plan."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan.specificCost">
+      <path value="InsurancePlan.plan.specificCost"/>
+      <short value="Specific costs"/>
+      <definition value="Costs associated with the coverage provided by the product."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan.specificCost.category">
+      <path value="InsurancePlan.plan.specificCost.category"/>
+      <short value="General category of benefit"/>
+      <definition value="General category of benefit (Medical; Dental; Vision; Drug; Mental Health; Substance Abuse; Hospice, Home Health)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan.specificCost.benefit">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="PlanBenefit"/>
+      </extension>
+      <path value="InsurancePlan.plan.specificCost.benefit"/>
+      <short value="Benefits list"/>
+      <definition value="List of the specific benefits under this category of benefit."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan.specificCost.benefit.type">
+      <path value="InsurancePlan.plan.specificCost.benefit.type"/>
+      <short value="Type of specific benefit"/>
+      <definition value="Type of specific benefit (preventative; primary care office visit; speciality office visit; hospitalization; emergency room; urgent care)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan.specificCost.benefit.cost">
+      <path value="InsurancePlan.plan.specificCost.benefit.cost"/>
+      <short value="List of the costs"/>
+      <definition value="List of the costs associated with a specific benefit."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan.specificCost.benefit.cost.type">
+      <path value="InsurancePlan.plan.specificCost.benefit.cost.type"/>
+      <short value="Type of cost"/>
+      <definition value="Type of cost (copay; individual cap; family cap; coinsurance; deductible)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan.specificCost.benefit.cost.applicability">
+      <path value="InsurancePlan.plan.specificCost.benefit.cost.applicability"/>
+      <short value="in-network | out-of-network | other"/>
+      <definition value="Whether the cost applies to in-network or out-of-network providers (in-network; out-of-network; other)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BenefitCostApplicability"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Whether the cost applies to in-network or out-of-network providers."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/insuranceplan-applicability"/>
+      </binding>
+    </element>
+    <element id="InsurancePlan.plan.specificCost.benefit.cost.qualifiers">
+      <path value="InsurancePlan.plan.specificCost.benefit.cost.qualifiers"/>
+      <short value="Additional information about the cost"/>
+      <definition value="Additional information about the cost, such as information about funding sources (e.g. HSA, HRA, FSA, RRA)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InsurancePlan.plan.specificCost.benefit.cost.value">
+      <path value="InsurancePlan.plan.specificCost.benefit.cost.value"/>
+      <short value="The actual cost value"/>
+      <definition value="The actual cost value. (some of the costs may be represented as percentages rather than currency, e.g. 10% coinsurance)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

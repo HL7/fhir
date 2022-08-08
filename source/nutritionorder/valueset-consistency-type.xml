@@ -1,6 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="consistency-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/consistency-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.389"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="FluidConsistencyTypeCodes"/>
   <title value="Fluid Consistency Type Codes"/>
   <status value="draft"/>
@@ -12,18 +25,11 @@
     </telecom>
   </contact>
   <description value="FluidConsistencyType :  Codes used to represent the consistency of fluids and liquids provided to the patient. This value set includes concepts from [SNOMED CT](http://snomed.info/sct)(US Extension) where concept is a 435681000124103  (Dietary liquid consistency diet (regime/therapy)). It is provided as a suggestive example."/>
-  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      <version value="http://snomed.info/sct/731000124108"/> <!-- these use US SCT codes for now -->
-    <!--  SNOMED CT - Children of SCTID: 435681000124103 "Dietary liquid consistency diet (regime/therapy) since only four are expanded by hand"
-			<filter>
-				<property value="concept"/>
-				<op value="is-a"/>
-				<value value="435681000124103"/>
-			</filter>
-  -->
+      <version value="http://snomed.info/sct/731000124108"/>
       <concept>
         <code value="439031000124108"/>
         <display value="honey thick liquid"/>

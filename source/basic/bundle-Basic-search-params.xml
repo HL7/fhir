@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Basic-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Basic-author"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Basic.author"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Basic-author"/>
+        <description value="Who created"/>
+        <code value="author"/>
+        <type value="reference"/>
+        <expression value="Basic.author"/>
+        <xpath value="f:Basic/f:author"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Basic-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Basic.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Basic-code"/>
+        <description value="Kind of Resource"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="Basic.code"/>
+        <xpath value="f:Basic/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Basic-created"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Basic.created"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Basic-created"/>
+        <description value="When created"/>
+        <code value="created"/>
+        <type value="date"/>
+        <expression value="Basic.created"/>
+        <xpath value="f:Basic/f:created"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Basic-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Basic.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Basic-identifier"/>
+        <description value="Business identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Basic.identifier"/>
+        <xpath value="f:Basic/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Basic-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Basic.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Basic-patient"/>
+        <description value="Identifies the focus of this resource"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="Basic.subject.where(resolve() is Patient)"/>
+        <xpath value="f:Basic/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Basic-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Basic.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Basic-subject"/>
+        <description value="Identifies the focus of this resource"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="Basic.subject"/>
+        <xpath value="f:Basic/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

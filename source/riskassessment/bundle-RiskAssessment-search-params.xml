@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="RiskAssessment-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RiskAssessment-condition"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RiskAssessment.condition"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RiskAssessment-condition"/>
+        <description value="Condition assessed"/>
+        <code value="condition"/>
+        <type value="reference"/>
+        <expression value="RiskAssessment.condition"/>
+        <xpath value="f:RiskAssessment/f:condition"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RiskAssessment-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RiskAssessment.occurrenceDateTime"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RiskAssessment-date"/>
+        <description value="When was assessment made?"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="(RiskAssessment.occurrence as dateTime)"/>
+        <xpath value="f:RiskAssessment/f:occurrenceDateTime"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RiskAssessment-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RiskAssessment.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RiskAssessment-encounter"/>
+        <description value="Where was assessment performed?"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="RiskAssessment.encounter"/>
+        <xpath value="f:RiskAssessment/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RiskAssessment-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RiskAssessment.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RiskAssessment-identifier"/>
+        <description value="Unique identifier for the assessment"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="RiskAssessment.identifier"/>
+        <xpath value="f:RiskAssessment/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RiskAssessment-method"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RiskAssessment.method"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RiskAssessment-method"/>
+        <description value="Evaluation mechanism"/>
+        <code value="method"/>
+        <type value="token"/>
+        <expression value="RiskAssessment.method"/>
+        <xpath value="f:RiskAssessment/f:method"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RiskAssessment-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RiskAssessment.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RiskAssessment-patient"/>
+        <description value="Who/what does assessment apply to?"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="RiskAssessment.subject.where(resolve() is Patient)"/>
+        <xpath value="f:RiskAssessment/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RiskAssessment-performer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RiskAssessment.performer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RiskAssessment-performer"/>
+        <description value="Who did assessment?"/>
+        <code value="performer"/>
+        <type value="reference"/>
+        <expression value="RiskAssessment.performer"/>
+        <xpath value="f:RiskAssessment/f:performer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RiskAssessment-probability"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RiskAssessment.prediction.probability[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RiskAssessment-probability"/>
+        <description value="Likelihood of specified outcome"/>
+        <code value="probability"/>
+        <type value="number"/>
+        <expression value="RiskAssessment.prediction.probability"/>
+        <xpath value="f:RiskAssessment/f:prediction/f:probabilityDecimal | f:RiskAssessment/f:prediction/f:probabilityRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RiskAssessment-risk"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RiskAssessment.prediction.qualitativeRisk"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RiskAssessment-risk"/>
+        <description value="Likelihood of specified outcome as a qualitative value"/>
+        <code value="risk"/>
+        <type value="token"/>
+        <expression value="RiskAssessment.prediction.qualitativeRisk"/>
+        <xpath value="f:RiskAssessment/f:prediction/f:qualitativeRisk"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RiskAssessment-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RiskAssessment.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RiskAssessment-subject"/>
+        <description value="Who/what does assessment apply to?"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="RiskAssessment.subject"/>
+        <xpath value="f:RiskAssessment/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

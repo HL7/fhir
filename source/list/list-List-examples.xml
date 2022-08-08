@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="List-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General List Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="list-example"/>
+    </extension>
+    <item>
+      <reference value="List/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Empty List Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="list-example-empty"/>
+    </extension>
+    <item>
+      <reference value="List/example-empty"/>
+      <display value="Empty List"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Empty List (no exception reason)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="list-example-simple-empty"/>
+    </extension>
+    <item>
+      <reference value="List/example-simple-empty"/>
+      <display value="Simple Empty List"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Medication Change List"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="list-example-medlist"/>
+    </extension>
+    <item>
+      <reference value="List/med-list"/>
+      <display value="Med List"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Real-world patient example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="list-example-familyhistory-f201-roel"/>
+    </extension>
+    <item>
+      <reference value="List/f201"/>
+      <display value="Familyhistory"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple genetic family member history"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="list-example-familyhistory-genetics-profile"/>
+    </extension>
+    <item>
+      <reference value="List/genetic"/>
+      <display value="Family History - genetic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example for risk assessment"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="list-example-familyhistory-genetics-profile-annie"/>
+    </extension>
+    <item>
+      <reference value="List/prognosis"/>
+      <display value="Family History - genetic annie"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of current allergies list"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="list-example-allergies"/>
+    </extension>
+    <item>
+      <reference value="List/current-allergies"/>
+      <display value="Allergies List"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple genetic pedigree tree example with double cousin replationship"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="list-example-double-cousin-relationship-pedigree"/>
+    </extension>
+    <item>
+      <reference value="List/example-double-cousin-relationship"/>
+      <display value="Family History- double cousin relationship"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="A long list with many entries for testing handling longer lists"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="list-example-long"/>
+    </extension>
+    <item>
+      <reference value="List/long"/>
+      <display value="Long List"/>
+    </item>
+  </entry>
+</List>

@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="VerificationResult"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Base.Workflow"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/VerificationResult"/>
+  <version value="4.6.0"/>
+  <name value="VerificationResult"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Patient Administration)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Describes validation requirements, source(s), status and dates for one or more elements."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="VerificationResult"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="VerificationResult">
+      <path value="VerificationResult"/>
+      <short value="Describes validation requirements, source(s), status and dates for one or more elements"/>
+      <definition value="Describes validation requirements, source(s), status and dates for one or more elements."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="administrative.entity"/>
+      </mapping>
+    </element>
+    <element id="VerificationResult.target">
+      <path value="VerificationResult.target"/>
+      <short value="A resource that was validated"/>
+      <definition value="A resource that was validated."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="VerificationResult.targetLocation">
+      <path value="VerificationResult.targetLocation"/>
+      <short value="The fhirpath location(s) within the resource that was validated"/>
+      <definition value="The fhirpath location(s) within the resource that was validated."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="VerificationResult.need">
+      <path value="VerificationResult.need"/>
+      <short value="none | initial | periodic"/>
+      <definition value="The frequency with which the target must be validated (none; initial; periodic)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="need"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The frequency with which the target must be validated."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-need"/>
+      </binding>
+    </element>
+    <element id="VerificationResult.status">
+      <path value="VerificationResult.status"/>
+      <short value="attested | validated | in-process | req-revalid | val-fail | reval-fail"/>
+      <definition value="The validation status of the target (attested; validated; in process; requires revalidation; validation failed; revalidation failed)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="status"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The validation status of the target."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-status"/>
+      </binding>
+    </element>
+    <element id="VerificationResult.statusDate">
+      <path value="VerificationResult.statusDate"/>
+      <short value="When the validation status was updated"/>
+      <definition value="When the validation status was updated."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="VerificationResult.validationType">
+      <path value="VerificationResult.validationType"/>
+      <short value="nothing | primary | multiple"/>
+      <definition value="What the target is validated against (nothing; primary source; multiple sources)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="validation-type"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="What the target is validated against."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-validation-type"/>
+      </binding>
+    </element>
+    <element id="VerificationResult.validationProcess">
+      <path value="VerificationResult.validationProcess"/>
+      <short value="The primary process by which the target is validated (edit check; value set; primary source; multiple sources; standalone; in context)"/>
+      <definition value="The primary process by which the target is validated (edit check; value set; primary source; multiple sources; standalone; in context)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="validation-process"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The primary process by which the target is validated."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-validation-process"/>
+      </binding>
+    </element>
+    <element id="VerificationResult.frequency">
+      <path value="VerificationResult.frequency"/>
+      <short value="Frequency of revalidation"/>
+      <definition value="Frequency of revalidation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Timing"/>
+      </type>
+    </element>
+    <element id="VerificationResult.lastPerformed">
+      <path value="VerificationResult.lastPerformed"/>
+      <short value="The date/time validation was last completed (including failed validations)"/>
+      <definition value="The date/time validation was last completed (including failed validations)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="VerificationResult.nextScheduled">
+      <path value="VerificationResult.nextScheduled"/>
+      <short value="The date when target is next validated, if appropriate"/>
+      <definition value="The date when target is next validated, if appropriate."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+    </element>
+    <element id="VerificationResult.failureAction">
+      <path value="VerificationResult.failureAction"/>
+      <short value="fatal | warn | rec-only | none"/>
+      <definition value="The result if validation fails (fatal; warning; record only; none)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="failure-action"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The result if validation fails."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-failure-action"/>
+      </binding>
+    </element>
+    <element id="VerificationResult.primarySource">
+      <path value="VerificationResult.primarySource"/>
+      <short value="Information about the primary source(s) involved in validation"/>
+      <definition value="Information about the primary source(s) involved in validation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="VerificationResult.primarySource.who">
+      <path value="VerificationResult.primarySource.who"/>
+      <short value="Reference to the primary source"/>
+      <definition value="Reference to the primary source."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.who"/>
+      </mapping>
+    </element>
+    <element id="VerificationResult.primarySource.type">
+      <path value="VerificationResult.primarySource.type"/>
+      <short value="Type of primary source (License Board; Primary Education; Continuing Education; Postal Service; Relationship owner; Registration Authority; legal source; issuing source; authoritative source)"/>
+      <definition value="Type of primary source (License Board; Primary Education; Continuing Education; Postal Service; Relationship owner; Registration Authority; legal source; issuing source; authoritative source)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="primary-source-type"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Type of the validation primary source."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-primary-source-type"/>
+      </binding>
+    </element>
+    <element id="VerificationResult.primarySource.communicationMethod">
+      <path value="VerificationResult.primarySource.communicationMethod"/>
+      <short value="Method for exchanging information with the primary source"/>
+      <definition value="Method for communicating with the primary source (manual; API; Push)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="communication-method"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Method for communicating with the data source (manual; API; Push)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-communication-method"/>
+      </binding>
+    </element>
+    <element id="VerificationResult.primarySource.validationStatus">
+      <path value="VerificationResult.primarySource.validationStatus"/>
+      <short value="successful | failed | unknown"/>
+      <definition value="Status of the validation of the target against the primary source (successful; failed; unknown)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="validation-status"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Status of the validation of the target against the primary source."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-validation-status"/>
+      </binding>
+    </element>
+    <element id="VerificationResult.primarySource.validationDate">
+      <path value="VerificationResult.primarySource.validationDate"/>
+      <short value="When the target was validated against the primary source"/>
+      <definition value="When the target was validated against the primary source."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="VerificationResult.primarySource.canPushUpdates">
+      <path value="VerificationResult.primarySource.canPushUpdates"/>
+      <short value="yes | no | undetermined"/>
+      <definition value="Ability of the primary source to push updates/alerts (yes; no; undetermined)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="can-push-updates"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Ability of the primary source to push updates/alerts."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-can-push-updates"/>
+      </binding>
+    </element>
+    <element id="VerificationResult.primarySource.pushTypeAvailable">
+      <path value="VerificationResult.primarySource.pushTypeAvailable"/>
+      <short value="specific | any | source"/>
+      <definition value="Type of alerts/updates the primary source can send (specific requested changes; any changes; as defined by source)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="push-type-available"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Type of alerts/updates the primary source can send."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-push-type-available"/>
+      </binding>
+    </element>
+    <element id="VerificationResult.attestation">
+      <path value="VerificationResult.attestation"/>
+      <short value="Information about the entity attesting to information"/>
+      <definition value="Information about the entity attesting to information."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="VerificationResult.attestation.who">
+      <path value="VerificationResult.attestation.who"/>
+      <short value="The individual or organization attesting to information"/>
+      <definition value="The individual or organization attesting to information."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="VerificationResult.attestation.onBehalfOf">
+      <path value="VerificationResult.attestation.onBehalfOf"/>
+      <short value="When the who is asserting on behalf of another (organization or individual)"/>
+      <definition value="When the who is asserting on behalf of another (organization or individual)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="VerificationResult.attestation.communicationMethod">
+      <path value="VerificationResult.attestation.communicationMethod"/>
+      <short value="The method by which attested information was submitted/retrieved"/>
+      <definition value="The method by which attested information was submitted/retrieved (manual; API; Push)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="communication-method"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Method for communicating with the data source (manual; API; Push)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/verificationresult-communication-method"/>
+      </binding>
+    </element>
+    <element id="VerificationResult.attestation.date">
+      <path value="VerificationResult.attestation.date"/>
+      <short value="The date the information was attested to"/>
+      <definition value="The date the information was attested to."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="VerificationResult.attestation.sourceIdentityCertificate">
+      <path value="VerificationResult.attestation.sourceIdentityCertificate"/>
+      <short value="A digital identity certificate associated with the attestation source"/>
+      <definition value="A digital identity certificate associated with the attestation source."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="VerificationResult.attestation.proxyIdentityCertificate">
+      <path value="VerificationResult.attestation.proxyIdentityCertificate"/>
+      <short value="A digital identity certificate associated with the proxy entity submitting attested information on behalf of the attestation source"/>
+      <definition value="A digital identity certificate associated with the proxy entity submitting attested information on behalf of the attestation source."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="VerificationResult.attestation.proxySignature">
+      <path value="VerificationResult.attestation.proxySignature"/>
+      <short value="Proxy signature"/>
+      <definition value="Signed assertion by the proxy entity indicating that they have the right to submit attested information on behalf of the attestation source."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Signature"/>
+      </type>
+    </element>
+    <element id="VerificationResult.attestation.sourceSignature">
+      <path value="VerificationResult.attestation.sourceSignature"/>
+      <short value="Attester signature"/>
+      <definition value="Signed assertion by the attestation source that they have attested to the information."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Signature"/>
+      </type>
+    </element>
+    <element id="VerificationResult.validator">
+      <path value="VerificationResult.validator"/>
+      <short value="Information about the entity validating information"/>
+      <definition value="Information about the entity validating information."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="VerificationResult.validator.organization">
+      <path value="VerificationResult.validator.organization"/>
+      <short value="Reference to the organization validating information"/>
+      <definition value="Reference to the organization validating information."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="VerificationResult.validator.identityCertificate">
+      <path value="VerificationResult.validator.identityCertificate"/>
+      <short value="A digital identity certificate associated with the validator"/>
+      <definition value="A digital identity certificate associated with the validator."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="VerificationResult.validator.attestationSignature">
+      <path value="VerificationResult.validator.attestationSignature"/>
+      <short value="Validator signature"/>
+      <definition value="Signed assertion by the validator that they have validated the information."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Signature"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

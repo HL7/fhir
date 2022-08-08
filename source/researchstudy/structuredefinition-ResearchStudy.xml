@@ -1,0 +1,1381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ResearchStudy"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Public Health &amp;amp; Research"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
+  <version value="4.6.0"/>
+  <name value="ResearchStudy"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects."/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="BRIDG5.1"/>
+    <uri value="https://bridgmodel.nci.nih.gov"/>
+    <name value="BRIDG 5.1 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="clinicaltrials-gov"/>
+    <uri value="http://clinicaltrials.gov"/>
+    <name value="ClinicalTrials.gov Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="ResearchStudy"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="ResearchStudy">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="440,0"/>
+      </extension>
+      <path value="ResearchStudy"/>
+      <short value="Investigation to increase healthcare-related patient-independent knowledge"/>
+      <definition value="A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances."/>
+      <comment value="Need to make sure we encompass public health studies."/>
+      <alias value="Clinical Trial"/>
+      <alias value="Study"/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="ObservationalStudyProtocolVersion; Study;&#xA;StudyProtocolVersion"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Observation[classCode=CLNTRL, moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.diagnostics"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.url">
+      <path value="ResearchStudy.url"/>
+      <short value="Canonical identifier for this study resource"/>
+      <definition value="Canonical identifier for this study resource, represented as a globally unique URI."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.identifier">
+      <path value="ResearchStudy.identifier"/>
+      <short value="Business Identifier for study"/>
+      <definition value="Identifiers assigned to this research study by the sponsor or other systems."/>
+      <requirements value="Allows identification of the research study as it is known by various participating systems and in a way that remains consistent across servers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Organization&#39;s Unique Protocol ID; Secondary IDs"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="No BRIDG mapping (although there is  DocumentVersion.identifier &gt; StudyProtocolDocumentVersion, this is arguably a different semantic)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".identifier"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.version">
+      <path value="ResearchStudy.version"/>
+      <short value="Business identifier for the study record"/>
+      <definition value="Business identifier for the study record."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.name">
+      <path value="ResearchStudy.name"/>
+      <short value="Name for this study (computer friendly)"/>
+      <definition value="Name for this study (computer friendly)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.title">
+      <path value="ResearchStudy.title"/>
+      <short value="Human readable name of the study"/>
+      <definition value="The human readable name of the research study."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Brief Title"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="No BRIDG mapping (although there is  StudyProtocolDocumentVersionPublicTitle this is arguably a different semantic: title of a document vs title of a research study)"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.label">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="40,0"/>
+      </extension>
+      <path value="ResearchStudy.label"/>
+      <short value="Additional names for the study"/>
+      <definition value="Additional names for the study."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.label.type">
+      <path value="ResearchStudy.label.type"/>
+      <short value="primary | official | scientific | plain-language | subtitle | short-title | acronym | earlier-title | language | auto-translated | human-use | machine-use | duplicate-uid"/>
+      <definition value="Kind of name."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TitleType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="desc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/title-type"/>
+      </binding>
+    </element>
+    <element id="ResearchStudy.label.value">
+      <path value="ResearchStudy.label.value"/>
+      <short value="The name"/>
+      <definition value="The name."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.protocol">
+      <path value="ResearchStudy.protocol"/>
+      <short value="Steps followed in executing study"/>
+      <definition value="The set of steps expected to be performed as part of the execution of the study."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Interventions; Arm/Intervention Cross-Reference"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudyProtocolDocumentVersionPublicTitle.name"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.partOf">
+      <path value="ResearchStudy.partOf"/>
+      <short value="Part of larger study"/>
+      <definition value="A larger research study of which this particular study is a component or step."/>
+      <requirements value="Allows breaking a study into components (e.g. by study site) each with their own PI, status, enrollment, etc."/>
+      <alias value="container"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="CompanionStudyRelationship"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[moodCode=EVN]"/>
+      </mapping>
+    </element>
+
+    <element id="ResearchStudy.relatedArtifact">
+      <path value="ResearchStudy.relatedArtifact"/>
+      <short value="References and dependencies"/>
+      <definition value="Citations, references and other related documents."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Citations, Links, Available Study Data/Documents"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudyProtocolDocument, StudyProtocolDocumentVersion"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.date">
+      <path value="ResearchStudy.date"/>
+      <short value="Date the resource last changed"/>
+      <definition value="The date (and optionally time) when the ResearchStudy Resource was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the ResearchStudy Resource changes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.status">
+      <path value="ResearchStudy.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The publication state of the resource (not of the study)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes that convey the current publication status of the research study resource."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudyOverallStatus.code"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".status"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.primaryPurposeType">
+      <path value="ResearchStudy.primaryPurposeType"/>
+      <short value="treatment | prevention | diagnostic | supportive-care | screening | health-services-research | basic-science | device-feasibility"/>
+      <definition value="The type of study based upon the intent of the study activities. A classification of the intent of the study."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyPrimaryPurposeType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Codes for the main intent of the study."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-prim-purp-type"/>
+      </binding>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudyProtocolVersion.primaryPurposeTypeCode"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.phase">
+      <path value="ResearchStudy.phase"/>
+      <short value="n-a | early-phase-1 | phase-1 | phase-1-phase-2 | phase-2 | phase-2-phase-3 | phase-3 | phase-4"/>
+      <definition value="The stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyPhase"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-phase"/>
+      </binding>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Study Phase"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudyProtocolVersion.phaseCode"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.category">
+      <path value="ResearchStudy.category"/>
+      <short value="Classifications for the study"/>
+      <definition value="Codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes that describe the type of research study.  E.g. Study phase, Interventional/Observational, blinding type, etc."/>
+      </binding>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Study Type; Primary Purpose; Interventional Model; Masking; Allocation; study Classification; Observational Study Model; Time Perspective; Biospecimen Retention"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="InterventionalStudyProtocolVersion; InterventionalStudyProtocol.allocationCode; InterventionalStudyProtocol.blindedRoleCode; InterventionalStudyProtocol.blindingSchemaCode; InterventionalStudyProtocol.controlTypeCode"/>
+      </mapping>
+    </element>
+
+    <!-- Focus -->
+    <element id="ResearchStudy.focus">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="840,0"/>
+      </extension>
+      <path value="ResearchStudy.focus"/>
+      <short value="Drugs, devices, etc. under study"/>
+      <definition value="The medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.focus.productCode">
+      <path value="ResearchStudy.focus.productCode"/>
+      <short value="Identification of product under study"/>
+      <definition value="Identification of product under study.  This may be any combination of code and/or name."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyFocus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for medications, devices and other interventions."/>
+      </binding>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Focus of Study"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="InterventionalStudyProtocol.interventionTypeCode"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.focus.focusType">
+      <path value="ResearchStudy.focus.focusType"/>
+      <short value="medication | device | intervention | factor"/>
+      <definition value="Indicates whether the focus is a medication, a device, a procedure, a specific factor or some other intervention or characteristic."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyFocusType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="defn."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-focus-type"/>
+      </binding>
+    </element>
+    <element id="ResearchStudy.focus.factor">
+      <path value="ResearchStudy.focus.factor"/>
+      <short value="An independent variable manipulated by the experimentalist"/>
+      <definition value="A factor corresponds to an independent variable manipulated by the experimentalist with the intention to affect biological systems in a way that can be measured by an assay."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+
+
+
+    <!-- Condition -->
+    <element id="ResearchStudy.condition">
+      <path value="ResearchStudy.condition"/>
+      <short value="Condition being studied"/>
+      <definition value="The condition that is the focus of the study.  For example, In a study to examine risk factors for Lupus, might have as an inclusion criterion &quot;healthy volunteer&quot;, but the target condition code would be a Lupus SNOMED code."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConditionCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Identification of the condition or diagnosis."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
+      </binding>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Conditions"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudyCondition.code"/>
+      </mapping>
+    </element>
+
+    <element id="ResearchStudy.keyword">
+      <path value="ResearchStudy.keyword"/>
+      <short value="Used to search for the study"/>
+      <definition value="Key terms to aid in searching for or filtering the study."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyKeyword"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Words associated with the study that may be useful in discovery."/>
+      </binding>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Keywords"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="DocumentVersion.keywordCode; DocumentVersion.keywordText"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.location">
+      <path value="ResearchStudy.location"/>
+      <short value="Geographic region(s) for study"/>
+      <definition value="Indicates a country, state or other region where the study is taking place."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudyProtocolVersion.participatingLocationCode"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.descriptionSummary">
+      <path value="ResearchStudy.descriptionSummary"/>
+      <short value="Brief text explaining the study"/>
+      <definition value="A brief text for explaining the study."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.description">
+      <path value="ResearchStudy.description"/>
+      <short value="Detailed narrative of the study"/>
+      <definition value="A detailed and human-readable narrative of the study. E.g., study abstract."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Detailed Description"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudyProtocolDocumentVersion.publicDescription"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.period">
+      <path value="ResearchStudy.period"/>
+      <short value="When the study began and ended"/>
+      <definition value="Identifies the start date and the expected (or actual, depending on status) end date for the study."/>
+      <alias value="timing"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Study Start Date (start); Study Completion Date (end)"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="ProjectConduct.dateRange; StudyProtocolVersion.plannedDuration"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".effectiveTime"/>
+      </mapping>
+    </element>
+
+    <!-- Contact -->
+    <element id="ResearchStudy.contact">
+      <path value="ResearchStudy.contact"/>
+      <short value="Contact details for the study"/>
+      <definition value="Contact details to assist a user in learning more about or engaging with the study."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Central Contact; Central Contact Backup; Overall Study Officials; Facility Contact &amp; Backup (if Study tied to only one location); Investigators"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="PointOfContact &gt; Project &gt; Research Project &gt; Study &gt; StudyProtocol &gt; StudyProtocolVersion"/>
+      </mapping>
+    </element>
+
+    <!-- Sponsor -->
+    <element id="ResearchStudy.sponsor">
+      <path value="ResearchStudy.sponsor"/>
+      <short value="Organization that initiates and is legally responsible for the study"/>
+      <definition value="An organization that initiates the investigation and is legally responsible for the study."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Sponsor"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="RegulatoryApplicationSponsor; StudyLegalSponsor; StudyProtocolVersion.responsiblePartyCode"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.principalInvestigator">
+      <path value="ResearchStudy.principalInvestigator"/>
+      <short value="Researcher who oversees multiple aspects of the study"/>
+      <definition value="A researcher in a study who oversees multiple aspects of the study, such as concept development, protocol writing, protocol submission for IRB approval, participant recruitment, informed consent, data collection, analysis, interpretation and presentation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Principal Investigator"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudyInvestigator"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.site">
+      <path value="ResearchStudy.site"/>
+      <short value="Facility where study activities are conducted"/>
+      <definition value="A facility in which study activities are conducted."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Facility"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.where[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="PlannedStudySite; StudySite"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.note">
+      <path value="ResearchStudy.note"/>
+      <short value="Comments made about the study"/>
+      <definition value="Comments made about the study by the performer, subject or other participants."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="No BRIDG mapping"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]"/>
+      </mapping>
+    </element>
+
+    <!--Classification -->
+    <element id="ResearchStudy.classification">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="40,190"/>
+      </extension>
+      <path value="ResearchStudy.classification"/>
+      <short value="Classification for the study"/>
+      <definition value="Classification for the study."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.classification.type">
+      <path value="ResearchStudy.classification.type"/>
+      <short value="phase | category | keyword "/>
+      <definition value="Type of classifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyCLassificationType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="desc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-classification-type"/>
+      </binding>
+    </element>
+    <element id="ResearchStudy.classification.classifier">
+      <path value="ResearchStudy.classification.classifier"/>
+      <short value="n-a | early-phase-1 | phase-1 | phase-1-phase-2 | phase-2 | phase-2-phase-3 | phase-3 | phase-4"/>
+      <definition value="Value of classifier."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyClassifiers"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="desc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-classifiers"/>
+      </binding>
+    </element>
+
+    <!--Association -->
+    <element id="ResearchStudy.associatedParty">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="40,280"/>
+      </extension>
+      <path value="ResearchStudy.associatedParty"/>
+      <short value="Sponsors, collaborators, and other parties"/>
+      <definition value="Sponsors, collaborators, and other parties."/>
+      <comment value="For a Sponsor or a PrincipalInvestigator use the dedicated attributes provided." />
+      <requirements value="While there are explicit attributes for a Sponsor and a PrincipalInvestigator many trial record a range of other organizations and individuals in key roles."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.associatedParty.name">
+      <path value="ResearchStudy.associatedParty.name"/>
+      <short value="Name of associated party"/>
+      <definition value="Name of associated party."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.associatedParty.role">
+      <path value="ResearchStudy.associatedParty.role"/>
+      <short value="sponsor | lead-sponsor | sponsor-investigator | primary-investigator | collaborator | funding-source | recruitment-contact | sub-investigator | study-director | study-chair"/>
+      <definition value="Type of association."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyPartyRole"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="desc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-role"/>
+      </binding>	  
+    </element>
+    <element id="ResearchStudy.associatedParty.period">
+      <path value="ResearchStudy.associatedParty.period"/>
+      <short value="When active in the role"/>
+      <definition value="Identifies the start date and the end date of the associated party in the role."/>
+	  <comment value="The cardinality is 0..* due to the fact that an associated party may be intermittently active in a given role over multiple time periods." />
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.associatedParty.classifier">
+      <path value="ResearchStudy.associatedParty.classifier"/>
+      <short value="nih | fda"/>
+      <definition value="Organisational type of association."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyPartyOrganizationType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A characterization or type of the entity."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-org-type"/>
+      </binding>
+    </element>
+    <element id="ResearchStudy.associatedParty.party">
+      <path value="ResearchStudy.associatedParty.party"/>
+      <short value="Individual or organization associated with study (use practitionerRole to specify their organisation)"/>
+      <definition value="Individual or organization associated with study (use practitionerRole to specify their organisation)."/>
+      <comment value="Suggestions of a better attribute name are appreciated" />
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+	
+    <!-- Progress -->
+    <element id="ResearchStudy.progressStatus">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="40,410"/>
+      </extension>
+      <path value="ResearchStudy.progressStatus"/>
+      <short value="Status of study with time for that status"/>
+      <definition value="Status of study with time for that status."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.progressStatus.state">
+      <path value="ResearchStudy.progressStatus.state"/>
+      <short value="Label for status or state (e.g. recruitment status)"/>
+      <definition value="Label for status or state (e.g. recruitment status)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyStudyStatus"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="defn."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-status"/>
+      </binding>
+    </element>
+    <element id="ResearchStudy.progressStatus.actual">
+      <path value="ResearchStudy.progressStatus.actual"/>
+      <short value="Actual if true else anticipated"/>
+      <definition value="An indication of whether or not the date is a known date when the state changed or will change. A value of true indicates a known date. A value of false indicates an estimated date."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.progressStatus.period">
+      <path value="ResearchStudy.progressStatus.period"/>
+      <short value="Date range"/>
+      <definition value="Date range."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.whyStopped">
+      <path value="ResearchStudy.whyStopped"/>
+      <short value="accrual-goal-met | closed-due-to-toxicity | closed-due-to-lack-of-study-progress | temporarily-closed-per-study-design"/>
+      <definition value="A description and/or code explaining the premature termination of the study."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyReasonStopped"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for why the study ended prematurely."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-reason-stopped"/>
+      </binding>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Why Study Stopped"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudyOverallStatus.studyStoppedReasonCode"/>
+      </mapping>
+    </element>
+
+    <!-- Recruitment-->
+    <element id="ResearchStudy.recruitment">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="40,80"/>
+      </extension>
+      <path value="ResearchStudy.recruitment"/>
+      <short value="Target or actual group of participants enrolled in study"/>
+      <definition value="Target or actual group of participants enrolled in study."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Enrollment; Number of Groups/Cohorts (= number of &quot;enrollment&quot; instances); Groups (Group/Cohort Label = Group.name; Group/Cohort Description = Group.description); Eligibility (Group criteria)"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="InterventionalStudyProtocol.interventionGroupQuantity"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=SBJ].role"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.recruitment.targetNumber">
+      <path value="ResearchStudy.recruitment.targetNumber"/>
+      <short value="Estimated total number of participants to be enrolled"/>
+      <definition value="Estimated total number of participants to be enrolled."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.recruitment.actualNumber">
+      <path value="ResearchStudy.recruitment.actualNumber"/>
+      <short value="Actual total number of participants enrolled in study"/>
+      <definition value="Actual total number of participants enrolled in study."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.recruitment.eligibility">
+      <path value="ResearchStudy.recruitment.eligibility"/>
+      <short value="Inclusion and exclusion criteria"/>
+      <definition value="Inclusion and exclusion criteria."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.recruitment.actualGroup">
+      <path value="ResearchStudy.recruitment.actualGroup"/>
+      <short value="Group of participants who were enrolled in study"/>
+      <definition value="Group of participants who were enrolled in study."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Enrollment; Number of Groups/Cohorts (= number of &quot;enrollment&quot; instances); Groups (Group/Cohort Label = Group.name; Group/Cohort Description = Group.description); Eligibility (Group criteria)"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="InterventionalStudyProtocol.interventionGroupQuantity"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=SBJ].role"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+
+    <!-- Arm / comparisonGroup -->
+    <element id="ResearchStudy.comparisonGroup">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="840,90"/>
+      </extension>
+      <path value="ResearchStudy.comparisonGroup"/>
+      <short value="Defined path through the study for a subject"/>
+      <definition value="Describes an expected sequence of events for one of the participants of a study.  E.g. Exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up."/>
+      <comment value="In many clinical trials this is refered to as the ARM of the study, but such a term is not used in other sorts of trials even when there is a comparison between two or more groups." />
+      <alias value="arm" />
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Arms"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="Arm"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.comparisonGroup.identifier[x]">
+      <path value="ResearchStudy.comparisonGroup.identifier[x]"/>
+      <short value="Allows the comparisonGroup for the study and the comparisonGroup for the subject to be linked easily"/>
+      <definition value="Allows the comparisonGroup for the study and the comparisonGroup for the subject to be linked easily."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.comparisonGroup.name">
+      <path value="ResearchStudy.comparisonGroup.name"/>
+      <short value="Label for study comparisonGroup"/>
+      <definition value="Unique, human-readable label for this comparisonGroup of the study."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Arm Label"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="Arm.name"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.comparisonGroup.type">
+      <path value="ResearchStudy.comparisonGroup.type"/>
+      <short value="Categorization of study comparisonGroup"/>
+      <definition value="Categorization of study comparisonGroup, e.g. experimental, active comparator, placebo comparater."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyArmType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="desc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-arm-type"/>
+      </binding>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Arm Type"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="Arm.typeCode"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.comparisonGroup.description">
+      <path value="ResearchStudy.comparisonGroup.description"/>
+      <short value="Short explanation of study path"/>
+      <definition value="A succinct description of the path through the study that would be followed by a subject adhering to this comparisonGroup."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="clinicaltrials-gov"/>
+        <map value="Arm Description"/>
+      </mapping>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="Arm.description"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.comparisonGroup.intendedExposure">
+      <path value="ResearchStudy.comparisonGroup.intendedExposure"/>
+      <short value="Interventions or exposures in this comparisonGroup or cohort"/>
+      <definition value="Interventions or exposures in this comparisonGroup or cohort."/>
+      <requirements value="this is necessary for ClinicalTrials.gov use which relates  1 to many interventions to comparisonGroups (aka arms)"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.comparisonGroup.observedGroup">
+      <path value="ResearchStudy.comparisonGroup.observedGroup"/>
+      <short value="Group of participants who were enrolled in study comparisonGroup"/>
+      <definition value="Group of participants who were enrolled in study comparisonGroup."/>
+      <requirements value="This is necessary to relate comparisonGroups to actual groups"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+    </element>
+
+
+    <!-- Objective -->
+    <element id="ResearchStudy.objective">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="840,220"/>
+      </extension>
+      <path value="ResearchStudy.objective"/>
+      <short value="A goal for the study"/>
+      <definition value="A goal that the study is aiming to achieve in terms of a scientific question to be answered by the analysis of data collected during the study."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudyObjective"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.objective.name">
+      <path value="ResearchStudy.objective.name"/>
+      <short value="Label for the objective"/>
+      <definition value="Unique, human-readable label for this objective of the study."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="No BRIDG mapping (BRIDG has a description, but not a name)"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.objective.type">
+      <path value="ResearchStudy.objective.type"/>
+      <short value="primary | secondary | exploratory"/>
+      <definition value="The kind of study objective."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyObjectiveType"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Codes for the kind of study objective."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-objective-type"/>
+      </binding>
+      <mapping>
+        <identity value="BRIDG5.1"/>
+        <map value="StudyObjective.typeCode"/>
+      </mapping>
+    </element>
+    <element id="ResearchStudy.objective.description">
+      <path value="ResearchStudy.objective.description"/>
+      <short value="Description of the objective"/>
+      <definition value="Free text description of the objective of the study.  This is what the study is trying to achieve rather than how it is going to achieve it (see ResearchStudy.description)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+
+    <!-- Results -->
+    <element id="ResearchStudy.outcomeMeasure">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="840,310"/>
+      </extension>
+      <path value="ResearchStudy.outcomeMeasure"/>
+      <short value="An outcome or planned variable to measure during the study"/>
+      <definition value="An outcome or planned variable to measure during the study."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.outcomeMeasure.name">
+      <path value="ResearchStudy.outcomeMeasure.name"/>
+      <short value="Label for the outcome"/>
+      <definition value="Label for the outcome."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.outcomeMeasure.type">
+      <path value="ResearchStudy.outcomeMeasure.type"/>
+      <short value="primary | secondary | exploratory"/>
+      <definition value="The parameter or characteristic being assessed as one of the values by which the study is assessed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResearchStudyObjectiveType"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="defn."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-objective-type"/>
+      </binding>
+    </element>
+    <element id="ResearchStudy.outcomeMeasure.description">
+      <path value="ResearchStudy.outcomeMeasure.description"/>
+      <short value="Description of the outcome"/>
+      <definition value="Description of the outcome."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.outcomeMeasure.reference">
+      <path value="ResearchStudy.outcomeMeasure.reference"/>
+      <short value="Structured outcome definition"/>
+      <definition value="Structured outcome definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.result">
+      <path value="ResearchStudy.result"/>
+      <short value="Link to results generated during the study"/>
+      <definition value="Link to one or more sets of results generated by the study.  Could also link to a research registry holding the results such as ClinicalTrials.gov."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceReport"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
+    <!-- Web Location -->
+    <element id="ResearchStudy.webLocation">
+            <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="840,410"/>
+      </extension>
+      <path value="ResearchStudy.webLocation"/>
+      <short value="Archive location for the study"/>
+      <definition value="A general storage or archive location for the study.  This may contain an assortment of content which is not specified in advance."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.webLocation.classifier">
+      <path value="ResearchStudy.webLocation.classifier"/>
+      <short value="registry-page|recruitment-page|contact-page"/>
+      <definition value="Describes the nature of the location being specified."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="	ArtifactUrlClassifier"/>
+        </extension>
+        <strength value="example"/>
+        <description value="defn."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-url-classifier"/>
+      </binding>
+    </element>
+    <element id="ResearchStudy.webLocation.url">
+      <path value="ResearchStudy.webLocation.url"/>
+      <short value="The location address"/>
+      <definition value="The location address."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SearchParameter xmlns="http://hl7.org/fhir">
+  <id value="patient-extensions-Patient-birthOrderBoolean"/>
+  <url value="http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-birthOrderBoolean"/>
+  <version value="4.6.0"/>
+  <name value="birthOrderBoolean"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="Search based on whether a patient was part of a multiple birth or not."/>
+  <code value="birthOrderBoolean"/>
+  <base value="Patient"/>
+  <type value="token"/>
+  <xpath value="f:Patient/f:multipleBirthBoolean | f:Patient/f:multipleBirthInteger"/>
+  <xpathUsage value="normal"/>
+</SearchParameter>

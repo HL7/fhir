@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="search-comparator"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/search-comparator defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">eq
+            
+            <a name="search-comparator-eq"> </a>
+          
+          </td>
+          
+          <td>Equals</td>
+          
+          <td>the value for the parameter in the resource is equal to the provided value.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">ne
+            
+            <a name="search-comparator-ne"> </a>
+          
+          </td>
+          
+          <td>Not Equals</td>
+          
+          <td>the value for the parameter in the resource is not equal to the provided value.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">gt
+            
+            <a name="search-comparator-gt"> </a>
+          
+          </td>
+          
+          <td>Greater Than</td>
+          
+          <td>the value for the parameter in the resource is greater than the provided value.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">lt
+            
+            <a name="search-comparator-lt"> </a>
+          
+          </td>
+          
+          <td>Less Than</td>
+          
+          <td>the value for the parameter in the resource is less than the provided value.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">ge
+            
+            <a name="search-comparator-ge"> </a>
+          
+          </td>
+          
+          <td>Greater or Equals</td>
+          
+          <td>the value for the parameter in the resource is greater or equal to the provided value.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">le
+            
+            <a name="search-comparator-le"> </a>
+          
+          </td>
+          
+          <td>Less of Equal</td>
+          
+          <td>the value for the parameter in the resource is less or equal to the provided value.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">sa
+            
+            <a name="search-comparator-sa"> </a>
+          
+          </td>
+          
+          <td>Starts After</td>
+          
+          <td>the value for the parameter in the resource starts after the provided value.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">eb
+            
+            <a name="search-comparator-eb"> </a>
+          
+          </td>
+          
+          <td>Ends Before</td>
+          
+          <td>the value for the parameter in the resource ends before the provided value.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">ap
+            
+            <a name="search-comparator-ap"> </a>
+          
+          </td>
+          
+          <td>Approximately</td>
+          
+          <td>the value for the parameter in the resource is approximately the same to the provided value.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/search-comparator"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.638"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="SearchComparator"/>
+  <title value="SearchComparator"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="What Search Comparator Codes are supported in search."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/search-comparator"/>
+  <content value="complete"/>
+  <concept>
+    <code value="eq"/>
+    <display value="Equals"/>
+    <definition value="the value for the parameter in the resource is equal to the provided value."/>
+  </concept>
+  <concept>
+    <code value="ne"/>
+    <display value="Not Equals"/>
+    <definition value="the value for the parameter in the resource is not equal to the provided value."/>
+  </concept>
+  <concept>
+    <code value="gt"/>
+    <display value="Greater Than"/>
+    <definition value="the value for the parameter in the resource is greater than the provided value."/>
+  </concept>
+  <concept>
+    <code value="lt"/>
+    <display value="Less Than"/>
+    <definition value="the value for the parameter in the resource is less than the provided value."/>
+  </concept>
+  <concept>
+    <code value="ge"/>
+    <display value="Greater or Equals"/>
+    <definition value="the value for the parameter in the resource is greater or equal to the provided value."/>
+  </concept>
+  <concept>
+    <code value="le"/>
+    <display value="Less of Equal"/>
+    <definition value="the value for the parameter in the resource is less or equal to the provided value."/>
+  </concept>
+  <concept>
+    <code value="sa"/>
+    <display value="Starts After"/>
+    <definition value="the value for the parameter in the resource starts after the provided value."/>
+  </concept>
+  <concept>
+    <code value="eb"/>
+    <display value="Ends Before"/>
+    <definition value="the value for the parameter in the resource ends before the provided value."/>
+  </concept>
+  <concept>
+    <code value="ap"/>
+    <display value="Approximately"/>
+    <definition value="the value for the parameter in the resource is approximately the same to the provided value."/>
+  </concept>
+</CodeSystem>

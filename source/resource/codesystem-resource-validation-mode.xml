@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="resource-validation-mode"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/resource-validation-mode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.119"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ResourceValidationMode"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="create"/>
+    <display value="Validate for Create"/>
+    <definition value="The server checks the content, and then checks that the content would be acceptable as a create (e.g. that the content would not violate any uniqueness constraints)."/>
+  </concept>
+  <concept>
+    <code value="update"/>
+    <display value="Validate for Update"/>
+    <definition value="The server checks the content, and then checks that it would accept it as an update against the nominated specific resource (e.g. that there are no changes to immutable fields the server does not allow to change and checking version integrity if appropriate)."/>
+  </concept>
+  <concept>
+    <code value="delete"/>
+    <display value="Validate for Delete"/>
+    <definition value="The server ignores the content and checks that the nominated resource is allowed to be deleted (e.g. checking referential integrity rules)."/>
+  </concept>
+  <concept>
+    <code value="profile"/>
+    <display value="Validate Against a Profile"/>
+    <definition value="The server checks an existing resource (must be nominated by id, not provided as a parameter) as valid against the nominated profile."/>
+  </concept>
+</CodeSystem>

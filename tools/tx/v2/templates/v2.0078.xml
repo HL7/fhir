@@ -1,0 +1,9 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <description value="HL7-defined code system of concepts which specify a categorical assessment of an observation value.
+  &#13;&#10;
+  &#13;&#10;
+  Notes:&#13;&#10;
+  &#13;&#10;
+  This is being communicated in v2.x in OBX-8 (Observation Interpretation), in v3 in ObservationInterpretation (CWE) in R1 (Representative Realm) and in FHIR in 
+  Observation.interpretation."/>
+</ValueSet>

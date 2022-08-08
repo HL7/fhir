@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+	<id value="question-max-occurs"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+	</meta>
+	<url value="http://hl7.org/fhir/question-max-occurs"/>
+	<version value="4.6.0"/>
+	<name value="MaxOccurs"/>
+	<status value="active"/>
+	<content value="complete"/>
+	<concept>
+		<code value="*"/>
+		<display value="Repeating"/>
+		<definition value="Element can repeat an unlimited number of times."/>
+	</concept>
+</CodeSystem>

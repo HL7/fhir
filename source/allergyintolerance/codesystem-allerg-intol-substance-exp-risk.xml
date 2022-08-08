@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="allerg-intol-substance-exp-risk"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <url value="http://hl7.org/fhir/allerg-intol-substance-exp-risk"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.941"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="AllergyIntoleranceSubstanceExposureRisk"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="known-reaction-risk"/>
+    <display value="Known Reaction Risk"/>
+    <definition value="Known risk of allergy or intolerance reaction upon exposure to the specified substance."/>
+  </concept>
+  <concept>
+    <code value="no-known-reaction-risk"/>
+    <display value="No Known Reaction Risk"/>
+    <definition value="No known risk of allergy or intolerance reaction upon exposure to the specified substance."/>
+  </concept>
+</CodeSystem>

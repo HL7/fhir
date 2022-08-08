@@ -1,9 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="immunization-route"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pher"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/immunization-route"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.289"/>
+  </identifier>
+  <version value="4.6.0"/>
   <name value="ImmunizationRouteCodes"/>
   <title value="Immunization Route Codes"/>
-
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -18,31 +30,27 @@
       <system value="http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration"/>
       <concept>
         <code value="IDINJ"/>
-		<display value="Injection, intradermal"/>
+        <display value="Injection, intradermal"/>
       </concept>
       <concept>
         <code value="IM"/>
-		<display value="Injection, intramuscular"/>
-      </concept>
-      <concept>
-        <code value="NASINHLC"/>
-		<display value="Inhalation, nasal"/>
+        <display value="Injection, intramuscular"/>
       </concept>
       <concept>
         <code value="IVINJ"/>
-		<display value="Injection, intravenous"/>
+        <display value="Injection, intravenous"/>
       </concept>
       <concept>
         <code value="PO"/>
-		<display value="Swallow, oral"/>
+        <display value="Swallow, oral"/>
       </concept>
       <concept>
         <code value="SQ"/>
-		<display value="Injection, subcutaneous"/>
+        <display value="Injection, subcutaneous"/>
       </concept>
       <concept>
         <code value="TRNSDERM"/>
-		<display value="Transdermal"/>
+        <display value="Transdermal"/>
       </concept>
     </include>
   </compose>

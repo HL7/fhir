@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="List-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="List-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="List.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/List-code"/>
+        <description value="What the purpose of this list is"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="List.code"/>
+        <xpath value="f:List/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="List-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="List.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/List-date"/>
+        <description value="When the list was prepared"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="List.date"/>
+        <xpath value="f:List/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="List-empty-reason"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="List.emptyReason"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/List-empty-reason"/>
+        <description value="Why list is empty"/>
+        <code value="empty-reason"/>
+        <type value="token"/>
+        <expression value="List.emptyReason"/>
+        <xpath value="f:List/f:emptyReason"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="List-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="List.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/List-encounter"/>
+        <description value="Context in which list created"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="List.encounter"/>
+        <xpath value="f:List/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="List-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="List.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/List-identifier"/>
+        <description value="Business identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="List.identifier"/>
+        <xpath value="f:List/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="List-item"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="List.entry.item"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/List-item"/>
+        <description value="Actual entry"/>
+        <code value="item"/>
+        <type value="reference"/>
+        <expression value="List.entry.item"/>
+        <xpath value="f:List/f:entry/f:item"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="List-notes"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="List.note.text"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/List-notes"/>
+        <description value="The annotation  - text content (as markdown)"/>
+        <code value="notes"/>
+        <type value="string"/>
+        <expression value="List.note.text"/>
+        <xpath value="f:List/f:note/f:text"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="List-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="List.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/List-patient"/>
+        <description value="If all resources have the same subject"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="List.subject.where(resolve() is Patient)"/>
+        <xpath value="f:List/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="List-source"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="List.source"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/List-source"/>
+        <description value="Who and/or what defined the list contents (aka Author)"/>
+        <code value="source"/>
+        <type value="reference"/>
+        <expression value="List.source"/>
+        <xpath value="f:List/f:source"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="List-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="List.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/List-status"/>
+        <description value="current | retired | entered-in-error"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="List.status"/>
+        <xpath value="f:List/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="List-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="List.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/List-subject"/>
+        <description value="If all resources have the same subject"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="List.subject"/>
+        <xpath value="f:List/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="List-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="List.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/List-title"/>
+        <description value="Descriptive name for the list"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="List.title"/>
+        <xpath value="f:List/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

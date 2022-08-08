@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="submit-data-update-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cqi"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/submit-data-update-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="SubmitDataUpdateType"/>
+  <title value="Submit Data Update Type"/>
+  <status value="active"/>
+  <date value="2021-04-06T19:00:36+00:00"/>
+  <publisher value="HL7 International - Clinical Quality Information Work Group"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cqi/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Concepts for how a measure report consumer and receiver coordinate data exchange updates. The choices are snapshot or incremental updates"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/submit-data-update-type"/>
+  <content value="complete"/>
+  <count value="2"/>
+  <concept>
+    <code value="incremental"/>
+    <display value="Incremental"/>
+    <definition value="In contrast to the Snapshot Update, the FHIR Parameters resource used in a Submit Data or the Collect Data scenario contains only the new and updated DEQM and QI Core Profiles since the last transaction. If the Consumer supports incremental updates, the contents of the updated payload updates the previous payload data."/>
+  </concept>
+  <concept>
+    <code value="snapshot"/>
+    <display value="Snapshot"/>
+    <definition value="In contrast to the Incremental Update, the FHIR Parameters resource used in a Submit Data or the Collect Data scenario contains all the DEQM and QI Core Profiles for each transaction.  If the Consumer supports snapshot updates, the contents of the updated payload entirely replaces the previous payload"/>
+  </concept>
+</CodeSystem>

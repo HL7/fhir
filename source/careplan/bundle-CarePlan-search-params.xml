@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="CarePlan-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-activity-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.activity.plannedActivityDetail.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-activity-code"/>
+        <description value="Detail type of activity"/>
+        <code value="activity-code"/>
+        <type value="token"/>
+        <expression value="CarePlan.activity.plannedActivityDetail.code"/>
+        <xpath value="f:CarePlan/f:activity/f:plannedActivityDetail/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-activity-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.activity.plannedActivityReference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-activity-reference"/>
+        <description value="Activity that is intended to be part of the care plan"/>
+        <code value="activity-reference"/>
+        <type value="reference"/>
+        <expression value="CarePlan.activity.plannedActivityReference"/>
+        <xpath value="f:CarePlan/f:activity/f:plannedActivityReference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-activity-scheduled-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.activity.plannedActivityDetail.scheduled[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-activity-scheduled-date"/>
+        <description value="Specified date occurs within period specified by CarePlan.activity.plannedActivityDetail.scheduled[x]"/>
+        <code value="activity-scheduled-date"/>
+        <type value="date"/>
+        <expression value="CarePlan.activity.plannedActivityDetail.scheduled.as(Timing) | CarePlan.activity.plannedActivityDetail.scheduled.as(Period)"/>
+        <xpath value="f:CarePlan/f:activity/f:plannedActivityDetail/f:scheduledTiming | f:CarePlan/f:activity/f:plannedActivityDetail/f:scheduledPeriod | f:CarePlan/f:activity/f:plannedActivityDetail/f:scheduledString"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-activity-scheduled-string"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.activity.plannedActivityDetail.scheduled[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-activity-scheduled-string"/>
+        <description value="When activity is to occur"/>
+        <code value="activity-scheduled-string"/>
+        <type value="string"/>
+        <expression value="CarePlan.activity.plannedActivityDetail.scheduled.as(string)"/>
+        <xpath value="f:CarePlan/f:activity/f:plannedActivityDetail/f:scheduledTiming | f:CarePlan/f:activity/f:plannedActivityDetail/f:scheduledPeriod | f:CarePlan/f:activity/f:plannedActivityDetail/f:scheduledString"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-based-on"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.basedOn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-based-on"/>
+        <description value="Fulfills CarePlan"/>
+        <code value="based-on"/>
+        <type value="reference"/>
+        <expression value="CarePlan.basedOn"/>
+        <xpath value="f:CarePlan/f:basedOn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-care-team"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.careTeam"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-care-team"/>
+        <description value="Who&#39;s involved in plan?"/>
+        <code value="care-team"/>
+        <type value="reference"/>
+        <expression value="CarePlan.careTeam"/>
+        <xpath value="f:CarePlan/f:careTeam"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-category"/>
+        <description value="Type of plan"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="CarePlan.category"/>
+        <xpath value="f:CarePlan/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-condition"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.addresses.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-condition"/>
+        <description value="Reference to a resource (by instance)"/>
+        <code value="condition"/>
+        <type value="reference"/>
+        <expression value="CarePlan.addresses.reference"/>
+        <xpath value="f:CarePlan/f:addresses/f:reference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-custodian"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.custodian"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-custodian"/>
+        <description value="Who is the designated responsible party"/>
+        <code value="custodian"/>
+        <type value="reference"/>
+        <expression value="CarePlan.custodian"/>
+        <xpath value="f:CarePlan/f:custodian"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-date"/>
+        <description value="Time period plan covers"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="CarePlan.period"/>
+        <xpath value="f:CarePlan/f:period"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-encounter"/>
+        <description value="The Encounter during which this CarePlan was created"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="CarePlan.encounter"/>
+        <xpath value="f:CarePlan/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-goal"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.goal"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-goal"/>
+        <description value="Desired outcome of plan"/>
+        <code value="goal"/>
+        <type value="reference"/>
+        <expression value="CarePlan.goal"/>
+        <xpath value="f:CarePlan/f:goal"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-identifier"/>
+        <description value="External Ids for this plan"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="CarePlan.identifier"/>
+        <xpath value="f:CarePlan/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-instantiates-canonical"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.instantiatesCanonical"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-instantiates-canonical"/>
+        <description value="Instantiates FHIR protocol or definition"/>
+        <code value="instantiates-canonical"/>
+        <type value="reference"/>
+        <expression value="CarePlan.instantiatesCanonical"/>
+        <xpath value="f:CarePlan/f:instantiatesCanonical"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-instantiates-uri"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.instantiatesUri"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-instantiates-uri"/>
+        <description value="Instantiates external protocol or definition"/>
+        <code value="instantiates-uri"/>
+        <type value="uri"/>
+        <expression value="CarePlan.instantiatesUri"/>
+        <xpath value="f:CarePlan/f:instantiatesUri"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-intent"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.intent"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-intent"/>
+        <description value="proposal | plan | order | option | directive"/>
+        <code value="intent"/>
+        <type value="token"/>
+        <expression value="CarePlan.intent"/>
+        <xpath value="f:CarePlan/f:intent"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-part-of"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.partOf"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-part-of"/>
+        <description value="Part of referenced CarePlan"/>
+        <code value="part-of"/>
+        <type value="reference"/>
+        <expression value="CarePlan.partOf"/>
+        <xpath value="f:CarePlan/f:partOf"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-patient"/>
+        <description value="Who the care plan is for"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="CarePlan.subject.where(resolve() is Patient)"/>
+        <xpath value="f:CarePlan/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-performer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.activity.plannedActivityDetail.performer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-performer"/>
+        <description value="Matches if the practitioner is listed as a performer in any of the &quot;simple&quot; activities.  (For performers of the detailed activities, chain through the activitydetail search parameter.)"/>
+        <code value="performer"/>
+        <type value="reference"/>
+        <expression value="CarePlan.activity.plannedActivityDetail.performer"/>
+        <xpath value="f:CarePlan/f:activity/f:plannedActivityDetail/f:performer"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-replaces"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.replaces"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-replaces"/>
+        <description value="CarePlan replaced by this CarePlan"/>
+        <code value="replaces"/>
+        <type value="reference"/>
+        <expression value="CarePlan.replaces"/>
+        <xpath value="f:CarePlan/f:replaces"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-status"/>
+        <description value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="CarePlan.status"/>
+        <xpath value="f:CarePlan/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="CarePlan-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CarePlan.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CarePlan-subject"/>
+        <description value="Who the care plan is for"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="CarePlan.subject"/>
+        <xpath value="f:CarePlan/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

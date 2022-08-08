@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="CommunicationRequest-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of an alert message"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="communicationrequest-example"/>
+    </extension>
+    <item>
+      <reference value="CommunicationRequest/example"/>
+      <display value="Alert Message"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example of a request for additional information"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="communicationrequest-example-fm-solicit-attachment"/>
+    </extension>
+    <item>
+      <reference value="CommunicationRequest/fm-solicit"/>
+      <display value="FM Solicit an Attachment"/>
+    </item>
+  </entry>
+</List>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="action-required-behavior"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      <p>This code system http://hl7.org/fhir/action-required-behavior defines the following codes:</p>
+      
+      <table class="codes">
+        
+        <tr>
+          
+          <td style="white-space:nowrap">
+            
+            <b>Code</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Display</b>
+          
+          </td>
+          
+          <td>
+            
+            <b>Definition</b>
+          
+          </td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">must
+            
+            <a name="action-required-behavior-must"> </a>
+          
+          </td>
+          
+          <td>Must</td>
+          
+          <td>An action with this behavior must be included in the actions processed by the end user; the end user SHALL NOT choose not to include this action.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">could
+            
+            <a name="action-required-behavior-could"> </a>
+          
+          </td>
+          
+          <td>Could</td>
+          
+          <td>An action with this behavior may be included in the set of actions processed by the end user.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">must-unless-documented
+            
+            <a name="action-required-behavior-must-unless-documented"> </a>
+          
+          </td>
+          
+          <td>Must Unless Documented</td>
+          
+          <td>An action with this behavior must be included in the set of actions processed by the end user, unless the end user provides documentation as to why the action was not included.</td>
+        
+        </tr>
+      
+      </table>
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/action-required-behavior"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.804"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="ActionRequiredBehavior"/>
+  <title value="ActionRequiredBehavior"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Defines expectations around whether an action or action group is required."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/action-required-behavior"/>
+  <content value="complete"/>
+  <concept>
+    <code value="must"/>
+    <display value="Must"/>
+    <definition value="An action with this behavior must be included in the actions processed by the end user; the end user SHALL NOT choose not to include this action."/>
+  </concept>
+  <concept>
+    <code value="could"/>
+    <display value="Could"/>
+    <definition value="An action with this behavior may be included in the set of actions processed by the end user."/>
+  </concept>
+  <concept>
+    <code value="must-unless-documented"/>
+    <display value="Must Unless Documented"/>
+    <definition value="An action with this behavior must be included in the set of actions processed by the end user, unless the end user provides documentation as to why the action was not included."/>
+  </concept>
+</CodeSystem>

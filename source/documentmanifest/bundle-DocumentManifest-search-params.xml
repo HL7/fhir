@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="DocumentManifest-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentManifest-author"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentManifest.author"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentManifest-author"/>
+        <description value="Who and/or what authored the DocumentManifest"/>
+        <code value="author"/>
+        <type value="reference"/>
+        <expression value="DocumentManifest.author"/>
+        <xpath value="f:DocumentManifest/f:author"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentManifest-created"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentManifest.created"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentManifest-created"/>
+        <description value="When this document manifest created"/>
+        <code value="created"/>
+        <type value="date"/>
+        <expression value="DocumentManifest.created"/>
+        <xpath value="f:DocumentManifest/f:created"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentManifest-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentManifest.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentManifest-description"/>
+        <description value="Human-readable description (title)"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="DocumentManifest.description"/>
+        <xpath value="f:DocumentManifest/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentManifest-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentManifest.masterIdentifier,DocumentManifest.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentManifest-identifier"/>
+        <description value="Unique Identifier for the set of documents"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="DocumentManifest.masterIdentifier | DocumentManifest.identifier"/>
+        <xpath value="f:DocumentManifest/f:masterIdentifier | f:DocumentManifest/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentManifest-item"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentManifest.content"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentManifest-item"/>
+        <description value="Items in manifest"/>
+        <code value="item"/>
+        <type value="reference"/>
+        <expression value="DocumentManifest.content"/>
+        <xpath value="f:DocumentManifest/f:content"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentManifest-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentManifest.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentManifest-patient"/>
+        <description value="The subject of the set of documents"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="DocumentManifest.subject.where(resolve() is Patient)"/>
+        <xpath value="f:DocumentManifest/f:subject"/>
+        <xpathUsage value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentManifest-recipient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentManifest.recipient"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentManifest-recipient"/>
+        <description value="Intended to get notified about this set of documents"/>
+        <code value="recipient"/>
+        <type value="reference"/>
+        <expression value="DocumentManifest.recipient"/>
+        <xpath value="f:DocumentManifest/f:recipient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentManifest-related-id"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentManifest.related.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentManifest-related-id"/>
+        <description value="Identifiers of things that are related"/>
+        <code value="related-id"/>
+        <type value="token"/>
+        <expression value="DocumentManifest.related.identifier"/>
+        <xpath value="f:DocumentManifest/f:related/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentManifest-related-ref"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentManifest.related.ref"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentManifest-related-ref"/>
+        <description value="Related Resource"/>
+        <code value="related-ref"/>
+        <type value="reference"/>
+        <expression value="DocumentManifest.related.ref"/>
+        <xpath value="f:DocumentManifest/f:related/f:ref"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentManifest-source"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentManifest.source"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentManifest-source"/>
+        <description value="The source system/application/software"/>
+        <code value="source"/>
+        <type value="uri"/>
+        <expression value="DocumentManifest.source"/>
+        <xpath value="f:DocumentManifest/f:source"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentManifest-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentManifest.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentManifest-status"/>
+        <description value="current | superseded | entered-in-error"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="DocumentManifest.status"/>
+        <xpath value="f:DocumentManifest/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentManifest-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentManifest.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentManifest-subject"/>
+        <description value="The subject of the set of documents"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="DocumentManifest.subject"/>
+        <xpath value="f:DocumentManifest/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DocumentManifest-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DocumentManifest.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DocumentManifest-type"/>
+        <description value="Kind of document set"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="DocumentManifest.type"/>
+        <xpath value="f:DocumentManifest/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>
