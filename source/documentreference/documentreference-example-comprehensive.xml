@@ -23,6 +23,11 @@
       <id value="in-patient"/>
     </Patient>
   </contained>
+	<extension url="http://hl7.org/fhir/StructureDefinition/documentreference-sourcepatient">
+    <valueReference>
+      <reference value="#in-patient"/>
+    </valueReference>
+  </extension>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:1.2.840.113556.1.8000.2554.58783.21864.3474.19410.44358.58254.41281.46340"/>
@@ -130,7 +135,5 @@
       </valueCoding>
     </profile>
   </content>
-  <sourcePatientInfo>
-    <reference value="#in-patient"/>
-  </sourcePatientInfo>
+
 </DocumentReference>

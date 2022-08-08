@@ -10,7 +10,7 @@ version dependent. This significantly complicates implementation based on the co
 safety can be assured, so changing the meaning of an existing code SHOULD be avoided whenever possible. It is preferable to assign a new identifier to a code system
 when any concepts in it have a significant change in meaning (for example, the German diagnostic classification code system
 ICD10GM2009 has a different <i>system</i> to ICD10GM2008), but this also can have substantial impact on implementation, so
-is often not practical - for instance, <a href="snomedct.html">SNOMED CT</a> has a complex version release framework, which
+is often not practical - for instance, <a href="http://snomed.org">SNOMED CT</a> has a complex version release framework, which
 may lead to variations in meaning of concepts, but there is only one identifier for SNOMED CT.
 </p>
 <p>

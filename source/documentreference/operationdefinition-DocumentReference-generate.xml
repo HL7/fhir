@@ -67,6 +67,7 @@
     <use value="in"/>
     <min value="1"/>
     <max value="1"/>
+    <documentation value="The URL to the source document. This may be a general URL or a Binary or a Composition or a Bundle."/>
     <type value="uri"/>
   </parameter>
   <parameter>
@@ -75,7 +76,7 @@
     <min value="0"/>
     <max value="1"/>
     <documentation value="Whether to store the document at the document end-point (/Document) or not, once it is generated (default is for the server to decide)."/>
-    <type value="Binary"/>
+    <type value="boolean"/>
   </parameter>
   <parameter>
     <name value="docRef"/>
