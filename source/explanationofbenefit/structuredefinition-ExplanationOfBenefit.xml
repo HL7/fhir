@@ -1383,7 +1383,7 @@
       <alias value="Drug Code"/>
       <alias value="Bill Code"/>
       <alias value="Service Code"/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
@@ -1802,7 +1802,7 @@
       <alias value="Drug Code"/>
       <alias value="Bill Code"/>
       <alias value="Service Code"/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
@@ -2034,7 +2034,7 @@
       <alias value="Drug Code"/>
       <alias value="Bill Code"/>
       <alias value="Service Code"/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
@@ -2265,7 +2265,26 @@
         <map value="FiveWs.source"/>
       </mapping>
     </element>
-    <element id="ExplanationOfBenefit.addItem.productOrService">
+    <element id="ExplanationOfBenefit.addItem.revenue">
+      <path value="ExplanationOfBenefit.addItem.revenue"/>
+      <short value="Revenue or cost center code"/>
+      <definition value="The type of revenue or cost center providing the product and/or service."/>
+      <requirements value="Needed in the processing of institutional claims."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RevenueCenter"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the revenue or cost centers supplying the service and/or products."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-revenue-center"/>
+      </binding>
+    </element>
+	<element id="ExplanationOfBenefit.addItem.productOrService">
       <path value="ExplanationOfBenefit.addItem.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
       <definition value="When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used."/>
@@ -2274,7 +2293,7 @@
       <alias value="Drug Code"/>
       <alias value="Bill Code"/>
       <alias value="Service Code"/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
@@ -2546,6 +2565,25 @@
         <code value="BackboneElement"/>
       </type>
     </element>
+    <element id="ExplanationOfBenefit.addItem.detail.revenue">
+      <path value="ExplanationOfBenefit.addItem.detail.revenue"/>
+      <short value="Revenue or cost center code"/>
+      <definition value="The type of revenue or cost center providing the product and/or service."/>
+      <requirements value="Needed in the processing of institutional claims."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RevenueCenter"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the revenue or cost centers supplying the service and/or products."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-revenue-center"/>
+      </binding>
+    </element>
     <element id="ExplanationOfBenefit.addItem.detail.productOrService">
       <path value="ExplanationOfBenefit.addItem.detail.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
@@ -2555,7 +2593,7 @@
       <alias value="Drug Code"/>
       <alias value="Bill Code"/>
       <alias value="Service Code"/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
@@ -2702,6 +2740,25 @@
         <code value="BackboneElement"/>
       </type>
     </element>
+    <element id="ExplanationOfBenefit.addItem.detail.subDetail.revenue">
+      <path value="ExplanationOfBenefit.addItem.detail.subDetail.revenue"/>
+      <short value="Revenue or cost center code"/>
+      <definition value="The type of revenue or cost center providing the product and/or service."/>
+      <requirements value="Needed in the processing of institutional claims."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RevenueCenter"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the revenue or cost centers supplying the service and/or products."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-revenue-center"/>
+      </binding>
+    </element>
     <element id="ExplanationOfBenefit.addItem.detail.subDetail.productOrService">
       <path value="ExplanationOfBenefit.addItem.detail.subDetail.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
@@ -2711,7 +2768,7 @@
       <alias value="Drug Code"/>
       <alias value="Bill Code"/>
       <alias value="Service Code"/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
