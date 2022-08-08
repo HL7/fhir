@@ -28,6 +28,9 @@
 			<li>Consulting psychologists and/or psychology services</li>
 			<li>Group Hydrotherapy</li>
 			<li>Little River Home Maintenance</li>
+			<li>CT Head Scan w/o Contrast</li>
+			<li>CT Head Scan with Contrast</li>
+			<li>CT Head+Chest Scan with Contrast</li>
 		</ul>
 		<p>
 			<i>HealthcareService resources do not represent Computer related Services (not SOA)</i>
@@ -49,6 +52,7 @@
 					This information may also include costing information.
 				</i>
 			</li>
+			<li>Catalog of schedulable services or activities</li>
 		</ul>
 	</div>
 

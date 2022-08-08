@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<Task xmlns="http://hl7.org/fhir">
-	<!--   This is an example to demonstrate using task for actioning a release of remaining unused reserved funds and services
+<Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+  <!--   This is an example to demonstrate using task for actioning a release of remaining unused reserved funds and services
 			on a preauthorization-->
-	<id value="fm-example3"/> 
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			<p>
-				<b> Generated Narrative with Details</b>
-			</p>
-		</div>
-	</text>
-	<identifier> 
-		<use value="official"/> 
-		<system value="http:/happyvalley.com/task"/> 
-		<value value="20181012-001"/> 
-	</identifier> 
-	<status value="requested"/> 
-	<intent value="order"/> 
-	<priority value="stat"/> <!-- real time request and response required -->
-	<!--   fictive code and description elements populated for this example    -->
-	<code> 
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/financialtaskcode"/>
-			<code value="release"/>
-		</coding>
-	</code> 
-	<focus> 
-		<identifier>
-			<system value="http://happyvalley.com/claim"/>
-			<value value="1501"/>
-		</identifier>
-	</focus> 
-	<authoredOn value="2018-10-04T08:25:05+10:00"/> 
-	<lastModified value="2018-10-04T08:25:05+10:00"/> 
-	<requester> 
-		<reference value="Organization/example"/> 
-		<display value="Happy Valley Clinic"/> 
-	</requester> 
-	<owner> 
-		<identifier>
-			<system value="http://nationalinsurers.com/identifiers"/>
-			<value value="12345"/>
-		</identifier>
-	</owner> 
-	<input>
-		<type>
-			<coding>
-				<system value="http://hl7.org/financial-taskinputtype"/>
-				<code value="origresponse"/>
-			</coding>
-		</type>
-		<valueReference>
-			<identifier>
-				<system value="http://nationalinsurers.com/claimresponse"/>
-				<value value="CR201810040001234"/>
-			</identifier>
-		</valueReference>
-	</input>
-</Task> 
+  <id value="fm-example3"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        <b> Generated Narrative with Details</b>
+      </p>
+    </div>
+  </text>
+  <identifier>
+    <use value="official"/>
+    <system value="http:/happyvalley.com/task"/>
+    <value value="20181012-001"/>
+  </identifier>
+  <status value="requested"/>
+  <intent value="order"/>
+  <priority value="stat"/>
+  <!-- real time request and response required -->
+  <!--   fictive code and description elements populated for this example    -->
+  <code>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/financialtaskcode"/>
+      <code value="release"/>
+    </coding>
+  </code>
+  <focus>
+    <identifier>
+      <system value="http://happyvalley.com/claim"/>
+      <value value="1501"/>
+    </identifier>
+  </focus>
+  <authoredOn value="2018-10-04T08:25:05+10:00"/>
+  <lastModified value="2018-10-04T08:25:05+10:00"/>
+  <requester>
+    <reference value="Organization/example"/>
+    <display value="Happy Valley Clinic"/>
+  </requester>
+  <owner>
+    <identifier>
+      <system value="http://nationalinsurers.com/identifiers"/>
+      <value value="12345"/>
+    </identifier>
+  </owner>
+  <input>
+    <type>
+      <coding>
+        <system value="http://hl7.org/financial-taskinputtype"/>
+        <code value="origresponse"/>
+      </coding>
+    </type>
+    <valueReference>
+      <identifier>
+        <system value="http://nationalinsurers.com/claimresponse"/>
+        <value value="CR201810040001234"/>
+      </identifier>
+    </valueReference>
+  </input>
+</Task>

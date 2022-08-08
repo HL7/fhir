@@ -31,6 +31,9 @@
 		<reference value="Patient/f201"/>
 		<display value="Roel"/>
 	</subject>
+	<serviceProvider>
+		<reference value="Organization/f201"/>
+	</serviceProvider>
 	<participant>
 		<actor>
 			<reference value="Practitioner/f201"/>
@@ -42,8 +45,5 @@
 		</concept>
 	</reason>
 	<!--No indication, because no referral took place-->
-	<!--No hospitalization was deemed necessary-->
-	<serviceProvider>
-		<reference value="Organization/f201"/>
-	</serviceProvider>
+	<!--No admission was deemed necessary-->
 </Encounter>

@@ -294,26 +294,6 @@
         <map value=".telecom and .addr and other .role(relevant datatype properties mapped from role into extendedcontactdetail)"/>
       </mapping>
     </element>
-    <element id="Location.telecom">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="deprecated"/>
-      </extension>
-      <path value="Location.telecom"/>
-      <short value="Deprecated - use contact.telecom"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactPoint"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".telecom"/>
-      </mapping>
-      <mapping>
-        <identity value="interface"/>
-        <map value="ParticipantContactable.telecom"/>
-      </mapping>
-    </element>
     <element id="Location.address">
       <path value="Location.address"/>
       <short value="Physical location"/>
@@ -463,7 +443,7 @@
       <path value="Location.hoursOfOperation"/>
       <short value="What days/times during a week is this location usually open"/>
       <definition value="What days/times during a week is this location usually open."/>
-      <comment value="This type of information is commonly found published in directories and on websites informing customers when the facility is available.&#xA;&#xA;Specific services within the location may have their own hours which could be shorter (or longer) than the locations hours."/>
+      <comment value="This type of information is commonly found published in directories and on websites informing customers when the facility is available.&#xA;&#xA;Specific services within the location may have their own hours which could be shorter (or longer) than the locations hours.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;."/>
       <min value="0"/>
       <max value="*"/>
       <type>

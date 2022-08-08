@@ -7,7 +7,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
+    <valueInteger value="3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
@@ -17,12 +17,13 @@
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   <version value="4.6.0"/>
-  <name value="Shareable CodeSystem"/>
+  <name value="ShareableCodeSystem"/>
+  <title value="Shareable CodeSystem"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="Enforces the minimum information set for the value set metadata required by HL7 and other organizations that share and publish value sets"/>
+  <description value="Enforces the minimum information set for the code system metadata required by HL7 and other organizations that share and publish code systems"/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
@@ -54,14 +55,37 @@
       <path value="CodeSystem"/>
       <min value="1"/>
       <max value="1"/>
+      <constraint>
+        <key value="scs-1"/>
+        <severity value="error"/>
+        <human value="If a codesystem contains nested concepts, it must specify hierarchyMeaning"/>
+        <expression value="concept.concept.exists() implies hierarchyMeaning.exists()"/>
+        <xpath value="exists(f:hierarchyMeaning)"/>
+      </constraint>
+      <constraint>
+        <key value="scs-2"/>
+        <severity value="error"/>
+        <human value="If a codesystem contains example, fragment, or complete content, it must have at least one concept"/>
+        <expression value="content in ( 'example' | 'fragment' | 'complete' ) implies concept.exists()"/>
+        <xpath value="exists(f:content)"/>
+      </constraint>
+    </element>
+    <element id="CodeSystem.extension:knowledgeRepresentationLevel">
+      <path value="CodeSystem.extension"/>
+      <sliceName value="knowledgeRepresentationLevel"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"/>
+      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="CodeSystem.url">
       <path value="CodeSystem.url"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="CodeSystem.version">
       <path value="CodeSystem.version"/>
@@ -70,99 +94,80 @@
       <type>
         <code value="string"/>
       </type>
+      <mustSupport value="true"/>
     </element>
     <element id="CodeSystem.name">
       <path value="CodeSystem.name"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="CodeSystem.title">
+      <path value="CodeSystem.title"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="CodeSystem.status">
       <path value="CodeSystem.status"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
+      <mustSupport value="true"/>
     </element>
     <element id="CodeSystem.experimental">
       <path value="CodeSystem.experimental"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="CodeSystem.publisher">
       <path value="CodeSystem.publisher"/>
-      <alias value="steward"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="CodeSystem.description">
       <path value="CodeSystem.description"/>
-      <alias value="scope"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
+      <mustSupport value="true"/>
     </element>
     <element id="CodeSystem.caseSensitive">
       <path value="CodeSystem.caseSensitive"/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="CodeSystem.hierarchyMeaning">
+      <path value="CodeSystem.hierarchyMeaning"/>
+      <condition value="scs-1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="CodeSystem.content">
+      <path value="CodeSystem.content"/>
+      <condition value="scs-2"/>
+      <mustSupport value="true"/>
     </element>
     <element id="CodeSystem.concept">
       <path value="CodeSystem.concept"/>
-      <min value="1"/>
-      <max value="*"/>
+      <condition value="scs-2"/>
+      <mustSupport value="true"/>
     </element>
     <element id="CodeSystem.concept.code">
       <path value="CodeSystem.concept.code"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="CodeSystem.concept.display">
       <path value="CodeSystem.concept.display"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="CodeSystem.concept.definition">
       <path value="CodeSystem.concept.definition"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="CodeSystem.concept.concept">
       <path value="CodeSystem.concept.concept"/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="http://hl7.org/fhir/StructureDefinition/CodeSystem#CodeSystem.concept"/>
+      <condition value="scs-1"/>
+      <mustSupport value="true"/>
     </element>
   </differential>
 </StructureDefinition>

@@ -19,7 +19,7 @@
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="367336001"/>
-			<display value="Chemotherapy"/> 
+			<display value="Chemotherapy"/>
 		</coding>
 	</type>
 	<priority>
@@ -34,6 +34,9 @@
 		<reference value="Patient/f201"/>
 		<display value="Roel"/>
 	</subject>
+	<serviceProvider>
+		<reference value="Organization/f201"/>
+	</serviceProvider>
 	<participant>
 		<actor>
 			<reference value="Practitioner/f201"/>
@@ -77,8 +80,5 @@
 		</use>
 		<rank value="1"/>
 	</diagnosis>
-	<!--No hospitalization was deemed necessary-->
-	<serviceProvider>
-		<reference value="Organization/f201"/>
-	</serviceProvider>
+	<!--No admission was deemed necessary-->
 </Encounter>

@@ -952,7 +952,7 @@ The interpretation of a <i>reference</i> parameter is either:
  <li><b><code>[parameter]=[id]</code></b> the logical [id] of a resource using a local reference (i.e. a relative reference)</li>
  <li><b><code>[parameter]=[type]/[id]</code></b> the logical [id] of a resource of a specified type using a local reference (i.e. a relative reference),
    for when the reference can point to different types of resources (e.g. <a href="observation-definitions.html#Observation.subject">Observation.subject</a>)</li>
- <li><b><code>[parameter]=[url]</code></b> where the [url] is an absolute URL - a reference to a resource by its absolute location, or by it's canonical URL</li>
+ <li><b><code>[parameter]=[url]</code></b> where the [url] is an absolute URL - a reference to a resource by its absolute location, or by its canonical URL</li>
 </ul>
 <p>
 Note: A relative reference resolving to the same value as a specified absolute URL, or vice versa, qualifies as a match.
@@ -1557,7 +1557,7 @@ Notes:
 <div class="trial-content">
 <p>
 The _total parameter has the status <a href="versions.html#std-process" title="Trial Content" class="draft-flag">trial-use</a>
-pending real world experience of it's use.
+pending real world experience of its use.
 </p>
 
 <a name="total"></a>
@@ -1575,7 +1575,7 @@ a particular response (see <a href="#count">paging</a>, immediately below).
 Providing a precise number of matching resources may be onerous for the
 server, depending on how the server is designed. To help reduce the server
 load, a client can provide the parameter <code>_total</code> to indicate
-it's preference with regard to the total, which can have one of the
+its preference with regard to the total, which can have one of the
 following values:
 </p>
 <table class="codes">
@@ -1920,7 +1920,7 @@ resource will be retrieved when the user selects a resource.
 Servers are not obliged to return just a summary as requested. There are only
 a limited number of summary forms defined for resources in order to allow servers
 to store the summarized form(s) in advance. Servers SHOULD mark the resources with the
-tag <a href="v3/SecurityIntegrityObservationValue/cs.html#SUBSETTED"><code>SUBSETTED</code></a>
+tag <a href="v3/ObservationValue/cs.html#v3-ObservationValue-SUBSETTED"><code>SUBSETTED</code></a>
 to ensure that the incomplete resource is not accidentally used to overwrite
 a complete resource.
 </p>
@@ -1959,7 +1959,7 @@ does not apply to <a href="#include">included resources</a>.
 Servers are not obliged to return just the requested elements.
 Servers SHOULD always return mandatory elements whether they are
 requested or not. Servers SHOULD mark the resources with the
-tag <a href="v3/SecurityIntegrityObservationValue/cs.html#SUBSETTED"><code>SUBSETTED</code></a>
+tag <a href="v3/ObservationValue/cs.html#v3-ObservationValue-SUBSETTED"><code>SUBSETTED</code></a>
 to ensure that the incomplete resource is not actually used to overwrite
 a complete resource.
 </p>
