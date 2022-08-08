@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Permission xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[name].xsd">
+  <id value="example-vhdir" />
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        VhDir has identified a need to identify specific entries in the Directory and indicate some restrictions upon use of that entry. 
+        This example is the example from VhDir with some additional details added.
+      </p>
+      <p> 
+    womens-shelter : All entries related to Women's Shelter can only be read by members of a CareTeam 
+    defined for councellors for womens abuse. 
+    Uses the existing example CareTeam that is not actually about women abuse councellors, used as example only.
+    Presumes that directory entries related to womens shelter are marked with .meta.security of WSHELTER 
+    sensitivity code, a code that is not standard so would exist in a domain using this example Permission.
+    </p>
+    <p>
+      Thus the dataScope is for all data with .meta.security of WSHELTER.
+    </p>
+    <p>
+      Activities by those in the CareTeam. 
+      Explicit action and purpose are given, but they are likely not critical to the usecase.
+    </p>
+    </div>
+  </text>
+  <status value="active" />
+
+  <date value="2022-08-04" />
+  <combining value="deny-overrides"/>
+
+  <rule>
+    <type value="permit" />
+
+    <data>
+      <security>
+          <system value="https://example.org"/>
+          <code value="WSHELTER"/>
+      </security>
+    </data>
+    <activity>
+      <actor>
+        <reference value="CareTeam/example" />
+      </actor>
+      <action>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/consentaction" />
+          <code value="access" />
+        </coding>
+      </action>
+      <purpose>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason" />
+          <code value="HOPERAT" />
+        </coding>
+      </purpose>
+    </activity>
+  </rule>
+</Permission>
