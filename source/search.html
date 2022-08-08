@@ -2538,6 +2538,21 @@ being searched. The <code>:exact</code> modifier returns results that match
 the entire supplied parameter, including casing and accents.
 </p>
 <p>
+When a string type search parameter points to a complex or backbone element (an element that contains sub-elements), by default the 
+search is interpreted as a search against one or more string values in sub-elements, as selected by the implementation. A search 
+parameter MAY explicitly choose elements by using an expression that instead points directly to the sub-elements. <span class="stu">TU</span>
+</p>
+<p>
+For example, if a search parameter is of type string and the expression points to <code>Patient.name</code>, the implementation MAY search 
+against any one or more elements of the <a href="datatypes.html#humanname">HumanName</a> datatype (e.g., <code>given</code>, <code>family</code>, 
+<code>prefix</code>, <code>suffix</code>, etc.) <span class="stu">TU</span>. However, if the search parameter intends to explicitly match against
+<code>given</code> and <code>family</code> only, the search parameter should use an expression of <code>Patient.name.given | Patient.name.family</code>.
+</p>
+<p>
+If the SearchParameter's narrative description includes additional considerations about what fields are indexed, 
+the <code>xpathUsage</code> (TODO: renamed to <code>processingMode</code> in R5, not yet applied) should be "other".
+</p>
+<p>
 Examples:
 </p>
 <span class="http-search-example">
