@@ -156,6 +156,18 @@
         <map value=".scopingRole.Organization"/>
       </mapping>
     </element>
+    <element id="HealthcareService.offeredIn">
+      <path value="HealthcareService.offeredIn"/>
+      <short value="The service within which this service is offered."/>
+      <definition value="When the HealthcareService is representing a specific, schedulable service, the availableIn property can refer to a generic service."/>
+      <comment value="For example, if there is a generic Radiology service that offers CT Scans, MRIs, etc.  You could have HealthcareService resources for the CT Scans and MRIs, which have an offeredIn reference to the Radiology HealthcareService."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+      </type>
+    </element>
     <element id="HealthcareService.category">
       <path value="HealthcareService.category"/>
       <short value="Broad category of service being performed or delivered"/>
