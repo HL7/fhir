@@ -187,9 +187,10 @@ complexity that they require for their implementations.
   search set is indeterminate: <a href="patient.html#match">Patient MPI Search</a>.
 </p>
 <p>
-  In the absence of any search filters, e.g. <code>GET [base]/Patient</code> or <code>POST [base]/Patient/_search</code> 
-  with an empty body, a server SHOULD return all records. Note that severs MAY impose expectations prohibiting queries without 
-  or with insufficient parameters.
+  In the absence of any search filters, e.g. <code>GET [base]</code>, <code>GET [base]/Patient</code>, or
+  <code>POST [base]/_search</code> or <code>POST [base]/Patient/_search</code> with no body, a server SHOULD
+  return all records in scope of the search context.  Servers MAY reject a search as overly-broad, and SHOULD
+  return an appropriate error in that situation (e.g., <a href="codesystem-issue-type.html#issue-type-too-costly">too-costly</a>).
 </p>
 
 <a name="searchcontexts"></a>
@@ -3136,9 +3137,16 @@ Elements of type <a href="references.html#Reference">Reference</a> may contain a
 When searching on versioned references, the following rules apply:
 </p>
 <ul>
- <li>If a resource has a reference that is versioned, and chaining is performed, the criteria should ideally be evaluated against the version referenced, but most systems will not be capable of this because search is only defined to function against the current version of a resource</li>
- <li>Where a search does not act on the referenced version, search results SHOULD contain a OperationOutcome with a warning that indicates the discrepancy</li>
- <li>If a resource has a reference that is versioned and _include is performed, the specified version SHOULD be provided.</li>
+ <li>
+  If a resource has a reference that is versioned, and chaining is performed, the criteria should ideally be evaluated against the version 
+  referenced, but most systems will not be capable of this because search is only defined to function against the current version of a resource
+ </li>
+ <li>
+  Where a search does not act on the referenced version, search results SHOULD contain a OperationOutcome with a warning that indicates the discrepancy
+ </li>
+ <li>
+  If a resource has a reference that is versioned and _include is performed, the specified version SHOULD be provided.
+ </li>
 </ul>
 
 <p>
