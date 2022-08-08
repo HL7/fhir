@@ -80,10 +80,12 @@
         <healthcareService>
           <reference value="HealthcareService/example" />
         </healthcareService>
-        <telecom>
-          <system value="email" />
-          <value value="dr.adam.careful@example.org" />
-        </telecom>
+        <contact>
+          <telecom>
+            <system value="email" />
+            <value value="dr.adam.careful@example.org" />
+          </telecom>
+        </contact>
         <endpoint>
           <reference value="Endpoint/example" />
         </endpoint>
@@ -143,11 +145,13 @@
         <code>
           <text value="On call physcologist"/>
         </code>
-        <telecom>
-          <system value="phone" />
-          <value value="555 123456" />
-          <use value="mobile"/>
-        </telecom>
+        <contact>
+          <telecom>
+            <system value="phone" />
+            <value value="555 123456" />
+            <use value="mobile"/>
+          </telecom>
+        </contact>
         <availableTime>
           <daysOfWeek value="sat"/>
           <daysOfWeek value="sun"/>
