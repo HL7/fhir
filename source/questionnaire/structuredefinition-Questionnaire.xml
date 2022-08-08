@@ -1149,7 +1149,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 			<path value="Questionnaire.item.answerValueSet"/>
 			<short value="Valueset containing permitted answers"/>
 			<definition value="A reference to a value set containing a list of values representing permitted answers for a question."/>
-			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](loinc.html#alist). The value may come from the ElementDefinition referred to by .definition."/>
+			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="The details of a healthcare service available at a location."/>
+  <description value="The details of a healthcare service available at a location or in a catalog.  In the case where there is a hierarchy of services (for example, Lab -> Pathology -> Wound Cultures), this can be represented using a set of linked HealthcareServices."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
@@ -155,6 +155,18 @@
         <identity value="rim"/>
         <map value=".scopingRole.Organization"/>
       </mapping>
+    </element>
+    <element id="HealthcareService.offeredIn">
+      <path value="HealthcareService.offeredIn"/>
+      <short value="The service within which this service is offered"/>
+      <definition value="When the HealthcareService is representing a specific, schedulable service, the availableIn property can refer to a generic service."/>
+      <comment value="For example, if there is a generic Radiology service that offers CT Scans, MRIs, etc.  You could have HealthcareService resources for the CT Scans and MRIs, which have an offeredIn reference to the Radiology HealthcareService."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+      </type>
     </element>
     <element id="HealthcareService.category">
       <path value="HealthcareService.category"/>
@@ -327,24 +339,6 @@
       <type>
         <code value="ExtendedContactDetail"/>
       </type>
-    </element>
-    <element id="HealthcareService.telecom">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="deprecated"/>
-      </extension>
-      <path value="HealthcareService.telecom"/>
-      <short value="Deprecated - use contact.telecom"/>
-      <definition value="List of contacts related to this specific healthcare service."/>
-      <comment value="If this is empty, then refer to the location&#39;s contacts."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactPoint"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".telecom"/>
-      </mapping>
     </element>
     <element id="HealthcareService.coverageArea">
       <path value="HealthcareService.coverageArea"/>
