@@ -1988,7 +1988,7 @@
             <code value="PPN"/>
           </coding>
         </type>
-        <description value="[XXX] is a 3-letter country code defined by ISO 3166. See [Using ISO 3166 Codes with FHIR](iso3166.html)."/>
+        <description value="[XXX] is a 3-letter country code defined by ISO 3166. See [Using ISO 3166 Codes with FHIR](https://terminology.hl7.org/ISO3166.html)."/>
         <jurisdiction>
           <coding>
             <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
