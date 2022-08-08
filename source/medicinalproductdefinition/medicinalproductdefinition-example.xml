@@ -82,31 +82,31 @@
 	</masterFile>
 	<name>
 		<productName value="Equilidem 2.5 mg film-coated tablets"/>
-		<namePart>
+		<part>
 			<part value="Equilidem"/>
 			<type>
 				<coding>
 					<code value="INV"/>
 				</coding>
 			</type>
-		</namePart>
-		<namePart>
+		</part>
+		<part>
 			<part value="2.5 mg"/>
 			<type>
 				<coding>
 					<code value="STR"/>
 				</coding>
 			</type>
-		</namePart>
-		<namePart>
+		</part>
+		<part>
 			<part value="film-coated tablets"/>
 			<type>
 				<coding>
 					<code value="FRM"/>
 				</coding>
 			</type>
-		</namePart>
-		<countryLanguage>
+		</part>
+		<usage>
 			<country>
 				<coding>
 					<system value="http://ema.europa.eu/example/countryCode"/>
@@ -125,7 +125,7 @@
 					<code value="EN"/>
 				</coding>
 			</language>
-		</countryLanguage>
+		</usage>
 	</name>
 	<operation>
 		<type>
