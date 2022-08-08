@@ -358,25 +358,6 @@
         <code value="ExtendedContactDetail"/>
       </type>
     </element>
-    <element id="PractitionerRole.telecom">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="deprecated"/>
-      </extension>
-      <path value="PractitionerRole.telecom"/>
-      <short value="Deprecated - use contact.telecom"/>
-      <definition value="Contact details that are specific to the role/location/service."/>
-      <requirements value="Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactPoint"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".telecom"/>
-      </mapping>
-    </element>
     <element id="PractitionerRole.availableTime">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="390,0"/>

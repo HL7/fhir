@@ -54,11 +54,13 @@
 	<healthcareService>
 		<reference value="HealthcareService/example"/>
 	</healthcareService>
-	<telecom>
-		<system value="email" />
-		<value value="general.practice@example.org" />
-		<use value="work"/>
-	</telecom>
+	<contact>
+		<telecom>
+			<system value="email" />
+			<value value="general.practice@example.org" />
+			<use value="work"/>
+		</telecom>
+	</contact>
 	<endpoint>
     <!-- Endpoint that handles the v2 messaging for the network -->
     <reference value="Endpoint/example"/>

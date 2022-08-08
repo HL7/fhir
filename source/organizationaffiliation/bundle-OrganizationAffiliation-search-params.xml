@@ -50,14 +50,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="OrganizationAffiliation.telecom(system=email)"/>
+          <valueString value="OrganizationAffiliation.contact.telecom(system=email)"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-email"/>
         <description value="A value in an email contact"/>
         <code value="email"/>
         <type value="token"/>
-        <expression value="OrganizationAffiliation.telecom.where(system=&#39;email&#39;)"/>
-        <xpath value="f:OrganizationAffiliation/f:telecom[system/@value=&#39;email&#39;]"/>
+        <expression value="OrganizationAffiliation.contact.telecom.where(system=&#39;email&#39;)"/>
+        <xpath value="f:OrganizationAffiliation/f:contact/f:telecom[system/@value=&#39;email&#39;]"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -170,14 +170,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="OrganizationAffiliation.telecom(system=phone)"/>
+          <valueString value="OrganizationAffiliation.contact.telecom(system=phone)"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-phone"/>
         <description value="A value in a phone contact"/>
         <code value="phone"/>
         <type value="token"/>
-        <expression value="OrganizationAffiliation.telecom.where(system=&#39;phone&#39;)"/>
-        <xpath value="f:OrganizationAffiliation/f:telecom[system/@value=&#39;phone&#39;]"/>
+        <expression value="OrganizationAffiliation.contact.telecom.where(system=&#39;phone&#39;)"/>
+        <xpath value="f:OrganizationAffiliation/f:contact/f:telecom[system/@value=&#39;phone&#39;]"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -270,14 +270,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="OrganizationAffiliation.telecom"/>
+          <valueString value="OrganizationAffiliation.contact.telecom"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-telecom"/>
         <description value="The value in any kind of contact"/>
         <code value="telecom"/>
         <type value="token"/>
-        <expression value="OrganizationAffiliation.telecom"/>
-        <xpath value="f:OrganizationAffiliation/f:telecom"/>
+        <expression value="OrganizationAffiliation.contact.telecom"/>
+        <xpath value="f:OrganizationAffiliation/f:contact/f:telecom"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

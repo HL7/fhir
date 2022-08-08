@@ -475,6 +475,22 @@ and unlimited number of .subDetails within each .detail. It is up to the impleme
  and the allowable numbers of .items, .details and .subDetails.
 </p>
 
+<a name="tax"></a>
+<h3>Tax</h3>
+<p>
+For jurisdictions where tax is billed as a separate line item, through a billing code or category, there is no additional structural 
+information required. The handling of Tax should be detailed in the jurisdictional implementation guide and jurisdictional profiles 
+should remove unnecessary tax-related elements. Therefore: .net=.quantity * .unitPrice * .factor. Also the jurisdictional implementation 
+guide should clarify whether line items are inclusive or exclusive of tax.
+</p>
+<p>
+For jurisdictions where tax is applied per line item/detail/sub-detail etc. a single tax element shall be added to the respective 
+strictures for .item, ,item.detail, .item.detail.subdetail and similarly in the addItem structure of the Claim, ClaimResponse and 
+ExplanationOfBenefit resources. The Tax element contains the total of any taxes and extensions may be used to breakdown the Tax should 
+that be required. Therefore: .net= (.quantity * .unitPrice * .factor) + .tax. The total tax may be reflected in the resource.total 
+structure if appropriate.
+</p>
+
 <a name="roadmap"></a>
 <h3>Developmental Roadmap</h3>
 <p>

@@ -285,6 +285,8 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <mapping>
         <identity value="w5"/>
@@ -548,6 +550,19 @@
         <map value="FiveWs.cause"/>
       </mapping>
     </element>
+    <element id="Claim.encounter">
+      <path value="Claim.encounter"/>
+      <short value="Encounters related to this billed item"/>
+      <definition value="The Encounters during which this Claim was created or to which the creation of this record is tightly associated."/>
+      <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
+      <requirements value="Used in some jurisdictions to link clinical events to claim items."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+    </element>
     <element id="Claim.facility">
       <path value="Claim.facility"/>
       <short value="Servicing facility"/>
@@ -563,6 +578,25 @@
         <identity value="w5"/>
         <map value="FiveWs.where[x]"/>
       </mapping>
+    </element>
+    <element id="Claim.diagnosisRelatedGroup">
+      <path value="Claim.diagnosisRelatedGroup"/>
+      <short value="Package billing code"/>
+      <definition value="A package billing code or bundle code used to group products and services to a particular health condition (such as heart attack) which is based on a predetermined grouping code system."/>
+      <comment value="For example DRG (Diagnosis Related Group) or a bundled billing code. A patient may have a diagnosis of a Myocardial Infarction and a DRG for HeartAttack would be assigned. The Claim item (and possible subsequent claims) would refer to the DRG for those line items that were for services related to the heart attack event."/>
+      <requirements value="Required to relate the current diagnosis to a package billing code that is then referenced on the individual claim items which are specific to the health condition covered by the package code."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiagnosisRelatedGroup"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup"/>
+      </binding>
     </element>
     <element id="Claim.careTeam">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -644,9 +678,9 @@
     </element>
     <element id="Claim.careTeam.qualification">
       <path value="Claim.careTeam.qualification"/>
-      <short value="Practitioner credential or specialization"/>
-      <definition value="The qualification of the practitioner which is applicable for this service."/>
-      <requirements value="Need to specify which qualification a provider is delivering the product or service under."/>
+      <short value="Practitioner or provider specialization"/>
+      <definition value="The specialization of the practitioner or provider which is applicable for this service."/>
+      <requirements value="Need to specify which specialization a practitioner or provider acting under when delivering the product or service."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -885,26 +919,6 @@
         <strength value="example"/>
         <description value="Present on admission."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-diagnosis-on-admission"/>
-      </binding>
-    </element>
-    <element id="Claim.diagnosis.packageCode">
-      <path value="Claim.diagnosis.packageCode"/>
-      <short value="Package billing code"/>
-      <definition value="A package billing code or bundle code used to group products and services to a particular health condition (such as heart attack) which is based on a predetermined grouping code system."/>
-      <comment value="For example DRG (Diagnosis Related Group) or a bundled billing code. A patient may have a diagnosis of a Myocardial Infarction and a DRG for HeartAttack would be assigned. The Claim item (and possible subsequent claims) would refer to the DRG for those line items that were for services related to the heart attack event."/>
-      <requirements value="Required to relate the current  diagnosis to a package billing code that is then referenced on the individual claim items which are specific to the health condition covered by the package code."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DiagnosisRelatedGroup"/>
-        </extension>
-        <strength value="example"/>
-        <description value="The DRG codes associated with the diagnosis."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup"/>
       </binding>
     </element>
     <element id="Claim.procedure">
@@ -1181,6 +1195,17 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
     </element>
+    <element id="Claim.patientPaid">
+      <path value="Claim.patientPaid"/>
+      <short value="Paid by the patient"/>
+      <definition value="The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services."/>
+      <requirements value="Necessary to demonstrate that copayments, co-insurance and similar patient payments have been made or accounted for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="Claim.item">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Item"/>
@@ -1406,6 +1431,17 @@
         <map value="FiveWs.where[x]"/>
       </mapping>
     </element>
+    <element id="Claim.item.patientPaid">
+      <path value="Claim.item.patientPaid"/>
+      <short value="Paid by the patient"/>
+      <definition value="The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services."/>
+      <requirements value="Necessary to demonstrate that copayments, co-insurance and similar patient payments have been made or accounted for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="Claim.item.quantity">
       <path value="Claim.item.quantity"/>
       <short value="Count of products or services"/>
@@ -1441,6 +1477,17 @@
         <code value="decimal"/>
       </type>
     </element>
+    <element id="Claim.item.tax">
+      <path value="Claim.item.tax"/>
+      <short value="Total tax"/>
+      <definition value="The total of taxes applicable for this product or service."/>
+      <requirements value="Required when taxes are not embedded in the unit price or provided as a separate service."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="Claim.item.net">
       <path value="Claim.item.net"/>
       <short value="Total item cost"/>
@@ -1466,28 +1513,44 @@
       </type>
     </element>
     <element id="Claim.item.bodySite">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="BodySite"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="740,500"/>
+      </extension>
       <path value="Claim.item.bodySite"/>
       <short value="Anatomical location"/>
+      <definition value="Physical location where the service is performed or applies."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Claim.item.bodySite.site">
+      <path value="Claim.item.bodySite.site"/>
+      <short value="Location"/>
       <definition value="Physical service site on the patient (limb, tooth, etc.)."/>
       <comment value="For example: Providing a tooth code, allows an insurer to identify a provider performing a filling on a tooth that was previously removed."/>
       <requirements value="Allows insurer to validate specific procedures."/>
-      <min value="0"/>
-      <max value="1"/>
+      <min value="1"/>
+      <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="OralSites"/>
         </extension>
         <strength value="example"/>
-        <description value="The code for the teeth, quadrant, sextant and arch."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/tooth"/>
       </binding>
     </element>
-    <element id="Claim.item.subSite">
-      <path value="Claim.item.subSite"/>
-      <short value="Anatomical sub-location"/>
+    <element id="Claim.item.bodySite.subSite">
+      <path value="Claim.item.bodySite.subSite"/>
+      <short value="Sub-location"/>
       <definition value="A region or surface of the bodySite, e.g. limb region or tooth surface(s)."/>
       <requirements value="Allows insurer to validate specific procedures."/>
       <min value="0"/>
@@ -1500,7 +1563,6 @@
           <valueString value="Surface"/>
         </extension>
         <strength value="example"/>
-        <description value="The code for the tooth surface and surface combinations."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/surface"/>
       </binding>
     </element>
@@ -1651,6 +1713,17 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-program-code"/>
       </binding>
     </element>
+    <element id="Claim.item.detail.patientPaid">
+      <path value="Claim.item.detail.patientPaid"/>
+      <short value="Paid by the patient"/>
+      <definition value="The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services."/>
+      <requirements value="Necessary to demonstrate that copayments, co-insurance and similar patient payments have been made or accounted for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="Claim.item.detail.quantity">
       <path value="Claim.item.detail.quantity"/>
       <short value="Count of products or services"/>
@@ -1684,6 +1757,17 @@
       <max value="1"/>
       <type>
         <code value="decimal"/>
+      </type>
+    </element>
+    <element id="Claim.item.detail.tax">
+      <path value="Claim.item.detail.tax"/>
+      <short value="Total tax"/>
+      <definition value="The total of taxes applicable for this product or service."/>
+      <requirements value="Required when taxes are not embedded in the unit price or provided as a separate service."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
       </type>
     </element>
     <element id="Claim.item.detail.net">
@@ -1837,6 +1921,17 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-program-code"/>
       </binding>
     </element>
+    <element id="Claim.item.detail.subDetail.patientPaid">
+      <path value="Claim.item.detail.subDetail.patientPaid"/>
+      <short value="Paid by the patient"/>
+      <definition value="The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services."/>
+      <requirements value="Necessary to demonstrate that copayments, co-insurance and similar patient payments have been made or accounted for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
     <element id="Claim.item.detail.subDetail.quantity">
       <path value="Claim.item.detail.subDetail.quantity"/>
       <short value="Count of products or services"/>
@@ -1870,6 +1965,17 @@
       <max value="1"/>
       <type>
         <code value="decimal"/>
+      </type>
+    </element>
+    <element id="Claim.item.detail.subDetail.tax">
+      <path value="Claim.item.detail.subDetail.tax"/>
+      <short value="Total tax"/>
+      <definition value="The total of taxes applicable for this product or service."/>
+      <requirements value="Required when taxes are not embedded in the unit price or provided as a separate service."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
       </type>
     </element>
     <element id="Claim.item.detail.subDetail.net">
