@@ -26,8 +26,12 @@
   <description value="Concepts representing recorded sex or gender values for international exchange."/>
   <copyright value="ICAO 2021"/>
   <compose>
-    <include>
+	<include>
       <system value="http://terminology.hl7.org/CodeSystem/icaosex"/>
+      <concept>
+        <code value="F"/>
+        <display value="Female"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>
