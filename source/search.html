@@ -3780,11 +3780,36 @@ The <code>_summary</code> parameter requests the server to return a subset of th
 resource. It can contain one of the following values:
 </p>
 <table class="codes">
- <tr><td><a href="#summary-true">true</a></td><td>Return a limited subset of elements from the resource.  This subset SHOULD consist solely of all supported elements that are marked as "summary" in the base definition of the resource(s) (see <a href="elementdefinition-definitions.html#ElementDefinition.isSummary">ElementDefinition.isSummary</a>)</td></tr>
- <tr><td><a href="#summary-text">text</a></td><td>Return only the "text" element, the 'id' element, the 'meta' element, and only top-level mandatory elements</td></tr>
- <tr><td><a href="#summary-data">data</a></td><td>Remove the text element</td></tr>
- <tr><td><a href="#summary-count">count</a></td><td>Search only: just return a count of the matching resources, without returning the actual matches</td></tr>
- <tr><td><a href="#summary-false">false</a></td><td>Return all parts of the resource(s)</td></tr>
+ <tr>
+  <td><a href="#summary-true">true</a></td>
+  <td>
+    Return a limited subset of elements from the resource.  This subset SHOULD consist solely of all supported 
+    elements that are marked as "summary" in the base definition of the resource(s) (see 
+    <a href="elementdefinition-definitions.html#ElementDefinition.isSummary">ElementDefinition.isSummary</a>)
+  </td>
+ </tr>
+ <tr>
+  <td><a href="#summary-text">text</a></td>
+  <td>
+    Return only the <code>text</code>, <code>id</code>, <code>meta</code>, and top-level mandatory elements
+    (these mandatory elements are included to ensure that the payload is valid FHIR; servers MAY omit elements 
+    within these sub-trees as long as they ensure that the payload is valid).  Servers MAY return extensions,
+    but clients SHOULD NOT rely on extensions being present and SHOULD use another search mode if data contained
+    in extensions is required.<span class="stu">TU</span>
+  </td>
+ </tr>
+ <tr>
+  <td><a href="#summary-data">data</a></td>
+  <td>Remove the <code>text</code> element</td>
+ </tr>
+ <tr>
+  <td><a href="#summary-count">count</a></td>
+  <td>Search only: just return a count of the matching resources, without returning the actual matches</td>
+ </tr>
+ <tr>
+  <td><a href="#summary-false">false</a></td>
+  <td>Return all parts of the resource(s)</td>
+ </tr>
 </table>
 <p>
 The intent of the <code>_summary</code> parameter is to reduce the total processing load on
