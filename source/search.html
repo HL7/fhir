@@ -3861,7 +3861,9 @@ _elements=identifier,active,link</span>
 </p>
 <p>
 The <code>_elements</code> parameter consists of a comma-separated list of base element
-names such as, elements defined at the root level in the resource. Only
+names such as, elements defined at the root level in the resource. Each element name SHALL 
+be the base element name without specifying <code>[x]</code> or one of the types (e.g.,
+"value" is valid, while "value[x]" and "valueQuantity" are not) <span class="stu">TU</span>.  Only
 elements that are listed are to be returned. Clients SHOULD list all mandatory and modifier
 elements in a resource as part of the list of elements.  Servers have the right to return
 more data than request, however clients can generally expect that returned elements will be:
