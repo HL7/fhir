@@ -1,237 +1,212 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExampleScenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/examplescenario.xsd">
-	<id value="example"/>
-
-	<title value="Mobile Medication Administration"/> 
-	<status value="draft"/>
-
-	<description value="Bla"/>
-
-
-	<!-- First define actors--> 
-	<actor>
-		<actorId value="Clin"/>
-		<type value="person"/>
-		<name value="MD"/>
-		<description value="The Clinician" />
-	</actor>
-	<actor>
-		<actorId value="EMR"/>
-		<type value="entity"/>
-		<name value="EMR" />
-		<description value="EMR" />
-	</actor>	
-	<actor>
-		<actorId value="LabMan"/>
-		<type value="person"/>
-		<name value="Lab Man" />
-		<description value="Lab Person" />
-	</actor>
-	<actor>
-		<actorId value="Lab"/>
-		<type value="entity"/>
-		<name value="Lab" />
-		<description value="Lab" />
-	</actor>
-
-
-	<!-- Then define the resource instances --> 
-
-	<instance>
-		<resourceId value="req0"/>
-		<resourceType value="ServiceDefinition"/>
-		<name value="Original Request for 10 procedures" />
-		<description value="Bla"/>
-	</instance>
-
-	
-	<instance>
-		<resourceId value="spec1"/>
-		<resourceType value="Specimen"/>
-		<name value="Specimen already collected" />
-		<description value="Bla"/>
-	</instance>
-
-
-	<instance>
-		<resourceId value="req1"/>
-		<resourceType value="ServiceDefinition"/>
-		<name value="Request for an extra procedure" />
-		<description value="Bla"/>
-	</instance>
-
-	<instance>
-		<resourceId value="task1" />
-		<resourceType value="Task"/>
-		<name value="Task" />
-		<description value="The task..." />
-		<version>
-			<versionId value="task1v1" />
-			<description value="Initially created" />
-		</version>
-		<version>
-			<versionId value="task1v2" />
-			<description value="Accepted" />
-		</version>
-		<version>
-			<versionId value="task1v3" />
-			<description value="In progress" />
-		</version>
-		<version>
-			<versionId value="task1v4 " />
-			<description value="Completed" />
-		</version>
-	</instance>
-	
-	<instance>
-		<resourceId value="reql1"/>
-		<resourceType value="ServiceDefinition"/>
-		<name value="Lab's request for the extra procedure" />
-		<description value="Bla"/>
-	</instance>
-	
-
-
-	
-	<process>
-		<title value="Add-on Order"/>
-		<description value="Add on order blah blah" />
-		<preConditions value="Previous order exists, specimen already collected."/>
-		<postConditions value="All is fine."/>
-
-		<step>
-			<operation> 
-				<number value="1"/> 
-				<name value="Make a call"/> 
-				<dotted value="true"/> 
-				<initiator value="Clin"/> 
-				<receiver value="LabMan"/> 
-			</operation>		
-		</step>
-		<step>
-			<pause value="true"/>		
-		</step>
-
-		<step>
-			<process> 
-				<title value="Create new EMR order"/> 
-				<description value="asdasdasd" />
-				<step>
-					<operation> 
-						<number value="2"/> 
-						<name value="Create serviceorder "/>
-						<initiator value="Clin"/> 
-						<receiver value="EMR"/> 
-						<request>
-							<resourceId value="req1"/>
-						</request>
-					</operation>
-				</step>
-			</process>	
-		</step>
-
-		
-		<step>
-			<process> 
-				<title value="Create Lab task"/> 
-				<description value="asdasdasd" />
-				<step>
-					<operation> 
-						<number value="2"/> 
-						<name value="Create Lab's task "/>
-						<initiator value="EMR"/> 
-						<receiver value="EMR"/> 
-						<request>
-							<resourceId value="task1"/>
-							<versionId value="task1v1"/>
-						</request>
-					</operation>
-				</step>
-
-				<step>
-					<operation> 
-						<number value="2"/> 
-						<name value="Send task to Lab "/>
-						<initiator value="EMR"/> 
-						<receiver value="Lab"/> 
-						<request>
-							<resourceId value="task1"/>
-							<versionId value="task1v1"/>
-						</request>
-					</operation>
-				</step>
-			</process>	
-		</step>
-		
-
-		
-				<step>
-					<operation> 
-						<number value="3"/> 
-						<name value="Create lab's service order "/>
-						<initiator value="Lab"/> 
-						<receiver value="Lab"/> 
-						<request>
-							<resourceId value="reql1"/>
-						</request>
-					</operation>
-				</step>
-		
-		
-		<step>
-			<pause value="true"/>		
-		</step>
-
-
-
-		
-		<step>
-			<pause value="true"/>		
-		</step>
-
-
-
-		<step>
-			<process> 
-				<title value="Accept task"/> 
-				<description value="asdasdasd" />
-				<step>
-					<operation> 
-						<number value="3"/> 
-						<name value="Task accepted"/>
-						<initiator value="Lab"/> 
-						<receiver value="Lab"/> 
-						<request>
-							<resourceId value="task1"/>
-							<versionId value="task1v2"/>
-						</request>
-					</operation>
-				</step>
-			</process>	
-		</step>
-
-		<step>
-			<process> 
-				<title value="Start procedure"/> 
-				<description value="asdasdasd" />
-				<step>
-					<operation> 
-						<number value="3"/> 
-						<name value="Task in progress"/>
-						<initiator value="Lab"/> 
-						<receiver value="Lab"/> 
-						<request>
-							<resourceId value="task1"/>
-							<versionId value="task1v3"/>
-						</request>
-					</operation>
-				</step>
-			</process>	
-		</step>
-		
-		
-		
-	</process>
-
-
+  <id value="example"/>
+  <title value="Mobile Medication Administration"/>
+  <status value="draft"/>
+  <description value="Bla"/>
+  <!-- First define actors-->
+  <actor>
+    <key value="Clin"/>
+    <type value="person"/>
+    <title value="MD"/>
+    <description value="The Clinician"/>
+  </actor>
+  <actor>
+    <key value="EMR"/>
+    <type value="entity"/>
+    <title value="EMR"/>
+    <description value="EMR"/>
+  </actor>
+  <actor>
+    <key value="LabMan"/>
+    <type value="person"/>
+    <title value="Lab Man"/>
+    <description value="Lab Person"/>
+  </actor>
+  <actor>
+    <key value="Lab"/>
+    <type value="entity"/>
+    <title value="Lab"/>
+    <description value="Lab"/>
+  </actor>
+  <!-- Then define the resource instances -->
+  <instance>
+    <key value="req0"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="ServiceDefinition"/>
+    </type>
+    <title value="Original Request for 10 procedures"/>
+    <description value="Bla"/>
+  </instance>
+  <instance>
+    <key value="spec1"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="Specimen"/>
+    </type>
+    <title value="Specimen already collected"/>
+    <description value="Bla"/>
+  </instance>
+  <instance>
+    <key value="req1"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="ServiceDefinition"/>
+    </type>
+    <title value="Request for an extra procedure"/>
+    <description value="Bla"/>
+  </instance>
+  <instance>
+    <key value="task1"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="Task"/>
+    </type>
+    <title value="Task"/>
+    <description value="The task..."/>
+    <version>
+      <key value="task1v1"/>
+      <description value="Initially created"/>
+    </version>
+    <version>
+      <key value="task1v2"/>
+      <description value="Accepted"/>
+    </version>
+    <version>
+      <key value="task1v3"/>
+      <description value="In progress"/>
+    </version>
+    <version>
+      <key value="task1v4 "/>
+      <description value="Completed"/>
+    </version>
+  </instance>
+  <instance>
+    <key value="reql1"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="ServiceDefinition"/>
+    </type>
+    <title value="Lab's request for the extra procedure"/>
+    <description value="Bla"/>
+  </instance>
+  <process>
+    <title value="Add-on Order"/>
+    <description value="Add on order blah blah"/>
+    <preConditions value="Previous order exists, specimen already collected."/>
+    <postConditions value="All is fine."/>
+    <step>
+      <operation>
+        <number value="1"/>
+        <title value="Make a call"/>
+        <dotted value="true"/>
+        <initiator value="Clin"/>
+        <receiver value="LabMan"/>
+      </operation>
+    </step>
+    <step>
+      <pause value="true"/>
+    </step>
+    <step>
+      <process>
+        <title value="Create new EMR order"/>
+        <description value="asdasdasd"/>
+        <step>
+          <operation>
+            <number value="2"/>
+            <title value="Create serviceorder "/>
+            <initiator value="Clin"/>
+            <receiver value="EMR"/>
+            <request>
+              <key value="req1"/>
+            </request>
+          </operation>
+        </step>
+      </process>
+    </step>
+    <step>
+      <process>
+        <title value="Create Lab task"/>
+        <description value="asdasdasd"/>
+        <step>
+          <operation>
+            <number value="2"/>
+            <title value="Create Lab's task "/>
+            <initiator value="EMR"/>
+            <receiver value="EMR"/>
+            <request>
+              <key value="task1"/>
+              <key value="task1v1"/>
+            </request>
+          </operation>
+        </step>
+        <step>
+          <operation>
+            <number value="2"/>
+            <title value="Send task to Lab "/>
+            <initiator value="EMR"/>
+            <receiver value="Lab"/>
+            <request>
+              <key value="task1"/>
+              <key value="task1v1"/>
+            </request>
+          </operation>
+        </step>
+      </process>
+    </step>
+    <step>
+      <operation>
+        <number value="3"/>
+        <title value="Create lab's service order "/>
+        <initiator value="Lab"/>
+        <receiver value="Lab"/>
+        <request>
+          <key value="reql1"/>
+        </request>
+      </operation>
+    </step>
+    <step>
+      <pause value="true"/>
+    </step>
+    <step>
+      <pause value="true"/>
+    </step>
+    <step>
+      <process>
+        <title value="Accept task"/>
+        <description value="asdasdasd"/>
+        <step>
+          <operation>
+            <number value="3"/>
+            <title value="Task accepted"/>
+            <initiator value="Lab"/>
+            <receiver value="Lab"/>
+            <request>
+              <key value="task1"/>
+              <key value="task1v2"/>
+            </request>
+          </operation>
+        </step>
+      </process>
+    </step>
+    <step>
+      <process>
+        <title value="Start procedure"/>
+        <description value="asdasdasd"/>
+        <step>
+          <operation>
+            <number value="3"/>
+            <title value="Task in progress"/>
+            <initiator value="Lab"/>
+            <receiver value="Lab"/>
+            <request>
+              <key value="task1"/>
+              <key value="task1v3"/>
+            </request>
+          </operation>
+        </step>
+      </process>
+    </step>
+  </process>
 </ExampleScenario>

@@ -5,127 +5,163 @@
   <purpose value="Purpose: this serves to enable remote performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR."/>
   <!-- First define actors-->
   <actor>
-    <actorId value="Nurse"/>
+    <key value="Nurse"/>
     <type value="person"/>
-    <name value="Nurse"/>
+    <title value="Nurse"/>
     <description value="The Nurse"/>
   </actor>
   <actor>
-    <actorId value="MAP"/>
+    <key value="MAP"/>
     <type value="entity"/>
-    <name value="Nurse's Tablet"/>
+    <title value="Nurse's Tablet"/>
     <description value="The entity that receives the Administration Requests to show the nurse to perform them"/>
   </actor>
   <actor>
-    <actorId value="OP"/>
+    <key value="OP"/>
     <type value="entity"/>
-    <name value="MAR / Scheduler"/>
+    <title value="MAR / Scheduler"/>
     <description value="The Medication Administration Order Placer"/>
   </actor>
   <actor>
-    <actorId value="MAC"/>
+    <key value="MAC"/>
     <type value="entity"/>
-    <name value="MAR / EHR"/>
+    <title value="MAR / EHR"/>
     <description value="The entity that receives the Medication Administration reports"/>
   </actor>
   <!-- Then define the resource instances -->
   <instance>
-    <resourceId value="iherx001"/>
-    <type value="MedicationRequest"/>
-    <name value="Initial Prescription"/>
+    <key value="iherx001"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="MedicationRequest"/>
+    </type>
+    <title value="Initial Prescription"/>
     <description value="The initial prescription which describes &quot;medication X, 3 times per day&quot; - the exact scheduling is not   in the initial prescription (it is left for the care teams to decide on the schedule)."/>
   </instance>
   <instance>
-    <resourceId value="iherx001.001"/>
-    <type value="MedicationRequest"/>
-    <name value="Request for day 1, morning"/>
+    <key value="iherx001.001"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="MedicationRequest"/>
+    </type>
+    <title value="Request for day 1, morning"/>
     <description value="The administration request for day 1, morning"/>
   </instance>
   <instance>
-    <resourceId value="iherx001.002"/>
-    <type value="MedicationRequest"/>
-    <name value="Request for day 1, lunch"/>
+    <key value="iherx001.002"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="MedicationRequest"/>
+    </type>
+    <title value="Request for day 1, lunch"/>
     <description value="The administration request for day 1, lunch"/>
   </instance>
   <instance>
-    <resourceId value="iherx001.003"/>
-    <type value="MedicationRequest"/>
-    <name value="Request for day 1, evening"/>
+    <key value="iherx001.003"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="MedicationRequest"/>
+    </type>
+    <title value="Request for day 1, evening"/>
     <description value="The administration request for day 1, evening"/>
   </instance>
   <instance>
-    <resourceId value="iherx001.004"/>
-    <type value="MedicationRequest"/>
-    <name value="Request for day 2, morning"/>
+    <key value="iherx001.004"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="MedicationRequest"/>
+    </type>
+    <title value="Request for day 2, morning"/>
     <description value="The administration request for day 2, morning"/>
   </instance>
   <instance>
-    <resourceId value="iherx001.005"/>
-    <type value="MedicationRequest"/>
-    <name value="Request for day 2, lunch"/>
+    <key value="iherx001.005"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="MedicationRequest"/>
+    </type>
+    <title value="Request for day 2, lunch"/>
     <description value="The administration request for day 2, lunch"/>
   </instance>
   <instance>
-    <resourceId value="iherx001.006"/>
-    <type value="MedicationRequest"/>
-    <name value="Request for day 2, evening"/>
+    <key value="iherx001.006"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="MedicationRequest"/>
+    </type>
+    <title value="Request for day 2, evening"/>
     <description value="The administration request for day 2, evening"/>
   </instance>
   <instance>
-    <resourceId value="iheadm001a"/>
-    <type value="MedicationAdministration"/>
-    <name value="Morning meds - taken"/>
+    <key value="iheadm001a"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="MedicationAdministration"/>
+    </type>
+    <title value="Morning meds - taken"/>
     <description value="Administration report for day 1, morning: Taken"/>
   </instance>
   <instance>
-    <resourceId value="iheadm001b"/>
-    <type value="MedicationAdministration"/>
-    <name value="Morning meds - not taken"/>
+    <key value="iheadm001b"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="MedicationAdministration"/>
+    </type>
+    <title value="Morning meds - not taken"/>
     <description value="Administration report for day 1, morning: NOT Taken"/>
   </instance>
   <instance>
-    <resourceId value="iherx001bundle"/>
-    <type value="MedicationRequest"/>
-    <name value="Bundle of Medication Requests"/>
+    <key value="iherx001bundle"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="MedicationRequest"/>
+    </type>
+    <title value="Bundle of Medication Requests"/>
     <description value="All the medication Requests for Day 1"/>
     <containedInstance>
-      <resourceId value="iherx001.001"/>
+      <key value="iherx001.001"/>
     </containedInstance>
     <containedInstance>
-      <resourceId value="iherx001.002"/>
+      <key value="iherx001.002"/>
     </containedInstance>
     <containedInstance>
-      <resourceId value="iherx001.003"/>
+      <key value="iherx001.003"/>
     </containedInstance>
     <containedInstance>
-      <resourceId value="iherx001.004"/>
+      <key value="iherx001.004"/>
     </containedInstance>
     <containedInstance>
-      <resourceId value="iherx001.005"/>
+      <key value="iherx001.005"/>
     </containedInstance>
     <containedInstance>
-      <resourceId value="iherx001.006"/>
+      <key value="iherx001.006"/>
     </containedInstance>
   </instance>
   <instance>
-    <resourceId value="iheadm002"/>
-    <type value="MedicationAdministration"/>
-    <name value="Lunch meds - taken"/>
+    <key value="iheadm002"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="MedicationAdministration"/>
+    </type>
+    <title value="Lunch meds - taken"/>
     <description value="Administration report for day 1, lunch: Taken"/>
     <version>
-      <versionId value="iheadm002v1"/>
+      <key value="iheadm002v1"/>
       <description value="Medication just taken"/>
     </version>
     <version>
-      <versionId value="iheadm002v2"/>
+      <key value="iheadm002v2"/>
       <description value="Medication rejected"/>
     </version>
   </instance>
   <!-- QUESTION: How to define search actions?-->
   <instance>
-    <resourceId value="iherxqry"/>
-    <type value="SearchParameter"/>
-    <name value="Search query1"/>
+    <key value="iherxqry"/>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="SearchParameter"/>
+    </type>
+    <title value="Search query1"/>
     <description value="The search administration request for day 1, morning"/>
   </instance>
   <process>
@@ -136,7 +172,7 @@
     <step>
       <operation>
         <number value="1"/>
-        <name value="1. Get today's schedule"/>
+        <title value="1. Get today's schedule"/>
         <initiator value="Nurse"/>
         <receiver value="MAP"/>
       </operation>
@@ -148,14 +184,14 @@
         <step>
           <operation>
             <number value="2"/>
-            <name value="2.Query for medication administration orders,\n- For today's shifts\n- For today's patients"/>
+            <title value="2.Query for medication administration orders,\n- For today's shifts\n- For today's patients"/>
             <initiator value="MAP"/>
             <receiver value="OP"/>
             <request>
-              <resourceId value="iherxqry"/>
+              <key value="iherxqry"/>
             </request>
             <response>
-              <resourceId value="iherx001bundle"/>
+              <key value="iherx001bundle"/>
             </response>
           </operation>
         </step>
@@ -167,7 +203,7 @@
     <step>
       <operation>
         <number value="4"/>
-        <name value="Notify (alert)"/>
+        <title value="Notify (alert)"/>
         <initiator value="MAP"/>
         <receiver value="Nurse"/>
       </operation>
@@ -175,7 +211,7 @@
     <step>
       <operation>
         <number value="5"/>
-        <name value="Read orders"/>
+        <title value="Read orders"/>
         <initiator value="Nurse"/>
         <receiver value="MAP"/>
       </operation>
@@ -186,7 +222,7 @@
     <step>
       <operation>
         <number value="5"/>
-        <name value="Ask if patient took meds"/>
+        <title value="Ask if patient took meds"/>
         <initiator value="Nurse"/>
         <receiver value="Nurse"/>
       </operation>
@@ -201,7 +237,7 @@
             <step>
               <operation>
                 <number value="1a"/>
-                <name value="Register Meds taken"/>
+                <title value="Register Meds taken"/>
                 <initiator value="Nurse"/>
                 <receiver value="MAP"/>
                 <initiatorActive value="true"/>
@@ -219,7 +255,7 @@
             <step>
               <operation>
                 <number value="1b"/>
-                <name value="Register Meds NOT taken"/>
+                <title value="Register Meds NOT taken"/>
                 <initiator value="Nurse"/>
                 <receiver value="MAP"/>
                 <initiatorActive value="true"/>
@@ -242,7 +278,7 @@
     <step>
       <operation>
         <number value="6"/>
-        <name value="Administer drug"/>
+        <title value="Administer drug"/>
         <initiator value="Nurse"/>
         <receiver value="Nurse"/>
       </operation>
@@ -250,7 +286,7 @@
     <step>
       <operation>
         <number value="7"/>
-        <name value="Register administration"/>
+        <title value="Register administration"/>
         <initiator value="Nurse"/>
         <receiver value="MAP"/>
         <initiatorActive value="true"/>
@@ -265,12 +301,12 @@
         <step>
           <operation>
             <number value="8"/>
-            <name value="Nurse updates administration report"/>
+            <title value="Nurse updates administration report"/>
             <initiator value="Nurse"/>
             <receiver value="MAP"/>
             <initiatorActive value="true"/>
             <request>
-              <resourceId value="iheadm002"/>
+              <key value="iheadm002"/>
             </request>
           </operation>
         </step>
@@ -286,11 +322,11 @@
         <step>
           <operation>
             <number value="9"/>
-            <name value="Refresh"/>
+            <title value="Refresh"/>
             <initiator value="MAP"/>
             <receiver value="MAC"/>
             <request>
-              <resourceId value="iheadm001"/>
+              <key value="iheadm001"/>
             </request>
           </operation>
         </step>

@@ -384,8 +384,8 @@
 				<code value="BackboneElement"/>
 			</type>
 		</element>
-		<element id="ExampleScenario.actor.actorId">
-			<path value="ExampleScenario.actor.actorId"/>
+		<element id="ExampleScenario.actor.key">
+			<path value="ExampleScenario.actor.key"/>
 			<short value="ID or acronym of the actor"/>
 			<definition value="ID or acronym of actor."/>
 			<comment value="should this be called ID or acronym?"/>
@@ -397,7 +397,7 @@
 		</element>
 		<element id="ExampleScenario.actor.type">
 			<path value="ExampleScenario.actor.type"/>
-			<short value="person | entity"/>
+			<short value="person | system"/>
 			<definition value="The type of actor - person or system."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -413,12 +413,11 @@
 				<valueSet value="http://hl7.org/fhir/ValueSet/examplescenario-actor-type"/>
 			</binding>
 		</element>
-		<element id="ExampleScenario.actor.name">
-			<path value="ExampleScenario.actor.name"/>
+		<element id="ExampleScenario.actor.title">
+			<path value="ExampleScenario.actor.title"/>
 			<short value="The name of the actor as shown in the page"/>
 			<definition value="The name of the actor as shown in the page."/>
-			<comment value="Cardinality: is name and description 1..1?"/>
-			<min value="0"/>
+			<min value="1"/>
 			<max value="1"/>
 			<type>
 				<code value="string"/>
@@ -445,8 +444,8 @@
 				<code value="BackboneElement"/>
 			</type>
 		</element>
-		<element id="ExampleScenario.instance.resourceId">
-			<path value="ExampleScenario.instance.resourceId"/>
+		<element id="ExampleScenario.instance.key">
+			<path value="ExampleScenario.instance.key"/>
 			<short value="The id of the resource for referencing"/>
 			<definition value="The id of the resource for referencing."/>
 			<min value="1"/>
@@ -462,15 +461,15 @@
 			<min value="1"/>
 			<max value="1"/>
 			<type>
-				<code value="code"/>
+				<code value="Coding"/>
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="FHIRResourceType"/>
+					<valueString value="InstanceType"/>
 				</extension>
 				<strength value="required"/>
-				<description value="The type of resource."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+				<description value="The structure that defines the instance"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/examplescenario-instance-type"/>
 			</binding>
 		</element>
 		<element id="ExampleScenario.instance.name">
@@ -480,7 +479,7 @@
 			<path value="ExampleScenario.instance.name"/>
 			<short value="A short name for the resource instance"/>
 			<definition value="A short name for the resource instance."/>
-			<min value="0"/>
+			<min value="1"/>
 			<max value="1"/>
 			<type>
 				<code value="string"/>
@@ -509,8 +508,8 @@
 				<code value="BackboneElement"/>
 			</type>
 		</element>
-		<element id="ExampleScenario.instance.version.versionId">
-			<path value="ExampleScenario.instance.version.versionId"/>
+		<element id="ExampleScenario.instance.version.key">
+			<path value="ExampleScenario.instance.version.key"/>
 			<short value="The identifier of a specific version of a resource"/>
 			<definition value="The identifier of a specific version of a resource."/>
 			<min value="1"/>
@@ -539,8 +538,8 @@
 				<code value="BackboneElement"/>
 			</type>
 		</element>
-		<element id="ExampleScenario.instance.containedInstance.resourceId">
-			<path value="ExampleScenario.instance.containedInstance.resourceId"/>
+		<element id="ExampleScenario.instance.containedInstance.instanceReference">
+			<path value="ExampleScenario.instance.containedInstance.instanceReference"/>
 			<short value="Each resource contained in the instance"/>
 			<definition value="Each resource contained in the instance."/>
 			<min value="1"/>
@@ -549,8 +548,8 @@
 				<code value="string"/>
 			</type>
 		</element>
-		<element id="ExampleScenario.instance.containedInstance.versionId">
-			<path value="ExampleScenario.instance.containedInstance.versionId"/>
+		<element id="ExampleScenario.instance.containedInstance.versionReference">
+			<path value="ExampleScenario.instance.containedInstance.versionReference"/>
 			<short value="A specific version of a resource contained in the instance"/>
 			<definition value="A specific version of a resource contained in the instance."/>
 			<min value="0"/>
@@ -668,8 +667,8 @@
 				<code value="string"/>
 			</type>
 		</element>
-		<element id="ExampleScenario.process.step.operation.name">
-			<path value="ExampleScenario.process.step.operation.name"/>
+		<element id="ExampleScenario.process.step.operation.title">
+			<path value="ExampleScenario.process.step.operation.title"/>
 			<short value="The human-friendly name of the interaction"/>
 			<definition value="The human-friendly name of the interaction."/>
 			<min value="0"/>
