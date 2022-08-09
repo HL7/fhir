@@ -3968,11 +3968,12 @@ the provenance resources that refer to them.
 <ul>
   <li>
     <b><code>[_include|_revinclude]=*</code></b>: the wildcard literal <code>*</code> (asterisk) is requesting all resources and 
-    references supported by the server (will typically only be references that are indexed). <span class="stu">TU</span>
+    references supported by the server (will typically only be supported references that are indexed). <span class="stu">TU</span>
   </li>
   <li>
     <b><code>[_include|_revinclude]=[resource]:*</code></b>: where <code>[resource]</code> is the name of the source resource from which the join comes
-    and the wildcard literal <code>*</code> (asterisk) is requesting references for that resource supported by the server.
+    and the wildcard literal <code>*</code> (asterisk) is requesting all supported reference type search parameters for that resource.  Note that
+    the list of search parameters supported for <code>_include</code> or <code>_revinclude</code> is not the same as the list of supported search parameters.
   </li>
   <li>
     <b><code>[_include|_revinclude]=[resource]:[parameter]</code></b>: where <code>[resource]</code> is the name of the source resource from which the join comes
