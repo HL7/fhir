@@ -3638,7 +3638,7 @@ Technically, the <code>_type</code> parameter is a token parameter on the
   sections.
 </p>
 <p>
-  Note that with the exception of _include and _revInclude, Search result parameters SHOULD only appear once in a 
+  Note that with the exception of _include and _revinclude, Search result parameters SHOULD only appear once in a 
   search.  If such a parameter appears more than once, the behavior is undefined and a server MAY treat the situation 
   as an error <span class="stu">TU</span>.
 </p>
@@ -3920,8 +3920,8 @@ providing a <code>_revinclude</code> parameter.
 </p>
 <p>
 Both <code>_include</code> and <code>_revinclude</code> are based on search parameters, rather than
-paths in the resource, since joins, such as <a href="#chaining">chaining</a>, are already done by
-search parameter.
+paths in the resource, since joins such as <a href="#chaining">chaining</a> are already done by
+search parameters.
 </p>
 <p>
 Each <code>_include</code> parameter specifies a search parameter to join on:
@@ -3947,14 +3947,34 @@ any patient that the medication prescriptions in the result set refer to.
 The second search requests all matching prescriptions, return all
 the provenance resources that refer to them.
 </p>
+
 <p>
-Parameter values for both <code>_include</code> and <code>_revinclude</code> have three parts, separated by a <code>:</code> character:
+  Both <code>_include</code> and <code>_revinclude</code> share the same syntax - up to three components, separated
+  by colon characters (<code>:</code>).  The details of the syntax are:
 </p>
-<ol>
- <li>The name of the source resource from which the join comes</li>
- <li>The name of the search parameter which must be of type <i>reference</i></li>
- <li>(Optional) A specific of type of target resource (for when the search parameter refers to multiple possible target types)</li>
-</ol>
+<ul>
+  <li>
+    <b><code>[_include|_revinclude]=*</code></b>: the wildcard literal <code>*</code> (asterisk) is requesting all resources and 
+    references supported by the server (will typically only be references that are indexed). <span class="stu">TU</span>
+  </li>
+  <li>
+    <b><code>[_include|_revinclude]=[resource]:*</code></b>: where <code>[resource]</code> is the name of the source resource from which the join comes
+    and the wildcard literal <code>*</code> (asterisk) is requesting references for that resource supported by the server.
+  </li>
+  <li>
+    <b><code>[_include|_revinclude]=[resource]:[parameter]</code></b>: where <code>[resource]</code> is the name of the source resource from which the join comes
+    and <code>[parameter]</code> is the name of a search parameter which must be of type <code>reference</code>.
+  </li>
+  <li>
+    <b><code>[_include|_revinclude]=[resource]:[parameter]:[targetType]</code></b>: where <code>[resource]</code> is the name of the source resource from which
+    the join comes, <code>[parameter]</code> is the name of a search parameter which must be of type <code>reference</code>, and <code>[targetType]</code> is
+    a specific resource type (for when a search parameter refers to references of multiple types).
+  </li>
+ </ul>
+<p>
+  Note that implementers intending to support wildcard (<code>*</code>) segments SHOULD advertise them along with other resources and search parameters
+  in their capability statement (e.g., in <code>CapabilityStatement.rest.resource.searchInclude</code>).
+</p>
 <p>
 <code>_include</code> and <code>_revinclude</code> parameters do not include multiple values. Instead, the
 parameters are repeated for each different include criteria.
