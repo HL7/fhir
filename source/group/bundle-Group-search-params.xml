@@ -64,6 +64,21 @@
           <expression value="(value as CodeableConcept) | (value as boolean)"/>
         </component>
       </SearchParameter>
+  </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Group-characteristic-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-characteristic-reference"/>
+        <description value="An entity referenced in a characteristic"/>
+        <code value="characteristic-reference"/>
+        <type value="reference"/>
+        <expression value="(Group.characteristic.value as Reference)"/>
+      </SearchParameter>
     </resource>
   </entry>
   <entry>
