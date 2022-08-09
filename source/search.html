@@ -3850,8 +3850,7 @@ _elements=identifier,active,link</span>
 The <code>_elements</code> parameter consists of a comma-separated list of base element
 names such as, elements defined at the root level in the resource. Only
 elements that are listed are to be returned. Clients SHOULD list all mandatory and modifier
-elements in a resource as part of the list of elements. The list of elements
-does not apply to <a href="#include">included resources</a>.
+elements in a resource as part of the list of elements.
 </p>
 <p>
 Servers are not obliged to return just the requested elements.
@@ -3860,6 +3859,12 @@ requested or not. Servers SHOULD mark the resources with the
 tag <a href="https://terminology.hl7.org/CodeSystem-v3-ObservationValue.html"><code>SUBSETTED</code></a>
 to ensure that the incomplete resource is not actually used to overwrite
 a complete resource.
+</p>
+<p>
+If a client supplies <code>_elements</code> values prefixed with resource types, such as 
+<code>_elements=Patient.gender</code>, then servers SHOULD apply these element-level restrictions 
+to all resources in the returned bundle, rather than just to direct search matches (i.e., 
+restrictions should be applied to bundle entries with any search.mode).
 </p>
 
 <a name="score"></a>
