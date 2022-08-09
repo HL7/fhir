@@ -170,14 +170,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MedicinalProductDefinition.name.countryLanguage.language"/>
+          <valueString value="MedicinalProductDefinition.name.usage.language"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-name-language"/>
         <description value="Language code for this name"/>
         <code value="name-language"/>
         <type value="token"/>
-        <expression value="MedicinalProductDefinition.name.countryLanguage.language"/>
-        <xpath value="f:MedicinalProductDefinition/f:name/f:countryLanguage/f:language"/>
+        <expression value="MedicinalProductDefinition.name.usage.language"/>
+        <xpath value="f:MedicinalProductDefinition/f:name/f:usage/f:language"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
