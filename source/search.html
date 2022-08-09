@@ -1990,46 +1990,34 @@ code=a\,b</span>
 is a request for any Observation that has a code of <code>a,b</code>.
 </p>
 <p>
-This escaping is at a different level to the % encoding that applies to all
-URL parameters. Standard % escaping still applies, such that these URLs
-have the same meaning:
+This escaping is at a different level to the percent encoding that applies to all
+URL parameters (as defined in <a href="https://datatracker.ietf.org/doc/html/rfc3986">RFC 3986</a>). 
+Standard percent escaping still applies, such that these URLs have the same meaning:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124,125</span>
+    <span class="http-verb-display-get">GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124,ValueSet/125</span>
     <span class="http-verb-display-post">POST [base]/ValueSet/_search
 Content-Type: application/x-www-form-urlencoded
-url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124,125</span>
+url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124,ValueSet/125</span>
   </span>
 </span>
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124%2C125</span>
+    <span class="http-verb-display-get">GET [base]/ValueSet?url=http%3A%2F%2Facme.org%2Ffhir%2FValueSet%2F123%2Chttp%3A%2F%2Facme.org%2Ffhir%2FValueSet%2F124%2CValueSet%2F125</span>
     <span class="http-verb-display-post">POST [base]/ValueSet/_search
 Content-Type: application/x-www-form-urlencoded
-url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124%2C125</span>
-  </span>
-</span>
-</p>
-<p>
-As do these URLs:
-<span class="http-search-example">
-  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
-  <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\,125</span>
-    <span class="http-verb-display-post">POST [base]/ValueSet/_search
-Content-Type: application/x-www-form-urlencoded
-url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\,125</span>
+url=http%3A%2F%2Facme.org%2Ffhir%2FValueSet%2F123%2Chttp%3A%2F%2Facme.org%2Ffhir%2FValueSet%2F124%2CValueSet%2F125</span>
   </span>
 </span>
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/ValueSet?url=http%58%47%47acme%46org%47fhir%47ValueSet%47123%44http%58%47%47acme%46org%47fhir%47ValueSet%47124%92%46125</span>
+    <span class="http-verb-display-get">GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\,ValueSet/125</span>
     <span class="http-verb-display-post">POST [base]/ValueSet/_search
 Content-Type: application/x-www-form-urlencoded
-url=http%58%47%47acme%46org%47fhir%47ValueSet%47123%44http%58%47%47acme%46org%47fhir%47ValueSet%47124%92%46125</span>
+url=http://acme.org/fhir/ValueSet/123,http://acme.org/fhir/ValueSet/124\,ValueSet/125</span>
   </span>
 </span>
 </p>
