@@ -345,7 +345,7 @@
       <short value="Specific type of service"/>
       <definition value="Broad categorization of the service that is to be provided (e.g. cardiology)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
