@@ -3863,7 +3863,13 @@ _elements=identifier,active,link</span>
 The <code>_elements</code> parameter consists of a comma-separated list of base element
 names such as, elements defined at the root level in the resource. Only
 elements that are listed are to be returned. Clients SHOULD list all mandatory and modifier
-elements in a resource as part of the list of elements.
+elements in a resource as part of the list of elements.  Servers have the right to return
+more data than request, however clients can generally expect that returned elements will be:
+<ul>
+  <li>elements explicity requested,</li>
+  <li>mandory elements,</li>
+  <li>or, modifier elements that have values.</li>
+</ul>
 </p>
 <p>
 Servers are not obliged to return just the requested elements.
