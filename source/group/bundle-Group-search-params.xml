@@ -5,19 +5,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Group-actual"/>
+        <id value="Group-membership"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Group.actual"/>
+          <valueString value="Group.membership"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Group-actual"/>
-        <description value="Descriptive or actual"/>
-        <code value="actual"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-membership"/>
+        <description value="Definitional or enumerated group"/>
+        <code value="membership"/>
         <type value="token"/>
-        <expression value="Group.actual"/>
-        <xpath value="f:Group/f:actual"/>
+        <expression value="Group.membership"/>
+        <xpath value="f:Group/f:membership"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
