@@ -17,8 +17,17 @@ Practitioners include (but are not limited to):
 <li>social workers, professional homecare providers, official volunteers</li>
 <li>receptionists handling patient registration</li>
 <li>IT personnel merging or unmerging patient records</li>
-<li>Service animal (e.g., ward assigned dog capable of detecting cancer in patients)</li>
+<li>service animal (e.g., ward assigned dog capable of detecting cancer in patients)</li>
+<li>a bus driver for a community organization</li>
+<li>a lawyer acting for a hospital or a patient</li>
+<li>a person working for a supplier of a healthcare organization</li>
 </ul>
+<p>
+  The Practitioner resource is used for anyone involved in the provision of care or services to a
+  Patient associated with an organization. The RelatedPerson resource is used for anyone involved
+  in the care for a patient, typically having a personal *relationship *or non-healthcare-specific
+  professional relationship to the patient.
+</p>
 </div>
 
 <div>

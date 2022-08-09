@@ -1168,7 +1168,7 @@
       <constraint>
         <key value="vsd-9"/>
         <severity value="error"/>
-        <human value="Must have a code if not abstract"/>
+        <human value="SHALL have a code if not abstract"/>
         <expression value="code.exists() or abstract = true"/>
         <xpath value="exists(f:code) or (f:abstract/@value = true())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
@@ -1176,7 +1176,7 @@
       <constraint>
         <key value="vsd-10"/>
         <severity value="error"/>
-        <human value="Must have a system if a code is present"/>
+        <human value="SHALL have a system if a code is present"/>
         <expression value="code.empty() or system.exists()"/>
         <xpath value="exists(f:system) or not(exists(f:code))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
