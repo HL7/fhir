@@ -385,7 +385,7 @@
     </element>
     <element id="ClaimResponse.encounter">
       <path value="ClaimResponse.encounter"/>
-      <short value="Encounters related to this billed item"/>
+      <short value="Encounters related to this claim"/>
       <definition value="The Encounters during which this Claim was created or to which the creation of this record is tightly associated."/>
       <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
       <requirements value="Used in some jurisdictions to link clinical events to claim items."/>
@@ -727,7 +727,7 @@
       <path value="ClaimResponse.addItem.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
       <definition value="When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used."/>
-      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. 'glasses' or 'compound'."/>
+      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. 'glasses' or 'compound'. US Realm: Example - If a revenue code is present, then a CPT/HCPCS might not be present."/>
       <requirements value="Necessary to state what was provided or done."/>
       <min value="0"/>
       <max value="1"/>
@@ -1028,7 +1028,7 @@
       <path value="ClaimResponse.addItem.detail.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
       <definition value="When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used."/>
-      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. 'glasses' or 'compound'."/>
+      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. 'glasses' or 'compound'. US Realm: Example - If a revenue code is present, then a CPT/HCPCS might not be present."/>
       <requirements value="Necessary to state what was provided or done."/>
       <min value="0"/>
       <max value="1"/>
@@ -1194,7 +1194,7 @@
       <path value="ClaimResponse.addItem.detail.subDetail.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
       <definition value="When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used."/>
-      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. 'glasses' or 'compound'."/>
+      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. 'glasses' or 'compound'. US Realm: Example - If a revenue code is present, then a CPT/HCPCS might not be present."/>
       <requirements value="Necessary to state what was provided or done."/>
       <min value="0"/>
       <max value="1"/>

@@ -289,7 +289,7 @@
       <definition value="The insurer assigned ID for the Subscriber."/>
       <requirements value="The insurer requires this identifier on correspondance and claims (digital and otherwise)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Identifier"/>
       </type>
@@ -501,13 +501,13 @@
     <element id="Coverage.class.value">
       <path value="Coverage.class.value"/>
       <short value="Value associated with the type"/>
-      <definition value="The alphanumeric string value associated with the insurer issued label."/>
+      <definition value="The alphanumeric identifier associated with the insurer issued label."/>
       <comment value="For example, the Group or Plan number."/>
-      <requirements value="The insurer issued label and value are necessary to identify the specific policy."/>
+      <requirements value="The insurer issued label and identifier are necessary to identify the specific policy, group, etc.."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="Identifier"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -550,7 +550,7 @@
     <element id="Coverage.order">
       <path value="Coverage.order"/>
       <short value="Relative order of the coverage"/>
-      <definition value="The order of applicability of this coverage relative to other coverages which are currently in force. Note, there may be gaps in the numbering and this does not imply primary, secondary etc. as the specific positioning of coverages depends upon the episode of care."/>
+      <definition value="The order of applicability of this coverage relative to other coverages which are currently in force. Note, there may be gaps in the numbering and this does not imply primary, secondary etc. as the specific positioning of coverages depends upon the episode of care. For example; a patient might have (0) auto insurance (1) their own health insurance and (2) spouse's health insurance. When claiming for treatments which were not the result of an auto accident then only coverages (1) and (2) above would be applicatble and would apply in the order specified in parenthesis."/>
       <requirements value="Used in managing the coordination of benefits."/>
       <min value="0"/>
       <max value="1"/>
@@ -627,7 +627,7 @@
       <definition value="The amount due from the patient for the cost category."/>
       <comment value="Amount may be expressed as a percentage of the service/product cost or a fixed amount of currency."/>
       <requirements value="Needed to identify the amount for the patient associated with the category."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
