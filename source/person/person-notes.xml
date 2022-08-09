@@ -18,13 +18,17 @@
     Person and Linking
   </h2>
   <p>
-  The <i>link</i> element is used to relate resources under a common person record. 
+  The <i>person.link</i> element is used to relate resources under a common person record. 
   This element supports two primary scenarios where other resources refer to the same person resource.
   </p>
-  <p>
-    The <i>link</i> element cannot be used to link to RelatedPerson entries, so we can use a Person
-    resource to relate these elements together identifying them as the same individual.
-  </p>
+  <blockquote class="stu-note">
+    <p>
+      <b>Note:</b> In previous versions of the FHIR specification the <i>patient.link</i> element was not able link
+      to RelatedPerson entries, leaving the Person resource to link them. Since STU3 the patient.link property
+      was updated to also support RelatedPerson, reducing the need to link using the Person resource, however this
+      can still be done.
+    </p>
+  </blockquote>
 
 <a name="xdomain"></a>
   <h2>
