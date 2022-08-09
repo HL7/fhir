@@ -81,7 +81,9 @@
 						<code value="group"/>
 					</coding>
 				</type>
-				<value value="80902206"/>
+				<value>
+					<value value="80902206"/>
+				</value>
 			</class>
 
 		</Coverage>
