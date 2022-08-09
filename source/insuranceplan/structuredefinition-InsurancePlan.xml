@@ -207,7 +207,7 @@
     </element>
     <element id="InsurancePlan.ownedBy">
       <path value="InsurancePlan.ownedBy"/>
-      <short value="Plan issuer"/>
+      <short value="Product issuer"/>
       <definition value="The entity that is providing  the health insurance product and underwriting the risk.  This is typically an insurance carriers, other third-party payers, or health plan sponsors comonly referred to as &#39;payers&#39;."/>
       <alias value="Payer"/>
       <min value="0"/>
