@@ -568,31 +568,6 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
-    <element id="ChargeItemDefinition.effectivePeriod">
-      <path value="ChargeItemDefinition.effectivePeriod"/>
-      <short value="When the charge item definition is expected to be used"/>
-      <definition value="The period during which the charge item definition content was or is planned to be in active use."/>
-      <comment value="The effective period for a charge item definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
-      <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the charge item definition are or are expected to be used instead."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.effectivePeriod"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
     <element id="ChargeItemDefinition.code">
       <path value="ChargeItemDefinition.code"/>
       <short value="Billing code or product type this definition applies to"/>
@@ -653,43 +628,54 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="ChargeItemDefinition.applicability.description">
-      <path value="ChargeItemDefinition.applicability.description"/>
-      <short value="Natural language description of the condition"/>
-      <definition value="A brief, natural language description of the condition that effectively communicates the intended semantics."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="ChargeItemDefinition.applicability.language">
-      <path value="ChargeItemDefinition.applicability.language"/>
-      <short value="Language of the expression"/>
-      <definition value="The media type of the language for the expression, e.g. &quot;text/cql&quot; for Clinical Query Language expressions or &quot;text/fhirpath&quot; for FHIRPath expressions."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="ChargeItemDefinition.applicability.expression">
-      <path value="ChargeItemDefinition.applicability.expression"/>
+    <element id="ChargeItemDefinition.applicability.condition">
+      <path value="ChargeItemDefinition.applicability.condition"/>
       <short value="Boolean-valued expression"/>
       <definition value="An expression that returns true or false, indicating whether the condition is satisfied. When using FHIRPath expressions, the %context environment variable must be replaced at runtime with the ChargeItem resource to which this definition is applied."/>
       <comment value="Please note that FHIRPath Expressions can only be evaluated in the scope of the current ChargeItem resource to which this definition is being applied.&#xA;FHIRPath expressions can traverse into other resources linked from the ChargeItem resource, however, testing rules such as that a billing code may be billed only once per encounter need a wider scope. In such scenarios, CQL may be the appropriate choice."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="Expression"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.applicability.effectivePeriod">
+      <path value="ChargeItemDefinition.applicability.effectivePeriod"/>
+      <short value="When the charge item definition is expected to be used"/>
+      <definition value="The period during which the charge item definition content was or is planned to be in active use."/>
+      <comment value="The effective period for a charge item definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+      <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the charge item definition are or are expected to be used instead."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.effectivePeriod"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.applicability.relatedArtifact">
+      <path value="ChargeItemDefinition.applicability.relatedArtifact"/>
+      <short value="Reference to / quotation of the external source of the group of properties"/>
+      <definition value="reference to / quotation of the external source of the group of properties."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="RelatedArtifact"/>
       </type>
       <mapping>
         <identity value="rim"/>
