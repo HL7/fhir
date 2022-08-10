@@ -266,7 +266,7 @@
     <element id="GenomicStudy.analysis.methodType">
       <path value="GenomicStudy.analysis.methodType"/>
       <short value="Type of the methods used in the analysis"/>
-      <definition value="Type of the methods used in the analysis."/>
+      <definition value="Type of the methods used in the analysis, for example, Fluorescence in situ hybridization (FISH), Karyotyping, or Microsatellite instability testing (MSI)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
