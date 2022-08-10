@@ -57,12 +57,14 @@
     These linkages assert that all the records relate to the same individual.
   </p>
   <p>
-    Person instances are never directly referenced as actors (authors, subjects, performers, etc.)
+    Person instances are NEVER directly referenced as actors (authors, subjects, performers, etc.)
     Individual actors are always identified as either Patient, Practitioner or RelatedPerson, depending on the role
     of the individual when undertaking the action. Therefore this resource SHALL NOT be referenced by any
-    other clinical or administrative resources.  
+    other clinical or administrative resources.<br/>
     E.g. it can be the focus of an operation or message or included in a Bundle, 
-    but cannot be a member of a List or Group, the subject of an Observation, or other similar non-infrastructural usage.
+    but cannot be a member of a List or Group, the subject of an Observation, or other similar non-infrastructural usage.<br/>
+    Note that the usage of Practitioner is broader in FHIR than the term may suggest, and can encompass individuals who 
+    are not licensed healthcare practitioners.
   </p>
   <p>
     In some use cases the linkages will be indirect, and through business Identifiers, such as in the case of

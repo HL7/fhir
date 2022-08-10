@@ -11,7 +11,7 @@
     <Group>
       <id value="group1"/>
       <type value="person"/>
-      <actual value="false"/>
+      <membership value="enumerated"/>
 	</Group>
   </contained>
   <status value="final"/>

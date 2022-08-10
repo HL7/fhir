@@ -52,6 +52,11 @@
   <subject>
     <reference value="Patient/xcda"/>
   </subject>
+<!-- should not be able to include this as there is a facilityType and/or practiceSetting
+    <context>
+    <reference value="Encounter/example"/>
+  </context>
+  -->
   <event>
     <concept>
       <coding>
