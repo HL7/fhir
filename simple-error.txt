@@ -1,5 +1,0 @@
-<<<<<<< Updated upstream
-﻿Resource Examples failed instance validation
-=======
-﻿
->>>>>>> Stashed changes
