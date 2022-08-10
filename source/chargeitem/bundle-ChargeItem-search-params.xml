@@ -50,7 +50,8 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ChargeItem.context"/>
+          <valueString value="ChargeItem.select(encounter | extension('http://hl7.org/fhir/StructureDefinition/workflow-episodeOfCare
+').value).first()"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-context"/>
         <description value="Encounter / Episode associated with event"/>

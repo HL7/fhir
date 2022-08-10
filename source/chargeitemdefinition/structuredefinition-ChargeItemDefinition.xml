@@ -671,7 +671,7 @@
     <element id="ChargeItemDefinition.applicability.relatedArtifact">
       <path value="ChargeItemDefinition.applicability.relatedArtifact"/>
       <short value="Reference to / quotation of the external source of the group of properties"/>
-      <definition value="reference to / quotation of the external source of the group of properties."/>
+      <definition value="Reference to / quotation of the external source of the group of properties."/>
       <min value="0"/>
       <max value="1"/>
       <type>
