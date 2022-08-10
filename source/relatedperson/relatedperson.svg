@@ -310,7 +310,7 @@ period</a>
        style="fill:#000000"><a
    xlink:href="relatedperson-definitions.html#RelatedPerson.communication.language"
    id="n274"><title
-   id="title84">The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-EN&quot; for England English</title>
+   id="title84">The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English</title>
 language</a>
  : <a
    xlink:href="datatypes.html#CodeableConcept"
