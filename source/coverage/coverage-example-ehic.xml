@@ -13,6 +13,8 @@
 	</identifier>
 
 	<status value="active"/>
+	
+	<kind value="insurance"/>
 
 	<type>
 		<coding>
@@ -40,11 +42,11 @@
 		<end value="2012-03-17"/>
 	</period>
 
-	<payor>
+	<insurer>
 		<identifier>
 			<system value="http://ehic.com/insurer"/>
 			<value value="123456789"/>
 		</identifier>
-	</payor>
+	</insurer>
 
 </Coverage>
