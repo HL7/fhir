@@ -463,7 +463,7 @@
     <element id="ChargeItem.performingOrganization">
       <path value="ChargeItem.performingOrganization"/>
       <short value="Organization providing the charged service"/>
-      <definition value="The organization requesting the service."/>
+      <definition value="The organization performing the service."/>
       <comment value="Practitioners and Devices can be associated with multiple organizations. It has to be made clear, on behalf of which Organization the services have been rendered."/>
       <min value="0"/>
       <max value="1"/>
@@ -488,7 +488,7 @@
     <element id="ChargeItem.requestingOrganization">
       <path value="ChargeItem.requestingOrganization"/>
       <short value="Organization requesting the charged service"/>
-      <definition value="The organization performing the service."/>
+      <definition value="The organization requesting the service."/>
       <comment value="The rendered Service might not be associated with a Request. This property indicates which Organization requested the services to be rendered. (In many cases, this may just be the Department associated with the Encounter.location)."/>
       <min value="0"/>
       <max value="1"/>
