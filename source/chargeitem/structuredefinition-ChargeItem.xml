@@ -308,7 +308,7 @@
     <element id="ChargeItem.encounter">
       <path value="ChargeItem.encounter"/>
       <short value="Encounter associated with this ChargeItem"/>
-      <definition value="This ChargeItem has the details of how the associated Encounter should be billed or otherwise be handled by finance systems"/>
+      <definition value="This ChargeItem has the details of how the associated Encounter should be billed or otherwise be handled by finance systems."/>
       <comment value="This ChargeItem may be recorded during planning, execution or after the actual encounter takes place."/>
       <min value="0"/>
       <max value="1"/>
