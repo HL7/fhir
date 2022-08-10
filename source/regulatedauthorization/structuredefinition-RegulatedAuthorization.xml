@@ -96,6 +96,10 @@
         <identity value="idmp"/>
         <map value="Marketing Authorisation.Marketing Authorisation Number"/>
       </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
     </element>
     <element id="RegulatedAuthorization.subject">
       <path value="RegulatedAuthorization.subject"/>

@@ -96,6 +96,10 @@
         <identity value="idmp"/>
         <map value="Packaged Medicinal Product.PCID"/>
       </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
     </element>
     <element id="PackagedProductDefinition.name">
       <path value="PackagedProductDefinition.name"/>
