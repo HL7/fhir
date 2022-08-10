@@ -17,12 +17,22 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/no-fixed-address"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/patient-birthPlace"/>
       </reference>
     </resource>
     <resource>
       <reference>
         <reference value="StructureDefinition/patient-birthTime"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/patient-multipleBirthTotal"/>
       </reference>
     </resource>
     <resource>
