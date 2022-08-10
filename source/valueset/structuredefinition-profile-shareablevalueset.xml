@@ -17,7 +17,8 @@
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   <version value="4.6.0"/>
-  <name value="Shareable ValueSet"/>
+  <name value="ShareableValueSet"/>
+  <title value="Shareable ValueSet"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -55,66 +56,69 @@
       <min value="1"/>
       <max value="1"/>
     </element>
+    <element id="ValueSet.extension:knowledgeRepresentationLevel">
+      <path value="ValueSet.extension"/>
+      <sliceName value="knowledgeRepresentationLevel"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.extension:authoritativeSource">
+      <path value="ValueSet.extension"/>
+      <sliceName value="authoritativeSource"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-authoritativeSource"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
     <element id="ValueSet.url">
       <path value="ValueSet.url"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="ValueSet.version">
       <path value="ValueSet.version"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="ValueSet.name">
       <path value="ValueSet.name"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.title">
+      <path value="ValueSet.title"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="ValueSet.status">
       <path value="ValueSet.status"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
+      <mustSupport value="true"/>
     </element>
     <element id="ValueSet.experimental">
       <path value="ValueSet.experimental"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="ValueSet.publisher">
       <path value="ValueSet.publisher"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="ValueSet.description">
       <path value="ValueSet.description"/>
-      <alias value="scope"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
     </element>
   </differential>
 </StructureDefinition>

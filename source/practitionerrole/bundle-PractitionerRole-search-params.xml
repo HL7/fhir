@@ -50,14 +50,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PractitionerRole.telecom(system=email)"/>
+          <valueString value="PractitionerRole.contact.telecom(system=email)"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-email"/>
         <description value="A value in an email contact"/>
         <code value="email"/>
         <type value="token"/>
-        <expression value="PractitionerRole.telecom.where(system=&#39;email&#39;)"/>
-        <xpath value="f:PractitionerRole/f:telecom[system/@value=&#39;email&#39;]"/>
+        <expression value="PractitionerRole.contact.telecom.where(system=&#39;email&#39;)"/>
+        <xpath value="f:PractitionerRole/f:contact/f:telecom[system/@value=&#39;email&#39;]"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -150,14 +150,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PractitionerRole.telecom(system=phone)"/>
+          <valueString value="PractitionerRole.contact.telecom(system=phone)"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-phone"/>
         <description value="A value in a phone contact"/>
         <code value="phone"/>
         <type value="token"/>
-        <expression value="PractitionerRole.telecom.where(system=&#39;phone&#39;)"/>
-        <xpath value="f:PractitionerRole/f:telecom[system/@value=&#39;phone&#39;]"/>
+        <expression value="PractitionerRole.contact.telecom.where(system=&#39;phone&#39;)"/>
+        <xpath value="f:PractitionerRole/f:contact/f:telecom[system/@value=&#39;phone&#39;]"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -250,14 +250,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PractitionerRole.telecom"/>
+          <valueString value="PractitionerRole.contact.telecom"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-telecom"/>
         <description value="The value in any kind of contact"/>
         <code value="telecom"/>
         <type value="token"/>
-        <expression value="PractitionerRole.telecom"/>
-        <xpath value="f:PractitionerRole/f:telecom"/>
+        <expression value="PractitionerRole.contact.telecom"/>
+        <xpath value="f:PractitionerRole/f:contact/f:telecom"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

@@ -358,25 +358,6 @@
         <code value="ExtendedContactDetail"/>
       </type>
     </element>
-    <element id="PractitionerRole.telecom">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="deprecated"/>
-      </extension>
-      <path value="PractitionerRole.telecom"/>
-      <short value="Deprecated - use contact.telecom"/>
-      <definition value="Contact details that are specific to the role/location/service."/>
-      <requirements value="Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactPoint"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".telecom"/>
-      </mapping>
-    </element>
     <element id="PractitionerRole.availableTime">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="390,0"/>
@@ -384,7 +365,7 @@
       <path value="PractitionerRole.availableTime"/>
       <short value="Times the Service Site is available"/>
       <definition value="A collection of times the practitioner is available or performing this role at the location and/or healthcareservice."/>
-      <comment value="More detailed availability information may be provided in associated Schedule/Slot resources."/>
+      <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;."/>
       <min value="0"/>
       <max value="*"/>
       <type>

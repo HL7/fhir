@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="examplescenario-resource-type"/>
+	<meta>
+		<lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="fhir"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="1"/>
+	</extension>
+	<url value="http://hl7.org/fhir/ValueSet/examplescenario-resource-type"/>
+	<version value="4.6.0"/>
+	<name value="ExampleScenarioResourceType"/>
+	<title value="Example Scenario Resource Type"/>
+	<status value="draft"/>
+	<experimental value="false"/>
+	<date value="2020-12-28T16:55:11+11:00"/>
+	<publisher value="HL7 FHIR Infrastructure WG"/>
+	<description value="Types of resource structures that can be passed in or out of exchange operations.  Not necessarily FHIR."/>
+	<immutable value="true"/>
+	<compose>
+		<include>
+			<system value="	http://hl7.org/fhir/resource-types"/>
+		</include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0354"/>
+    </include>
+	</compose>
+</ValueSet>

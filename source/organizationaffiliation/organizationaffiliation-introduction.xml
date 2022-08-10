@@ -7,7 +7,7 @@ A relationship between 2 organizations over a period of time, where the entities
 The relationship can optionally include details of locations/services from the participating organization.
 </p>
 <p>
-The OrganizationAffiliation enables defining  non-hierarchical relationships between organizations. For example:
+The OrganizationAffiliation enables defining non-hierarchical relationships between organizations. For example:
 </p>
 <ul>
   <li>One organization may provide services to another organization<br/>

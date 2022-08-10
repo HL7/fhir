@@ -1,1 +1,1 @@
-﻿Error processing C:\Users\ELIMU\source\repos\fhir\source\adverseevent\adverseevent-introduction.xml: Malformed XHTML: Found "</div>" expecting "</img>" at line 29 column 10
+﻿Resource Examples failed instance validation

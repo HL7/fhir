@@ -17,7 +17,7 @@
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/cdshooksserviceplandefinition"/>
   <version value="4.6.0"/>
-  <name value="CDS Hooks Service PlanDefinition"/>
+  <name value="CDSHooksServicePlanDefinition"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>

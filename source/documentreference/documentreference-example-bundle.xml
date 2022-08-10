@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DocumentReference xmlns="http://hl7.org/fhir">
+  <id value="example-bundle"/>
+  <meta>
+    <security>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+      <code value="HTEST"/>
+    </security>
+    <security>
+
+        <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+        <code value="N"/>
+
+    </security>
+  </meta>
+
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/> 
+    <value value="urn:uuid:0c3151bd-1cbf-4d64-b04d-cd9187a4c6e0"/> 
+  </identifier>
+  <status value="current"/>
+  <type>
+    <coding>
+      <system value="http://loinc.org"/> 
+      <code value="28655-9"/> 
+    </coding>
+  </type>
+  <subject>
+    <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/> 
+    <display value="Eve Everywoman"/> 
+  </subject>
+  <event> 
+    <reference>
+     <reference value="http://fhir.healthintersections.com.au/open/Encounter/doc-example"/> 
+    </reference>
+  </event>
+  <date value="2013-02-01T12:30:02Z"/> 
+  <author>
+    <reference value="Practitioner/example"/> 
+    <display value="Doctor Dave"/> 
+  </author>
+  <description value="Discharge Summary"/>
+   
+  <securityLabel>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+      <code value="N"/>
+    </coding>
+  </securityLabel>
+  <content>
+    <attachment>
+      <!-- no content type as the retrieve will determine -->
+      <url value="Bundle/father"/>
+    </attachment>
+  </content>
+</DocumentReference>

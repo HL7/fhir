@@ -52,7 +52,7 @@ no repeating primitives in datatypes? No id's on primitives in datatypes...No da
 		Content
 </h2>
 
-[%dt ElementDefinition 1%]  
+[%dt ElementDefinition 1%]
 
 
 <div class="use">
@@ -66,10 +66,10 @@ no repeating primitives in datatypes? No id's on primitives in datatypes...No da
 <h2>Use of ElementDefinition.path</h2>
 
 <p>
-The <code>path</code> element is the most important property of the element definition. 
-It both names the element, and locates the element within a hierarchy defined within a 
-particular context. Within the FHIR specification, there is only one original definition 
-for each path. This is the master definition to which all the other definitions with the 
+The <code>path</code> element is the most important property of the element definition.
+It both names the element, and locates the element within a hierarchy defined within a
+particular context. Within the FHIR specification, there is only one original definition
+for each path. This is the master definition to which all the other definitions with the
 same path must conform.
 </p>
 <p>
@@ -85,6 +85,10 @@ same path must conform.
 		<li>By convention, each path starts with an uppercase letter (type) but all the element names that follow this are lowercase (not type names). All resources and data types (except for Primitive data types) follow this convention, but logical
 				models are not required to do so</li>
 </ul>
+<p>
+	If the element is polymorphic (has more than one data type), then the end of the path for the element SHALL be "[x]" to designate that the name of the element may vary when serialized.
+	The "[x]" is not considered to be part of the official element name, though it may frequently appear in documentation that way.
+</p>
 <p>
 		Elements may be defined in:
 </p>
@@ -311,6 +315,14 @@ same path must conform.
 		<li><sup>†</sup>: The element's presence, and value, must match the definition in the base definition</li>
 		<li><sup>‡</sup>: The element content must be consistent with that matching element in the base definition</li>
 		<li><sup>∆</sup>: Additional constraints and mappings can be defined, but they do not replace the ones in the base definition</li>
+		<li>For some simple types, rather than pointing to a FHIR data type, the element will be defined as having a data type defined by [FHIRPath].
+		E.g. <a href="http://hl7.org/fhirpath/System.String">http://hl7.org/fhirpath/System.String</a>. This occurs when the generic behavior of the FHIR primitive type is not desired
+		(e.g. inheriting extension, id, etc.). Implementations should map these FHIRPath data types to the appropriate simple data type defined in their implementation language.
+		For example, in Java, FHIRPath System.String might best map to the `java.lang.String` class.</li>
+		<li>In addition, when an element has a data type of <a href="http://hl7.org/fhirpath/System.String">http://hl7.org/fhirpath/System.String</a> then it will typically also include a
+		http://hl7.org/fhir/extension-structuredefinition-fhir-type.html extension. This extension might further constrain the allowed value of an element that might be treated as a string.
+		For example, limiting the permitted value regex, length, etc. to the corresponding FHIR-defined data type (but NOT permitting the additional elements such as id and extension).
+		If the extension is not present, no additional constraints apply.</li>
 </ul>
 <p>
 		The use of Path and type depends more deeply on the context where the ElementDefinition is used:
@@ -411,7 +423,7 @@ same path must conform.
 <a name="aggregation"> </a>
 <h3>Rules about Aggregation</h3>
 <ul>
- <li>If an aggregationMode is present in the definition, the 'reference' element SHALL be present and have a value 
+ <li>If an aggregationMode is present in the definition, the 'reference' element SHALL be present and have a value
 		 and the target of the reference SHALL be aggregated as defined</li>
  <li>If type.versioning is present in the definition, the 'reference' element SHALL be present and have a value
 	 and the reference SHALL be populated as the versioning constraint dictates.</li>
@@ -420,13 +432,13 @@ same path must conform.
 <a name="missing"></a>
 <h3>Missing Elements</h3>
 <p>
-		Most elements have a minimum cardinality of 0, which means that they may be missing from a resource when it is exchanged between systems. 
+		Most elements have a minimum cardinality of 0, which means that they may be missing from a resource when it is exchanged between systems.
 		Generally, when an element is missing, all that an application processing the resource can say about the element
-		is that the value is unknown - it may have a correct value, but it has not been provided for security or workflow reasons. 
+		is that the value is unknown - it may have a correct value, but it has not been provided for security or workflow reasons.
 		On the other hand, it might not have a value at all. All the application can say is that the value is unknown.
 </p>
 <p>
-  This also applies when the element is present, but has no value or child elements, and only has extensions instead. 
+  This also applies when the element is present, but has no value or child elements, and only has extensions instead.
 </p>
 <p>
 		However, for some elements, this specification makes specific rules about what it means if the element is missing.
