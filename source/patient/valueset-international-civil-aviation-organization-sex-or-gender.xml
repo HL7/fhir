@@ -27,7 +27,7 @@
   <copyright value="ICAO 2021"/>
   <compose>
 	<include>
-      <system value="http://hl7.org/fhir/international-civil-aviation-organization-sex"/>
+      <system value="http://hl7.org/fhir/international-civil-aviation-organization-sex-or-gender"/>
     </include>
   </compose>
 </ValueSet>

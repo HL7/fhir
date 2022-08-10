@@ -13,12 +13,11 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <name value="icaoSex"/>
-  <title value="International Civil Aviation Organization Sex"/>
+  <version value="4.6.0"/>
+  <name value="International Civil Aviation Organization Sex or Gender"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <description value="Codes representing recorded sex or gender values for international exchange as defined as specified by the International Civil Aviation Organization."/>
-  <copyright value="Copyright © ICAO 2021. All rights reserved. None of the materials provided on this web site may be used, reproduced or transmitted, in whole or in part, in any form or by any means, electronic or mechanical, including photocopying, recording or the use of any information storage and retrieval system, except as provided for in the site [Terms and Conditions](https://www.icao.int/pages/Disclaimer.aspx), without permission in writing from ICAO."/>
+  <description value="The complete set of concepts used for exchange of the &#39;sex&#39; value as represented in international travel documents as defined by Doc 9303: Machine Readable Travel Documents, Part 7: Machine Readable Visas published by the International Civil Aviation Organization (ICAO). Initially aligned with the Eighth Edition (2021)."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
