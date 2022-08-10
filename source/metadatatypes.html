@@ -32,12 +32,15 @@ about knowledge resources (mainly for
   <td style="background-color: #ffe6e6"><a href="#DataRequirement">DataRequirement</a></td>
   <td style="background-color: #ffe6e6"><a href="#ParameterDefinition">ParameterDefinition</a></td>
   <td style="background-color: #ffe6e6"><a href="#RelatedArtifact">RelatedArtifact</a></td>
-</tr>
-<tr>
+ </tr>
+ <tr>
   <td style="background-color: #ffe6e6"><a href="#TriggerDefinition">TriggerDefinition</a></td>
   <td style="background-color: #ffe6e6"><a href="#Expression">Expression</a></td>
   <td style="background-color: #ffe6e6"><a href="#UsageContext">UsageContext</a></td>
   <td style="background-color: #ffe6e6"><a href="#ExtendedContactDetail">ExtendedContactDetail</a></td>
+ </tr>
+ <tr>
+  <td style="background-color: #ffe6e6"><a href="#Availability">Availability</a></td>
  </tr>
 </table>
 <p>
@@ -357,6 +360,28 @@ See also <a href="metadatatypes-examples.html#ExtendedContactDetail">Examples</a
 ExtendedContactDetail is used in the following places: [%dtusage ExtendedContactDetail%]
 </p>
 
+<a name="Availability"></a>
+<a name="availability"></a>
+<h3 style="margin-bottom: 1px">Availability</h3>
+
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes-examples.html#Availability">Examples</a>, <a href="metadatatypes-definitions.html#Availability">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#Availability">Mappings</a>.
+</p>
+
+<p>The Availability structure defines a pattern of availability data typically used in directory resources.</p>
+
+[%dt Availability 1%]
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints Availability%]
+[%tx Availability%]
+</div>
+
+<p>
+  Availability is used in the following places: [%dtusage Availability%]
+</p>
+
 
 [%file newfooter%]
 
@@ -378,6 +403,7 @@ $( '#tabs-TriggerDefinition' ).tabs({ active: currentTabIndex, activate: functio
 $( '#tabs-Expression' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-UsageContext' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-ExtendedContactDetail' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-Availability' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 
 
 function store(currentTab) {
@@ -393,6 +419,7 @@ function store(currentTab) {
   $( '#tabs-Expression' ).tabs('option', 'active', currentTab);
   $( '#tabs-UsageContext' ).tabs('option', 'active', currentTab);
   $( '#tabs-ExtendedContactDetail' ).tabs('option', 'active', currentTab);
+  $( '#tabs-Availability' ).tabs('option', 'active', currentTab);
   document.activeElement.blur();
 }
 </script>
