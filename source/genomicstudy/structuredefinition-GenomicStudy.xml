@@ -134,7 +134,7 @@
     <element id="GenomicStudy.type">
       <path value="GenomicStudy.type"/>
       <short value="The type of the study"/>
-      <definition value="The type of the study."/>
+      <definition value="The type of the study, for example, trio-analysis, biomarker detection, or polygenetic risk score calculation."/>
       <min value="0"/>
       <max value="1"/>
       <type>
