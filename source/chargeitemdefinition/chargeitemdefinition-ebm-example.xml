@@ -4,10 +4,6 @@
 	<version value="2-2018"/>
 	<status value="active"/> 
 	<description value="Allergologisch-diagnostischer Komplex zur Diagnostik und/oder zum Ausschluss einer (Kontakt-)Allergie vom Spättyp (Typ IV), einschl. Kosten"/>
-	<effectivePeriod>
-		<start value="2018-04-01"/>
-		<end value="2018-06-30"/>
-	</effectivePeriod>
 	<code>	
 		<coding>
 			<system value="http://fhir.de/CodingSystem/kbv/ebm"/>
@@ -16,14 +12,26 @@
 		</coding>
 	</code>
 	<applicability>
-		<description value="Excludes billing code 13250 for same Encounter"/>
-		<language value="text/cql"/>
-		<expression value="[some CQL expression]"/>
+		<condition>
+			<description value="Excludes billing code 13250 for same Encounter"/>
+			<language value="text/cql"/>
+			<expression value="[some CQL expression]"/>
+		</condition>
+		<effectivePeriod>
+			<start value="2018-04-01"/>
+			<end value="2018-06-30"/>
+		</effectivePeriod>
 	</applicability>
 	<applicability>
-		<description value="Applies only once per Encounter"/>
-		<language value="text/CQL"/>
-		<expression value="[some CQL expression]"/>
+		<condition>
+			<description value="Applies only once per Encounter"/>
+			<language value="text/CQL"/>
+			<expression value="[some CQL expression]"/>
+		</condition>
+		<effectivePeriod>
+			<start value="2018-04-01"/>
+			<end value="2018-06-30"/>
+		</effectivePeriod>
 	</applicability>
 	<!-- a group of static properties (no additional rules apply)-->
 	<propertyGroup>

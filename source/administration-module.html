@@ -177,6 +177,26 @@ in order to support consistent definitions for schema and UML derived code.
             [%res-item Substance%]
         </table>
 
+        <a name="research"></a>
+        <h4>Research Studies and Subjects</h4>
+        <p>
+            Resources that capture information about research studies, and who is participating in them.
+        </p>
+        <div>
+            <img src="administration-module-research.png" alt="Image showing the research resource relationships" width="600px" />
+        </div>
+        <table class="bare">
+            <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+            [%res-item ResearchStudy%]
+            [%res-item ResearchSubject%]
+        </table>
+        [%impl-note%]
+        The episode and study properties are through standard extensions, and servers might not implement suitable search
+        parameters on these extensions (still to be defined).<br/>
+        If an encounter has a mix of research and non research content, recommend creating 2 encounters in the system, 
+        however could derive that information Based on the presence of the extension on the 
+        obs/diagnosticreport/immunization etc which then feeds to episodeofcare and onto account
+        [%end-note%]
 
         <a name="secpriv"></a>
         <h3>Security and Privacy</h3>

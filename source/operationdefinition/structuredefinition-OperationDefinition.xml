@@ -441,7 +441,7 @@
       <path value="OperationDefinition.base"/>
       <short value="Marks this as a profile of the base"/>
       <definition value="Indicates that this operation definition is a constraining profile on the base."/>
-      <comment value="A constrained profile can make optional parameters required or not used and clarify documentation."/>
+      <comment value="A constrained profile can make optional parameters required or not used, introduce new parameters (required or optional), and clarify documentation."/>
       <min value="0"/>
       <max value="1"/>
       <type>
