@@ -311,14 +311,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ChargeItem.service"/>
+          <valueString value="ChargeItem.service.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-service"/>
         <description value="Which rendered service is being charged?"/>
         <code value="service"/>
         <type value="reference"/>
-        <expression value="ChargeItem.service"/>
-        <xpath value="f:ChargeItem/f:service"/>
+        <expression value="ChargeItem.service.reference"/>
+        <xpath value="f:ChargeItem/f:service/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
