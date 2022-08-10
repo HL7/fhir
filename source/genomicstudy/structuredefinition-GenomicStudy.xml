@@ -437,7 +437,7 @@
     <element id="GenomicStudy.analysis.input.type">
       <path value="GenomicStudy.analysis.input.type"/>
       <short value="Type of input data"/>
-      <definition value="Type input data."/>
+      <definition value="Type of input data, for example, BAM, FASTQ, or FASTA."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -503,7 +503,7 @@
     <element id="GenomicStudy.analysis.output.type">
       <path value="GenomicStudy.analysis.output.type"/>
       <short value="Type of output data"/>
-      <definition value="Type output data."/>
+      <definition value="Type of output data, for example, VCF, MAF, or TSV."/>
       <min value="0"/>
       <max value="1"/>
       <type>
