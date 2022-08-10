@@ -40,6 +40,7 @@ about knowledge resources (mainly for
   <td style="background-color: #ffe6e6"><a href="#ExtendedContactDetail">ExtendedContactDetail</a></td>
  </tr>
  <tr>
+  <td style="background-color: #ffe6e6"><a href="#VirtualServiceDetail">VirtualServiceDetail</a></td>
   <td style="background-color: #ffe6e6"><a href="#Availability">Availability</a></td>
  </tr>
 </table>
@@ -360,6 +361,28 @@ See also <a href="metadatatypes-examples.html#ExtendedContactDetail">Examples</a
 ExtendedContactDetail is used in the following places: [%dtusage ExtendedContactDetail%]
 </p>
 
+<a name="VirtualServiceDetail"></a>
+<a name="virtualservicedetail"></a>
+<h3 style="margin-bottom: 1px">VirtualServiceDetail</h3>
+
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes-examples.html#VirtualServiceDetail">Examples</a>, <a href="metadatatypes-definitions.html#VirtualServiceDetail">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#VirtualServiceDetail">Mappings</a>.
+</p>
+
+<p>The VirtualServiceDetail structure defines details of a virtual communication capability, such as a web conference call.</p>
+
+[%dt VirtualServiceDetail 1%]
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints VirtualServiceDetail%]
+[%tx VirtualServiceDetail%]
+</div>
+
+<p>
+VirtualServiceDetail is used in the following places: [%dtusage VirtualServiceDetail%]
+</p>
+
 <a name="Availability"></a>
 <a name="availability"></a>
 <h3 style="margin-bottom: 1px">Availability</h3>
@@ -403,6 +426,7 @@ $( '#tabs-TriggerDefinition' ).tabs({ active: currentTabIndex, activate: functio
 $( '#tabs-Expression' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-UsageContext' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-ExtendedContactDetail' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-VirtualServiceDetail' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Availability' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 
 
@@ -419,6 +443,7 @@ function store(currentTab) {
   $( '#tabs-Expression' ).tabs('option', 'active', currentTab);
   $( '#tabs-UsageContext' ).tabs('option', 'active', currentTab);
   $( '#tabs-ExtendedContactDetail' ).tabs('option', 'active', currentTab);
+  $( '#tabs-VirtualServiceDetail' ).tabs('option', 'active', currentTab);
   $( '#tabs-Availability' ).tabs('option', 'active', currentTab);
   document.activeElement.blur();
 }

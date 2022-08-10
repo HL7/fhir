@@ -463,6 +463,20 @@
         <map value="ATTACH"/>
       </mapping>
     </element>
+    <element id="Appointment.virtualService">
+      <path value="Appointment.virtualService"/>
+      <short value="Connection details of a virtual service"/>
+      <comment value="There are two types of virtual meetings that often exist: a persistent, virtual meeting room that can only be used for a single purpose at a time, and a dynamic virtual meeting room that is generated on demand for a specific purpose.  Implementers may consider using Location.virtualService for persistent meeting rooms.&#xD;&#xD;If each participant would have a different meeting link, an extension using the VirtualServiceContactDetail  can be applied to the Appointment.participant BackboneElement."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="VirtualServiceDetail"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
     <element id="Appointment.supportingInformation">
       <path value="Appointment.supportingInformation"/>
       <short value="Additional information to support the appointment"/>

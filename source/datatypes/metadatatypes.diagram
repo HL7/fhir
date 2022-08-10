@@ -1,5 +1,6 @@
 [diagram]
-classes=DataType,ContactDetail,Contributor,DataRequirement,ParameterDefinition,RelatedArtifact,TriggerDefinition,UsageContext,Expression,ExtendedContactDetail
+classes=DataType,ContactDetail,Contributor,DataRequirement,ParameterDefinition,RelatedArtifact,TriggerDefinition,UsageContext,Expression,ExtendedContactDetail,VirtualServiceDetail,Availability
+
 attributes=false
 
 [size]
@@ -17,4 +18,5 @@ ParameterDefinition=-150;40
 UsageContext=50;80
 Expression=-50;80
 ExtendedContactDetail=75;40
+VirtualServiceDetail=150;80
 Availability=-150;80
