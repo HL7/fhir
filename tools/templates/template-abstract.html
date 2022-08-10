@@ -47,8 +47,8 @@ Resource Content
       </div>
     </div>
   </div>
-  <div id="tabs-uml"> 
-  
+  <div id="tabs-uml">
+
     <div id="uml">
       <p><b>UML Diagram</b> (<a href="formats.html#uml">Legend</a>)</p>
       <div id="uml-inner">
@@ -92,7 +92,7 @@ Resource Content
       </div>
     </div>
 
- 
+
     <div id="uml">
       <a name="uml"></a>
       <p><b>UML Diagram</b> (<a href="formats.html#uml">Legend</a>)</p>
@@ -114,8 +114,8 @@ Resource Content
       <div id="json-inner">
         <%json%>
       </div>
-    </div>  
-  
+    </div>
+
 <div id="ttl2">
 <a name="ttl"></a>
 <p><b>Turtle Template</b></p>
@@ -123,10 +123,15 @@ Resource Content
   <%ttl%>
  </div>
 </div>
-  
+
   </div>
 </div>
-  
+
+<p>&nbsp;</p>
+<p>[%res-ext-link%]alternate definitions:
+Master Definition <a href="<%name%>.profile.xml.html">XML</a> + <a href="<%name%>.profile.json.html">JSON</a> + <a href="<%name%>.shex.html">ShEx</a>,
+the <a href="<%name%>.xlsx">spreadsheet version</a> &amp; the <a href="<%name%>-dependencies.html">dependency analysis</a>,
+Resource Representation <a href="xml.html">XML</a> + <a href="json.html">JSON</a> + <a href="rdf.html">Turtle</a></p>
 
 <a name="tx"></a>
 <%tx%>
@@ -150,24 +155,24 @@ Resource Content
 <script>
  try {
    var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
- } catch(exception){ 
+ } catch(exception){
  }
  if (!currentTabIndex)
    currentTabIndex = '0';
 
 $( '#tabs' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
-<%othertabs setup%>     
-     
+<%othertabs setup%>
+
 function store(currentTab) {
   document.activeElement.blur();
   try {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
-  } catch(exception){ 
+  } catch(exception){
   }
   $( '#tabs' ).tabs('option', 'active', currentTab);
-<%othertabs store%>     
-}     
+<%othertabs store%>
+}
 </script>
-    
+
 </body>
 </html>

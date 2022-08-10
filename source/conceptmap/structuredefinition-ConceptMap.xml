@@ -815,8 +815,8 @@
         <valueCode value="580,200"/>
       </extension>
       <path value="ConceptMap.group.element.target.dependsOn"/>
-      <short value="Other elements required for this mapping (from context)"/>
-      <definition value="A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value."/>
+      <short value="Other properties required for this mapping"/>
+      <definition value="A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified property can be resolved, and it has the specified value."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -888,7 +888,7 @@
     </element>
     <element id="ConceptMap.group.element.target.product">
       <path value="ConceptMap.group.element.target.product"/>
-      <short value="Other concepts that this mapping also produces"/>
+      <short value="Other properties that this mapping also produces"/>
       <definition value="Product is the output of a ConceptMap that provides additional values relevant to the interpretation of the mapping target."/>
       <min value="0"/>
       <max value="*"/>
