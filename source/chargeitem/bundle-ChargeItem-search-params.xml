@@ -56,8 +56,29 @@
         <description value="Encounter / Episode associated with event"/>
         <code value="context"/>
         <type value="reference"/>
-        <expression value="ChargeItem.context"/>
-        <xpath value="f:ChargeItem/f:context"/>
+        <expression value="ChargeItem.select(encounter | extension('http://hl7.org/fhir/StructureDefinition/workflow-episodeOfCare
+').value).first()"/>
+        <xpath value="f:ChargeItem/f:encounter"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-encounter"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.encounter"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-encounter"/>
+        <description value="Encounter associated with event"/>
+        <code value="encounter"/>
+        <type value="reference"/>
+        <expression value="ChargeItem.encounter"/>
+        <xpath value="f:ChargeItem/f:encounter"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

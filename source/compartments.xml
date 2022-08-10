@@ -208,7 +208,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ChargeItem</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">enterer | performer-actor</Data></Cell>
     <Cell><Data ss:Type="String">enterer | performer-actor</Data></Cell>
     <Cell><Data ss:Type="String">enterer | performer-actor</Data></Cell>

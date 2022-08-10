@@ -305,18 +305,16 @@
         <map value="FiveWs.subject"/>
       </mapping>
     </element>
-    <element id="ChargeItem.context">
-      <path value="ChargeItem.context"/>
-      <short value="Encounter / Episode associated with event"/>
-      <definition value="The encounter or episode of care that establishes the context for this event."/>
-      <requirements value="Links the request to the Encounter context."/>
-      <alias value="encounter"/>
+    <element id="ChargeItem.encounter">
+      <path value="ChargeItem.encounter"/>
+      <short value="Encounter associated with this ChargeItem"/>
+      <definition value="This ChargeItem has the details of how the associated Encounter should be billed or otherwise be handled by finance systems"/>
+      <comment value="This ChargeItem may be recorded during planning, execution or after the actual encounter takes place."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"/>
       </type>
       <isSummary value="true"/>
       <mapping>
