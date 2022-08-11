@@ -44,7 +44,7 @@
       <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Common Ancestor declaration for conformance and knowledge artifact resources."/>
+  <description value="Common Interface declaration for conformance and knowledge artifact resources."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -77,8 +77,8 @@
         <valueCode value="230,160"/>
       </extension>
       <path value="MetadataResource"/>
-      <short value="Common Ancestor declaration for definitional resources"/>
-      <definition value="Common Ancestor declaration for conformance and knowledge artifact resources."/>
+      <short value="Common Interface declaration for definitional resources"/>
+      <definition value="Common Interface declaration for conformance and knowledge artifact resources."/>
       <min value="1"/>
       <max value="1"/>
       <mapping>
