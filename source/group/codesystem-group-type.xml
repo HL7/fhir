@@ -128,7 +128,7 @@
           
           </td>
           
-          <td>Substance</td>
+          <td>BodyStructure</td>
           
           <td>Group contains BodyStructure resources.</td>
         
@@ -205,7 +205,7 @@
   </concept>
   <concept>
     <code value="bodystructure"/>
-    <display value="Substance"/>
+    <display value="BodyStructure"/>
     <definition value="Group contains BodyStructure resources."/>
   </concept>
 </CodeSystem>
