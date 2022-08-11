@@ -62,7 +62,7 @@
     <element id="List">
       <path value="List"/>
       <short value="A list is a curated collection of resources"/>
-      <definition value="A list is a curated collection of resources."/>
+      <definition value="A List is a curated collection of resources, for things such as problem lists, allergy lists, facility list, organization list, etc."/>
       <alias value="Collection"/>
       <alias value="WorkingList"/>
       <alias value="Organizer"/>
