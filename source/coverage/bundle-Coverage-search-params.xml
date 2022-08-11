@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
   <id value="Coverage-search-params"/>
   <entry>
     <resource>
@@ -55,7 +55,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/Coverage-class-value"/>
         <description value="Value of the class (eg. Plan number, group number)"/>
         <code value="class-value"/>
-        <type value="string"/>
+        <type value="token"/>
         <expression value="Coverage.class.value"/>
         <xpath value="f:Coverage/f:class/f:value"/>
         <xpathUsage value="normal"/>
@@ -125,20 +125,28 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Coverage-payor"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Coverage.payor"/>
+          <valueString value="Coverage.paymentBy.party"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Coverage-payor"/>
-        <description value="The identity of the insurer or party paying for services"/>
-        <code value="payor"/>
+        <description value="Parties who will pay for services"/>
+        <code value="paymentby-party"/>
         <type value="reference"/>
-        <expression value="Coverage.payor"/>
-        <xpath value="f:Coverage/f:payor"/>
-        <xpathUsage value="normal"/>
+        <expression value="Coverage.paymentBy.party"/>
+        <xpath value="f:Coverage/f:paymentBy/f:party"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Coverage.insurer"/>
+        </extension>
+        <description value="The identity of the insurer"/>
+        <code value="insurer"/>
+        <type value="reference"/>
+        <expression value="Coverage.insurer"/>
+        <xpath value="f:Coverage/f:insurer"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -199,6 +207,20 @@
         <expression value="Coverage.subscriber"/>
         <xpath value="f:Coverage/f:subscriber"/>
         <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Coverage.subscriberId"/>
+        </extension>
+        <description value="Identifier of the subscriber"/>
+        <code value="subscriberid"/>
+        <type value="token"/>
+        <expression value="Coverage.subscriberId"/>
+        <xpath value="f:Coverage/f:subscriberId"/>
       </SearchParameter>
     </resource>
   </entry>

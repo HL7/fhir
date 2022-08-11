@@ -405,7 +405,7 @@
       <path value="OperationDefinition.affectsState"/>
       <short value="Whether content is changed by the operation"/>
       <definition value="Whether the operation affects state. Side effects such as producing audit trail entries do not count as &#39;affecting  state&#39;."/>
-      <comment value="What http methods can be used for the operation depends on the .affectsState value and whether the input parameters are primitive or complex:&#xA;&#xA;1. Servers SHALL support POST method for all operations.&#xA;&#xA;2. Servers SHALL support GET method if all the parameters for the operation are primitive or there are no parameters and the operation has affectsState = false."/>
+      <comment value="What http methods can be used for the operation depends on the .affectsState value and whether the input parameters are primitive or complex:&#xA;&#xA;1. Servers SHALL support POST method for all operations.&#xA;&#xA;2. Servers SHALL support the GET method when the operation has affectsState = false and all required parameters for the operation are primitive."/>
       <min value="0"/>
       <max value="1"/>
       <type>

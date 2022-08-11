@@ -83,7 +83,7 @@
 			<valueString value="Pronouns"/>
 		  </extension>
 		  <strength value="example"/>
-		  <valueSet value="http://hl7.org/fhir/ValueSet/pronouns"/>
+		  <valueSet value="http://terminology.hl7.org/ValueSet/pronouns"/>
 	  </binding>
     </element>
     <element id="Extension.extension:period">
