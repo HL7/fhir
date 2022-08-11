@@ -68,6 +68,7 @@ signatures.html
       </page>
       <page title="Managing Multiple FHIR Versions" filename="versioning.html"/>
       <page title="FHIRPath" filename="fhirpath.html"/>
+      <page title="NPM Packages" filename="packages.html"/>
       <page title="Version History" filename="history.html"/>
       <page title="Differences from Release 3" filename="diff.html"/>
       <page title="Release 2/3 Transforms" filename="r3maps.html"/>
@@ -194,7 +195,6 @@ signatures.html
         <page title="Examples" filename="profiling-examples.html"/>
       </page>
       <page type="resource" resource="CapabilityStatement"/>
-      <page type="resource" resource="CapabilityStatement2"/>
       <page type="resource" resource="StructureDefinition"/>
       <page type="resource" resource="OperationDefinition"/>
       <page type="resource" resource="SearchParameter"/>
