@@ -18,7 +18,7 @@
 	</identifier>
 	<active value="true"/>
 	<type value="animal"/>
-	<actual value="true"/>
+	<membership value="enumerated"/>
 	<!-- describes a bunch of female breeding sows  added a translation from US APHIS codes to SNOMED CT-->
 	<code>
 		<coding>

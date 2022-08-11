@@ -78,6 +78,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Transgender Person Example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="patient-example-sex-and-gender"/>
+    </extension>
+    <item>
+      <reference value="Patient/patient-example-sex-and-gender"/>
+      <display value="Transgender"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Example People from cypress project"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

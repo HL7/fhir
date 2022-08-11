@@ -305,18 +305,16 @@
         <map value="FiveWs.subject"/>
       </mapping>
     </element>
-    <element id="ChargeItem.context">
-      <path value="ChargeItem.context"/>
-      <short value="Encounter / Episode associated with event"/>
-      <definition value="The encounter or episode of care that establishes the context for this event."/>
-      <requirements value="Links the request to the Encounter context."/>
-      <alias value="encounter"/>
+    <element id="ChargeItem.encounter">
+      <path value="ChargeItem.encounter"/>
+      <short value="Encounter associated with this ChargeItem"/>
+      <definition value="This ChargeItem has the details of how the associated Encounter should be billed or otherwise be handled by finance systems."/>
+      <comment value="This ChargeItem may be recorded during planning, execution or after the actual encounter takes place."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -436,6 +434,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
@@ -462,7 +461,7 @@
     <element id="ChargeItem.performingOrganization">
       <path value="ChargeItem.performingOrganization"/>
       <short value="Organization providing the charged service"/>
-      <definition value="The organization requesting the service."/>
+      <definition value="The organization performing the service."/>
       <comment value="Practitioners and Devices can be associated with multiple organizations. It has to be made clear, on behalf of which Organization the services have been rendered."/>
       <min value="0"/>
       <max value="1"/>
@@ -487,7 +486,7 @@
     <element id="ChargeItem.requestingOrganization">
       <path value="ChargeItem.requestingOrganization"/>
       <short value="Organization requesting the charged service"/>
-      <definition value="The organization performing the service."/>
+      <definition value="The organization requesting the service."/>
       <comment value="The rendered Service might not be associated with a Request. This property indicates which Organization requested the services to be rendered. (In many cases, this may just be the Department associated with the Encounter.location)."/>
       <min value="0"/>
       <max value="1"/>
@@ -697,14 +696,16 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyDelivery"/>
       </type>
       <isSummary value="false"/>

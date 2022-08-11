@@ -8,7 +8,9 @@
  </text>
  <active value="true"/>
  <name value="Acme Corporation"/>
- <address>
-   <country value="Swizterland"/>
- </address>
+ <contact>
+  <address>
+    <country value="Swizterland"/>
+  </address>
+</contact>
 </Organization>
