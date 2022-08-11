@@ -98,8 +98,8 @@
       <constraint>
         <key value="spd-1"/>
         <severity value="error"/>
-        <human value="If an xpath is present, there SHALL be an xpathUsage"/>
-        <expression value="xpath.empty() or xpathUsage.exists()"/>
+        <human value="If an expression is present, there SHALL be an xpathUsage"/>
+        <expression value="expression.empty() or xpathUsage.exists()"/>
         <xpath value="not(exists(f:xpath)) or exists(f:xpathUsage)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
       </constraint>
