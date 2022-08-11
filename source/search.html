@@ -368,7 +368,7 @@ parameter(s)</span>
 <h4>Handling Errors</h4>
 <p>
 If a server is unable to execute a search request, it MAY either return an error for the request or return success
-with an <code>outcome</code> continaing details of the error<span class="stu">TU</span>. A HTTP status code of 
+with an <code>outcome</code> containing details of the error<span class="stu">TU</span>. A HTTP status code of 
 <code>403</code> signifies that the server refused to perform the search,
 while other <code>4xx</code> and <code>5xx</code> codes signify that some sort of error has occurred. When
 the search fails, a server SHOULD return an <a href="operationoutcome.html">OperationOutcome</a>
@@ -1393,7 +1393,7 @@ Content-Type: application/x-www-form-urlencoded
 code:in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
       </span>
     </span>
-    would match any condiditons that contain any code from 'http://snomed.info/sct?fhir_vs=isa/235862008', e.g.:
+    would match any conditions that contain any code from 'http://snomed.info/sct?fhir_vs=isa/235862008', e.g.:
     <ul>
       <li>SNOMED <code>235862008</code> - Hepatitis due to infection (this code)</li>
       <li>SNOMED <code>773113008</code> - Acute infectious hepatitis (is-a 235862008)</li>
@@ -1575,7 +1575,7 @@ Content-Type: application/x-www-form-urlencoded
 code:not-in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
       </span>
     </span>
-    would match any condiditons that <em>do not</em> contain any code from 'http://snomed.info/sct?fhir_vs=isa/235862008', e.g.:
+    would match any conditions that <em>do not</em> contain any code from 'http://snomed.info/sct?fhir_vs=isa/235862008', e.g.:
     <ul>
       <li>SNOMED <code>235862008</code> - Hepatitis due to infection (this code)</li>
       <li>SNOMED <code>773113008</code> - Acute infectious hepatitis (is-a 235862008)</li>
@@ -1780,7 +1780,7 @@ code:text-ad=headache</span>
       </span>
     </span>
     would match Condition resources containing codes with text that equals or begins with 'headache', 
-    case-insensitve (e.g., same as the <a href="#modifiertexttoken">text</a> modifier) such as:
+    case-insensitive (e.g., same as the <a href="#modifiertexttoken">text</a> modifier) such as:
     <ul>
       <li>SNOMED <code>25064002</code> - Headache finding</li>
       <li>SNOMED <code>398987004</code> - Headache following lumbar puncture</li>
@@ -2354,8 +2354,8 @@ is uncontrolled and may unpredictable.
 <p>
 The search processor may choose to perform a search based on <a href="datatypes.html#quantity">canonical units</a>
 (e.g. any value where the units can be converted to a value in mg in the case above). For example, an observation
-may have a value of <code>23 mm/hr</code>. This is equal to <code>0.23 m/hr</code>. The search processer can
-choose to normalise all the values to a canonical unit such as <code>6.4e-6 m/sec</code>, and convert
+may have a value of <code>23 mm/hr</code>. This is equal to <code>0.23 m/hr</code>. The search processor can
+choose to normalize all the values to a canonical unit such as <code>6.4e-6 m/sec</code>, and convert
 search terms to the same units (m/sec). Such conversions can be performed based on the semantics defined
 in <a href="http://unitsofmeasure.org">UCUM</a>
 </p>
@@ -2983,7 +2983,7 @@ url=urn:oid:1.2.3.4.5</span>
  For example, <code>/Patient?language=FR,NL</code>. This is known as an OR search parameter,
  since the server is expected to respond with results which match either value. Every search parameter
  may be used with comma-separated values in this fashion; this includes the use of search parameters
- with modifiers, such as `?code:text=this,that.
+ with modifiers, such as <code>?code:text=this,that</code>.
  </p>
  <p>
  AND parameters and OR parameters may also be combined, for example:
@@ -3242,7 +3242,7 @@ Search Parameter definition.
 <h4>Searching MIME Types</h4>
 <p>
 The <code>:below</code> modifier is also very useful with searching <a href="https://datatracker.ietf.org/doc/html/rfc6838">MIME type</a>, 
-such as for <a href="documentreference.html">DocumentReference.contenttype</a>
+such as the search parameter <a href="documentreference.html">DocumentReference.contenttype</a>,
 which refers to <a href="datatypes.html#Attachment">Attachment.contentType</a>. A simple search such as:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
@@ -3869,8 +3869,8 @@ elements in a resource as part of the list of elements.  Servers have the right 
 more data than request, however clients can generally expect that returned elements will be:
 <ul>
   <li>elements explicity requested,</li>
-  <li>mandory elements,</li>
-  <li>or, modifier elements that have values.</li>
+  <li>mandatory elements, or</li>
+  <li>modifier elements that have values.</li>
 </ul>
 </p>
 <p>
