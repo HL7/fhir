@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A list is a curated collection of resources."/>
+  <description value="A List is a curated collection of resources, for things such as problem lists, allergy lists, facility list, organization list, etc."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="rim"/>
