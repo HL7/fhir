@@ -27,14 +27,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/search-xpath-usage"/>
+  <url value="http://hl7.org/fhir/ValueSet/search-processingmode"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.635"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="XPathUsageType"/>
-  <title value="XPathUsageType"/>
+  <name value="SearchProcessingModeType"/>
+  <title value="SearchProcessingModeType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -49,7 +49,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="How a search parameter relates to the set of elements returned by evaluating its xpath query."/>
+  <description value="How a search parameter relates to the set of elements returned by evaluating its expression query."/>
   <immutable value="true"/>
   <compose>
     <include>

@@ -496,11 +496,11 @@
       <condition value="spd-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="XPathUsageType"/>
+          <valueString value="SearchProcessingModeType"/>
         </extension>
         <strength value="required"/>
-        <description value="How a search parameter relates to the set of elements returned by evaluating its xpath query."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/search-xpath-usage"/>
+        <description value="How a search parameter relates to the set of elements returned by evaluating its expression query."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/search-processingmode"/>
       </binding>
     </element>
     <element id="SearchParameter.target">
