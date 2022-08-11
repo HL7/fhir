@@ -36,6 +36,10 @@ other systems may make use of compartments properly.
 <ul>
  <li>CompartmentDefinitions are used by <a href="capabilitystatement.html">CapabilityStatement</a> instances for specifying how resources are accessed</li>
 </ul>
+<ul>
+ <li><a href="graphdefinition.html">GraphDefinition</a> also provides a mechanism for grouping resources, though it does not provide an additional search mechanism.
+ Inclusion of resources in a <a href="graphdefinition.html">GraphDefinition</a> supports more complex criteria for inclusion than that allowed by CompartmentDefinition.</li>
+</ul>
 
 </div> 
 

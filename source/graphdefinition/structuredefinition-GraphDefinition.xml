@@ -397,7 +397,7 @@
     <element id="GraphDefinition.link.path">
       <path value="GraphDefinition.link.path"/>
       <short value="Path in the resource that contains the link"/>
-      <definition value="A FHIR expression that identifies one of FHIR References to other resources."/>
+      <definition value="A FHIRPath expression that identifies one of FHIR References to other resources."/>
       <comment value="The path expression cannot contain a resolve() function. If there is no path, the link is a reverse lookup, using target.params. If the path is &quot;*&quot; then this means all references in the resource."/>
       <min value="0"/>
       <max value="1"/>
