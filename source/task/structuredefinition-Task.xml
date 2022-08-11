@@ -280,6 +280,7 @@
 				</extension>
 				<strength value="example"/>
 				<description value="Codes to identify the reason for current status.  These will typically be specific to a particular workflow."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/task-status-reason"/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>
