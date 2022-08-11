@@ -134,7 +134,7 @@
     <element id="GenomicStudy.type">
       <path value="GenomicStudy.type"/>
       <short value="The type of the study"/>
-      <definition value="The type of the study, for example, trio-analysis, biomarker detection, or polygenetic risk score calculation."/>
+      <definition value="The type of the study, e.g., trio-analysis, biomarker detection, or polygenetic risk score calculation."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -266,7 +266,7 @@
     <element id="GenomicStudy.analysis.methodType">
       <path value="GenomicStudy.analysis.methodType"/>
       <short value="Type of the methods used in the analysis"/>
-      <definition value="Type of the methods used in the analysis, for example, Fluorescence in situ hybridization (FISH), Karyotyping, or Microsatellite instability testing (MSI)."/>
+      <definition value="Type of the methods used in the analysis, e.g., Fluorescence in situ hybridization (FISH), Karyotyping, or Microsatellite instability testing (MSI)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -276,7 +276,7 @@
     <element id="GenomicStudy.analysis.changeType">
       <path value="GenomicStudy.analysis.changeType"/>
       <short value="Type of the genomic changes studied in the analysis"/>
-      <definition value="Type of the genomic changes studied in the analysis, for example, DNA, RNA, or amino acid change."/>
+      <definition value="Type of the genomic changes studied in the analysis, e.g., DNA, RNA, or amino acid change."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -437,7 +437,7 @@
     <element id="GenomicStudy.analysis.input.type">
       <path value="GenomicStudy.analysis.input.type"/>
       <short value="Type of input data"/>
-      <definition value="Type of input data, for example, BAM, FASTQ, or FASTA."/>
+      <definition value="Type of input data, e.g., BAM, FASTQ, or FASTA."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -503,7 +503,7 @@
     <element id="GenomicStudy.analysis.output.type">
       <path value="GenomicStudy.analysis.output.type"/>
       <short value="Type of output data"/>
-      <definition value="Type of output data, for example, VCF, MAF, or TSV."/>
+      <definition value="Type of output data, e.g., VCF, MAF, or TSV."/>
       <min value="0"/>
       <max value="1"/>
       <type>
