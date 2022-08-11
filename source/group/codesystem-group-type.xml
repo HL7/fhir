@@ -119,6 +119,20 @@
           <td>Group contains Substance resources.</td>
         
         </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">bodystructure
+            
+            <a name="group-type-substance"> </a>
+          
+          </td>
+          
+          <td>Substance</td>
+          
+          <td>Group contains BodyStructure resources.</td>
+        
+        </tr>
       
       </table>
     
@@ -188,5 +202,10 @@
     <code value="substance"/>
     <display value="Substance"/>
     <definition value="Group contains Substance resources."/>
+  </concept>
+  <concept>
+    <code value="bodystructure"/>
+    <display value="Substance"/>
+    <definition value="Group contains BodyStructure resources."/>
   </concept>
 </CodeSystem>
