@@ -42,6 +42,7 @@ about knowledge resources (mainly for
  <tr>
   <td style="background-color: #ffe6e6"><a href="#VirtualServiceDetail">VirtualServiceDetail</a></td>
   <td style="background-color: #ffe6e6"><a href="#Availability">Availability</a></td>
+  <td style="background-color: #ffe6e6"><a href="#MonetaryComponent">MonetaryComponent</a></td>
  </tr>
 </table>
 <p>
@@ -405,6 +406,27 @@ See also <a href="metadatatypes-examples.html#Availability">Examples</a>, <a hre
   Availability is used in the following places: [%dtusage Availability%]
 </p>
 
+<a name="MonetaryComponent"></a>
+<a name="monetarycomponent"></a>
+<h3 style="margin-bottom: 1px">MonetaryComponent</h3>
+
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes-examples.html#MonetaryComponent">Examples</a>, <a href="metadatatypes-definitions.html#MonetaryComponent">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#MonetaryComponent">Mappings</a>.
+</p>
+
+<p>The MonetaryComponent structure defines a the set of properties across the financial resources.</p>
+
+[%dt MonetaryComponent 1%]
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints MonetaryComponent%]
+[%tx MonetaryComponent%]
+</div>
+
+<p>
+  MonetaryComponent is used in the following places: [%dtusage MonetaryComponent%]
+</p>
 
 [%file newfooter%]
 
@@ -428,6 +450,7 @@ $( '#tabs-UsageContext' ).tabs({ active: currentTabIndex, activate: function( ev
 $( '#tabs-ExtendedContactDetail' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-VirtualServiceDetail' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Availability' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-MonetaryComponent' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 
 
 function store(currentTab) {
@@ -445,6 +468,7 @@ function store(currentTab) {
   $( '#tabs-ExtendedContactDetail' ).tabs('option', 'active', currentTab);
   $( '#tabs-VirtualServiceDetail' ).tabs('option', 'active', currentTab);
   $( '#tabs-Availability' ).tabs('option', 'active', currentTab);
+  $( '#tabs-MonetaryComponent' ).tabs('option', 'active', currentTab);
   document.activeElement.blur();
 }
 </script>

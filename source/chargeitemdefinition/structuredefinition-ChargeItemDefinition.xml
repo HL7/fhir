@@ -716,71 +716,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="ChargeItemDefinition.propertyGroup.priceComponent.type">
-      <path value="ChargeItemDefinition.propertyGroup.priceComponent.type"/>
-      <short value="base | surcharge | deduction | discount | tax | informational"/>
-      <definition value="This code identifies the type of the component."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ChargeItemDefinitionPriceComponentType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Codes indicating the kind of the price component."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/invoice-priceComponentType|4.6.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="ChargeItemDefinition.propertyGroup.priceComponent.code">
-      <path value="ChargeItemDefinition.propertyGroup.priceComponent.code"/>
-      <short value="Code identifying the specific component"/>
-      <definition value="A code that identifies the component. Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="ChargeItemDefinition.propertyGroup.priceComponent.factor">
-      <path value="ChargeItemDefinition.propertyGroup.priceComponent.factor"/>
-      <short value="Factor used for calculating this component"/>
-      <definition value="The factor that has been applied on the base price for calculating this component."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="ChargeItemDefinition.propertyGroup.priceComponent.amount">
-      <path value="ChargeItemDefinition.propertyGroup.priceComponent.amount"/>
-      <short value="Monetary amount associated with this component"/>
-      <definition value="The amount calculated for this component."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Money"/>
+        <code value="MonetaryComponent"/>
       </type>
       <mapping>
         <identity value="rim"/>
