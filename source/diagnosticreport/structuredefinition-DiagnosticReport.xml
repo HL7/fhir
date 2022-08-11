@@ -588,39 +588,19 @@
         <map value="unknown"/>
       </mapping>
     </element>
-    <element id="DiagnosticReport.imagingStudy">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="6246."/>
-      </extension>
-      <path value="DiagnosticReport.imagingStudy"/>
-      <short value="Reference to full details of imaging associated with the diagnostic report"/>
-      <definition value="One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images."/>
-      <comment value="ImagingStudy and the image element are somewhat overlapping - typically, the list of image references in the image element will also be found in one of the imaging study resources. However, each caters to different types of displays for different types of purposes. Neither, either, or both may be provided."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="outboundRelationship[typeCode=COMP].target[classsCode=DGIMG, moodCode=EVN]"/>
-      </mapping>
-    </element>
-
-    <element id="DiagnosticReport.labStudy">
-      <path value="DiagnosticReport.labStudy"/>
-      <short value="Reference to full details of a laboratory analysis associated with the diagnostic report"/>
-      <definition value="One or more links to full details of any laboratory study performed during the diagnostic investigation. A GenomicStudy might comprise one or more analyses, each serving a specific purpose. These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted."/>
-      <comment value="Study type resources will be used for tracking additional metadata and workflow aspects of complex laboratory studies."/>
+    <element id="DiagnosticReport.study">
+      <path value="DiagnosticReport.study"/>
+      <short value="Reference to full details of an analysis associated with the diagnostic report"/>
+      <definition value="One or more links to full details of any study performed during the diagnostic investigation. An ImagingStudy might comprise a set of radiologic images obtained via a procedure that are analyzed as a group. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images. A GenomicStudy might comprise one or more analyses, each serving a specific purpose. These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted."/>
+      <comment value="For laboratory-type studies like GenomeStudy, type resources will be used for tracking additional metadata and workflow aspects of complex studies. ImagingStudy and the image element are somewhat overlapping - typically, the list of image references in the image element will also be found in one of the imaging study resources. However, each caters to different types of displays for different types of purposes. Neither, either, or both may be provided."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
       </type>
     </element>
-
     <element id="DiagnosticReport.media">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,125"/>
