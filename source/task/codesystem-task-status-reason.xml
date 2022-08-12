@@ -197,12 +197,7 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/task-status-reason"/>
   <content value="complete"/>
-  <concept>
-    <code value="draft"/>
-    <display value="Draft"/>
-    <definition value="The task is not yet ready to be acted upon."/>
-  </concept>
-  <concept>
+  <concept> 
     <code value="missing"/>
     <display value="Missing"/>
     <definition value="An item nessary for task completion is missing."/>
