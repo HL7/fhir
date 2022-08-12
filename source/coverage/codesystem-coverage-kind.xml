@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="conceptmap-unmapped-mode"/>
+  <id value="coverage-kind"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,7 +11,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       
       
-      <p>This code system http://hl7.org/fhir/conceptmap-unmapped-mode defines the following codes:</p>
+      <p>This code system http://hl7.org/fhir/coverage-kind defines the following codes:</p>
       
       
       <table class="codes">
@@ -53,19 +53,19 @@
         <tr>
           
           
-          <td style="white-space:nowrap">use-source-code
+          <td style="white-space:nowrap">coverage
             
             
-            <a name="conceptmap-unmapped-mode-use-source-code"/>
+            <a name="coverage-kind-insurance"> </a>
           
           
           </td>
           
           
-          <td>Use Provided Source Code</td>
+          <td>Insurance</td>
           
           
-          <td>Use the code as provided in the $translate request in one of the following input parameters: sourceCode, sourceCoding, sourceCodeableConcept.</td>
+          <td>The Coverage provides the identifiers and card-level details of an insurance policy.</td>
         
         
         </tr>
@@ -74,19 +74,19 @@
         <tr>
           
           
-          <td style="white-space:nowrap">fixed
+          <td style="white-space:nowrap">insurance
             
             
-            <a name="conceptmap-unmapped-mode-fixed"> </a>
+            <a name="coverage-kind-self-pay"> </a>
           
           
           </td>
           
           
-          <td>Fixed Code</td>
+          <td>Self-Pay</td>
           
           
-          <td>Default value to use when there is no specified map for the source is the code specified in ConceptMap.group.unmapped.code.</td>
+          <td>One or more persons and/or organizations are paying for the services rendered.</td>
         
         
         </tr>
@@ -95,19 +95,19 @@
         <tr>
           
           
-          <td style="white-space:nowrap">other-map
+          <td style="white-space:nowrap">self-pay
             
             
-            <a name="conceptmap-unmapped-mode-other-map"> </a>
+            <a name="coverage-kind-other"> </a>
           
           
           </td>
           
           
-          <td>Other Map</td>
+          <td>Other</td>
           
           
-          <td>Default value to use when there is no specified map for the source is identified by the canonical URL in the ConceptMap.group.unmapped.url element.</td>
+          <td>Some other organization is paying for the service.</td>
         
         
         </tr>
@@ -119,22 +119,22 @@
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="vocab"/>
+    <valueCode value="fm"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
+    <valueInteger value="2"/>
   </extension>
-  <url value="http://hl7.org/fhir/conceptmap-unmapped-mode"/>
+  <url value="http://hl7.org/fhir/coverage-kind"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
   <version value="4.6.0"/>
-  <name value="ConceptMapGroupUnmappedMode"/>
-  <title value="ConceptMapGroupUnmappedMode"/>
+  <name value="Kind"/>
+  <title value="Kind"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -149,23 +149,23 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Defines which action to take if there is no match in the group."/>
+  <description value="The nature of the Coverage details which convey who is paying potentially for health services."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/coverage-kind"/>
   <content value="complete"/>
   <concept>
-    <code value="use-source-code"/>
-    <display value="Use Provided Source Code"/>
-    <definition value="Use the code as provided in the $translate request in one of the following input parameters: sourceCode, sourceCoding, sourceCodeableConcept."/>
+    <code value="insurance"/>
+    <display value="Insurance"/>
+    <definition value="The Coverage provides the identifiers and card-level details of an insurance policy."/>
   </concept>
   <concept>
-    <code value="fixed"/>
-    <display value="Fixed Code"/>
-    <definition value="Use the code(s) explicitly provided in the group.unmapped &#39;code&#39; or &#39;valueSet&#39; element."/>
+    <code value="self-pay"/>
+    <display value="Self-pay"/>
+    <definition value="One or more persons and/or organizations are paying for the services rendered."/>
   </concept>
   <concept>
-    <code value="other-map"/>
-    <display value="Other Map"/>
-    <definition value="Use the map identified by the canonical URL in the url element."/>
+    <code value="other"/>
+    <display value="Other"/>
+    <definition value="Some other organization is paying for the service."/>
   </concept>
 </CodeSystem>

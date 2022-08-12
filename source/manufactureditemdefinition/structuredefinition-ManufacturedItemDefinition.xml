@@ -96,6 +96,10 @@
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
     </element>
     <element id="ManufacturedItemDefinition.status">
       <path value="ManufacturedItemDefinition.status"/>
@@ -124,6 +128,25 @@
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="ManufacturedItemDefinition.name">
+      <path value="ManufacturedItemDefinition.name"/>
+      <short value="A descriptive name applied to this item"/>
+      <definition value="A descriptive name applied to this item."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
       </mapping>
     </element>
     <element id="ManufacturedItemDefinition.manufacturedDoseForm">
@@ -188,6 +211,22 @@
         <map value="Manufactured Item.Manufacturer / Establishment (Organisation)"/>
       </mapping>
     </element>
+    <element id="ManufacturedItemDefinition.marketingStatus">
+      <path value="ManufacturedItemDefinition.marketingStatus"/>
+      <short value="Allows specifying that an item is on the market for sale, or that it is not available, and the dates and locations associated"/>
+      <definition value="Allows specifying that an item is on the market for sale, or that it is not available, and the dates and locations associated."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="MarketingStatus"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    
     <element id="ManufacturedItemDefinition.ingredient">
       <path value="ManufacturedItemDefinition.ingredient"/>
       <short value="The ingredients of this manufactured item. Only needed if these are not specified by incoming references from the Ingredient resource"/>
@@ -324,13 +363,13 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="ManufacturedItemDefinition.component.ingredient">
+    <element id="ManufacturedItemDefinition.component.constituent">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="230,300"/>
       </extension>
-      <path value="ManufacturedItemDefinition.component.ingredient"/>
-      <short value="A reference to an ingredient of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)"/>
-      <definition value="A reference to an ingredient of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)."/>
+      <path value="ManufacturedItemDefinition.component.constituent"/>
+      <short value="A reference to an constituent of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)"/>
+      <definition value="A reference to an constituent of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -338,10 +377,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="ManufacturedItemDefinition.component.ingredient.amount">
-      <path value="ManufacturedItemDefinition.component.ingredient.amount"/>
-      <short value="The measurable amount of this ingredient in this component, expressable in different ways (e.g. by mass or volume)"/>
-      <definition value="The measurable amount of this ingredient in this component, expressable in different ways (e.g. by mass or volume)."/>
+    <element id="ManufacturedItemDefinition.component.constituent.amount">
+      <path value="ManufacturedItemDefinition.component.constituent.amount"/>
+      <short value="The measurable amount of this constituent in this component, expressable in different ways (e.g. by mass or volume)"/>
+      <definition value="The measurable amount of this constituent in this component, expressable in different ways (e.g. by mass or volume)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -349,10 +388,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="ManufacturedItemDefinition.component.ingredient.location">
-      <path value="ManufacturedItemDefinition.component.ingredient.location"/>
-      <short value="The type of location of the ingredient within this component e.g. intragranular, blend"/>
-      <definition value="The type of location of the ingredient within this component e.g. intragranular, blend."/>
+    <element id="ManufacturedItemDefinition.component.constituent.location">
+      <path value="ManufacturedItemDefinition.component.constituent.location"/>
+      <short value="The type of location of the constituent within this component e.g. intragranular, blend"/>
+      <definition value="The type of location of the constituent within this component e.g. intragranular, blend."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -360,10 +399,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="ManufacturedItemDefinition.component.ingredient.function">
-      <path value="ManufacturedItemDefinition.component.ingredient.function"/>
-      <short value="The function of this ingredient within the component e.g. binder"/>
-      <definition value="The function of this ingredient within the component e.g. binder."/>
+    <element id="ManufacturedItemDefinition.component.constituent.function">
+      <path value="ManufacturedItemDefinition.component.constituent.function"/>
+      <short value="The function of this constituent within the component e.g. binder"/>
+      <definition value="The function of this constituent within the component e.g. binder."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -382,8 +421,8 @@
       </type>
       <isSummary value="true"/>
     </element-->
-    <element id="ManufacturedItemDefinition.component.ingredient.locationForIngredient">
-      <path value="ManufacturedItemDefinition.component.ingredient.locationForIngredient"/>
+    <element id="ManufacturedItemDefinition.component.constituent.locationForIngredient">
+      <path value="ManufacturedItemDefinition.component.constituent.locationForIngredient"/>
       <short value="An ingredient that this component is the location of in this manufactured item. The component is physically made of this ingredient (and possibly others), rather than just being a container for it"/>
       <definition value="An ingredient that this component is the location for in this manufactured item. The component is physically made of this ingredient (and possibly others), rather than just being a container for it."/>
       <min value="0"/>

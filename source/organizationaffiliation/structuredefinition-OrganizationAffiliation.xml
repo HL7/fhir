@@ -177,8 +177,9 @@
     </element>
     <element id="OrganizationAffiliation.network">
       <path value="OrganizationAffiliation.network"/>
-      <short value="Health insurance provider network in which the participatingOrganization provides the role&#39;s services (if defined) at the indicated locations (if defined)"/>
-      <definition value="Health insurance provider network in which the participatingOrganization provides the role&#39;s services (if defined) at the indicated locations (if defined)."/>
+      <short value="The network in which the participatingOrganization provides the role&#39;s services (if defined) at the indicated locations (if defined)"/>
+      <definition value="The network in which the participatingOrganization provides the role&#39;s services (if defined) at the indicated locations (if defined)."/>
+      <comment value="e.g. Commonly used for Health Insurance provider networks."/>
       <min value="0"/>
       <max value="*"/>
       <type>
