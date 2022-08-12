@@ -24,7 +24,7 @@
     <valueCode value="Immunization recommendations are generated on &quot;just in time&quot; and typically are not retained by the system generating them so there isn&#39;t an expected workflow where a previous recommendation would be re-evaluated and found to be &quot;in error&quot;."/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ImmunizationRecommendation"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A patient&#39;s point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

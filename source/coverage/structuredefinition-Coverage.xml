@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Coverage"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Coverage"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -43,7 +43,7 @@
   </contact>
   <description value="Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment."/>
   <purpose value="Coverage provides a link between covered parties (patients) and the payors of their healthcare costs (both insurance and self-pay)."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

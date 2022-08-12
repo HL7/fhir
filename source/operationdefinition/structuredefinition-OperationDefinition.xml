@@ -30,7 +30,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="OperationDefinition"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -48,7 +48,7 @@
     </telecom>
   </contact>
   <description value="A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction)."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Group"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Group"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn&#39;t an Organization."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -182,7 +182,7 @@
       <binding>
         <strength value="required"/>
         <description value="The basis for membership in a group"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/group-membership-basis|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/group-membership-basis|5.0.0"/>
       </binding>
     </element>
     <element id="Group.code">

@@ -27,7 +27,7 @@
     <valueCode value="Depends on the type: document - see for Composition; message - see for MessageHeader; transaction / transaction-response / history / searchset - not expected to be stored; collection: just delete it if it's stored, and in error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Bundle"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="A container for a collection of resources."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
