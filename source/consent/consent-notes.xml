@@ -50,7 +50,7 @@ This is the FHIR Consent's native mechanism for expressing and encoding policy r
 
 <p>Provisions are organized in a tree structure where the <em>root</em> states the default decision and each subsequent level specifies exceptions to the rules stated in the parent provision. 
 The following figure depicts this structure:</p>
-<img src="consent-provisions.png" alt="consent provisions"  width="100%"/> 
+<img src="consent-provisions.png" alt="consent provisions"  width="75%"/> 
 
 <p>The <em>root</em> provision states the default decision by setting the value of the <code>type</code> attribute to <code>permit</code> or <code>deny</code>. 
 It also defines other broad conditions about the applicability of the consent, such as the <code>purpose</code> of use to which the consent applies.</p>
@@ -103,7 +103,7 @@ in the interpretation of the provision:</p>
 </ul>
 
 <p>The following figure visualizes this in the course of an example.</p>
-<img src="consent-provisions-example.png" alt="consent provisions example"  width="100%"/> 
+<img src="consent-provisions-example.png" alt="consent provisions example"  width="75%"/> 
 
 <p>The root provision articulates that during the time period from 01/01/2020 to 31/12/2022, 
 all access by <em>Org A</em> is permitted. 
