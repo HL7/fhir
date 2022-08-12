@@ -4,8 +4,8 @@ classes=DataType,ContactDetail,Contributor,DataRequirement,ParameterDefinition,R
 attributes=false
 
 [size]
-width=350
-height=148
+width=410
+height=188
 
 [directions]
 DataType=0;0
@@ -20,3 +20,4 @@ Expression=-50;80
 ExtendedContactDetail=75;40
 VirtualServiceDetail=150;80
 Availability=-150;80
+MonetaryComponent=0;100
