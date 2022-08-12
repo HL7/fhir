@@ -74,7 +74,7 @@
           
           <td>Resource</td>
           
-          <td>A &#39;resource&#39; - a directed acyclic graph of elements that aggregrates other types into an identifiable entity. The base FHIR resources are defined by the FHIR specification itself but other &#39;resources&#39; can be defined in additional specifications (though these will not be recognised as &#39;resources&#39; by the FHIR specification (i.e. they do not get end-points etc, or act as the targets of references in FHIR defined resources - though other specificatiosn can treat them this way).</td>
+          <td>A &#39;resource&#39; - a directed acyclic graph of elements that aggregrates other types into an identifiable entity. The base FHIR resources are defined by the FHIR specification itself but other &#39;resources&#39; can be defined in additional specifications (though these will not be recognised as &#39;resources&#39; by the FHIR specification; i.e. they do not get end-points etc, or act as the targets of references in FHIR defined resources - though other specifications can treat them this way).</td>
         
         </tr>
         
@@ -147,7 +147,7 @@
   <concept>
     <code value="resource"/>
     <display value="Resource"/>
-    <definition value="A &#39;resource&#39; - a directed acyclic graph of elements that aggregrates other types into an identifiable entity. The base FHIR resources are defined by the FHIR specification itself but other &#39;resources&#39; can be defined in additional specifications (though these will not be recognised as &#39;resources&#39; by the FHIR specification (i.e. they do not get end-points etc, or act as the targets of references in FHIR defined resources - though other specificatiosn can treat them this way)."/>
+    <definition value="A &#39;resource&#39; - a directed acyclic graph of elements that aggregrates other types into an identifiable entity. The base FHIR resources are defined by the FHIR specification itself but other &#39;resources&#39; can be defined in additional specifications (though these will not be recognised as &#39;resources&#39; by the FHIR specification; i.e. they do not get end-points etc, or act as the targets of references in FHIR defined resources - though other specifications can treat them this way)."/>
   </concept>
   <concept>
     <code value="logical"/>

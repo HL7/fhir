@@ -162,4 +162,24 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Schedule-specialty"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Schedule.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Schedule-name"/>
+        <description value="A portion of the Schedule name"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="Schedule.name"/>
+        <xpath value="f:Schedule/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
