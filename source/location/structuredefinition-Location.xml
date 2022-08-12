@@ -441,7 +441,7 @@
     </element>
     <element id="Location.hoursOfOperation">
       <path value="Location.hoursOfOperation"/>
-      <short value="What days/times during a week is this location usually open"/>
+      <short value="What days/times during a week is this location usually open (including exceptions)"/>
       <definition value="What days/times during a week is this location usually open, and any exceptions where the location is not available."/>
       <comment value="This type of information is commonly found published in directories and on websites informing customers when the facility is available.&#xA;&#xA;Specific services within the location may have their own hours which could be shorter (or longer) than the locations hours.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;.&#xD;&#xD;The availableStartTime is the opening time, and the availableEndTime is the closing time."/>
       <min value="0"/>

@@ -1,5 +1,5 @@
 [diagram]
-classes=DataType,ContactDetail,Contributor,DataRequirement,ParameterDefinition,RelatedArtifact,TriggerDefinition,UsageContext,Expression,ExtendedContactDetail,VirtualServiceDetail,Availability
+classes=DataType,ContactDetail,Contributor,DataRequirement,ParameterDefinition,RelatedArtifact,TriggerDefinition,UsageContext,Expression,ExtendedContactDetail,VirtualServiceDetail,Availability,MonetaryComponent
 
 attributes=false
 

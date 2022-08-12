@@ -363,7 +363,7 @@
         <valueCode value="390,0"/>
       </extension>
       <path value="PractitionerRole.availability"/>
-      <short value="Times the Practitioner is available at this location and/or healthcare service"/>
+      <short value="Times the Practitioner is available at this location and/or healthcare service (including exceptions)"/>
       <definition value="A collection of times the practitioner is available or performing this role at the location and/or healthcareservice."/>
       <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;.&#xD;&#xD;The NotAvailableTime(s) included indicate the general days/periods where the practitioner is not available (for things such as vacation time, or public holidays)."/>
       <min value="0"/>
