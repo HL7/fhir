@@ -100,7 +100,7 @@
     </element>
     <element id="Extension.extension:allow-include">
       <path value="Extension.extension"/>
-      <sliceName value="optional"/>
+      <sliceName value="allow-include"/>
       <short value="If this search parameter can use used in _include search."/>
       <definition value="Indicate is this search parameter can use used in _include search."/>
       <min value="1"/>
@@ -138,7 +138,7 @@
     </element>
     <element id="Extension.extension:allow-revinclude">
       <path value="Extension.extension"/>
-      <sliceName value="optional"/>
+      <sliceName value="allow-revinclude"/>
       <short value="If this search parameter can use used in _revinclude search."/>
       <definition value="Indicate is this search parameter can use used in _revinclude search."/>
       <min value="1"/>
