@@ -103,6 +103,10 @@
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
     </element>
     <element id="Ingredient.status">
       <path value="Ingredient.status"/>

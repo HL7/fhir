@@ -94,6 +94,22 @@
       <comment value="Usually, this is used for documents other than those defined by FHIR."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="docRef-1"/>
+        <severity value="warning"/>
+        <human value="facilityType SHALL only be present if context is not an encounter"/>
+        <expression value="facilityType.empty() or context.where(resolve() is Encounter).empty()"/>
+        <xpath value="true"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </constraint>
+      <constraint>
+        <key value="docRef-2"/>
+        <severity value="warning"/>
+        <human value="practiceSetting SHALL only be present if context is not present"/>
+        <expression value="practiceSetting.empty() or context.where(resolve() is Encounter).empty()"/>
+        <xpath value="true"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>

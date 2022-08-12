@@ -271,7 +271,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="CodeableConcept"/>
+				<code value="CodeableReference"/>
 			</type>
 			<isSummary value="true"/>
 			<binding>
@@ -280,6 +280,7 @@
 				</extension>
 				<strength value="example"/>
 				<description value="Codes to identify the reason for current status.  These will typically be specific to a particular workflow."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/task-status-reason"/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>
