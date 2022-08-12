@@ -1,4 +1,5 @@
 # Per discussion at https://chat.fhir.org/#narrow/stream/9-committers/subject/clean.2Esh/near/183706
+.gitignore
 /publish/
 /temp/
 *.bak
@@ -11,7 +12,8 @@ holder.txt
 /schema/codegen
 /schema/datatypes
 /implementations/javascript/app
-.gitignore
+simple-error.txt
+fhir-error-dump.html
 
 # Compiled class file
 *.class
