@@ -1,1 +1,1 @@
-﻿Resource Examples failed instance validation
+﻿/Users/yunweiw/github/hl7/fhir/tools/templates/template-intf.html (No such file or directory)
