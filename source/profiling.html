@@ -9,8 +9,6 @@
 <body>
 [%file newnavbar%]
 
-
-
 [%profilesheader base%]
 
 <h2>Profiling FHIR</h2>
@@ -651,6 +649,117 @@ default slice makes no rules about the identifier.system (which is the slicing d
 but fixes the cardinality of type to 1..1 in the @default slice.
 </p>
 
+<a name="partial"></a>
+<h3>Profiling portions of a resource</h3>
+<p>
+In all the examples above, a profile is applied to an entire resource,
+and re-useability is at the scope of the entire resource. It is possible, 
+however, to apply a profile at the point of a particular element in a 
+resource. A common case where this would be useful is for section templates
+in a profile on Composition, where it is common to have a set of rules for 
+the content of a section that are used across multiple different documents 
+(profiles on Composition). This is supported by the 
+<a href="extension-elementdefinition-profile-element.html">profile-element</a>
+extension.
+</p>
+<p>
+The profile-element extension is an instruction to a validator to apply
+the profile starting at the nominated element (by it's ID). To use this, 
+a profile author would first define a profile on Composition section:
+</p>
+<pre>
+  &lt;StructureDefinition xmlns=&quot;http://hl7.org/fhir&quot;&gt; 
+    ...
+    &lt;url value=&quot;http://hl7.org/fhir/example/StructureDefinition/document-section-library&quot;&gt;
+    &lt;!-- this profile is &apos;abstract&apos; - it defines a library of sections, 
+     so it doesn&apos;t make sense to use it as a profile directly --&gt;
+    &lt;abstract value=&quot;true&quot;/&gt;
+    &lt;!-- this profile applies rules to the Composition resource --&gt;
+    &lt;type value=&quot;Composition&quot;/&gt;
+    &lt;baseDefinition value=&quot;http://hl7.org/fhir/StructureDefinition/Composition&quot;/&gt;
+    &lt;derivation value=&quot;constraint&quot;/&gt;
+    &lt;differential&gt;
+        &lt;!-- set up slicing on Composition.section - by section.code in this case. 
+          This slicing is never used anywhere since this library is abstract,
+          but it&apos;s needed for presenting the library coherently 
+          e.g. in an implementation guide
+        --&gt;  
+        &lt;element&gt;
+        &lt;path value=&quot;Composition.section&quot;/&gt;
+        &lt;slicing&gt;  
+          &lt;discriminator&gt; 
+            &lt;type value=&quot;pattern&quot;/&gt;
+            &lt;path value=&quot;code&quot;/&gt;
+          &lt;/discriminator&gt;
+          &lt;description value=&quot;Slice by .section.code when using this section library&quot;/&gt;
+          &lt;ordered value=&quot;true&quot;/&gt;
+          &lt;rules value=&quot;closed&quot;/&gt;
+         &lt;/slicing&gt;
+      &lt;/element&gt;
+
+      &lt;!-- 
+        a set of rules on a composition section
+        The value of the id is fixed by the rules on 
+        StructureDefinition/ElementDefinition
+      --&gt;
+      &lt;element id=&quot;Composition.section:codeB&quot;&gt; 
+        &lt;path value=&quot;Composition.section&quot;/&gt;
+        &lt;sliceName value=&quot;codeB&quot;/&gt;
+      &lt;/element&gt;
+      &lt;!-- simple rules for example: 
+         there will be a title and the code will at least contain code-b --&gt;
+      &lt;element&gt;
+        &lt;path value=&quot;Composition.section.title&quot;/&gt;
+        &lt;min value=&quot;1&quot;/&gt;
+      &lt;/element&gt;
+      &lt;element&gt;
+        &lt;path value=&quot;Composition.section.code&quot;/&gt;
+        &lt;min value=&quot;1&quot;/&gt;
+        &lt;patternCodeableConcept&gt;
+          &lt;coding&gt;
+            &lt;system value=&quot;http://hl7.org/fhir/test/CodeSystem/imaginary&quot;/&gt;
+            &lt;code value=&quot;code-b&quot;/&gt;
+          &lt;/coding&gt;
+        &lt;/patternCodeableConcept&gt;
+      &lt;/element&gt;
+   ...   
+</pre>
+<p>
+Then to apply the section level profile to an element:
+</p>
+<pre>
+  &lt;element&gt;
+    &lt;!-- Slice on Composition.section by the code.
+     It&apos;s not necessary to slice to use this extension,
+    but it normally be necessary to achieve the desired outcome
+    --&gt;  
+    &lt;path value=&quot;Composition.section&quot;/&gt;
+    &lt;slicing&gt;  
+      &lt;discriminator&gt; 
+        &lt;type value=&quot;pattern&quot;/&gt;
+        &lt;path value=&quot;code&quot;/&gt;
+      &lt;/discriminator&gt;
+      &lt;description value=&quot;Slice by .section.code&quot;/&gt;
+      &lt;ordered value=&quot;true&quot;/&gt;
+      &lt;rules value=&quot;closed&quot;/&gt;
+     &lt;/slicing&gt;
+  &lt;/element&gt;
+  &lt;element&gt;
+     &lt;!-- first slice --&gt;  
+    &lt;path value=&quot;Composition.section&quot;/&gt;
+    &lt;sliceName value=&quot;code-B&quot;/&gt;
+    &lt;min value=&quot;1&quot;/&gt;
+    &lt;type&gt;
+      &lt;code value=&quot;BackboneElement&quot;/&gt; 
+      &lt;!-- the extension says where in the referenced profile to start --&gt;
+      &lt;profile value=&quot;http://hl7.org/fhir/example/StructureDefinition/document-section-library&quot;&gt;
+        &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element&quot;&gt;
+          &lt;valueString value=&quot;Composition.section:codeB&quot;/&gt;
+        &lt;/extension&gt;
+      &lt;/profile&gt;
+    &lt;/type&gt;
+  &lt;/element&gt;  
+</pre>
 <a name="reslicing"></a>
 <h3>Re-profiling and Re-slicing</h3>
 <p>
