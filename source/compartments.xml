@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Jose Costa Teixeira</LastAuthor>
@@ -13,10 +20,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  
-  
-  
-  
+  <WindowHeight>9432</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>32767</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -25,7 +32,7 @@
   <Style ss:ID="Default" ss:Name="Normal">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
@@ -36,34 +43,38 @@
   <Style ss:ID="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s64">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
   <Style ss:ID="s65">
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
   <Style ss:ID="s66">
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s67">
-   <Font ss:Color="#333333" ss:FontName="Verdana" ss:Size="9" x:Family="Swiss"/>
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="compartments">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" ss:StyleID="s62" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s62" ss:Width="110.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="3" ss:StyleID="s62" ss:Width="131.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="487.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="254.0"/>
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="50.4"
+   ss:DefaultRowHeight="14.4">
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="110.1" ss:Span="1"/>
+   <Column ss:Index="3" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="131.1"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="486.90000000000003"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="254.10000000000002"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s63">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Title</Data></Cell>
@@ -75,7 +86,7 @@
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell><Data ss:Type="String">Patient</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The set of resources associated with a particular patient</Data></Cell>
-    <Cell ss:StyleID="s64"><Data ss:Type="String">There is an instance of the patient compartment for each patient resource, and the identity of the compartment is the same as the patient. When a patient is linked to another patient resource, the records associated with the linked patient resource will not be returned as part of the compartment search. Those records will be returned only with another compartment search using the "id" for the linked patient resource.&#10; &#10;In cases where two patients have been merged rather than linked, associated resources should be moved to the target patient as part of the merge process, so the patient compartment for the target patient would include all relevant data, and the patient compartment for the source patient would include only the linked Patient and possibly remnant resources like AuditEvent.</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">There is an instance of the patient compartment for each patient resource, and the identity of the compartment is the same as the patient. When a patient is linked to another patient resource, the records associated with the linked patient resource will not be returned as part of the compartment search. Those records will be returned only with another compartment search using the &quot;id&quot; for the linked patient resource.&#10; &#10;In cases where two patients have been merged rather than linked, associated resources should be moved to the target patient as part of the merge process, so the patient compartment for the target patient would include all relevant data, and the patient compartment for the source patient would include only the linked Patient and possibly remnant resources like AuditEvent.</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">The patient compartment includes any resources where the subject of  the resource is the patient, and some other resources that are directly linked  to resources in the patient compartment</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -119,13 +130,15 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="156" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="158.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="198.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="98.0"/>
-   <Column ss:StyleID="s65" ss:Width="149.0"/>
-   <Column ss:StyleID="s65" ss:Width="198.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="210.0"/>
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="156" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s65" ss:DefaultColumnWidth="50.4"
+   ss:DefaultRowHeight="14.4">
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="158.1"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="198"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="98.100000000000009"/>
+   <Column ss:StyleID="s65" ss:Width="149.1"/>
+   <Column ss:StyleID="s65" ss:Width="198"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="210"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">Patient</Data></Cell>
@@ -201,14 +214,14 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CareTeam</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">patient | participant </Data></Cell>
-    <Cell><Data ss:Type="String"/></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
     <Cell><Data ss:Type="String">participant </Data></Cell>
     <Cell><Data ss:Type="String">participant </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ChargeItem</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">enterer | performer-actor</Data></Cell>
     <Cell><Data ss:Type="String">enterer | performer-actor</Data></Cell>
     <Cell><Data ss:Type="String">enterer | performer-actor</Data></Cell>
@@ -277,9 +290,6 @@
     <Cell><Data ss:Type="String">ConceptMap</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ConceptMap2</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Condition</Data></Cell>
     <Cell><Data ss:Type="String">patient | participant-actor</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
@@ -288,9 +298,6 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CapabilityStatement</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CapabilityStatement2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DetectedIssue</Data></Cell>
@@ -303,8 +310,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Coverage</Data></Cell>
-    <Cell><Data ss:Type="String">policy-holder | subscriber | beneficiary |payor</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">policy-holder | subscriber |payor</Data></Cell>
+    <Cell><Data ss:Type="String">policy-holder | subscriber | beneficiary</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">policy-holder | subscriber |</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Device</Data></Cell>
@@ -696,6 +703,10 @@
     <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">GenomicStudy</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Task</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -797,7 +808,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Index="151">
+   <Row ss:Index="151" ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -832,12 +843,21 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>130</TopRowBottomPane>
+   <TopRowBottomPane>22</TopRowBottomPane>
    <ActivePane>2</ActivePane>
-   
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+     <ActiveRow>29</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
-<!--canonicalized--></Workbook>
+</Workbook>

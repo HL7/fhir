@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="ClaimResponse"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -107,7 +107,7 @@
       <short value="active | cancelled | draft | entered-in-error"/>
       <definition value="The status of the resource instance."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
-      <requirements value="Need to track the status of the resource as &#39;draft&#39; resources may undergo further edits while &#39;active&#39; resources are immutable and may only have their status changed to &#39;cancelled&#39;."/>
+      <requirements value="Need to track the status of the resource as 'draft' resources may undergo further edits while 'active' resources are immutable and may only have their status changed to 'cancelled'."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -383,6 +383,38 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/payeetype"/>
       </binding>
     </element>
+    <element id="ClaimResponse.encounter">
+      <path value="ClaimResponse.encounter"/>
+      <short value="Encounters related to this billed item"/>
+      <definition value="The Encounters during which this Claim was created or to which the creation of this record is tightly associated."/>
+      <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
+      <requirements value="Used in some jurisdictions to link clinical events to claim items."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.diagnosisRelatedGroup">
+      <path value="ClaimResponse.diagnosisRelatedGroup"/>
+      <short value="Package billing code"/>
+      <definition value="A package billing code or bundle code used to group products and services to a particular health condition (such as heart attack) which is based on a predetermined grouping code system."/>
+      <comment value="For example DRG (Diagnosis Related Group) or a bundled billing code. A patient may have a diagnosis of a Myocardial Infarction and a DRG for HeartAttack would be assigned. The Claim item (and possible subsequent claims) would refer to the DRG for those line items that were for services related to the heart attack event."/>
+      <requirements value="Required to relate the current diagnosis to a package billing code that is then referenced on the individual claim items which are specific to the health condition covered by the package code."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiagnosisRelatedGroup"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup"/>
+      </binding>
+    </element>
     <element id="ClaimResponse.item">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Item"/>
@@ -392,7 +424,7 @@
       </extension>
       <path value="ClaimResponse.item"/>
       <short value="Adjudication for claim line items"/>
-      <definition value="A claim line. Either a simple (a product or service) or a &#39;group&#39; of details which can also be a simple items or groups of sub-details."/>
+      <definition value="A claim line. Either a simple (a product or service) or a 'group' of details which can also be a simple items or groups of sub-details."/>
       <requirements value="The adjudication for items provided on the claim."/>
       <min value="0"/>
       <max value="*"/>
@@ -432,7 +464,7 @@
       <path value="ClaimResponse.item.adjudication"/>
       <short value="Adjudication details"/>
       <definition value="If this item is a group then the values here are a summary of the adjudication of the detail items. If this item is a simple product or service then this is the result of the adjudication of this item."/>
-      <requirements value="The adjudication results conveys the insurer&#39;s assessment of the item provided in the claim under the terms of the patient&#39;s insurance coverage."/>
+      <requirements value="The adjudication results conveys the insurer's assessment of the item provided in the claim under the terms of the patient's insurance coverage."/>
       <min value="1"/>
       <max value="*"/>
       <type>
@@ -512,7 +544,7 @@
       </extension>
       <path value="ClaimResponse.item.detail"/>
       <short value="Adjudication for claim details"/>
-      <definition value="A claim detail. Either a simple (a product or service) or a &#39;group&#39; of sub-details which are simple items."/>
+      <definition value="A claim detail. Either a simple (a product or service) or a 'group' of sub-details which are simple items."/>
       <requirements value="The adjudication for details provided on the claim."/>
       <min value="0"/>
       <max value="*"/>
@@ -671,13 +703,33 @@
         <map value="FiveWs.source"/>
       </mapping>
     </element>
+	    <element id="ClaimResponse.addItem.revenue">
+      <path value="ClaimResponse.addItem.revenue"/>
+      <short value="Revenue or cost center code"/>
+      <definition value="The type of revenue or cost center providing the product and/or service."/>
+      <requirements value="Needed in the processing of institutional claims."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RevenueCenter"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the revenue or cost centers supplying the service and/or products."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-revenue-center"/>
+      </binding>
+    </element>
+
     <element id="ClaimResponse.addItem.productOrService">
       <path value="ClaimResponse.addItem.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
-      <definition value="When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item."/>
-      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. &#39;glasses&#39; or &#39;compound&#39;."/>
+      <definition value="When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used."/>
+      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. 'glasses' or 'compound'."/>
       <requirements value="Necessary to state what was provided or done."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
@@ -826,12 +878,23 @@
       <path value="ClaimResponse.addItem.factor"/>
       <short value="Price scaling factor"/>
       <definition value="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount."/>
-      <comment value="To show a 10% senior&#39;s discount, the value entered is: 0.90 (1.00 - 0.10)."/>
-      <requirements value="When discounts are provided to a patient (example: Senior&#39;s discount) then this must be documented for adjudication."/>
+      <comment value="To show a 10% senior's discount, the value entered is: 0.90 (1.00 - 0.10)."/>
+      <requirements value="When discounts are provided to a patient (example: Senior's discount) then this must be documented for adjudication."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="decimal"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.addItem.tax">
+      <path value="ClaimResponse.addItem.tax"/>
+      <short value="Total tax"/>
+      <definition value="The total of taxes applicable for this product or service."/>
+      <requirements value="Required when taxes are not embedded in the unit price or provided as a separate service."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
       </type>
     </element>
     <element id="ClaimResponse.addItem.net">
@@ -851,28 +914,44 @@
       </mapping>
     </element>
     <element id="ClaimResponse.addItem.bodySite">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="BodySite"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="740,500"/>
+      </extension>
       <path value="ClaimResponse.addItem.bodySite"/>
       <short value="Anatomical location"/>
+      <definition value="Physical location where the service is performed or applies."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.addItem.bodySite.site">
+      <path value="ClaimResponse.addItem.bodySite.site"/>
+      <short value="Location"/>
       <definition value="Physical service site on the patient (limb, tooth, etc.)."/>
       <comment value="For example: Providing a tooth code allows an insurer to identify a provider performing a filling on a tooth that was previously removed."/>
       <requirements value="Allows insurer to validate specific procedures."/>
-      <min value="0"/>
-      <max value="1"/>
+      <min value="1"/>
+      <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="OralSites"/>
         </extension>
         <strength value="example"/>
-        <description value="The code for the teeth, quadrant, sextant and arch."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/tooth"/>
       </binding>
     </element>
-    <element id="ClaimResponse.addItem.subSite">
-      <path value="ClaimResponse.addItem.subSite"/>
-      <short value="Anatomical sub-location"/>
+    <element id="ClaimResponse.addItem.bodySite.subSite">
+      <path value="ClaimResponse.addItem.bodySite.subSite"/>
+      <short value="Sub-location"/>
       <definition value="A region or surface of the bodySite, e.g. limb region or tooth surface(s)."/>
       <requirements value="Allows insurer to validate specific procedures."/>
       <min value="0"/>
@@ -885,7 +964,6 @@
           <valueString value="Surface"/>
         </extension>
         <strength value="example"/>
-        <description value="The code for the tooth surface and surface combinations."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/surface"/>
       </binding>
     </element>
@@ -927,13 +1005,32 @@
         <code value="BackboneElement"/>
       </type>
     </element>
+	<element id="ClaimResponse.addItem.detail.revenue">
+      <path value="ClaimResponse.addItem.detail.revenue"/>
+      <short value="Revenue or cost center code"/>
+      <definition value="The type of revenue or cost center providing the product and/or service."/>
+      <requirements value="Needed in the processing of institutional claims."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RevenueCenter"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the revenue or cost centers supplying the service and/or products."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-revenue-center"/>
+      </binding>
+    </element>
     <element id="ClaimResponse.addItem.detail.productOrService">
       <path value="ClaimResponse.addItem.detail.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
-      <definition value="When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item."/>
-      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. &#39;glasses&#39; or &#39;compound&#39;."/>
+      <definition value="When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used."/>
+      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. 'glasses' or 'compound'."/>
       <requirements value="Necessary to state what was provided or done."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
@@ -1002,12 +1099,23 @@
       <path value="ClaimResponse.addItem.detail.factor"/>
       <short value="Price scaling factor"/>
       <definition value="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount."/>
-      <comment value="To show a 10% senior&#39;s discount, the value entered is: 0.90 (1.00 - 0.10)."/>
-      <requirements value="When discounts are provided to a patient (example: Senior&#39;s discount) then this must be documented for adjudication."/>
+      <comment value="To show a 10% senior's discount, the value entered is: 0.90 (1.00 - 0.10)."/>
+      <requirements value="When discounts are provided to a patient (example: Senior's discount) then this must be documented for adjudication."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="decimal"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.addItem.detail.tax">
+      <path value="ClaimResponse.addItem.detail.tax"/>
+      <short value="Total tax"/>
+      <definition value="The total of taxes applicable for this product or service."/>
+      <requirements value="Required when taxes are not embedded in the unit price or provided as a separate service."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
       </type>
     </element>
     <element id="ClaimResponse.addItem.detail.net">
@@ -1064,13 +1172,31 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="ClaimResponse.addItem.detail.subDetail.productOrService">
+	<element id="ClaimResponse.addItem.detail.subDetail.revenue">
+      <path value="ClaimResponse.addItem.detail.subDetail.revenue"/>
+      <short value="Revenue or cost center code"/>
+      <definition value="The type of revenue or cost center providing the product and/or service."/>
+      <requirements value="Needed in the processing of institutional claims."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RevenueCenter"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for the revenue or cost centers supplying the service and/or products."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-revenue-center"/>
+      </binding>
+    </element>    <element id="ClaimResponse.addItem.detail.subDetail.productOrService">
       <path value="ClaimResponse.addItem.detail.subDetail.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
-      <definition value="When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item."/>
-      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. &#39;glasses&#39; or &#39;compound&#39;."/>
+      <definition value="When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used."/>
+      <comment value="If this is an actual service or product line, i.e. not a Group, then use code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped e.g. 'glasses' or 'compound'."/>
       <requirements value="Necessary to state what was provided or done."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
@@ -1139,12 +1265,23 @@
       <path value="ClaimResponse.addItem.detail.subDetail.factor"/>
       <short value="Price scaling factor"/>
       <definition value="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount."/>
-      <comment value="To show a 10% senior&#39;s discount, the value entered is: 0.90 (1.00 - 0.10)."/>
-      <requirements value="When discounts are provided to a patient (example: Senior&#39;s discount) then this must be documented for adjudication."/>
+      <comment value="To show a 10% senior's discount, the value entered is: 0.90 (1.00 - 0.10)."/>
+      <requirements value="When discounts are provided to a patient (example: Senior's discount) then this must be documented for adjudication."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="decimal"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.addItem.detail.subDetail.tax">
+      <path value="ClaimResponse.addItem.detail.subDetail.tax"/>
+      <short value="Total tax"/>
+      <definition value="The total of taxes applicable for this product or service."/>
+      <requirements value="Required when taxes are not embedded in the unit price or provided as a separate service."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
       </type>
     </element>
     <element id="ClaimResponse.addItem.detail.subDetail.net">
@@ -1291,7 +1428,7 @@
     <element id="ClaimResponse.payment.adjustment">
       <path value="ClaimResponse.payment.adjustment"/>
       <short value="Payment adjustment for non-claim issues"/>
-      <definition value="Total amount of all adjustments to this payment included in this transaction which are not related to this claim&#39;s adjudication."/>
+      <definition value="Total amount of all adjustments to this payment included in this transaction which are not related to this claim's adjudication."/>
       <comment value="Insurers will deduct amounts owing from the provider (adjustment), such as a prior overpayment, from the amount owing to the provider (benefits payable) when payment is made to the provider."/>
       <requirements value="To advise the requestor of adjustments applied to the payment."/>
       <min value="0"/>
@@ -1344,7 +1481,7 @@
     <element id="ClaimResponse.payment.identifier">
       <path value="ClaimResponse.payment.identifier"/>
       <short value="Business identifier for the payment"/>
-      <definition value="Issuer&#39;s unique identifier for the payment instrument."/>
+      <definition value="Issuer's unique identifier for the payment instrument."/>
       <comment value="For example: EFT number or check number."/>
       <requirements value="Enable the receiver to reconcile when payment received."/>
       <min value="0"/>
@@ -1524,7 +1661,7 @@
       <path value="ClaimResponse.insurance"/>
       <short value="Patient insurance information"/>
       <definition value="Financial instruments for reimbursement for the health care products and services specified on the claim."/>
-      <comment value="All insurance coverages for the patient which may be applicable for reimbursement, of the products and services listed in the claim, are typically provided in the claim to allow insurers to confirm the ordering of the insurance coverages relative to local &#39;coordination of benefit&#39; rules. One coverage (and only one) with &#39;focal=true&#39; is to be used in the adjudication of this claim. Coverages appearing before the focal Coverage in the list, and where &#39;subrogation=false&#39;, should provide a reference to the ClaimResponse containing the adjudication results of the prior claim."/>
+      <comment value="All insurance coverages for the patient which may be applicable for reimbursement, of the products and services listed in the claim, are typically provided in the claim to allow insurers to confirm the ordering of the insurance coverages relative to local 'coordination of benefit' rules. One coverage (and only one) with 'focal=true' is to be used in the adjudication of this claim. Coverages appearing before the focal Coverage in the list, and where 'subrogation=false', should provide a reference to the ClaimResponse containing the adjudication results of the prior claim."/>
       <requirements value="At least one insurer is required for a claim to be a claim."/>
       <min value="0"/>
       <max value="*"/>
@@ -1551,7 +1688,7 @@
       <path value="ClaimResponse.insurance.focal"/>
       <short value="Coverage to be used for adjudication"/>
       <definition value="A flag to indicate that this Coverage is to be used for adjudication of this claim when set to true."/>
-      <comment value="A patient may (will) have multiple insurance policies which provide reimbursement for healthcare services and products. For example a person may also be covered by their spouse&#39;s policy and both appear in the list (and may be from the same insurer). This flag will be set to true for only one of the listed policies and that policy will be used for adjudicating this claim. Other claims would be created to request adjudication against the other listed policies."/>
+      <comment value="A patient may (will) have multiple insurance policies which provide reimbursement for healthcare services and products. For example a person may also be covered by their spouse's policy and both appear in the list (and may be from the same insurer). This flag will be set to true for only one of the listed policies and that policy will be used for adjudicating this claim. Other claims would be created to request adjudication against the other listed policies."/>
       <requirements value="To identify which coverage in the list is being used to adjudicate this claim."/>
       <min value="1"/>
       <max value="1"/>
@@ -1562,7 +1699,7 @@
     <element id="ClaimResponse.insurance.coverage">
       <path value="ClaimResponse.insurance.coverage"/>
       <short value="Insurance information"/>
-      <definition value="Reference to the insurance card level information contained in the Coverage resource. The coverage issuing insurer will use these details to locate the patient&#39;s actual coverage within the insurer&#39;s information system."/>
+      <definition value="Reference to the insurance card level information contained in the Coverage resource. The coverage issuing insurer will use these details to locate the patient's actual coverage within the insurer's information system."/>
       <requirements value="Required to allow the adjudicator to locate the correct policy and history within their information system."/>
       <min value="1"/>
       <max value="1"/>
@@ -1586,7 +1723,7 @@
       <path value="ClaimResponse.insurance.claimResponse"/>
       <short value="Adjudication results"/>
       <definition value="The result of the adjudication of the line items for the Coverage specified in this insurance."/>
-      <comment value="Must not be specified when &#39;focal=true&#39; for this insurance."/>
+      <comment value="Must not be specified when 'focal=true' for this insurance."/>
       <requirements value="An insurer need the adjudication results from prior insurers to determine the outstanding balance remaining by item for the items in the curent claim."/>
       <min value="0"/>
       <max value="1"/>

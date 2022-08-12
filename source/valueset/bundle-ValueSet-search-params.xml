@@ -370,4 +370,66 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ValueSet-effective"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ValueSet.effectivePeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MetadataResource-effective"/>
+        <description value="The time during which the ValueSet is intended to be in use"/>
+        <code value="effective"/>
+        <type value="date"/>
+        <expression value="ValueSet.effectivePeriod"/>
+        <xpath value="f:ValueSet/f:effectivePeriod"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ValueSet.relatedArtifact.resource"/>
+        </extension>
+        <description value="A resource that the ValueSet is derived from"/>
+        <code value="derived-from"/>
+        <type value="reference"/>
+        <expression value="ValueSet.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
+        <xpath value="f:ValueSet/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ValueSet.relatedArtifact.resource"/>
+        </extension>
+        <description value="The predecessor of the ValueSet"/>
+        <code value="predecessor"/>
+        <type value="reference"/>
+        <expression value="ValueSet.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <xpath value="f:ValueSet/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ValueSet.topic"/>
+        </extension>
+        <description value="Topics associated with the ValueSet"/>
+        <code value="topic"/>
+        <type value="token"/>
+        <expression value="ValueSet.topic"/>
+        <xpath value="f:ValueSet/f:topic"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

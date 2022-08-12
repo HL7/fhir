@@ -18,14 +18,16 @@
     <value value="ClinLab"/>
   </identifier>
   <name value="Clinical Lab"/>
-  <telecom>
-    <system value="phone"/>
-    <value value="+1 555 234 1234"/>
-    <use value="work"/>
-  </telecom>
-  <telecom>
-    <system value="email"/>
-    <value value="contact@labs.acme.org"/>
-    <use value="work"/>
-  </telecom>
+  <contact>
+    <telecom>
+      <system value="phone"/>
+      <value value="+1 555 234 1234"/>
+      <use value="work"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="contact@labs.acme.org"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
 </Organization>

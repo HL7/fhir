@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DocumentReference xmlns="http://hl7.org/fhir">
+  <id value="example-composition"/>
+  <meta>
+    <security>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+      <code value="HTEST"/>
+    </security>
+  </meta>
+
+  <identifier>
+    <system value="http://healthintersections.com.au/test"/> 
+    <value value="1"/> 
+  </identifier>
+  <status value="current"/>
+  <type>
+    <coding>
+      <system value="http://loinc.org"/> 
+      <code value="11488-4"/> 
+      <display value="Consult note"/> 
+    </coding>
+  </type>
+  <category>
+    <coding>
+      <system value="http://loinc.org"/> 
+      <code value="LP173421-1"/> 
+      <display value="Report"/> 
+    </coding>
+  </category>
+  <subject>
+    <reference value="Patient/xcda"/> 
+    <display value="Henry Levin the 7th"/> 
+  </subject>
+  <context> 
+    <reference value="Encounter/xcda"/> 
+  </context> 
+  <event> 
+    <concept>
+      <coding> 
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/> 
+        <code value="HEALTHREC"/> 
+        <display value="health record"/> 
+      </coding> 
+  </concept>
+  </event>
+
+  <event>
+    <reference>
+      <reference value="Observation/example"/> 
+    </reference>
+  </event> 
+  <period> 
+    <start value="2010-07-18"/> 
+    <end value="2012-11-12"/> 
+  </period> 
+    <date value="2012-01-04T09:10:14Z"/> 
+  <author> 
+    <reference value="Practitioner/xcda-author"/> 
+    <display value="Harold Hippocrates, MD"/> 
+  </author> 
+  <attester>
+    <mode>
+      <coding>
+        <system value="http://hl7.org/fhir/composition-attestation-mode"/>
+        <code value="professional"/>
+      </coding>
+    </mode>
+    <party>
+      <reference value="Practitioner/xcda-author"/> 
+      <display value="Harold Hippocrates, MD"/> 
+    </party>
+  </attester>
+  <relatesTo>
+    <code>
+      <coding>
+        <system value="http://hl7.org/fhir/document-relationship-type"/>
+        <code value="replaces"/>
+      </coding>
+    </code>
+
+    <target>
+      <reference value="DocumentReference/old-example"/>
+    </target>
+  </relatesTo>
+  <description value="Example of a Comprehensive DocumentReference resource. This is fully filled for all mandatory elements and all optional elements."/>
+  <content>
+    <attachment>
+      <url value="Composition/example"/>
+    </attachment>
+  </content>
+
+</DocumentReference>

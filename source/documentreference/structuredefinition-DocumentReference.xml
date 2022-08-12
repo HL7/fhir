@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="DocumentReference"/>
   <meta>
-    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+    <lastUpdated value="2022-06-09T08:58:31.578+11:00"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
     <valueString value="Clinical.Diagnostics"/>
@@ -27,7 +27,7 @@
   <version value="4.6.0"/>
   <name value="DocumentReference"/>
   <status value="draft"/>
-  <date value="2021-01-02T08:58:31+11:00"/>
+  <date value="2022-06-09T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
   <contact>
     <telecom>
@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A reference to a document of any kind for any purpose. While the term &#x201C;document&#x201D; implies a more narrow focus, for this resource this &quot;document&quot; encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference."/>
+  <description value="A reference to a document of any kind for any purpose. While the term “document” implies a more narrow focus, for this resource this &quot;document&quot; encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -90,10 +90,26 @@
       </extension>
       <path value="DocumentReference"/>
       <short value="A reference to a document"/>
-      <definition value="A reference to a document of any kind for any purpose. While the term &#x201C;document&#x201D; implies a more narrow focus, for this resource this &quot;document&quot; encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference."/>
+      <definition value="A reference to a document of any kind for any purpose. While the term “document” implies a more narrow focus, for this resource this &quot;document&quot; encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference."/>
       <comment value="Usually, this is used for documents other than those defined by FHIR."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="docRef-1"/>
+        <severity value="warning"/>
+        <human value="facilityType SHALL only be present if context is not an encounter"/>
+        <expression value="facilityType.empty() or context.where(resolve() is Encounter).empty()"/>
+        <xpath value="true"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </constraint>
+      <constraint>
+        <key value="docRef-2"/>
+        <severity value="warning"/>
+        <human value="practiceSetting SHALL only be present if context is not present"/>
+        <expression value="practiceSetting.empty() or context.where(resolve() is Encounter).empty()"/>
+        <xpath value="true"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -121,8 +137,10 @@
     </element>
     <element id="DocumentReference.identifier">
       <path value="DocumentReference.identifier"/>
-      <short value="Other identifiers for the document"/>
-      <definition value="Other identifiers associated with the document, including version independent identifiers."/>
+      <short value="Business identifiers for the document"/>
+      <definition value="Other business identifiers associated with the document, including version independent identifiers."/>
+      <requirements value="Document identifiers usually assigned by the source of the document, or other business identifiers such as XDS DocumentEntry.uniqueId and DocumentEntry.entryUUID. These identifiers are specific to this instance of the document."/>
+      <comment value="The structure and format of this identifier would be consistent with the specification corresponding to the format of the document. (e.g. for a DICOM standard document, a 64-character numeric UID; for an HL7 CDA format, the CDA Document Id root and extension)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -138,8 +156,12 @@
         <map value="FiveWs.identifier"/>
       </mapping>
       <mapping>
+        <identity value="fhircomposition"/>
+        <map value="Composition.identifier"/>
+      </mapping>
+      <mapping>
         <identity value="v2"/>
-        <map value="TXA-16?"/>
+        <map value="TXA-12"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -147,7 +169,11 @@
       </mapping>
       <mapping>
         <identity value="xds"/>
-        <map value="DocumentEntry.entryUUID"/>
+        <map value="DocumentEntry.entryUUID, DocumentEntry.uniqueId"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument/id"/>
       </mapping>
     </element>
     <element id="DocumentReference.basedOn">
@@ -237,7 +263,7 @@
     </element>
     <element id="DocumentReference.docStatus">
       <path value="DocumentReference.docStatus"/>
-      <short value="preliminary | final | amended | entered-in-error | deprecated"/>
+      <short value="registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | deprecated | unknown"/>
       <definition value="The status of the underlying document."/>
       <comment value="The document that is pointed to might be in various lifecycle states."/>
       <min value="0"/>
@@ -462,7 +488,11 @@
       </mapping>
       <mapping>
         <identity value="xds"/>
-        <map value="DocumentEntry.eventCodeList"/>
+        <map value="DocumentEntry.eventCodeList, DocumentEntry.referenceIdList"/>
+      </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="DocumentEntry.referenceIdList"/>
       </mapping>
     </element>
     <element id="DocumentReference.facilityType">
@@ -841,6 +871,10 @@
         <identity value="xds"/>
         <map value="DocumentEntry Associations type"/>
       </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument/relatedDocument/typeCode"/>
+      </mapping>
     </element>
     <element id="DocumentReference.relatesTo.target">
       <path value="DocumentReference.relatesTo.target"/>
@@ -865,7 +899,11 @@
         <identity value="xds"/>
         <map value="DocumentEntry Associations reference"/>
       </mapping>
-    </element>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument/relatedDocument/parentDocument"/>
+      </mapping> 
+     </element>
     <element id="DocumentReference.description">
       <path value="DocumentReference.description"/>
       <short value="Human-readable description"/>
@@ -916,7 +954,7 @@
       </binding>
       <mapping>
         <identity value="fhircomposition"/>
-        <map value="Composition.confidentiality, Composition.meta.security"/>
+        <map value="Bundle.meta.security"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -995,10 +1033,10 @@
       <short value="Content profile rules for the document"/>
       <definition value="An identifier of the document constraints, encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType."/>
       <comment value="Note that IHE often issues URNs for formatCode codes, not all documents can be identified by a URI.&#xA;&#xA;For FHIR content, .profile should indicate the structureDefinition profile canonical URI(s) that the content complies with."/>
-	  <alias value="format"/>
-	  <alias value="formatCode"/>
+      <alias value="format"/>
+      <alias value="formatCode"/>
       <min value="0"/>
-	  <max value="*"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -1021,18 +1059,18 @@
       </mapping>
     </element>
     <element id="DocumentReference.content.profile.value[x]">
-	  <path value="DocumentReference.content.profile.value[x]"/>
-	  <short value="Code|uri|canonical"/>
-	  <min value="1"/>
-	  <max value="1"/>
+      <path value="DocumentReference.content.profile.value[x]"/>
+      <short value="Code|uri|canonical"/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="Coding"/>
-	  </type>
-	  <type>
-		<code value="uri"/>
-	  </type>
-	  <type>
-		<code value="canonical"/>
+      </type>
+      <type>
+        <code value="uri"/>
+      </type>
+      <type>
+        <code value="canonical"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -1058,74 +1096,6 @@
       <mapping>
         <identity value="cda"/>
         <map value="derived from the IHE Profile or Implementation Guide templateID"/>
-      </mapping>
-    </element>
-    <element id="DocumentReference.content.identifier">
-      <path value="DocumentReference.content.identifier"/>
-      <short value="Identifier of the attachment binary"/>
-      <definition value="Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document."/>
-      <comment value="CDA Document Id extension and root."/>
-      <requirements value="The structure and format of this Id shall be consistent with the specification corresponding to the formatCode attribute. (e.g. for a DICOM standard document a 64-character numeric UID, for an HL7 CDA format a serialization of the CDA Document Id extension and root in the form &quot;oid^extension&quot;, where OID is a 64 digits max, and the Id is a 16 UTF-8 char max. If the OID is coded without the extension then the &#39;^&#39; character shall not be included.)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="fhircomposition"/>
-        <map value="Composition.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="TXA-12"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".id"/>
-      </mapping>
-      <mapping>
-        <identity value="xds"/>
-        <map value="DocumentEntry.uniqueId"/>
-      </mapping>
-      <mapping>
-        <identity value="cda"/>
-        <map value="ClinicalDocument/id"/>
-      </mapping>
-    </element>
-    <element id="DocumentReference.sourcePatientInfo">
-      <path value="DocumentReference.sourcePatientInfo"/>
-      <short value="Patient demographics from source"/>
-      <definition value="The Patient Information as known when the document was published. May be a reference to a version specific, or contained."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-      </type>
-      <mapping>
-        <identity value="fhircomposition"/>
-        <map value="Composition.subject"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=&quot;SBJ&quot;].role[typeCode=&quot;PAT&quot;]"/>
-      </mapping>
-      <mapping>
-        <identity value="xds"/>
-        <map value="DocumentEntry.sourcePatientInfo, DocumentEntry.sourcePatientId"/>
-      </mapping>
-      <mapping>
-        <identity value="cda"/>
-        <map value="ClinicalDocument/recordTarget/"/>
       </mapping>
     </element>
   </differential>

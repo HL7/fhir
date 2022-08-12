@@ -816,8 +816,8 @@
     </element>
     <element id="Appointment.participant.actor">
       <path value="Appointment.participant.actor"/>
-      <short value="Person, Location/HealthcareService or Device"/>
-      <definition value="A Person, Location/HealthcareService or Device that is participating in the appointment."/>
+      <short value="The individual, device, location, or service participating in the appointment"/>
+      <definition value="The individual, device, location, or service participating in the appointment."/>
       <comment value="Where a CareTeam is provided, this does not imply that the entire team is included, just a single member from the group with the appropriate role. Where multiple members are required, please include the CareTeam the required number of times."/>
       <min value="0"/>
       <max value="1"/>

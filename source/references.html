@@ -35,15 +35,15 @@ search parameters for the references and by providing support for <a href="searc
 </p>
 <p>
 Because resources are processed independently, relationships are not considered to be transitive.
-For example, if a <a href="procedure.html">Procedure</a> resource references a <a href="patient.html">Patient</a> as its subject, and has a 
-<a href="condition.html">Condition</a> resource as its reason, there is no automatic rule or implication that the condition 
-has the same patient for its subject. Instead, the subject of the condition must be established 
-directly in the Condition resource itself. Another way to state this is that the context of the 
+For example, if a <a href="procedure.html">Procedure</a> resource references a <a href="patient.html">Patient</a> as its subject, and has a
+<a href="condition.html">Condition</a> resource as its reason, there is no automatic rule or implication that the condition
+has the same patient for its subject. Instead, the subject of the condition must be established
+directly in the Condition resource itself. Another way to state this is that the context of the
 subject is not "inherited", nor does it "conduct" along the relationship to condition.
 The only exception to this is the case of contained resources (see below). Note that in
 practice, the relationships need to describe a logical and coherent record, and in the
 case of the Condition and Procedure described here, they would usually be required to have
-the same patient for their subjects. Profiles and/or implementation guides may make rules 
+the same patient for their subjects. Profiles and/or implementation guides may make rules
 about this (also see <a href="graphdefinition.html">GraphDefinition</a>).
 </p>
 <p>
@@ -87,13 +87,13 @@ At least one of <code>reference</code>, <code>identifier</code> and <code>displa
 <h3>Target Type</h3>
 
 <p>
-In resources, a <code>Reference</code> always point to another resource, which has 
+In resources, a <code>Reference</code> always point to another resource, which has
 a fixed and known type. If appropriate, this type can be specified in the reference
-itself. In principle, the type of the target reference can be determined by resolving 
-the reference (using the approaches described below), and examining the content 
-returned to determine the type; for this reason, specifying the type is almost always 
-duplication of information. However, resolving references may be a very slow 
-operation, or impossible in practice due to various practical concerns. For this 
+itself. In principle, the type of the target reference can be determined by resolving
+the reference (using the approaches described below), and examining the content
+returned to determine the type; for this reason, specifying the type is almost always
+duplication of information. However, resolving references may be a very slow
+operation, or impossible in practice due to various practical concerns. For this
 reason, the reference may indicate directly the target resource type:
 </p>
 <pre class="json">
@@ -108,14 +108,14 @@ the resource.
 </p>
 <p>
 Note that in practice, it is often not necessary to know the type of the target resource is,
-unless it's going to be resolved anyway, so in many cases, specifying the type of the 
+unless it's going to be resolved anyway, so in many cases, specifying the type of the
 target resource is unnecessary.
 </p>
 <p>
-In order to support <a href="structuredefinition.html#logical">Logical Models</a>, 
-the <code>type</code> element has the type of "uri". Whenever <code>type</code> 
-appears in resources, the uri is represented relative to the base URI 
-<code>http://hl7.org/fhir/StructureDefinition/</code>. For resources, then, the 
+In order to support <a href="structuredefinition.html#logical">Logical Models</a>,
+the <code>type</code> element has the type of "uri". Whenever <code>type</code>
+appears in resources, the uri is represented relative to the base URI
+<code>http://hl7.org/fhir/StructureDefinition/</code>. For resources, then, the
 value is simply a code that is the type of resource - e.g. "Patient".
 </p>
 
@@ -128,7 +128,7 @@ contains a URL that is either
 </p>
 <ul>
   <li>an absolute URL</li>
-  <li>a relative URL, which is relative to the <a href="http.html#root">Service Base URL</a>, or, if processing a resource from a bundle, 
+  <li>a relative URL, which is relative to the <a href="http.html#root">Service Base URL</a>, or, if processing a resource from a bundle,
       which is relative to the base URL implied by the <code>Bundle.entry.fullUrl</code> (see <a href="bundle.html#references">Resolving References in Bundles</a>)</li>
   <li>an internal fragment reference (see "Contained Resources" below)</li>
 </ul>
@@ -170,8 +170,8 @@ Notes:
 </div>
 
 <p>
-Note that in a bundle during a <a href="http.html#transaction">transaction</a>, reference URLs may actually contain 
-logical URIs (e.g. OIDs or UUIDSs) that resolve within the transaction. When processing the transaction, the server 
+Note that in a bundle during a <a href="http.html#transaction">transaction</a>, reference URLs may actually contain
+logical URIs (e.g. OIDs or UUIDSs) that resolve within the transaction. When processing the transaction, the server
 replaces the logical URL with what is the correct literal URL at the completion of the transaction.
 </p>
 
@@ -192,8 +192,8 @@ replaces the logical URL with what is the correct literal URL at the completion 
   &lt;/target&gt;
 </pre>
 <p>
-This is usually associated with audit trail or provenance information where it is important to 
-reference a specific version of a record, not the most current information. 
+This is usually associated with audit trail or provenance information where it is important to
+reference a specific version of a record, not the most current information.
 </p>
 
 <a name="logical"></a>
@@ -228,14 +228,14 @@ entity that the target resource would describe.
 </div>
 
 <p>
-There is no requirement that a Reference.identifier point to something that is actually exposed or 
-exists as a FHIR instance (except, of course, that the reference will need to be resolved to a 
+There is no requirement that a Reference.identifier point to something that is actually exposed or
+exists as a FHIR instance (except, of course, that the reference will need to be resolved to a
 target resource if any information from it is required in a FHIR context).
 The reference SHALL point to a business concept that would be expected to be exposed as a
 FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference
-For example, it would not be legitimate to send the identifier for a drug prescription if 
-the type were Reference(Observation|DiagnosticReport).  One of the use-cases for 
-<code>Reference.identifier</code> is the situation where no FHIR representation exists 
+For example, it would not be legitimate to send the identifier for a drug prescription if
+the type were Reference(Observation|DiagnosticReport).  One of the use-cases for
+<code>Reference.identifier</code> is the situation where no FHIR representation exists
 (where the type is Reference (Any).
 </p>
 <p>
@@ -298,21 +298,21 @@ being referenced, not to more fully describe it.
 <h3>Canonical URLs</h3>
 <p>
 Many resource types have a defined element "url" which is the canonical URL that always identifies the
-resource across all contexts of use. Typically, <a href="terminology-module.html">terminology</a>, 
-<a href="conformance-module.html">conformance</a> or <a href="clinicalreasoning-module.html">knowledge</a> 
-resources have canonical URLs. The canonical URL <b>is the preferred way to reference a resource instance</b> 
-for the resource types on which it is defined. See <a href="resource.html#canonical">Canonical Resource 
+resource across all contexts of use. Typically, <a href="terminology-module.html">terminology</a>,
+<a href="conformance-module.html">conformance</a> or <a href="clinicalreasoning-module.html">knowledge</a>
+resources have canonical URLs. The canonical URL <b>is the preferred way to reference a resource instance</b>
+for the resource types on which it is defined. See <a href="resource.html#canonical">Canonical Resource
 Identity</a> for further information.
 </p>
 <p>
-References to canonical URLs use the <a href="datatypes.html#canonical"><code>canonical</code></a> type to refer to 
+References to canonical URLs use the <a href="datatypes.html#canonical"><code>canonical</code></a> type to refer to
 the <code>url</code> element on the conformance/knowledge resources (which has the type <a href="datatypes.html#uri">uri</a>):
 </p>
 <pre>
 &lt;valueSet value=&quot;http://hl7.org/fhir/ValueSet/my-valueset&quot;/&gt;
 </pre>
 <p>
-References of type <code>canonical</code> may include a version, in order to be precise about which version of the 
+References of type <code>canonical</code> may include a version, in order to be precise about which version of the
 resource is being referred to. To do this, append the version to the reference with a '|' like this:
 </p>
 <pre>
@@ -338,12 +338,12 @@ search. Additional notes about searching on versioned references to canonical UR
  <li>This search only works for specific data elements of type of uri that act as canonical URL's (see list below)</li>
 </ul>
 <p>
-Systems resolving references to canonical URLs SHOULD first try to resolve the reference using 
+Systems resolving references to canonical URLs SHOULD first try to resolve the reference using
 the canonical reference (e.g. search on a known registry of terminology, conformance, or knowledge
-resources as appropriate), and then fall back to direct resolution using the URL as 
-a literal reference if a local version of the canonical resource cannot be found. 
-This approach is safe because the approaches must refer to the same 
-artifact, though implementations will need to make appropriate arrangements regarding 
+resources as appropriate), and then fall back to direct resolution using the URL as
+a literal reference if a local version of the canonical resource cannot be found.
+This approach is safe because the approaches must refer to the same
+artifact, though implementations will need to make appropriate arrangements regarding
 the version and/or currency of their local copy of the artifact.
 </p>
 <a name="canonical-list"> </a>
@@ -360,14 +360,14 @@ which is shown as canonical(Any) in this specification. Such references SHALL on
 <h3>Canonical Reference and Fragments</h3>
 <p>
 Canonical references may include a fragment when the reference is to a contained resource.
-When the target of a canonical reference is a contained resource, the 
+When the target of a canonical reference is a contained resource, the
 canonical reference will have a fragment as part of the URL:
 </p>
 <pre>
  &nbsp;&lt;valueSet value=&quot;http://fhir.acme.com/Questionnaire/example|1.0#vs1&quot;/&gt;
 </pre>
 <p>
-This is a reference to the value set with id "vs1" in version 1.0 of the identified questionnaire. 
+This is a reference to the value set with id "vs1" in version 1.0 of the identified questionnaire.
 The common case for this is internal references:
 </p>
 <pre>
@@ -406,7 +406,7 @@ When represented in XHTML, this reference will generally become something like:
 <p>
 This implies that the system generating the resource narrative will need
 to resolve the reference and generate a summary, or that the reference will
-contain the information (generated by an application that is able to resolve 
+contain the information (generated by an application that is able to resolve
 the reference):
 </p>
 <div class="json">
@@ -425,7 +425,7 @@ Narrative that contains information derived from other resources like this
 is still regarded as 'generated' (for <a href="narrative-definitions.html#Narrative.status">Narrative.status</a>).
 </p>
 <p>
-It's not mandatory to generate narrative this way. Narrative may 
+It's not mandatory to generate narrative this way. Narrative may
 be generated like this:
 </p>
 <div class="xhtml">
@@ -435,27 +435,27 @@ be generated like this:
 </pre>
 </div>
 <p>
-However, users generally prefer a more informative narrative, so this 
-is not always acceptable. 
+However, users generally prefer a more informative narrative, so this
+is not always acceptable.
 </p>
 <p>
-Applications (and networks of applications) will need some kind of 
-systematic approach for resolving references and/or maintaining the 
-currency of narratives as the resources they reference are changed. 
-The exact details of this are out of scope for the FHIR standard. 
+Applications (and networks of applications) will need some kind of
+systematic approach for resolving references and/or maintaining the
+currency of narratives as the resources they reference are changed.
+The exact details of this are out of scope for the FHIR standard.
 </p>
 <p>
 Applications are encouraged to use the <code>Reference.display</code> element
-to store a user presentable representation of the resource for when the 
+to store a user presentable representation of the resource for when the
 resource cannot be resolved (e.g. due to network errors). The <code>canonical</code>
-type does not have a display element because applications are generally expected 
-to carry cached copies of the resources that are the target of the canonical 
-references. If this functionality is still needed or desired anyway, the 
-<a href="extension-rendered-value.html">Rendered Value extension</a> can be 
+type does not have a display element because applications are generally expected
+to carry cached copies of the resources that are the target of the canonical
+references. If this functionality is still needed or desired anyway, the
+<a href="extension-rendered-value.html">Rendered Value extension</a> can be
 used.
 </p>
 
- 
+
 
 <a name="contained"></a>
 <h3>Contained Resources</h3>
@@ -551,21 +551,21 @@ Some notes about use and interpretation of contained resources:
   <li>When resolving references, references are resolved by looking through the 'container' resource - the one that contains the other
   resources. Since there are no nested contained resources, there is only one container resource.</li>
   <li>Fragment-only URL References to contained resources are never resolved outside the container resource. Specifically, resolution stops at the elements
-  Bundle.entry.resource and Parameters.parameter.resource, but not at DomainResource.contained. To reference a contained resource in a 
+  Bundle.entry.resource and Parameters.parameter.resource, but not at DomainResource.contained. To reference a contained resource in a
   different entry within a Parameters or Bundle (or anywhere else), the reference must include the containing resource. E.g. Observation/123#pat.</li>
   <li>Both <code>Reference</code> and <code>canonical</code> types may refer to contained resources</li>
   <li>Contained resources SHALL NOT contain additional contained resources.</li>
   <li>Contained resources SHALL NOT contain <code>meta.versionId</code>, <code>meta.lastUpdated</code>, or <code>meta.security</code>.</li>
   <li>Contained resources MAY contain <code>meta.tag</code>, though there are many tags that do not make sense on contained resources.</li>
-  <li>A contained resource SHALL only be included in a resource if something in that resource (potentially another contained resource) has a reference to it.</li>
+  <li>A contained resource SHALL only be included in a resource if something in that resource (potentially another contained resource) has a reference to it or if the contained resource references the container resource.</li>
 </ul>
 
 <p>
-Like other resources, contained resources can contain narrative. However, when rendering the containing resource, 
+Like other resources, contained resources can contain narrative. However, when rendering the containing resource,
 the narrative of the contained resources is ignored, so relevant information about contained resources SHALL
-appear in the narrative of the containing resource. 
+appear in the narrative of the containing resource.
 </p>
-	
+
 <p>
 Resources that are contained inline do not "inherit" context from their parent resource. For instance, if
 the parent resource contains a "subject", and the contained resource also has a "subject" element defined,
@@ -574,8 +574,8 @@ there is no implication that the contained resource has the same subject as the 
 
 <p>
 Resources can only be contained in other resources if there is a reference from the resource to
-the contained resource, or if the contained resource references the container resource. 
-This is intended to ensure that the meaning of the contained resource is clear, and that 
+the contained resource, or if the contained resource references the container resource.
+This is intended to ensure that the meaning of the contained resource is clear, and that
 there is no confusion as to its significance.
 </p>
 
@@ -618,7 +618,7 @@ Todo: document this.
 <a name="circular"></a>
 <h3>Circular Resource References</h3>
 <p>
-Some references are circular - that is, the reference points to another resource of the same type. 
+Some references are circular - that is, the reference points to another resource of the same type.
 There are several reasons why a resource may refer to other resources of the same type:
 </p>
 <ul>
@@ -630,7 +630,7 @@ There are several reasons why a resource may refer to other resources of the sam
 <p>
 For parameters where the relationship is a strict hierarchy (i.e. where it would be wrong to have circular
 references, even transitively), there is <a href="search.html#recursive">additional search support</a> for traversing the
-hierarchy using :above and :below modifiers on the search parameters. 
+hierarchy using :above and :below modifiers on the search parameters.
 </p>
 <p>
 Hierarchical references with search parameters (can have :above and :below modifiers on search parameters):
@@ -658,24 +658,24 @@ References for which the hierarchical behavior is not specified:
 
 <p>
 A common pattern in healthcare records is that a single element may refer to either a concept in principle,
-or a specific instance of the concept as seen in practice. For instance, a medication may be prescribed 
-because the patient has a headache - e.g. to refer to a headache by a SNOMED CT code for a kind of headache. 
+or a specific instance of the concept as seen in practice. For instance, a medication may be prescribed
+because the patient has a headache - e.g. to refer to a headache by a SNOMED CT code for a kind of headache.
 Alternatively, the record may refer to a specific observation or problem in the problem list as evidence
-for the patient's headache, which conveys details specific to the patient. This is a particular example 
+for the patient's headache, which conveys details specific to the patient. This is a particular example
 of a more general pattern; e.g. it also applies to locations (something happened 'in a hospital', vs
 something happened in a particular identified hospital).
 </p>
 <p>
-The <code>CodeableReference</code> data type represents this pattern, and may be bound to a value set to 
-allow for a conceptual representation. In such cases, <a href="terminologies.html#binding">the value set 
+The <code>CodeableReference</code> data type represents this pattern, and may be bound to a value set to
+allow for a conceptual representation. In such cases, <a href="terminologies.html#binding">the value set
 binding</a> actually applies to the <code>concept</code> element as it usually would for a
-<a href="datatypes.html#CodeableConcept">CodeableConcept</a>. Alternatively, the <code>CodeableReference</code> 
+<a href="datatypes.html#CodeableConcept">CodeableConcept</a>. Alternatively, the <code>CodeableReference</code>
 data type can refer to another resource, and the list of valid target types for the CodeableReference resource
 applies to the <code>Reference</code> as described above.
 </p>
 <p>
-In principle, this data type allows for either a reference or a concept, or both. If both are present, 
-they are expected to be consistent with each other - e.g. the concept is to a code for headache, and 
+In principle, this data type allows for either a reference or a concept, or both. If both are present,
+they are expected to be consistent with each other - e.g. the concept is to a code for headache, and
 the resource reference describes a headache. Note that it is not generally computable proveable whether
 this is true or not.
 </p>
@@ -687,7 +687,7 @@ If they are specified on both, then they SHALL be the same.
 When we have experience with implementation practice, we will evaluate changing the SHOULD NOT to a SHALL NOT.
 </p>
 <p>
-This data type can be constrained in profiles so that only concept or reference are allowed, and 
+This data type can be constrained in profiles so that only concept or reference are allowed, and
 profiles can restrict the bound value sets and allowed target resource types.
 </p>
 <p>

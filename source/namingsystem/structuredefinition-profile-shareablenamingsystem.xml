@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="shareablenamingsystem"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/shareablenamingsystem"/>
+  <version value="4.6.0"/>
+  <name value="ShareableNamingSystem"/>
+  <title value="Shareable NamingSystem"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="Enforces the minimum information set for the naming system metadata required by HL7 and other organizations that share and publish naming systems"/>
+  <fhirVersion value="4.6.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="NamingSystem"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="NamingSystem">
+      <path value="NamingSystem"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="NamingSystem.extension:knowledgeRepresentationLevel">
+      <path value="NamingSystem.extension"/>
+      <sliceName value="knowledgeRepresentationLevel"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="NamingSystem.url">
+      <path value="NamingSystem.url"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="NamingSystem.version">
+      <path value="NamingSystem.version"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="NamingSystem.name">
+      <path value="NamingSystem.name"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="NamingSystem.title">
+      <path value="NamingSystem.title"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="NamingSystem.status">
+      <path value="NamingSystem.status"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="NamingSystem.experimental">
+      <path value="NamingSystem.experimental"/>
+      <!-- TODO: This should be required, but the validator is failing instances that have an experimental... -->
+      <min value="0"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="NamingSystem.publisher">
+      <path value="NamingSystem.publisher"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="NamingSystem.description">
+      <path value="NamingSystem.description"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

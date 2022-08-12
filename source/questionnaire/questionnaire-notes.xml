@@ -190,7 +190,7 @@ of a fragment identifier, the first/root element definition in the target is the
 The definitions may also be used to automatically pre-populate answers, or extract data from a corresponding pre-existing <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource.
 </p>
 <p>
-Note that LOINC codes <a href="loinc.html#dataelements">implicitly</a> define logical models whose elements can be considered question definitions.
+Note that LOINC codes <a href="https://terminology.hl7.org/LOINC.html">implicitly</a> define logical models whose elements can be considered question definitions.
 </p>
 <p>
 NOTE: Even if a standard question definition is provided<!--s are referenced using <code>concept</code> or the <code>deReference</code> extension-->, information such as the question text,
