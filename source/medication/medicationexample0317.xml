@@ -15,19 +15,19 @@
             <concept>
             <coding>
                <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-               <code value="204520"/>
+               <code value="8591"/>
                <display value="Potassium Chloride"/>
             </coding>
             </concept>
          </item>
          <strengthRatio>
             <numerator>
-               <value value="2"/>
+               <value value="20"/>
                <system value="http://unitsofmeasure.org"/>
                <code value="meq"/>
             </numerator>
             <denominator>
-               <value value="1"/>
+               <value value="1000"/>
                <system value="http://unitsofmeasure.org"/>
                <code value="mL"/>
             </denominator>
@@ -39,13 +39,13 @@
             <coding>
                <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
                <code value="313002"/>
-               <display value="Sodium Chloride 0.9% injectable solution"/>
+               <display value="1000 ml glucost 50mg/ml Injection"/>
             </coding>
          </concept>
          </item>
          <strengthRatio>
             <numerator>
-               <value value="0.9"/>
+               <value value="5"/>
                <system value="http://unitsofmeasure.org"/>
                <code value="g"/>
             </numerator>

@@ -28,10 +28,12 @@
       <display value="Neuroradiology unit" />
     </coding>
   </type>
-  <telecom>
-    <system value="phone" />
-    <value value="2329" />
-  </telecom>
+  <contact>
+    <telecom>
+      <system value="phone" />
+      <value value="2329" />
+    </telecom>
+  </contact>
   <physicalType>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/location-physical-type" />

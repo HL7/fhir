@@ -20,7 +20,7 @@ be referred to from one or more Observations
     </div>
   </text>
   <type value="person"/>
-  <actual value="true"/>
+  <membership value="enumerated"/>
   <member>
     <entity>
       <reference value="Patient/pat1"/>

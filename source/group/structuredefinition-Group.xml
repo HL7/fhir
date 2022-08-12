@@ -74,14 +74,6 @@
       <comment value="If both Group.characteristic and Group.member are present, then the members are the individuals who were found who met the characteristic.  It&#39;s possible that there might be other candidate members who meet the characteristic and aren&#39;t (yet) in the list.  All members SHALL have the listed characteristics."/>
       <min value="0"/>
       <max value="*"/>
-      <constraint>
-        <key value="grp-1"/>
-        <severity value="error"/>
-        <human value="Can only have members if group is &quot;actual&quot;"/>
-        <expression value="member.empty() or (actual = true)"/>
-        <xpath value="f:actual/@value=true() or not(exists(f:member))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Group"/>
-      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="Entity[determinerCode=&quot;GRP&quot; or determinerCode=&quot;GRP_KIND&quot;]"/>
@@ -176,26 +168,22 @@
         <map value="person: ./classCode=&quot;PSN&quot;  animal: ./classCode=&quot;ANM&quot;  device: ./classCode=&quot;DEV&quot;  medication: ./classCode=&quot;MMAT&quot; and ./playedRole[isNormalRole() and classCode=&quot;THER&quot;]  food: ./classCode=&quot;FOOD&quot;"/>
       </mapping>
     </element>
-    <element id="Group.actual">
-      <path value="Group.actual"/>
-      <short value="Descriptive or actual"/>
-      <definition value="If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals."/>
-      <requirements value="There are use-cases for groups that define specific collections of individuals, and other groups that define &quot;types&quot; of intended individuals.  The requirements for both kinds of groups are similar, so we use a single resource, distinguished by this flag."/>
+    <element id="Group.membership">
+      <path value="Group.membership"/>
+      <short value="definitional | enumerated"/>
+      <definition value="Basis for membership in the Group:&#10;&#10;* 'definitional': The Group.characteristics specified are both necessary and sufficient to determine membership. All entities that meet the criteria are considered to be members of the group, whether referenced by the group or not. If members are present, they are individuals that happen to be known as meeting the Group.characteristics. The list cannot be presumed to be complete.&#10;* 'enumerated': The Group.characteristics are necessary but not sufficient to determine membership. Membership is determined by being listed as one of the Group.member."/>
+      <requirements value="There are use-cases for groups that define specific collections of individuals, and other groups that define &quot;types&quot; of intended individuals.  The requirements for both kinds of groups are similar, so we use a single resource, distinguished by this element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="boolean"/>
+        <code value="code"/>
       </type>
-      <condition value="grp-1"/>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="true: ./determinerCode=&quot;GRP&quot;  false: ./determinerCode=&quot;GRP_KIND&quot;"/>
-      </mapping>
+      <binding>
+        <strength value="required"/>
+        <description value="The basis for membership in a group"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/group-membership-basis|4.6.0"/>
+      </binding>
     </element>
     <element id="Group.code">
       <path value="Group.code"/>
@@ -409,7 +397,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="grp-1"/>
       <mapping>
         <identity value="rim"/>
         <map value="./scopedRole[isNormalRole() and classCode=&quot;MBR&quot;]/player"/>

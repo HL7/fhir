@@ -119,7 +119,7 @@ and the concept identifier (e.g. code) is unique. Note that code system version 
 necessary to achieve uniqueness when the code system does not follow concept permanence rules. 
 </p>
 <p>
-In the case of the mixed list example from the previous paragraph, there are two code systems: <a href="loinc.html">LOINC</a> (http://loinc.org) 
+In the case of the mixed list example from the previous paragraph, there are two code systems: <a href="https://terminology.hl7.org/LOINC.html">LOINC</a> (http://loinc.org) 
 and a local one with the uri: http://example.com/codesystems/additional-test-codes. 
 The value set definition includes concept identifier (codes) from each of the two code systems. 
 The value set is given a uri as an identifier (e.g. "http://example.com/fhir/ValueSet/test-codes"). 
@@ -222,7 +222,7 @@ defining the correct URI to use:
    with a <a href="codesystem.html">CodeSystem resource</a>, but some other human or computable definition is allowed</li>
  <li>HTTP addresses should be permalinks which may re-direct to the current correct content</li>
  <li>A scope of the code system URI and the correct usage of codes and displays in its namespace will be clearly defined by HTA.
-   See examples for <a href="http://build.fhir.org/snomedct.html">SNOMED CT</a>, <a href="http://build.fhir.org/rxnorm.html">RxNorm</a>, <a href="http://build.fhir.org/loinc.html">LOINC</a>, <a href="http://build.fhir.org/ndc.html">NDC</a></li>
+   See examples for <a href="https://terminology.hl7.org/SNOMEDCT.html">SNOMED CT</a>, <a href="https://terminology.hl7.org/RxNorm.html">RxNorm</a>, <a href="https://terminology.hl7.org/LOINC.html">LOINC</a>, and <a href="https://terminology.hl7.org/NDC.html">NDC</a></li>
  <li>All code systems internal to HL7 use <a href="http://terminology.hl7.org/">Terminology.hl7.org</a> as the base. Generally, allocation of URLs is hierarchical, and most care is required in choosing the Base URL.
   <ul>
    <li>The url pattern is:  terminology.hl7.org/CodeSystem/xxxxxx/xxxxxxx</li>
@@ -250,11 +250,11 @@ the basic concepts defined by the code system. This is sometimes referred to as
 for expressions are:
 </p>
 <ul>
- <li><a href="snomedct.html">SNOMED CT</a></li>
- <li><a href="ucum.html">UCUM</a></li>
+ <li><a href="http://www.snomed.org">SNOMED CT</a></li>
+ <li><a href="http://ucum.org/ucum.html">UCUM</a></li>
  <li><a href="http://tools.ietf.org/html/bcp13">Mime Types</a></li>
  <li><a href="http://tools.ietf.org/html/bcp47">Language</a></li>
- <li><a href="icd.html">ICD-[X]</a></li>
+ <li><a href="http://www.who.int/standards/classifications/classification-of-diseases">ICD-[X]</a></li>
 </ul>
 <p>
 There are many others. Any expression defined by the code system is still regarded as a 'code'
@@ -403,8 +403,8 @@ the value set and must handle the error appropriately.
 <p>
 The value set URL is allowed to be a URI such as a UUID (e.g. urn:uuid:c0e0d027-1250-4278-8f44-33a49dc67916).
 These value sets can never be accessed directly, and must come from a terminology server. Note
-that this specification defines many value sets that have a logical URL that is not resolvable
-(examples for <a href="snomedct.html#implicit">SNOMED CT</a>, <a href="rxnorm.html#implicit">RxNorm</a>, <a href="loinc.html#implicit">LOINC</a>)
+that HL7 Terminology defines many value sets that have a logical URL that is not resolvable
+(examples for <a href="https://terminology.hl7.org/SNOMEDCT.html">SNOMED CT</a>, <a href="https://terminology.hl7.org/RxNorm.html">RxNorm</a>, and <a href="https://terminology.hl7.org/LOINC.html">LOINC</a>)
 </p>
 <p>
 Using a logical reference which is a direct reference to the authoritative value set

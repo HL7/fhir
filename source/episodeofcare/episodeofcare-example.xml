@@ -49,7 +49,9 @@
   </type>
   <diagnosis>
     <condition>
-	    <reference value="Condition/stroke" />
+      <reference>
+        <reference value="Condition/stroke" />
+      </reference>
     </condition>
     <role>
       <coding>
