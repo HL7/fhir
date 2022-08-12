@@ -91,9 +91,9 @@
       <constraint>
         <key value="app-4"/>
         <severity value="error"/>
-        <human value="Cancellation reason is only used for appointments that have been cancelled, or no-show"/>
-        <expression value="cancellationReason.exists() implies (status=&#39;no-show&#39; or status=&#39;cancelled&#39;)"/>
-        <xpath value="not(exists(f:cancellationReason)) or f:status/@value=(&#39;no-show&#39;, &#39;cancelled&#39;)"/>
+        <human value="Cancellation reason is only used for appointments that have been cancelled, or noshow"/>
+        <expression value="cancellationReason.exists() implies (status=&#39;noshow&#39; or status=&#39;cancelled&#39;)"/>
+        <xpath value="not(exists(f:cancellationReason)) or f:status/@value=(&#39;noshow&#39;, &#39;cancelled&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
       <constraint>
