@@ -130,6 +130,25 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="ManufacturedItemDefinition.name">
+      <path value="ManufacturedItemDefinition.name"/>
+      <short value="A descriptive name applied to this item"/>
+      <definition value="A descriptive name applied to this item."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
     <element id="ManufacturedItemDefinition.manufacturedDoseForm">
       <path value="ManufacturedItemDefinition.manufacturedDoseForm"/>
       <short value="Dose form as manufactured (before any necessary transformation)"/>
@@ -192,6 +211,22 @@
         <map value="Manufactured Item.Manufacturer / Establishment (Organisation)"/>
       </mapping>
     </element>
+    <element id="ManufacturedItemDefinition.marketingStatus">
+      <path value="ManufacturedItemDefinition.marketingStatus"/>
+      <short value="Allows specifying that an item is on the market for sale, or that it is not available, and the dates and locations associated"/>
+      <definition value="Allows specifying that an item is on the market for sale, or that it is not available, and the dates and locations associated."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="MarketingStatus"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    
     <element id="ManufacturedItemDefinition.ingredient">
       <path value="ManufacturedItemDefinition.ingredient"/>
       <short value="The ingredients of this manufactured item. Only needed if these are not specified by incoming references from the Ingredient resource"/>
