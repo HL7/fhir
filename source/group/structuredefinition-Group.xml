@@ -141,9 +141,9 @@
         <valueString value="Do we need &quot;mixed&quot; groups?"/>
       </extension>
       <path value="Group.type"/>
-      <short value="person | animal | practitioner | device | medication | substance"/>
+      <short value="person | animal | practitioner | device | medication | substance | bodystructure"/>
       <definition value="Identifies the broad classification of the kind of resources the group includes."/>
-      <comment value="Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, Device, Medication or Substance for the other types.)."/>
+      <comment value="Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, Device, Medication, Substance or BodyStructure for the other types.)."/>
       <requirements value="Identifies what type of resources the group is made up of."/>
       <min value="1"/>
       <max value="1"/>
@@ -417,6 +417,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
     </element>
     <element id="Group.member.period">

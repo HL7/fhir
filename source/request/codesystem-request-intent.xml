@@ -26,7 +26,7 @@
   <concept>
     <code value="order"/>
     <display value="Order"/>
-    <definition value="The request represents a request/demand and authorization for action."/>
+    <definition value="The request represents a request/demand and authorization for action by the requestor."/>
     <concept>
       <code value="original-order"/>
       <display value="Original Order"/>

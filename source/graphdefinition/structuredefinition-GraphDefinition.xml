@@ -153,6 +153,22 @@
       <condition value="cnl-0"/>
       <isSummary value="true"/>
     </element>
+    <element id="GraphDefinition.title">
+      <path value="GraphDefinition.title"/>
+      <short value="Name for this graph definition (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the capability statement."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.title"/>
+      </mapping>
+    </element>
     <element id="GraphDefinition.status">
       <path value="GraphDefinition.status"/>
       <short value="draft | active | retired | unknown"/>

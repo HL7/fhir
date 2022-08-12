@@ -37,23 +37,27 @@
   <abstract value="false"/>
   <context>
     <type value="element"/>
-    <expression value="CapabilityStatement.rest.resource.interaction"/>
-  </context>
-  <context>
-    <type value="element"/>
-    <expression value="CapabilityStatement.rest.resource.searchParam"/>
-  </context>
-  <context>
-    <type value="element"/>
-    <expression value="CapabilityStatement.rest.searchParam"/>
-  </context>
-  <context>
-    <type value="element"/>
-    <expression value="CapabilityStatement.rest.operation"/>
-  </context>
-  <context>
-    <type value="element"/>
     <expression value="CapabilityStatement.document"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.format"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.implementationGuide"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.imports"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.instantiates"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.patchFormat"/>
   </context>
   <context>
     <type value="element"/>
@@ -61,36 +65,96 @@
   </context>
   <context>
     <type value="element"/>
+    <expression value="CapabilityStatement.rest.interaction.code"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.interaction.documentation"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.operation"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.resource"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.resource.conditionalCreate"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.resource.conditionalDelete"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.resource.conditionalRead"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.resource.conditionalUpdate"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.resource.interaction"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.resource.operation"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.resource.profile"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.resource.readHistory"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.resource.referencePolicy"/>
+  </context>
+  <context>
+    <type value="element"/>
     <expression value="CapabilityStatement.rest.resource.searchInclude"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.resource.searchParam"/>
   </context>
   <context>
     <type value="element"/>
     <expression value="CapabilityStatement.rest.resource.searchRevInclude"/>
   </context>
   <context>
-     <type value="element"/>
-     <expression value="CapabilityStatement.rest.resource.operation"/>
-   </context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.resource.supportedProfile"/>
+  </context>
   <context>
     <type value="element"/>
-    <expression value="SearchParameter.multipleOr"/>
-  </context> 
+    <expression value="CapabilityStatement.rest.resource.updateCreate"/>
+  </context>
   <context>
     <type value="element"/>
-    <expression value="SearchParameter.multipleAnd"/>
-  </context> 
+    <expression value="CapabilityStatement.rest.resource.versioning"/>
+  </context>
   <context>
     <type value="element"/>
-    <expression value="SearchParameter.comparator"/>
-  </context> 
+    <expression value="CapabilityStatement.rest.searchParam"/>
+  </context>
   <context>
     <type value="element"/>
-    <expression value="SearchParameter.modifer"/>
-  </context> 
+    <expression value="CapabilityStatement.rest.security"/>
+  </context>
   <context>
     <type value="element"/>
-    <expression value="SearchParameter.chain"/>
-  </context> 
+    <expression value="CapabilityStatement.rest.security.cors"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.security.service"/>
+  </context>
   <type value="Extension"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
   <derivation value="constraint"/>

@@ -51,7 +51,7 @@
                 <a href="codesystem-request-intent.html#request-intent-order">order</a>
               </td>
               <td>Order</td>
-              <td>The request represents a request/demand and authorization for action by a Practitioner.</td>
+              <td>The request represents a request/demand and authorization for action by the requestor.</td>
             </tr>
             <tr>
               <td>
