@@ -9,7 +9,7 @@
 
 <div class="col-12">
 
-<%resheader%>
+<%aresheader%>
 <h1>Resource <%title%> - Content</h1>
 
 <table class="<%fmm-style%>"><tr><td><a href="<%wg%>"><%wgt%></a> Work Group</td><td><%fmm%></td><td><%sstatus%></td><td><%sec-cat%></td><!--!ns!--><td><%complinks%></td></tr></table>
@@ -35,9 +35,6 @@ Resource Content
   <ul>
     <li><a href="#tabs-struc">Structure</a></li>
     <li><a href="#tabs-uml">UML</a></li>
-    <li><a href="#tabs-xml">XML</a></li>
-    <li><a href="#tabs-json">JSON</a></li>
-    <li><a href="#tabs-ttl">Turtle</a></li>
     <li><a href="#tabs-diff">R4 Diff</a></li>
     <li><a href="#tabs-all">All</a></li>
   </ul>
@@ -57,36 +54,6 @@ Resource Content
 <p><b>UML Diagram</b> (<a href="formats.html#uml">Legend</a>)</p>
  <div id="uml-inner">
  <%svg A%>
- </div>
-</div>
-
-  </div>
-  <div id="tabs-xml">
-
-<div id="xml">
-<p><b>XML Template</b></p>
- <div id="xml-inner">
-  <%xml%>
- </div>
-</div>
-
-  </div>
-  <div id="tabs-json">
-
-<div id="json">
-<p><b>JSON Template</b></p>
- <div id="json-inner">
-  <%json%>
- </div>
-</div>
-
-  </div>
-  <div id="tabs-ttl">
-
-<div id="ttl">
-<p><b>Turtle Template</b></p>
- <div id="json-inner">
-  <%ttl%>
  </div>
 </div>
 
@@ -124,30 +91,6 @@ Resource Content
  </div>
 </div>
 
-<div id="xml">
-<a name="xml"></a>
-<p><b>XML Template</b></p>
- <div id="xml-inner">
-  <%xml%>
- </div>
-</div>
-
-<div id="json2">
-<a name="json"></a>
-<p><b>JSON Template</b></p>
- <div id="json-inner">
-  <%json%>
- </div>
-</div>
-
-<div id="ttl2">
-<a name="ttl"></a>
-<p><b>Turtle Template</b></p>
- <div id="ttl-inner">
-  <%ttl%>
- </div>
-</div>
-
 <div id="vdiff2">
 <p><b>Changes since Release 4</b></p>
  <div id="diff-inner2">
@@ -165,8 +108,7 @@ Resource Content
 <p>&nbsp;</p>
 <p>[%res-ext-link%]alternate definitions:
 Master Definition <a href="<%name%>.profile.xml.html">XML</a> + <a href="<%name%>.profile.json.html">JSON</a>,
-<a href="xml.html">XML</a> <a href="<%name%>.xsd">Schema</a>/<a href="<%name%>.sch">Schematron</a> + <a href="json.html">JSON</a>
-<a href="<%name%>.schema.json.html">Schema</a>, <a href="<%name%>.shex.html">ShEx</a> (for <a href="rdf.html">Turtle</a>) [%ext-link%], the <a href="<%name%>.xlsx">spreadsheet version</a> &amp; the <a href="<%name%>-dependencies.html">dependency analysis</a></p>
+the <a href="<%name%>.xlsx">spreadsheet version</a> &amp; the <a href="<%name%>-dependencies.html">dependency analysis</a></p>
 
 <a name="tx"></a>
 <%tx%>
@@ -176,7 +118,7 @@ Master Definition <a href="<%name%>.profile.xml.html">XML</a> + <a href="<%name%
 <%notes%>
 
 <a name="search"></a>
-<%search%>
+<%asearch%>
 
 
 </div>
