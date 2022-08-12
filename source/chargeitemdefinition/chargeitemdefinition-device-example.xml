@@ -8,10 +8,12 @@
 	</instance>
 	<!-- definition only applicable if the ChargeItem pertains to the device this  -->	
 	<applicability>
-		<description value="Verify ChargeItem pertains to Device 12345"/>
-		<language value="text/fhirpath"/>
-		<!-- syntax of expression may be incorrect, but you get the idea-->
-		<expression value="%context.service.suppliedItem='Device/12345'"/>
+		<condition>
+			<description value="Verify ChargeItem pertains to Device 12345"/>
+			<language value="text/fhirpath"/>
+			<!-- syntax of expression may be incorrect, but you get the idea-->
+			<expression value="%context.service.suppliedItem.reference='Device/12345'"/>
+		</condition>
 	</applicability>
 	<!-- the base price for this device is constant, so no additional rules apply-->
 	<propertyGroup>
@@ -33,10 +35,12 @@
 	<!-- the tax applicable to this device changes after 2018-04-01-->
 	<propertyGroup>
 		<applicability>
-			<description value="Gültigkeit Steuersatz"/>
-			<language value="text/fhirpath"/>
-			<!-- syntax of expression may be incorrect, but you get the idea-->
-			<expression value="%context.occurenceDateTime &gt; &apos;2018-04-01&apos;"/>
+			<condition>
+				<description value="Gültigkeit Steuersatz"/>
+				<language value="text/fhirpath"/>
+				<!-- syntax of expression may be incorrect, but you get the idea-->
+				<expression value="%context.occurenceDateTime &gt; &apos;2018-04-01&apos;"/>
+			</condition>
 		</applicability>
 		<priceComponent>
 			<type value="tax"/>
@@ -52,10 +56,12 @@
 	</propertyGroup>
 	<propertyGroup>
 		<applicability>
-			<description value="Gültigkeit Steuersatz"/>
-			<language value="text/fhirpath"/>
-			<!-- syntax of expression may be incorrect, but you get the idea-->
-			<expression value="%context.occurenceDateTime &lt;= &apos;2018-04-01&apos;"/>
+			<condition>
+				<description value="Gültigkeit Steuersatz"/>
+				<language value="text/fhirpath"/>
+				<!-- syntax of expression may be incorrect, but you get the idea-->
+				<expression value="%context.occurenceDateTime &lt;= &apos;2018-04-01&apos;"/>
+			</condition>
 		</applicability>
 		<priceComponent>
 			<type value="tax"/>
@@ -69,7 +75,4 @@
 			<factor value="1.07"/>
 		</priceComponent>
 	</propertyGroup>
-
-
-
 </ChargeItemDefinition>

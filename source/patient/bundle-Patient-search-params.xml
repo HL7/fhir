@@ -353,7 +353,7 @@
           <valueString value="Patient.link.other"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Patient-link"/>
-        <description value="All patients linked to the given patient"/>
+        <description value="All patients/related persons linked to the given patient"/>
         <code value="link"/>
         <type value="reference"/>
         <expression value="Patient.link.other"/>
