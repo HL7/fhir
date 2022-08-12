@@ -57,7 +57,7 @@
       <path value="Extension.value[x]"/>
       <min value="1"/>
       <type>
-        <code value="uri"/>
+        <code value="url"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

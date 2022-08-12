@@ -104,6 +104,10 @@
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
     </element>
     <element id="ClinicalUseDefinition.type">
       <path value="ClinicalUseDefinition.type"/>

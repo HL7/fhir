@@ -101,7 +101,7 @@ In the context of ordering workflows, systems may use Ask at Order Entry (AOE) q
 			<valueString value="sexForClinicalUse"/>
 		  </extension>
 		  <strength value="required"/>
-		  <valueSet value="http://hl7.org/fhir/ValueSet/sex-for-clinical-use"/>
+		  <valueSet value="http://terminology.hl7.org/ValueSet/sex-for-clinical-use"/>
 	  </binding>
     </element>
     <element id="Extension.extension:period">
