@@ -82,6 +82,26 @@ the decision when matching these children will be a <code>deny</code>.
   </li>
 </ul>
 
+<p>If the value of an attribute is a code from a hierarchical code structure 
+(e.g., a <a href="https://terminology.hl7.org/ValueSet-v3-Confidentiality.html"> Confidentiality code</a>),
+the subsumption relationship between the codes in the hierarchy must be considered 
+in the interpretation of the provision:</p>  
+
+<ul>
+  <li>
+    If the (implicit or explicit) type of the provision is <code>permit</code>, 
+    all the subsumed descending codes (that are below the mentioned code in the hierarchy) are also permitted. 
+    For example, if a provision permits access to <em>very restricted</em> (<code>V</code>) data, 
+    it also permits access to <em>restricted</em> (<code>R</code>) data.
+  </li>
+  <li>
+    If the (implicit or explicit) type of the provision is <code>deny</code>, 
+    all the subsuming parent codes (that are above the mentioned code in the hierarchy) are also denied. 
+    For example, if a provision denies access to <em>restricted</em> (<code>R</code>) data, 
+    it also denies access to <em>very restricted</em> (<code>V</code>) data.
+  </li>
+</ul>
+
 <p>The following figure visualizes this in the course of an example.</p>
 <img src="consent-provisions-example.png" alt="consent provisions example"  width="100%"/> 
 
@@ -99,7 +119,8 @@ are exceptions to a <em>permit</em> parent provision.</p>
     access is denied if the purpose of use is <em>marketing</em> (<code>HMK</code>).
   </li>
   <li> 
-    access is denied if the requested data is <em>restricted</em> (<code>R</code>).
+    access is denied if the requested data is <em>restricted</em> (<code>R</code>). 
+    Note that this implies access is also denied if the requested data is <em>very restricted</em> (<code>V</code>).
   </li>
   <li>
     access is denied if the purpose of use is <em>payment</em> (<code>PAY</code>) unless: 
