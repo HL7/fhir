@@ -105,19 +105,39 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ServiceRequest-code"/>
+        <id value="ServiceRequest-service-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ServiceRequest.code"/>
+          <valueString value="ServiceRequest.service.code"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-code"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-service-code"/>
         <description value="What is being requested/ordered"/>
-        <code value="code"/>
+        <code value="service-code"/>
         <type value="token"/>
-        <expression value="ServiceRequest.code"/>
-        <xpath value="f:ServiceRequest/f:code"/>
+        <expression value="ServiceRequest.service.code"/>
+        <xpath value="f:ServiceRequest/f:service/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ServiceRequest-service-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ServiceRequest.service.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-service-reference"/>
+        <description value="What is being requested/ordered"/>
+        <code value="service-reference"/>
+        <type value="reference"/>
+        <expression value="ServiceRequest.service.reference"/>
+        <xpath value="f:ServiceRequest/f:service/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
