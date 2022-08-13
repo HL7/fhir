@@ -9,14 +9,14 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="recordedSexOrGender"/>
   <title value="recordedSexOrGender"/>
   <status value="draft"/>
   <date value="2022-01-28"/>
   <publisher value="HL7"/>
   <description value="The recorded sex and gender is to be used to differentiate existing sex or gender data. This element is used for existing 'sex' or 'gender' elements in a document or record when the intent and meaning is unclear. For example, the individual's birth certificate information, passport information, and national identity document information may all be present. This is necessary because an individual's documents may be updated at different rates or for different reasons. Sex assigned at birth (SAAB), while very common and considered essential in some jurisdictions, is considered a recorded sex and gender entry."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -83,7 +83,7 @@
 			<valueString value="recordedSexOrGender"/>
 		  </extension>
 		  <strength value="example"/>
-		  <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|4.6.0"/>
+		  <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|5.0.0"/>
 	  </binding>
     </element>	
 	<element id="Extension.extension:internationalEquivalent">

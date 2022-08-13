@@ -33,7 +33,7 @@
   <copyright value="Published by ONC under the standard FHIR license (CC0)"/>
   <packageId value="hl7.fhir.us.daf"/>
   <license value="CC0-1.0"/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <dependsOn>
     <uri value="http://hl7.org/fhir/ImplementationGuide/uscore"/>
   </dependsOn>

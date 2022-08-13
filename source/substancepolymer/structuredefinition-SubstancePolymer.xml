@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SubstancePolymer"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="SubstancePolymer"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Properties of a substance specific to it being a polymer."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>

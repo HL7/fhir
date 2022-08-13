@@ -3,7 +3,7 @@
 <SearchParameter xmlns="http://hl7.org/fhir">
   <id value="valueset-extensions-ValueSet-workflow"/>
   <url value="http://hl7.org/fhir/SearchParameter/valueset-extensions-ValueSet-workflow"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="workflow"/>
   <status value="draft"/>
   <experimental value="true"/>

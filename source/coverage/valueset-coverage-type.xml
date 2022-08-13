@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.520"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="CoverageTypeAndSelf-PayCodes"/>
   <title value="Coverage Type and Self-Pay Codes"/>
   <status value="draft"/>

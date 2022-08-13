@@ -28,7 +28,7 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/device-usage-adherence-reason"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="DeviceUsageAdherenceReason"/>
   <title value="DeviceUsageAdherenceReason"/>
   <status value="draft"/>

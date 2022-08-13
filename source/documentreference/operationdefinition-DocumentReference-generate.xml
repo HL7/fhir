@@ -37,7 +37,7 @@
     <valueMarkdown value="The server either returns a search result containing a single document reference, &#xA;or it returns an error. &#xA;If the URI refers to another server, it is at the discretion of the &#xA;server whether to retrieve it or return an error."/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/DocumentReference-generate"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="generate"/>
   <title value="Generate a DocumentReference from a document"/>
   <status value="draft"/>
