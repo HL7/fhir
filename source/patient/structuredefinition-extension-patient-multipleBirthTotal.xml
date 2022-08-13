@@ -9,14 +9,14 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/patient-multipleBirthTotal"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="multipleBirthTotal"/>
   <title value="Multiple Birth Total"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
   <description value="Where a patient is a part of a multiple birth, this is the total number of births that occurred in this pregnancy.&#xD;&#xD;This value is the 4 in '3 of *4*', and the 3 would be the Patient.multipleBirth value."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <kind value="complex-type"/>
   <abstract value="false"/>
   <context>

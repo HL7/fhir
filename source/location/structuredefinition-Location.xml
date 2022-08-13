@@ -24,7 +24,7 @@
     <valueCode value=".status = inactive"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Location"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Location"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

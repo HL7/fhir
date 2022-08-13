@@ -16,7 +16,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/familymemberhistory-genetic"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Family member history for genetics analysis"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -29,7 +29,7 @@
     </telecom>
   </contact>
   <description value="Adds additional information to a family member history supporting both the capture of mother/father relationships as well as additional observations necessary to enable genetics-based risk analysis for patients"/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ManufacturedItemDefinition"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="The definition and characteristics of a medicinal manufactured item, such as a tablet or capsule, as contained in a packaged medicinal product."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
@@ -123,7 +123,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
       </binding>
       <mapping>
         <identity value="idmp"/>
@@ -360,6 +360,17 @@
       <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ManufacturedItemDefinition.component.amount">
+      <path value="ManufacturedItemDefinition.component.amount"/>
+      <short value="The measurable amount of substance in this component, expressable in different ways (e.g. by mass or volume)"/>
+      <definition value="The measurable amount of substance in this component, expressable in different ways (e.g. by mass or volume)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Quantity"/>
       </type>
       <isSummary value="true"/>
     </element>
