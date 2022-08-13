@@ -12,7 +12,7 @@
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.3.88.12.80.46"/>
 	</identifier>
-	<version value="4.6.0"/>
+	<version value="5.0.0"/>
 	<name value="ReferencedItemCategoryValueSet"/>
 	<title value="Referenced Item Category Value Set"/>
 	<status value="active"/>

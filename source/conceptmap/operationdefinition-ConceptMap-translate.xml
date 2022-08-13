@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/ConceptMap-translate"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="translate"/>
   <title value="Concept Translation"/>
   <status value="draft"/>

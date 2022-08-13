@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="expectation"/>
   <title value="Conformance expectation"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="Defines the level of expectation associated with a given system capability."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CodeSystem-find-matches"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="find-matches"/>
   <title value="Finding codes based on supplied properties"/>
   <status value="draft"/>

@@ -70,7 +70,7 @@
     <valueInteger value="2"/>
   </extension>
   <url value="http://hl7.org/fhir/device-operation-state-mode"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="FHIRDeviceOperationStateMode"/>
   <title value="FHIRDeviceOperationStateMode"/>
   <status value="draft"/>

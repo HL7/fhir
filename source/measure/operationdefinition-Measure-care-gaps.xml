@@ -37,7 +37,7 @@
     <valueMarkdown value="The effect of invoking this operation is to calculate a set of measures for a particular topic (e.g. Preventive Care and Screening) and return a document describing the results of each measure for the given subject. Note that it is up to the server to determine whether or not the generated care gaps report is persisted. If the server does not persist the results, the operation does not affect state and can be invoked with a GET"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Measure-care-gaps"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="care-gaps"/>
   <title value="Care Gaps"/>
   <status value="draft"/>
