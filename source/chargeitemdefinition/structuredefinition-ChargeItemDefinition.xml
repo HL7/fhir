@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ChargeItemDefinition"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -287,7 +287,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -717,6 +717,70 @@
       <max value="*"/>
       <type>
         <code value="MonetaryComponent"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.propertyGroup.priceComponent.type">
+      <path value="ChargeItemDefinition.propertyGroup.priceComponent.type"/>
+      <short value="base | surcharge | deduction | discount | tax | informational"/>
+      <definition value="This code identifies the type of the component."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ChargeItemDefinitionPriceComponentType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes indicating the kind of the price component."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/invoice-priceComponentType|5.0.0"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.propertyGroup.priceComponent.code">
+      <path value="ChargeItemDefinition.propertyGroup.priceComponent.code"/>
+      <short value="Code identifying the specific component"/>
+      <definition value="A code that identifies the component. Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.propertyGroup.priceComponent.factor">
+      <path value="ChargeItemDefinition.propertyGroup.priceComponent.factor"/>
+      <short value="Factor used for calculating this component"/>
+      <definition value="The factor that has been applied on the base price for calculating this component."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.propertyGroup.priceComponent.amount">
+      <path value="ChargeItemDefinition.propertyGroup.priceComponent.amount"/>
+      <short value="Monetary amount associated with this component"/>
+      <definition value="The amount calculated for this component."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
       </type>
       <mapping>
         <identity value="rim"/>

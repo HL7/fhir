@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="CareTeam"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

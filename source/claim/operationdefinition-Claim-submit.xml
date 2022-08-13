@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Claim-submit"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="submit"/>
   <title value="Submit a Claim resource for adjudication"/>
   <status value="draft"/>

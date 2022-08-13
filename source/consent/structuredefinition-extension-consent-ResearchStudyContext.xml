@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/consent-ResearchStudyContext"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ResearchStudyContext"/>
   <title value="ResearchContext"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="When a Research scope Consent, this is the specific research study that is allowed to use the information (or not)."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

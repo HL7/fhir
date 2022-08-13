@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/diagnosticReport-addendumOf"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="addendumOf"/>
   <title value="Addendum Of"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="The supplements or provides additional information for the target report."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

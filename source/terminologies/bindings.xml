@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Richard J. Ettema (AEGIS.net)</LastAuthor>
+  <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-05-23T20:36:08Z</Created>
-  <LastSaved>2022-05-13T15:11:33Z</LastSaved>
-  <Version>15.00</Version>
+  <LastSaved>2022-08-12T10:36:40Z</LastSaved>
+  <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">8b803d46-4659-4184-8eea-2715290b80f6</WorkbookGuid>
@@ -14,11 +14,11 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <SupBook>
-   <Path>Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\conceptmap-spreadsheet.xml</Path>
+   <Path>/Users/grahamegrieve/work/r5/source/terminologies/Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\conceptmap-spreadsheet.xml</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
   <SupBook>
-   <Path>Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\elementdefinition.xml</Path>
+   <Path>/Users/grahamegrieve/work/r5/source/terminologies/Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\elementdefinition.xml</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
   
@@ -321,7 +321,7 @@
    <Interior/>
   </Style>
   <Style ss:ID="s110">
-   <Font ss:Color="#333333" ss:FontName="Source Sans Pro" ss:Size="6" x:Family="Swiss"/>
+   <Font ss:Color="#333333" ss:FontName="Source Sans Pro" ss:Size="6" x:CharSet="1" x:Family="Swiss"/>
   </Style>
   <Style ss:ID="s111">
    <Font ss:Color="#333333" ss:FontName="Verdana" ss:Size="9" x:Family="Swiss"/>
@@ -484,7 +484,7 @@
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="='Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
+  <NamedRange ss:Name="Invariantids" ss:RefersTo="='/Users/grahamegrieve/work/r5/source/terminologies/Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="52" x:FullColumns="1" x:FullRows="1">
@@ -986,7 +986,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:Index="16" ss:StyleID="s77"/>
    </Row>
-   <Row>
+   <Row ss:Height="16">
     <Cell><Data ss:Type="String">ObjectLifecycleEvents</Data></Cell>
     <Cell><Data ss:Type="String">Lifecycle events from multiple code systems</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
@@ -1226,7 +1226,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="FHIR-version">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="48" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="54" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:Span="1" ss:StyleID="s100" ss:Width="63.0"/>
    <Column ss:Index="4" ss:StyleID="s100" ss:Width="39.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="323.0"/>
@@ -1555,6 +1555,47 @@
     <Cell><Data ss:Type="String">4.6.0</Data></Cell>
     <Cell><Data ss:Type="String">R5 Draft Ballot + Connectathon 27 (Virtual).</Data></Cell>
    </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">48</Data></Cell>
+    <Cell><Data ss:Type="String">5.0</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">5.0</Data></Cell>
+    <Cell><Data ss:Type="String">R5 Versions</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">49</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0</Data></Cell>
+    <Cell><Data ss:Type="String">5.0</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">R5 Final Version</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0-cibuild</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0-cibuild</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">R5 Rolling ci-build</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">51</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0-snapshot1</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0-snapshot1</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">R5 Preview #2</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">52</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0-snapshot2</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0-snapshot2</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">R5 Interim tooling stage</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">53</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0-snapshot3</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0-snapshot3</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">R5 Ballot</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1568,6 +1609,7 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <Selected/>
+   <TopRowVisible>7</TopRowVisible>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -5546,7 +5588,7 @@
  <Worksheet ss:Name="binding-strength">
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='binding-strength'!R1C1:R1C9"/>
-   <NamedRange ss:Name="Invariantids" ss:RefersTo="='Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
+   <NamedRange ss:Name="Invariantids" ss:RefersTo="='/Users/grahamegrieve/work/r5/source/terminologies/Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s122" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s122" ss:Width="80.0"/>

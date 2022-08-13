@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/GuidanceResponse"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="GuidanceResponse"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -43,7 +43,7 @@
   </contact>
   <description value="A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken."/>
   <purpose value="The GuidanceResponse resource supports recording the results of decision support interactions, reportability determination for public health, as well as the communication of additional data requirements for subsequent interactions."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

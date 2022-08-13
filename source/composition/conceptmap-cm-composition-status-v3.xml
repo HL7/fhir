@@ -3,7 +3,7 @@
 <ConceptMap xmlns="http://hl7.org/fhir">
   <id value="cm-composition-status-v3"/> 
   <url value="http://hl7.org/fhir/ConceptMap/cm-composition-status-v3"/> 
-  <version value="4.6.0"/> 
+  <version value="5.0.0"/> 
   <name value="v3.CompositionStatus"/> 
   <title value="v3 map for CompositionStatus"/> 
   <status value="draft"/> 
