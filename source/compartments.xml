@@ -297,8 +297,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Coverage</Data></Cell>
-    <Cell><Data ss:Type="String">policy-holder | subscriber | beneficiary</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">policy-holder | subscriber |</Data></Cell>
+    <Cell><Data ss:Type="String">policy-holder | subscriber | beneficiary | paymentby-party</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">policy-holder | subscriber | paymentby-party</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Device</Data></Cell>
@@ -830,7 +830,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
