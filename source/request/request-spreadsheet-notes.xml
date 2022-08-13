@@ -143,4 +143,34 @@
       procedures done, etc. to support a Claim.</li>
     <li><code>notes</code> should never be used to reflect information conveyed in <code>supportingInfo</code>.</li>  
   </ul>
+  
+  <a name="history"> </a>
+  <h2>Relevant history</h2>
+  <p>
+    This pattern contains an element called "relevantHistory" that points to <a href="provenance.html">Provenance</a>.  This allows the 
+    resource to summarize key events that have happened over the lifespan of the resource.  For example, when the request was created, 
+    when it was suspended, when it was released, etc.  The list of referenced Provenence entries don't necessarily include <i>all</i> events 
+    that have occurred over the lifespan of the resource.  Instead, they list those the author considers 'significant' and relevant to 
+    downstream users.  Modifications to drafts or small corrections that do not impact fulfillment might not be needed.  In some cases,
+    Provenance for changes to other resources (e.g. fulfilling events) might also be included if the source system tracks those as
+    'events' tied to the Request.
+  </p>
+  <p>
+    <b>IMPORTANT:</b> the relevantHistory generally excludes the most recent change on 'pure' FHIR repositories.  That is because in
+    pure FHIR environments, the Provenance instance must be created after the update has been made - because it needs to point to the new 
+    'version' of the resource that has been created.  This means that if there is a desire to include the 'current' change in relevant history, 
+    it is necessary to first make the change, then update the resource to add the event to recentHistory.  More typically, recentHistory 
+    simply won't include the most recent event.  If the full history is needed, the system will need to retrieve both the history as well as
+    the Provenance that points to the current release.  
+  </p>
+  <p>
+    For systems that don't store history separately from the base resource, the relevantHistory Provenance instances can be conveyed
+    as <a href="references.html#contained">contained resources</a>.  In this circumstance, there might also not be an issue with relevantHistory 
+    also including the 'most recent' change as the history is updated at the same time the change is applied.
+  </p>
+  <p>
+    The full set of potential Provenance information may be overkill for those systems that are only interested in it from a
+    relevantHistory perspective.  The <a href="provenance-relevant-history.html">Provenance Relevant History</a> profile is included to give guidance 
+    on what data elements are most likely to be relevant for systems looking at Provenance from the perspective of relevantHistory.
+  </p>
 </div>
