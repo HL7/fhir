@@ -45,17 +45,17 @@
 		<text value="Coated femoral stem prosthesis, modular"/>
 		<!-- note: optional text value added here for a prettier generated narrative -->
 	</type>
-	<associationState>
+	<association>
 	  <status> 
 	     <coding>
-		   <system value="http://terminology.hl7.org/CodeSystem/device-associationstatus" />
+		   <system value="http://terminology.hl7.org/CodeSystem/device-association-status" />
            <code value="attached"/>
 		 </coding>
 	  </status>
       <humanSubject>
 		<reference value="Patient/example"/>
 	  </humanSubject>
-	</associationState>
+	</association>
 	<safety>
 		<coding>
 			<system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>

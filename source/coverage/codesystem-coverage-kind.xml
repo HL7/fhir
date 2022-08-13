@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="coverage-kind"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      
+      <p>This code system http://hl7.org/fhir/coverage-kind defines the following codes:</p>
+      
+      
+      <table class="codes">
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">
+            
+            
+            <b>Code</b>
+          
+          
+          </td>
+          
+          
+          <td>
+            
+            
+            <b>Display</b>
+          
+          
+          </td>
+          
+          
+          <td>
+            
+            
+            <b>Definition</b>
+          
+          
+          </td>
+        
+        
+        </tr>
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">coverage
+            
+            
+            <a name="coverage-kind-insurance"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Insurance</td>
+          
+          
+          <td>The Coverage provides the identifiers and card-level details of an insurance policy.</td>
+        
+        
+        </tr>
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">insurance
+            
+            
+            <a name="coverage-kind-self-pay"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Self-Pay</td>
+          
+          
+          <td>One or more persons and/or organizations are paying for the services rendered.</td>
+        
+        
+        </tr>
+        
+        
+        <tr>
+          
+          
+          <td style="white-space:nowrap">self-pay
+            
+            
+            <a name="coverage-kind-other"> </a>
+          
+          
+          </td>
+          
+          
+          <td>Other</td>
+          
+          
+          <td>Some other organization is paying for the service.</td>
+        
+        
+        </tr>
+      
+      
+      </table>
+    
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/coverage-kind"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="Kind"/>
+  <title value="Kind"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The nature of the Coverage details which convey who is paying potentially for health services."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/coverage-kind"/>
+  <content value="complete"/>
+  <concept>
+    <code value="insurance"/>
+    <display value="Insurance"/>
+    <definition value="The Coverage provides the identifiers and card-level details of an insurance policy."/>
+  </concept>
+  <concept>
+    <code value="self-pay"/>
+    <display value="Self-pay"/>
+    <definition value="One or more persons and/or organizations are paying for the services rendered."/>
+  </concept>
+  <concept>
+    <code value="other"/>
+    <display value="Other"/>
+    <definition value="Some other organization is paying for the service."/>
+  </concept>
+</CodeSystem>

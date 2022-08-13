@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A person who is directly or indirectly involved in the provisioning of healthcare."/>
+  <description value="A person who is directly or indirectly involved in the provisioning of healthcare or related services."/>
   <purpose value="Need to track doctors, staff, locums etc. for both healthcare practitioners, funders, etc."/>
   <fhirVersion value="4.6.0"/>
   <mapping>
@@ -78,7 +78,7 @@
     <element id="Practitioner">
       <path value="Practitioner"/>
       <short value="A person with a  formal responsibility in the provisioning of healthcare or related services"/>
-      <definition value="A person who is directly or indirectly involved in the provisioning of healthcare."/>
+      <definition value="A person who is directly or indirectly involved in the provisioning of healthcare or related services."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>

@@ -294,26 +294,6 @@
         <map value=".telecom and .addr and other .role(relevant datatype properties mapped from role into extendedcontactdetail)"/>
       </mapping>
     </element>
-    <element id="Location.telecom">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="deprecated"/>
-      </extension>
-      <path value="Location.telecom"/>
-      <short value="Deprecated - use contact.telecom"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactPoint"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".telecom"/>
-      </mapping>
-      <mapping>
-        <identity value="interface"/>
-        <map value="ParticipantContactable.telecom"/>
-      </mapping>
-    </element>
     <element id="Location.address">
       <path value="Location.address"/>
       <short value="Physical location"/>
@@ -461,95 +441,31 @@
     </element>
     <element id="Location.hoursOfOperation">
       <path value="Location.hoursOfOperation"/>
-      <short value="What days/times during a week is this location usually open"/>
-      <definition value="What days/times during a week is this location usually open."/>
-      <comment value="This type of information is commonly found published in directories and on websites informing customers when the facility is available.&#xA;&#xA;Specific services within the location may have their own hours which could be shorter (or longer) than the locations hours."/>
+      <short value="What days/times during a week is this location usually open (including exceptions)"/>
+      <definition value="What days/times during a week is this location usually open, and any exceptions where the location is not available."/>
+      <comment value="This type of information is commonly found published in directories and on websites informing customers when the facility is available.&#xA;&#xA;Specific services within the location may have their own hours which could be shorter (or longer) than the locations hours.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;.&#xD;&#xD;The availableStartTime is the opening time, and the availableEndTime is the closing time."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
+        <code value="Availability"/>
       </type>
       <mapping>
         <identity value="rim"/>
         <map value=".effectiveTime"/>
       </mapping>
     </element>
-    <element id="Location.hoursOfOperation.daysOfWeek">
-      <path value="Location.hoursOfOperation.daysOfWeek"/>
-      <short value="mon | tue | wed | thu | fri | sat | sun"/>
-      <definition value="Indicates which days of the week are available between the start and end Times."/>
+    <element id="Location.virtualService">
+      <path value="Location.virtualService"/>
+      <short value="Connection details of a virtual service"/>
+      <comment value="There are two types of virtual meetings that often exist:  a persistent, virtual meeting room that can only be used for a single purpose at a time, and a dynamic virtual meeting room that is generated on demand for a specific purpose.  Implementers may consider using Appointment.virtualService for virtual meeting rooms that are generated on-demand."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DaysOfWeek"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The days of the week."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/days-of-week"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="Location.hoursOfOperation.allDay">
-      <path value="Location.hoursOfOperation.allDay"/>
-      <short value="Always available? i.e. 24 hour service"/>
-      <definition value="Is this always available? (hence times are irrelevant) i.e. 24 hour service."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
+        <code value="VirtualServiceDetail"/>
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="Location.hoursOfOperation.openingTime">
-      <path value="Location.hoursOfOperation.openingTime"/>
-      <short value="Time that the Location opens"/>
-      <definition value="Time that the Location opens."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="time"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="Location.hoursOfOperation.closingTime">
-      <path value="Location.hoursOfOperation.closingTime"/>
-      <short value="Time that the Location closes"/>
-      <definition value="Time that the Location closes."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="time"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="Location.availabilityExceptions">
-      <path value="Location.availabilityExceptions"/>
-      <short value="Description of availability exceptions"/>
-      <definition value="A description of when the locations opening ours are different to normal, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as detailed in the opening hours Times."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
+        <map value="N/A"/>
       </mapping>
     </element>
     <element id="Location.endpoint">

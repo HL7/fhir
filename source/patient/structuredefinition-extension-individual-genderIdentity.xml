@@ -85,7 +85,7 @@
 			<valueString value="GenderIdentity"/>
 		  </extension>
 		  <strength value="preferred"/>
-		  <valueSet value="http://hl7.org/fhir/ValueSet/gender-identity"/>
+		  <valueSet value="http://terminology.hl7.org/ValueSet/gender-identity"/>
 	  </binding>
     </element>
     <element id="Extension.extension:period">

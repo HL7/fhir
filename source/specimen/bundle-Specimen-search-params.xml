@@ -85,6 +85,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Specimen-procedure"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.collection.procedure"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-procedure"/>
+        <description value="The procedure that collected the specimen"/>
+        <code value="procedure"/>
+        <type value="reference"/>
+        <expression value="Specimen.collection.procedure"/>
+        <xpath value="f:Specimen/f:collection/f:procedure"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Specimen-container-device"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

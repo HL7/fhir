@@ -102,6 +102,10 @@
         <identity value="idmp"/>
         <map value="PhPID"/>
       </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
     </element>
     <element id="AdministrableProductDefinition.status">
       <path value="AdministrableProductDefinition.status"/>

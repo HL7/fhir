@@ -96,6 +96,10 @@
         <identity value="idmp"/>
         <map value="Marketing Authorisation.Marketing Authorisation Number"/>
       </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
     </element>
     <element id="RegulatedAuthorization.subject">
       <path value="RegulatedAuthorization.subject"/>
@@ -109,6 +113,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>

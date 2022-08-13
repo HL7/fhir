@@ -1,5 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<div>
+
 <blockquote class="stu-note">
 <p>
 DocumentManifest will be retired in R5 of FHIR as the functionality has been taken over by other resources such as <a href="list.html">List</a>. Those that require DocumentManifest should look to other resources, or provide Change Requests justifying the need for DocumentManifest.
@@ -12,7 +14,6 @@ The <a href="https://profiles.ihe.net/ITI/MHD/index.html">IHE Mobile access to H
 </blockquote>
 
 
-<div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p> 

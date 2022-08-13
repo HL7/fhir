@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Coverage"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -105,9 +105,9 @@
     </element>
     <element id="Coverage.identifier">
       <path value="Coverage.identifier"/>
-      <short value="Business Identifier for the coverage"/>
-      <definition value="A unique identifier assigned to this coverage."/>
-      <comment value="The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Certificate number, Personal Health Number or Case ID. May be constructed as the concatenation of the Coverage.SubscriberID and the Coverage.dependant."/>
+      <short value="Business identifier(s) for this coverage"/>
+      <definition value="The identifier of the coverage as issued by the insurer."/>
+      <comment value="The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Certificate number, Personal Health Number or Case ID. May be constructed as the concatenation of the Coverage.SubscriberID and the Coverage.dependant. Note that not all insurers issue unique member IDs therefore searches may result in multiple responses."/>
       <requirements value="Allows coverages to be distinguished and referenced."/>
       <min value="0"/>
       <max value="*"/>
@@ -145,7 +145,7 @@
       <short value="active | cancelled | draft | entered-in-error"/>
       <definition value="The status of the resource instance."/>
       <comment value="This element is labeled as a modifier because the status contains the code entered-in-error that marks the coverage as not currently valid."/>
-      <requirements value="Need to track the status of the resource as &#39;draft&#39; resources may undergo further edits while &#39;active&#39; resources are immutable and may only have their status changed to &#39;cancelled&#39;."/>
+      <requirements value="Need to track the status of the resource as 'draft' resources may undergo further edits while 'active' resources are immutable and may only have their status changed to 'cancelled'."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -174,6 +174,60 @@
         <identity value="rim"/>
         <map value="Act.status"/>
       </mapping>
+    </element>
+    <element id="Coverage.kind">
+      <path value="Coverage.kind"/>
+      <short value="insurance | self-pay | other"/>
+      <definition value="The nature of the coverage be it insurance, or cash payment such as self-pay."/>
+      <requirements value="This is used to implement conformance on other elements."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CoverageKind"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/coverage-kind"/>
+      </binding>
+    </element>
+    <element id="Coverage.paymentBy">
+      <path value="Coverage.paymentBy"/>
+      <short value="Self-pay parties and responsibility"/>
+      <definition value="Link to the paying party and optionally what specifically they will be responsible to pay."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Coverage.paymentBy.party">
+      <path value="Coverage.paymentBy.party"/>
+      <short value="Parties performing self-payment"/>
+      <definition value="The list of parties providing non-insurance payment for the treatment costs."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Coverage.paymentBy.responsibility">
+      <path value="Coverage.paymentBy.responsibility"/>
+      <short value="Party's responsibility"/>
+      <definition value=" Description of the financial responsibility."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
     </element>
     <element id="Coverage.type">
       <path value="Coverage.type"/>
@@ -209,9 +263,9 @@
       </extension>
       <path value="Coverage.policyHolder"/>
       <short value="Owner of the policy"/>
-      <definition value="The party who &#39;owns&#39; the insurance policy."/>
-      <comment value="For example: may be an individual, corporation or the subscriber&#39;s employer."/>
-      <requirements value="This provides employer information in the case of Worker&#39;s Compensation and other policies."/>
+      <definition value="The party who 'owns' the insurance policy."/>
+      <comment value="For example: may be an individual, corporation or the subscriber's employer."/>
+      <requirements value="This provides employer information in the case of Worker's Compensation and other policies."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -248,7 +302,7 @@
       </extension>
       <path value="Coverage.subscriber"/>
       <short value="Subscriber to the policy"/>
-      <definition value="The party who has signed-up for or &#39;owns&#39; the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due."/>
+      <definition value="The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due."/>
       <comment value="May be self or a parent in the case of dependants."/>
       <requirements value="This is the party who is entitled to the benfits under the policy."/>
       <min value="0"/>
@@ -289,7 +343,7 @@
       <definition value="The insurer assigned ID for the Subscriber."/>
       <requirements value="The insurer requires this identifier on correspondance and claims (digital and otherwise)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Identifier"/>
       </type>
@@ -380,7 +434,7 @@
       <path value="Coverage.relationship"/>
       <short value="Beneficiary relationship to the subscriber"/>
       <definition value="The relationship of beneficiary (patient) to the subscriber."/>
-      <comment value="Typically, an individual uses policies which are theirs (relationship=&#39;self&#39;) before policies owned by others."/>
+      <comment value="Typically, an individual uses policies which are theirs (relationship='self') before policies owned by others."/>
       <requirements value="The relationship between the patient and the subscriber to determine coordination of benefits."/>
       <min value="0"/>
       <max value="1"/>
@@ -403,7 +457,7 @@
     <element id="Coverage.period">
       <path value="Coverage.period"/>
       <short value="Coverage start and end dates"/>
-      <definition value="Time period during which the coverage is in force. A missing start date indicates the start date isn&#39;t known, a missing end date means the coverage is continuing to be in force."/>
+      <definition value="Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force."/>
       <requirements value="Some insurers require the submission of the coverage term."/>
       <min value="0"/>
       <max value="1"/>
@@ -428,37 +482,19 @@
         <map value="Act.effectiveTime"/>
       </mapping>
     </element>
-    <element id="Coverage.payor">
-      <path value="Coverage.payor"/>
+    <element id="Coverage.insurer">
+      <path value="Coverage.insurer"/>
       <short value="Issuer of the policy"/>
-      <definition value="The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements."/>
-      <comment value="May provide multiple identifiers such as insurance company identifier or business identifier (BIN number).&#xA;For selfpay it may provide multiple paying persons and/or organizations."/>
+      <definition value="The program or plan underwriter, payor, insurance company."/>
+      <comment value="May provide multiple identifiers such as insurance company identifier or business identifier (BIN number)."/>
       <requirements value="Need to identify the issuer to target for claim processing and for coordination of benefit processing."/>
-      <min value="1"/>
-      <max value="*"/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.author"/>
-      </mapping>
-      <mapping>
-        <identity value="cdanetv4"/>
-        <map value="A05"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="IN1-3"/>
-      </mapping>
-      <mapping>
-        <identity value="cpha3pharm"/>
-        <map value="C.30"/>
-      </mapping>
     </element>
     <element id="Coverage.class">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -480,7 +516,7 @@
     </element>
     <element id="Coverage.class.type">
       <path value="Coverage.class.type"/>
-      <short value="Type of class such as &#39;group&#39; or &#39;plan&#39;"/>
+      <short value="Type of class such as 'group' or 'plan'"/>
       <definition value="The type of classification for which an insurer-specific class label or number and optional name is provided.  For example, type may be used to identify a class of coverage or employer group, policy, or plan."/>
       <requirements value="The insurer issued label for a specific health card value."/>
       <min value="1"/>
@@ -501,13 +537,13 @@
     <element id="Coverage.class.value">
       <path value="Coverage.class.value"/>
       <short value="Value associated with the type"/>
-      <definition value="The alphanumeric string value associated with the insurer issued label."/>
+      <definition value="The alphanumeric identifier associated with the insurer issued label."/>
       <comment value="For example, the Group or Plan number."/>
-      <requirements value="The insurer issued label and value are necessary to identify the specific policy."/>
+      <requirements value="The insurer issued label and identifier are necessary to identify the specific policy, group, etc.."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="Identifier"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -550,7 +586,7 @@
     <element id="Coverage.order">
       <path value="Coverage.order"/>
       <short value="Relative order of the coverage"/>
-      <definition value="The order of applicability of this coverage relative to other coverages which are currently in force. Note, there may be gaps in the numbering and this does not imply primary, secondary etc. as the specific positioning of coverages depends upon the episode of care."/>
+      <definition value="The order of applicability of this coverage relative to other coverages which are currently in force. Note, there may be gaps in the numbering and this does not imply primary, secondary etc. as the specific positioning of coverages depends upon the episode of care. For example; a patient might have (0) auto insurance (1) their own health insurance and (2) spouse's health insurance. When claiming for treatments which were not the result of an auto accident then only coverages (1) and (2) above would be applicatble and would apply in the order specified in parenthesis."/>
       <requirements value="Used in managing the coordination of benefits."/>
       <min value="0"/>
       <max value="1"/>
@@ -558,15 +594,11 @@
         <code value="positiveInt"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="- No exact HL7 v2 equivalent concept seems to exist;"/>
-      </mapping>
     </element>
     <element id="Coverage.network">
       <path value="Coverage.network"/>
       <short value="Insurer network"/>
-      <definition value="The insurer-specific identifier for the insurer-defined network of providers to which the beneficiary may seek treatment which will be covered at the &#39;in-network&#39; rate, otherwise &#39;out of network&#39; terms and conditions apply."/>
+      <definition value="The insurer-specific identifier for the insurer-defined network of providers to which the beneficiary may seek treatment which will be covered at the 'in-network' rate, otherwise 'out of network' terms and conditions apply."/>
       <requirements value="Used in referral for treatment and in claims processing."/>
       <min value="0"/>
       <max value="1"/>
@@ -627,7 +659,7 @@
       <definition value="The amount due from the patient for the cost category."/>
       <comment value="Amount may be expressed as a percentage of the service/product cost or a fixed amount of currency."/>
       <requirements value="Needed to identify the amount for the patient associated with the category."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
@@ -702,8 +734,8 @@
     <element id="Coverage.subrogation">
       <path value="Coverage.subrogation"/>
       <short value="Reimbursement to insurer"/>
-      <definition value="When &#39;subrogation=true&#39; this insurance instance has been included not for adjudication but to provide insurers with the details to recover costs."/>
-      <comment value="Typically, automotive and worker&#39;s compensation policies would be flagged with &#39;subrogation=true&#39; to enable healthcare payors to collect against accident claims."/>
+      <definition value="When 'subrogation=true' this insurance instance has been included not for adjudication but to provide insurers with the details to recover costs."/>
+      <comment value="Typically, automotive and worker's compensation policies would be flagged with 'subrogation=true' to enable healthcare payors to collect against accident claims."/>
       <requirements value="See definition for when to be used."/>
       <min value="0"/>
       <max value="1"/>
@@ -741,6 +773,21 @@
         <identity value="cpha3pharm"/>
         <map value="C.35"/>
       </mapping>
+    </element>
+    <element id="Coverage.insurancePlan">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="C.35."/>
+      </extension>
+      <path value="Coverage.insurancePlan"/>
+      <short value="Insurance plan details"/>
+      <definition value="The insurance plan details, benefits and costs, which constitute this insurance coverage."/>
+      <requirements value="To associate the plan benefits and costs with the coverage which is an instance of that plan."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InsurancePlan"/>
+      </type>
     </element>
   </differential>
 </StructureDefinition>
