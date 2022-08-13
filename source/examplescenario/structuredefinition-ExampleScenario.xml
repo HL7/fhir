@@ -156,15 +156,11 @@
 				<map value="FiveWs.version"/>
 			</mapping>
 		</element>
-		<element id="ExampleScenario.name">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
-				<valueString value="&amp; A name should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a name."/>
-			</extension>
-			<path value="ExampleScenario.name"/>
-			<short value="Name for this example scenario (computer friendly)"/>
-			<definition value="A natural language name identifying the example scenario. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-			<requirements value="Support human navigation and code generation."/>
+		<element id="ExampleScenario.title">
+			<path value="ExampleScenario.title"/>
+			<short value="Name for this example scenario (human friendly)"/>
+			<definition value="A short, descriptive, user-friendly title for the ExampleScenario."/>
+			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -172,6 +168,10 @@
 			</type>
 			<condition value="cnl-0"/>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.title"/>
+			</mapping>
 		</element>
 		<element id="ExampleScenario.status">
 			<path value="ExampleScenario.status"/>
@@ -285,6 +285,22 @@
 				<map value="Definition.contact"/>
 			</mapping>
 		</element>
+		<element id="ExampleScenario.description">
+			<path value="ExampleScenario.description"/>
+			<short value="Natural language description of the ExampleScenario"/>
+			<definition value="A free text natural language description of the ExampleScenario from a consumer's perspective."/>
+			<comment value="This description can be used to capture details such as why the ExampleScenario was built. It is not a rendering of the ExampleScenario as conveyed in the 'text' field of the resource itself."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.description"/>
+			</mapping>
+		</element>
 		<element id="ExampleScenario.useContext">
 			<path value="ExampleScenario.useContext"/>
 			<short value="The context that the content is intended to support"/>
@@ -376,8 +392,9 @@
 		</element>
 		<element id="ExampleScenario.actor">
 			<path value="ExampleScenario.actor"/>
-			<short value="Actor participating in the resource"/>
-			<definition value="Actor participating in the resource."/>
+			<short value="Individual involved in exchange"/>
+			<definition value="A system or person who shares or receives an instance within the scenario."/>
+			<requirements value="This is optional to allow for ExampleScenarios that are still draft"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -387,8 +404,7 @@
 		<element id="ExampleScenario.actor.key">
 			<path value="ExampleScenario.actor.key"/>
 			<short value="ID or acronym of the actor"/>
-			<definition value="ID or acronym of actor."/>
-			<comment value="should this be called ID or acronym?"/>
+			<definition value="A unique string within the scenario that is used to reference the actor."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -398,7 +414,7 @@
 		<element id="ExampleScenario.actor.type">
 			<path value="ExampleScenario.actor.type"/>
 			<short value="person | system"/>
-			<definition value="The type of actor - person or system."/>
+			<definition value="The category of actor - person or system."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -415,8 +431,8 @@
 		</element>
 		<element id="ExampleScenario.actor.title">
 			<path value="ExampleScenario.actor.title"/>
-			<short value="The name of the actor as shown in the page"/>
-			<definition value="The name of the actor as shown in the page."/>
+			<short value="Label for actor when rendering"/>
+			<definition value="The human-readable name for the actor used when rendering the scenario."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -425,9 +441,8 @@
 		</element>
 		<element id="ExampleScenario.actor.description">
 			<path value="ExampleScenario.actor.description"/>
-			<short value="The description of the actor"/>
-			<definition value="The description of the actor."/>
-			<comment value="Cardinality: is name and description 1..1?"/>
+			<short value="Details about actor"/>
+			<definition value="An explanation of who/what the actor is and its role in the scenario."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -436,8 +451,8 @@
 		</element>
 		<element id="ExampleScenario.instance">
 			<path value="ExampleScenario.instance"/>
-			<short value="Each resource and each version that is present in the workflow"/>
-			<definition value="Each resource and each version that is present in the workflow."/>
+			<short value="Data used in the scenario"/>
+			<definition value="A single data collection that is shared as part of the scenario."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -446,18 +461,18 @@
 		</element>
 		<element id="ExampleScenario.instance.key">
 			<path value="ExampleScenario.instance.key"/>
-			<short value="The id of the resource for referencing"/>
-			<definition value="The id of the resource for referencing."/>
+			<short value="ID or acronym of the instance"/>
+			<definition value="A unique string within the scenario that is used to reference the instance."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
 				<code value="string"/>
 			</type>
 		</element>
-		<element id="ExampleScenario.instance.type">
-			<path value="ExampleScenario.instance.type"/>
-			<short value="The type of the resource"/>
-			<definition value="The type of the resource."/>
+		<element id="ExampleScenario.instance.structureType">
+			<path value="ExampleScenario.instance.structureType"/>
+			<short value="Data structure for example"/>
+			<definition value="A code indicating the kind of data structure (FHIR resource or some other standard) this is an instance of."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -467,18 +482,38 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="InstanceType"/>
 				</extension>
-				<strength value="required"/>
+				<strength value="extensible"/>
 				<description value="The structure that defines the instance"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/examplescenario-instance-type"/>
 			</binding>
 		</element>
-		<element id="ExampleScenario.instance.name">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
-				<valueString value="Should name and description be 1..1?"/>
-			</extension>
-			<path value="ExampleScenario.instance.name"/>
-			<short value="A short name for the resource instance"/>
-			<definition value="A short name for the resource instance."/>
+		<element id="ExampleScenario.instance.structureVersion">
+			<path value="ExampleScenario.instance.structureVersion"/>
+			<short value="E.g. 4.0.1"/>
+			<definition value="Conveys the version of the data structure instantiated.  I.e. what release of FHIR, X12, OpenEHR, etc. is instance compliant with."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.instance.structureProfile[x]">
+			<path value="ExampleScenario.instance.structureProfile[x]"/>
+			<short value="Rules instance adheres to"/>
+			<definition value="Refers to a profile, template or other ruleset the instance adheres to."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+			</type>
+			<type>
+				<code value="uri"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.instance.title">
+			<path value="ExampleScenario.instance.title"/>
+			<short value="Label for instance"/>
+			<definition value="A short descriptive label the instance to be used in tables or diagrams."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -486,12 +521,9 @@
 			</type>
 		</element>
 		<element id="ExampleScenario.instance.description">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
-				<valueString value="Should name and description be 1..1?"/>
-			</extension>
 			<path value="ExampleScenario.instance.description"/>
-			<short value="Human-friendly description of the resource instance"/>
-			<definition value="Human-friendly description of the resource instance."/>
+			<short value="Human-friendly description of the instance"/>
+			<definition value="An explanation of what the instance contains and what it's for."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -500,8 +532,10 @@
 		</element>
 		<element id="ExampleScenario.instance.version">
 			<path value="ExampleScenario.instance.version"/>
-			<short value="A specific version of the resource"/>
-			<definition value="A specific version of the resource."/>
+			<short value="Snapshot of instance that changes"/>
+			<definition value="Represents the instance as it was at a specific time-point."/>
+			<comment value="Not used if an instance doesn't change"/>
+			<requirements value="Allows representing the 'same' instance as it evolves throughout the scenario."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -510,8 +544,8 @@
 		</element>
 		<element id="ExampleScenario.instance.version.key">
 			<path value="ExampleScenario.instance.version.key"/>
-			<short value="The identifier of a specific version of a resource"/>
-			<definition value="The identifier of a specific version of a resource."/>
+			<short value="ID or acronym of the version"/>
+			<definition value="A unique string within the instance that is used to reference the version of the instance."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -520,9 +554,9 @@
 		</element>
 		<element id="ExampleScenario.instance.version.description">
 			<path value="ExampleScenario.instance.version.description"/>
-			<short value="The description of the resource version"/>
-			<definition value="The description of the resource version."/>
-			<min value="1"/>
+			<short value="Details about version"/>
+			<definition value="An explanation of what this specific version of the instance contains and represents."/>
+			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="markdown"/>
@@ -531,7 +565,7 @@
 		<element id="ExampleScenario.instance.containedInstance">
 			<path value="ExampleScenario.instance.containedInstance"/>
 			<short value="Resources contained in the instance"/>
-			<definition value="Resources contained in the instance (e.g. the observations contained in a bundle)."/>
+			<definition value="References to other instances that can be found within this instance (e.g. the observations contained in a bundle)."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -540,8 +574,8 @@
 		</element>
 		<element id="ExampleScenario.instance.containedInstance.instanceReference">
 			<path value="ExampleScenario.instance.containedInstance.instanceReference"/>
-			<short value="Each resource contained in the instance"/>
-			<definition value="Each resource contained in the instance."/>
+			<short value="Key of contained instance"/>
+			<definition value="A reference to the key of an instance found within this one."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -550,8 +584,9 @@
 		</element>
 		<element id="ExampleScenario.instance.containedInstance.versionReference">
 			<path value="ExampleScenario.instance.containedInstance.versionReference"/>
-			<short value="A specific version of a resource contained in the instance"/>
-			<definition value="A specific version of a resource contained in the instance."/>
+			<short value="Key of contained instance version"/>
+			<definition value="A reference to the key of a specific version of an instance in this instance."/>
+			<comment value="Required if the referenced instance has versions"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -560,8 +595,9 @@
 		</element>
 		<element id="ExampleScenario.process">
 			<path value="ExampleScenario.process"/>
-			<short value="Each major process - a group of operations"/>
-			<definition value="Each major process - a group of operations."/>
+			<short value="Major process within scenario"/>
+			<definition value="A group of operations that represents a significant step within a scenario."/>
+			<comment value="Some scenarios might describe only one process."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -570,8 +606,8 @@
 		</element>
 		<element id="ExampleScenario.process.title">
 			<path value="ExampleScenario.process.title"/>
-			<short value="The diagram title of the group of operations"/>
-			<definition value="The diagram title of the group of operations."/>
+			<short value="Label for procss"/>
+			<definition value="A short descriptive label the process to be used in tables or diagrams."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -581,8 +617,8 @@
 		</element>
 		<element id="ExampleScenario.process.description">
 			<path value="ExampleScenario.process.description"/>
-			<short value="A longer description of the group of operations"/>
-			<definition value="A longer description of the group of operations."/>
+			<short value="Human-friendly description of the process"/>
+			<definition value="An explanation of what the process represents and what it does."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -591,8 +627,8 @@
 		</element>
 		<element id="ExampleScenario.process.preConditions">
 			<path value="ExampleScenario.process.preConditions"/>
-			<short value="Description of initial status before the process starts"/>
-			<definition value="Description of initial status before the process starts."/>
+			<short value="Status before process starts"/>
+			<definition value="Description of the initial state of the actors, environment and data before the process starts."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -601,8 +637,9 @@
 		</element>
 		<element id="ExampleScenario.process.postConditions">
 			<path value="ExampleScenario.process.postConditions"/>
-			<short value="Description of final status after the process ends"/>
-			<definition value="Description of final status after the process ends."/>
+			<short value="Status after successful completion"/>
+			<definition value="Description of the final state of the actors, environment and data after the process has been successfully completed."/>
+			<comment value="Alternate steps might not result in all post conditions holding"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -611,67 +648,72 @@
 		</element>
 		<element id="ExampleScenario.process.step">
 			<path value="ExampleScenario.process.step"/>
-			<short value="Each step of the process"/>
-			<definition value="Each step of the process."/>
+			<short value="Event within of the process"/>
+			<definition value="A significant action that occurs as part of the process."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
 				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process.step.number">
+			<path value="ExampleScenario.process.step.number"/>
+			<short value="Sequential number of the step"/>
+			<definition value="The sequential number of the step, e.g. 1.2.5."/>
+			<comment value="If step numbers are simultaneous, they will be the same.  Numbers don't have to be numeric.  E.g. '2c)' is a valid step number"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
 			</type>
 		</element>
 		<element id="ExampleScenario.process.step.process">
 			<path value="ExampleScenario.process.step.process"/>
-			<short value="Nested process"/>
-			<definition value="Nested process."/>
+			<short value="Step is nested process"/>
+			<definition value="Indicates that the step is a complex sub-process with its own steps."/>
 			<min value="0"/>
-			<max value="*"/>
+			<max value="1"/>
 			<contentReference value="#ExampleScenario.process"/>
 		</element>
-		<element id="ExampleScenario.process.step.pause">
-			<path value="ExampleScenario.process.step.pause"/>
-			<short value="If there is a pause in the flow"/>
-			<definition value="If there is a pause in the flow."/>
+		<element id="ExampleScenario.process.step.workflow">
+			<path value="ExampleScenario.process.step.workflow"/>
+			<short value="Step is nested workflow"/>
+			<definition value="Indicates that the step is defined by a seaparate scenario instance."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="boolean"/>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
 			</type>
 		</element>
 		<element id="ExampleScenario.process.step.operation">
 			<path value="ExampleScenario.process.step.operation"/>
-			<short value="Each interaction or action"/>
-			<definition value="Each interaction or action."/>
+			<short value="Step is simple action"/>
+			<definition value="The step represents a single operation invoked on receiver by sender."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="BackboneElement"/>
 			</type>
 		</element>
-		<element id="ExampleScenario.process.step.operation.number">
-			<path value="ExampleScenario.process.step.operation.number"/>
-			<short value="The sequential number of the interaction"/>
-			<definition value="The sequential number of the interaction, e.g. 1.2.5."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
 		<element id="ExampleScenario.process.step.operation.type">
 			<path value="ExampleScenario.process.step.operation.type"/>
-			<short value="The type of operation - CRUD"/>
-			<definition value="The type of operation - CRUD."/>
+			<short value="Kind of action"/>
+			<definition value="The standardized type of action (FHIR or otherwise)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="string"/>
+				<code value="Coding"/>
 			</type>
+			<binding>
+        <strength value="extensible"/>
+      </binding>
 		</element>
 		<element id="ExampleScenario.process.step.operation.title">
 			<path value="ExampleScenario.process.step.operation.title"/>
-			<short value="The human-friendly name of the interaction"/>
-			<definition value="The human-friendly name of the interaction."/>
-			<min value="0"/>
+			<short value="Label for step"/>
+			<definition value="A short descriptive label the step to be used in tables or diagrams."/>
+			<min value="1"/>
 			<max value="1"/>
 			<type>
 				<code value="string"/>
@@ -679,8 +721,8 @@
 		</element>
 		<element id="ExampleScenario.process.step.operation.initiator">
 			<path value="ExampleScenario.process.step.operation.initiator"/>
-			<short value="Who starts the transaction"/>
-			<definition value="Who starts the transaction."/>
+			<short value="Who starts the operation"/>
+			<definition value="The system that invokes the action/transmits the data."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -689,8 +731,9 @@
 		</element>
 		<element id="ExampleScenario.process.step.operation.receiver">
 			<path value="ExampleScenario.process.step.operation.receiver"/>
-			<short value="Who receives the transaction"/>
-			<definition value="Who receives the transaction."/>
+			<short value="Who receives the operation"/>
+			<definition value="The system on which the action is invoked/receives the data."/>
+			<comment value="In some cases, receiver could be same as sender if representing a local operation"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -699,8 +742,9 @@
 		</element>
 		<element id="ExampleScenario.process.step.operation.description">
 			<path value="ExampleScenario.process.step.operation.description"/>
-			<short value="A comment to be inserted in the diagram"/>
-			<definition value="A comment to be inserted in the diagram."/>
+			<short value="Human-friendly description of the operation"/>
+			<definition value="An explanation of what the operation represents and what it does."/>
+			<comment value="This should contain information not already present in the process step.  It's more of a description of what the operation in general does - if not already evident from the operation.type"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -709,8 +753,10 @@
 		</element>
 		<element id="ExampleScenario.process.step.operation.initiatorActive">
 			<path value="ExampleScenario.process.step.operation.initiatorActive"/>
-			<short value="Whether the initiator is deactivated right after the transaction"/>
-			<definition value="Whether the initiator is deactivated right after the transaction."/>
+			<short value="Initiator stays active?"/>
+			<definition value="If false, the initiator is deactivated right after the operation."/>
+			<comment value="De-activation of an actor means they have no further role until such time as they are the recipient of an operation."/>
+			<requirements value="The notion of 'activation' in a flow diagram is used to indicate 'who has responsibility/is still doing work'."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -719,8 +765,10 @@
 		</element>
 		<element id="ExampleScenario.process.step.operation.receiverActive">
 			<path value="ExampleScenario.process.step.operation.receiverActive"/>
-			<short value="Whether the receiver is deactivated right after the transaction"/>
-			<definition value="Whether the receiver is deactivated right after the transaction."/>
+			<short value="Receiver stays active?"/>
+			<definition value="If false, the receiver is deactivated right after the operation."/>
+			<comment value="De-activation of an actor means they have no further role until such time as they are the recipient of an operation."/>
+			<requirements value="The notion of 'activation' in a flow diagram is used to indicate 'who has responsibility/is still doing work'."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -729,25 +777,25 @@
 		</element>
 		<element id="ExampleScenario.process.step.operation.request">
 			<path value="ExampleScenario.process.step.operation.request"/>
-			<short value="Each resource instance used by the initiator"/>
-			<definition value="Each resource instance used by the initiator."/>
+			<short value="Instance transmitted on invocation"/>
+			<definition value="A reference to the instance that is transmitted from requester to receiver as part of the invocation of the operation."/>
 			<min value="0"/>
 			<max value="1"/>
 			<contentReference value="#ExampleScenario.instance.containedInstance"/>
 		</element>
 		<element id="ExampleScenario.process.step.operation.response">
 			<path value="ExampleScenario.process.step.operation.response"/>
-			<short value="Each resource instance used by the responder"/>
-			<definition value="Each resource instance used by the responder."/>
-			<comment value="Multiple responses can sometimes exist for a single operation.  E.g. the 'accept acknowledgement' and the 'application acknowledgement' for a single v2 request message."/>
+			<short value="Instance transmitted on invocation response"/>
+			<definition value="A reference to the instance that is transmitted from receiver to requester as part of the operation's synchronous response (if any)."/>
+<!--			<comment value="Multiple responses can sometimes exist for a single operation.  E.g. the 'accept acknowledgement' and the 'application acknowledgement' for a single v2 request message."/>-->
 			<min value="0"/>
-			<max value="*"/>
+			<max value="1"/>
 			<contentReference value="#ExampleScenario.instance.containedInstance"/>
 		</element>
 		<element id="ExampleScenario.process.step.alternative">
 			<path value="ExampleScenario.process.step.alternative"/>
 			<short value="Alternate non-typical step action"/>
-			<definition value="Indicates an alternative step that can be taken instead of the operations on the base step in exceptional/atypical circumstances."/>
+			<definition value="Indicates an alternative step that can be taken instead of the sub-process, scenario or operation.  E.g. to represent non-happy-path/exceptional/atypical circumstances."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -766,7 +814,7 @@
 		</element>
 		<element id="ExampleScenario.process.step.alternative.description">
 			<path value="ExampleScenario.process.step.alternative.description"/>
-			<short value="A human-readable description of each option"/>
+			<short value="Human-readable description of option"/>
 			<definition value="A human-readable description of the alternative explaining when the alternative should occur rather than the base step."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -776,21 +824,20 @@
 		</element>
 		<element id="ExampleScenario.process.step.alternative.step">
 			<path value="ExampleScenario.process.step.alternative.step"/>
-			<short value="What happens in each alternative option"/>
-			<definition value="What happens in each alternative option."/>
+			<short value="Alternative action(s)"/>
+			<definition value="Indicates the operation, sub-process or scenario that happens if the alternative option is selected."/>
 			<min value="0"/>
 			<max value="*"/>
 			<contentReference value="#ExampleScenario.process.step"/>
 		</element>
-		<element id="ExampleScenario.workflow">
-			<path value="ExampleScenario.workflow"/>
-			<short value="Another nested workflow"/>
-			<definition value="Another nested workflow."/>
+		<element id="ExampleScenario.process.step.pause">
+			<path value="ExampleScenario.process.step.pause"/>
+			<short value="Pause in the flow?"/>
+			<definition value="If true, indicates that, following this step, there is a pause in the flow and the subsequent step will occur at some later time (triggered by some event)."/>
 			<min value="0"/>
-			<max value="*"/>
+			<max value="1"/>
 			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
+				<code value="boolean"/>
 			</type>
 		</element>
 	</differential>
