@@ -111,6 +111,14 @@
         <xpath value="not(exists(f:chain)) or (f:type/@value = &#39;reference&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
       </constraint>
+      <constraint>
+        <key value="spd-3"/>
+        <severity value="error"/>
+        <human value="Search parameters comparator can only be used on type &#39;number&#39;, &#39;date&#39;, &#39;quantity&#39; or &#39;special&#39;."/>
+        <expression value="comparator.empty() or (type in (&#39;number&#39; | &#39;date&#39; | &#39;quantity&#39; | &#39;special&#39;))"/>
+        <xpath value="not(exists(f:comparator)) or (f:type/@value = &#39;number&#39;) or (f:type/@value = &#39;date&#39;) or (f:type/@value = &#39;quantity&#39;) or (f:type/@value = &#39;special&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
+      </constraint>
       <mapping>
         <identity value="v2"/>
         <map value="n/a"/>
