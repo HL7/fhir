@@ -716,7 +716,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
+        <code value="MonetaryComponent"/>
       </type>
       <mapping>
         <identity value="rim"/>
