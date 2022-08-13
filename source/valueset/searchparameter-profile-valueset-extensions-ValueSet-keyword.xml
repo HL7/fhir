@@ -9,7 +9,9 @@
   <experimental value="true"/>
   <description value="Optional Extensions Element"/>
   <code value="keyword"/>
+  <base value="ValueSet"/>
   <type value="string"/>
+  <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/valueset-keyWord')"/>
   <xpath value="f:ValueSet/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/valueset-keyWord&#39;] | /f:#keyWord"/>
   <xpathUsage value="normal"/>
 </SearchParameter>
