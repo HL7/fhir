@@ -9,7 +9,9 @@
   <experimental value="true"/>
   <description value="Optional Extensions Element"/>
   <code value="workflow"/>
+  <base value="ValueSet"/>
   <type value="token"/>
+  <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/valueset-workflowStatus')"/>
   <xpath value="f:ValueSet/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/valueset-workflowStatus&#39;] | /f:#workflowStatus"/>
   <xpathUsage value="normal"/>
 </SearchParameter>
