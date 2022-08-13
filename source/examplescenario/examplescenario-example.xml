@@ -278,6 +278,7 @@
         <initiatorActive value="true"/>
         <request>
           <instanceReference value="iheadm002"/>
+          <versionReference value="iheadm002v1"/>
         </request>
       </operation>
       <pause value="true"/>
@@ -290,7 +291,7 @@
         <receiver value="MAC"/>
         <description value="The nurse's system uploads the administration results to the server"/>
         <request>
-          <instanceReference value="iheadm001"/>
+          <instanceReference value="iheadm001a"/>
         </request>
       </operation>
     </step>
