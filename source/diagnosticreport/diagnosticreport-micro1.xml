@@ -20,13 +20,11 @@
 					</coding>
 				</category>
 				<code>
-				  <concept>
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="632-0"/>
 						<display value="Culture, MRSA"/>
-					</coding>
-				  </concept>
+					</coding> 
 				</code>
 				<subject>
 					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><issued value="2009-08-10T08:25:44+10:00"/>
@@ -753,11 +751,13 @@
 				<status value="active"/>
 				<intent value="original-order"/>
 				<code>
+				  <concept>
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="632-0"/>
 					</coding>
 					<text value="Culture, MRSA"/>
+				   </concept>
 				</code>
 				<subject>
 					<reference value="Patient/example"/>

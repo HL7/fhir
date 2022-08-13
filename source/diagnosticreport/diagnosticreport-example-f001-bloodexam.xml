@@ -82,13 +82,13 @@
 				<status value="active"/>
 				<intent value="original-order"/>
 				<code>
-				    <concept>
-     				  <coding>
+				 <concept>
+					<coding>
 						<system value="http://loinc.org"/>
 						<code value="58410-2"/>
 						<display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
-					  </coding>
-					</concept>
+					</coding>
+				  </concept>
 				</code>
 				<subject>
 					<reference value="Patient/f001"/>
