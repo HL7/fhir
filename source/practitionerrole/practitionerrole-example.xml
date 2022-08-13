@@ -64,27 +64,31 @@
 			<use value="work"/>
 		</telecom>
 	</contact>
-	<availableTime>
-		<daysOfWeek value="mon"/>
-		<daysOfWeek value="tue"/>
-		<daysOfWeek value="wed"/>
-		<availableStartTime value="09:00:00"/>
-		<availableEndTime value="16:30:00"/>
-	</availableTime>
-	<availableTime>
-		<daysOfWeek value="thu"/>
-		<daysOfWeek value="fri"/>
-		<availableStartTime value="09:00:00"/>
-		<availableEndTime value="12:00:00"/>
-	</availableTime>
-	<notAvailable>
-		<description value="Adam will be on extended leave during May 2017"/>
-		<during>
-			<start value="2017-05-01"/>
-			<end value="2017-05-20"/>
-		</during>
-	</notAvailable>
-	<availabilityExceptions value="Adam is generally unavailable on public holidays and during the Christmas/New Year break"/>
+	<availability>
+		<availableTime>
+			<daysOfWeek value="mon"/>
+			<daysOfWeek value="tue"/>
+			<daysOfWeek value="wed"/>
+			<availableStartTime value="09:00:00"/>
+			<availableEndTime value="16:30:00"/>
+		</availableTime>
+		<availableTime>
+			<daysOfWeek value="thu"/>
+			<daysOfWeek value="fri"/>
+			<availableStartTime value="09:00:00"/>
+			<availableEndTime value="12:00:00"/>
+		</availableTime>
+		<notAvailableTime>
+			<description value="Adam will be on extended leave during May 2017"/>
+			<during>
+				<start value="2017-05-01"/>
+				<end value="2017-05-20"/>
+			</during>
+		</notAvailableTime>
+		<notAvailableTime>
+			<description value="Adam is generally unavailable on public holidays and during the Christmas/New Year break"/>
+		</notAvailableTime>
+	</availability>
 	<endpoint>
     <!-- Endpoint that handles the v2 messaging for the external organization -->
     <reference value="Endpoint/example"/>

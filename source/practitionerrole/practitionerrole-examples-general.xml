@@ -152,12 +152,16 @@
             <use value="mobile"/>
           </telecom>
         </contact>
-        <availableTime>
-          <daysOfWeek value="sat"/>
-          <daysOfWeek value="sun"/>
-          <allDay value="true"/>
-        </availableTime>
-      <availabilityExceptions value="Public Holidays"/>
+        <availability>
+          <availableTime>
+            <daysOfWeek value="sat"/>
+            <daysOfWeek value="sun"/>
+            <allDay value="true"/>
+          </availableTime>
+          <notAvailableTime>
+            <description value="Public Holidays"/>
+          </notAvailableTime>
+        </availability>
       </PractitionerRole>
     </resource>
   </entry>

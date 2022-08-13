@@ -105,9 +105,9 @@
     </element>
     <element id="Coverage.identifier">
       <path value="Coverage.identifier"/>
-      <short value="Business Identifier for the coverage"/>
-      <definition value="A unique identifier assigned to this coverage."/>
-      <comment value="The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Certificate number, Personal Health Number or Case ID. May be constructed as the concatenation of the Coverage.SubscriberID and the Coverage.dependant."/>
+      <short value="Business identifier(s) for this coverage"/>
+      <definition value="The identifier of the coverage as issued by the insurer."/>
+      <comment value="The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Certificate number, Personal Health Number or Case ID. May be constructed as the concatenation of the Coverage.SubscriberID and the Coverage.dependant. Note that not all insurers issue unique member IDs therefore searches may result in multiple responses."/>
       <requirements value="Allows coverages to be distinguished and referenced."/>
       <min value="0"/>
       <max value="*"/>
@@ -485,8 +485,8 @@
     <element id="Coverage.insurer">
       <path value="Coverage.insurer"/>
       <short value="Issuer of the policy"/>
-      <definition value="The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements."/>
-      <comment value="May provide multiple identifiers such as insurance company identifier or business identifier (BIN number).&#xA;For selfpay it may provide multiple paying persons and/or organizations."/>
+      <definition value="The program or plan underwriter, payor, insurance company."/>
+      <comment value="May provide multiple identifiers such as insurance company identifier or business identifier (BIN number)."/>
       <requirements value="Need to identify the issuer to target for claim processing and for coordination of benefit processing."/>
       <min value="0"/>
       <max value="1"/>
