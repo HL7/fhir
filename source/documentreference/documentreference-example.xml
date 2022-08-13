@@ -25,6 +25,11 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 			</identifier>
 		</valueReference>
 	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/documentreference-sourcepatient">
+		<valueReference>
+			<reference value="Patient/xcda"/>
+		</valueReference>
+	</extension>
 	<identifier>
 	    <type>
 		    <text value="entryUUID"/>
@@ -148,8 +153,6 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 		</profile>
 
 	</content>
-	<sourcePatientInfo>
-		<reference value="Patient/xcda"/>
-	</sourcePatientInfo>
+
 
 </DocumentReference>

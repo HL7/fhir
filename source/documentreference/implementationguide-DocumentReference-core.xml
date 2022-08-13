@@ -15,5 +15,10 @@
         <reference value="StructureDefinition/documentreference-thumbnail"/>
       </reference>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/documentreference-sourcepatient"/>
+      </reference>
+    </resource>
   </definition>
 </ImplementationGuide>

@@ -68,6 +68,7 @@ signatures.html
       </page>
       <page title="Managing Multiple FHIR Versions" filename="versioning.html"/>
       <page title="FHIRPath" filename="fhirpath.html"/>
+      <page title="NPM Packages" filename="packages.html"/>
       <page title="Version History" filename="history.html"/>
       <page title="Differences from Release 3" filename="diff.html"/>
       <page title="Release 2/3 Transforms" filename="r3maps.html"/>
@@ -170,23 +171,7 @@ signatures.html
       <page title="Using Codes" filename="terminologies.html"/>
         <page title="Terminology Binding Examples" filename="terminologies-binding-examples.html"/>
       <page title="Code Systems" filename="terminologies-systems.html">
-        <page title="SNOMED CT" filename="snomedct.html">
-          <page title="SNOMED CT Usage Report" filename="snomedct-usage.html"/>
-        </page>
-        <page title="RxNorm" filename="rxnorm.html"/>
-        <page title="LOINC" filename="loinc.html"/>
-        <page title="pCLOCD" filename="pclocd.html"/>
-        <page title="UCUM" filename="ucum.html"/>
-        <page title="NCI Metothesuaras" filename="ncimeta.html"/>
-        <page title="MED-RT" filename="medrt.html"/>
-        <page title="NDFRT" filename="ndfrt.html"/>
-        <page title="UNII" filename="unii.html"/>
-        <page title="CVX" filename="cvx.html"/>
-        <page title="CPT" filename="cpt.html"/>
-        <page title="NDC" filename="ndc.html"/>
-        <page title="ICD-X" filename="icd.html"/>
-        <page title="ISO-3166" filename="iso3166.html"/>
-        <page title="MDC Codes" filename="mdc.html"/>
+        <page title="SNOMED CT Usage Report" filename="snomedct-usage.html"/>
         <pages type="codesystem" filename="template-codesystem.html"/>
         <pages type="v2-table" filename="template-v2.html"/>
         <page title="Code Systems" filename="terminologies-v3.html"/>
@@ -210,7 +195,6 @@ signatures.html
         <page title="Examples" filename="profiling-examples.html"/>
       </page>
       <page type="resource" resource="CapabilityStatement"/>
-      <page type="resource" resource="CapabilityStatement2"/>
       <page type="resource" resource="StructureDefinition"/>
       <page type="resource" resource="OperationDefinition"/>
       <page type="resource" resource="SearchParameter"/>

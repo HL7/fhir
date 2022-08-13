@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Permission xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[name].xsd">
+  <id value="example-saner" />
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+    Read-Only access to SANER report is authorized for PurposeOfUse of Public-Health compliance, from the Organizations.
+    Access requests authorized shall be recorded.  
+    </p>
+      <p> 
+    TODO: expression help. No access is granted to previous historic revisions (only current report).
+    </p>
+      <p> 
+    TODO: authorize a Group/P1. 
+    </p>
+    </div>
+  </text>
+  <status value="active" />
+
+  <asserter>
+    <reference value="Organization/f203" />
+  </asserter>
+  <date value="2018-12-24" />
+  <combining value="deny-overrides"/>
+
+  <rule>
+    <type value="permit" />
+
+    <data>
+      <expression>
+      <language value="text/fhirpath" />
+      <expression value="http://hl7.org/fhir/uv/saner/Measure/CDCHealthcareSupplyPathway" />
+    </expression>
+    </data>
+    <activity>
+      <actor>
+        <reference value="Organization/f203" />
+      </actor>
+      <action>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/consentaction" />
+          <code value="access" />
+        </coding>
+      </action>
+      <purpose>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason" />
+          <code value="HCOMPL" />
+        </coding>
+      </purpose>
+    </activity>
+    <limit>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
+        <code value="AUDIT" />
+      </coding>
+    </limit>
+  </rule>
+</Permission>

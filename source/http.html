@@ -803,9 +803,8 @@ have all been processed, the server processes the resulting document as an <a hr
 interaction; all the version and error handling etc. apply as specified, as does the <a href="#prefer">Prefer Header</a>.
 </p>
 <p>
-Processing PATCH interactions may be very version sensitive. For this reason, servers SHALL support
-the same <a href="#versionaware">Concurrency Management</a> process defined for UPDATE.
-Clients SHOULD always consider using version specific PATCH interactions so that inappropriate
+Processing PATCH operations may be very version sensitive. For this reason,  servers that support PATCH SHALL support <a href="#versionaware">Concurrency Management</a>.
+Clients SHOULD always consider using version specific PATCH operations so that inappropriate
 actions are not executed.
 </p>
 <div class="draft-content">

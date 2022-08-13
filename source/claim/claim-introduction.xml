@@ -22,7 +22,7 @@ The Claim resource may be interpreted differently depending on its intended use 
 		<p>
 The Claim also supports:
 			<ul>
-				<li>Up to a 3-tier hierarchy of Goods, products, and Services, to support simple to complex billing, see diagram below.</li>
+				<li>Up to a 3-tier hierarchy of Goods, products, and Services, to support simple to complex billing, see <a href="financial-module.html#3-tier">3-Tier Line Item Hierarchy</a>.</li>
 				<li>Multiple insurance programs arranged in a Coordination of Benefit sequence to enable exchange with primary, secondary, tertiary etc. insurance coverages.</li>
 				<li>Assignment of benefit - the benefit may be requested to be directed to the subscriber, the provider or another party.</li>
 			</ul>
@@ -32,29 +32,7 @@ The Claim also supports:
 at <a href="https://confluence.hl7.org/display/FM/FHIR+Resource+Development">https://confluence.hl7.org/display/FM/FHIR+Resource+Development</a>.
 Mappings to other specifications may be made available where IP restrictions permit.  
 		</p>
-<h3>3-Tier Line Item Hierarchy</h3>
-<p>
-While most current eClaim data models current only support a single tier structure for line items, that is there is only a list of 'n' line items
-to support exchanging multiple services where complex relations between line items are expressed through business rules such as 'put the professional fee
-line item before the lab/device/service line item', the FHIR claim-related resources (Claim, ClaimResponse and ExplanationOfBenefit) all support a 3-tier
-structure, as illustrated in the diagram below. The tiers are:
-<ul> 
-  <li>.item, which contains the context information, such as diagnosis and care team and body site, the item service identification and costing, 
-  and an optional list of .details. When .details are provided the .item serves as a grouper where the .item costs are the sum of the .detail costs;</li> 
- <li>.detail, which contains detail service identification and costing, and an optional list of .subDetails. When .subDetails are provided 
- the .detail serves as a grouper where the .detail costs are the sum of the .subDetail costs; and</li> 
-  <li>.subDetail, which contains detail service identification and costing.</li> 
-</ul>
-</p>
-<div>
-   <img src="claim 3-tiers diagram.png" alt="Image showing the 3-tiers within the financial resources" height="326px" width="400px" />
-    </div>
 
-<p>
-The base FHIR specification provides for an unlimited numer of .items and within each .item and unlimited number or .details, and similarly 
-and unlimited number of .subDetails within each .detail. It is up to the implementation guides and profiles to determine when .details and .subDetails are permitted
- and the allowable numbers of .items, .details and .subDetails.
-</p>
 
 <h3>Additional Information</h3>
 <p>
@@ -71,6 +49,8 @@ the provider will settle the claim and potentially recover costs against specifi
 <li><a href="financial-module.html#attachments">Attachments and Supporting Information</a>: how eClaims may handle the provision of supporting
  information, whether provided by content or reference, within the eClaim resource when submitted to the payor or later in a resource which refers
  to the subject eClaim resource. This also includes how payors may request additional supporting information from providers.</li>
+<li><a href="financial-module.html#3-tier">3-Tier Line Item Hierarchy</a>: 3-tier hierarchy of Goods, products, and Services, to support simple to complex billing.</li>
+<li><a href="financial-module.html#tax">Tax</a>: Tax handling of Goods, products, and Services.</li>
 </ul>
 	</div>
 

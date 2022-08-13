@@ -67,6 +67,8 @@
 			</identifier>
 
 			<status value="active"/>
+			
+			<kind value="insurance"/>
 
 			<type>
 				<coding>
@@ -90,12 +92,12 @@
 				</coding>
 			</relationship>
 
-			<payor>
+			<insurer>
 				<identifier>
 					<system value="http://www.bindb.com/bin"/>
 					<value value="123456"/>
 				</identifier>
-			</payor>
+			</insurer>
 
 			<class>
 				<type>
@@ -104,7 +106,9 @@
 						<code value="plan"/>
 					</coding>
 				</type>
-				<value value="CBI35"/>
+				<value>
+					<value value="CBI35"/>
+				</value>
 				<name value="Corporate Baker's Inc. Plan#35"/>
 			</class>
 
@@ -115,7 +119,9 @@
 						<code value="subplan"/>
 					</coding>
 				</type>
-				<value value="123"/>
+				<value>
+					<value value="123"/>
+				</value>
 				<name value="Trainee Part-time Benefits"/>
 			</class>
 
@@ -126,7 +132,9 @@
 						<code value="sequence"/>
 					</coding>
 				</type>
-				<value value="1"/>
+				<value>
+					<value value="1"/>
+				</value>
 			</class>
 
 		</Coverage>

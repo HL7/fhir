@@ -163,6 +163,22 @@
       <condition value="cnl-0"/>
       <isSummary value="true"/>
     </element>
+    <element id="CompartmentDefinition.title">
+      <path value="CompartmentDefinition.title"/>
+      <short value="Name for this compartment definition (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the capability statement."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.title"/>
+      </mapping>
+    </element>
     <element id="CompartmentDefinition.status">
       <path value="CompartmentDefinition.status"/>
       <short value="draft | active | retired | unknown"/>
