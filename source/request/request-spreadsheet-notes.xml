@@ -111,7 +111,7 @@
     This approach makes use of the <a href="requestgroup.html">RequestGroup</a> resource which allows the assertion of complex
     timing and other dependencies between a collection of requests.  These effectively become one overall Request instance with
     a single status.  All resources referenced by the RequestGroup must have an intent of "option", meaning that they cannot
-    be interpretted independently - and that changes to them must take into account the impact on referencing resources.
+    be interpreted independently - and that changes to them must take into account the impact on referencing resources.
     Typically these will either be contained resources or tightly controlled or immutable instances based on ActivityDefinitions
     that can safely be referenced without concern of them changing independent of referencing Requests.
   </p>
