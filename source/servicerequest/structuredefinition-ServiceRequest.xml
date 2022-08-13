@@ -481,11 +481,11 @@
         <map value=".actionNegationInd"/>
       </mapping>
     </element>
-    <element id="ServiceRequest.service">
+    <element id="ServiceRequest.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#10296][#11119]#13196]."/>
       </extension>
-      <path value="ServiceRequest.service"/>
+      <path value="ServiceRequest.code"/>
       <short value="What is being requested/ordered"/>
       <definition value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested."/>
       <comment value="Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code."/>
@@ -500,7 +500,7 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ServiceRequestService"/>
+          <valueString value="ServiceRequestCode"/>
         </extension>
         <strength value="example"/>
         <description value="Codes for tests or services that can be carried out by a designated individual, organization or healthcare service.  For laboratory, LOINC is  (preferred)[http://build.fhir.org/terminologies.html#preferred] and a valueset using LOINC Order codes is available [here](valueset-diagnostic-requests.html)."/>

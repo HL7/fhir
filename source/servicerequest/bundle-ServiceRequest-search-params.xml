@@ -105,19 +105,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ServiceRequest-service-code"/>
+        <id value="ServiceRequest-code-concept"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ServiceRequest.service.code"/>
+          <valueString value="ServiceRequest.code.concept"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-service-code"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-code-concept"/>
         <description value="What is being requested/ordered"/>
-        <code value="service-code"/>
+        <code value="code-concept"/>
         <type value="token"/>
-        <expression value="ServiceRequest.service.code"/>
-        <xpath value="f:ServiceRequest/f:service/f:code"/>
+        <expression value="ServiceRequest.code.concept"/>
+        <xpath value="f:ServiceRequest/f:code/f:concept"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -125,19 +125,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ServiceRequest-service-reference"/>
+        <id value="ServiceRequest-code-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ServiceRequest.service.reference"/>
+          <valueString value="ServiceRequest.code.reference"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-service-reference"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-code-reference"/>
         <description value="What is being requested/ordered"/>
-        <code value="service-reference"/>
+        <code value="code-reference"/>
         <type value="reference"/>
-        <expression value="ServiceRequest.service.reference"/>
-        <xpath value="f:ServiceRequest/f:service/f:reference"/>
+        <expression value="ServiceRequest.code.reference"/>
+        <xpath value="f:ServiceRequest/f:code/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
