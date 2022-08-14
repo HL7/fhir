@@ -487,13 +487,15 @@
       </extension>
       <path value="ServiceRequest.code"/>
       <short value="What is being requested/ordered"/>
-      <definition value="A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested."/>
+      <definition value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested."/>
       <comment value="Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code."/>
       <alias value="service requested"/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </type>
       <isSummary value="true"/>
       <binding>
