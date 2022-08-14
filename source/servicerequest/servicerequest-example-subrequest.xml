@@ -29,11 +29,13 @@ This example is used for DetectedIssue/Duplicate Therapy example will need to ed
 	<priority value="routine"/>
 
 	<code>
+	  <concept>
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="35542-0"/>
 		</coding>
 		<text value="Peanut IgG"/>
+	  </concept>
 	</code>
 	<subject>
 		<reference value="Patient/dicom"/>

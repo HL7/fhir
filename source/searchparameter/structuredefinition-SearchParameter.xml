@@ -511,6 +511,16 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/search-xpath-usage"/>
       </binding>
     </element>
+    <element id="SearchParameter.constraint">
+      <path value="SearchParameter.constraint"/>
+      <short value="FHIRPath expression that constraints the usage of this SearchParamete"/>
+      <definition value="FHIRPath expression that defines/sets a complex constraint for when this SearchParameter is applicable."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="SearchParameter.target">
       <path value="SearchParameter.target"/>
       <short value="Types of resource (if a resource reference)"/>

@@ -13,11 +13,13 @@
 	<priority value="stat"/>
 	<doNotPerform value="true"/>
 	<code>
+	  <concept>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="359962006"/>
 			<display value="Turning patient in bed (procedure)"/>
 		</coding>
+	  </concept>
 	</code>
 	<subject>
 		<reference value="Patient/example"/>
