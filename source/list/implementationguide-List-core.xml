@@ -15,5 +15,10 @@
         <reference value="StructureDefinition/list-changeBase"/>
       </reference>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/list-for"/>
+      </reference>
+    </resource>
   </definition>
 </ImplementationGuide>
