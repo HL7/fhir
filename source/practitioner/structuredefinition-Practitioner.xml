@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Practitioner"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -41,9 +41,9 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A person who is directly or indirectly involved in the provisioning of healthcare."/>
+  <description value="A person who is directly or indirectly involved in the provisioning of healthcare or related services."/>
   <purpose value="Need to track doctors, staff, locums etc. for both healthcare practitioners, funders, etc."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -78,7 +78,7 @@
     <element id="Practitioner">
       <path value="Practitioner"/>
       <short value="A person with a  formal responsibility in the provisioning of healthcare or related services"/>
-      <definition value="A person who is directly or indirectly involved in the provisioning of healthcare."/>
+      <definition value="A person who is directly or indirectly involved in the provisioning of healthcare or related services."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>

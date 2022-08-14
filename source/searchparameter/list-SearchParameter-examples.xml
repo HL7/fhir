@@ -52,4 +52,16 @@
       <display value="Filter"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Search parameter for contraint example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="searchparameter-example-constraint"/>
+    </extension>
+    <item>
+      <reference value="SearchParameter/example-constraint"/>
+      <display value="Constraint"/>
+    </item>
+  </entry>
 </List>

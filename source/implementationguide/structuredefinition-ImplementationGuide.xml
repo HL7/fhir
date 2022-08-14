@@ -27,7 +27,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ImplementationGuide"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -46,7 +46,7 @@
   </contact>
   <description value="A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts."/>
   <purpose value="An implementation guide is able to define default profiles that must apply to any use of a resource, so validation services may need to take one or more implementation guide resources when validating."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

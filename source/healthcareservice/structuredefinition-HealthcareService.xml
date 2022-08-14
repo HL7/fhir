@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="HealthcareService"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="The details of a healthcare service available at a location or in a catalog.  In the case where there is a hierarchy of services (for example, Lab -> Pathology -> Wound Cultures), this can be represented using a set of linked HealthcareServices."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -224,7 +224,7 @@
     <element id="HealthcareService.specialty">
       <path value="HealthcareService.specialty"/>
       <short value="Specialties handled by the HealthcareService"/>
-      <definition value="Collection of specialties handled by the service site. This is more of a medical term."/>
+      <definition value="Collection of specialties handled by the Healthcare service. This is more of a medical term."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -537,143 +537,18 @@
         <map value=".actrelationship[typeCode=PERT].observation"/>
       </mapping>
     </element>
-    <element id="HealthcareService.availableTime">
+    <element id="HealthcareService.availability">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="380,100"/>
       </extension>
-      <path value="HealthcareService.availableTime"/>
-      <short value="Times the Service Site is available"/>
-      <definition value="A collection of times that the Service Site is available."/>
-      <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;."/>
+      <path value="HealthcareService.availability"/>
+      <short value="Times the healthcare service is available (including exceptions)"/>
+      <definition value="A collection of times that the healthcare service is available."/>
+      <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;.&#xD;&#xD;The NotAvailableTime(s) included indicate the general days/periods where the service is not available (for things such as public holidays)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="HealthcareService.availableTime.daysOfWeek">
-      <path value="HealthcareService.availableTime.daysOfWeek"/>
-      <short value="mon | tue | wed | thu | fri | sat | sun"/>
-      <definition value="Indicates which days of the week are available between the start and end Times."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DaysOfWeek"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The days of the week."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/days-of-week"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="HealthcareService.availableTime.allDay">
-      <path value="HealthcareService.availableTime.allDay"/>
-      <short value="Always available? i.e. 24 hour service"/>
-      <definition value="Is this always available? (hence times are irrelevant) i.e. 24 hour service."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="HealthcareService.availableTime.availableStartTime">
-      <path value="HealthcareService.availableTime.availableStartTime"/>
-      <short value="Opening time of day (ignored if allDay = true)"/>
-      <definition value="The opening time of day. Note: If the AllDay flag is set, then this time is ignored."/>
-      <comment value="The time zone is expected to be for where this HealthcareService is provided at."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="time"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="HealthcareService.availableTime.availableEndTime">
-      <path value="HealthcareService.availableTime.availableEndTime"/>
-      <short value="Closing time of day (ignored if allDay = true)"/>
-      <definition value="The closing time of day. Note: If the AllDay flag is set, then this time is ignored."/>
-      <comment value="The time zone is expected to be for where this HealthcareService is provided at."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="time"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="HealthcareService.notAvailable">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,250"/>
-      </extension>
-      <path value="HealthcareService.notAvailable"/>
-      <short value="Not available during this time due to provided reason"/>
-      <definition value="The HealthcareService is not available during this period of time due to the provided reason."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="HealthcareService.notAvailable.description">
-      <path value="HealthcareService.notAvailable.description"/>
-      <short value="Reason presented to the user explaining why time not available"/>
-      <definition value="The reason that can be presented to the user as to why this time is not available."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="HealthcareService.notAvailable.during">
-      <path value="HealthcareService.notAvailable.during"/>
-      <short value="Service not available from this date"/>
-      <definition value="Service is not available (seasonally or for a public holiday) from this date."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="HealthcareService.availabilityExceptions">
-      <path value="HealthcareService.availabilityExceptions"/>
-      <short value="Description of availability exceptions"/>
-      <definition value="A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
+        <code value="Availability"/>
       </type>
       <mapping>
         <identity value="rim"/>

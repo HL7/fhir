@@ -13,12 +13,14 @@
 		<text value="Evaluation"/>
 	</category>
 	<code>
+	  <concept>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="710830005"/>
 			<display value="Assessment of passive range of motion (procedure)"/>
 		</coding>
 		<text value="Assessment of passive range of motion"/>
+	  </concept>
 	</code>
 	<subject>
 		<reference value="Patient/example"/>

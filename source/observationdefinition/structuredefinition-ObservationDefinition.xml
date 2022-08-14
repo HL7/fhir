@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ObservationDefinition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -46,7 +46,7 @@
   </contact>
   <description value="Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service."/>
   <purpose value="In a catalog of health-related services that use or produce observations and measurements, this resource describes the expected characteristics of these observation / measurements."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

@@ -3,71 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="examplescenario-actor-type"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/examplescenario-actor-type defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">person
-            
-            <a name="examplescenario-actor-type-person"> </a>
-          
-          </td>
-          
-          <td>Person</td>
-          
-          <td>A person.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">entity
-            
-            <a name="examplescenario-actor-type-entity"> </a>
-          
-          </td>
-          
-          <td>System</td>
-          
-          <td>A system.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -82,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.859"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ExampleScenarioActorType"/>
   <title value="ExampleScenarioActorType"/>
   <status value="draft"/>
@@ -106,11 +43,11 @@
   <concept>
     <code value="person"/>
     <display value="Person"/>
-    <definition value="A person."/>
+    <definition value="A human actor"/>
   </concept>
   <concept>
-    <code value="entity"/>
+    <code value="system"/>
     <display value="System"/>
-    <definition value="A system."/>
+    <definition value="A software application or other system"/>
   </concept>
 </CodeSystem>

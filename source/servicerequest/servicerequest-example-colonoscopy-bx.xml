@@ -12,12 +12,14 @@
 	<status value="completed"/>
 	<intent value="order"/>
 	<code>
+	  <concept>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="76164006"/>
 			<display value="Biopsy of colon (procedure)"/>
 		</coding>
 		<text value="Biopsy of colon"/>
+	  </concept>
 	</code>
 	<subject>
 		<reference value="Patient/example"/>

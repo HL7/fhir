@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Group"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Group"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn&#39;t an Organization."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -74,14 +74,6 @@
       <comment value="If both Group.characteristic and Group.member are present, then the members are the individuals who were found who met the characteristic.  It&#39;s possible that there might be other candidate members who meet the characteristic and aren&#39;t (yet) in the list.  All members SHALL have the listed characteristics."/>
       <min value="0"/>
       <max value="*"/>
-      <constraint>
-        <key value="grp-1"/>
-        <severity value="error"/>
-        <human value="Can only have members if group is &quot;actual&quot;"/>
-        <expression value="member.empty() or (actual = true)"/>
-        <xpath value="f:actual/@value=true() or not(exists(f:member))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Group"/>
-      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="Entity[determinerCode=&quot;GRP&quot; or determinerCode=&quot;GRP_KIND&quot;]"/>
@@ -149,9 +141,9 @@
         <valueString value="Do we need &quot;mixed&quot; groups?"/>
       </extension>
       <path value="Group.type"/>
-      <short value="person | animal | practitioner | device | medication | substance"/>
+      <short value="person | animal | practitioner | device | medication | substance | bodystructure"/>
       <definition value="Identifies the broad classification of the kind of resources the group includes."/>
-      <comment value="Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, Device, Medication or Substance for the other types.)."/>
+      <comment value="Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, Device, Medication, Substance or BodyStructure for the other types.)."/>
       <requirements value="Identifies what type of resources the group is made up of."/>
       <min value="1"/>
       <max value="1"/>
@@ -176,26 +168,22 @@
         <map value="person: ./classCode=&quot;PSN&quot;  animal: ./classCode=&quot;ANM&quot;  device: ./classCode=&quot;DEV&quot;  medication: ./classCode=&quot;MMAT&quot; and ./playedRole[isNormalRole() and classCode=&quot;THER&quot;]  food: ./classCode=&quot;FOOD&quot;"/>
       </mapping>
     </element>
-    <element id="Group.actual">
-      <path value="Group.actual"/>
-      <short value="Descriptive or actual"/>
-      <definition value="If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals."/>
-      <requirements value="There are use-cases for groups that define specific collections of individuals, and other groups that define &quot;types&quot; of intended individuals.  The requirements for both kinds of groups are similar, so we use a single resource, distinguished by this flag."/>
+    <element id="Group.membership">
+      <path value="Group.membership"/>
+      <short value="definitional | enumerated"/>
+      <definition value="Basis for membership in the Group:&#10;&#10;* 'definitional': The Group.characteristics specified are both necessary and sufficient to determine membership. All entities that meet the criteria are considered to be members of the group, whether referenced by the group or not. If members are present, they are individuals that happen to be known as meeting the Group.characteristics. The list cannot be presumed to be complete.&#10;* 'enumerated': The Group.characteristics are necessary but not sufficient to determine membership. Membership is determined by being listed as one of the Group.member."/>
+      <requirements value="There are use-cases for groups that define specific collections of individuals, and other groups that define &quot;types&quot; of intended individuals.  The requirements for both kinds of groups are similar, so we use a single resource, distinguished by this element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="boolean"/>
+        <code value="code"/>
       </type>
-      <condition value="grp-1"/>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="true: ./determinerCode=&quot;GRP&quot;  false: ./determinerCode=&quot;GRP_KIND&quot;"/>
-      </mapping>
+      <binding>
+        <strength value="required"/>
+        <description value="The basis for membership in a group"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/group-membership-basis|5.0.0"/>
+      </binding>
     </element>
     <element id="Group.code">
       <path value="Group.code"/>
@@ -409,7 +397,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="grp-1"/>
       <mapping>
         <identity value="rim"/>
         <map value="./scopedRole[isNormalRole() and classCode=&quot;MBR&quot;]/player"/>
@@ -430,6 +417,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
     </element>
     <element id="Group.member.period">

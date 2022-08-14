@@ -18,6 +18,9 @@ The Claim resource may be interpreted differently depending on its intended use 
 				<li>predetermination - where the provision of goods and services is <b>explored</b> to determine what services may be covered and to what amount. Essentially a 'what if' claim.</li>
 			</ul> 
 		</p>
+<p>
+The Claim.type code system provides oral, pharmacy, vision, professional and institutional claim types. Claim types supported are influenced by the requirements of the implementing jurisdiction. 
+The valueset is extensible to accommodate other types of claims as required by the jurisdiction. </p>
 
 		<p>
 The Claim also supports:

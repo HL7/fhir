@@ -24,7 +24,7 @@
     <valueCode value=".verificationStatus = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Condition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Condition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="sct-concept"/>
     <uri value="http://snomed.info/conceptdomain"/>

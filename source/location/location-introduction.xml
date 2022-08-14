@@ -33,7 +33,8 @@ freezers to full hospital buildings or parking garages.
   <p>
     Locations and Organizations are very closely related resources and can often be mixed/matched/confused.<br/>
 		The Location is intended to describe the more physical structures managed/operated by an organization, whereas the Organization is intended to
-		represent the more conceptual hierarchies, such as a ward.
+		represent the more conceptual hierarchies, such as a ward.<br/>
+		As noted in the Event pattern, a Location represents where a service is performed.  An Organization can represent who performed the service.
 	</p>
 	<p>
 		A Location is valid without an address in cases where it could be purely described by
