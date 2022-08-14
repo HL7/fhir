@@ -27,29 +27,22 @@
            <a name="device-status-active"></a>
           </td>
           <td>Active</td>
-          <td>The device is available for use.  Note: For *implanted devices*  this means that the device is implanted in the patient.</td>
+          <td>The device record is current and is appropriate for reference in new instances.</td>
         </tr>
         <tr>
           <td style="white-space:nowrap">inactive
             <a name="device-status-inactive"></a>
           </td>
           <td>Inactive</td>
-          <td>The device is no longer available for use (e.g. lost, expired, damaged).  Note: For *implanted devices*  this means that the device has been removed from the patient.</td>
+          <td>The device record is not current and is not appropriate for reference in new instances.</td>
         </tr>
         <tr>
           <td style="white-space:nowrap">entered-in-error
             <a name="device-status-entered-in-error"></a>
           </td>
           <td>Entered in Error</td>
-          <td>The device was entered in error and voided.</td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">unknown
-            <a name="device-status-unknown"></a>
-          </td>
-          <td>Unknown</td>
-          <td>The status of the device has not been determined.</td>
-        </tr>
+          <td>The device record is not current and is not appropriate for reference in new instances.</td>
+        </tr> 
       </table>
     </div>
   </text>
@@ -84,23 +77,23 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The availability status of the device."/>
+  <description value="The status of the Device record."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/device-status"/>
   <content value="complete"/>
   <concept>
     <code value="active"/>
     <display value="Active"/>
-    <definition value="The device is available for use.  Note: For *implanted devices*  this means that the device is implanted in the patient."/>
+    <definition value="The device record is current and is appropriate for reference in new instances."/>
   </concept>
   <concept>
     <code value="inactive"/>
     <display value="Inactive"/>
-    <definition value="The device is no longer available for use (e.g. lost, expired, damaged).  Note: For *implanted devices*  this means that the device has been removed from the patient."/>
+    <definition value="The device record is not current and is not appropriate for reference in new instances."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="The device was entered in error and voided."/>
+    <definition value="The device record is not current and is not appropriate for reference in new instances."/>
   </concept>
 </CodeSystem>
