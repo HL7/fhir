@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="VisionPrescription"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -120,7 +120,7 @@
       <short value="active | cancelled | draft | entered-in-error"/>
       <definition value="The status of the resource instance."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
-      <requirements value="Need to track the status of the resource as &#39;draft&#39; resources may undergo further edits while &#39;active&#39; resources are immutable and may only have their status changed to &#39;cancelled&#39;."/>
+      <requirements value="Need to track the status of the resource as 'draft' resources may undergo further edits while 'active' resources are immutable and may only have their status changed to 'cancelled'."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -275,7 +275,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXE-13-Ordering Provider&#39;s DEA Number / RXO-14-Ordering Provider&#39;s DEA Number / RXE-14-Pharmacist/Treatment Supplier&#39;s Verifier ID / RXO-15-Pharmacist/Treatment Supplier&#39;s Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation=&#39;OP&#39; (all but last deprecated)"/>
+        <map value="RXE-13-Ordering Provider's DEA Number / RXO-14-Ordering Provider's DEA Number / RXE-14-Pharmacist/Treatment Supplier's Verifier ID / RXO-15-Pharmacist/Treatment Supplier's Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation='OP' (all but last deprecated)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -332,7 +332,7 @@
       <path value="VisionPrescription.lensSpecification.eye"/>
       <short value="right | left"/>
       <definition value="The eye for which the lens specification applies."/>
-      <comment value="May also appear as OD (oculus dexter) for the right eye and OS (oculus siniter) for the left eye."/>
+      <comment value="May also appear on the paper claim form or in the Medical Records as as OD (oculus dexter) for the right eye and OS (oculus sinister) for the left eye."/>
       <requirements value="Needed to identify which eye the lens specification applies to."/>
       <min value="1"/>
       <max value="1"/>

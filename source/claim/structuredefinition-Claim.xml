@@ -142,7 +142,7 @@
       <path value="Claim.type"/>
       <short value="Category or discipline"/>
       <definition value="The category of claim, e.g. oral, pharmacy, vision, institutional, professional."/>
-      <comment value="The majority of jurisdictions use: oral, pharmacy, vision, professional and institutional, or variants on those terms, as the general styles of claims. The valueset is extensible to accommodate other jurisdictional requirements."/>
+      <comment value="The code system provides oral, pharmacy, vision, professional and institutional claim types. Those supported depends on the requirements of the jurisdiction. The valueset is extensible to accommodate other types of claims as required by the jurisdiction."/>
       <requirements value="Claim type determine the general sets of business rules applied for information requirements and adjudication."/>
       <min value="1"/>
       <max value="1"/>

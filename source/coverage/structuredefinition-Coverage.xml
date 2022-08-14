@@ -128,10 +128,6 @@
         <map value="C02"/>
       </mapping>
       <mapping>
-        <identity value="v2"/>
-        <map value="IN1-2"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
         <map value=".id"/>
       </mapping>
@@ -553,6 +549,10 @@
       <mapping>
         <identity value="v2"/>
         <map value="IN1-8"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-2"/>
       </mapping>
       <mapping>
         <identity value="cpha3pharm"/>
