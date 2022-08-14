@@ -100,4 +100,17 @@
       <display value="Combination Product Bundle"/>
     </item>
   </entry>
+  
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Product with Contained Package and Ingredient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicinalproductdefinition-with-contained-package-and-ingredient"/>
+    </extension>
+    <item>
+      <reference value="MedicinalProductDefinition/product-with-contained-package-and-ingredient"/>
+      <display value="Product with Contained Package and Ingredient"/>
+    </item>
+  </entry>
 </List>

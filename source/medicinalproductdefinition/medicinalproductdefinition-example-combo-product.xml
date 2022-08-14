@@ -170,13 +170,13 @@
 			<packageFor>
 				<reference value="#"/>
 			</packageFor>
-			<package>
+			<packaging>
 				<type>
 					<coding>
 						<code value="Box"/>
 					</coding>
 				</type>
-				<package>
+				<packaging>
 					<type>
 						<coding>
 							<code value="blister pack"/>
@@ -192,8 +192,8 @@
 							<value value="1"/>
 						</amount>
 					</containedItem>
-				</package>
-				<package>
+				</packaging>
+				<packaging>
 					<type>
 						<coding>
 							<code value="tube"/>
@@ -208,17 +208,19 @@
 						<amount>
 							<value value="20"/>
 							<unit value="g"/>
+							<system value="http://unitsofmeasure.org"/> 
+							<code value="g"/>
 						</amount>
 					</containedItem>
-					<package>
+					<packaging>
 						<type>
 							<coding>
 								<code value="cap"/>
 							</coding>
 						</type>
-					</package>
-				</package>
-			</package>
+					</packaging>
+				</packaging>
+			</packaging>
 		</PackagedProductDefinition>
 	</contained>
 	<contained>

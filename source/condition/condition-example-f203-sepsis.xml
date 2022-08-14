@@ -61,13 +61,23 @@
   </encounter>
   <onsetDateTime value="2013-03-08"/>
   <recordedDate value="2013-03-11"/>
-  <asserter>
-    <reference value="Practitioner/f201"/>
-  </asserter>
+  <participant> 
+    <function> 
+      <coding> 
+        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/> 
+        <code value="author"/> 
+        <display value="Author"/> 
+      </coding> 
+    </function> 
+    <actor> 
+      <reference value="Practitioner/f201"/> 
+    </actor> 
+  </participant> 
+
   <evidence>
-    <detail>
+    <reference>
       <reference value="DiagnosticReport/f202"/>
       <display value="Diagnostic report for Roel's sepsis"/>
-    </detail>
+    </reference>
   </evidence>
 </Condition>

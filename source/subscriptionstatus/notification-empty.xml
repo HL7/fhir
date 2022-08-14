@@ -12,7 +12,10 @@
         <status value="active"/>
         <type value="event-notification"/>
         <eventsSinceSubscriptionStart value="2"/>
-        <eventsInNotification value="0"/>
+        <notificationEvent>
+          <eventNumber value="2"/>
+          <timestamp value="2020-04-17T10:20:00.0000000-05:00"/>
+        </notificationEvent>
         <subscription>
           <reference value="http://example.org/FHIR/R5/Subscription/123"/>
         </subscription>

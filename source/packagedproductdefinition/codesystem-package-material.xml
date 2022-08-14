@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="package-material"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/package-material"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+     <value value="urn:oid:2.16.840.1.113883.4.642.1.1675"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="PackageMaterial"/>
+   <title value="PackageMaterial"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+   <description value="A material used in the construction of packages and their components."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/package-material"/>
+  <content value="complete"/>
+  <concept><code value="200000003200"/><display value="Aluminium"/></concept>
+  <concept><code value="200000003201"/><display value="Cyclic Olefin Copolymer"/></concept>
+  <concept><code value="200000003202"/><display value="Epoxyphenol"/></concept>
+  <concept><code value="200000003203"/><display value="Glass"/></concept>
+  <concept><code value="200000003204"/><display value="Glass type I"/></concept>
+  <concept><code value="200000003205"/><display value="Glass type II"/></concept>
+  <concept><code value="200000003206"/><display value="Glass type III"/></concept>
+  <concept><code value="200000003207"/><display value="Paper"/></concept>
+  <concept><code value="200000003208"/><display value="Plastic"/></concept>
+  <concept><code value="200000003209"/><display value="PolyAmide"/></concept>
+  <concept><code value="200000003210"/><display value="Orientated PolyAmide"/></concept>
+  <concept><code value="200000003211"/><display value="PolyCarbonate"/></concept>
+  <concept><code value="200000003212"/><display value="PolyChloroTriFluoroEthylene"/></concept>
+  <concept><code value="200000003213"/><display value="Polyester"/></concept>
+  <concept><code value="200000003214"/><display value="PolyEthylene"/></concept>
+  <concept><code value="200000003215"/><display value="High Density PolyEthylene"/></concept>
+  <concept><code value="200000003216"/><display value="Low Density PolyEthylene"/></concept>
+  <concept><code value="200000003217"/><display value="PolyEthylene TerePhthalate"/></concept>
+  <concept><code value="200000003218"/><display value="Polyolefin"/></concept>
+  <concept><code value="200000003219"/><display value="PolyPropylene"/></concept>
+  <concept><code value="200000003220"/><display value="PolyStyrene"/></concept>
+  <concept><code value="200000003221"/><display value="PolyVinyl Acetate"/></concept>
+  <concept><code value="200000003222"/><display value="PolyVinyl Chloride"/></concept>
+  <concept><code value="200000003223"/><display value="Plasticised PolyVinyl Chloride"/></concept>
+  <concept><code value="200000003224"/><display value="Non-plasticised PolyVinyl Chloride / Unplasticised PolyVinyl Chloride"/></concept>
+  <concept><code value="200000003225"/><display value="PolyVinylidene Chloride"/></concept>
+  <concept><code value="200000003226"/><display value="Rubber"/></concept>
+  <concept><code value="200000003227"/><display value="Silicone oil"/></concept>
+  <concept><code value="200000003228"/><display value="Silicone elastomer"/></concept>
+  <concept><code value="200000003229"/><display value="Steel"/></concept>
+  <concept><code value="200000003529"/><display value="Cardboard"/></concept>
+  <concept><code value="200000012514"/><display value="PolyAcryloNitrile"/></concept>
+  <concept><code value="200000012515"/><display value="Ethylene acrylic acid copolymer"/></concept>
+  <concept><code value="200000012521"/><display value="Ethylene meta-acrylic acid"/></concept>
+  <concept><code value="200000012522"/><display value="Ethylene-Vinyl Alcohol copolymer"/></concept>
+  <concept><code value="200000012523"/><display value="PolyVinylidene Fluoride"/></concept>
+  <concept><code value="200000012524"/><display value="Medium Density PolyEthylene"/></concept>
+  <concept><code value="200000012538"/><display value="Syndiotactic Polypropylene"/></concept>
+  <concept><code value="200000015521"/><display value="PolyEthylene copolymer"/></concept>
+  <concept><code value="200000023330"/><display value="Expanded Polyethylene"/></concept>
+  <concept><code value="200000023332"/><display value="Cyclic Olefin Polymer"/></concept>
+  <concept><code value="200000025255"/><display value="Silica gel"/></concept>
+  <concept><code value="200000025257"/><display value="Linear Low Density PolyEthylene"/></concept>
+</CodeSystem>

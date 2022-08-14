@@ -16,14 +16,14 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/cdshooksserviceplandefinition"/>
-  <version value="4.6.0"/>
-  <name value="CDS Hooks Service PlanDefinition"/>
+  <version value="5.0.0"/>
+  <name value="CDSHooksServicePlanDefinition"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
   <description value="Defines a PlanDefinition that implements the behavior for a CDS Hooks service"/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

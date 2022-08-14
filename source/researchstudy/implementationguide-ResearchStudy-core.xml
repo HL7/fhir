@@ -12,13 +12,13 @@
   <definition>
     <resource>
       <reference>
-        <reference value="StructureDefinition/researchStudy-relatesTo"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/researchStudy-siteRecruitment"/>
       </reference>
     </resource>
+      <resource>
+        <reference>
+          <reference value="StructureDefinition/researchStudy-studyRegistration"/>
+        </reference>
+      </resource>
   </definition>
 </ImplementationGuide>

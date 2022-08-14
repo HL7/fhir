@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="biologicallyderivedproduct-processing"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/biologicallyderivedproduct-processing"/>
+  <version value="5.0.0"/>
+  <name value="processing"/>
+  <title value="Processing"/>
+  <status value="draft"/>
+  <date value="2022-03-07"/>
+  <publisher value="Health Level Seven, Inc. - OO WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/special/committees/orders"/>
+    </telecom>
+  </contact>
+  <description value="Extension for processing of a biologically dervied prodcut"/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="BiologicallyDerivedProduct"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Any processing of the product during collection"/>
+      <definition value="Any processing of the product during collection that does not change the fundamental nature of the product. For example adding anti-coagulants during the collection of Peripheral Blood Stem Cells."/>
+      <min value="0"/>
+      <max value="*"/>
+    </element>
+    <element id="Extension.extension:description">
+      <path value="Extension.extension"/>
+      <sliceName value="description"/>
+      <short value="Processing of description"/>
+      <definition value="Textual description of the processing of the biologically derived product."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="desc"/>
+      </mapping>
+    </element>
+    <element id="Extension.extension:description.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:description.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="description"/>
+    </element>
+    <element id="Extension.extension:description.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Extension.extension:procedure">
+      <path value="Extension.extension"/>
+      <sliceName value="procedure"/>
+      <short value="Procesing procedure"/>
+      <definition value="The procedure used for processing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="code"/>
+      </mapping>
+    </element>
+    <element id="Extension.extension:procedure.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:procedure.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="procedure"/>
+    </element>
+    <element id="Extension.extension:procedure.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Biologically Derived Product Procedure."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BiologicallyDerivedProductProcedure"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Biologically Derived Product Procedure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
+      </binding>
+    </element>
+    <element id="Extension.extension:additive">
+      <path value="Extension.extension"/>
+      <sliceName value="additive"/>
+      <short value="Substance added during processing"/>
+      <definition value="Substance added during processing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+    </element>
+    <element id="Extension.extension:additive.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:additive.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="additive"/>
+    </element>
+    <element id="Extension.extension:additive.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+      </type>
+    </element>
+    <element id="Extension.extension:time[x]">
+      <path value="Extension.extension"/>
+      <sliceName value="time[x]"/>
+      <short value="Time of processing"/>
+      <definition value="Time of processing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+    </element>
+    <element id="Extension.extension:time[x].extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:time[x].url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="time[x]"/>
+    </element>
+    <element id="Extension.extension:time[x].value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

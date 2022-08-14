@@ -16,7 +16,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/triglyceride"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Example Lipid Profile"/>
   <status value="draft"/>
   <experimental value="true"/>
@@ -29,7 +29,7 @@
     </telecom>
   </contact>
   <description value="Triglyceride Result"/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

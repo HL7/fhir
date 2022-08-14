@@ -24,7 +24,7 @@
     <valueCode value="Medication does not have a status"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Medication"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Medication"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="script10.6"/>
     <uri value="http://ncpdp.org/SCRIPT10_6"/>
@@ -140,7 +140,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXO-1.1-Requested Give Code.code / RXE-2.1-Give Code.code / RXD-2.1-Dispense/Give Code.code / RXG-4.1-Give Code.code /RXA-5.1-Administered Code.code / RXC-2.1 Component Code"/>
+        <map value="RXO-1.1 Requested Give Code.code / RXE-2.1 Give Code.code / RXD-2.1 Dispense/Give Code.code / RXG-4.1 Give Code.code /RXA-5.1 Administered Code.code / RXC-2.1 Component Code"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -175,8 +175,8 @@
     </element>
     <element id="Medication.marketingAuthorizationHolder">
       <path value="Medication.marketingAuthorizationHolder"/>
-      <short value="Organization responsible for manufacturing the item"/>
-      <definition value="Describes&#xA0;the organization that is responsible for the manufacturing of the item and holds the registration to market the product in a jurisdiction. This might not be the company that physically manufactures the product.&#xA0; May be known as &quot;Sponsor&quot; and is commonly called &quot;Manufacturer&quot;."/>
+      <short value="Organization that has authorization to market medication"/>
+      <definition value="The company or other legal entity that has authorization, from the appropriate drug regulatory authority,  to market a medicine in one or more jurisdictions.  Typically abbreviated MAH.Note:  The MAH may manufacture the product and may also contract the manufacturing of the product to one or more companies (organizations)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -213,7 +213,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXO-5-Requested Dosage Form / RXE-6-Give Dosage Form / RXD-6-Actual Dosage Form / RXG-8-Give Dosage Form / RXA-8-Administered Dosage Form"/>
+        <map value="RXO-5 Requested Dosage Form / RXE-6 Give Dosage Form / RXD-6 Actual Dosage Form / RXG-8 Give Dosage Form / RXA-8 Administered Dosage Form"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -278,7 +278,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXC-2-Component Code  if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code"/>
+        <map value="RXC-2 Component Code  if medication: RXO-1 Requested Give Code / RXE-2 Give Code / RXD-2-Dispense Give Code / RXG-4 Give Code / RXA-5 Administered Code"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -329,7 +329,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXC-3-Component Amount &amp; RXC-4-Component Units  if medication: RXO-2-Requested Give Amount - Minimum &amp; RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum &amp; RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount &amp; RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum &amp; RXE-5-Give Units / RXE-4-Give Amount - Maximum &amp; RXE-5-Give Units / RXE-10-Dispense Amount &amp; RXE-10-Dispense Units"/>
+        <map value="RXC-3 Component Amount &amp; RXC-4 Component Units  if medication: RXO-2 Requested Give Amount - Minimum &amp; RXO-4 Requested Give Units / RXO-3 Requested Give Amount - Maximum &amp; RXO-4 Requested Give Units / RXO-11 Requested Dispense Amount &amp; RXO-12 Requested Dispense Units / RXE-3 Give Amount - Minimum &amp; RXE-5 Give Units / RXE-4 Give Amount - Maximum &amp; RXE-5 Give Units / RXE-10 Dispense Amount &amp; RXE-10 Dispense Units"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

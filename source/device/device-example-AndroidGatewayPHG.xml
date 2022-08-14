@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Device xmlns="http://hl7.org/fhir">
+<id value="AndroidGatewayPHG"/> 
+<identifier>
+    <type>
+      <coding>
+       <system value="http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers"/>
+        <code value="SYSID"/>
+        <display value="System Identifier" />
+      </coding>
+    </type>
+    <system value="urn:oid:1.2.840.10004.1.1.1.0.0.1.0.0.1.2680" />
+    <value value="4C-4E-49-12-34-56-FF-FF" />
+</identifier>
+  <type>
+    <coding>
+      <system value="urn:iso:std:iso:11073:10101" />
+      <code value="531981" />
+      <display value="MDC_MOC_VMS_MDS_AHD" />
+    </coding>
+    <text value="MDC_MOC_VMS_MDS_AHD: Continua compliant Gateway" />
+  </type>
+  <version>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="532352"/>
+      </coding>
+      <text value="MDC_REG_CERT_DATA_CONTINUA_VERSION: Continua version"/>
+    </type>
+    <value value="6.0" />
+  </version>
+  <property>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="532353"/>
+      </coding>
+      <text value="MDC_REG_CERT_DATA_CONTINUA_CERT_DEV_LIST: Continua certified device list" />
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaPAN" />
+        <code value="4"/>
+      </coding>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="532355"/>
+      </coding>
+      <text value="MDC_REG_CERT_DATA_CONTINUA_AHD_CERT_LIST: Continua certified Health&amp;Fitness interfaces list"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaHFS" />
+        <code value="0" />
+      </coding>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="532355"/>
+      </coding>
+      <text value="MDC_REG_CERT_DATA_CONTINUA_AHD_CERT_LIST: Continua certified Health&amp;Fitness interfaces list"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaHFS"/>
+        <code value="3"/>
+      </coding>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="532355"/>
+      </coding>
+      <text value="MDC_REG_CERT_DATA_CONTINUA_AHD_CERT_LIST: Continua certified Health&amp;Fitness interfaces list"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaHFS"/>
+        <code value="7"/>
+      </coding>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="532355"/>
+      </coding>
+      <text value="MDC_REG_CERT_DATA_CONTINUA_AHD_CERT_LIST: Continua certified Health&amp;Fitness interfaces list"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaHFS"/>
+        <code value="2"/>
+      </coding>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="532355"/>
+      </coding>
+      <text value="MDC_REG_CERT_DATA_CONTINUA_AHD_CERT_LIST: Continua certified Health&amp;Fitness interfaces list"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaHFS" />
+        <code value="6"/>
+      </coding>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ASN1ToHL7" />
+        <code value="532354.0" />
+        <display value="regulation-status"/>
+      </coding>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0136"/>
+        <code value="Y"/>
+      </coding>
+      <text value="Device is Unregulated"/>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="68220"/>
+      </coding>
+      <text value="MDC_TIME_SYNC_PROTOCOL: Time synchronization protocol"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="532226"/>
+      </coding>
+      <text value="MDC_TIME_SYNC_NTPV4: NTPV4 time synchronization"/>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="68221"/>
+      </coding>
+      <text value="MDC_TIME_SYNC_ACCURACY: unknown code"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="us"/>
+      </coding>
+      <text value="120000000"/>
+    </valueCodeableConcept>
+  </property>
+
+  </Device>

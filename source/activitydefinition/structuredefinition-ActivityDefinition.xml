@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ActivityDefinition"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -85,7 +85,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
       </constraint>
@@ -257,7 +257,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -304,6 +304,7 @@
       <path value="ActivityDefinition.subject[x]"/>
       <short value="Type of individual the activity definition is intended for"/>
       <definition value="A code, group definition, or canonical reference that describes  or identifies the intended subject of the activity being defined.  Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource."/>
+      <comment value="Note that the choice of canonical for the subject element was introduced in R4B to support pharmaceutical quality use cases. To ensure as much backwards-compatibility as possible, it is recommended to only use the new canonical type with these use cases."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -762,7 +763,7 @@
         </extension>
         <strength value="required"/>
         <description value="The kind of activity the definition is describing."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-resource-types|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-resource-types|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -825,7 +826,7 @@
         </extension>
         <strength value="required"/>
         <description value="Codes indicating the degree of authority/intentionality associated with a request."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-intent|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-intent|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -847,7 +848,7 @@
         </extension>
         <strength value="required"/>
         <description value="Identifies the level of importance to be assigned to actioning the request."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -944,7 +945,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>

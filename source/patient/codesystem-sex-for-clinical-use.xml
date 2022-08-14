@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="sex-for-clinical-use"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/sex-for-clinical-use"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.983"/>
+  </identifier>
+  <name value="sexForClinicalUseCS"/>
+  <title value="Sex For Clinical Use"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="Codes that represent a sex characterization that can be associated with a specific clinical context"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <property> 
+    <code value="usage-note"/>
+	<uri value="http://hl7.org/fhir/sex-for-clinical-use/property/usage-note"/>
+    <description value="Usage notes for the concept."/> 
+    <type value="string"/> 
+  </property> 
+  <concept>
+    <code value="female"/>
+    <display value="Female sex for clinical use"/>
+    <definition value="Available data indicates that diagnostics, analytics, and treatments should consider best practices associated with female reference populations."/>
+  </concept>
+  <concept>
+    <code value="male"/>
+    <display value="Male sex for clinical use"/>
+    <definition value="Available data indicates that diagnostics, analytics, and treatments should consider best practices associated with male reference populations."/>
+  </concept>
+  <concept>
+    <code value="specified"/>
+    <display value="Specified sex for clinical use"/>
+    <definition value="Available data indicates that diagnostics, analytics, and treatment best practices may be undefined or not aligned with sex-derived reference populations.  Additional information (usually, but not always, in the form of comments and/or observations) is available, but does not align with male sex for clinical use or female sex for clinical use. "/>
+	<property>   
+      <code value="usage-note"/> 
+      <valueString value="Individuals or systems providing care should either use default behavior that is safe for both male and female populations, individually review treatment options with the patient, or carefully inspect comments and relevant observations before proceeding with treatment. Systems that are unable to review additional information that may be associated with an SFCU value may manage a SPECIFIED and an UNKNOWN value in the same way."/> 
+    </property>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="No information can be provided."/>
+	<property>   
+      <code value="usage-note"/> 
+      <valueString value="Systems that are unable to review additional information that may be associated with an SFCU value may manage a SPECIFIED and an UNKNOWN value in the same way."/> 
+    </property>
+  </concept>  
+</CodeSystem>

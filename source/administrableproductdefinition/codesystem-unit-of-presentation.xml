@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="unit-of-presentation"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/unit-of-presentation"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+     <value value="urn:oid:2.16.840.1.113883.4.642.1.1587"/>
+  </identifier>
+  <version value="5.0.0"/>
+   <name value="UnitOfPresentation"/>
+   <title value="UnitOfPresentation"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+   <description value="The presentation type in which an administrable medicinal product is given to a patient."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/unit-of-presentation"/>
+  <content value="complete"/>
+   <concept>
+      <code value="200000002108"/>
+      <display value="Barrel"/>
+   </concept>
+   <concept>
+      <code value="200000002109"/>
+      <display value="Blister"/>
+   </concept>
+   <concept>
+      <code value="200000002110"/>
+      <display value="Block"/>
+   </concept>
+   <concept>
+      <code value="200000002111"/>
+      <display value="Bottle"/>
+   </concept>
+   <concept>
+      <code value="200000002112"/>
+      <display value="Cachet"/>
+   </concept>
+   <concept>
+      <code value="200000002113"/>
+      <display value="Capsule"/>
+   </concept>
+   <concept>
+      <code value="200000002114"/>
+      <display value="Cartridge"/>
+   </concept>
+   <concept>
+      <code value="200000002115"/>
+      <display value="Collar"/>
+   </concept>
+   <concept>
+      <code value="200000002116"/>
+      <display value="Container"/>
+   </concept>
+   <concept>
+      <code value="200000002117"/>
+      <display value="Cup"/>
+   </concept>
+   <concept>
+      <code value="200000002118"/>
+      <display value="Cylinder"/>
+   </concept>
+   <concept>
+      <code value="200000002119"/>
+      <display value="Dart"/>
+   </concept>
+   <concept>
+      <code value="200000002120"/>
+      <display value="Dressing"/>
+   </concept>
+   <concept>
+      <code value="200000002121"/>
+      <display value="Drop"/>
+   </concept>
+   <concept>
+      <code value="200000002122"/>
+      <display value="Film"/>
+   </concept>
+   <concept>
+      <code value="200000002123"/>
+      <display value="Chewing gum"/>
+   </concept>
+   <concept>
+      <code value="200000002124"/>
+      <display value="Implant"/>
+   </concept>
+   <concept>
+      <code value="200000002125"/>
+      <display value="Inhaler"/>
+   </concept>
+   <concept>
+      <code value="200000002126"/>
+      <display value="Insert"/>
+   </concept>
+   <concept>
+      <code value="200000002127"/>
+      <display value="Jar"/>
+   </concept>
+   <concept>
+      <code value="200000002128"/>
+      <display value="Lozenge"/>
+   </concept>
+   <concept>
+      <code value="200000002129"/>
+      <display value="Lyophilisate"/>
+   </concept>
+   <concept>
+      <code value="200000002130"/>
+      <display value="Matrix"/>
+   </concept>
+   <concept>
+      <code value="200000002131"/>
+      <display value="Pad"/>
+   </concept>
+   <concept>
+      <code value="200000002132"/>
+      <display value="Paper"/>
+   </concept>
+   <concept>
+      <code value="200000002133"/>
+      <display value="Pastille"/>
+   </concept>
+   <concept>
+      <code value="200000002134"/>
+      <display value="Patch"/>
+   </concept>
+   <concept>
+      <code value="200000002135"/>
+      <display value="Pen"/>
+   </concept>
+   <concept>
+      <code value="200000002136"/>
+      <display value="Pendant"/>
+   </concept>
+   <concept>
+      <code value="200000002137"/>
+      <display value="Pessary"/>
+   </concept>
+   <concept>
+      <code value="200000002138"/>
+      <display value="Pillule"/>
+   </concept>
+   <concept>
+      <code value="200000002139"/>
+      <display value="Pipette"/>
+   </concept>
+   <concept>
+      <code value="200000002140"/>
+      <display value="Plaster"/>
+   </concept>
+   <concept>
+      <code value="200000002141"/>
+      <display value="Plug"/>
+   </concept>
+   <concept>
+      <code value="200000002142"/>
+      <display value="Pouch"/>
+   </concept>
+   <concept>
+      <code value="200000002143"/>
+      <display value="Sachet"/>
+   </concept>
+   <concept>
+      <code value="200000002144"/>
+      <display value="Sponge"/>
+   </concept>
+   <concept>
+      <code value="200000002145"/>
+      <display value="Spoonful"/>
+   </concept>
+   <concept>
+      <code value="200000002146"/>
+      <display value="Stick"/>
+   </concept>
+   <concept>
+      <code value="200000002147"/>
+      <display value="Straw"/>
+   </concept>
+   <concept>
+      <code value="200000002148"/>
+      <display value="Strip"/>
+   </concept>
+   <concept>
+      <code value="200000002149"/>
+      <display value="Suppository"/>
+   </concept>
+   <concept>
+      <code value="200000002150"/>
+      <display value="Syringe"/>
+   </concept>
+   <concept>
+      <code value="200000002151"/>
+      <display value="System"/>
+   </concept>
+   <concept>
+      <code value="200000002152"/>
+      <display value="Tablet"/>
+   </concept>
+   <concept>
+      <code value="200000002153"/>
+      <display value="Tag"/>
+   </concept>
+   <concept>
+      <code value="200000002154"/>
+      <display value="Tampon"/>
+   </concept>
+   <concept>
+      <code value="200000002155"/>
+      <display value="Thread"/>
+   </concept>
+   <concept>
+      <code value="200000002156"/>
+      <display value="Tube"/>
+   </concept>
+   <concept>
+      <code value="200000002157"/>
+      <display value="Vessel"/>
+   </concept>
+   <concept>
+      <code value="200000002158"/>
+      <display value="Vial"/>
+   </concept>
+   <concept>
+      <code value="200000002159"/>
+      <display value="Puff"/>
+   </concept>
+   <concept>
+      <code value="200000002163"/>
+      <display value="Actuation"/>
+   </concept>
+   <concept>
+      <code value="200000002164"/>
+      <display value="Ampoule"/>
+   </concept>
+   <concept>
+      <code value="200000002165"/>
+      <display value="Applicator"/>
+   </concept>
+   <concept>
+      <code value="200000002166"/>
+      <display value="Bag"/>
+   </concept>
+   
+</CodeSystem>

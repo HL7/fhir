@@ -15,13 +15,14 @@
 	</contained>
 	<status value="completed" />
 	<class>
-		<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-		<!-- Note that this value implies that the practitioner was at the patients home, 
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<!-- Note that this value implies that the practitioner was at the patients home, 
 			if it was a tele-service, then the virtual code should be used. -->
-		<code value="HH"/>
-		<display value="home health"/>
+			<code value="HH"/>
+			<display value="home health"/>
+		</coding>
 	</class>
-
 	<subject>
 		<reference value="Patient/example"/>
 	</subject>
@@ -35,10 +36,10 @@
 			<display value="Dr Adam Careful"/>
 		</actor>
 	</participant>
-	<period>
+	<actualPeriod>
 		<start value="2015-01-17T16:00:00+10:00"/>
 		<end value="2015-01-17T16:30:00+10:00"/>
-	</period>
+	</actualPeriod>
 	<location>
 		<location>
 			<reference value="#home"/>

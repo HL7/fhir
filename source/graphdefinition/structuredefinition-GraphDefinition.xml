@@ -27,7 +27,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/GraphDefinition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="GraphDefinition"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -85,7 +85,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/GraphDefinition"/>
       </constraint>
@@ -152,6 +152,22 @@
       </type>
       <condition value="cnl-0"/>
       <isSummary value="true"/>
+    </element>
+    <element id="GraphDefinition.title">
+      <path value="GraphDefinition.title"/>
+      <short value="Name for this graph definition (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the capability statement."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.title"/>
+      </mapping>
     </element>
     <element id="GraphDefinition.status">
       <path value="GraphDefinition.status"/>
@@ -397,7 +413,7 @@
     <element id="GraphDefinition.link.path">
       <path value="GraphDefinition.link.path"/>
       <short value="Path in the resource that contains the link"/>
-      <definition value="A FHIR expression that identifies one of FHIR References to other resources."/>
+      <definition value="A FHIRPath expression that identifies one of FHIR References to other resources."/>
       <comment value="The path expression cannot contain a resolve() function. If there is no path, the link is a reverse lookup, using target.params. If the path is &quot;*&quot; then this means all references in the resource."/>
       <min value="0"/>
       <max value="1"/>

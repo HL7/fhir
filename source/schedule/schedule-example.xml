@@ -15,18 +15,23 @@
   <active value="true"/>
 	<serviceCategory>
 		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/service-category"/>
 			<code value="17"/>
 			<display value="General Practice" />
 		</coding>
 	</serviceCategory>
 	<serviceType>
-		<coding>
-			<code value="57"/>
-			<display value="Immunization" />
-		</coding>
+		<concept>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/service-type"/>
+				<code value="57"/>
+				<display value="Immunization" />
+			</coding>
+		</concept>
 	</serviceType>
 	<specialty>
 		<coding>
+			<system value="http://snomed.info/sct"/>
 			<code value="408480009"/>
 			<display value="Clinical immunology" />
 		</coding>

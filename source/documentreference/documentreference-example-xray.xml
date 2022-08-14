@@ -12,32 +12,29 @@
   <subject>
     <reference value="Patient/example"/>
   </subject>
-    <encounter>
+  <context>
     <reference value="Encounter/example"/>
-  </encounter>
-
-    <encounter>
-    <identifier>
-      <system value="http://someclinic.org/fhir/NamingSystem/imaging-orders"/>
-      <value value="111222"/>
-      <assigner>
-        <display value="XYZ Medical Clinic"/>
-      </assigner>
-    </identifier>
-  </encounter>
+  </context>
+  <context>
+   <reference value="DocumentReference/documentreference-example-xray-encounter"/>
+  </context>
   <event>
+  <concept>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="39714003"/>
       <display value="Skeletal X-ray of wrist and hand"/>
     </coding>
+	</concept>
   </event>
   <event>
+  <concept>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="85151006"/>
       <display value="Structure of left hand (body structure)"/>
     </coding>
+	</concept>
   </event>
 
 

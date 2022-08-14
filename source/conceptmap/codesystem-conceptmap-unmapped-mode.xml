@@ -10,75 +10,111 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <p>This code system http://hl7.org/fhir/conceptmap-unmapped-mode defines the following codes:</p>
+      
       
       <table class="codes">
         
+        
         <tr>
+          
           
           <td style="white-space:nowrap">
             
+            
             <b>Code</b>
+          
           
           </td>
           
+          
           <td>
+            
             
             <b>Display</b>
           
+          
           </td>
+          
           
           <td>
             
+            
             <b>Definition</b>
           
+          
           </td>
+        
         
         </tr>
         
+        
         <tr>
           
-          <td style="white-space:nowrap">provided
+          
+          <td style="white-space:nowrap">use-source-code
             
-            <a name="conceptmap-unmapped-mode-provided"> </a>
+            
+            <a name="conceptmap-unmapped-mode-use-source-code"/>
+          
           
           </td>
           
-          <td>Provided Code</td>
           
-          <td>Use the code as provided in the $translate request.</td>
+          <td>Use Provided Source Code</td>
+          
+          
+          <td>Use the code as provided in the $translate request in one of the following input parameters: sourceCode, sourceCoding, sourceCodeableConcept.</td>
+        
         
         </tr>
         
+        
         <tr>
+          
           
           <td style="white-space:nowrap">fixed
             
+            
             <a name="conceptmap-unmapped-mode-fixed"> </a>
           
+          
           </td>
+          
           
           <td>Fixed Code</td>
           
-          <td>Use the code explicitly provided in the group.unmapped.</td>
+          
+          <td>Default value to use when there is no specified map for the source is the code specified in ConceptMap.group.unmapped.code.</td>
+        
         
         </tr>
+        
         
         <tr>
           
+          
           <td style="white-space:nowrap">other-map
+            
             
             <a name="conceptmap-unmapped-mode-other-map"> </a>
           
+          
           </td>
+          
           
           <td>Other Map</td>
           
-          <td>Use the map identified by the canonical URL in the url element.</td>
+          
+          <td>Default value to use when there is no specified map for the source is identified by the canonical URL in the ConceptMap.group.unmapped.url element.</td>
+        
         
         </tr>
       
+      
       </table>
+    
     
     </div>
   </text>
@@ -94,9 +130,9 @@
   <url value="http://hl7.org/fhir/conceptmap-unmapped-mode"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.481"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ConceptMapGroupUnmappedMode"/>
   <title value="ConceptMapGroupUnmappedMode"/>
   <status value="draft"/>
@@ -118,14 +154,14 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode"/>
   <content value="complete"/>
   <concept>
-    <code value="provided"/>
-    <display value="Provided Code"/>
-    <definition value="Use the code as provided in the $translate request."/>
+    <code value="use-source-code"/>
+    <display value="Use Provided Source Code"/>
+    <definition value="Use the code as provided in the $translate request in one of the following input parameters: sourceCode, sourceCoding, sourceCodeableConcept."/>
   </concept>
   <concept>
     <code value="fixed"/>
     <display value="Fixed Code"/>
-    <definition value="Use the code explicitly provided in the group.unmapped."/>
+    <definition value="Use the code(s) explicitly provided in the group.unmapped &#39;code&#39; or &#39;valueSet&#39; element."/>
   </concept>
   <concept>
     <code value="other-map"/>

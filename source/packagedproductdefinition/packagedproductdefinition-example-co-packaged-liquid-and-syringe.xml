@@ -35,7 +35,7 @@
 		<reference value="MedicinalProductDefinition/ProductThatHasThisPackType"/>
 	</packageFor>
 	<!-- package contents start here, consists of a liquid and a syringe -->
-	<package>
+	<packaging>
 		<!-- here we can describe the packaging, but in this case we just want to talk about the contents -->
 		<!-- Note that containedItem here is a completely different meaning to "contained" above
 	         This refers to items physically contained in the package. -->
@@ -49,6 +49,8 @@
 			<amount>
 				<value value="20"/>
 				<unit value="ml"/>
+				<system value="http://unitsofmeasure.org"/> 
+				<code value="mL"/>
 			</amount>
 		</containedItem>
 		<containedItem>
@@ -59,5 +61,5 @@
 				</reference>
 			</item>
 		</containedItem>
-	</package>
+	</packaging>
 </PackagedProductDefinition>

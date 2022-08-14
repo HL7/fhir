@@ -24,7 +24,7 @@
     <valueCode value=".verificationStatus = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="AllergyIntolerance"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -43,7 +43,7 @@
   </contact>
   <description value="Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance."/>
   <purpose value="To record a clinical assessment of a propensity, or potential risk to an individual, of an adverse reaction upon future exposure to the specified substance, or class of substance."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -179,7 +179,10 @@
       </mapping>
     </element>
     <element id="AllergyIntolerance.type">
-      <path value="AllergyIntolerance.type"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+	  <path value="AllergyIntolerance.type"/>
       <short value="allergy | intolerance - Underlying mechanism (if known)"/>
       <definition value="Identification of the underlying physiological mechanism for the reaction risk."/>
       <comment value="Allergic (typically immune-mediated) reactions have been traditionally regarded as an indicator for potential escalation to significant future risk. Contemporary knowledge suggests that some reactions previously thought to be immune-mediated are, in fact, non-immune, but in some cases can still pose a life threatening risk. It is acknowledged that many clinicians might not be in a position to distinguish the mechanism of a particular reaction. Often the term &quot;allergy&quot; is used rather generically and may overlap with the use of &quot;intolerance&quot; - in practice the boundaries between these two concepts might not be well-defined or understood. This data element is included nevertheless, because many legacy systems have captured this attribute. Immunologic testing may provide supporting evidence for the basis of the reaction and the causative substance, but no tests are 100% sensitive or specific for sensitivity to a particular substance. If, as is commonly the case, it is unclear whether the reaction is due to an allergy or an intolerance, then the type element should be omitted from the resource."/>
@@ -409,11 +412,12 @@
     </element>
     <element id="AllergyIntolerance.recordedDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#11089, GF#14007, GF#17285, and GF#15781."/>
+        <valueString value="GF#11089, GF#14007, GF#17285, GF#15781, J#34396, J#34395"/>
       </extension>
       <path value="AllergyIntolerance.recordedDate"/>
-      <short value="Date first version of the resource instance was recorded"/>
+      <short value="Date allergy or intolerance was first recorded"/>
       <definition value="The recordedDate represents when this particular AllergyIntolerance record was created in the system, which is often a system-generated date."/>
+      <comment value="When onset date is unknown, recordedDate can be used to establish if the allergy or intolerance was present on or before a given date.  If the recordedDate is known and provided by a sending system, it is preferred that the receiving system preserve that recordedDate value. If the recordedDate is not provided by the sending system, the receipt timestamp is sometimes used as the recordedDate."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -432,64 +436,76 @@
         <map value=".participation[typeCode=AUT].time"/>
       </mapping>
     </element>
-    <element id="AllergyIntolerance.recorder">
+    <element id="AllergyIntolerance.participant">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#32916"/>
+        <valueString value="J#34395"/>
       </extension>
-      <path value="AllergyIntolerance.recorder"/>
-      <short value="Who recorded the sensitivity"/>
-      <definition value="Individual who recorded the record and takes responsibility for its content."/>
-      <alias value="Author"/>
+      <path value="AllergyIntolerance.participant"/>
+      <short value="Who or what participated in the activities related to the allergy or intolerance and how they were involved"/>
+      <definition value="Indicates who or what participated in the activities related to the allergy or intolerance and how they were involved."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <code value="BackboneElement"/>
       </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.author"/>
-      </mapping>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=AUT].role"/>
+        <map value=".participation[typeCode=PRF]"/>
       </mapping>
     </element>
-    <element id="AllergyIntolerance.asserter">
+    <element id="AllergyIntolerance.participant.function">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#11089."/>
+        <valueString value="J#34395"/>
       </extension>
-      <path value="AllergyIntolerance.asserter"/>
-      <short value="Source of the information about the allergy"/>
-      <definition value="The source of the information about the allergy that is recorded."/>
-      <comment value="The recorder takes responsibility for the content, but can reference the source from where they got it."/>
-      <alias value="Source"/>
-      <alias value="Informant"/>
+      <path value="AllergyIntolerance.participant.function"/>
+      <short value="Type of involvement"/>
+      <definition value="Distinguishes the type of involvement of the actor in the activities related to the allergy or intolerance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AllergyIntoleranceParticipantFunction"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participation-role-type"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation.functionCode"/>
+      </mapping>
+    </element>
+    <element id="AllergyIntolerance.participant.actor">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#34395"/>
+      </extension>
+      <path value="AllergyIntolerance.participant.actor"/>
+      <short value="Who or what participated in the activities related to the allergy or intolerance"/>
+      <definition value="Indicates who or what participated in the activities related to the allergy or intolerance."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.source"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="IAM-14 (if patient) / IAM-18 (if practitioner)"/>
+        <map value="FiveWs.who"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=INF].role"/>
+        <map value=".player"/>
       </mapping>
     </element>
     <element id="AllergyIntolerance.lastOccurrence">
@@ -523,7 +539,10 @@
       </mapping>
     </element>
     <element id="AllergyIntolerance.reaction">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
       </extension>
       <path value="AllergyIntolerance.reaction"/>

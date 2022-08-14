@@ -9,7 +9,7 @@
   <name value="Common UCUM units"/>
   <status value="draft"/>
   <publisher value="FHIR Project"/>
-  <description value="Commonly encountered UCUM units (for purposes of helping populate look ups."/>
+  <description value="Commonly encountered UCUM units (for purposes of helping populate look ups)."/>
   <copyright value="UCUM is Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details."/>
   <compose>
     <include>
@@ -2762,7 +2762,7 @@
       </concept>
       <concept>
         <code value="ng/mL"/>
-        <display value="nanogram per millliiter"/>
+        <display value="nanogram per milliliter"/>
       </concept>
       <concept>
         <code value="ng/mL/h"/>

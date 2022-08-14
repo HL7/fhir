@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MedicationKnowledge"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="MedicationKnowledge"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Information about a medication that is used to support knowledge."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
@@ -599,6 +599,82 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+      </type>
+    </element>
+    <element id="MedicationKnowledge.storageGuideline">
+      <path value="MedicationKnowledge.storageGuideline"/>
+      <short value="How the medication should be stored"/>
+      <definition value="Information on how the medication should be stored, for example, refrigeration temperatures and length of stability at a given temperature."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="storageGuideline.reference">
+      <path value="MedicationKnowledge.storageGuideline.reference"/>
+      <short value="Reference to additional information"/>
+      <definition value="Reference to additional information about the storage guidelines."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="MedicationKnowledge.storageGuideline.note">
+      <path value="MedicationKnowledge.storageGuideline.note"/>
+      <short value="Additional storage notes"/>
+      <definition value="Additional notes about the storage."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+    </element>
+    <element id="MedicationKnowledge.storageGuideline.stabilityDuration">
+      <path value="MedicationKnowledge.storageGuideline.stabilityDuration"/>
+      <short value="Duration remains stable"/>
+      <definition value="Duration that the medication remains stable if the environmentalSetting is respected."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Duration"/>
+      </type>
+    </element>
+    <element id="MedicationKnowledge.storageGuideline.environmentalSetting">
+      <path value="MedicationKnowledge.storageGuideline.environmentalSetting"/>
+      <short value="Setting or value of environment for adequate storage"/>
+      <definition value="Describes a setting/value on the environment for the adequate storage of the medication and other substances.  Environment settings may involve temperature, humidity, or exposure to light."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="MedicationKnowledge.storageGuideline.environmentalSetting.type">
+      <path value="MedicationKnowledge.storageGuideline.environmentalSetting.type"/>
+      <short value="Categorization of the setting"/>
+      <definition value="Identifies the category or type of setting (e.g., type of location, temperature, humidity)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="MedicationKnowledge.storageGuideline.environmentalSetting.value[x]">
+      <path value="MedicationKnowledge.storageGuideline.environmentalSetting.value[x]"/>
+      <short value="Value of the setting"/>
+      <definition value="Value associated to the setting. E.g., 40° – 50°F for temperature."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
       </type>
     </element>
     <element id="MedicationKnowledge.regulatory">

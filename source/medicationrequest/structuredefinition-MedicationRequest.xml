@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="MedicationRequest"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="MedicationRequest"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called &quot;MedicationRequest&quot; rather than &quot;MedicationPrescription&quot; or &quot;MedicationOrder&quot; to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -462,7 +462,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code"/>
+        <map value="RXE-2-Give Code / RXO-1 Requested Give Code / RXC-2 Component Code"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -488,7 +488,7 @@
       </mapping>
       <mapping>
         <identity value="script10.6"/>
-        <map value="Message/Body/NewRx/Patient&#xD;&#xD;(need detail to link to specific patient &#x2026; Patient.Identification in SCRIPT)"/>
+        <map value="Message/Body/NewRx/Patient&#xD;&#xD;(need detail to link to specific patient … Patient.Identification in SCRIPT)"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -496,7 +496,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PID-3-Patient ID List"/>
+        <map value="PID-3 Patient ID List"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -512,7 +512,7 @@
       <short value="The person or organization who provided the information about this request, if the source is someone other than the requestor"/>
       <definition value="The person or organization who provided the information about this request, if the source is someone other than the requestor.  This is often used when the MedicationRequest is reported by another person."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
@@ -551,7 +551,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PV1-19-Visit Number"/>
+        <map value="PV1-19 Visit Number"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -562,7 +562,7 @@
       <path value="MedicationRequest.supportingInformation"/>
       <short value="Information to support fulfilling of the medication"/>
       <definition value="Information to support fulfilling (i.e. dispensing or administering) of the medication, for example, patient height and weight, a MedicationUsage for the patient)."/>
-      <comment value="This attribute can be used to reference a MedicationUsage about the patients&#39; medication use."/>
+      <comment value="This attribute can be used to reference a MedicationUsage about the patients' medication use."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -606,7 +606,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXE-32-Original Order Date/Time / ORC-9-Date/Time of Transaction"/>
+        <map value="RXE-32 Original Order Date/Time / ORC-9-Date Time of Transaction"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -645,7 +645,8 @@
     <element id="MedicationRequest.reported">
       <path value="MedicationRequest.reported"/>
       <short value="Reported rather than primary record"/>
-      <definition value="Indicates if this record was captured as a secondary &#39;reported&#39; record rather than as an original primary source-of-truth record.  It may also indicate the source of the report."/>
+      <definition value="Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report."/>
+      <comment value="If not populated, then assume that this is the original record and not reported"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -690,14 +691,14 @@
       <short value="Intended performer of administration"/>
       <definition value="The specified desired performer of the medication treatment (e.g. the performer of the medication administration)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
@@ -710,6 +711,21 @@
         <identity value="w5"/>
         <map value="FiveWs.actor"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
+      </mapping>
+    </element>
+    <element id="MedicationRequest.device">
+      <path value="MedicationRequest.device"/>
+      <short value="Intended type of device for the administration"/>
+      <definition value="The intended type of device that is to be used for the administration of the medication (for example, PCA Pump)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+      </type>
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
@@ -769,7 +785,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC-16-Order Control Code Reason /RXE-27-Give Indication/RXO-20-Indication / RXD-21-Indication / RXG-22-Indication / RXA-19-Indication"/>
+        <map value="ORC-16 Order Control Code Reason /RXE-27 Give Indication/RXO-20-Indication / RXD-21 Indication / RXG-22 Indication / RXA-19 Indication"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -877,7 +893,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="dateTime"/>
+        <code value="Period"/>
       </type>
       <mapping>
         <identity value="rim"/>
@@ -888,7 +904,7 @@
       <path value="MedicationRequest.dose.dosageInstruction"/>
       <short value="Specific instructions for how the medication should be taken"/>
       <definition value="Specific instructions for how the medication is to be used by the patient."/>
-      <comment value="There are examples where a medication request may include the option of an oral dose or an Intravenous or Intramuscular dose.  For example, &quot;Ondansetron 8mg orally or IV twice a day as needed for nausea&quot; or &quot;Compazine&#xAE; (prochlorperazine) 5-10mg PO or 25mg PR bid prn nausea or vomiting&quot;.  In these cases, two medication requests would be created that could be grouped together.  The decision on which dose and route of administration to use is based on the patient&#39;s condition at the time the dose is needed. In general, each prescribed drug will be a separate Medication Request. &#xA;&#xA;When drug orders are grouped together at the time of order entry,  but each of the drugs can be manipulated independently e.g. changing the status of one order to &quot;completed&quot; or &quot;cancelled&quot;, changing another order status to &quot;on-hold&quot;, the method to &quot;group&quot; all of the medication requests together is to use  MedicationRequest.groupIdentifier element.  All of the orders grouped together in this manner will have the same groupIdentifier, and separately, each order in the group may have a unique identifier.  &#xA;&#xA;There are cases that require grouping of Medication orders together when it is necessary to specify optionality e.g. order two drugs at one time, but stating either of these drugs may be used to treat the patient.  The use of a RequestGroup should be used as a parent for the Medication orders that require this type of grouping. An example when it may be necessary to group medication orders together is when you specify timing relationships e.g. order drug &quot;xyz&quot; with dose 123, then taper the same drug to a different dose after some interval of time&#xA;precedence:&#xA;e.g. give drug &quot;abc&quot; followed by drug &quot;def&quot;&#xA;e.g. give drug 30 minutes before some procedure was performed&#xA;more generically this supports - hierarchical groups of actions, where each specific action references the action to be performed (in terms of a Request resource), and each group describes additional behavior, relationships, and applicable conditions between the actions in the overall group.&#xA;Note that one should NOT use the List or Composition resource to accomplish the above requirements.  You may use List or Composition for other business requirements, but not to address the specific requirements of grouping medication orders."/>
+      <comment value="There are examples where a medication request may include the option of an oral dose or an Intravenous or Intramuscular dose.  For example, &quot;Ondansetron 8mg orally or IV twice a day as needed for nausea&quot; or &quot;Compazine® (prochlorperazine) 5-10mg PO or 25mg PR bid prn nausea or vomiting&quot;.  In these cases, two medication requests would be created that could be grouped together.  The decision on which dose and route of administration to use is based on the patient's condition at the time the dose is needed. In general, each prescribed drug will be a separate Medication Request. &#xA;&#xA;When drug orders are grouped together at the time of order entry,  but each of the drugs can be manipulated independently e.g. changing the status of one order to &quot;completed&quot; or &quot;cancelled&quot;, changing another order status to &quot;on-hold&quot;, the method to &quot;group&quot; all of the medication requests together is to use  MedicationRequest.groupIdentifier element.  All of the orders grouped together in this manner will have the same groupIdentifier, and separately, each order in the group may have a unique identifier.  &#xA;&#xA;There are cases that require grouping of Medication orders together when it is necessary to specify optionality e.g. order two drugs at one time, but stating either of these drugs may be used to treat the patient.  The use of a RequestGroup should be used as a parent for the Medication orders that require this type of grouping. An example when it may be necessary to group medication orders together is when you specify timing relationships e.g. order drug &quot;xyz&quot; with dose 123, then taper the same drug to a different dose after some interval of time&#xA;precedence:&#xA;e.g. give drug &quot;abc&quot; followed by drug &quot;def&quot;&#xA;e.g. give drug 30 minutes before some procedure was performed&#xA;more generically this supports - hierarchical groups of actions, where each specific action references the action to be performed (in terms of a Request resource), and each group describes additional behavior, relationships, and applicable conditions between the actions in the overall group.&#xA;Note that one should NOT use the List or Composition resource to accomplish the above requirements.  You may use List or Composition for other business requirements, but not to address the specific requirements of grouping medication orders."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -932,7 +948,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value="SubstanceAdministration -&gt; ActRelationship[sequenceNumber = &#39;1&#39;] -&gt; Supply"/>
+        <map value="SubstanceAdministration -&gt; ActRelationship[sequenceNumber = '1'] -&gt; Supply"/>
       </mapping>
     </element>
     <element id="MedicationRequest.dispenseRequest.initialFill.quantity">
@@ -982,7 +998,7 @@
       <path value="MedicationRequest.dispenseRequest.validityPeriod"/>
       <short value="Time period supply is authorized for"/>
       <definition value="This indicates the validity period of a prescription (stale dating the Prescription)."/>
-      <comment value="It reflects the prescribers&#39; perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations."/>
+      <comment value="It reflects the prescribers' perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations."/>
       <requirements value="Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription."/>
       <min value="0"/>
       <max value="1"/>
@@ -1014,7 +1030,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXE-12-Number of Refills"/>
+        <map value="RXE-12 Number of Refills"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1037,7 +1053,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system"/>
+        <map value="RXD-4 Actual Dispense Amount / RXD-5.1 Actual Dispense Units.code / RXD-5.3 Actual Dispense Units.name of coding system"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1123,7 +1139,7 @@
       </extension>
       <path value="MedicationRequest.substitution"/>
       <short value="Any restrictions on medication substitution"/>
-      <definition value="Indicates whether or not substitution can or should be part of the dispense. In some cases, substitution must happen, in other cases substitution must not happen. This block explains the prescriber&#39;s intent. If nothing is specified substitution may be done."/>
+      <definition value="Indicates whether or not substitution can or should be part of the dispense. In some cases, substitution must happen, in other cases substitution must not happen. This block explains the prescriber's intent. If nothing is specified substitution may be done."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1165,7 +1181,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXO-9-Allow Substitutions / RXE-9-Substitution Status"/>
+        <map value="RXO-9 Allow Substitutions / RXE-9 Substitution Status"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1205,25 +1221,6 @@
         <map value="reasonCode"/>
       </mapping>
     </element>
-    <element id="MedicationRequest.detectedIssue">
-      <path value="MedicationRequest.detectedIssue"/>
-      <short value="Clinical Issue with action"/>
-      <definition value="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc."/>
-      <comment value="This element can include a detected issue that has been identified either by a decision support system or by a clinician and may include information on the steps that were taken to address the issue."/>
-      <alias value="Contraindication"/>
-      <alias value="Drug Utilization Review (DUR)"/>
-      <alias value="Alert"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DetectedIssue"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=ALRT,moodCode=EVN].value"/>
-      </mapping>
-    </element>
     <element id="MedicationRequest.eventHistory">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
@@ -1231,7 +1228,7 @@
       <path value="MedicationRequest.eventHistory"/>
       <short value="A list of events of interest in the lifecycle"/>
       <definition value="Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource."/>
-      <comment value="This might not include provenances for all versions of the request &#x2013; only those deemed &#x201C;relevant&#x201D; or important. This SHALL NOT include the provenance associated with this current version of the resource. (If that provenance is deemed to be a &#x201C;relevant&#x201D; change, it will need to be added as part of a later update. Until then, it can be queried directly as the provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)."/>
+      <comment value="This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

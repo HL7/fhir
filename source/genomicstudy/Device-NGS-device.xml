@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Device xmlns="http://hl7.org/fhir">
+  <id value="NGS-device"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative</b></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource "NGS-device" </p></div><p><b>identifier</b>: id: 11111</p><p><b>status</b>: active</p><p><b>manufacturer</b>: Illumina</p><h3>DeviceNames</h3><table class="grid"><tr><td>-</td><td><b>Name</b></td><td><b>Type</b></td></tr><tr><td>*</td><td>NextSeq 550 Instrument</td><td>user-friendly-name</td></tr></table><p><b>type</b>: Device (physical object) <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="https://browser.ihtsdotools.org/">SNOMED CT</a>#49062001)</span></p></div>
+  </text>
+  <identifier>
+    <system value="http://www.somesystemabc.net/identifiers/devices"/>
+    <value value="11111"/>
+  </identifier>
+  <status value="active"/>
+  <manufacturer value="Illumina"/>
+  <deviceName>
+    <name value="NextSeq 550 Instrument"/>
+    <type value="user-friendly-name"/>
+  </deviceName>
+  <type>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="49062001"/>
+      <display value="Device (physical object)"/>
+    </coding>
+  </type>
+</Device>

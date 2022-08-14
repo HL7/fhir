@@ -3,13 +3,15 @@
 <SearchParameter xmlns="http://hl7.org/fhir">
   <id value="codesystem-extensions-CodeSystem-effective"/>
   <url value="http://hl7.org/fhir/SearchParameter/codesystem-extensions-CodeSystem-effective"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="effective"/>
   <status value="draft"/>
   <experimental value="true"/>
   <description value="Optional Extensions Element"/>
   <code value="effective"/>
+  <base value="CodeSystem"/>
   <type value="date"/>
-  <xpath value="f:CodeSystem/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/codesystem-effectiveDate&#39;] | /f:#effectiveDate"/>
+  <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/codesystem-effectiveDate')"/>
+  <xpath value="f:CodeSystem/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/codesystem-effectiveDate&#39;]"/>
   <xpathUsage value="normal"/>
 </SearchParameter>

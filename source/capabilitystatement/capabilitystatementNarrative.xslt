@@ -12,7 +12,7 @@
   </xsl:template>
   <xsl:template match="/*[self::CapabilityStatement|self::Conformance]">
     <xsl:copy>
-      <xsl:copy-of select="@*|id"/>
+      <xsl:copy-of select="@*|id|meta"/>
       <text xmlns="http://hl7.org/fhir">
         <status xmlns="http://hl7.org/fhir" value="generated"/>
         <div xmlns="http://www.w3.org/1999/xhtml">
@@ -152,7 +152,7 @@
                       <td>
                         <xsl:for-each select="profile/@value">
                           <p>
-                            <a href="{.}.html">
+                            <a href="{.}">
                               <xsl:value-of select="."/>
                             </a>
                           </p>
@@ -169,7 +169,7 @@
               <xsl:value-of select="concat('REST ', mode/@value, ' behavior')"/>
             </h2>
             <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
-            <xsl:for-each select="security/description/@value">
+            <xsl:for-each select="security">
               <p>
                 <b>Security:</b>
               </p>
@@ -177,7 +177,9 @@
                 <xsl:value-of select="string-join(service/coding/code/@value, ', ')"/>
                 <br/>
               </xsl:if>
-              <xsl:copy-of select="fn:handleMarkdownLines(.)"/>
+              <xsl:for-each select="description/@value">
+                <xsl:copy-of select="fn:handleMarkdownLines(.)"/>
+              </xsl:for-each>
             </xsl:for-each>
             <xsl:if test="resource">
               <h3>Resource summary</h3>
@@ -204,7 +206,7 @@
                         <xsl:value-of select="type/@value"/>
                         <xsl:for-each select="profile/reference/@value|profile/@value">
                           <xsl:text> (</xsl:text>
-                            <a href="{.}.html">Profile</a>
+                            <a href="{.}">Profile</a>
                           <xsl:text>)</xsl:text>
                         </xsl:for-each>
                       </th>
@@ -327,7 +329,7 @@
               <xsl:for-each select="profile/@value">
                 <p>
                   <xsl:text>Profile: </xsl:text>
-                  <a href="{.}.html">
+                  <a href="{.}">
                     <xsl:value-of select="."/>
                   </a>
                 </p>
@@ -335,11 +337,14 @@
               <xsl:if test="supportedProfile">
                 <p>Supported Profile(s):</p>
                 <ul>
-                  <xsl:for-each select="supportedProfile/@value">
+                  <xsl:for-each select="supportedProfile">
                     <li>
-                      <a href="{.}.html">
-                        <xsl:value-of select="."/>
+                      <a href="{@value}">
+                        <xsl:value-of select="@value"/>
                       </a>
+                      <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation']">
+                        <xsl:value-of select="concat(' ', valueCode/@value)"/>
+                      </xsl:for-each>
                     </li>
                   </xsl:for-each>
                 </ul>
@@ -461,7 +466,7 @@
                         <xsl:value-of select="focus/@value"/>
                       </td>
                       <td>
-                        <xsl:for-each select="request/refereince/@value">
+                        <xsl:for-each select="request/reference/@value">
                           <a href="{.}.html">
                             <xsl:value-of select="."/>
                           </a>
@@ -507,7 +512,7 @@
                       </td>
                       <td>
                         <xsl:for-each select="profile/@value">
-                          <a href="{.}.html">
+                          <a href="{.}">
                             <xsl:value-of select="."/>
                           </a>
                         </xsl:for-each>
@@ -523,7 +528,7 @@
           </xsl:if>
         </div>
       </text>
-      <xsl:copy-of select="node()[not(self::text or self::id)]"/>
+      <xsl:copy-of select="node()[not(self::text or self::id or self::meta)]"/>
     </xsl:copy>
   </xsl:template>
   <xsl:template name="doParams" as="element(xhtml:div)">
@@ -802,7 +807,9 @@
         <xsl:variable name="linkBase" as="xs:string" select="$linkParts[1]"/>
         <xsl:variable name="linkExt" as="xs:string?" select="if (ends-with($linkBase, '.html') or contains($linkBase, '#')) then '' else '.html'"/>
         <xsl:variable name="name" as="xs:string?" select="$linkParts[2]"/>
-        <a href="{if(contains($linkBase, ':') or ends-with($linkBase, '.html') or $name) then '' else $fhirpath}{$linkBase}{$linkExt}">
+        <xsl:variable name="linkBaseAdj" as="xs:string" select="if(contains($linkBase, ':') or ends-with($linkBase, '.html') or $name) then $linkBase else lower-case($linkBase)"/>
+        <a href="{if(contains($linkBase, ':') or ends-with($linkBase, '.html') or $name) then '' else $fhirpath}{$linkBaseAdj}{$linkExt}">
+<!--        <a href="{if(contains($linkBase, ':') or ends-with($linkBase, '.html') or $name) then '' else $fhirpath}{lower-case($linkBase)}">-->
           <xsl:value-of select="if ($name) then $name else $linkBase"/>
         </a>
         <xsl:copy-of select="fn:handleMarkdown($parts[3])"/>

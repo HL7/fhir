@@ -95,13 +95,9 @@ A code system has three identifiers. The first two can be used to reference the 
 </ul>
 <blockquote>
 <p>
-For example, the code systems published as part of the FHIR specification all have a location ("literal") URI which is the URL where they may be accessed in the FHIR specification itself. However, while a new version of the FHIR specification is being prepared, code systems that are published in the drafts will not be found in the current FHIR specification version. 
+For example, for CodeSystems that are part of the FHIR specification, CodeSystem.url is the url where the CodeSystem may be accessed in the FHIR specification.   However, while a new version of the FHIR specification is being prepared, new code systems that are published in CI build versions will not be found in the released FHIR specification version. 
 </p>
 </blockquote>
-<p>
-Because it is common practice to copy (cache) code systems locally, most 
-references to code systems can use either the canonical URL or the location ("literal") URL. 
-</p>
 <p>
 The third code system identifier is used typically for external references to the code system outside of FHIR:
 </p>
@@ -114,8 +110,8 @@ For further information regarding resource identification, see <a href="resource
 
 <p>
 This means that each code system has 2 different URIs that can be used to reference it - 
-its canonical URL (the <code>url</code> element), and its local location from which it may be retrieved (which includes the <code>id</code> element). Because it is common practice to copy (cache) code systems locally, most references to 
-code systems use the canonical URL. 
+its canonical URL (the <code>url</code> element), and its local location from which it may be retrieved (which includes the <code>id</code> element).
+Most references to code systems use the canonical URL because it is stable and does not change from one FHIR server instance to another.
 </p>
 <p>
 Alternatively, the <code>identifier</code> and <code>version</code> elements may be used to reference this code system in a 

@@ -73,36 +73,31 @@ usage of the RESTful API should be logged in an AuditEvent resource.
 <h2>Document Sharing (XDS)</h2>
 
 <p>
-One common way to integrate healthcare information from a variety of sources is to build a 
-repository of documents around a patient record. Building a repository of documents 
-allows for less stringent alignment around policy, procedures and record-keeping/informatics
-standards.
+One common way to integrate healthcare information from a variety of sources is to build 
+a <a href="https://profiles.ihe.net/ITI/HIE-Whitepaper/">Document Sharing</a> community around a patient record. 
 </p>
 <p>
-The most widely adopted framework for sharing documents within institutions, regions, states
-or countries is IHE Cross-Enterprise Document Sharing (XDS). XDS allows for a federated 
-system of repositories with a registry to provide coordinated access to the documents. 
+The most widely adopted framework for <a href="https://profiles.ihe.net/ITI/HIE-Whitepaper/">Document Sharing</a> within institutions, regions, states
+or countries is <a href="https://profiles.ihe.net">IHE</a> <a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-10.html">Cross-Enterprise Document Sharing (XDS)</a>,
+and <a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-18.html">Cross-Community Access (XCA)</a> that allows for federated access to many communities that may be XDS or not.
 </p>
 <p>
-FHIR provides equivalent functionality to XDS that can be used to implement XDS behind
-the existing XDS.b interface, to provide a simpler mobile-friendly interface to an 
-existing XDS ecosystem, or to link document sharing into other functionality provided
-through a FHIR interface. 
-</p>
+  The <a href="https://profiles.ihe.net/ITI/MHD/index.html">Mobile access to Health Documents (MHD)</a> defines one standardized interface to 
+  Health Document Sharing (a.k.a. an Application Programming Interface (API)) using FHIR Resources. 
+  The <a href="https://profiles.ihe.net/ITI/MHDS/index.html">Mobile Health Document Sharing</a> provides a full set of services to support 
+  Document Sharing, including Patient Identity Management, Provider Directory, Services Discovery, Consent, Authorizations, Vocabulary, Auditing, and other.
+  </p>
 <p>
-The following FHIR Resources are involved in the XDS functionality:
+The following FHIR Resources are involved in the <a href="https://profiles.ihe.net/ITI/HIE-Whitepaper/">Document Sharing</a> functionality:
 </p>
 <ul>
  <li>The <a href="documentreference.html">DocumentReference</a> resource describes a document that is located elsewhere. A document registry is a system that maintains a set of Document References</li>
-<!-- <li>The <a href="xds.html">XDS profile</a> provides specific XDS implementation detail for the more general DocumentReference resource</li> -->
  <li>The <a href="http.html#binary">Binary</a> support can be used to store the actual documents on a FHIR server. A repository is a system that stores the binary document in addition to Document References (or sometimes without)</li>
  <li><a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a> and <a href="organization.html">Organization</a> resources provide support for identifying people and organizations</li>
  <li>The <a href="auditevent.html">AuditEvent</a> resource tracks usage of the document registry and repository</li>
- <li>The <a href="documentmanifest.html">DocumentManifest</a> resource describes a set of documents that are grouped together in original publication</li>
+ <li>The <a href="list.html">List</a> resource describes a set of documents that are grouped together. Two uses of this grouping, one for tracking publication - SubmissionSet; and another that is more dynamic - Folder</li>
+  <li> The <a href="consent.html">Consent</a> resource tracks individual Consent status</li>
 </ul>
-<p>
-At present, IHE is working with the FHIR project team to use FHIR for Mobile Health Documents (MHD).
-</p>
 
 
 <a name="decision"></a>

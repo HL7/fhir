@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>lloyd</LastAuthor>
@@ -15,8 +15,7 @@
   
   
   <TabRatio>694</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -787,22 +786,21 @@
    <Column ss:StyleID="s68" ss:Width="29.0"/>
    <Column ss:StyleID="s68" ss:Width="34.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="119.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="28.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="27.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="106.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="81.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Span="2" ss:StyleID="s68" ss:Width="52.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Index="13" ss:StyleID="s68" ss:Width="80.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="121.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="161.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="114.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="135.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="120.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="135.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Span="1" ss:StyleID="s68"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:Index="22" ss:StyleID="s68" ss:Width="103.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="97.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s68" ss:Width="103.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="28.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="27.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="106.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="81.0"/>
+   <Column ss:AutoFitWidth="0" ss:Span="2" ss:StyleID="s68" ss:Width="52.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="13" ss:StyleID="s68" ss:Width="80.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="121.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="161.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="114.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="135.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="120.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="135.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="22" ss:StyleID="s68" ss:Width="103.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="97.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="103.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="50.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="66.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="119.0"/>
@@ -1160,7 +1158,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">ElementDefinition.slicing.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="Number">1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="Number"></Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2385,12 +2383,12 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="11" ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">In a base type, where the element is being defined for the first time, the element is assumed to be mustSupport = false. In a profile (a constraint on an existing type), if mustSupport is not specific in either the differentil or the snapshot, the mustSupport value is not changed fro the base definition. Not, though, that the snapshot SHOULD always populate the mustSuppot value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">In a base type, where the element is being defined for the first time, the element is assumed to be mustSupport = false. In a profile (a constraint on an existing type), if mustSupport is not specific in either the differential or the snapshot, the mustSupport value is not changed from the base definition. Note, though, that the snapshot SHOULD always populate the mustSupport value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">If the element must be supported</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">If true, implementations that produce or consume resources SHALL provide "support" for the element in some meaningful way.  If false, the element may be ignored and not supported. If false, whether to populate or use the data element in any way is at the discretion of the implementation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Allows a profile to set expectations for system capabilities beyond merely respecting cardinality constraints</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">"Something useful" is context dependent and impossible to describe in the base FHIR specification. For this reason, tue mustSupport flag is never set to true by the FHIR specification itself - it is only set to true in profiles.  A profile on a type can always make musSupport = true if it is false in the base type but cannot make mustSupport = false if it is true in the base type.   This is done in [Resource Profiles](profiling.html#mustsupport), where the profile labels an element as mustSupport=true. When a profile does this, it SHALL also make clear exactly what kind of "support" is required, as this can mean many things.    Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of the important elements to make use of the resource), nor is it automatically mustSupport - however both of these things are more likely to be true for IsModifier elements than for other elements.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">"Something useful" is context dependent and impossible to describe in the base FHIR specification. For this reason, the mustSupport flag is never set to true by the FHIR specification itself - it is only set to true in profiles.  A profile on a type can always make mustSupport = true if it is false in the base type but cannot make mustSupport = false if it is true in the base type.   This is done in [Resource Profiles](profiling.html#mustsupport), where the profile labels an element as mustSupport=true. When a profile does this, it SHALL also make clear exactly what kind of "support" is required, as this can mean many things.    Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of the important elements to make use of the resource), nor is it automatically mustSupport - however both of these things are more likely to be true for IsModifier elements than for other elements.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">N/A (MIF territory)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2477,7 +2475,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Include when _summary = true?</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Whether the element should be included if a client requests a search with the parameter _summary=true</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Allow clients to search through large resources quickly</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Some resources include a set of simple metadata, and some very large data. This element is used to reduce the quantity of data returned in searches. Note that servers may pre-cache summarized resources for optimal performance, so servers might not support per-profile use of the isSummary flag. When a request is made with _summary=true, serailisers only include elements marked as 'isSummary = true'. Other than Attachment.data, all data type properties are included in the summary form. In resource and data type definitions, if an element is at the root or has a parent that is 'mustSupport' and the minimum cardinality is 1 or the element is a modifier, it must be marked as isSummary=true</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Some resources include a set of simple metadata, and some very large data. This element is used to reduce the quantity of data returned in searches. Note that servers may pre-cache summarized resources for optimal performance, so servers might not support per-profile use of the isSummary flag. When a request is made with _summary=true, serializers only include elements marked as 'isSummary = true'. Other than Attachment.data, all data type properties are included in the summary form. In resource and data type definitions, if an element is at the root or has a parent that is 'mustSupport' and the minimum cardinality is 1 or the element is a modifier, it must be marked as isSummary=true</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">N/A (MIF territory)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2561,7 +2559,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Human explanation of the value set</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Intended use of codes in the bound value set</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Describes the intended use of this particular set of codes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4271,11 +4269,10 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>40</TopRowBottomPane>
+   <TopRowBottomPane>28</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4306,16 +4303,6 @@
     <Cell ss:StyleID="s104"><Data ss:Type="String">OCL</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Expression</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">XPath</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">XPath 2 expression.  see Confluence or make Lloyd do it :&gt;</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s107"><Data ss:Type="Number">1</Data><NamedCell ss:Name="_FilterDatabase"/><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">ElementDefinition.slicing</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">If there are no discriminators, there must be a definition </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">discriminator.exists() or description.exists()</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">(f:discriminator) or (f:description)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">2</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4394,18 +4381,18 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Binding can only be present for coded elements, string, and uri</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">binding.empty() or type.code.empty() or type.select((code = 'code') or (code = 'Coding') or (code='CodeableConcept') or (code = 'Quantity') or (code = 'string') or (code = 'uri')).exists()</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:binding)) or (count(f:type/f:code) = 0) or  f:type/f:code/@value=('code','Coding','CodeableConcept','Quantity','string', 'uri')</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">binding.empty() or type.code.empty() or type.select((code = 'code') or (code = 'Coding') or (code='CodeableConcept') or (code = 'Quantity') or (code = 'string') or (code = 'uri') or (code = 'Duration')).exists()</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:binding)) or (count(f:type/f:code) = 0) or  f:type/f:code/@value=('code','Coding','CodeableConcept','Quantity','string', 'uri', 'Duration')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">12</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition.binding</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ValueSet SHALL start with http:// or https:// or urn:</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ValueSet SHALL start with http:// or https:// or urn: or #</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">valueSet.exists() implies (valueSet.startsWith('http:') or valueSet.startsWith('https') or valueSet.startsWith('urn:'))</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">(starts-with(string(f:valueSet/@value), 'http:') or starts-with(string(f:valueSet/@value), 'https:') or starts-with(string(f:valueSet/@value), 'urn:'))</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">valueSet.exists() implies (valueSet.startsWith('http:') or valueSet.startsWith('https') or valueSet.startsWith('urn:') or valueSet.startsWith('#'))</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">(starts-with(string(f:valueSet/@value), 'http:') or starts-with(string(f:valueSet/@value), 'https:') or starts-with(string(f:valueSet/@value), 'urn:') or starts-with(string(f:valueSet/@value), 'x'))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">13</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4455,7 +4442,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">targetProfile is only allowed if the type is Reference or canonical</Data></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">(code='Reference' or code = 'canonical' or code = 'CodeableReference') or targetProfile.empty()</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:targetProfile)) or (f:code/@value = 'Reference')</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:targetProfile)) or (f:code/@value = ('Reference', 'canonical', 'CodeableReference'))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">18</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4467,25 +4454,25 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">(isModifier.exists() and isModifier) implies isModifierReason.exists()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(f:isModifier/@value = 'true') or exists(f:isModifierReason)</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">19</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Element names cannot include some special characters</Data></Cell>
+    <Cell><Data ss:Type="String">Element names cannot include some special characters</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">path.matches('[^\\s\\.,:;\\\'"\\/|?!@#$%&amp;*()\\[\\]{}]{1,64}(\\.[^\\s\\.,:;\\\'"\\/|?!@#$%&amp;*()\\[\\]{}]{1,64}(\\[x\\])?(\\:[^\\s\\.]+)?)*')</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">matches(path/@value, '[^\s\.,:;\'&amp;quot;\/|?!@#$%&amp;amp;*()\[\]{}]{1,64}(\.[^\s\.,:;\'&amp;quot;\/|?!@#$%&amp;amp;*()\[\]{}]{1,64}(\[x\])?(\:[^\s\.]+)?)*')</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">path.matches('^[^\\s\\.,:;\\\'"\\/|?!@#$%&amp;*()\\[\\]{}]{1,64}(\\.[^\\s\\.,:;\\\'"\\/|?!@#$%&amp;*()\\[\\]{}]{1,64}(\\[x\\])?(\\:[^\\s\\.]+)?)*$')</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">matches(f:path/@value, '^[^\s\.,:;\'&amp;quot;\/|?!@#$%&amp;*()\[\]{}]{1,64}(\.[^\s\.,:;\'&amp;quot;\/|?!@#$%&amp;*()\[\]{}]{1,64}(\[x\])?(\:[^\s\.]+)?)*$')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="60">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">20</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">warning</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken</Data></Cell>
+    <Cell><Data ss:Type="String">Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">path.matches('[A-Za-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*(\\[x])?)*')</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">matches(path/@value, '[A-Za-z][A-Za-z0-9]*(\.[a-z][A-Za-z0-9]*(\[x])?)*')</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">path.matches('^[A-Za-z][A-Za-z0-9]*(\\.[a-z][A-Za-z0-9]*(\\[x])?)*$')</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">matches(f:path/@value, '^[A-Za-z][A-Za-z0-9]*(\.[a-z][A-Za-z0-9]*(\[x])?)*$')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s109"><Data ss:Type="Number">21</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4507,7 +4494,17 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">sliceIsConstraining.exists() implies sliceName.exists()</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">exists(f:sliceName) or not(exists(f:sliceIsConstraining))</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s109"><Data ss:Type="Number">23</Data><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition.binding</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">binding SHALL have either description or valueSet</Data></Cell>
+    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">description.exists() or valueSet.exists()</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">exists(f:description) or exists(f:valueSet)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4517,7 +4514,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4527,7 +4524,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4537,7 +4534,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4547,7 +4544,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4557,7 +4554,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4567,7 +4564,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4577,7 +4574,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4587,7 +4584,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4597,7 +4594,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4607,7 +4604,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4617,7 +4614,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4627,7 +4624,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4637,7 +4634,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4647,7 +4644,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4657,7 +4654,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4667,7 +4664,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4677,7 +4674,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4687,7 +4684,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4697,7 +4694,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4707,7 +4704,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4717,7 +4714,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4727,17 +4724,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s111"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s111"/>
-   </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -4770,10 +4757,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>12</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6542,7 +6530,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"/>
   </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="29" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="28" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="154.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="274.0"/>
    <Column ss:Index="4" ss:StyleID="s84" ss:Width="45.0"/>
@@ -6658,14 +6646,6 @@
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s122"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">FHIRDefinedTypeExt</Data></Cell>
-    <Cell><Data ss:Type="String">Either a resource or a data type, including logical model types</Data></Cell>
-    <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/defined-types"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/defined-types</Data></Cell>
-    <Cell ss:Index="10" ss:StyleID="s121"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s88"><Data ss:Type="String">DiscriminatorType</Data></Cell>

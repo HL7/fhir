@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="administration-subpotent-reason"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/administration-subpotent-reason"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="MedicationAdministration Subpotent Reason"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="MedicationAdministration Subpotent Reason"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/administration-subpotent-reason"/>
+    </include>
+  </compose>
+</ValueSet>

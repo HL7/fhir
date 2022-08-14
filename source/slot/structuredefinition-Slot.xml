@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Slot"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Slot"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A slot of time on a schedule that may be available for booking appointments."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -76,7 +76,7 @@
       </mapping>
       <mapping>
         <identity value="ical"/>
-        <map value="(refer to the Availability resource for the header mapping details)"/>
+        <map value="(refer to the Schedule resource for the header mapping details)"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -122,12 +122,13 @@
     </element>
     <element id="Slot.serviceType">
       <path value="Slot.serviceType"/>
-      <short value="The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource"/>
-      <definition value="The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource."/>
+      <short value="The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the Schedule resource"/>
+      <definition value="The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the Schedule resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
       <isSummary value="true"/>
       <binding>

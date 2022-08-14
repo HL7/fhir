@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="DeviceRequest"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Represents a request a device to be provided to a specific patient. The device may be an implantable device to be subsequently implanted, or an external assistive device, such as a walker, to be delivered and subsequently be used."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -221,8 +221,8 @@
         <map value="Proposal.prnReason.reason"/>
       </mapping>
     </element>
-    <element id="DeviceRequest.priorRequest">
-      <path value="DeviceRequest.priorRequest"/>
+    <element id="DeviceRequest.replaces">
+      <path value="DeviceRequest.replaces"/>
       <short value="What request replaces"/>
       <definition value="The request takes the place of the referenced completed or terminated request(s)."/>
       <min value="0"/>

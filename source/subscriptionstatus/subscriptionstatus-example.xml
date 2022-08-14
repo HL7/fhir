@@ -5,7 +5,9 @@
   <status value="active"/>
   <type value="event-notification"/>
   <eventsSinceSubscriptionStart value="1000"/>
-  <eventsInNotification value="1"/>
+  <notificationEvent>
+    <eventNumber value="1000"/>
+  </notificationEvent>
   <subscription>
     <reference value="http://example.org/FHIR/R5/Subscription/123"/>
   </subscription>

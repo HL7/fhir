@@ -28,10 +28,14 @@
 				<numerator>
 					<value value="2.5"/>
 					<unit value="mg"/>
+					<system value="http://unitsofmeasure.org"/> 
+					<code value="mg"/>
 				</numerator>
 				<denominator>
 					<value value="1"/>
-					<unit value="{tablet}"/>
+					<unit value="tablet"/>
+					<system value="http://unitsofmeasure.org"/> 
+					<code value="{tablet}"/>
 				</denominator>
 			</presentationRatio>
 		</strength>

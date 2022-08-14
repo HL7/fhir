@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="PractitionerRole"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -43,7 +43,7 @@
   </contact>
   <description value="A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time."/>
   <purpose value="Need to track services that a healthcare provider is able to provide at an organization&#39;s location, and the services that they can perform there."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -112,6 +112,7 @@
       <path value="PractitionerRole.identifier"/>
       <short value="Business Identifiers that are specific to a role/location"/>
       <definition value="Business Identifiers that are specific to a role/location."/>
+      <comment value="A specific identifier value (e.g. Minnesota Registration ID) may appear on multiple PractitionerRole instances which could be for different periods, or different Roles (or other reasons).  A specific identifier may be included multiple times in the same PractitionerRole instance with different identifier validity periods."/>
       <requirements value="Often, specific identities are assigned for the agent."/>
       <min value="0"/>
       <max value="*"/>
@@ -177,6 +178,7 @@
       <path value="PractitionerRole.period"/>
       <short value="The period during which the practitioner is authorized to perform in these role(s)"/>
       <definition value="The period during which the person is authorized to act as a practitioner in these role(s) for the organization."/>
+      <comment value="If a practitioner is performing a role within an organization over multiple, non-adjacent periods, there should be a distinct PractitionerRole instance for each period.  For example, if a nurse is employed at a hospital, leaves the organization for a period of time due to pandemic related stress, but returns post-pandemic to the same job role, there would be two PractitionerRole instances for the different periods of employment."/>
       <requirements value="Even after the agencies is revoked, the fact that it existed must still be recorded."/>
       <min value="0"/>
       <max value="1"/>
@@ -273,7 +275,8 @@
     <element id="PractitionerRole.specialty">
       <path value="PractitionerRole.specialty"/>
       <short value="Specific specialty of the practitioner"/>
-      <definition value="Specific specialty of the practitioner."/>
+      <definition value="A type of specialized or skilled care the practitioner is able to deliver in the context of this particular role."/>
+	  <comment value="General capabilities of the practitioner independent of role are reflected in Practitioner.qualification."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -344,159 +347,29 @@
         <map value=".player.QualifiedEntity[@classCode = &#39;QUAL&#39;].code"/>
       </mapping>
     </element>
-    <element id="PractitionerRole.telecom">
-      <path value="PractitionerRole.telecom"/>
-      <short value="Contact details that are specific to the role/location/service"/>
-      <definition value="Contact details that are specific to the role/location/service."/>
-      <requirements value="Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these."/>
+    <element id="PractitionerRole.contact">
+      <path value="PractitionerRole.contact"/>
+      <short value="Official contact details relating to this PractitionerRole"/>
+      <definition value="The contact details of communication devices available relevant to the specific PractitionerRole. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
+      <requirements value="Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these. Sometimes these also include a named person/organization that handles contact for specific purposes, such as a receptionist, or accounts clerk etc"/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="ContactPoint"/>
+        <code value="ExtendedContactDetail"/>
       </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".telecom"/>
-      </mapping>
     </element>
-    <element id="PractitionerRole.availableTime">
+    <element id="PractitionerRole.availability">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="390,0"/>
       </extension>
-      <path value="PractitionerRole.availableTime"/>
-      <short value="Times the Service Site is available"/>
+      <path value="PractitionerRole.availability"/>
+      <short value="Times the Practitioner is available at this location and/or healthcare service (including exceptions)"/>
       <definition value="A collection of times the practitioner is available or performing this role at the location and/or healthcareservice."/>
-      <comment value="More detailed availability information may be provided in associated Schedule/Slot resources."/>
+      <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;.&#xD;&#xD;The NotAvailableTime(s) included indicate the general days/periods where the practitioner is not available (for things such as vacation time, or public holidays)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.availableTime.daysOfWeek">
-      <path value="PractitionerRole.availableTime.daysOfWeek"/>
-      <short value="mon | tue | wed | thu | fri | sat | sun"/>
-      <definition value="Indicates which days of the week are available between the start and end times."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DaysOfWeek"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The days of the week."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/days-of-week"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.availableTime.allDay">
-      <path value="PractitionerRole.availableTime.allDay"/>
-      <short value="Always available? e.g. 24 hour service"/>
-      <definition value="Indicates always available, hence times are irrelevant.  (e.g. 24-hour service)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.availableTime.availableStartTime">
-      <path value="PractitionerRole.availableTime.availableStartTime"/>
-      <short value="Opening time of day (ignored if allDay = true)"/>
-      <definition value="The opening time of day. Note: If the AllDay flag is set, then this time is ignored."/>
-      <comment value="The timezone is expected to be for where this HealthcareService is provided at."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="time"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.availableTime.availableEndTime">
-      <path value="PractitionerRole.availableTime.availableEndTime"/>
-      <short value="Closing time of day (ignored if allDay = true)"/>
-      <definition value="The closing time of day. Note: If the AllDay flag is set, then this time is ignored."/>
-      <comment value="The timezone is expected to be for where this HealthcareService is provided at."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="time"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.notAvailable">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="390,150"/>
-      </extension>
-      <path value="PractitionerRole.notAvailable"/>
-      <short value="Not available during this time due to provided reason"/>
-      <definition value="The practitioner is not available or performing this role during this period of time due to the provided reason."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.notAvailable.description">
-      <path value="PractitionerRole.notAvailable.description"/>
-      <short value="Reason presented to the user explaining why time not available"/>
-      <definition value="The reason that can be presented to the user as to why this time is not available."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.notAvailable.during">
-      <path value="PractitionerRole.notAvailable.during"/>
-      <short value="Service not available from this date"/>
-      <definition value="Service is not available (seasonally or for a public holiday) from this date."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.availabilityExceptions">
-      <path value="PractitionerRole.availabilityExceptions"/>
-      <short value="Description of availability exceptions"/>
-      <definition value="A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
+        <code value="Availability"/>
       </type>
       <mapping>
         <identity value="rim"/>

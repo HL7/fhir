@@ -3,8 +3,9 @@
   <id value="example-segmentation-image-selection"/>
   <identifier>
     <system value="urn:dicom:uid"/>
-    <value value="urn:oid:1.2.840.113747.20080222.234082332589846992522666931650220811572.2.1"/>
+    <value value="urn:oid:1.2.840.113747.20080222.234082332589842666931650220811572.2.1"/>
   </identifier>
+ <status value="available"/> 
   <subject>
     <type value="Patient"/>
     <identifier>
@@ -15,22 +16,22 @@
   <code>
     <text value="Segment within a DICOM Segmentation instance"/>
   </code>
-  <studyUid value="urn:oid:1.2.840.113747.20080222.234082332589846992522666931650220811572"/>
+  <studyUid value="1.2.840.113747.20080222.234082332589846966931650220811572"/>
   <derivedFrom>
     <type value="ImagingStudy"/>
     <identifier>
       <system value="urn:dicom:uid"/>
-      <value value="urn:oid:1.2.840.113747.20080222.234082332589846992522666931650220811572"/>
+      <value value="urn:oid:1.2.840.113747.20080222.234082332592522666931650220811572"/>
     </identifier>
   </derivedFrom>
-  <seriesUid value="urn:oid:1.2.840.113747.20080222.234082332589846992522666931650220811572.1"/>
-  <frameOfReferenceUid value="urn:oid:1.2.840.113747.20080222.234082332589846992522666931650220811572.0"/>
+  <seriesUid value="1.2.840.113747.20080222.234082332589846992931650220811572.1"/>
+  <frameOfReferenceUid value="1.2.840.113747.20080222.234082332589842666931650220811572.0"/>
   <instance>
-    <uid value="urn:oid:1.2.840.113747.20080222.234082332589846992522666931650220811572.1.0"/>
+    <uid value="1.2.840.113747.20080222.234082332589846992522666220811572.1.0"/>
     <sopClass>
       <system value="urn:ietf:rfc:3986"/>
       <code value="urn:oid:1.2.840.10008.5.1.4.1.1.66.4"/>
     </sopClass>
-    <segmentList value="1,1"/>
+    <subset value="1"/>
   </instance>
 </ImagingSelection>

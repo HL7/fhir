@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="SupplyRequest"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A record of a non-patient specific request for a medication, substance, device, certain types of biologically derived product, and nutrition product used in the healthcare setting."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -159,6 +159,22 @@
       <mapping>
         <identity value="rim"/>
         <map value=".status"/>
+      </mapping>
+    </element>
+    <element id="SupplyRequest.basedOn">
+      <path value="SupplyRequest.basedOn"/>
+      <short value="What other request is fulfilled by this supply request"/>
+      <definition value="Plan/proposal/order fulfilled by this request."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.basedOn"/>
       </mapping>
     </element>
     <element id="SupplyRequest.category">

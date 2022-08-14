@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/condition-diseaseCourse"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="diseaseCourse"/>
   <title value="diseaseCourse"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="The clinical course of the disease (how the disease behaves over time), such as acute versus chronic."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

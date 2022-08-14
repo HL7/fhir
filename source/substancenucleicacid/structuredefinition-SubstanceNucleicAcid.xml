@@ -18,7 +18,7 @@
     <valueCode value="brr"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SubstanceNucleicAcid"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="SubstanceNucleicAcid"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
@@ -36,7 +36,7 @@
     </telecom>
   </contact>
   <description value="Nucleic acids are defined by three distinct elements: the base, sugar and linkage. Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5&#x2019;-3&#x2019; direction."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>

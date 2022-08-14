@@ -19,11 +19,11 @@
         <reference value="Procedure/biopsy"></reference>
     </partOf>
    <status value="on-hold"/>
-    <statusReason>
+    <notPerformedReason>
         <reference>
             <reference value="DetectedIssue/allergy"></reference>
         </reference>
-    </statusReason>
+    </notPerformedReason>
     <category>
         <coding>
             <system value="http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-category"/>
@@ -89,13 +89,13 @@
                 <periodUnit value="h"/>
             </repeat>
         </timing>
-        <asNeededCodeableConcept>
+        <asNeededFor>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="297217002"/>
                 <display value="Rib Pain (finding)"/>
             </coding>
-        </asNeededCodeableConcept>
+        </asNeededFor>
         <route>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -111,9 +111,7 @@
             </coding>
         </method>
     </dosageInstruction>
-    <detectedIssue>
-        <reference value="DetectedIssue/allergy"></reference>
-    </detectedIssue>
+    
 
 </MedicationDispense>
 

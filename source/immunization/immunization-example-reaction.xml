@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--Authored by Joginder Madra-->
+<Immunization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/immunization.xsd">
+	<id value="reaction"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234"/>
+	</identifier>
+	<status value="completed"/>
+	<vaccineCode>
+		<coding>
+			<system value="http://hl7.org/fhir/sid/cvx"/>
+			<code value="175"/>
+		</coding>
+		<text value="Rabies - IM Diploid cell culture"/>
+	</vaccineCode>
+	<manufacturer>
+		<reference value="Organization/hl7"/>
+	</manufacturer>
+	<lotNumber value="PPL909K"/>
+	<expirationDate value="2023-01-21"/>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+	<encounter>
+		<reference value="Encounter/example"/>
+	</encounter>
+	<occurrenceDateTime value="2021-09-12"/>
+	<primarySource value="true"/>
+	<location>
+		<reference value="Location/1"/>
+	</location>
+	<site>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActSite"/>
+			<code value="LA"/>
+			<display value="left arm"/>
+		</coding>
+	</site>
+	<route>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration"/>
+			<code value="IM"/>
+			<display value="Injection, intramuscular"/>
+		</coding>
+	</route>
+	<doseQuantity>
+		<value value="5"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="mg"/>
+	</doseQuantity>
+	<performer>
+		<function>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0443"/>
+				<code value="OP"/>
+			</coding>
+		</function>
+    	<actor>
+     		<reference value="Practitioner/example"/>
+    	</actor>
+	</performer>
+	<performer>
+		<function>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0443"/>
+				<code value="AP"/>
+			</coding>
+		</function>
+    	<actor>
+     		<reference value="Practitioner/example"/>
+    	</actor>
+	</performer>
+	<note>
+		<text value="Notes on adminstration of vaccine"/>
+	</note>
+	<reason>
+        <reference>
+            <reference value="Observation/example"/>
+        </reference>
+	</reason>
+	<isSubpotent value="false"/>
+    <reaction>
+        <date value="2021-09-12"/>
+        <manifestation>
+            <reference>
+                <reference value="Observation/example2"/>
+            </reference>
+        </manifestation>
+        <reported value="false"/>
+    </reaction>
+</Immunization>

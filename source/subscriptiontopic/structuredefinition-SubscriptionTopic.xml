@@ -24,10 +24,10 @@
     <valueCode value=".status = off (just turn it off, maybe update the error message)"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="MetadataResource"/>
+    <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SubscriptionTopic"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="SubscriptionTopic"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="Describes a stream of resource state changes identified by trigger criteria and annotated with labels useful to filter projections from this topic."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -69,9 +69,9 @@
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="SubscriptionTopic"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource">
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource">
     <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super">
-      <valueString value="MetadataResource"/>
+      <valueString value="CanonicalResource"/>
     </extension>
   </baseDefinition>
   <derivation value="specialization"/>
@@ -97,10 +97,10 @@
     </element>
     <element id="SubscriptionTopic.url">
       <path value="SubscriptionTopic.url"/>
-      <short value="Logical canonical URL to reference this SubscriptionTopic (globally unique)"/>
-      <definition value="An absolute URL that is used to identify this SubscriptionTopic when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this Topic is (or will be) published. The URL SHOULD include the major version of the Topic. For more information see [Technical and Business Versions](resource.html#versions)."/>
-      <comment value="Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred.  This is the URI that will be used when making canonical references to this resource."/>
-      <requirements value="Allows the SubscriptionTopic to be referenced by a single globally unique identifier."/>
+      <short value="Canonical identifier for this subscription topic definition, represented as a URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this subscription topic when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this subscription topic is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the subscription topic is stored on different servers."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+      <requirements value="Allows the subscription topic to be referenced by a single globally unique identifier."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -122,10 +122,10 @@
     </element>
     <element id="SubscriptionTopic.identifier">
       <path value="SubscriptionTopic.identifier"/>
-      <short value="Business Identifier for SubscriptionTopic"/>
-      <definition value="Business identifiers assigned to this SubscriptionTopic by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+      <short value="Business Identifier for this subscription topic"/>
+      <definition value="Business identifiers assigned to this subscription topic by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
       <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
-      <requirements value="Allows identification of the SubscriptionTopic as it is known by various participating systems and in a way that remains consistent across servers."/>
+      <requirements value="Allows identification of the subscription topic as it is known by various participating systems and in a way that remains consistent across servers."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -147,9 +147,9 @@
     </element>
     <element id="SubscriptionTopic.version">
       <path value="SubscriptionTopic.version"/>
-      <short value="Business version of the SubscriptionTopic"/>
-      <definition value="The identifier that is used to identify this version of the SubscriptionTopic when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Topic author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable."/>
-      <comment value="There may be multiple different instances of a SubscriptionTopic that have the same identifier but different versions."/>
+      <short value="Business version of the subscription topic"/>
+      <definition value="The identifier that is used to identify this version of the subscription topic when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Topic author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable."/>
+      <comment value="There may be multiple different instances of a subscription topic that have the same identifier but different versions."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -171,7 +171,7 @@
     </element>
     <element id="SubscriptionTopic.title">
       <path value="SubscriptionTopic.title"/>
-      <short value="Name for this SubscriptionTopic (Human friendly)"/>
+      <short value="Name for this subscription topic (Human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the SubscriptionTopic, for example, &quot;admission&quot;."/>
       <alias value="Name"/>
       <alias value="SubscriptionTopic Name"/>
@@ -611,7 +611,7 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate"/>
       <short value="test-passes | test-fails"/>
-      <definition value="What behavior a server will exhibit if the previous state of a resource does NOT exist (e.g., prior to a create)."/>
+      <definition value="For &quot;create&quot; interactions, should the &quot;previous&quot; criteria count as an automatic pass or an automatic fail."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -642,7 +642,7 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete"/>
       <short value="test-passes | test-fails"/>
-      <definition value="What behavior a server will exhibit if the current state of a resource does NOT exist (e.g., after a DELETE)."/>
+      <definition value="For &quot;delete&quot; interactions, should the &quot;current&quot; criteria count as an automatic pass or an automatic fail."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -790,20 +790,32 @@
     </element>
     <element id="SubscriptionTopic.canFilterBy.filterParameter">
       <path value="SubscriptionTopic.canFilterBy.filterParameter"/>
-      <short value="Resource Search Parameter or filter parameter defined in this topic that serves as filter key"/>
+      <short value="Human-readable and computation-friendly name for a filter parameter usable by subscriptions on this topic, via Subscription.filterBy.filterParameter"/>
       <definition value="Either the canonical URL to a search parameter (like &quot;http://hl7.org/fhir/SearchParameter/encounter-patient&quot;) or topic-defined parameter (like &quot;hub.event&quot;) which is a label for the filter."/>
       <comment value="Chained parameters are allowed (like &quot;patient.gender&quot;) - but can not use colons or modifiers."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="SubscriptionTopic.canFilterBy.filterDefinition">
+      <path value="SubscriptionTopic.canFilterBy.filterDefinition"/>
+      <short value="Canonical URL for a filterParameter definition"/>
+      <definition value="Either the canonical URL to a search parameter (like &quot;http://hl7.org/fhir/SearchParameter/encounter-patient&quot;) or the officially-defined URI for a shared filter concept (like &quot;http://example.org/concepts/shared-common-event&quot;)."/>
+      <comment value="Chained parameters are allowed (like &quot;patient.gender&quot;) - but can not use colons or modifiers."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="SubscriptionTopic.canFilterBy.modifier">
       <path value="SubscriptionTopic.canFilterBy.modifier"/>
       <short value="= | eq | ne | gt | lt | ge | le | sa | eb | ap | above | below | in | not-in | of-type"/>
-      <definition value="Allowable operators to apply when determining matches (Search Modifiers)."/>
+      <definition value="Allowable operators to apply when determining matches (Search Modifiers).  If the filterParameter is a SearchParameter, this list of modifiers SHALL be a strict subset of the modifiers defined on that SearchParameter."/>
       <min value="0"/>
       <max value="*"/>
       <type>

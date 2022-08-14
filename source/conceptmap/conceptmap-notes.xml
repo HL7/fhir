@@ -26,7 +26,7 @@ the meaning of an <code>unmatched</code> target whether or not there is a stated
 </p>
 
 <a name="dependencies"> </a>
-<h2>Mapping Dependencies</h2>
+<h2>DependsOn.value</h2>
 
 <p>
 In the simple case, a mapping is made from one code to another. E.g. from "home address" in one code system to "address - home" in another. 
@@ -40,9 +40,17 @@ one code to another. Instead, the mapping might contain entries like this:
  <tr><td>X-Ray</td><td>Bodysite</td><td>Chest</td><td>Chest-XRay</td></tr>
 </table>
 <p>
-When attempting to translate the source to the target, an application must also provide a value for the element 
-identified in <code>dependsOn.property</code> so that the correct mapping can be performed. To support the reverse
-operation, <code>product</code> is the converse, and works in reverse.
+When attempting to translate the source to the target, an application SHOULD also provide a value for the element 
+identified in <code>dependsOn.property</code> so that the correct mapping can be performed. 
+</p>
+<p>
+All dependsOn values are included in the output of $translate.
+</p>
+<p>
+Interpretation and use of these values is based on the definition of the associated property.
+</p>
+<p>
+The use of valueCode implies the CodeSystem is known from the property definition.  
 </p>
 <p>
 To see a real example of a mapping with dependencies, check the <a href="conceptmap-example-specimen-type.html">Specimen Type Mapping</a>.
@@ -62,7 +70,7 @@ for a concept:
 <table class="grid">
   <tr><td style="white-space:nowrap">provided</td><td>Use the code source as provided in the <a href="conceptmap-operation-translate.html">$translate</a> request. This is especially useful for translations between versions of the same code system, where only a few codes have changed</td></tr>
   <tr><td style="white-space:nowrap">fixed</td><td>Use the code (and display) explicitly provided in the <code>group.unmapped</code>. This is useful when there's a fall back general code - especially for classifications</td></tr>
-  <tr><td style="white-space:nowrap">other-map</td><td>Use the map identified by the canonical URL in <code>url</code>. This is useful when a published concept map needs to be varied for a few specific cases on an institutional bass - the
+  <tr><td style="white-space:nowrap">other-map</td><td>Use the map identified by the canonical URL in <code>otherMap</code>. This is useful when a published concept map needs to be varied for a few specific cases on an institutional basis - the
     institution can create a simple concept that expresses their special cases, and then refer to the general purpose mappings</td></tr>
 </table>
 <p>

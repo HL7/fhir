@@ -12,11 +12,9 @@
   <title value="Alive and not functionally dependent at 90 days"/>
   <status value="draft"/>
   <actual value="false"/>
-  <characteristicCombination>
-	<code value="all-of" />
-  </characteristicCombination>
   <characteristic>
     <description value="not functionally dependent at 90 days"/>
+    <exclude value="true"/>
     <definitionCodeableConcept>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -24,8 +22,14 @@
         <display value="Functionally dependent (finding)"/>
       </coding>
     </definitionCodeableConcept>
-    <exclude value="true"/>
     <timeFromEvent>
+	  <eventCodeableConcept>
+		<coding>
+			<system value="http://hl7.org/fhir/evidence-variable-event"/>
+			<code value="study-start"/>
+			<display value="Study Start"/>
+		</coding>
+	  </eventCodeableConcept>
       <quantity>
         <value value="90"/>
         <unit value="day"/>
@@ -36,6 +40,7 @@
   </characteristic>
   <characteristic>
     <description value="alive at 90 days"/>
+    <exclude value="true"/>
     <definitionCodeableConcept>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -43,15 +48,14 @@
         <display value="Dead (finding)"/>
       </coding>
     </definitionCodeableConcept>
-    <exclude value="true"/>
     <timeFromEvent>
-	  <event>
+	  <eventCodeableConcept>
 		<coding>
 			<system value="http://hl7.org/fhir/evidence-variable-event"/>
 			<code value="study-start"/>
 			<display value="Study Start"/>
 		</coding>
-	  </event>
+	  </eventCodeableConcept>
       <quantity>
         <value value="90"/>
         <unit value="day"/>

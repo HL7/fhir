@@ -125,7 +125,7 @@
 			<packageFor>
 				<reference value="#"/>
 			</packageFor>
-			<package>
+			<packaging>
 				<!-- can be more details of the package here, but not necessary for this use case -->
 				<containedItem>
 					<item>
@@ -136,6 +136,8 @@
 					<amount>
 						<value value="20"/>
 						<unit value="ml"/>
+						<system value="http://unitsofmeasure.org"/> 
+						<code value="mL"/>
 					</amount>
 				</containedItem>
 				<containedItem>
@@ -145,7 +147,7 @@
 						</reference>
 					</item>
 				</containedItem>
-			</package>
+			</packaging>
 		</PackagedProductDefinition>
 	</contained>
 	<contained>

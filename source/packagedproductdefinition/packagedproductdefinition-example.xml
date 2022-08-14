@@ -7,7 +7,7 @@
 	</identifier>
 	<description value="ALU-PVC/PVDC BLISTERS. CARTONS OF 10 FILM-COATED TABLETS."/>
 	<!-- outer packaging -->
-	<package>
+	<packaging>
 		<type>
 			<coding>
 				<system value="http://ema.europa.eu/example/packageitemcontainertype"/>
@@ -34,6 +34,8 @@
 			<valueQuantity>
 				<value value="50"/>
 				<unit value="mm"/>
+				<system value="http://unitsofmeasure.org"/> 
+				<code value="mm"/>
 			</valueQuantity>
 		</property>
 		<property>
@@ -45,6 +47,8 @@
 			<valueQuantity>
 				<value value="45"/>
 				<unit value="mm"/>
+				<system value="http://unitsofmeasure.org"/> 
+				<code value="mm"/>
 			</valueQuantity>
 		</property>
 		<property>
@@ -56,10 +60,12 @@
 			<valueQuantity>
 				<value value="23.5"/>
 				<unit value="mm"/>
+				<system value="http://unitsofmeasure.org"/> 
+				<code value="mm"/>
 			</valueQuantity>
 		</property>
 		<!-- inner packaging -->
-		<package>
+		<packaging>
 			<type>
 				<coding>
 					<system value="http://ema.europa.eu/example/packageitemcontainertype"/>
@@ -94,7 +100,9 @@
 				</type>
 				<periodDuration>
 					<value value="3"/>
-					<unit value="a"/>
+					<unit value="year"/>
+					<system value="http://unitsofmeasure.org"/> 
+					<code value="a"/>
 				</periodDuration>
 				<specialPrecautionsForStorage>
 					<coding>
@@ -115,6 +123,8 @@
 				<valueQuantity>
 					<value value="45"/>
 					<unit value="mm"/>
+					<system value="http://unitsofmeasure.org"/> 
+					<code value="mm"/>
 				</valueQuantity>
 			</property>
 			<property>
@@ -126,6 +136,8 @@
 				<valueQuantity>
 					<value value="35"/>
 					<unit value="mm"/>
+					<system value="http://unitsofmeasure.org"/> 
+					<code value="mm"/>
 				</valueQuantity>
 			</property>
 			<containedItem>
@@ -139,6 +151,6 @@
 					<value value="10"/>
 				</amount>
 			</containedItem>
-		</package>
-	</package>
+		</packaging>
+	</packaging>
 </PackagedProductDefinition>

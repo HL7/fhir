@@ -1,18 +1,23 @@
 [diagram]
-classes=DataType,ContactDetail,Contributor,DataRequirement,ParameterDefinition,RelatedArtifact,TriggerDefinition,UsageContext,Expression
+classes=DataType,ContactDetail,Contributor,DataRequirement,ParameterDefinition,RelatedArtifact,TriggerDefinition,UsageContext,Expression,ExtendedContactDetail,VirtualServiceDetail,Availability,MonetaryComponent
+
 attributes=false
 
 [size]
-width=350
-height=148
+width=410
+height=188
 
 [directions]
 DataType=0;0
-ContactDetail=-150;-50
-Contributor=-30;-50
-DataRequirement=70;-50
+ContactDetail=-150;-40
+Contributor=-30;-40
+DataRequirement=70;-40
 RelatedArtifact=-150;0
 TriggerDefinition=80;0
-ParameterDefinition=-150;50
-UsageContext=80;50
-Expression=-10;50
+ParameterDefinition=-150;40
+UsageContext=50;80
+Expression=-50;80
+ExtendedContactDetail=75;40
+VirtualServiceDetail=150;80
+Availability=-150;80
+MonetaryComponent=0;100

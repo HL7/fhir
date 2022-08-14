@@ -74,7 +74,7 @@
 	<note>
 		<text value="Notes on adminstration of vaccine"/>
 	</note>
-	<isSubpotent value="false"/>
+	<isSubpotent value="true"/>
 	<subpotentReason>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason"/>

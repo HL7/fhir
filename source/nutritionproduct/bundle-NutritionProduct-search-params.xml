@@ -45,19 +45,39 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="NutritionProduct-biological-source"/>
+        <id value="NutritionProduct-category"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="NutritionProduct.biologicalSource"/>
+          <valueString value="NutritionProduct.category"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionProduct-biological-source"/>
-        <description value="The biological source for the nutrition product"/>
-        <code value="biological-source"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionProduct-category"/>
+        <description value="The broad product group or category of the nutrition product"/>
+        <code value="status"/>
         <type value="token"/>
-        <expression value="NutritionProduct.instance.biologicalSource"/>
-        <xpath value="f:NutritionProduct/f:instance/f:biologicalSource"/>
+        <expression value="NutritionProduct.category"/>
+        <xpath value="f:NutritionProduct/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionProduct-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionProduct.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionProduct-code"/>
+        <description value="The code identifying a specific nutrition product"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="NutritionProduct.code"/>
+        <xpath value="f:NutritionProduct/f:code"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

@@ -12,7 +12,6 @@
         <status value="active"/>
         <type value="query-event"/>
         <eventsSinceSubscriptionStart value="2"/>
-        <eventsInNotification value="2"/>
         <notificationEvent>
           <eventNumber value="1"/>
           <focus>

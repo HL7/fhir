@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.1478"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="AdverseEvent Contributing Factor"/>
   <title value="AdverseEvent Contributing Factor"/>
   <status value="draft"/>
@@ -73,6 +73,30 @@
         <property value="concept"/>
         <op value="is-a"/>
         <value value="404684003"/>
+      </filter>
+    </include>
+	    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="410942007"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="373873005"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="106181007"/>
       </filter>
     </include>
   </compose>

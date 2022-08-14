@@ -15,10 +15,12 @@
     </statusHistory>
     <!--Encounter has been completed-->
     <class>
-        <!--Inpatient encounter for straphylococcus infection-->
-        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-        <code value="IMP"/>
-        <display value="inpatient encounter"/>
+		<coding>
+			<!--Inpatient encounter for straphylococcus infection-->
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<code value="IMP"/>
+			<display value="inpatient encounter"/>
+		</coding>
     </class>
     <type>
         <coding>
@@ -45,6 +47,12 @@
     <basedOn>
         <reference value="ServiceRequest/myringotomy"/>
     </basedOn>
+    <partOf>
+        <reference value="Encounter/f203"/>
+    </partOf>
+    <serviceProvider>
+        <reference value="Organization/2"/>
+    </serviceProvider>
     <participant>
         <type>
             <coding>
@@ -59,10 +67,10 @@
     <appointment>
         <reference value="Appointment/example"/>
     </appointment>
-    <period>
+    <actualPeriod>
         <start value="2013-03-11"/>
         <end value="2013-03-20"/>
-    </period>
+    </actualPeriod>
     <reason>
       <concept>
         <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
@@ -93,11 +101,11 @@
         </coding>
       </use>
     </diagnosis>
-<account>
+    <account>
         <reference value="Account/example"></reference>
     </account>
     <!--No indication, because no referral took place-->
-    <hospitalization>
+    <admission>
         <origin>
             <reference value="Location/2"/>
         </origin>
@@ -139,11 +147,5 @@
             <!--Fictive-->
             <reference value="Location/2"/>
         </destination>
-    </hospitalization>
-    <serviceProvider>
-        <reference value="Organization/2"/>
-    </serviceProvider>
-    <partOf>
-        <reference value="Encounter/f203"/>
-    </partOf>
+    </admission>
 </Encounter>

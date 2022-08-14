@@ -27,7 +27,6 @@
 		<display value="Harold Hippocrates, MD"/>
 	</author>
 	<title value="Discharge Summary (Neonatal Service)"/>
-	<confidentiality value="N"/>
 	<attester>
 		<mode>
 			<coding>

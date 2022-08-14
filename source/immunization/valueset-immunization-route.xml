@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.289"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ImmunizationRouteCodes"/>
   <title value="Immunization Route Codes"/>
   <status value="draft"/>
@@ -35,10 +35,6 @@
       <concept>
         <code value="IM"/>
         <display value="Injection, intramuscular"/>
-      </concept>
-      <concept>
-        <code value="NASINHLC"/>
-        <display value="Inhalation, nasal"/>
       </concept>
       <concept>
         <code value="IVINJ"/>

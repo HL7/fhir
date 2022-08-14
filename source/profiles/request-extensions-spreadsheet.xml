@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>lloyd</LastAuthor>
@@ -19,7 +19,6 @@
   
   
   <ActiveSheet>4</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4165,8 +4164,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="28" ss:ExpandedRowCount="28" ss:StyleID="s128" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s87" ss:Width="227.0"/>
-   <Column ss:StyleID="s128" ss:Width="51.0"/>
-   <Column ss:StyleID="s128" ss:Width="353.0"/>
+   <Column ss:Index="3" ss:StyleID="s128" ss:Width="353.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s128" ss:Width="80.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s128" ss:Width="77.0"/>
    <Column ss:StyleID="s128" ss:Width="29.0"/>
@@ -4325,7 +4323,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell ss:StyleID="s135"><Data ss:Type="String">replaces</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">NutritionOrder;SupplyRequest</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">NutritionOrder;SupplyRequest;Task</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Replaces</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">supersedes, prior, renewed order</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4351,7 +4349,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="210">
     <Cell ss:StyleID="s132"><Data ss:Type="String">performerOrder</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">ServiceRequest.performer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">ServiceRequest.performer;Task.requestedPerformer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Performer Order</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4365,8 +4363,8 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Performer Order</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Identifies the relative preference of alternative performers when the request lists multiple performers.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Allow for ordering multple performers in requests&#10;&#10;{This element isn't sufficiently common to be part of the [Request](request.html) pattern, but it is potentially relevant to any resource that uses the performer element from that pattern}</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Allow for ordering multple performers in requests.&#10;&#10;{This element isn't sufficiently common to be part of the [Request](request.html) pattern, but it is potentially relevant to any resource that uses the performer element from that pattern}</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Lower numbers indicate greater preference.  Equal numbers indicate equivalent preference.&#10;+R3</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5816,8 +5814,7 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" ss:StyleID="s141" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s141" ss:Width="115.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s141" ss:Width="275.0"/>
-   <Column ss:StyleID="s141" ss:Width="51.0"/>
-   <Column ss:StyleID="s141" ss:Width="68.0"/>
+   <Column ss:Index="4" ss:StyleID="s141" ss:Width="68.0"/>
    <Column ss:StyleID="s141" ss:Width="211.0"/>
    <Column ss:StyleID="s141" ss:Width="173.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s141" ss:Width="98.0"/>

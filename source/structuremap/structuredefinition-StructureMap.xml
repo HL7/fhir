@@ -27,7 +27,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="StructureMap"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="A Map of relationships between 2 structures that can be used to transform data."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -87,7 +87,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
       </constraint>
@@ -222,7 +222,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -464,7 +464,7 @@
         </extension>
         <strength value="required"/>
         <description value="How the referenced structure is used in this mapping."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-model-mode|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-model-mode|5.0.0"/>
       </binding>
     </element>
     <element id="StructureMap.structure.alias">
@@ -554,7 +554,7 @@
         </extension>
         <strength value="required"/>
         <description value="If this is the default rule set to apply for the source type, or this combination of types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-group-type-mode|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-group-type-mode|5.0.0"/>
       </binding>
     </element>
     <element id="StructureMap.group.documentation">
@@ -621,7 +621,7 @@
         </extension>
         <strength value="required"/>
         <description value="Mode for this instance of data."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-input-mode|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-input-mode|5.0.0"/>
       </binding>
     </element>
     <element id="StructureMap.group.input.documentation">
@@ -756,7 +756,7 @@
         </extension>
         <strength value="required"/>
         <description value="If field is a list, how to manage the source."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-source-list-mode|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-source-list-mode|5.0.0"/>
       </binding>
     </element>
     <element id="StructureMap.group.rule.source.variable">
@@ -875,7 +875,7 @@
         </extension>
         <strength value="required"/>
         <description value="If field is a list, how to manage the production."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-target-list-mode|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-target-list-mode|5.0.0"/>
       </binding>
     </element>
     <element id="StructureMap.group.rule.target.listRuleId">
@@ -905,7 +905,7 @@
         </extension>
         <strength value="required"/>
         <description value="How data is copied/created."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-transform|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-transform|5.0.0"/>
       </binding>
     </element>
     <element id="StructureMap.group.rule.target.parameter">
@@ -988,15 +988,13 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="StructureMap.group.rule.dependent.variable">
-      <path value="StructureMap.group.rule.dependent.variable"/>
-      <short value="Variable to pass to the rule or group"/>
-      <definition value="Variable to pass to the rule or group."/>
+    <element id="StructureMap.group.rule.dependent.parameter">
+      <path value="StructureMap.group.rule.dependent.parameter"/>
+      <short value="Parameter to pass to the rule or group"/>
+      <definition value="Parameter to pass to the rule or group."/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <contentReference value="#StructureMap.group.rule.target.parameter"/>
       <isSummary value="true"/>
     </element>
     <element id="StructureMap.group.rule.documentation">

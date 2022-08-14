@@ -44,9 +44,9 @@
           
           </td>
           
-          <td>Watson strand of referenceSeq</td>
+          <td>Watson strand of starting sequence</td>
           
-          <td>Watson strand of reference sequence.</td>
+          <td>Watson strand of starting sequence.</td>
         
         </tr>
         
@@ -58,9 +58,9 @@
           
           </td>
           
-          <td>Crick strand of referenceSeq</td>
+          <td>Crick strand of starting sequenceq</td>
           
-          <td>Crick strand of reference sequence.</td>
+          <td>Crick strand of starting sequence.</td>
         
         </tr>
       
@@ -82,7 +82,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.986"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="strandType"/>
   <title value="strandType"/>
   <status value="draft"/>
@@ -105,12 +105,12 @@
   <content value="complete"/>
   <concept>
     <code value="watson"/>
-    <display value="Watson strand of referenceSeq"/>
-    <definition value="Watson strand of reference sequence."/>
+    <display value="Watson strand of starting sequence"/>
+    <definition value="Watson strand of starting sequence."/>
   </concept>
   <concept>
     <code value="crick"/>
-    <display value="Crick strand of referenceSeq"/>
-    <definition value="Crick strand of reference sequence."/>
+    <display value="Crick strand of starting sequence"/>
+    <definition value="Crick strand of starting sequence."/>
   </concept>
 </CodeSystem>

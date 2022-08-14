@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="Transport-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Simple delivery for resupply"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="transport-example"/>
+    </extension>
+    <item>
+      <reference value="Transport/simpledelivery"/>
+      <display value="Simple Resupply"/>
+    </item>
+  </entry>
+</List>

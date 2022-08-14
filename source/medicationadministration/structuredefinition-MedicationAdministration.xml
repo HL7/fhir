@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="MedicationAdministration"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -217,7 +217,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXA-20-Completion Status"/>
+        <map value="RXA-20 Completion Status"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -247,7 +247,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXA-9-Administration Notes / RXA-18 Substance/Treatment Refusal Reason"/>
+        <map value="RXA-9 Administration Notes / RXA-18 Substance/Treatment Refusal Reason"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -306,7 +306,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXA-5-Administered Code"/>
+        <map value="RXA-5 Administered Code"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -335,7 +335,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PID-3-Patient ID List"/>
+        <map value="PID-3 Patient ID List"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -366,7 +366,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PV1-19-Visit Number"/>
+        <map value="PV1-19 Visit Number"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -418,7 +418,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXA-3-Date/Time Start of Administration / RXA-4-Date/Time End of Administration"/>
+        <map value="RXA-3 Date/Time Start of Administration / RXA-4 Date/Time End of Administration"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -444,6 +444,33 @@
         <map value=".participation[typeCode=AUT].time"/>
       </mapping>
     </element>
+    <element id="MedicationAdministration.isSubPotent">
+      <path value="MedicationAdministration.isSubPotent"/>
+      <short value="Full dose was not administered"/>
+      <definition value="An indication that the full dose was not administered."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="MedicationAdministration.subPotentReason">
+      <path value="MedicationAdministration.subPotentReason"/>
+      <short value="Reason full dose was not administered"/>
+      <definition value="The reason or reasons why the full dose was not administered."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationAdministrationSubPotentReason"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/administration-subpotent-reason"/>
+      </binding>
+    </element>
     <element id="MedicationAdministration.performer">
       <path value="MedicationAdministration.performer"/>
       <short value="Who performed the medication administration and what they did"/>
@@ -464,7 +491,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXA-10-Administering Provider / PRT-5-Participation Person: PRT-4-Participation=&#39;AP&#39; (RXA-10 is deprecated)"/>
+        <map value="RXA-10 Administering Provider / PRT-5 Participation Person: PRT-4 Participation=&#39;AP&#39; (RXA-10 is deprecated)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -571,7 +598,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC-2-Placer Order Number / ORC-3-Filler Order Number"/>
+        <map value="ORC-2 Placer Order Number / ORC-3 Filler Order Number"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -703,7 +730,7 @@
       </binding>
       <mapping>
         <identity value="v2"/>
-        <map value="RXR-1-Route"/>
+        <map value="RXR-1 Route"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -730,7 +757,7 @@
       </binding>
       <mapping>
         <identity value="v2"/>
-        <map value="RXR-4-Administration Method"/>
+        <map value="RXR-4 Administration Method"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -773,7 +800,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="RXA-12-Administered Per (Time Unit)"/>
+        <map value="RXA-12 Administered Per (Time Unit)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -784,7 +811,7 @@
       <path value="MedicationAdministration.eventHistory"/>
       <short value="A list of events of interest in the lifecycle"/>
       <definition value="A summary of the events of interest that have occurred, such as when the administration was verified."/>
-      <comment value="This might not include provenances for all versions of the request &#x2013; only those deemed &#x201C;relevant&#x201D; or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a &#x201C;relevant&#x201D; change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject."/>
+      <comment value="This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject."/>
       <min value="0"/>
       <max value="*"/>
       <type>

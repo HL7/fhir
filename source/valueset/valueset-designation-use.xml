@@ -5,9 +5,6 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-warning">
-    <valueMarkdown value="Licensing note: this value set has an extensible binding, and includes concepts from SNOMED CT. The SNOMED CT concepts included in this value set - description types for SCT terms - are for use with SNOMED-CT, and not expected to be used with other code systems."/>
-  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
   </extension>
@@ -16,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.264"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="DesignationUse"/>
   <title value="Designation Use"/>
   <status value="draft"/>

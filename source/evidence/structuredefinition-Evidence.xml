@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Evidence"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
@@ -85,7 +85,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
       </constraint>
@@ -160,6 +160,18 @@
         <map value="FiveWs.version"/>
       </mapping>
     </element>
+    <element id="Evidence.name">
+      <path value="Evidence.name"/>
+      <short value="Name for this summary (machine friendly)"/>
+      <definition value="A natural language name identifying the evidence. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="cnl-0"/>
+    </element>
     <element id="Evidence.title">
       <path value="Evidence.title"/>
       <short value="Name for this summary (human friendly)"/>
@@ -225,6 +237,17 @@
         <identity value="w5"/>
         <map value="FiveWs.status"/>
       </mapping>
+    </element>
+    <element id="Evidence.experimental">
+      <path value="Evidence.experimental"/>
+      <short value="For testing purposes, not real usage"/>
+      <definition value="A Boolean value to indicate that this resource is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="False"/>
     </element>
     <element id="Evidence.date">
       <path value="Evidence.date"/>
@@ -788,6 +811,9 @@
       </type>
     </element>
     <element id="Evidence.statistic.attributeEstimate.attributeEstimate">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="AttributeEstimateAttributeEstimate"/>
+      </extension>
       <path value="Evidence.statistic.attributeEstimate.attributeEstimate"/>
       <short value="A nested attribute estimate; which is the attribute estimate of an attribute estimate"/>
       <definition value="A nested attribute estimate; which is the attribute estimate of an attribute estimate."/>

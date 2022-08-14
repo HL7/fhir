@@ -24,7 +24,7 @@
     <valueCode value="Imaging Study state is managed in PACS."/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ImagingStudy"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -176,7 +176,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -515,7 +515,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="EVN.7"/>
+        <map value="EVN-7"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -680,7 +680,7 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -773,7 +773,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableReference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -803,7 +804,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -940,7 +941,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="EVN.5 or by domain"/>
+        <map value="EVN-5 or by domain"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
