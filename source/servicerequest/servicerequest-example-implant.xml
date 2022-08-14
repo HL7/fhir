@@ -5,12 +5,14 @@
 	<status value="completed"/>
 	<intent value="order"/>
 	<code>
+	  <concept>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="25267002"/>
 			<display value="Insertion of intracardiac pacemaker (procedure)"/>
 		</coding>
 		<text value="Implant Pacemaker"/>
+	  </concept>
 	</code>
 	<subject>
 		<reference value="Patient/example"/>

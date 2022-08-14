@@ -13,12 +13,14 @@
 		<text value="OB"/>
 	</category>
 	<code>
+	  <concept>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="22633006"/>
 			<display value="Vaginal delivery, medical personnel present (procedure)"/>
 		</coding>
 		<text value="Vaginal delivery"/>
+	  </concept>
 	</code>
 	<subject>
 		<display value="Jane Doe"/>
