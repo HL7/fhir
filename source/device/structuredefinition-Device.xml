@@ -328,6 +328,28 @@
         <map value="Participant.active"/>
       </mapping>
     </element>
+    <element id="Device.availabilityStatus">
+      <path value="Device.availabilityStatus"/>
+      <short value="lost | damaged | destroyed | available"/>
+      <definition value="The availability of the device."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FHIRDeviceAvailabilityStatus"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The availability status reason of the device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-availability-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
     <element id="Device.biologicalSourceEvent">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="W5 note what = what.productidentification."/>
@@ -959,28 +981,7 @@
         <map value="FiveWs.where[x]"/>
       </mapping>
     </element>
-    <element id="Device.availabilityStatus">
-      <path value="Device.availabilityStatus"/>
-      <short value="lost | damaged | destroyed | available"/>
-      <definition value="The availability of the device."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRDeviceAvailabilityStatus"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The availability status reason of the device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-availability-status"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-    </element>
+    
     <element id="Device.owner">
       <path value="Device.owner"/>
       <short value="Organization responsible for device"/>
