@@ -37,7 +37,7 @@
     <valueMarkdown value="The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for the measure. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the libraries referenced by the measures. Implementations SHOULD aggregate data requirements intelligently (i.e. by collapsing overlapping data requirements). This operation defines what resources are subsequently referenced in the evaluatedResources element of the MeasureReport when submitting measure data"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Measure-data-requirements"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="data-requirements"/>
   <title value="Data Requirements"/>
   <status value="draft"/>

@@ -15,7 +15,7 @@
 	<publisher value="HL7"/>
 	<description value="Contains standard extensions for Questionnaire, amongst others for validation"/>
 	<packageId value="hl7.fhir.uv.Questionnaire-core"/>
-	<fhirVersion value="4.6.0"/>
+	<fhirVersion value="5.0.0"/>
 	<definition>
 		<resource>
 			<reference>
