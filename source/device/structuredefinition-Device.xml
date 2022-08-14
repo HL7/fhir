@@ -296,7 +296,7 @@
     </element>
     <element id="Device.status">
       <path value="Device.status"/>
-      <short value="The status of the Device record."/>
+      <short value="active | inactive | entered-in-error"/>
       <definition value="The Device record status. This is not the status of the device like availability."/>
       <comment value="This element is labeled as a modifier because the status contains the codes inactive and entered-in-error that mark the device (record)as not currently valid."/>
       <min value="0"/>
@@ -962,7 +962,7 @@
     <element id="Device.availabilityStatus">
       <path value="Device.availabilityStatus"/>
       <short value="lost | damaged | destroyed | available"/>
-      <definition value="The availability of the device"/>
+      <definition value="The availability of the device."/>
       <min value="0"/>
       <max value="1"/>
       <type>
