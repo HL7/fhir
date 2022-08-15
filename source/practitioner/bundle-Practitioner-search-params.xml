@@ -250,12 +250,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Practitioner.identifier"/>
+          <valueString value="Practitioner.identifier | Practitioner.qualification.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-identifier"/>
         <description value="A practitioner&#39;s Identifier"/>
         <code value="identifier"/>
         <type value="token"/>
+        <expression value="Practitioner.identifier | Practitioner.qualification.identifier"/>
+        <xpath value="f:Practitioner/f:identifier | Practitioner/f:qualification/f:identifier"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
