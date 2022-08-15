@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="supplydelivery-supply-item-type"/>
+  <id value="supplydelivery-supplyitemtype"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,7 +11,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       
       
-      <p>This code system http://hl7.org/fhir/supplydelivery-supply-item-type defines the following codes:</p>
+      <p>This code system http://hl7.org/fhir/supplydelivery-supplyitemtype defines the following codes:</p>
       
       
       <table class="codes">
@@ -56,7 +56,7 @@
           <td style="white-space:nowrap">medication
             
             
-            <a name="supplydelivery-supply-item-type"> </a>
+            <a name="supplydelivery-supplyitemtype"> </a>
           
           
           </td>
@@ -77,7 +77,7 @@
           <td style="white-space:nowrap">device
             
             
-            <a name="supplydelivery-supply-item-type"> </a>
+            <a name="supplydelivery-supplyitemtype"> </a>
           
           
           </td>
@@ -98,7 +98,7 @@
           <td style="white-space:nowrap">biologicallyderivedproduct
             
             
-            <a name="supplydelivery-supply-item-type"> </a>
+            <a name="supplydelivery-supplyitemtype"> </a>
           
           
           </td>
@@ -126,7 +126,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/supplydelivery-supply-item-type"/>
+  <url value="http://hl7.org/fhir/supplydelivery-supplyitemtype"/>
   <version value="5.0.0-cibuild"/>
   <name value="SupplyDeliverySupplyItemType"/>
   <title value="SupplyDeliverySupplyItemType"/>
@@ -146,7 +146,7 @@
   </contact>
   <description value="Status of the supply delivery."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supply-item-type"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype"/>
   <content value="complete"/>
   <concept>
     <code value="medication"/>

@@ -226,7 +226,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of supply dispense."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supply-item-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -291,7 +291,7 @@
         </extension>
         <strength value="example"/>
         <description value="The item that was delivered."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supply-item-type"/> 
+        <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype"/> 
       </binding>
       <mapping>
         <identity value="rim"/>

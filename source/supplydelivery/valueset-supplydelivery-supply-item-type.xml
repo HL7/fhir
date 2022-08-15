@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="supplydelivery-supply-item-type"/>
+  <id value="supplydelivery-supplyitemtype"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/supplydelivery-supply-item-type"/>
+  <url value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype"/>
   <name value="SupplyDeliverySupplyItemType"/>
   <title value="SupplyDelivery Supply Item Type"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
   <description value="This value sets refers to a specific supply item."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/supplydelivery-supply-item-type"/>
+      <system value="http://terminology.hl7.org/CodeSystem/supplydelivery-supplyitemtype"/>
     </include>
   </compose>
 </ValueSet>
