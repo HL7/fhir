@@ -502,7 +502,7 @@
     </element>
     <element id="GenomicStudy.analysis.output.type">
       <path value="GenomicStudy.analysis.output.type"/>
-      <short value="Type of output data (e.g.,VCF, MAF, or TSV)"/>
+      <short value="Type of output data (e.g., VCF, MAF, or TSV)"/>
       <definition value="Type of output data, e.g., VCF, MAF, or TSV."/>
       <min value="0"/>
       <max value="1"/>
