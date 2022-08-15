@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Organization"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -359,6 +359,93 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Organization.qualification">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="350,0"/>
+      </extension>
+      <path value="Organization.qualification"/>
+      <short value="Qualifications, certifications, accreditations, licenses, training, etc pertaining to the provision of care"/>
+      <definition value="The official certifications, accreditations, training, designations and licenses that authorize and/or otherwise endorse the provision of care by the organization.&#xD;&#xD;For example, an approval to provide a type of services issued by a certifying body (such as the US Joint Commission) to an organization."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="CER?"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Organization.qualification.identifier">
+      <path value="Organization.qualification.identifier"/>
+      <short value="An identifier for this qualification for the organization"/>
+      <definition value="An identifier allocated to this qualification for this organization."/>
+      <requirements value="Often, specific identities are assigned for the qualification by the assigning organization."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Organization.qualification.code">
+      <path value="Organization.qualification.code"/>
+      <short value="Coded representation of the qualification"/>
+      <definition value="Coded representation of the qualification."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Qualification"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Specific qualification the organization has to provide a service."/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Organization.qualification.period">
+      <path value="Organization.qualification.period"/>
+      <short value="Period during which the qualification is valid"/>
+      <definition value="Period during which the qualification is valid."/>
+      <requirements value="Qualifications are often for a limited period of time, and can be revoked."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Organization.qualification.issuer">
+      <path value="Organization.qualification.issuer"/>
+      <short value="Organization that regulates and issues the qualification"/>
+      <definition value="Organization that regulates and issues the qualification."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <mapping>
         <identity value="rim"/>

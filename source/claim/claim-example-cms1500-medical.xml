@@ -39,6 +39,8 @@
 
 			<status value="active"/>
 
+			<kind value="insurance"/>
+			
 			<type>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
@@ -66,13 +68,13 @@
 				<end value="2016-01-01T00:00:00-07:00"/>
 			</period>
 
-			<payor>
+			<insurer>
 				<identifier>
 					<system value="http://www.bindb.com/bin"/>
 					<value value="123456"/>	
 				</identifier>
 				<display value="Humana Inc."/>
-			</payor>
+			</insurer>
 
 			<class>
 				<type>
@@ -81,7 +83,9 @@
 						<code value="group"/>
 					</coding>
 				</type>
-				<value value="80902206"/>
+				<value>
+					<value value="80902206"/>
+				</value>
 			</class>
 
 		</Coverage>

@@ -27,7 +27,7 @@
     <valueCode value="n/a (This would be handled where the binary is linked from)"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Binary"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Binary"/>
   <status value="active"/>
   <date value="2020-12-31T07:32:20+11:00"/>
@@ -46,7 +46,7 @@
   </contact>
   <description value="A resource that represents the data of a single raw artifact as digital content accessible in its native format.  A Binary resource can contain any content, whether text, image, pdf, zip archive, etc."/>
   <purpose value="There are situations where it is useful or required to handle pure binary content using the same framework as other resources."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

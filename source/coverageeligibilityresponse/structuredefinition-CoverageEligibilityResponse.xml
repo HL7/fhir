@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="CoverageEligibilityResponse"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="CoverageEligibilityResponse"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="This resource provides eligibility and plan details from the processing of an CoverageEligibilityRequest resource."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -108,7 +108,7 @@
       <short value="active | cancelled | draft | entered-in-error"/>
       <definition value="The status of the resource instance."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
-      <requirements value="Need to track the status of the resource as &#39;draft&#39; resources may undergo further edits while &#39;active&#39; resources are immutable and may only have their status changed to &#39;cancelled&#39;."/>
+      <requirements value="Need to track the status of the resource as 'draft' resources may undergo further edits while 'active' resources are immutable and may only have their status changed to 'cancelled'."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -137,7 +137,7 @@
     <element id="CoverageEligibilityResponse.purpose">
       <path value="CoverageEligibilityResponse.purpose"/>
       <short value="auth-requirements | benefits | discovery | validation"/>
-      <definition value="Code to specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for the patient; and/or validation that the specified coverage is in-force at the date/period specified or &#39;now&#39; if not specified."/>
+      <definition value="Code to specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for the patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified."/>
       <requirements value="To indicate the processing actions requested."/>
       <min value="1"/>
       <max value="*"/>
@@ -229,7 +229,7 @@
       <path value="CoverageEligibilityResponse.requestor"/>
       <short value="Party responsible for the request"/>
       <definition value="The provider which is responsible for the request."/>
-      <comment value="Typically this field would be 1..1 where this party is responsible for the claim but not necessarily professionally responsible for the provision of the individual products and services listed below."/>
+      <comment value="This party is responsible for the claim but not necessarily professionally responsible for the provision of the individual products and services listed below. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -288,12 +288,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EligibilityOutcome"/>
         </extension>
-<!--        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>-->
         <strength value="required"/>
         <description value="The outcome of the processing."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/eligibility-outcome|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/eligibility-outcome|5.0.0"/>
       </binding>
     </element>
     <element id="CoverageEligibilityResponse.disposition">
@@ -340,7 +337,7 @@
       <path value="CoverageEligibilityResponse.insurance"/>
       <short value="Patient insurance information"/>
       <definition value="Financial instruments for reimbursement for the health care products and services."/>
-      <comment value="All insurance coverages for the patient which may be applicable for reimbursement, of the products and services listed in the claim, are typically provided in the claim to allow insurers to confirm the ordering of the insurance coverages relative to local &#39;coordination of benefit&#39; rules. One coverage (and only one) with &#39;focal=true&#39; is to be used in the adjudication of this claim. Coverages appearing before the focal Coverage in the list, and where &#39;subrogation=false&#39;, should provide a reference to the ClaimResponse containing the adjudication results of the prior claim."/>
+      <comment value="All insurance coverages for the patient which may be applicable for reimbursement, of the products and services listed in the claim, are typically provided in the claim to allow insurers to confirm the ordering of the insurance coverages relative to local 'coordination of benefit' rules. One coverage (and only one) with 'focal=true' is to be used in the adjudication of this claim. Coverages appearing before the focal Coverage in the list, and where 'subrogation=false', should provide a reference to the ClaimResponse containing the adjudication results of the prior claim."/>
       <requirements value="There must be at least one coverage for which eligibility is requested."/>
       <min value="0"/>
       <max value="*"/>
@@ -351,7 +348,7 @@
     <element id="CoverageEligibilityResponse.insurance.coverage">
       <path value="CoverageEligibilityResponse.insurance.coverage"/>
       <short value="Insurance information"/>
-      <definition value="Reference to the insurance card level information contained in the Coverage resource. The coverage issuing insurer will use these details to locate the patient&#39;s actual coverage within the insurer&#39;s information system."/>
+      <definition value="Reference to the insurance card level information contained in the Coverage resource. The coverage issuing insurer will use these details to locate the patient's actual coverage within the insurer's information system."/>
       <requirements value="Required to allow the adjudicator to locate the correct policy and history within their information system."/>
       <min value="1"/>
       <max value="1"/>
@@ -524,7 +521,7 @@
       <path value="CoverageEligibilityResponse.insurance.item.description"/>
       <short value="Description of the benefit or services covered"/>
       <definition value="A richer description of the benefit or services covered."/>
-      <comment value="For example &#39;DENT2 covers 100% of basic, 50% of major but excludes Ortho, Implants and Cosmetic services&#39;."/>
+      <comment value="For example 'DENT2 covers 100% of basic, 50% of major but excludes Ortho, Implants and Cosmetic services'."/>
       <requirements value="Needed for human readable reference."/>
       <min value="0"/>
       <max value="1"/>
@@ -573,7 +570,7 @@
     <element id="CoverageEligibilityResponse.insurance.item.term">
       <path value="CoverageEligibilityResponse.insurance.item.term"/>
       <short value="Annual or lifetime"/>
-      <definition value="The term or period of the values such as &#39;maximum lifetime benefit&#39; or &#39;maximum annual visits&#39;."/>
+      <definition value="The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual visits'."/>
       <requirements value="Needed for the understanding of the benefits."/>
       <min value="0"/>
       <max value="1"/>

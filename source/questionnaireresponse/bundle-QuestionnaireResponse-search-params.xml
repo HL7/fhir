@@ -228,7 +228,7 @@
       <SearchParameter>
         <id value="QuestionnaireResponse-item-subject"/>
         <url value="http://hl7.org/fhir/SearchParameter/QuestionnaireResponse-item-subject"/>
-        <version value="4.6.0"/>
+        <version value="5.0.0"/>
         <name value="item-subject"/>
         <status value="draft"/>
         <experimental value="true"/>

@@ -51,7 +51,7 @@
                 <a href="codesystem-request-intent.html#request-intent-order">order</a>
               </td>
               <td>Order</td>
-              <td>The request represents a request/demand and authorization for action by a Practitioner.</td>
+              <td>The request represents a request/demand and authorization for action by the requestor.</td>
             </tr>
             <tr>
               <td>
@@ -107,7 +107,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.1240"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="TaskIntent"/>
   <title value="TaskIntent"/>
   <status value="draft"/>

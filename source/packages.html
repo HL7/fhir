@@ -1,0 +1,224 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Directory of all Versions of FHIR%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<h2>FHIR NPM Packages</h2>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: n/a</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+<p>
+FHIR Specifications are published in HTML format for human consumption, and as NPM packages for machine consumption.
+</p>
+<p>
+Some important packages for FHIR Implementers:
+</p>
+<ul>
+  <li><code>hl7.fhir.rX.core</code>: The package that contains the definitions found in the base specification</li>
+  <li><code>hl7.fhir.rX.examples</code>: The package that contains the example resources found in the base specification</li>
+  <li><code>hl7.terminology</code>: The package that contains all the code systems and value sets maintained by HL7 for all standards it publishes</li>
+</ul>
+
+<h2>FHIR NPM Packages</h2>
+<p>
+Each FHIR package is a tarball (tar in gzip) that contains a <code>package</code> folder that 
+contains:
+</p>
+<ul>
+  <li>a package.json file that describes the package</li>
+  <li>a set of FHIR resources in <a href="json.html">JSON</a> format</li>
+  <li>an .index.json file that contains key information from the JSON resources for quick access</li>
+</ul>
+<p>
+Packages may contain additional folders and files but their use is not defined
+by this specification. 
+</p>
+<p>
+Note that this specification is published as a package,
+and each <a href="implementationguide.html">Implementation Guide</a> is 
+published as a package, but this is not the only use for package, and other 
+packages exist.
+</p>
+<h3>package.json</h3>
+<p>
+The format of the package.json file is defined by the 
+<a href="https://docs.npmjs.com/cli/v8/configuring-npm/package-json">NPM Package Specification</a>.
+This specification makes some rules about use of the properties as defined in the NPM 
+specification, and defines some additional FHIR specific properties.
+</p>
+<table class="grid">
+  <tr>
+    <td>name</td>
+    <td>mandatory</td>
+    <td>A globally unique identifier for the package in the NPM System.
+      A package name consists of two or more namespaces separated by a dot. Each namespace starts with a lowercase alphabet character followed by zero-or-more lowercase alphanumeric characters or dashes.
+      The first part of the namespace should identify the publisher
+      for the package. 
+      <br/>
+      Note: HL7 manages all the packages that start with <code>hl7.</code>
+    </td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>mandatory</td>
+    <td>All packages SHALL have a version that conforms to Semantic Versioning.
+      See <a href="versions.html#versions">FHIR Versioning</a> for how 
+      semantic versioning works with standards.
+    </td>
+  </tr>
+  <tr>
+    <td>dependencies</td>
+    <td>required</td>
+    <td>Dependencies they should refer to the whole package version number and not use wildcards, except for the patch version in a semver version reference.
+      This x here means that it should a package resolver should accept the package with the highest found patch number:
+<pre class="json">
+"dependencies": {
+  "hl7.fhir.r4.core": "4.0.x"
+}
+</pre>
+    A dependency on a core package is required, and this dependency defines the basic 
+   </td>
+  </tr>
+  <tr>
+    <td><b>canonical</b></td>
+    <td>required</td>
+    <td>The canonical URL for the Implementation guide represented by the package. 
+      This is required if the package is for an Implementation Guide, but not 
+      for other packages.
+    </td>
+  </tr>
+  <tr>
+    <td><b>url</b></td>
+    <td>recommended</td>
+    <td>The URL at which the specification that the package represents may be found</td>
+  </tr>
+  <tr>
+    <td><b>type</b></td>
+    <td>recommended</td>
+    <td>The type of resources that the package contains. The type may be
+      one of the following values:
+      <ul>
+        <li><b>Conformance</b> - a set of Conformance Resources in the base package folder (/package)</li>
+        <li><b>IG</b> - a FHIR implementation guide package (has an ImplementationGuide resource in /package, along with conformance resources, and also contains example resources in /package/example)</li>
+        <li><b>Core</b> - contains the conformance related resources for the main FHIR specification (effectively, this is a special type of "conformance" that marks it as the core specification, which could also be inferred from it's name such as hl7.fhir.r4.core, but other branches / ballots etc may vary, so this is simpler than inferring from the name)</li>
+        <li><b>Examples</b>  - contains the example resources found in the main FHIR specification in /package</li>
+        <li><b>Group</b> - a package that only includes (e.g. depends on) other packages (won't contain FHIR resources directly). The versions listed in this package must include all the versions found in the included packages. Note that this is is used for the set of packages that represent a full core specification</li>
+        <li><b>Tool</b> - A package that contains tool specific files to support specific tools (won't contain FHIR resources or specify a FHIR version)</li>
+        <li><b>IG-Template</b> - an IG template for use by IG publishing tools (won't contain FHIR resources or specify a version)</li>
+      </ul>
+      This value is provided to help users find and choose the correct package; it has
+      no meaning to tools using the packages.
+    </td>
+  </tr>
+  <tr>
+    <td><b>jurisdiction</b></td>
+    <td>optional</td>
+    <td>A URL with the syntax <code>{system}#{code}</code>, from the <a href="valueset-jurisdiction.html">Jurisdiction</a> ValueSet. This value is provided to help users find the right package in the package registry</td>
+  </tr>
+</table>
+
+<h4>Example</h4>
+
+<p>
+This is the package.json file to the US Core Implementation Guide.
+</p>
+<pre class="json">
+  {
+    "name": "hl7.fhir.us.core",
+    "version": "5.0.1",
+    "type": "IG",
+    "date": "20220622194452",
+    "license": "CC0-1.0",
+    "canonical": "http://hl7.org/fhir/us/core",
+    "url": "http://hl7.org/fhir/us/core/STU5.0.1",
+    "title": "US Core Implementation Guide",
+    "description": "The US Core Implementation Guide...",
+    "dependencies": {
+      "hl7.fhir.r4.core": "4.0.1",
+      "hl7.terminology.r4": "3.1.0",
+      "hl7.fhir.uv.bulkdata": "2.0.0",
+      "hl7.fhir.uv.smart-app-launch": "2.0.0",
+      "us.nlm.vsac": "0.7.0",
+      "hl7.fhir.uv.sdc": "3.0.0"
+    },
+    "author": "HL7 International - Cross-Group Projects",
+    "jurisdiction": "urn:iso:std:iso:3166#US"
+  }
+</pre>
+
+<h3>.index.json</h3>
+<p>
+This file contains information from the resources in the package
+folder. The intention of this file is to save tools from loading 
+every resource in the package; they can read the .index.json file 
+and know what resources are in the package and load only the ones
+they need.
+</p>
+<p>
+Note that there is no independent information in the .index.json file;
+all the information is derived from the resources, and tools can 
+rebuild it at any time.
+</p>
+<pre class="json">
+{
+  "index-version": 1,
+  "files": [
+  ]
+}
+</pre>
+<p>
+The index version is a fixed value that may change if this file format
+is changed. Tools should rebuild the file if they do not recognise
+the version. The files array contains an object for each resource 
+in the package with the following properties:
+</p>
+<ul>
+  <li>filename - the filename in the package directory that is being described</li>
+  <li>resourceType</li>
+  <li>id</li>
+  <li>url</li>
+  <li>version</li>
+  <li>kind</li>
+  <li>type</li>
+  <li>supplements</li>
+</ul>
+<p>
+These properties are populated if there is a string property with
+the same name in the resource identified by the filename, irrespective
+of resource type.
+</p>
+
+<h2>FHIR NPM Package Registry</h2>
+<p>
+For user convenience, tools may choose 
+to use a <a href="https://confluence.hl7.org/display/FHIR/FHIR+Package+Cache">common local cache</a>.
+</p>
+
+<h2>FHIR NPM Package Registry</h2>
+<p>
+The FHIR packages are all hosted on the registry <a href="http://packages.fhir.org">http://packages.fhir.org</a>.
+Users can search for packages and download them manually, but the 
+main users of the registry are tools that access the registry 
+using <a href="https://app.swaggerhub.com/apis-docs/firely/Simplifier.net_FHIR_Package_API/1.0.1">the package API</a>.
+There's a secondary package registry at <a href="http://packages2.fhir.org">http://packages2.fhir.org</a>.
+</p>
+<p>
+To load a package onto the package servers:
+</p>
+<ul>
+  <li>Publish the package at a known place on the web</li>
+  <li>Register the package in an rss feed. Use <a href="http://hl7.org/fhir/package-feed.xml">http://hl7.org/fhir/package-feed.xml</a> as a template</li>
+  <li>Register the rss feed in the master list of package feeds at <a href="https://github.com/FHIR/ig-registry/blob/master/package-feeds.json">https://github.com/FHIR/ig-registry/blob/master/package-feeds.json</a>. Make the change via a Git PR</li>
+  <li>The package registries crawl the registered feeds looking for new packages on a regular basis</li>
+</ul>
+
+[%file newfooter%]
+</body>
+</html>
+
+

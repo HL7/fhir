@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="NamingSystem"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &quot;System&quot; used within the Identifier and Coding data types."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

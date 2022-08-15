@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/patient-sexForClinicalUse"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="sexForClinicalUse"/>
   <title value="sexForClinicalUse"/>
   <status value="draft"/>
@@ -45,7 +45,7 @@ Prior to the definition of Sex for Clinical Use as a concept, systems may have u
 &#xA;
 In the context of ordering workflows, systems may use Ask at Order Entry (AOE) questions to collect concepts similar to sex for clinical use.&#xA;
 "/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -101,7 +101,7 @@ In the context of ordering workflows, systems may use Ask at Order Entry (AOE) q
 			<valueString value="sexForClinicalUse"/>
 		  </extension>
 		  <strength value="required"/>
-		  <valueSet value="http://hl7.org/fhir/ValueSet/sex-for-clinical-use"/>
+		  <valueSet value="http://terminology.hl7.org/ValueSet/sex-for-clinical-use"/>
 	  </binding>
     </element>
     <element id="Extension.extension:period">

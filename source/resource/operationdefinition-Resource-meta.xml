@@ -37,7 +37,7 @@
     <valueMarkdown value="At the system and type levels, the $meta operation is used to get a summary of all the labels that are in use across the system. The principal use for this operation is to support search e.g. what tags can be searched for. At these levels, the meta will not contain versionId, lastUpdated etc. Systems are not obligated to implement the operation at this level (and should return a 4xx error if they don&#39;t). At the resource and historical entry level, the $meta operation returns the same meta as would be returned by accessing the resource directly. This can be used to allow a system to get access to the meta-information for the resource without accessing the resource itself, e.g. for security reasons"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Resource-meta"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="meta"/>
   <title value="Access a list of profiles, tags, and security labels"/>
   <status value="draft"/>

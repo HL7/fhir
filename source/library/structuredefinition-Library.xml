@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Library"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Library"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

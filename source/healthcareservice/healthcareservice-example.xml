@@ -128,41 +128,42 @@
 		</coding>
 	</referralMethod>
 	<appointmentRequired value="false"/>
-	<availableTime>
-    <!-- This is a 24 hour service on wednesdays (due to weekly local service needs) -->
-		<daysOfWeek value="wed" />
-    <allDay value="true"/>
-	</availableTime>
-	<availableTime>
-		<daysOfWeek value="mon" />
-		<daysOfWeek value="tue" />
-		<daysOfWeek value="thu" />
-		<daysOfWeek value="fri" />
-		<availableStartTime value="08:30:00"/>
-		<availableEndTime value="05:30:00"/>
-	</availableTime>
-	<availableTime>
-		<daysOfWeek value="sat" />
-		<daysOfWeek value="fri" />
-		<availableStartTime value="09:30:00"/>
-		<availableEndTime value="04:30:00"/>
-	</availableTime>
-	<notAvailable>
-		<description value="Christmas/Boxing Day" />
-		<during>
-			<start value="2015-12-25"/>
-			<end value="2015-12-26"/>
-		</during>
-	</notAvailable>
-	<notAvailable>
-		<description value="New Years Day" />
-		<during>
-			<start value="2016-01-01"/>
-			<end value="2016-01-01"/>
-		</during>
-	</notAvailable>
-	<availabilityExceptions value="Reduced capacity is available during the Christmas period"/>
-  <endpoint>
+	<availability>
+		<availableTime>
+		<!-- This is a 24 hour service on wednesdays (due to weekly local service needs) -->
+			<daysOfWeek value="wed" />
+		<allDay value="true"/>
+		</availableTime>
+		<availableTime>
+			<daysOfWeek value="mon" />
+			<daysOfWeek value="tue" />
+			<daysOfWeek value="thu" />
+			<daysOfWeek value="fri" />
+			<availableStartTime value="08:30:00"/>
+			<availableEndTime value="05:30:00"/>
+		</availableTime>
+		<availableTime>
+			<daysOfWeek value="sat" />
+			<daysOfWeek value="fri" />
+			<availableStartTime value="09:30:00"/>
+			<availableEndTime value="04:30:00"/>
+		</availableTime>
+		<notAvailableTime>
+			<description value="Christmas/Boxing Day, Reduced capacity is available during the Christmas period" />
+			<during>
+				<start value="2015-12-25"/>
+				<end value="2015-12-26"/>
+			</during>
+		</notAvailableTime>
+		<notAvailableTime>
+			<description value="New Years Day" />
+			<during>
+				<start value="2016-01-01"/>
+				<end value="2016-01-01"/>
+			</during>
+		</notAvailableTime>
+	</availability>
+	<endpoint>
     <!--   Endpoint that handles the v2 messaging for the external organization   -->
     <reference value="Endpoint/example"/>
   </endpoint>

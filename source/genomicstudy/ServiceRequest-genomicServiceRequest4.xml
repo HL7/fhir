@@ -19,11 +19,13 @@
   <status value="active"/>
   <intent value="plan"/>
   <code>
+   <concept>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="3981005"/>
       <display value="Carrier detection, molecular genetics (procedure)"/>
     </coding>
+   </concept>
   </code>
   <subject>
     <reference value="Patient/denovoFather"/>

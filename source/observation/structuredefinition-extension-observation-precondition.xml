@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/observation-precondition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="precondition"/>
   <title value="Precondition"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="Other preceding or concurrent observations that must be known to correctly interpret the the observation.  For example an fiO2 measure taken alongside of a SpO2 measurement.  See the [Observation notes](observation.html#notes) section for additional guidance."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

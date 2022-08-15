@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/flag-priority"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="priority"/>
   <title value="Flag Priority"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="A code that identifies the priority of the alert, for example the Alert Priority flags column in IHE PCD TF 2 Table B.8-4."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
