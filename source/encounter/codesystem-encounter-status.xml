@@ -6,138 +6,6 @@
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/encounter-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">planned
-            
-            <a name="encounter-status-planned"> </a>
-          
-          </td>
-          
-          <td>Planned</td>
-          
-          <td>The Encounter has not yet started.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">in-progress
-            
-            <a name="encounter-status-in-progress"> </a>
-          
-          </td>
-          
-          <td>In Progress</td>
-          
-          <td>The Encounter has begun and the patient is present / the practitioner and the patient are meeting.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">onhold
-            
-            <a name="encounter-status-onhold"> </a>
-          
-          </td>
-          
-          <td>On Hold</td>
-          
-          <td>The Encounter has begun, but is currently on hold, e.g. because the patient is temporarily on leave.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">completed
-            
-            <a name="encounter-status-completed"> </a>
-          
-          </td>
-          
-          <td>Completed</td>
-          
-          <td>The Encounter has ended.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">cancelled
-            
-            <a name="encounter-status-cancelled"> </a>
-          
-          </td>
-          
-          <td>Cancelled</td>
-          
-          <td>The Encounter has ended before it has begun.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="encounter-status-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered in Error</td>
-          
-          <td>This instance should not have been part of this patient&#39;s medical record.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">unknown
-            
-            <a name="encounter-status-unknown"> </a>
-          
-          </td>
-          
-          <td>Unknown</td>
-          
-          <td>The encounter status is unknown. Note that &quot;unknown&quot; is a value of last resort and every attempt should be made to provide a meaningful value other than &quot;unknown&quot;.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
@@ -197,6 +65,11 @@
     <code value="cancelled"/>
     <display value="Cancelled"/>
     <definition value="The Encounter has ended before it has begun."/>
+  </concept>
+  <concept>
+    <code value="discontinued"/>
+    <display value="Discontinued"/>
+    <definition value="The Encounter has started, but was not able to be completed. Futher action may need to be performed, such as rescheduling appointments related to this encounter."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>
