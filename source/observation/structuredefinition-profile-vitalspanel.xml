@@ -22,7 +22,7 @@
     <valueString value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**&#39;http ://loinc.org&#39;**&#xD;    -   a fixed  `Observation.code.coding.code`= **&#39;85353-1&#39;**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have an system value&#xD;1.  No value in `Observation.value[x]`&#xD;1.  At Least one Vitals Sign Observation reference in `Observation.hasMember`"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/vitalspanel"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="observation-vitalspanel"/>
   <title value="Observation Vital Signs Panel Profile"/>
   <status value="draft"/>
@@ -36,7 +36,7 @@
     </telecom>
   </contact>
   <description value="FHIR Vital Signs Panel Profile"/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

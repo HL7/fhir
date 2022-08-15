@@ -18,7 +18,9 @@
 		<reference value="Patient/example"/>
 	</subject>
 	
-		<date value ="2017-01-25T08:00:00+01:00"/>
+	<creation value ="2017-01-25T08:00:00+01:00"/>
+		
+	<periodDate value ="2017-01-25"/>	
 		
 	<participant>
 		<role>
@@ -51,8 +53,5 @@
 	    <value value="48"/>
         <currency value="EUR"/>
 	</totalGross>
-	
-	
-
 
 </Invoice> 

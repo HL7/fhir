@@ -14,11 +14,13 @@ This example is used for DetectedIssue/Duplicate Therapy example will need to ed
 	--><status value="active"/>
 	<intent value="original-order"/>
 	<code>
+	  <concept>
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="24627-2"/>
 		</coding>
 		<text value="Chest CT"/>
+	  </concept>
 	</code>
 	<subject>
 		<reference value="Patient/dicom"/>

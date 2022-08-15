@@ -15,7 +15,9 @@
 	<status value="completed"/>
 	<intent value="order"/>
 	<code>
+	   <concept>
 		<text value="Appendectomy"/>
+	   </concept>
 	</code>
 	<subject>
 		<display value="Paula Patient"/>

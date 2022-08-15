@@ -50,7 +50,7 @@ This is the FHIR Consent's native mechanism for expressing and encoding policy r
 
 <p>Provisions are organized in a tree structure where the <em>root</em> states the default decision and each subsequent level specifies exceptions to the rules stated in the parent provision. 
 The following figure depicts this structure:</p>
-<img src="consent-provisions.png" alt="consent provisions"  width="100%"/> 
+<img src="consent-provisions.png" alt="consent provisions"  width="75%"/> 
 
 <p>The <em>root</em> provision states the default decision by setting the value of the <code>type</code> attribute to <code>permit</code> or <code>deny</code>. 
 It also defines other broad conditions about the applicability of the consent, such as the <code>purpose</code> of use to which the consent applies.</p>
@@ -82,8 +82,28 @@ the decision when matching these children will be a <code>deny</code>.
   </li>
 </ul>
 
+<p>If the value of an attribute is a code from a hierarchical code structure 
+(e.g., a <a href="https://terminology.hl7.org/ValueSet-v3-Confidentiality.html"> Confidentiality code</a>),
+the subsumption relationship between the codes in the hierarchy must be considered 
+in the interpretation of the provision:</p>  
+
+<ul>
+  <li>
+    If the (implicit or explicit) type of the provision is <code>permit</code>, 
+    all the subsumed descending codes (that are below the mentioned code in the hierarchy) are also permitted. 
+    For example, if a provision permits access to <em>very restricted</em> (<code>V</code>) data, 
+    it also permits access to <em>restricted</em> (<code>R</code>) data.
+  </li>
+  <li>
+    If the (implicit or explicit) type of the provision is <code>deny</code>, 
+    all the subsuming parent codes (that are above the mentioned code in the hierarchy) are also denied. 
+    For example, if a provision denies access to <em>restricted</em> (<code>R</code>) data, 
+    it also denies access to <em>very restricted</em> (<code>V</code>) data.
+  </li>
+</ul>
+
 <p>The following figure visualizes this in the course of an example.</p>
-<img src="consent-provisions-example.png" alt="consent provisions example"  width="100%"/> 
+<img src="consent-provisions-example.png" alt="consent provisions example"  width="75%"/> 
 
 <p>The root provision articulates that during the time period from 01/01/2020 to 31/12/2022, 
 all access by <em>Org A</em> is permitted. 
@@ -99,7 +119,8 @@ are exceptions to a <em>permit</em> parent provision.</p>
     access is denied if the purpose of use is <em>marketing</em> (<code>HMK</code>).
   </li>
   <li> 
-    access is denied if the requested data is <em>restricted</em> (<code>R</code>).
+    access is denied if the requested data is <em>restricted</em> (<code>R</code>). 
+    Note that this implies access is also denied if the requested data is <em>very restricted</em> (<code>V</code>).
   </li>
   <li>
     access is denied if the purpose of use is <em>payment</em> (<code>PAY</code>) unless: 

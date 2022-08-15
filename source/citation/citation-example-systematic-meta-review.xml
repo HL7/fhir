@@ -1204,7 +1204,7 @@
 			<classifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
-					<version value="4.6.0"/>
+					<version value="5.0.0"/>
 					<code value="abstract"/>
 					<display value="Abstract"/>
 					<userSelected value="true"/>
@@ -1217,7 +1217,7 @@
 			<classifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
-					<version value="4.6.0"/>
+					<version value="5.0.0"/>
 					<code value="full-text"/>
 					<display value="Full-Text"/>
 					<userSelected value="true"/>
@@ -1462,7 +1462,7 @@
 				<type>
 					<coding>
 						<system value="http://terminology.hl7.org/CodeSystem/contributor-summary-type"/>
-						<version value="4.6.0"/>
+						<version value="5.0.0"/>
 						<code value="author-string"/>
 						<display value="Author string"/>
 					</coding>

@@ -119,6 +119,20 @@
           <td>Group contains Substance resources.</td>
         
         </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">bodystructure
+            
+            <a name="group-type-substance"> </a>
+          
+          </td>
+          
+          <td>BodyStructure</td>
+          
+          <td>Group contains BodyStructure resources.</td>
+        
+        </tr>
       
       </table>
     
@@ -138,7 +152,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.285"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="GroupType"/>
   <title value="GroupType"/>
   <status value="draft"/>
@@ -188,5 +202,10 @@
     <code value="substance"/>
     <display value="Substance"/>
     <definition value="Group contains Substance resources."/>
+  </concept>
+  <concept>
+    <code value="bodystructure"/>
+    <display value="BodyStructure"/>
+    <definition value="Group contains BodyStructure resources."/>
   </concept>
 </CodeSystem>

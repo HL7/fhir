@@ -22,8 +22,6 @@ Binary resources behave slightly differently from all other resources on the RES
  <li>When a read request is made with a FHIR type in the Accept header (e.g. "<code>application/fhir+xml</code>" or 
    "<code>application/fhir+json</code>") the Binary resource is returned in the requested FHIR format. 
    This applies even when the binary data itself has a FHIR mime type</li>
- <li>When a read request is made with a FHIR type in the <code>Accept</code> header (e.g. "application/fhir+xml" or "application/fhir+json")
-   the binary resource is returned in the requested FHIR format. This applies even when the binary data itself has a FHIR mime type</li>
  <li>The Binary resource is always represented in the native FHIR format when wrapped in a <a href="bundle.html">Bundle</a></li>
  <li>The <a href="http.html#format">_format</a> overrides the accept header and SHALL be interpreted as using the standard FHIR mime types, even if the more generic mime types are given as a value.</li>	 
 <li>When the read request has some other type in the <code>Accept</code> header, then the content should be returned with the content type stated in the resource in the <code>Content-Type</code> header. 

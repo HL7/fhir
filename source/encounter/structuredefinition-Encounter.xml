@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Encounter"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -41,8 +41,8 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient."/>
-  <fhirVersion value="4.6.0"/>
+  <description value="An interaction between healthcare provider(s), and/or patient(s) for the purpose of providing healthcare service(s) or assessing the health status of patient(s)."/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -121,8 +121,8 @@
     </element>
     <element id="Encounter.status">
       <path value="Encounter.status"/>
-      <short value="planned | in-progress | onhold | completed | cancelled | entered-in-error | unknown"/>
-      <definition value="planned | in-progress | onhold | completed | cancelled | entered-in-error | unknown."/>
+      <short value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown"/>
+      <definition value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown."/>
       <comment value="Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes)."/>
       <min value="1"/>
       <max value="1"/>
@@ -180,8 +180,8 @@
     </element>
     <element id="Encounter.statusHistory.status">
       <path value="Encounter.statusHistory.status"/>
-      <short value="planned | in-progress | onhold | completed | cancelled | entered-in-error | unknown"/>
-      <definition value="planned | in-progress | onhold | completed | cancelled | entered-in-error | unknown."/>
+      <short value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown"/>
+      <definition value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -345,7 +345,7 @@
       <short value="Specific type of service"/>
       <definition value="Broad categorization of the service that is to be provided (e.g. cardiology)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
@@ -404,8 +404,8 @@
     </element>
     <element id="Encounter.subject">
       <path value="Encounter.subject"/>
-      <short value="The patient or group present at the encounter"/>
-      <definition value="The patient or group present at the encounter."/>
+      <short value="The patient or group related to this encounter"/>
+      <definition value="The patient or group related to this encounter. In some use-cases the patient MAY not be present, such as a case meeting about a patient between several practitioners or a careteam."/>
       <comment value="While the encounter is always about the patient, the patient might not actually be known in all contexts of use, and there may be a group of patients that could be anonymous (such as in a group therapy for Alcoholics Anonymous - where the recording of the encounter could be used for billing on the number of people/staff and not important to the context of the specific patients) or alternately in veterinary care a herd of sheep receiving treatment (where the animals are not individually tracked)."/>
       <alias value="patient"/>
       <min value="0"/>

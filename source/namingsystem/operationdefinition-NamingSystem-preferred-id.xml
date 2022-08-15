@@ -37,7 +37,7 @@
     <valueMarkdown value="Servers handle this request by finding the provided identifier in their known naming systems, and returning the requested identifier type ([NamingSystem.uniqueId.type](namingsystem-definitions.html#NamingSystem.uniqueId.type)). If there are multiple possible identifiers of the specified type (e.g. multiple OIDs) the server returns an error.    &#xA;&#xA;If the server wishes, it can also look through all code systems and value sets it knows about when attempting to find the requested identifier"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/NamingSystem-preferred-id"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="preferred-id"/>
   <title value="Fetch Preferred id"/>
   <status value="draft"/>
@@ -84,7 +84,7 @@
         <valueString value="Identifies the style of unique identifier used to identify a namespace."/>
       </extension>
       <strength value="required"/>
-      <valueSet value="http://hl7.org/fhir/ValueSet/namingsystem-identifier-type|4.6.0"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/namingsystem-identifier-type|5.0.0"/>
     </binding>
   </parameter>
   <parameter>

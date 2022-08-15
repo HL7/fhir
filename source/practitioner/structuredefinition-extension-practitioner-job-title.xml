@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="practitioner-job-title"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/practitioner-job-title"/>
+  <version value="5.0.0"/>
+  <name value="jobTitle"/>
+  <title value="Job title"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="HL7"/>
+  <description value="The job title may be independent of the role.  For example, a surgeon (role) may have a title of Head of Surgery.  Some titles may overlap with roles and could be represented as discrete PractitionerRoles, but some titles may be independent of role."/>
+  <comment value="For example, the Head of Surgery at a hospital may have roles of surgeon and principle investigator, but the title would apply to both roles.  The title is not the primary attribute that defines the role in the PractitionerRole."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="Practitioner"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="PractitionerRole"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Job Title"/>
+      <definition value="The Job Title for this practitioner/practitionerrole"/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/practitioner-job-title"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PractitionerJobTitle"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Job title"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/practitioner-job-title"/>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>
