@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
@@ -13,15 +14,10 @@
   <name value="search-parameter-combination"/>
   <title value="Search Parameter Combination"/>
   <status value="draft"/>
-  <date value="2014-04-12"/>
-  <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/special/committees/fhir.htm"/>
-    </telecom>
-  </contact>
-  <description value="This extension defines a possible search parameter combination,  by listing a set of search parameters and indicating whether they are required or optional. If a search combination is specified, clients should expect that they must submit a search that meets one of the required combinations or the search will be unsuccessful. If multiple search parameter combinations are specified, a client may pick between them, and supply the minimal required parameters for any of the combinations."/>
+  <experimental value="false"/>
+  <date value="2022-08-15"/>
+  <publisher value="HL7"/>
+  <description value="This extension defines a possible search parameter combination by listing a set of search parameters and indicating whether they are required or optional.&#xA;- If a search combination is specified, clients should expect that they must submit a search that meets one of the required combinations or the search will be unsuccessful.&#xA;- If multiple search parameter combinations are specified, a client may pick between them, and supply the minimal required parameters for any of the combinations.&#xA;- If no parameters in the set of search parameters are listed as required, then *at least one* of the listed optional parameters must be present.  This shorthand method is the same as repeating the entire extension for each combination of optional and required search parameters."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
@@ -46,7 +42,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="An allowable parameter combination"/>
-      <definition value="This extension defines a possible search parameter combination by listing a set of search parameters and indicating whether they are required or optional. If a search combination is specified, clients should expect that they must submit a search that meets one of the required combinations or the search will be unsuccessful. If multiple search parameter combinations are specified, a client may pick between them, and supply the minimal required parameters for any of the combinations. If no parameters in the set of search parameters are listed as required, then the extension is requiring *at least one* of the listed optional parameters must be present.  This shorthand method is the same as by repeating the entire extension for each optional value."/>
+      <definition value="This extension defines a possible search parameter combination by listing a set of search parameters and indicating whether they are required or optional.&#xA;- If a search combination is specified, clients should expect that they must submit a search that meets one of the required combinations or the search will be unsuccessful.&#xA;- If multiple search parameter combinations are specified, a client may pick between them, and supply the minimal required parameters for any of the combinations.&#xA;- If no parameters in the set of search parameters are listed as required, then *at least one* of the listed optional parameters must be present.  This shorthand method is the same as repeating the entire extension for each combination of optional and required search parameters."/>
       <comment value="For example, on the Patient Resource  you could use this to state support for searching by Patient.name and Patient.gender is required."/>
       <min value="0"/>
       <max value="*"/>
