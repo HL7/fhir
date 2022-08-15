@@ -393,7 +393,7 @@
     <element id="Practitioner.qualification.identifier">
       <path value="Practitioner.qualification.identifier"/>
       <short value="An identifier for this qualification for the practitioner"/>
-      <definition value="An identifier that applies to this person&#39;s qualification in this role."/>
+      <definition value="An identifier that applies to this person&#39;s qualification."/>
       <requirements value="Often, specific identities are assigned for the qualification."/>
       <min value="0"/>
       <max value="*"/>
