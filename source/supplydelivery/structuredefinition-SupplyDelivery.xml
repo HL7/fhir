@@ -251,7 +251,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=PRD].role"/>
+        <map value=".participation[typeCode=PRD].role"/> 
       </mapping>
     </element>
     <element id="SupplyDelivery.suppliedItem.quantity">
