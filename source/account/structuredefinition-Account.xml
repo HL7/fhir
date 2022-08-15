@@ -400,11 +400,39 @@
         <map value=".holder.guarantorRole.effectiveTime"/>
       </mapping>
     </element>
-    <element id="Account.partOf">
-      <path value="Account.partOf"/>
-      <short value="Reference to a parent Account"/>
-      <definition value="Reference to a parent Account."/>
+    <element id="Account.relatedAccount">
+      <path value="Account.relatedAccount"/>
+      <short value="Other associated accounts related to this account"/>
+      <definition value="Other associated accounts related to this account."/>
       <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Account.relatedAccount.relationship">
+      <path value="Account.relatedAccount.relationship"/>
+      <short value="Relationship of the associated Account"/>
+      <definition value="Relationship of the associated Account."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AccountRelationship"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates the relationship between the accounts"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/account-relationship"/>
+      </binding>
+    </element>
+    <element id="Account.relatedAccount.account">
+      <path value="Account.relatedAccount.account"/>
+      <short value="Reference to an associated Account"/>
+      <definition value="Reference to an associated Account."/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
