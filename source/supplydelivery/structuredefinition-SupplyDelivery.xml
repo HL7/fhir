@@ -291,7 +291,7 @@
         </extension>
         <strength value="example"/>
         <description value="The item that was delivered."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/supplydeliver-supply-item"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/supplydeliver-supply-item-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
