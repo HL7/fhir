@@ -480,8 +480,9 @@
     </element>
     <element id="Location.virtualService">
       <path value="Location.virtualService"/>
-      <short value="Connection details of a virtual service"/>
-      <comment value="There are two types of virtual meetings that often exist:  a persistent, virtual meeting room that can only be used for a single purpose at a time, and a dynamic virtual meeting room that is generated on demand for a specific purpose.  Implementers may consider using Appointment.virtualService for virtual meeting rooms that are generated on-demand."/>
+      <short value="Connection details of a virtual service (e.g. conference call)"/>
+      <definition value="Connection details of a virtual service (e.g. shared conference call facility with dedicated number/details)"/>
+      <comment value="There are two types of virtual meetings that often exist:&#xD;&#xD;* a persistent, virtual meeting room that can only be used for a single purpose at a time,&#xD; * and a dynamic virtual meeting room that is generated on demand for a specific purpose.&#xD;&#xD; Implementers may consider using Appointment.virtualService for virtual meeting rooms that are generated on-demand."/>
       <min value="0"/>
       <max value="*"/>
       <type>
