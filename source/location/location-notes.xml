@@ -10,6 +10,14 @@ in the models for <a href="organization.html">Organization</a> and <a href="prac
 using the Location.partOf element.</li>
 <li>Location.position is expressed using the same syntax, datum and reference system as used in Google Earth's KML files,
 see <a href="http://www.opengeospatial.org/standards/kml">Google/OGS's KML</a>.</li>
+<li>
+    Location availability exceptions such as public holidays or planned maintenance can be blocked out
+    using the <code>hoursOfOperation.notAvailableTime</code> properties. It might be defined as just a textual description
+    (e.g. Public Holidays) in which case the user would need to know what that means.
+    Preferably it should include the actual start/end dates that is it not available.<br/>
+    Not intended to store ongoing historic data here, but the most recent/upcoming relevant data
+    (however nothing prevents that data from existing either)
+</li>
 </ul>
 
 <a name="loc-mode"></a>
