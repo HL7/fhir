@@ -10,6 +10,7 @@ variables:
 
 jobs:
 - job: setupEnvironment
+  pool: 'Google Cloud'
   steps:
   - task: Bash@3
     displayName: 'Download java sdk'
@@ -33,6 +34,7 @@ jobs:
         which java
 
 - job: buildAndPublishSpecification
+  pool: 'Google Cloud'
   steps:
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Gradle@2
@@ -63,6 +65,7 @@ jobs:
 # In the case of a successful build and subsequent publish, we trigger a message to the committers/notifications channel
 # on Zulip (chat.fhir.org) to let users know that the build is available.
 - job: successNotification
+  pool: 'Azure Pipelines'
   dependsOn: buildAndPublishSpecification
   condition: succeeded()
   timeoutInMinutes: 5
@@ -81,6 +84,7 @@ jobs:
             "
 
 - job: failureNotification
+  pool: 'Azure Pipelines'
   dependsOn: buildAndPublishSpecification
   condition: failed()
   timeoutInMinutes: 5
