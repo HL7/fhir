@@ -441,7 +441,7 @@
     </element>
     <element id="Account.balance">
       <path value="Account.balance"/>
-      <short value="Account balance(s)"/>
+      <short value="Calculated account balance(s)"/>
       <definition value="The calculated account balances - these are calculated and processed by the finance system.&#xD;&#xD;The balances with a `term` that is not current are usually generated/updated by an invoicing or similar process."/>
       <min value="0"/>
       <max value="*"/>
@@ -496,7 +496,7 @@
     </element>
     <element id="Account.balance.amount">
       <path value="Account.balance.amount"/>
-      <short value="Amount"/>
+      <short value="calculated amount"/>
       <definition value="The actual balance value calculated for the age defined in the term property."/>
       <min value="1"/>
       <max value="1"/>
