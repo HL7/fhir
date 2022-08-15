@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="location-charcteristic"/>
+  <id value="location-characteristic"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -15,10 +15,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
   </extension>
-  <url value="http://hl7.org/fhir/location-charcteristic"/>
-  <version value="5.0.0"/>
-  <name value="LocationCharcteristic"/>
-  <title value="Location Charcteristic"/>
+  <url value="http://hl7.org/fhir/location-characteristic"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="LocationCharacteristic"/>
+  <title value="Location Characteristic"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>

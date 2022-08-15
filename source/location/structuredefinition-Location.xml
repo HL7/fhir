@@ -455,7 +455,7 @@
         </extension>
         <strength value="example"/>
         <description value="A custom attribute that could be provided at a service (e.g. Wheelchair accessibiliy)."/>
-        <!-- <valueSet value="http://hl7.org/fhir/location-charcteristic"/> -->
+        <valueSet value="http://hl7.org/fhir/ValueSet/location-characteristic"/>
       </binding>
       <mapping>
         <identity value="rim"/>
