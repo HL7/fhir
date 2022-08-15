@@ -137,7 +137,7 @@
 		<concept>
 			<code value="check-box"/>
 			<display value="Check-box"/>
-			<definition value="A control where choices are listed with a box beside them.  The box can be toggled to select or de-select a given choice.  Multiple selections may be possible."/>
+			<definition value="A control where choices are listed with a box beside them.  The box can be toggled to select or de-select a given choice.  Multiple selections may be possible.  Commonly useful for repeating items of type constrained by answerOption, answerValueset or answerExpression, however can also be used for boolean (if the checkbox is a 3-state control that allows 'unanswered' as a possibility)."/>
 		</concept>
 		<concept>
 			<code value="lookup"/>
@@ -147,7 +147,7 @@
 		<concept>
 			<code value="radio-button"/>
 			<display value="Radio Button"/>
-			<definition value="A control where choices are listed with a button beside them.  The button can be toggled to select or de-select a given choice.  Selecting one item deselects all others."/>
+			<definition value="A control where choices are listed with a button beside them.  The button can be toggled to select or de-select a given choice.  Selecting one item deselects all others.  Used for non-repeating items with 'closed' answerOption, answerValueset or answerExpression constraints.  Can also be used for boolean so long as there is a button for 'unanswered' or it's possible to deselect all items."/>
 		</concept>
 		<concept>
 			<code value="slider"/>

@@ -277,7 +277,7 @@ and when referenced by full URL, do not need to be provided as part of the quest
 <h3>Handling Boolean Answers</h3>
 <p>
 In a questionnaire response, a question of type 'boolean' can have 3 possible states - unanswered, answered true, and answered false.  Users will generally need to be able to toggle through all three states.  If a default
-value is specified and the element is mandatory, a simple control with only true and false options will suffice.  However, if a three-state selection is required,
+value is specified and the element is mandatory, a simple control with only true and false options (e.g. traditional check-box) will suffice.  However, if a three-state selection is required,
 the typical controls used in HTML and other rendering technologies for booleans might not be appropriate.  E.g. a checkbox that can only convey 'true' or 'false' will not be able to differentiate 'unanswered' and thus is generally not
 appropriate.  If a tri-state control is available, that would work well.  Alternatively, a set of radio buttons allow choices of true, false or "no answer" could also work.
 </p>
