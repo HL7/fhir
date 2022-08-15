@@ -60,14 +60,10 @@ jobs:
         echo "Publishing to master"
         tar czf - * | ssh -o "StrictHostKeyChecking=no" -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish master
 
-# In the case of a successful build and subsequent publish, we trigger a message to the committers/notifications channel
-# on Zulip (chat.fhir.org) to let users know that the build is available.
-- job: successNotification
-  dependsOn: buildAndPublishSpecification
-  condition: succeeded()
-  timeoutInMinutes: 5
-  steps:
+    # In the case of a successful build and subsequent publish, we trigger a message to the committers/notifications channel
+    # on Zulip (chat.fhir.org) to let users know that the build is available.
   - task: Bash@3
+    condition: succeeded()
     inputs:
       targetType: 'inline'
       script: |
@@ -80,12 +76,8 @@ jobs:
             Published webpage can be viewed [here](https://build.fhir.org/)
             "
 
-- job: failureNotification
-  dependsOn: buildAndPublishSpecification
-  condition: failed()
-  timeoutInMinutes: 5
-  steps:
   - task: Bash@3
+    condition: failed()
     inputs:
       targetType: 'inline'
       script: |
