@@ -275,7 +275,7 @@
     </element>
     <element id="GenomicStudy.analysis.changeType">
       <path value="GenomicStudy.analysis.changeType"/>
-      <short value="Type of the genomic changes studied in the analysis (e.g., DNA, RNA< or AA change)"/>
+      <short value="Type of the genomic changes studied in the analysis (e.g., DNA, RNA, or AA change)"/>
       <definition value="Type of the genomic changes studied in the analysis, e.g., DNA, RNA, or amino acid change."/>
       <min value="0"/>
       <max value="*"/>
