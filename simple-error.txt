@@ -1,1 +1,2 @@
-﻿Resource Examples failed instance validation
+Resource Examples failed instance validation
+
