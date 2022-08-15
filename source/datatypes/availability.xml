@@ -3416,7 +3416,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">Availability.availableTime</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Cannot include start/end times when selecting all day availability.</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">allDay implies availableStartTime.exists().not() and availableEndTime.exists().not()</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">allDay.exists().not() or (allDay implies availableStartTime.exists().not() and availableEndTime.exists().not())</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(/availableTime/allDay)) or (exists(/availableTime/allDay) and not(exists(/availableTime/availableStartTime)) and not(exists(/availableTime/availableEndTime)))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

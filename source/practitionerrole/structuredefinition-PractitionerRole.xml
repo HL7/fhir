@@ -276,7 +276,7 @@
       <path value="PractitionerRole.specialty"/>
       <short value="Specific specialty of the practitioner"/>
       <definition value="The specialty of a practitioner that describes the functional role they are practicing at a given organization or location."/>
-  	  <comment value="The specialty represents the functional role a practitioner is playing within an organization/location. This role may require the individual have certain qualifications, which would be represented in the Practitioner.qualifications property.  Note that qualifications may or may not relate to or be required by the practicing specialty."/>
+  	  <comment value="The specialty represents the functional role a practitioner is playing within an organization/location. This role may require the individual have certain qualifications, which would be represented in the Practitioner.qualifications property.  Note that qualifications may or might not relate to or be required by the practicing specialty."/>
       <min value="0"/>
       <max value="*"/>
       <type>
