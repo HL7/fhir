@@ -302,4 +302,24 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="location-characteristic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Location.characteristic"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Location-characteristic"/>
+        <description value="One of the Location&#39;s characteristics"/>
+        <code value="characteristic"/>
+        <type value="token"/>
+        <expression value="Location.characteristic"/>
+        <xpath value="f:Location/f:characteristic"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

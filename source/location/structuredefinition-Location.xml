@@ -439,6 +439,29 @@
         <map value=".inboundLink[typeCode=PART].source[classCode=SDLOC]"/>
       </mapping>
     </element>
+    <element id="Location.characteristic">
+      <path value="Location.characteristic"/>
+      <short value="Collection of characteristics (attributes)"/>
+      <definition value="Collection of characteristics (attributes)."/>
+      <comment value="These could be such things as is wheelchair accessible."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LocationCharacteristic"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A custom attribute that could be provided at a service (e.g. Wheelchair accessibiliy)."/>
+        <!-- <valueSet value="http://hl7.org/fhir/location-charcteristic"/> -->
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".actrelationship[typeCode=PERT].observation"/>
+      </mapping>
+    </element>
     <element id="Location.hoursOfOperation">
       <path value="Location.hoursOfOperation"/>
       <short value="What days/times during a week is this location usually open (including exceptions)"/>
