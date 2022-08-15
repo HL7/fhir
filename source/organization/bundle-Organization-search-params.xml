@@ -170,14 +170,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Organization.identifier"/>
+          <valueString value="Organization.identifier | Organization.qualification.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Organization-identifier"/>
         <description value="Any identifier for the organization (not the accreditation issuer&#39;s identifier)"/>
         <code value="identifier"/>
         <type value="token"/>
-        <expression value="Organization.identifier"/>
-        <xpath value="f:Organization/f:identifier"/>
+        <expression value="Organization.identifier | Organization.qualification.identifier"/>
+        <xpath value="f:Organization/f:identifier | f:Organization/f:qualification/f:identifier"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

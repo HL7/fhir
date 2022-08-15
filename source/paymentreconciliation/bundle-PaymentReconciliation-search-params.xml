@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
   <id value="PaymentReconciliation-search-params"/>
   <entry>
     <resource>
@@ -159,6 +159,34 @@
         <expression value="PaymentReconciliation.status"/>
         <xpath value="f:PaymentReconciliation/f:status"/>
         <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentReconciliation.allocation.encounter"/>
+        </extension>
+        <description value="The encounter to which payment or adjustment was applied."/>
+        <code value="allocation-encounter"/>
+        <type value="reference"/>
+        <expression value="PaymentReconciliation.allocation.encounter"/>
+        <xpath value="f:PaymentReconciliation/f:allocation/f:encounter"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentReconciliation.allocation.account"/>
+        </extension>
+        <description value="The account to which payment or adjustment was applied."/>
+        <code value="allocation-account"/>
+        <type value="reference"/>
+        <expression value="PaymentReconciliation.allocation.account"/>
+        <xpath value="f:PaymentReconciliation/f:allocation/f:account"/>
       </SearchParameter>
     </resource>
   </entry>
