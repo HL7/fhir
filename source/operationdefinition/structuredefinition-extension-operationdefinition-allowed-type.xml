@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="allowed-type"/>
   <status value="draft"/>
   <date value="2014-01-31"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="When the base type is an abstract type (e.g. Resource or Element) then this extension defines which concrete types are allowed to be used for a parameter. In the absence of this extension, any type is allowed."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

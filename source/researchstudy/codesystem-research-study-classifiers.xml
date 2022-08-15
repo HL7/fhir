@@ -20,7 +20,7 @@
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:2.16.840.1.113883.4.642.1.1686"/>
 	</identifier>
-	<version value="4.6.0"/>
+	<version value="5.0.0"/>
 	<name value="ResearchStudyClassifiers"/>
 	<title value="ResearchStudy Classifiers Code System"/>
 	<status value="draft"/>
@@ -252,6 +252,11 @@
 		<code value="research-study-status"/>
 		<display value="Research Study Status"/>
 		<concept>
+			<code value="overall-study"/>
+			<display value="Overall study"/>
+			<definition value="Used for documenting the start and end of the overall study, distinct from progress states."/>
+		</concept>
+		<concept>
 			<code value="active"/>
 			<display value="Active"/>
 			<definition value="Study is opened for accrual."/>
@@ -333,16 +338,12 @@
 		</concept>
 	</concept>
 	<concept>
-		<code value="research-study-statusDate-activity"/>
-		<display value="Research Study Status-related Activity"/>
+		<code value="research-study-registration-activity"/>
+		<display value="Research Study Registration Activity"/>
 		<concept>
 			<code value="record-verification"/>
 			<display value="Record Verification"/>
 			<definition value="Record has been verified."/>
-		</concept>
-		<concept>
-			<code value="overall-study"/>
-			<display value="Overall study"/>
 		</concept>
 		<concept>
 			<code value="primary-outcome-data-collection"/>

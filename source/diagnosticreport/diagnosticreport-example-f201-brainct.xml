@@ -1,6 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/diagnosticreport.xsd">
 	<id value="f201"/>
+	<contained>
+       <ImagingStudy>
+	       <id value = "is1" />
+		   <status value = "available" />
+		   <subject> 
+		       <reference value="Patient/f201"/>
+		   </subject>
+		   <description value="HEAD and NECK CT DICOM imaging study"/>
+	   </ImagingStudy>
+	</contained>
 	<status value="final"/><!-- No identifier or request details were available --><category><!-- The request was honored by the Department of Radiology --><coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="394914008"/>
@@ -28,9 +38,10 @@
 	<performer>
 		<reference value="Organization/f203"/>
 		<display value="Blijdorp MC"/>
-	</performer><!-- The actual CT imagenot available -  following reference used to demonstrate the usage of the element--><imagingStudy>
-		<display value="HEAD and NECK CT DICOM imaging study"/>
-	</imagingStudy>
+	</performer><!-- The actual CT imagenot available -  following reference used to demonstrate the usage of the element-->
+	<study>
+         <reference value= "#is1" />
+	</study>
 	<conclusion value="CT brains: large tumor sphenoid/clivus."/>
 	<conclusionCode>
 		<coding>

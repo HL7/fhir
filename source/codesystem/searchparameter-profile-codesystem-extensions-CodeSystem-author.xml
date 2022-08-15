@@ -3,13 +3,15 @@
 <SearchParameter xmlns="http://hl7.org/fhir">
   <id value="codesystem-extensions-CodeSystem-author"/>
   <url value="http://hl7.org/fhir/SearchParameter/codesystem-extensions-CodeSystem-author"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="author"/>
   <status value="draft"/>
   <experimental value="true"/>
   <description value="Optional Extensions Element"/>
   <code value="author"/>
+  <base value="CodeSystem"/>
   <type value="string"/>
-  <xpath value="f:CodeSystem/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/codesystem-author&#39;] | /f:#author"/>
+  <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/codesystem-author')"/>
+  <xpath value="f:CodeSystem/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/codesystem-author&#39;]"/>
   <xpathUsage value="normal"/>
 </SearchParameter>

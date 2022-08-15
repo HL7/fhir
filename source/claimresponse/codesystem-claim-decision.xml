@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="claim-decision"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <url value="http://hl7.org/fhir/claim-decision"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="ClaimAdjudicationDecisionCodes"/>
+  <title value="Claim Adjudication Decision Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set provides Claim Adjudication Decision codes."/>
+  <copyright value="HL7 Inc."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="denied"/>
+    <display value="Denied"/>
+    <definition value="The claim, or individual services, are not approved for any payment. This may also be known as 'rejected'."/>
+  </concept>
+  <concept>
+    <code value="approved"/>
+    <display value="Approved"/>
+    <definition value="The claim, or individual services, are approved as submitted."/>
+  </concept>
+  <concept>
+    <code value="partial"/>
+    <display value="Partial"/>
+    <definition value="The claim, or individual services, are approved at an amount less than as submitted."/>
+  </concept>
+  <concept>
+    <code value="pending"/>
+    <display value="Pending"/>
+    <definition value="The adjudication processing is not complete. This may be due to requiring manual review or receipt of additional information."/>
+  </concept>
+</CodeSystem>

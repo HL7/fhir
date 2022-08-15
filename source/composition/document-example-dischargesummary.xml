@@ -5,6 +5,13 @@
  xmlns="http://hl7.org/fhir">
 
   <id value="father"/>
+    <meta>
+      <security>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
+        <code value="N"/>
+        <display value="normal"/>
+      </security>
+    </meta>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:uuid:0c3151bd-1cbf-4d64-b04d-cd9187a4c6e0"/>
@@ -42,7 +49,6 @@
           <display value="Doctor Dave"/>
         </author>
         <title value="Discharge Summary"/>
-        <confidentiality value="N"/>
         <section>
           <title value="Reason for admission"/>
           <code>
@@ -307,11 +313,11 @@
           <start value="2013-01-20T12:30:02Z"/>
           <end value="2013-02-01T12:30:02Z"/>
         </actualPeriod>
-        <hospitalization>
+        <admission>
           <dischargeDisposition>
             <text value="Discharged to care of GP"/>
           </dischargeDisposition>
-        </hospitalization>
+        </admission>
       </Encounter>
     </resource>
   </entry>

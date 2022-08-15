@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AdverseEvent"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="AdverseEvent"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -41,8 +41,8 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
     </telecom>
   </contact>
-  <description value="An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject.  The unintended effects may require additional monitoring, treatment or hospitalization or may result in death.  The AdverseEvent resource also extends to potential or avoided events that could have had such effects."/>
-  <fhirVersion value="4.6.0"/>
+  <description value="An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two arenas, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints."/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -70,7 +70,7 @@
       </extension>
       <path value="AdverseEvent"/>
       <short value="Medical care, research study or other healthcare event causing physical injury"/>
-      <definition value="An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject.  The unintended effects may require additional monitoring, treatment or hospitalization or may result in death.  The AdverseEvent resource also extends to potential or avoided events that could have had such effects."/>
+      <definition value="An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research subject. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Given the differences between these two arenas, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints."/>
       <alias value="AE"/>
       <min value="0"/>
       <max value="*"/>
@@ -236,6 +236,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -426,6 +427,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -496,6 +498,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -510,6 +513,18 @@
         <identity value="rim"/>
         <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
       </mapping>
+    </element>
+	<element id="AdverseEvent.study">
+      <path value="AdverseEvent.study"/>
+      <short value="Research study that the subject is enrolled in"/>
+      <definition value="The research study that the subject is enrolled in."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
+      </type>
+      <isSummary value="true"/>
     </element>
 	<element id="AdverseEvent.expectedInResearchStudy">
       <path value="AdverseEvent.expectedInResearchStudy"/>
@@ -635,6 +650,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -669,7 +685,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
       </type>
       <type>
         <code value="CodeableConcept"/>
@@ -803,6 +822,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
       </type>
       <type>
         <code value="CodeableConcept"/>
@@ -817,15 +838,17 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-supporting-info"/>
       </binding>
     </element>
-    <element id="AdverseEvent.study">
-      <path value="AdverseEvent.study"/>
-      <short value="Research study that the subject is enrolled in"/>
-      <definition value="The research study that the subject is enrolled in."/>
+	<element id="AdverseEvent.note">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="need to add jira"/>
+      </extension>
+      <path value="AdverseEvent.note"/>
+      <short value="Comment on adverse event"/>
+      <definition value="Comments made about the adverse event by the performer, subject or other participants."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
+        <code value="Annotation"/>
       </type>
       <isSummary value="true"/>
     </element>

@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/devicerequest-patientInstruction"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="patientInstruction"/>
   <title value="Directions"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="Simple concise instructions to be read by the patient.  For example  &#x201C;twice a day&#x201D; rather than &#x201C;BID.&#x201D;."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

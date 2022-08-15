@@ -24,7 +24,7 @@
     <valueCode value="mostly n/a, but in the cases where messages are stored in error, they would simply be deleted"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MessageHeader"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="MessageHeader"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -43,7 +43,7 @@
   </contact>
   <description value="The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle."/>
   <purpose value="Many implementations are not prepared to use REST and need a messaging based infrastructure."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -627,7 +627,7 @@
     <element id="MessageHeader.focus">
       <path value="MessageHeader.focus"/>
       <short value="The actual content of the message"/>
-      <definition value="The actual data of the message - a reference to the root/focus class of the event."/>
+      <definition value="The actual data of the message - a reference to the root/focus class of the event. This is allowed to be a Parameters resource."/>
       <comment value="The data is defined where the transaction type is defined. The transaction data is always included in the bundle that is the full message.  Only the root resource is specified.  The resources it references should be contained in the bundle but are not also listed here.  Multiple repetitions are allowed to cater for merges and other situations with multiple focal targets."/>
       <requirements value="Every message event is about actual data, a single resource, that is identified in the definition of the event, and perhaps some or all linked resources."/>
       <min value="0"/>

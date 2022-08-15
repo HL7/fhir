@@ -3,11 +3,6 @@
 <div> 
 <a name="scope"></a>
 <h2>Scope and Usage</h2> 
-[%dragons-start%]
-<p class="warning">
-As a number of FHIR software components are dependent on the <a href="conceptmap.html">ConceptMap</a> resource in its current form, it is difficult to make significant changes to it without negatively affecting these components. For this reason, it has been agreed that all updates to the <a href="conceptmap.html">ConceptMap</a> resource will be applied to the <a href="conceptmap2.html">ConceptMap2</a> resource. At some point in the future the content of the <a href="conceptmap2.html">ConceptMap2</a> resource will replace the content of the <a href="conceptmap.html">ConceptMap</a> resource, impacts on depndent components will be resolved, and the <a href="conceptmap2.html">ConceptMap2</a> resource will be removed. 
-</p>
-[%dragons-end%]
 <p>
 A concept map defines a mapping from a set of concepts defined in a code system (commonly referred to as the "system") to one or more concepts defined in other code systems.  In the mapping context, a system can be a typical <a href="terminologies.html">code system</a> based on a recognized standard or local terminology (in any of its forms), or in some cases it may be an <a href="conceptmap.html#implicit">"implicit" code system</a> that is not based on a recognized terminology but still represents a set of "concepts" that can be usefully mapped. Mappings are one way - from the source to the target system. In many cases, the reverse mappings are valid, but this cannot be assumed to be the case. 
 </p>
@@ -19,9 +14,9 @@ The mappings may be useful in other contexts, but this must be determined based 
 Note that all code systems (explicit or implicit) represented in FHIR have URI identifiers for value sets (also either explicit or implicit) that include the entire code system, and these <a href="terminology-service.html#4.6.5">"all codes" value sets</a> can be used for mappings that are valid in all use contexts that are appropriate for the code system.
 </p>
 <p>
-Each mapping for a concept from the source to target system includes a <a href="valueset-concept-map-relationship.html">relationship</a> 
-property that specifies how similar the mapping is (or, in some cases, that there is no valid mapping). 
-There is one <code>element</code> for each concept or field in the source value set or system that needs to be mapped.
+Each mapping from a source concept to a target concept includes a <a href="valueset-concept-map-relationship.html">relationship</a> 
+element describing the semantic correspondence between the two (or, in some cases, that there is no valid mapping).
+There can be an <code>element</code> for each concept or field in the <code>sourceScope</code> value set or <code>group.source</code> code system that needs to be mapped.
 Each source concept may have multiple targets:
 </p>
 <ul>
@@ -29,6 +24,26 @@ Each source concept may have multiple targets:
  <li>to specify a correct map, and specify other mappings as invalid</li>
  <li>when there are multiple mappings depending on the values of other elements (dependsOn)</li>
 </ul>
+<p>
+The mapping applies to all members of the expansion of the <code>group.element.valueSet</code> which 
+are also within the scope of <code>sourceScope</code> if specified.
+</p>
+<p>
+The meaning associated with the use of group.element.valueSet is the same as having individual 
+<code>group.element.code</code> mappings for each concept in the expansion of the <code>group.element.valueSet</code>.
+</p>
+<p>
+The mapping applies to all members of the expansion of the <code>group.element.target.valueSet</code> which are 
+also within the scope of <code>targetScope</code> if specified.
+</p>
+<p>
+The meaning associated with the use of <code>group.element.target.valueSet</code> is the same as having individual 
+<code>group.element.target.code</code> mappings for each concept in the expansion of the <code>group.element.target.valueSet</code>.
+</p>
+<p>
+The expansion of the <code>group.unmapped.valueSet</code> value set provides the set of fixed codes to use when the mode = 'fixed'. 
+All unmapped source codes are then mapped to each of these fixed codes.
+</p>
 <p>
 There SHOULD be at least one target for each element, but some incomplete concept maps 
 might not have a target for each concept. 

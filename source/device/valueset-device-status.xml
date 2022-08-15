@@ -32,7 +32,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.209"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="FHIRDeviceStatus"/>
   <title value="FHIRDeviceStatus"/>
   <status value="draft"/>
@@ -49,7 +49,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The availability status of the device."/>
+  <description value="The status of the Device record."/>
   <immutable value="true"/>
   <compose>
     <include>

@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Encounter"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -41,8 +41,8 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient."/>
-  <fhirVersion value="4.6.0"/>
+  <description value="An interaction between healthcare provider(s), and/or patient(s) for the purpose of providing healthcare service(s) or assessing the health status of patient(s)."/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -75,7 +75,7 @@
       </extension>
       <path value="Encounter"/>
       <short value="An interaction during which services are provided to the patient"/>
-      <definition value="An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient."/>
+      <definition value="An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.  Encounter is primarily used to record information about the actual activities that occurred, where Appointment is used to record planned activities."/>
       <alias value="Visit"/>
       <min value="0"/>
       <max value="*"/>
@@ -345,7 +345,7 @@
       <short value="Specific type of service"/>
       <definition value="Broad categorization of the service that is to be provided (e.g. cardiology)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
@@ -404,8 +404,8 @@
     </element>
     <element id="Encounter.subject">
       <path value="Encounter.subject"/>
-      <short value="The patient or group present at the encounter"/>
-      <definition value="The patient or group present at the encounter."/>
+      <short value="The patient or group related to this encounter"/>
+      <definition value="The patient or group related to this encounter. In some use-cases the patient MAY not be present, such as a case meeting about a patient between several practitioners or a careteam."/>
       <comment value="While the encounter is always about the patient, the patient might not actually be known in all contexts of use, and there may be a group of patients that could be anonymous (such as in a group therapy for Alcoholics Anonymous - where the recording of the encounter could be used for billing on the number of people/staff and not important to the context of the specific patients) or alternately in veterinary care a herd of sheep receiving treatment (where the animals are not individually tracked)."/>
       <alias value="patient"/>
       <min value="0"/>
@@ -506,6 +506,52 @@
         <map value=".reason.ClinicalDocument"/>
       </mapping>
     </element>
+    <element id="Encounter.partOf">
+      <path value="Encounter.partOf"/>
+      <short value="Another Encounter this encounter is part of"/>
+      <definition value="Another Encounter of which this encounter is a part of (administratively or in time)."/>
+      <comment value="This is also used for associating a child&#39;s encounter back to the mother&#39;s encounter.&#xD;&#xD;Refer to the Notes section in the Patient resource for further details."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
+          <valueBoolean value="true"/>
+        </extension>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.partOf"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=COMP, moodCode=EVN]"/>
+      </mapping>
+    </element>
+    <element id="Encounter.serviceProvider">
+      <path value="Encounter.serviceProvider"/>
+      <short value="The organization (facility) responsible for this encounter"/>
+      <definition value="The organization that is primarily responsible for this Encounter&#39;s services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PL.6  &amp; PL.1"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".particiaption[typeCode=PFM].role"/>
+      </mapping>
+    </element>
     <element id="Encounter.participant">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,0"/>
@@ -584,8 +630,9 @@
     </element>
     <element id="Encounter.participant.actor">
       <path value="Encounter.participant.actor"/>
-      <short value="Persons involved in the encounter (including patient)"/>
-      <definition value="Persons involved in the encounter, the patient/group is also included here to indicate that the patient was actually participating in the encounter. Not including the patient here covers use cases such as a case meeting between practitioners about a patient - non contact times."/>
+      <short value="The individual, device, or service participating in the encounter"/>
+      <definition value="Person involved in the encounter, the patient/group is also included here to indicate that the patient was actually participating in the encounter. Not including the patient here covers use cases such as a case meeting between practitioners about a patient - non contact times."/>
+      <comment value="For planning purposes, Appointments may include a CareTeam participant to indicate that one specific person from the CareTeam will be assigned, but that assignment might not happen until the Encounter begins. Hence CareTeam is not included in Encounter.participant, as the specific individual should be assigned and represented as a Practitioner or other person resource.&#xD;&#xD;Similarly, Location can be included in Appointment.participant to assist with planning.  However, the patient location is tracked on the Encounter in the Encounter.location property to allow for additional metadata and history to be recorded."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -730,9 +777,10 @@
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -869,14 +917,14 @@
         <map value=".pertains.A_Account"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization">
+    <element id="Encounter.admission">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,200"/>
       </extension>
-      <path value="Encounter.hospitalization"/>
+      <path value="Encounter.admission"/>
       <short value="Details about the admission to a healthcare service"/>
       <definition value="Details about the admission to a healthcare service."/>
-      <comment value="An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.&#xD;&#xD;The duration recorded in the period of this encounter covers the entire scope of this hospitalization record."/>
+      <comment value="An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.&#xD;&#xD;The duration recorded in the period of this encounter covers the entire scope of this admission record."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -887,8 +935,8 @@
         <map value=".outboundRelationship[typeCode=COMP].target[classCode=ENC, moodCode=EVN]"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.preAdmissionIdentifier">
-      <path value="Encounter.hospitalization.preAdmissionIdentifier"/>
+    <element id="Encounter.admission.preAdmissionIdentifier">
+      <path value="Encounter.admission.preAdmissionIdentifier"/>
       <short value="Pre-admission identifier"/>
       <definition value="Pre-admission identifier."/>
       <min value="0"/>
@@ -905,8 +953,8 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.origin">
-      <path value="Encounter.hospitalization.origin"/>
+    <element id="Encounter.admission.origin">
+      <path value="Encounter.admission.origin"/>
       <short value="The location/organization from which the patient came before admission"/>
       <definition value="The location/organization from which the patient came before admission."/>
       <min value="0"/>
@@ -921,8 +969,8 @@
         <map value=".participation[typeCode=ORG].role"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.admitSource">
-      <path value="Encounter.hospitalization.admitSource"/>
+    <element id="Encounter.admission.admitSource">
+      <path value="Encounter.admission.admitSource"/>
       <short value="From where patient was admitted (physician referral, transfer)"/>
       <definition value="From where patient was admitted (physician referral, transfer)."/>
       <min value="0"/>
@@ -947,13 +995,13 @@
         <map value=".admissionReferralSourceCode"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.reAdmission">
+    <element id="Encounter.admission.reAdmission">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="This concept doesn&#x2019;t exist in v3 and since unlikely to start adopting v3 encounters, will leave until a direct request comes in."/>
       </extension>
-      <path value="Encounter.hospitalization.reAdmission"/>
-      <short value="The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission"/>
-      <definition value="Whether this hospitalization is a readmission and why if known."/>
+      <path value="Encounter.admission.reAdmission"/>
+      <short value="The type of re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission"/>
+      <definition value="Whether this admission is a readmission and why if known."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -964,7 +1012,7 @@
           <valueString value="ReAdmissionType"/>
         </extension>
         <strength value="example"/>
-        <description value="The reason for re-admission of this hospitalization encounter."/>
+        <description value="The reason for re-admission of this admission encounter."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0092"/>
       </binding>
       <mapping>
@@ -976,8 +1024,8 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.dietPreference">
-      <path value="Encounter.hospitalization.dietPreference"/>
+    <element id="Encounter.admission.dietPreference">
+      <path value="Encounter.admission.dietPreference"/>
       <short value="Diet preferences reported by the patient"/>
       <definition value="Diet preferences reported by the patient."/>
       <comment value="For example, a patient may request both a dairy-free and nut-free diet preference (not mutually exclusive)."/>
@@ -1004,8 +1052,8 @@
         <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=EVN, code=&quot;diet&quot;]"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.specialCourtesy">
-      <path value="Encounter.hospitalization.specialCourtesy"/>
+    <element id="Encounter.admission.specialCourtesy">
+      <path value="Encounter.admission.specialCourtesy"/>
       <short value="Special courtesies (VIP, board member)"/>
       <definition value="Special courtesies (VIP, board member)."/>
       <min value="0"/>
@@ -1030,10 +1078,10 @@
         <map value=".specialCourtesiesCode"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.specialArrangement">
-      <path value="Encounter.hospitalization.specialArrangement"/>
+    <element id="Encounter.admission.specialArrangement">
+      <path value="Encounter.admission.specialArrangement"/>
       <short value="Wheelchair, translator, stretcher, etc."/>
-      <definition value="Any special requests that have been made for this hospitalization encounter, such as the provision of specific equipment or other things."/>
+      <definition value="Any special requests that have been made for this admission encounter, such as the provision of specific equipment or other things."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1056,8 +1104,8 @@
         <map value=".specialArrangementCode"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.destination">
-      <path value="Encounter.hospitalization.destination"/>
+    <element id="Encounter.admission.destination">
+      <path value="Encounter.admission.destination"/>
       <short value="Location/organization to which the patient is discharged"/>
       <definition value="Location/organization to which the patient is discharged."/>
       <min value="0"/>
@@ -1076,8 +1124,8 @@
         <map value=".participation[typeCode=DST]"/>
       </mapping>
     </element>
-    <element id="Encounter.hospitalization.dischargeDisposition">
-      <path value="Encounter.hospitalization.dischargeDisposition"/>
+    <element id="Encounter.admission.dischargeDisposition">
+      <path value="Encounter.admission.dischargeDisposition"/>
       <short value="Category or kind of location after discharge"/>
       <definition value="Category or kind of location after discharge."/>
       <min value="0"/>
@@ -1201,52 +1249,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".time"/>
-      </mapping>
-    </element>
-    <element id="Encounter.serviceProvider">
-      <path value="Encounter.serviceProvider"/>
-      <short value="The organization (facility) responsible for this encounter"/>
-      <definition value="The organization that is primarily responsible for this Encounter&#39;s services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.performer.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PL.6  &amp; PL.1"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".particiaption[typeCode=PFM].role"/>
-      </mapping>
-    </element>
-    <element id="Encounter.partOf">
-      <path value="Encounter.partOf"/>
-      <short value="Another Encounter this encounter is part of"/>
-      <definition value="Another Encounter of which this encounter is a part of (administratively or in time)."/>
-      <comment value="This is also used for associating a child&#39;s encounter back to the mother&#39;s encounter.&#xD;&#xD;Refer to the Notes section in the Patient resource for further details."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
-          <valueBoolean value="true"/>
-        </extension>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.partOf"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[classCode=COMP, moodCode=EVN]"/>
       </mapping>
     </element>
   </differential>

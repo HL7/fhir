@@ -90,7 +90,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of current allergies list"/>
+      <valueString value="Example of current allergies list and List For extension"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="list-example-allergies"/>

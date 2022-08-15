@@ -21,10 +21,10 @@
     <valueCode value="ii"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ImagingSelection"/>
   <status value="draft"/>
-  <date value="2021-01-02T08:58:31+11:00"/>
+  <date value="2022-06-29T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Imaging Integration)"/>
   <contact>
     <telecom>
@@ -39,7 +39,7 @@
     </telecom>
   </contact>
   <description value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation UID or a Segmentation Number, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -107,6 +107,36 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.status">
+      <path value="ImagingSelection.status"/>
+      <short value="available | entered-in-error | unknown"/>
+      <definition value="The current state of the ImagingSelection resource. This is not the status of any ImagingStudy, ServiceRequest, or Task resources associated with the ImagingSelection."/>
+      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImagingSelectionStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The status of the ImagingSelection."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
       </mapping>
     </element>
     <element id="ImagingSelection.subject">
@@ -309,18 +339,18 @@
       <short value="DICOM Study Instance UID"/>
       <definition value="The Study Instance UID for the DICOM Study from which the images were selected."/>
       <comment value="See [DICOM PS3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html)."/>
-      <requirements value="DICOM Study Instance UID.
-      Required unless frameOfReferenceUid and imageRegion are present."/>
+      <requirements value="DICOM Study Instance UID.&#xA;
+      Required unless frameOfReferenceUid and imageRegion are present and instance is not present."/>
       <alias value="StudyInstanceUID"/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="oid"/>
+        <code value="id"/>
       </type>
       <isSummary value="true"/>
       <example>
         <label value="General"/>
-        <valueId value="urn:oid:1.2.840.113747.20080222.12753225430534207565993148475333748793"/>
+        <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793"/>
       </example>
       <mapping>
         <identity value="dicom"/>
@@ -358,21 +388,39 @@
       <short value="DICOM Series Instance UID"/>
       <definition value="The Series Instance UID for the DICOM Series from which the images were selected."/>
       <comment value="See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html)."/>
-      <requirements value="DICOM Series Instance UID.
-      Required unless frameOfReferenceUid and imageRegion are present."/>
+      <requirements value="DICOM Series Instance UID.&#xA;
+      Required unless frameOfReferenceUid and imageRegion are present and instance is not present."/>
       <alias value="SeriesInstanceUID"/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="oid"/>
+        <code value="id"/>
       </type>
       <example>
         <label value="General"/>
-        <valueId value="urn:oid:1.2.840.113747.20080222.12753225430534207565993148475333748793.1"/>
+        <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.1"/>
       </example>
       <mapping>
         <identity value="dicom"/>
         <map value="Series Instance UID (0020,000E)"/>
+      </mapping>
+      <isSummary value="true"/>
+    </element>
+    <element id="ImagingSelection.seriesNumber">
+      <path value="ImagingSelection.seriesNumber"/>
+      <short value="DICOM Series Number"/>
+      <definition value="The Series Number for the DICOM Series from which the images were selected."/>
+      <comment value="See [DICOM PS3.3 C.7.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.3.html)."/>
+      <requirements value="DICOM Series Number."/>
+      <alias value="SeriesNumber"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Series Number (0020,0011)"/>
       </mapping>
       <isSummary value="true"/>
     </element>
@@ -381,17 +429,17 @@
       <short value="The Frame of Reference UID for the selected images"/>
       <definition value="The Frame of Reference UID identifying the coordinate system that conveys spatial and/or temporal information for the selected images or frames."/>
       <comment value="See [DICOM PS3.3 C.7.4.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.4.html)."/>
-      <requirements value="DICOM Frame of Reference UID.
+      <requirements value="DICOM Frame of Reference UID.&#xA;
                            Required if studyInstanceUid and seriesInstanceUid are not present."/>
       <alias value="FrameOfReferenceUID"/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="oid"/>
+        <code value="id"/>
       </type>
       <example>
         <label value="General"/>
-        <valueId value="urn:oid:1.2.840.113747.20080222.12753225430534207565993148475333748793.2"/>
+        <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.2"/>
       </example>
       <mapping>
         <identity value="dicom"/>
@@ -427,6 +475,20 @@
         <map value="Body Part Examined (0018,0015)"/>
       </mapping>
     </element>
+    <element id="ImagingSelection.focus">
+      <path value="ImagingSelection.focus"/>
+      <short value="Related resource that is the focus for the imaging selection"/>
+      <definition value="The actual focus of an observation when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, fetus, or donor. For example, fetus observations in a mother&#39;s record.  The focus of an observation could also be an existing condition,  an intervention, the subject&#39;s diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child&#39;s tracheostomy tube. In this example, the child is the patient of record and the mother is the focus."/>
+      <comment value="An imaging selection may reference a DICOM resource that itself references other DICOM resources.&#xA;
+      e.g. a presentation state references a set of source images or frames."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="ImagingSelection.instance">
       <path value="ImagingSelection.instance"/>
       <short value="The selected instances"/>
@@ -449,16 +511,35 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="oid"/>
+        <code value="id"/>
       </type>
       <isSummary value="true"/>
       <example>
         <label value="General"/>
-        <valueId value="urn:oid:1.2.840.113747.20080222.12753225430534207565993148475333748793.1.1"/>
+        <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.1.1"/>
       </example>
       <mapping>
         <identity value="dicom"/>
         <map value="SOP Instance UID (0008,0018)"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.instance.number">
+      <path value="ImagingSelection.instance.number"/>
+      <short value="DICOM Instance Number"/>
+      <definition value="The Instance Number for the selected DICOM instance."/>
+      <comment value="See [DICOM PS3.3 C.7.6.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.6.html#sect_C.7.6.1).&#xA;
+      Note: A multiframe instance has a single instance number with each frame identified by a frame number."/>
+      <requirements value="DICOM Instance Number."/>
+      <alias value="InstanceNumber"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Instance Number (0020,0011)"/>
       </mapping>
     </element>
     <element id="ImagingSelection.instance.sopClass">
@@ -493,99 +574,102 @@
         <map value="SOP Class UID (0008,0016)"/>
       </mapping>
     </element>
-    <element id="ImagingSelection.instance.frameList">
-      <path value="ImagingSelection.instance.frameList"/>
-      <short value="List of selected frames encoded as a comma separated list of one or more non duplicate frame numbers"/>
-      <definition value="The set of frames within a multi-frame SOP Instance that are included in the imaging selection.
-      Encoded as a comma separated list of one or more non duplicate frame numbers.
-      If this is absent, all frames within the referenced SOP Instance are included in the selection."/>
-      <comment value="See [DICOM PS3.3 10.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_10.3.html)."/>
-      <requirements value="Required if not the selected instance is multi-frame and not all frames are included in the selection."/>
-      <alias value="ReferencedFrameNumber"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="Referenced Frame Number (0008,1160)"/>
-      </mapping>
-    </element>
-    <element id="ImagingSelection.instance.observationUid">
-      <path value="ImagingSelection.instance.observationUid"/>
-      <short value="Selected observations in a DICOM SR"/>
-      <definition value="The unique identifier for the observation Content Item (and its subsidiary Content Items, if any) that are included in the imaging selection."/>
-      <comment value="See [DICOM PS3.3 C.12.1](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.12.html)."/>
-      <requirements value="DICOM Observation UID."/>
-      <alias value="ObservationUID"/>
+    <element id="ImagingSelection.instance.subset">
+      <path value="ImagingSelection.instance.subset"/>
+      <short value="The selected subset of the SOP Instance"/>
+      <definition value="Selected subset of the SOP Instance. The content and format of the subset item is determined by the SOP Class of the selected instance.&#xA;
+      May be one of:&#xA;
+      - A list of frame numbers selected from a multiframe SOP Instance.&#xA;
+      - A list of Content Item Observation UID values selected from a DICOM SR or other structured document SOP Instance.&#xA;
+      - A list of segment numbers selected from a segmentation SOP Instance.&#xA;
+      - A list of Region of Interest (ROI) numbers selected from a radiotherapy structure set SOP Instance."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="oid"/>
+        <code value="string"/>
       </type>
+      <isSummary value="false"/>
       <example>
-        <label value="General"/>
-        <valueId value="urn:oid:1.2.840.113747.20080222.12753225430534207565993148475333748793.1.1.2"/>
+        <label value="Frame Number"/>
+        <valueString value="1" />
+        <valueString value="2" />
+        <valueString value="3" />
+        <valueString value="6" />
       </example>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="Observation UID (0040,A171)"/>
-      </mapping>
+      <example>
+        <label value="Observation UID"/>
+        <valueString value="1.2.840.113747.20080222.324856729726854657132726086516575"/>
+      </example>
     </element>
-    <element id="ImagingSelection.instance.segmentList">
-      <path value="ImagingSelection.instance.segmentList"/>
-      <short value="List of selected segments encoded as a comma separated list of one or more non duplicate segnent numbers"/>
-      <definition value="The set of segments within a segmentation SOP Instance that are included in the imaging selection.
-      Encoded as a comma separated list of one or more non duplicate segment numbers.
-      If this is absent, all segments within the referenced segmentation SOP Instance are included in the selection."/>
-      <comment value="See [DICOM PS3.3 10.3](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_10.3.html)."/>
-      <requirements value="Required if not the selected instance is segmentation and not all segments are included in the selection."/>
-      <alias value="ReferencedSegmentNumber"/>
+    <element id="ImagingSelection.instance.imageRegion">
+      <path value="ImagingSelection.instance.imageRegion"/>
+      <short value="A specific 2D region in a DICOM image / frame"/>
+      <definition value="Each imaging selection instance or frame list might includes an image region, specified by a region type and a set of 2D coordinates.&#xA;
+      If the parent imagingSelection.instance contains a subset element of type frame, the image region applies to all frames in the subset list."/>
+      <requirements value="Shall not be present if the parent imagingSelection.instance is not an image."/>
       <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ImagingSelection.instance.imageRegion.regionType">
+      <path value="ImagingSelection.instance.imageRegion.regionType"/>
+      <short value="point | polyline | interpolated | circle | ellipse"/>
+      <definition value="Specifies the type of image region."/>
+      <comment value="See [DICOM PS3.3 C.10.5.1.2](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.10.5.html#sect_C.10.5.1.2)."/>
+      <alias value="GraphicType"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="code"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImagingSelection2DGraphicType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type of image region."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-2dgraphictype"/>
+      </binding>
       <mapping>
         <identity value="dicom"/>
-        <map value="Referenced Segment Number (0062,000B)"/>
+        <map value="Graphic Type (0070,0023)"/>
       </mapping>
     </element>
-    <element id="ImagingSelection.instance.roiList">
-      <path value="ImagingSelection.instance.roiList"/>
-      <short value="List of selected regions of interest (ROI) encoded as a comma separated list of one or more non duplicate ROI numbers"/>
-      <definition value="The set of regions of interest (ROI) within a radiotherapy structure set instance that are included in the imaging selection.
-      Encoded as a comma separated list of one or more non duplicate ROI numbers.
-      If this is absent, all ROIs within the referenced radiotherapy structure set SOP Instance are included in the selection."/>
-      <comment value="See [DICOM PS3.3 C.8.8.5](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.8.5.html)."/>
-      <requirements value="Required if not the selected instance is a radiotherapy structure set and not all ROIs are included in the selection."/>
-      <alias value="ROINumber"/>
-      <min value="0"/>
-      <max value="1"/>
+    <element id="ImagingSelection.instance.imageRegion.coordinate">
+      <path value="ImagingSelection.instance.imageRegion.coordinate"/>
+      <short value="Specifies the coordinates that define the image region"/>
+      <definition value="The coordinates describing the image region. Encoded as a set of (column, row) pairs that denote positions in the selected image / frames specified with sub-pixel resolution.&#xA;
+      The origin at the TLHC of the TLHC pixel is 0.0\0.0, the BRHC of the TLHC pixel is 1.0\1.0, and the BRHC of the BRHC pixel is the number of columns\rows in the image / frames. The values must be within the range 0\0 to the number of columns\rows in the image / frames."/>
+      <min value="1"/>
+      <max value="*"/>
       <type>
-        <code value="string"/>
+        <code value="decimal"/>
       </type>
+      <orderMeaning value="The values are an ordered set of (x, y) coordinates." />
+      <requirements value="The number of values must be a multiple of two." />
+      <alias value="GraphicData"/>
+      <comment value="For a description of how 2D coordinates are encoded, see [DICOM PS3.3 C.18.6](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.6.html)."/>
       <mapping>
         <identity value="dicom"/>
-        <map value="ROI Number (3006,0022)"/>
+        <map value="Graphic Data (0070,0022)"/>
       </mapping>
     </element>
     <element id="ImagingSelection.imageRegion">
       <path value="ImagingSelection.imageRegion"/>
-      <short value="A specific region in a DICOM image / frame"/>
-      <definition value="Each imaging selection might includes one or more image regions. Image regions are specified by a region type and a set of 2D or 3D coordinates."/>
-      <requirements value="Required if studyInstanceUid and seriesInstanceUid are not present.
-      A single imaging selection shall not include both 2D and 3D coordinates."/>
+      <short value="A specific 3D region in a DICOM frame of reference"/>
+      <definition value="Each imaging selection might includes a 3D image region, specified by a region type and a set of 3D coordinates."/>
+      <requirements value="Requires that the ImagingSelection.frameOfReferenceUid element is present."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
     </element>
     <element id="ImagingSelection.imageRegion.regionType">
       <path value="ImagingSelection.imageRegion.regionType"/>
-      <short value="POINT | MULTIPOINT | POLYLINE | POLYGON | ELLIPSE | ELLIPSOID"/>
+      <short value="point | multipoint | polyline | polygon | ellipse | ellipsoid"/>
       <definition value="Specifies the type of image region."/>
       <comment value="See [DICOM PS3.3 C.18.9.1.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html#sect_C.18.9.1.2)."/>
       <alias value="GraphicType"/>
@@ -596,49 +680,30 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ImagingSelectionGraphicType"/>
+          <valueString value="ImagingSelection3DGraphicType"/>
         </extension>
         <strength value="required"/>
         <description value="The type of image region."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-graphictype"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-3dgraphictype"/>
       </binding>
       <mapping>
         <identity value="dicom"/>
         <map value="Graphic Type (0070,0023)"/>
       </mapping>
     </element>
-    <element id="ImagingSelection.imageRegion.coordinateType">
-      <path value="ImagingSelection.imageRegion.coordinateType"/>
-      <short value="2d | 3d"/>
-      <definition value="Specifies the type of coordinate system that define the image region."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ImagingSelectionCoordinateType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The type of coordinates describing an image region."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-coordinatetype"/>
-      </binding>
-    </element>
     <element id="ImagingSelection.imageRegion.coordinate">
       <path value="ImagingSelection.imageRegion.coordinate"/>
-      <short value="Specifies the type of coordinates that define the image region 2d | 3d"/>
-      <definition value="The coordinates describing the image region.
-      If coordinateType is 2D this specifies sequence of (x,y) coordinates in the coordinate system of the image specified by the instance.uid element that contains this image region.
-      If coordinateType is 3D this specifies sequence of (x,y,z) coordinates in the coordinate system specified by the frameOfReferenceUid element."/>
+      <short value="Specifies the coordinates that define the image region"/>
+      <definition value="The coordinates describing the image region. Encoded as an ordered set of (x,y,z) triplets (in mm and may be negative) that define a region of interest in the patient-relative Reference Coordinate System defined by ImagingSelection.frameOfReferenceUid element."/>
       <min value="1"/>
       <max value="*"/>
       <type>
         <code value="decimal"/>
       </type>
+      <orderMeaning value="The values are an ordered set of (x, y, z) coordinates." />
+      <requirements value="The number of values must be a multiple of three." />
       <alias value="GraphicData"/>
-      <comment value="For a description of how 2D coordinates are encoded, see [DICOM PS3.3 C.18.6](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.6.html).
-      For a description of how 3D coordinates are encoded, see [DICOM PS3.3 C.18.9](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html)."/>
+      <comment value="For a description of how 3D coordinates are encoded, see [DICOM PS3.3 C.18.9](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html)."/>
       <mapping>
         <identity value="dicom"/>
         <map value="Graphic Data (0070,0022)"/>

@@ -22,7 +22,7 @@
     <valueString value="This is a test summary [lipids](observation.html)"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/lipidprofile"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Example Lipid Profile"/>
   <status value="draft"/>
   <experimental value="true"/>
@@ -35,7 +35,7 @@
     </telecom>
   </contact>
   <description value="Lipid Lab Report"/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

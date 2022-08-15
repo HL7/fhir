@@ -37,7 +37,7 @@
     <valueMarkdown value="The effect of invoking this operation is to calculate the measure for the given subject, or all subjects if no subject is supplied, and return the results as a MeasureReport resource of the appropriate type. Note that whether or not this operation affects the state of the server depends on whether the server persists the generated MeasureReport. If the MeasureReport is not persisted, this operation can be invoked with GET"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Measure-evaluate-measure"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="evaluate-measure"/>
   <title value="Evaluate Measure"/>
   <status value="draft"/>
