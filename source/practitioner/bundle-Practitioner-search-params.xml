@@ -256,8 +256,26 @@
         <description value="A practitioner&#39;s Identifier"/>
         <code value="identifier"/>
         <type value="token"/>
-        <expression value="Practitioner.identifier"/>
-        <xpath value="f:Practitioner/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-qualification-period"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.qualification.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-qualification-period"/>
+        <description value="The date(s) a qualification is valid for"/>
+        <code value="qualification-period"/>
+        <type value="date"/>
+        <expression value="Practitioner.qualification.period"/>
+        <xpath value="f:Practitioner/f:qualification/f:period"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
