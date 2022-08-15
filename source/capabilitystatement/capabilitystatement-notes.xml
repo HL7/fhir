@@ -6,47 +6,71 @@ Notes:
 </h2>
 <ul>
  <li>The CapabilityStatement resource provides for an application to describe its use of the RESTful
-  paradigm messaging events, or FHIR documents. Usually, an application would only describe one, 
+  paradigm messaging events, or FHIR documents. Usually, an application would only describe one,
   but more than one may be described</li>
  <li>RESTful CapabilityStatement rules:
   <ul class="dense">
-   <li>RESTful servers are required to provide <a href="http.html#capabilities">this resource on demand</a>. 
-   Servers SHALL specify what resource types and operations are supported, and SHOULD also 
+   <li>RESTful servers are required to provide <a href="http.html#capabilities">this resource on demand</a>.
+   Servers SHALL specify what resource types and operations are supported, and SHOULD also
    specify profiles for each resource type.</li>
    <li>The CapabilityStatement returned on demand may represent the specific capabilities granted to a specific user if retrieved with that specific user's credentials, if one is in context. Servers that require authentication SHOULD still return a CapabilityStatemnt before authentication/authorization is performed</li>
    <li>RESTful clients SHOULD publish a capability statement</li>
    <li>The search parameters that a server supports (or a client makes use of) are specified in the resource profile that the capability statement references</li>
    <li>Resource Types or operations that are not listed are not supported</li>
-  </ul>  
+  </ul>
  </li>
  <li>Messaging CapabilityStatement rules:
   <ul class="dense">
-   <li>The interpretation of request and response depends on the mode. If the mode is sender, 
-   then request specifies what the application sends, and response specifies what it accepts. 
+   <li>The interpretation of request and response depends on the mode. If the mode is sender,
+   then request specifies what the application sends, and response specifies what it accepts.
    If the mode is "receiver", then this is reversed</li>
    <li>If a request or response is not specified for an event, then no rules are made for it</li>
    <li>Events that are not listed are not supported</li>
-   <li>The <a href="messagedefinition.html">MessageDefinition</a> resource is newly proposed and is still considered 'draft'.  
+   <li>The <a href="messagedefinition.html">MessageDefinition</a> resource is newly proposed and is still considered 'draft'.
      The <code>supportedMessage</code> element can be used in place of the <code>event</code> and the work group believes it may meet
      implementer needs better, however because the new mechanism has not yet been reviewed by ballot, the older 'event' mechanism has
      been retained.  Implementers may use one or the other to define their capabilities.  Feedback is welcome.</li>
-  </ul>  
+  </ul>
  </li>
  <li>Document CapabilityStatement rules:
   <ul class="dense">
-   <li>Document profiles should directly constrain the Document.information.class &amp; type elements so  
+   <li>Document profiles should directly constrain the Document.information.class &amp; type elements so
     that there is no ambiguity concerning which profile any given document conforms to.</li>
-  </ul>  
+  </ul>
  </li>
- <li>Other service-based use of resources: Due to the variability of these services, the <code>CapabilityStatement</code> resource 
+ <li>Other service-based use of resources: Due to the variability of these services, the <code>CapabilityStatement</code> resource
    does not attempt to describe service-based use of resources. The various service specifications will need to describe this usage in their own way.</li>
-</ul>  
+</ul>
+
+[%dragons-start%]
+<p>
+It is useful to support discovery of which reverse chaining values a server supports. Clients should not assume that servers support reverse chaining everywhere they support forward chaining. This will require a new field somewhere (e.g., in CapabilityStatement or in SearchParameter). Will review with Grahame, re: the best place to put this.
+</p>
+<p>
+The most important use of support for reverse (or forward!) chaining might be in establishing conformance requirements for a server, rather than in supporting "live" discovery of a server's capabilities. (The latter could simply be tested by a client, rather than relying on possibly-incomplete or possibly-incorrect discovery data.)
+</p>
+<p>
+Open question #1 would we want a way for servers to advertise which specific pairs of (searched resource + reverse chained search params) it support. For example, a server might need to say that the following is supported:
+</p>
+<pre>
+GET [base]/Patient?_has:Observation:subject:code=1234-5
+</pre>
+<p>
+... even though the following is not:
+</p>
+<pre>
+GET [base]/Group?_has:Observation:subject:code=1234-5
+</pre>
+<p>
+Open question #2: concern is that the possibility space is so broad that it might not be worth capturing all of this in such detail. Where to draw the line?
+</p>
+[%dragons-end%]
 
 <a name="profiles"></a>
 <h3>Supporting Profiles</h3>
 <a name="tags"></a>
 <p>
-A CapabilityStatement declares two different kinds of profiles for the functionality it describes. 
+A CapabilityStatement declares two different kinds of profiles for the functionality it describes.
 For a discussion of the use of these two types of resources, see <a href="profiling.html">two uses for profiles</a>.
 </p>
 

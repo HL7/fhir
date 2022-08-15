@@ -179,6 +179,7 @@
         <expression value="Provenance.patient"/>
         <xpath value="f:Provenance/f:patient"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -20,7 +20,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.820"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ResearchStudyStatus"/>
   <title value="ResearchStudyStatus"/>
   <status value="draft"/>
@@ -42,9 +42,19 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/research-study-status"/>
   <content value="complete"/>
   <concept>
+    <code value="overall-study"/>
+    <display value="Overall study"/>
+    <definition value="Used for documenting the start and end of the overall study, distinct from progress states."/>
+  </concept>
+  <concept>
     <code value="active"/>
     <display value="Active"/>
     <definition value="Study is opened for accrual."/>
+  </concept>
+  <concept>
+    <code value="active-but-not-recruiting"/>
+    <display value="Active, not recruiting"/>
+    <definition value="The study is ongoing, and participants are receiving an intervention or being examined, but potential participants are not currently being recruited or enrolled."/>
   </concept>
   <concept>
     <code value="administratively-completed"/>
@@ -77,9 +87,24 @@
     <definition value="Protocol was disapproved by the review board."/>
   </concept>
   <concept>
+    <code value="enrolling-by-invitation"/>
+    <display value="Enrolling by invitation"/>
+    <definition value="The study is selecting its participants from a population, or group of people, decided on by the researchers in advance. These studies are not open to everyone who meets the eligibility criteria but only to people in that particular population, who are specifically invited to participate."/>
+  </concept>
+  <concept>
     <code value="in-review"/>
     <display value="In Review"/>
     <definition value="Protocol is submitted to the review board for approval."/>
+  </concept>
+  <concept>
+    <code value="not-yet-recruiting"/>
+    <display value="Not yet recruiting"/>
+    <definition value="The study has not started recruiting participants."/>
+  </concept>
+  <concept>
+    <code value="recruiting"/>
+    <display value="Recruiting"/>
+    <definition value="The study is currently recruiting participants."/>
   </concept>
   <concept>
     <code value="temporarily-closed-to-accrual"/>
@@ -90,6 +115,11 @@
     <code value="temporarily-closed-to-accrual-and-intervention"/>
     <display value="Temporarily Closed to Accrual and Intervention"/>
     <definition value="Study is temporarily closed for accrual and intervention and potentially can be resumed in the future."/>
+  </concept>
+  <concept>
+    <code value="terminated"/>
+    <display value="Terminated"/>
+    <definition value="The study has stopped early and will not start again. Participants are no longer being examined or treated."/>
   </concept>
   <concept>
     <code value="withdrawn"/>

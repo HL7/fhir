@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Device xmlns="http://hl7.org/fhir">
+  <id value="Triodenovo-SW"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative</b></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource "Triodenovo-SW" </p></div><p><b>identifier</b>: id: 11112</p><p><b>status</b>: active</p><p><b>manufacturer</b>: Vanderbilt Genetics Institute</p><h3>DeviceNames</h3><table class="grid"><tr><td>-</td><td><b>Name</b></td><td><b>Type</b></td></tr><tr><td>*</td><td>Triodenovo Software</td><td>user-friendly-name</td></tr></table><p><b>type</b>: Software (physical object) <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="https://browser.ihtsdotools.org/">SNOMED CT</a>#706687001)</span></p><h3>Versions</h3><table class="grid"><tr><td>-</td><td><b>Value</b></td></tr><tr><td>*</td><td>0.06</td></tr></table></div>
+  </text>
+  <identifier>
+    <system value="http://www.somesystemabc.net/identifiers/devices"/>
+    <value value="11112"/>
+  </identifier>
+  <status value="active"/>
+  <manufacturer value="Vanderbilt Genetics Institute"/>
+  <deviceName>
+    <name value="Triodenovo Software"/>
+    <type value="user-friendly-name"/>
+  </deviceName>
+  <type>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="706687001"/>
+      <display value="Software (physical object)"/>
+    </coding>
+  </type>
+  <version>
+    <value value="0.06"/>
+  </version>
+</Device>

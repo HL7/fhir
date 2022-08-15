@@ -13,12 +13,14 @@
 		<text value="Education"/>
 	</category>
 	<code>
+	  <concept>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="48023004"/>
 			<display value="Breast self-examination technique education (procedure)"/>
 		</coding>
 		<text value="Health education - breast examination"/>
+	  </concept>
 	</code>
 	<subject>
 		<display value="Jane Doe"/>

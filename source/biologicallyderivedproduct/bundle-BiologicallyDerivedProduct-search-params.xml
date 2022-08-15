@@ -5,19 +5,39 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="BiologicallyDerivedProduct-biological-source"/>
+        <id value="BiologicallyDerivedProduct-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="BiologicallyDerivedProduct.biologicalSource"/>
+          <valueString value="BiologicallyDerivedProduct.identifier"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-biological-source"/>
-        <description value="The biological source for the biologically derived product"/>
-        <code value="biological-source"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-identifier"/>
+        <description value="Identifier"/>
+        <code value="identifier"/>
         <type value="token"/>
-        <expression value="BiologicallyDerivedProduct.biologicalSource"/>
-        <xpath value="f:BiologicallyDerivedProduct/f:biologicalSource"/>
+        <expression value="BiologicallyDerivedProduct.identifier"/>
+        <xpath value="f:BiologicallyDerivedProduct/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>   
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BiologicallyDerivedProduct-biological-source-event"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProduct.biologicalSourceEvent"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-biological-source-event"/>
+        <description value="The biological source for the biologically derived product"/>
+        <code value="biological-source-event"/>
+        <type value="token"/>
+        <expression value="BiologicallyDerivedProduct.biologicalSourceEvent"/>
+        <xpath value="f:BiologicallyDerivedProduct/f:biologicalSourceEvent"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -65,19 +85,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="BiologicallyDerivedProduct-status"/>
+        <id value="BiologicallyDerivedProduct-product-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="BiologicallyDerivedProduct.status"/>
+          <valueString value="BiologicallyDerivedProduct.productStatus"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-status"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-product-status"/>
         <description value="Whether the product is currently available."/>
-        <code value="status"/>
+        <code value="product-status"/>
         <type value="token"/>
-        <expression value="BiologicallyDerivedProduct.status"/>
-        <xpath value="f:BiologicallyDerivedProduct/f:status"/>
+        <expression value="BiologicallyDerivedProduct.productStatus"/>
+        <xpath value="f:BiologicallyDerivedProduct/f:productStatus"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

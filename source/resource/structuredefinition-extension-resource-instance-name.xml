@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="resource-instance-name"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/resource-instance-name"/>
+  <version value="5.0.0"/>
+  <name value="resource-instance-name"/>
+  <title value="resource instance name"/>
+  <status value="draft"/>
+  <date value="2022-05-13T16:10:11-04:00"/>
+  <publisher value="HL7"/>
+  <description value="A natural language name for non-conformance and non-terminology resource instances that is represented in the resource for publication use."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="Resource"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Pertains to goal"/>
+      <definition value="A natural language name for non-conformance and non-terminology resource instances that is represented in the resource for publication use."/>
+      <comment value="This extension provide a mechanism to have a natural language name for non-conformance and non-terminology resource instances that is represented in the resource for publication use. This information is intended to populate the ImplementationGuide.definition.resource.description and ImplementationGuide.definition.resource.name."/>
+      <min value="0"/>
+      <max value="1"/>
+      <constraint>
+        <key value="rin-1"/>
+        <severity value="error"/>
+        <human value="Cannot be used where title already exists."/>
+        <expression value="%resource.title.exists().not()"/>
+        <xpath value="remove when tooling allows"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+      </constraint>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/resource-instance-name"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

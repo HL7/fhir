@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="business"/>
@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="NutritionProduct"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -41,8 +41,8 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A food or fluid product that is consumed by patients."/>
-  <fhirVersion value="4.6.0"/>
+  <description value="A food or supplement that is consumed by patients."/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -66,8 +66,8 @@
   <differential>
     <element id="NutritionProduct">
       <path value="NutritionProduct"/>
-      <short value="A product used for nutritional purposes"/>
-      <definition value="A food or fluid product that is consumed by patients."/>
+      <short value="A product used for nutritional purposes (i.e. food or supplement)"/>
+      <definition value="A food or supplement that is consumed by patients."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -77,6 +77,38 @@
       <mapping>
         <identity value="w5"/>
         <map value="clinical.general"/>
+      </mapping>
+    </element>
+    <element id="NutritionProduct.code">
+      <path value="NutritionProduct.code"/>
+      <short value="A code that can identify the detailed nutrients and ingredients in a specific food product"/>
+      <definition value="The code assigned to the product, for example a USDA NDB number, a USDA FDC ID number, or a Langual code."/>
+      <alias value="type"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NutritionProductCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes identifying specific types of nutrition products."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/edible-substance-type"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Varies by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
       </mapping>
     </element>
     <element id="NutritionProduct.status">
@@ -118,7 +150,7 @@
         <valueString value="Should we have a category negation, as in &quot;not suitable for kosher diet&quot;?"/>
       </extension>
       <path value="NutritionProduct.category"/>
-      <short value="A category or class of the nutrition product (halal, kosher, gluten free, vegan, etc)"/>
+      <short value="Broad product groups or categories used to classify the product, such as Legume and Legume Products, Beverages, or Beef Products"/>
       <definition value="Nutrition products can have different classifications - according to its nutritional properties, preparation methods, etc."/>
       <alias value="class"/>
       <min value="0"/>
@@ -138,41 +170,6 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.class"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Varies by domain"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".code"/>
-      </mapping>
-    </element>
-    <element id="NutritionProduct.code">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
-        <valueString value="To discuss - what if a product has two codes?"/>
-      </extension>
-      <path value="NutritionProduct.code"/>
-      <short value="A code designating a specific type of nutritional product"/>
-      <definition value="The code assigned to the product, for example a manufacturer number or other terminology."/>
-      <alias value="type"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="NutritionProductCode"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes identifying specific types of nutrition products."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/edible-substance-type"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -307,8 +304,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/allergen-class"/>
       </binding>
     </element>
-    <element id="NutritionProduct.productCharacteristic">
-      <path value="NutritionProduct.productCharacteristic"/>
+    <element id="NutritionProduct.characteristic">
+      <path value="NutritionProduct.characteristic"/>
       <short value="Specifies descriptive properties of the nutrition product"/>
       <definition value="Specifies descriptive properties of the nutrition product."/>
       <min value="0"/>
@@ -317,8 +314,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="NutritionProduct.productCharacteristic.type">
-      <path value="NutritionProduct.productCharacteristic.type"/>
+    <element id="NutritionProduct.characteristic.type">
+      <path value="NutritionProduct.characteristic.type"/>
       <short value="Code specifying the type of characteristic"/>
       <definition value="A code specifying which characteristic of the product is being described (for example, colour, shape)."/>
       <min value="1"/>
@@ -335,8 +332,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/measurement-property"/>
       </binding>
     </element>
-    <element id="NutritionProduct.productCharacteristic.value[x]">
-      <path value="NutritionProduct.productCharacteristic.value[x]"/>
+    <element id="NutritionProduct.characteristic.value[x]">
+      <path value="NutritionProduct.characteristic.value[x]"/>
       <short value="The value of the characteristic"/>
       <definition value="The actual characteristic value corresponding to the type."/>
       <comment value="The description should be provided as a CodeableConcept, SimpleQuantity or an image.  The description can be a string only when these others are not available."/>
@@ -370,7 +367,7 @@
       <short value="One or several physical instances or occurrences of the nutrition product"/>
       <definition value="Conveys instance-level information about this product item. One or several physical, countable instances or occurrences of the product."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -388,13 +385,24 @@
     </element>
     <element id="NutritionProduct.instance.identifier">
       <path value="NutritionProduct.instance.identifier"/>
-      <short value="The identifier for the physical instance, typically a serial number"/>
-      <definition value="The identifier for the physical instance, typically a serial number."/>
+      <short value="The identifier for the physical instance, typically a serial number or manufacturer number"/>
+      <definition value="The identifier for the physical instance, typically a serial number or manufacturer number."/>
       <alias value="serialNumber"/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="NutritionProduct.instance.name">
+      <path value="NutritionProduct.instance.name"/>
+      <short value="The name for the specific product"/>
+      <definition value="The name for the specific product."/>
+      <alias value="productName"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
       </type>
     </element>
     <element id="NutritionProduct.instance.lotNumber">
@@ -427,11 +435,11 @@
         <code value="dateTime"/>
       </type>
     </element>
-    <element id="NutritionProduct.instance.biologicalSource">
-      <path value="NutritionProduct.instance.biologicalSource"/>
-      <short value="An identifier that supports traceability to the biological entity that is the source of biological material in the product"/>
-      <definition value="An identifier that supports traceability to the biological entity that is the source of biological material in the product."/>
-      <comment value="Necessary to support requirements for traceability from source to recipient.  The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device." />
+    <element id="NutritionProduct.instance.biologicalSourceEvent">
+      <path value="NutritionProduct.instance.biologicalSourceEvent"/>
+      <short value="An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled"/>
+      <definition value="An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled."/>
+      <comment value="Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa, while also satisfying donor anonymity requirements. The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device.  The identifier references an event that links to a single biological entity such as a blood donor, or to multiple biological entities (e.g. when the product is an embryo or a pooled platelet product).  A single biologicalSourceEvent identifier may appear on multiple products of many types derived from a single donation event or source extraction.  As an example, a single donation event may provide 2 kidneys and a liver for organ transplantation, 2 corneas for eye surgery, heart valves and arterial tissue for cardiovascular surgery, multiple skin grafts, tendons, multiple shaped bone grafts and a large number of bone putty/paste products; and each of them may be assigned to the same biological source event identifier."/>
       <min value="0"/>
       <max value="1"/>
       <type>

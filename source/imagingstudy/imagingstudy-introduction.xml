@@ -33,11 +33,11 @@ An ImagingStudy SHALL reference one DICOM Study, and MAY reference a subset of t
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
-<p> 
-ImagingStudy is used for DICOM imaging and associated information. Use <a href="documentreference.html">DocumentReference</a> to 
-track non-DICOM images, video, or audio. 
-<a href="binary.html">Binary</a> can be used to store arbitrary content. 
-<a href="documentreference.html">DocumentReference</a> allow indexing and retrieval of clinical “documents” with relevant metadata.
-</p>
+	<p>Use the ImagingStudy resource to store details of an entire DICOM Study and associated information.</p>
+	<p>Use the <a href="documentreference.html">DocumentReference</a> resource to store non-DICOM images, video, or audio with relevant metadata.</p>
+	<p>Use the <a href="binary.html">Binary</a> resource to store arbitrary content.</p>
+	<p>Use the <a href="imagingselection.html">ImagingSelection</a> resource to store a reference to a specific set of DICOM images, frames or other DICOM instances.</p>
+
+
 </div>
 </div>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="computablevalueset"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/computablevalueset"/>
+  <version value="5.0.0"/>
+  <name value="ComputableValueSet"/>
+  <title value="Computable ValueSet"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="Defines a computable value set as one that SHALL have an expression-based definition (i.e. a value set defined intensionally using expressions of the code systems involved) and MAY have an expansion included. The expression-based definition SHALL be represented in only one of three ways; using the compose element, using the expression extension, or using the rules-text extension to provide a step-by-step process for expanding the value set definition"/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="ValueSet"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="ValueSet">
+      <path value="ValueSet"/>
+      <definition value="A value set that includes instructions for construction of the value set using one and only one of human instructions, machine instructions, or the value set compose element."/>
+      <constraint>
+        <key value="cvs-1"/>
+        <severity value="error"/>
+        <human value="Only one of rulesText, expression, or a compose definition SHALL be provided"/>
+        <expression value="extension('http://hl7.org/fhir/StructureDefinition/valueset-rules-text').exists() xor extension('http://hl7.org/fhir/StructureDefinition/valueset-expression').exists() xor compose.exists()"/>
+        <xpath value="exists(f:extension)"/>
+      </constraint>
+      <mustSupport value="false"/>
+    </element>
+    <element id="ValueSet.extension:rulesText">
+      <path value="ValueSet.extension"/>
+      <sliceName value="rulesText"/>
+      <short value="Human instructions for constructing the valueset"/>
+      <definition value="An expression that provides a definition of the content of the value set in some form that is not computable - e.g. instructions that could only be followed by a human."/>
+      <comment value="Only one of rulesText, expression, or compose SHALL be provided for any given value set instance. Note that to provide a human-readable description of the expression, use the description element of the expression datatype."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-rules-text"/>
+      </type>
+      <condition value="cvs-1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.extension:expression">
+      <path value="ValueSet.extension"/>
+      <sliceName value="expression"/>
+      <short value="Machine instructions for constructing the value set"/>
+      <definition value="An expression that provides the computable definition for the content of the value set. The value set can only be expanded by a server that understands the expression syntax used."/>
+      <comment value="Only one of rulesText, expression, or compose SHALL be provided for any given value set instance. Note that to provide a human-readable description of the expression, use the description element of the expression datatype."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-expression"/>
+      </type>
+      <condition value="cvs-1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.extension:supplement">
+      <path value="ValueSet.extension"/>
+      <sliceName value="supplement"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-supplement"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.immutable">
+      <path value="ValueSet.immutable"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.compose">
+      <path value="ValueSet.compose"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.compose.lockedDate">
+      <path value="ValueSet.compose.lockedDate"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.compose.inactive">
+      <path value="ValueSet.compose.inactive"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.compose.include">
+      <path value="ValueSet.compose.include"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.compose.include.system">
+      <path value="ValueSet.compose.include.system"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.compose.include.version">
+      <path value="ValueSet.compose.include.version"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.compose.include.concept">
+      <path value="ValueSet.compose.include.concept"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.compose.include.filter">
+      <path value="ValueSet.compose.include.filter"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.compose.include.filter.property">
+      <path value="ValueSet.compose.include.filter.property"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.compose.include.filter.op">
+      <path value="ValueSet.compose.include.filter.op"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.compose.include.filter.value">
+      <path value="ValueSet.compose.include.filter.value"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.compose.include.valueSet">
+      <path value="ValueSet.compose.include.valueSet"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.compose.exclude">
+      <path value="ValueSet.compose.exclude"/>
+      <mustSupport value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

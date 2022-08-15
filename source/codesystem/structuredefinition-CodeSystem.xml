@@ -27,10 +27,10 @@
     <valueCode value=".status = retired"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="CanonicalResource"/>
+    <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="CodeSystem"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -48,7 +48,7 @@
     </telecom>
   </contact>
   <description value="The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -72,7 +72,7 @@
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="CodeSystem"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
   <derivation value="specialization"/>
   <differential>
     <element id="CodeSystem">
@@ -96,7 +96,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </constraint>
@@ -208,7 +208,7 @@
     <element id="CodeSystem.status">
       <path value="CodeSystem.status"/>
       <short value="draft | active | retired | unknown"/>
-      <definition value="The date (and optionally time) when the code system resource was created or revised."/>
+      <definition value="The status of this code system. Enables tracking the life-cycle of the content."/>
       <comment value="Allows filtering of code systems that are appropriate for use versus not."/>
       <min value="1"/>
       <max value="1"/>
@@ -216,7 +216,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired CodeSystem without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -227,7 +227,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -430,6 +430,170 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="CodeSystem.approvalDate">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="CodeSystem.approvalDate"/>
+      <short value="When the CodeSystem was approved by publisher"/>
+      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.approvalDate"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="CodeSystem.lastReviewDate">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="CodeSystem.lastReviewDate"/>
+      <short value="When the CodeSystem was last reviewed"/>
+      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
+      <comment value="If specified, this date follows the original approval date."/>
+      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.lastReviewDate"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="CodeSystem.effectivePeriod">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="CodeSystem.effectivePeriod"/>
+      <short value="When the CodeSystem is expected to be used"/>
+      <definition value="The period during which the CodeSystem content was or is planned to be in active use."/>
+      <comment value="The effective period for a CodeSystem  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+      <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the CodeSystem are or are expected to be used instead."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.effectivePeriod"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="CodeSystem.topic">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Although topic could be modeled as a type of useContext, it was specifically modeled as an element because it is central to indexing support."/>
+      </extension>
+      <path value="CodeSystem.topic"/>
+      <short value="E.g. Education, Treatment, Assessment, etc."/>
+      <definition value="Descriptions related to the content of the CodeSystem. Topics provide a high-level categorization as well as keywords for the CodeSystem that can be useful for filtering and searching."/>
+      <comment value="This element provides topical categorization and keywords for the CodeSystem, as opposed to the more structured context-of-use information provided in the useContext element"/>
+      <requirements value="Repositories must be able to determine how to categorize the CodeSystem so that it can be found by topical and keyword searches."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DefinitionTopic"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
+      </binding>
+    </element>
+    <element id="CodeSystem.author">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="The author, editor, reviewer, and endorser elements were originally modeled with a Contributor data type and a contributionType for the role, but the use of explicit elements makes the relationship more clear and is easier for implementers to understand and work with. Additional contribution types should be modeled with a specific extension for the contribution type to follow this pattern"/>
+      </extension>
+      <path value="CodeSystem.author"/>
+      <short value="Who authored the CodeSystem"/>
+      <definition value="An individiual or organization primarily involved in the creation and maintenance of the CodeSystem."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="CodeSystem.editor">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="CodeSystem.editor"/>
+      <short value="Who edited the CodeSystem"/>
+      <definition value="An individual or organization primarily responsible for internal coherence of the CodeSystem."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="CodeSystem.reviewer">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="CodeSystem.reviewer"/>
+      <short value="Who reviewed the CodeSystem"/>
+      <definition value="An individual or organization primarily responsible for review of some aspect of the CodeSystem."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="CodeSystem.endorser">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="CodeSystem.endorser"/>
+      <short value="Who endorsed the CodeSystem"/>
+      <definition value="An individual or organization responsible for officially endorsing the CodeSystem for use in some setting."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="CodeSystem.relatedArtifact">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="CodeSystem.relatedArtifact"/>
+      <short value="Additional documentation, citations, etc."/>
+      <definition value="Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts."/>
+      <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
+      <requirements value="A CodeSystem must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
+    </element>
     <element id="CodeSystem.caseSensitive">
       <path value="CodeSystem.caseSensitive"/>
       <short value="If code comparison is case sensitive"/>
@@ -445,8 +609,8 @@
     <element id="CodeSystem.valueSet">
       <path value="CodeSystem.valueSet"/>
       <short value="Canonical reference to the value set with entire code system"/>
-      <definition value="Canonical reference to the value set that contains the entire code system."/>
-      <comment value="The definition of the value set SHALL include all codes from this code system and only codes from this code system, and it SHALL be immutable."/>
+      <definition value="Canonical reference to the value set that contains all codes in the code system independent of code status."/>
+      <comment value="The definition of the value set SHALL include all codes from this code system, independent of concept status, and only codes from this code system. It SHALL be immutable, and operations SHOULD support validation of any allowed code compositions."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -472,7 +636,7 @@
         </extension>
         <strength value="required"/>
         <description value="The meaning of the hierarchy of concepts in a code system."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning|5.0.0"/>
       </binding>
     </element>
     <element id="CodeSystem.compositional">
@@ -516,7 +680,7 @@
         </extension>
         <strength value="required"/>
         <description value="The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/codesystem-content-mode|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/codesystem-content-mode|5.0.0"/>
       </binding>
     </element>
     <element id="CodeSystem.supplements">
@@ -603,7 +767,7 @@
         </extension>
         <strength value="required"/>
         <description value="The kind of operation to perform as a part of a property based filter."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/filter-operator|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/filter-operator|5.0.0"/>
       </binding>
     </element>
     <element id="CodeSystem.filter.value">
@@ -627,6 +791,8 @@
       <path value="CodeSystem.property"/>
       <short value="Additional information supplied about each concept"/>
       <definition value="A property defines an additional slot through which additional information can be provided about a concept."/>
+	  <comment value="Multiple occurrences of CodeSystem.concept.property may occur for a CodeSystem.property where 
+	  CodeSystem.concept.property.code is the same and CodeSystem.concept.property.value differs. For example: multiple designations for a single concept."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -686,7 +852,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of a property value."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/concept-property-type|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/concept-property-type|5.0.0"/>
       </binding>
     </element>
     <element id="CodeSystem.concept">

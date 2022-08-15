@@ -27,7 +27,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="MetadataResource"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -44,8 +44,8 @@
       <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Common Ancestor declaration for conformance and knowledge artifact resources."/>
-  <fhirVersion value="4.6.0"/>
+  <description value="Common Interface declaration for conformance and knowledge artifact resources."/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -77,8 +77,8 @@
         <valueCode value="230,160"/>
       </extension>
       <path value="MetadataResource"/>
-      <short value="Common Ancestor declaration for definitional resources"/>
-      <definition value="Common Ancestor declaration for conformance and knowledge artifact resources."/>
+      <short value="Common Interface declaration for definitional resources"/>
+      <definition value="Common Interface declaration for conformance and knowledge artifact resources."/>
       <min value="1"/>
       <max value="1"/>
       <mapping>
@@ -156,7 +156,7 @@
       </extension>
       <path value="MetadataResource.topic"/>
       <short value="E.g. Education, Treatment, Assessment, etc."/>
-      <definition value="Descriptive topics related to the content of the library. Topics provide a high-level categorization of the library that can be useful for filtering and searching."/>
+      <definition value="Descriptive topics related to the content of the {{title}}. Topics provide a high-level categorization of the {{title}} that can be useful for filtering and searching."/>
       <comment value="This element provides a topical categorization of the {{title}}, as opposed to the more structured context-of-use information provided in the useContext element"/>
       <requirements value="Repositories must be able to determine how to categorize the {{title}} so that it can be found by topical searches."/>
       <min value="0"/>

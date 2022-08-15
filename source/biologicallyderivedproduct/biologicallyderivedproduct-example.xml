@@ -6,25 +6,23 @@
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text> -->
   <productCode>
-    <coding>
-      <system value="https://www.isbt128.org/uri/ProductDescriptionCode" />
   		<code value="E0398" />
-	  	<display value="RED BLOOD CELLS, CPD - AS5, 450ml, refg, irradiated, res Leu lt 5 x 10^6" />
-    </coding>
   </productCode>
   <identifier>
     <system value="https://www.isbt128.org/uri/MPHOUniqueIdentifier" />
     <value value="A9999E0398A999921123456000001" /> 
   </identifier>
-  <biologicalSource>
+  <biologicalSourceEvent>
     <system value="https://www.isbt128.org/uri/DonationIdentificationNumber" />
 	  <value value="A999921123456" />
-  </biologicalSource>
+  </biologicalSourceEvent>
   <processingFacility>
     <reference value="Organization/A9999" />
   </processingFacility>
   <division value="A00000" />
-  <status value="available" />
+  <productStatus>
+       <code  value="available" />
+  </productStatus>
   <expirationDate value="2021-08-02T23:59:00-05:00"/>
   <storageTempRequirements>
     <low>
@@ -40,11 +38,7 @@
   </storageTempRequirements>
   <property>
     <type>
-      <coding>
-        <system value="https://www.isbt128.org/uri/"/>
         <code value="ABORhD" />
-        <display value="ABORhD type" />
-      </coding>
     </type>
     <valueCodeableConcept>
       <coding>
@@ -56,11 +50,7 @@
   </property>
 	<property>
     <type>
-      <coding>
-        <system value="https://www.isbt128.org/uri/"/>
-        <code value="CollectionType"/>
-        <display value="Collection Type"/>			
-      </coding>
+      <code value="V"/>
     </type>
     <valueCodeableConcept>
       <coding>

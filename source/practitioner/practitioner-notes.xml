@@ -4,8 +4,16 @@
 Notes:
 </h2>
   <ul>
-  <li>The practitioner's Qualifications are acquired by the practitioner independent of any organization or role, 
-  and do not imply that they are allowed/authorized to perform roles relevant to the qualification at any specific Organization/Location.</li>
+  <li>
+    The practitioner's Qualifications are acquired by the practitioner independent of any organization or role, 
+    and do not imply that they are allowed/authorized to perform roles relevant to the qualification at any specific Organization/Location.
+  </li>
+  <li>
+    <a name="identifier"></a>
+    Business idenfitiers may be used in <code>Practitioner.identifier</code> and/or <code>Practitioner.qualification.identifier</code> based on local requirements.<br/>
+    The <code>Practitioner.identifier</code> doesn't convey anything about the status of the license (other than period), if this or any additional details are available
+    then the <code>qualification.identifier</code> should be used.<br/>
+    E.g. a specific license includes its type, status, issuer and a local category extension for which specialties were included in the license.
+  </li>
   </ul>
 </div>
-

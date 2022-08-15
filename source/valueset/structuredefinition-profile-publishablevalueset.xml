@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="publishablevalueset"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/publishablevalueset"/>
+  <version value="5.0.0"/>
+  <name value="PublishableValueSet"/>
+  <title value="Publishable ValueSet"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="Defines and enforces the minimum expectations for publication and distribution of a value set, typically as part of an artifact repository or implementation guide publication"/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="ValueSet"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="ValueSet">
+      <path value="ValueSet"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="ValueSet.extension:trustedExpansion">
+      <path value="ValueSet.extension"/>
+      <sliceName value="trustedExpansion"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-trusted-expansion"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.extension:otherTitle">
+      <path value="ValueSet.extension"/>
+      <sliceName value="otherTitle"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-otherTitle"/>
+      </type>
+    </element>
+    <element id="ValueSet.extension:sourceReference">
+      <path value="ValueSet.extension"/>
+      <sliceName value="sourceReference"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-sourceReference"/>
+      </type>
+    </element>
+    <element id="ValueSet.identifier">
+      <path value="ValueSet.identifier"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.date">
+      <path value="ValueSet.date"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.contact">
+      <path value="ValueSet.contact"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.useContext">
+      <path value="ValueSet.useContext"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.jurisdiction">
+      <path value="ValueSet.jurisdiction"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.purpose">
+      <path value="ValueSet.purpose"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.copyright">
+      <path value="ValueSet.copyright"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.approvalDate">
+      <path value="ValueSet.approvalDate"/>
+    </element>
+    <element id="ValueSet.lastReviewDate">
+      <path value="ValueSet.lastReviewDate"/>
+    </element>
+    <element id="ValueSet.effectivePeriod">
+      <path value="ValueSet.effectivePeriod"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.topic">
+      <path value="ValueSet.topic"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.author">
+      <path value="ValueSet.author"/>
+    </element>
+    <element id="ValueSet.editor">
+      <path value="ValueSet.editor"/>
+    </element>
+    <element id="ValueSet.reviewer">
+      <path value="ValueSet.reviewer"/>
+    </element>
+    <element id="ValueSet.endorser">
+      <path value="ValueSet.endorser"/>
+    </element>
+    <element id="ValueSet.relatedArtifact">
+      <path value="ValueSet.relatedArtifact"/>
+    </element>
+    <element id="ValueSet.compose">
+      <path value="ValueSet.compose"/>
+    </element>
+    <element id="ValueSet.compose.extension:composeCreatedBy">
+      <path value="ValueSet.compose.extension"/>
+      <sliceName value="composeCreatedBy"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-compose-createdBy"/>
+      </type>
+    </element>
+    <element id="ValueSet.compose.extension:composeCreationDate">
+      <path value="ValueSet.compose.extension"/>
+      <sliceName value="composeCreationDate"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-compose-createdBy"/>
+      </type>
+    </element>
+    <element id="ValueSet.compose.include">
+      <path value="ValueSet.compose.include"/>
+    </element>
+    <!-- These extensions could not be found...not clear what I'm supposed to do with these...
+    <element id="ValueSet.compose.include.extension:composeIncludeSystemTitle">
+      <path value="ValueSet.compose.include.extension"/>
+      <sliceName value="composeIncludeSystemTitle"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-compose-include-systemTitle"/>
+      </type>
+    </element>
+    <element id="ValueSet.compose.include.extension:composeIncludeValueSetTitle">
+      <path value="ValueSet.compose.include.extension"/>
+      <sliceName value="composeIncludeValueSetTitle"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-compose-include-valueSetTitle"/>
+      </type>
+    </element>
+    -->
+    <element id="ValueSet.compose.include.copyright">
+      <path value="ValueSet.compose.include.copyright"/>
+      <mustSupport value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -187,9 +187,9 @@ clinicians) will need to determine what information from the message should be r
 to generate this content.
 </p>
 <p>
-<b>Nulls and update modes:</b><a name="HL7 v2-updateMode"></a>In HL7 v2, "action" codes can determine
+<b>Delete indicator and update modes:</b><a name="HL7 v2-updateMode"></a>In HL7 v2, "action" codes can determine
 whether particular segments represent information to be added, updated or deleted.  Fields can be
-populated with "null" (two consecutive double-quotes with no other characters) to note a field is
+populated with a "delete indicator" (two consecutive double-quotes with no other characters) to note a field is
 to be deleted.  An omitted element or repetition is generally interpreted as "retain existing data
 unchanged".  This contrasts with the FHIR approach of requiring all data to be present as a snapshot.
 Systems will either need to build in logic to generate a full snapshot of each resource or consider

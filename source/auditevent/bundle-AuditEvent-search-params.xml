@@ -200,6 +200,7 @@
         <expression value="AuditEvent.patient"/>
         <xpath value="f:AuditEvent/f:patient"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

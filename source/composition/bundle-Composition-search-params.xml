@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
   <id value="Composition-search-params"/>
   <entry>
     <resource>
@@ -58,26 +58,6 @@
         <type value="token"/>
         <expression value="Composition.category"/>
         <xpath value="f:Composition/f:category"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Composition-confidentiality"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Composition.confidentiality"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-confidentiality"/>
-        <description value="As defined by affinity domain"/>
-        <code value="confidentiality"/>
-        <type value="token"/>
-        <expression value="Composition.confidentiality"/>
-        <xpath value="f:Composition/f:confidentiality"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -199,6 +179,7 @@
         <expression value="Composition.subject.where(resolve() is Patient)"/>
         <xpath value="f:Composition/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -338,6 +319,46 @@
         <type value="token"/>
         <expression value="Composition.type"/>
         <xpath value="f:Composition/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-url"/>
+        <description value="The uri that identifies the activity definition"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="Composition.url"/>
+        <xpath value="f:Composition/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-version"/>
+        <description value="The business version of the activity definition"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="Composition.version"/>
+        <xpath value="f:Composition/f:version"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

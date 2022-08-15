@@ -2,6 +2,9 @@
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="valueset-steward"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="deprecated"/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
   </extension>
@@ -9,13 +12,13 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-steward"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="steward"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="The entity that is responsible for the content of the Value Set Definition. This is a textual description of the organizational entity responsible for the content and maintenance."/>
-  <fhirVersion value="4.6.0"/>
+  <description value="The entity that is responsible for the content of the Value Set Definition. This is a textual description of the organizational entity responsible for the content and maintenance. (deprecated)"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -33,9 +36,9 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="Entity responsible for Value Set"/>
-      <definition value="The entity that is responsible for the content of the Value Set Definition. This is a textual description of the organizational entity responsible for the content and maintenance."/>
-      <comment value="The information included should include contact information."/>
+      <short value="Entity responsible for Value Set (deprecated)"/>
+      <definition value="The entity that is responsible for the content of the Value Set Definition. This is a textual description of the organizational entity responsible for the content and maintenance. (deprecated)"/>
+      <comment value="The information included should include contact information. This extension is deprecated, use the publisher element of the ValueSet resource instead."/>
       <min value="0"/>
       <max value="*"/>
     </element>

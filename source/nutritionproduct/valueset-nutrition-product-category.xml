@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Categories of Nutrition Products"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -23,23 +23,23 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set represents codes for types of edible substances and is provided as a suggestive example.  It include codes from [SNOMED CT](http://snomed.info/sct) where concept has a parent of 327997002 Foods for special diets (product) or has a parent of 229963004 Cultural food types (substance)."/>
+  <description value="This value set represents codes for types of edible substances and is provided as a suggestive example.  It include codes from [SNOMED CT](http://snomed.info/sct) where concept has a parent of 255620007 Foods (substance) or has a parent of 226465004 Drinks (substance)."/>
   <copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-        <property value="parent"/>
-        <op value="="/>
-        <value value="327997002"/>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="255620007"/>
       </filter>
     </include>
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-        <property value="parent"/>
-        <op value="="/>
-        <value value="229963004"/>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="226465004"/>
       </filter>
     </include>
   </compose>

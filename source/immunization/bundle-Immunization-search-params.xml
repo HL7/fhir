@@ -133,7 +133,7 @@
           <valueString value="Immunization.performer.actor"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-performer"/>
-        <description value="The practitioner or organization who played a role in the vaccination"/>
+        <description value="The practitioner, individual or organization who played a role in the vaccination"/>
         <code value="performer"/>
         <type value="reference"/>
         <expression value="Immunization.performer.actor"/>
