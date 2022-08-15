@@ -1196,9 +1196,9 @@
     </element>
     <element id="Device.parent">
       <path value="Device.parent"/>
-      <short value="The device that this device is attached to or is part of"/>
+      <short value="The higher level or encompassing device that this device is a logical part of"/>
       <definition value="The higher level or encompassing device that this device is a logical part of."/>
-      <comment value="For example a vital signs monitor (parent) where three separate modules can be plugged into such as interchangeable blood pressure, oximeter, temperature modules.  These modules are represented as devices with the .parent valued to the vital signs monitor when plugged in." />
+      <comment value="For example a vital signs monitor (parent) where three separate modules can be plugged into such as interchangeable blood pressure, oximeter, temperature modules.  These modules are represented as devices with the .parent valued to the vital signs monitor when plugged in."/>
       <min value="0"/>
       <max value="1"/>
       <type>

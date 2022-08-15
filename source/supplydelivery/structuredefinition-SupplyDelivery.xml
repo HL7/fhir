@@ -245,7 +245,7 @@
       <short value="The item that is delivered or supplied"/>
       <definition value="The item that is being delivered or has been supplied."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -283,6 +283,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
