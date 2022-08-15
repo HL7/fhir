@@ -56,7 +56,7 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/device-usage-adherence-code"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="DeviceUsageAdherenceCode"/>
   <title value="DeviceUsageAdherenceCode"/>
   <status value="draft"/>

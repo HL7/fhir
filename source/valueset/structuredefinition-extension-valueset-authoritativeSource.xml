@@ -9,13 +9,13 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-authoritativeSource"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="authoritativeSource"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
   <description value="A reference to the authoritative accessible, persisted source of truth of the entire Value Set Definition, including textual information and available versions."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

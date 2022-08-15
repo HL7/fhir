@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="location-characteristic"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/location-characteristic"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="LocationCharacteristic"/>
+  <title value="Location Characteristic"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <description value="Example Set of Location Characteristics."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/location-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="wheelchair"/>
+    <display value="Wheelchair accessible"/>
+    <definition value="The location is accessible to thosre requiring wheelchair access"/>
+  </concept>
+  <concept>
+    <code value="has-translation"/>
+    <display value="translation services available"/>
+    <definition value="The location has translation services available"/>
+  </concept>
+  <concept>
+    <code value="has-oxy-nitro"/>
+    <display value="oxygen/nitrogen available"/>
+    <definition value="The location has oxygen and nitrogen services available"/>
+  </concept>
+  <concept>
+    <code value="has-neg-press"/>
+    <display value="negative pressure rooms available"/>
+    <definition value="The location has negative pressure rooms available"/>
+  </concept>
+  <concept>
+    <code value="has-iso-ward"/>
+    <display value="isolation ward"/>
+    <definition value="The location is or has an isolation ward"/>
+  </concept>
+  <concept>
+    <code value="has-icu"/>
+    <display value="has ICU"/>
+    <definition value="The location is or has an intensive care unit"/>
+  </concept>
+</CodeSystem>

@@ -7,6 +7,7 @@ plugins {
 repositories {
     jcenter()
     google()
+    mavenLocal()
     mavenCentral()
     maven {
         url = uri("https://jitpack.io")

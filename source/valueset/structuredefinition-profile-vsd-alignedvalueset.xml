@@ -15,7 +15,7 @@
     <valueCode value="trial-use" />
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/vsd-alignedvalueset" />
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="VSDALignedValueSet" />
   <title value="Value Set Definition Aligned Profile" />
   <status value="draft" />
@@ -24,7 +24,7 @@
   <publisher value="HL7" />
   <description value="This profile defines the necessary extensions and constraints on ValueSet to align with the HL7 Specification: Characteristics of a Value Set Definition, Release 1 (VSD). This normative specification describes elements to create a ValueSet definition, and does not describe elements related to a ValueSet expansion." />
   <purpose value="This profile defines the necessary extensions and constraints on ValueSet to align with the HL7 Specification: Characteristics of a Value Set Definition, Release 1 (VSD). This normative specification describes elements to create a ValueSet definition, and does not describe elements related to a ValueSet expansion." />
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim" />
     <uri value="http://hl7.org/v3" />

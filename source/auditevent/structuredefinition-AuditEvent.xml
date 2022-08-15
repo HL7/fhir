@@ -23,7 +23,7 @@
     <valueCode value="Audit Events are recorded, there is no update or delete. "/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AuditEvent"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="AuditEvent"/>
   <status value="draft"/>
   <date value="2021-04-07T09:58:31.578+11:00"/>
@@ -41,7 +41,7 @@
     </telecom>
   </contact>
   <description value="A record of an event relevant for purposes such as operations, privacy, security, maintenance, and performance analysis."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

@@ -37,7 +37,7 @@
     <valueMarkdown value="Note that servers may support searching by a functional list, and not support this operation that allows clients to find the list directly"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/List-find"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="find"/>
   <title value="Find a functional list"/>
   <status value="draft"/>

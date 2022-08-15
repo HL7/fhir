@@ -23,7 +23,7 @@
 		<valueCode value=".status = entered-in-error"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/Task"/>
-	<version value="4.6.0"/>
+	<version value="5.0.0"/>
 	<name value="Task"/>
 	<status value="draft"/>
 	<date value="2021-01-02T08:58:31+11:00"/>
@@ -41,7 +41,7 @@
 		</telecom>
 	</contact>
 	<description value="A task to be performed."/>
-	<fhirVersion value="4.6.0"/>
+	<fhirVersion value="5.0.0"/>
 	<mapping>
 		<identity value="workflow"/>
 		<uri value="http://hl7.org/fhir/workflow"/>
@@ -731,6 +731,7 @@
 			<short value="Where task occurs"/>
 			<definition value="Principal physical location where the this task is performed."/>
 			<requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+			<comment value="This should only be specified when the Task to be/being performed happens or is expected to happen primarily within the bounds of a single Location.  Other locations (e.g. source, destination, etc.) would either be reflected on the 'basedOn' Request or be conveyed as distinct Task.input values."  />      
 			<min value="0"/>
 			<max value="1"/>
 			<type>

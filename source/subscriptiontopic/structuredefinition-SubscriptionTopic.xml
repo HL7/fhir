@@ -27,7 +27,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SubscriptionTopic"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="SubscriptionTopic"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="Describes a stream of resource state changes identified by trigger criteria and annotated with labels useful to filter projections from this topic."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
