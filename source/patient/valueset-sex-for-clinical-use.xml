@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="sex-for-clinical-use"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <url value="http://terminology.hl7.org/ValueSet/sex-for-clinical-use"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.982"/>
+  </identifier>
+  <name value="sexForClinicalUse"/>
+  <title value="Sex for Clincal Use"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Codes that represent the sex characterization appropriate for the associated clinical context."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/sex-for-clinical-use"/>
+    </include>
+  </compose>
+</ValueSet>

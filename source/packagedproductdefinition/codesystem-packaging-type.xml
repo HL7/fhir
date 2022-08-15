@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="packaging-type"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/packaging-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+     <value value="urn:oid:2.16.840.1.113883.4.642.1.1679"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="PackagingType"/>
+  <title value="PackagingType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="A type of packaging."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/packaging-type"/>
+  <content value="complete"/>
+  <concept><code value="100000073490"/><display value="Ampoule"/></concept>
+  <concept><code value="100000073491"/><display value="Applicator"/></concept>
+  <concept><code value="100000073492"/><display value="Automatic injection device"/></concept>
+  <concept><code value="100000073493"/><display value="Bag"/></concept>
+  <concept><code value="100000073494"/><display value="Balling gun"/></concept>
+  <concept><code value="100000073495"/><display value="Barrel"/></concept>
+  <concept><code value="100000073496"/><display value="Blister"/></concept>
+  <concept><code value="100000073497"/><display value="Bottle"/></concept>
+  <concept><code value="100000073498"/><display value="Box"/></concept>
+  <concept><code value="100000073499"/><display value="Brush"/></concept>
+  <concept><code value="100000073500"/><display value="Brush applicator"/></concept>
+  <concept><code value="100000073501"/><display value="Cannula"/></concept>
+  <concept><code value="100000073502"/><display value="Cap"/></concept>
+  <concept><code value="100000073503"/><display value="Cartridge"/></concept>
+  <concept><code value="100000073504"/><display value="Child-resistant closure"/></concept>
+  <concept><code value="100000073505"/><display value="Cup"/></concept>
+  <concept><code value="100000073506"/><display value="Dabbing applicator"/></concept>
+  <concept><code value="100000073507"/><display value="Dart"/></concept>
+  <concept><code value="100000073508"/><display value="Dredging applicator"/></concept>
+  <concept><code value="100000073509"/><display value="Dredging container"/></concept>
+  <concept><code value="100000073510"/><display value="Drench gun"/></concept>
+  <concept><code value="100000073511"/><display value="Dropper applicator"/></concept>
+  <concept><code value="100000073512"/><display value="Dropper container"/></concept>
+  <concept><code value="100000073513"/><display value="Fixed cryogenic vessel"/></concept>
+  <concept><code value="100000073514"/><display value="Gas cylinder"/></concept>
+  <concept><code value="100000073515"/><display value="High pressure transdermal delivery device"/></concept>
+  <concept><code value="100000073516"/><display value="Implanter"/></concept>
+  <concept><code value="100000073517"/><display value="Inhaler"/></concept>
+  <concept><code value="100000073518"/><display value="In-ovo injection device"/></concept>
+  <concept><code value="100000073519"/><display value="Injection needle"/></concept>
+  <concept><code value="100000073520"/><display value="Injection syringe"/></concept>
+  <concept><code value="100000073521"/><display value="Internal graduated calibration chamber"/></concept>
+  <concept><code value="100000073522"/><display value="Intramammary syringe"/></concept>
+  <concept><code value="100000073523"/><display value="Jar"/></concept>
+  <concept><code value="100000073524"/><display value="Measuring device"/></concept>
+  <concept><code value="100000073525"/><display value="Measuring spoon"/></concept>
+  <concept><code value="100000073526"/><display value="Metering pump"/></concept>
+  <concept><code value="100000073527"/><display value="Metering valve"/></concept>
+  <concept><code value="100000073528"/><display value="Mobile cryogenic vessel"/></concept>
+  <concept><code value="100000073529"/><display value="Mouthpiece"/></concept>
+  <concept><code value="100000073530"/><display value="Multidose container"/></concept>
+  <concept><code value="100000073531"/><display value="Multidose container with airless pump"/></concept>
+  <concept><code value="100000073532"/><display value="Multipuncturer"/></concept>
+  <concept><code value="100000073533"/><display value="Nasal applicator"/></concept>
+  <concept><code value="100000073534"/><display value="Nebuliser"/></concept>
+  <concept><code value="100000073535"/><display value="Needle applicator"/></concept>
+  <concept><code value="100000073536"/><display value="Nozzle"/></concept>
+  <concept><code value="100000073537"/><display value="Oral syringe"/></concept>
+  <concept><code value="100000073538"/><display value="Pipette"/></concept>
+  <concept><code value="100000073539"/><display value="Pipette applicator"/></concept>
+  <concept><code value="100000073540"/><display value="Pouch"/></concept>
+  <concept><code value="100000073541"/><display value="Pour-on container"/></concept>
+  <concept><code value="100000073542"/><display value="Pre-filled gastroenteral tube"/></concept>
+  <concept><code value="100000073543"/><display value="Pre-filled pen"/></concept>
+  <concept><code value="100000073544"/><display value="Pre-filled syringe"/></concept>
+  <concept><code value="100000073545"/><display value="Pressurised container"/></concept>
+  <concept><code value="100000073546"/><display value="Prick test applicator"/></concept>
+  <concept><code value="100000073547"/><display value="Sachet"/></concept>
+  <concept><code value="100000073548"/><display value="Scarifier"/></concept>
+  <concept><code value="100000073549"/><display value="Screw cap"/></concept>
+  <concept><code value="100000073550"/><display value="Single-dose container"/></concept>
+  <concept><code value="100000073551"/><display value="Spatula"/></concept>
+  <concept><code value="100000073552"/><display value="Spot-on applicator"/></concept>
+  <concept><code value="100000073553"/><display value="Spray container"/></concept>
+  <concept><code value="100000073554"/><display value="Spray pump"/></concept>
+  <concept><code value="100000073555"/><display value="Spray valve"/></concept>
+  <concept><code value="100000073556"/><display value="Stab vaccinator"/></concept>
+  <concept><code value="100000073557"/><display value="Stopper"/></concept>
+  <concept><code value="100000073558"/><display value="Straw"/></concept>
+  <concept><code value="100000073559"/><display value="Strip"/></concept>
+  <concept><code value="100000073560"/><display value="Tablet container"/></concept>
+  <concept><code value="100000073561"/><display value="Tube"/></concept>
+  <concept><code value="100000073562"/><display value="Vaginal sponge applicator"/></concept>
+  <concept><code value="100000073563"/><display value="Vial"/></concept>
+  <concept><code value="100000075664"/><display value="Administration system"/></concept>
+  <concept><code value="100000116195"/><display value="Calendar package"/></concept>
+  <concept><code value="100000116196"/><display value="Needle-free injector"/></concept>
+  <concept><code value="100000116197"/><display value="Roll-on container"/></concept>
+  <concept><code value="100000125779"/><display value="Multidose container with pump"/></concept>
+  <concept><code value="100000137702"/><display value="Container"/></concept>
+  <concept><code value="100000137703"/><display value="Oral applicator"/></concept>
+  <concept><code value="100000143554"/><display value="Multidose container with metering pump"/></concept>
+  <concept><code value="100000143555"/><display value="Pack"/></concept>
+  <concept><code value="100000163233"/><display value="disk"/></concept>
+  <concept><code value="100000163234"/><display value="plunger"/></concept>
+  <concept><code value="100000164143"/><display value="infusion port"/></concept>
+  <concept><code value="100000166980"/><display value="Valve"/></concept>
+  <concept><code value="100000169899"/><display value="Jerrycan"/></concept>
+  <concept><code value="100000173982"/><display value="Oral applicator"/></concept>
+  <concept><code value="100000173983"/><display value="Dose dispenser"/></concept>
+  <concept><code value="100000174066"/><display value="Unit-dose blister"/></concept>
+  <concept><code value="100000174067"/><display value="Pre-filled injector"/></concept>
+  <concept><code value="100000174068"/><display value="Pre-filled oral syringe"/></concept>
+  <concept><code value="100000174069"/><display value="Pre-filled oral applicator"/></concept>
+  <concept><code value="100000174070"/><display value="Dose-dispenser cartridge"/></concept>
+  <concept><code value="200000005068"/><display value="Pen"/></concept>
+  <concept><code value="200000005585"/><display value="Wrapper"/></concept>
+  <concept><code value="200000010647"/><display value="Lid"/></concept>
+  <concept><code value="200000011726"/><display value="Capsule for opening"/></concept>
+  <concept><code value="200000012539"/><display value="Child-resistant sachet"/></concept>
+  <concept><code value="200000013191"/><display value="Tamper-evident closure"/></concept>
+  <concept><code value="200000024874"/><display value="Tablet tube"/></concept>
+</CodeSystem>

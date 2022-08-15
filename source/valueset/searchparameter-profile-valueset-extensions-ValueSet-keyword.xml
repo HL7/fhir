@@ -3,13 +3,15 @@
 <SearchParameter xmlns="http://hl7.org/fhir">
   <id value="valueset-extensions-ValueSet-keyword"/>
   <url value="http://hl7.org/fhir/SearchParameter/valueset-extensions-ValueSet-keyword"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="keyword"/>
   <status value="draft"/>
   <experimental value="true"/>
   <description value="Optional Extensions Element"/>
   <code value="keyword"/>
+  <base value="ValueSet"/>
   <type value="string"/>
+  <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/valueset-keyWord')"/>
   <xpath value="f:ValueSet/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/valueset-keyWord&#39;] | /f:#keyWord"/>
   <xpathUsage value="normal"/>
 </SearchParameter>

@@ -13,7 +13,31 @@
     </extension>
     <item>
       <reference value="Permission/example"/>
-      <display value="General"/>
+      <display value="Degenerate permision example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of permission for SANER"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="permission-example-saner"/>
+    </extension>
+    <item>
+      <reference value="Permission/example-saner"/>
+      <display value="SANER permision example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of permission for VhDir"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="permission-example-vhdir"/>
+    </extension>
+    <item>
+      <reference value="Permission/example-vhdir"/>
+      <display value="VhDir permision example"/>
     </item>
   </entry>
 </List>

@@ -19,7 +19,7 @@ Outstanding issues:
 
 
 <h1>Digital Signatures</h1>
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 
 <p>
@@ -30,11 +30,15 @@ Resources can be signed using the <a href="provenance.html">Provenance</a> resou
 The <a href="datatypes.html#signature">Signature datatype</a> is available to support various signature types including non-repudiation purposes. 
 Further details on creation and validation of <a href="datatypes.html#signature">Signatures are defined.</a>
 </p>
+<ul>
+ <li>The Signature SHOULD conform to <a href="https://www.w3.org/TR/XAdES/">XAdES-X-L</a> for support of <a href="https://www.w3.org/TR/XAdES/#Syntax_forXAdES-X-L_form">Long Term signatures</a>. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation.</li>
+ <li>The JSON Digital-Signature SHOULD conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES</a> for support of Long Term signatures.</li>
+</ul>
 <p>
 In addition, <a href="documents.html#signatures">documents may be signed</a> using an 
 <a href="http://www.w3.org/TR/xmldsig-core/#def-SignatureEnveloped">enveloped</a> 
 signature. A specification for enveloped signature is profiled in 
-the <a href="http://wiki.ihe.net/index.php?title=Document_Digital_Signature">IHE DSG profile</a>.
+the <a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-37.html">IHE DSG profile</a>.
 </p>
 <p>
 Neither of these definitions prohibits policies that accept the use of other ways of using digital signatures or scanned wet signatures.

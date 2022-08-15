@@ -18,15 +18,15 @@
 <p>
 This FHIR specification is one in a <a href="http://hl7.org/fhir/directory.html">series of publications of the FHIR specification</a>.
 There have been previous releases, and there will be subsequent releases. Each release (or "version")
-introduces new features, and changes from the previous releases. 
+introduces new features, and changes from the previous releases.
 </p>
 <p>
-Implementers should be familiar with the kind of changes that can be made, 
-and the change processes that apply - see the FHIR <a href="versions.html">Version Management Policy</a> for 
+Implementers should be familiar with the kind of changes that can be made,
+and the change processes that apply - see the FHIR <a href="versions.html">Version Management Policy</a> for
 further information
 </p>
 <p>
-Ongoing change to the specification means that implementers must be able to 
+Ongoing change to the specification means that implementers must be able to
 determine which version is in use in their context and implement accordingly.
 </p>
 <p>There are 3 ways to determine the version of FHIR in use:</p>
@@ -35,45 +35,46 @@ determine which version is in use in their context and implement accordingly.
 <li>The <a href="http.html#version-parameter">fhirVersion parameter</a> on the MIME-type that applies to the resource</li>
 <li>Specifying a version specific profile on the resource itself</li>
 </ul>
+<p>Please refer to the <code><a href="versions.html#versions">FHIR Releases and Versioning</a></code> section for details on version semantics and publication.</p>
 
 <a name="cs-version"> </a>
 <h3>CapabilityStatement.fhirVersion</h3>
 
 <p>
-Whenever resources are exchanged, the applicable FHIR version applies to the 
-entire interaction, not just the resources. The semantics of the mime types, 
-the RESTful URLs, the search parameters, and the overall interaction are bound 
-to a particular FHIR version. The resource versions must be consistent with the 
-overall interaction. It's not possible for client/server (or, for messaging, 
-sender/receiver) to have a coherent conversation without first agreeing on 
-the version. The version of the interaction is specified in the CapabilityStatement 
+Whenever resources are exchanged, the applicable FHIR version applies to the
+entire interaction, not just the resources. The semantics of the mime types,
+the RESTful URLs, the search parameters, and the overall interaction are bound
+to a particular FHIR version. The resource versions must be consistent with the
+overall interaction. It's not possible for client/server (or, for messaging,
+sender/receiver) to have a coherent conversation without first agreeing on
+the version. The version of the interaction is specified in the CapabilityStatement
 resource. The sequence works this way:
 </p>
 <ul>
 <li>The server decides what version it is implementing, and states this in it's CapabilityStatement</li>
 <li>The client knows what FHIR version it uses</li>
-<li>The first time the client connects to the server, it <a href="http.html#capabilities">retrieves that CapabilityStatement</a> 
+<li>The first time the client connects to the server, it <a href="http.html#capabilities">retrieves that CapabilityStatement</a>
   and checks that the server version is the same</li>
 <li>All interactions between the client and server use the same version</li>
 </ul>
 <p>
-Clients are advised to check the server's capability statement before first using the 
-server, but how often is at the discretion of the implementer, and this varies 
-wildly. Some implementers only check the statement during the development cycle, 
-while others check on the first connection for each process. Which is appropriate 
-depends on a variety of circumstances, but implementers should note that the 
-CapabilityStatement can change over time - even changing FHIR versions as the 
+Clients are advised to check the server's capability statement before first using the
+server, but how often is at the discretion of the implementer, and this varies
+wildly. Some implementers only check the statement during the development cycle,
+while others check on the first connection for each process. Which is appropriate
+depends on a variety of circumstances, but implementers should note that the
+CapabilityStatement can change over time - even changing FHIR versions as the
 system is subject to ongoing development.
 </p>
 <p>
-Note that there are related places where the FHIR version in use can also be 
+Note that there are related places where the FHIR version in use can also be
 stated, and these may be consulted at different points in the development cycle
 in place (or as well as) CapabilityStatement.fhirVersion:
 </p>
 <ul>
  <li><a href="implementationguide.html#versions">ImplementationGuide.fhirVersion</a>: specifies which FHIR versions(s) apply for a particular solution. This may
    imply a particular version for a server, or an exchange</li>
- <li><a href="structuredefinition-definitions.html#StructureDefinition.fhirVersion">StructureDefinition.fhirVersion</a>: may specify which 
+ <li><a href="structuredefinition-definitions.html#StructureDefinition.fhirVersion">StructureDefinition.fhirVersion</a>: may specify which
    version a resource conforms to - or, at least, what version it should be expected to conform to</li>
 </ul>
 
@@ -81,13 +82,13 @@ in place (or as well as) CapabilityStatement.fhirVersion:
 <h3>Mime Type Parameter</h3>
 
 <p>
-The most common strategy for handling change between versions of FHIR is to use different end-points for different versions. 
-e.g. http://acme.com/fhir/r2 and http://acme.com/fhir/r3. However, this can be 
-problematic because it means that the same record has a different identity depending on 
+The most common strategy for handling change between versions of FHIR is to use different end-points for different versions.
+e.g. http://acme.com/fhir/r2 and http://acme.com/fhir/r3. However, this can be
+problematic because it means that the same record has a different identity depending on
 the version of FHIR in use - though this can also be useful; it depends on the context.
 </p>
 <p>
-A server can support multiple versions on the same end-point, if the client specifies 
+A server can support multiple versions on the same end-point, if the client specifies
 which version to support using the <a href="http.html#version-parameter">fhirVersion mime type parameter</a>:
 </p>
 <pre>
@@ -95,10 +96,10 @@ GET [base]/metadata
 Accept: application/fhir+json; fhirVersion=3.0
 </pre>
 <p>
-This is a request to return the CapabilityStatement for the server's 
-support of FHIR Release 3. The client will know that the server doesn't 
-support R3 if it gets an error in return, or if the capability statement 
-that comes back has a different fhirVersion (which would mean that the 
+This is a request to return the CapabilityStatement for the server's
+support of FHIR Release 3. The client will know that the server doesn't
+support R3 if it gets an error in return, or if the capability statement
+that comes back has a different fhirVersion (which would mean that the
 server does not support the fhirVersion parameter).
 </p>
 <p>
@@ -121,9 +122,9 @@ Clients can determine what versions a server supports by using the <a href="capa
 <p><b>Storage</b></p>
 
 <p>
-The same technique can be used in a database, or any other kind of storage - just 
-store the mime type (or just the version) alongside the resource. This means that 
-when reading resources, the application knows what version the resource has, and 
+The same technique can be used in a database, or any other kind of storage - just
+store the mime type (or just the version) alongside the resource. This means that
+when reading resources, the application knows what version the resource has, and
 therefore what parser to use, before reading the resource.
 </p>
 
@@ -131,20 +132,20 @@ therefore what parser to use, before reading the resource.
 <h3>Version Specific Profile</h3>
 
 <p>
-There are some circumstances where applications handle 'naked' resources - that 
-is, resources where there is no wrapping envelope to carry a mimetype version 
-parameter, nor any suitable parallel location to store the version. The most 
-obvious circumstance is when resources are stored in files, though this may arise 
+There are some circumstances where applications handle 'naked' resources - that
+is, resources where there is no wrapping envelope to carry a mimetype version
+parameter, nor any suitable parallel location to store the version. The most
+obvious circumstance is when resources are stored in files, though this may arise
 in other circumstances due to (legacy) application or protocol design.
 </p>
 <p>
-When there's no other alternative, the version has to be in the resources itself, 
-and applications reading the resource have to scan the resource to determine 
+When there's no other alternative, the version has to be in the resources itself,
+and applications reading the resource have to scan the resource to determine
 the version and then read the resource as the correct version.
 </p>
 <p>
-In these cases where the version must be placed in the resource itself, this 
-is done by indicating that the resource conforms to specific version in 
+In these cases where the version must be placed in the resource itself, this
+is done by indicating that the resource conforms to specific version in
 <a href="resource-definitions.html#Meta.profile">meta.profile</a>:
 </p>
 <pre class="json">
@@ -160,20 +161,28 @@ This technique can be used with all versions of FHIR, including R2 and R3:
 </p>
 <table class="grid">
 <tr>
-<td><a href="http://hl7.org/fhir/DSTU1">FHIR R1</a> (DSTU 1)</td>
-<td>0.0</td>
+  <td><a href="http://hl7.org/fhir/DSTU1">FHIR R1</a> (DSTU 1)</td>
+  <td>0.0</td>
 </tr>
 <tr>
-<td><a href="http://hl7.org/fhir/DSTU2">FHIR R2</a> (DSTU 2)</td>
-<td>1.0</td>
+  <td><a href="http://hl7.org/fhir/DSTU2">FHIR R2</a> (DSTU 2)</td>
+  <td>1.0</td>
 </tr>
 <tr>
-<td><a href="http://hl7.org/fhir/STU3">FHIR R3</a> (STU3, or just R3)</td>
-<td>3.0</td>
+  <td><a href="http://hl7.org/fhir/STU3">FHIR R3</a> (STU3, or just R3)</td>
+  <td>3.0</td>
 </tr>
 <tr>
-<td><a href="http://hl7.org/fhir/r4">FHIR R4</a> (this version)</td>
-<td>4.0 (once published)</td>
+  <td><a href="http://hl7.org/fhir/r4">FHIR R4</a> (R4, mixed STU/Normative)</td>
+  <td>4.0</td>
+</tr>
+<tr>
+  <td><a href="http://hl7.org/fhir/r4b">FHIR R4B</a> (R4B, only STU changes)</td>
+  <td>4.3 (once published)</td>
+</tr>
+<tr>
+  <td><a href="http://hl7.org/fhir/r5">FHIR R5</a> (this version)</td>
+  <td>5.0 (once published)</td>
 </tr>
 </table>
 
@@ -182,21 +191,21 @@ This technique can be used with all versions of FHIR, including R2 and R3:
 <h3>Managing Version Identification</h3>
 
 <p>
-This means that there are 3 different methods for determining version, 
-all of which may be applicable when exchanging data. Implementers 
+This means that there are 3 different methods for determining version,
+all of which may be applicable when exchanging data. Implementers
 are advised to adopt their use in the order documented:
 </p>
 <ol>
-<li>All exchange of FHIR resources will have a known version from the metadata - this always applies, and 
+<li>All exchange of FHIR resources will have a known version from the metadata - this always applies, and
    implementers are encouraged to prefer this method whenever possible.</li>
-<li>When this is not enough, or when resources are not exchanged under the rules of a <code>CapabilityStatement</code>, 
+<li>When this is not enough, or when resources are not exchanged under the rules of a <code>CapabilityStatement</code>,
    a version parameter should be stored alongside the resource, preferably using the mime type parameter documented above</li>
 <li>When there's no other choice, use the meta.profile to indicate which version(s) a resource conforms to</li>
 </ol>
 <p>
-When determining the version, there's no order of preference between these methods: 
-if the version of a resource or interaction is specified more than one way, the version 
-statements must all agree with each other, or it is an error, and applications can process 
+When determining the version, there's no order of preference between these methods:
+if the version of a resource or interaction is specified more than one way, the version
+statements must all agree with each other, or it is an error, and applications can process
 a request/resource how they wish - usually, with some kind of error.
 </p>
 
@@ -205,16 +214,16 @@ a request/resource how they wish - usually, with some kind of error.
 
 <p>
 All parts of the FHIR specification are subject to ongoing change. The types of changes allowed,
-and the change control process vary, as detailed in the <a href="versions.html#changecontrol">Version Management Policy</a>. 
-Implementers need to be aware of what kind of changes are made and have a strategy for dealing with them.  Where possible,  
-implementers should design their solutions to be able to manage changes to the specification and, where necessary, to 
+and the change control process vary, as detailed in the <a href="versions.html#changecontrol">Version Management Policy</a>.
+Implementers need to be aware of what kind of changes are made and have a strategy for dealing with them.  Where possible,
+implementers should design their solutions to be able to manage changes to the specification and, where necessary, to
 manage interoperability with systems that may be using different versions of the specification.
 </p>
 <p>
-A key aspect of the FHIR specification development process is gaining feedback from implementers making 
-use of the specification. As well, the process is conditional on real world implementation in order to 
-move through the maturity cycle. For this reason, all FHIR implementers are encouraged to register their 
-usage <a href="http://fhir.org/implementations/usage">here</a>, which captures contact and other information 
+A key aspect of the FHIR specification development process is gaining feedback from implementers making
+use of the specification. As well, the process is conditional on real world implementation in order to
+move through the maturity cycle. For this reason, all FHIR implementers are encouraged to register their
+usage <a href="http://fhir.org/implementations/usage">here</a>, which captures contact and other information
 that will allow HL7 to perform appropriate monitoring of FHIR usage. Survey information is confidential and reported in aggregate only.
 (Note that implementers can advertise their use of FHIR <a href="http://fhir.org/implementations/usage">here</a>.
 </p>

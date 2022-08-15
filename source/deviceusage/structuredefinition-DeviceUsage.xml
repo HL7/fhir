@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DeviceUsage"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="DeviceUsage"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A record of a device being used by a patient where the record is the result of a report from the patient or a clinician."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -336,6 +336,60 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
+    <element id="DeviceUsage.adherence">
+      <path value="DeviceUsage.adherence"/>
+      <short value="How device is being used"/>
+      <definition value="This indicates how or if the device is being used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceUsage.adherence.code">
+      <path value="DeviceUsage.adherence.code"/>
+      <short value="always | never | sometimes"/>
+      <definition value="Type of adherence."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceUsageAdherenceCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for adherence"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/deviceusage-adherence-code"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="NA"/>
+      </mapping>
+    </element>
+    <element id="DeviceUsage.adherence.reason">
+      <path value="DeviceUsage.adherence.reason"/>
+      <short value="lost | stolen | prescribed | broken | burned | forgot"/>
+      <definition value="Reason for adherence type."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceUsageAdherenceReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for adherence reason"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/deviceusage-adherence-reason"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="NA"/>
+      </mapping>
+    </element>
     <element id="DeviceUsage.informationSource">
       <path value="DeviceUsage.informationSource"/>
       <short value="Who made the statement"/>
@@ -390,6 +444,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <isSummary value="true"/>
       <mapping>

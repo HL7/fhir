@@ -35,8 +35,9 @@
           </td>
         
         </tr>
-        
-                <tr>
+
+
+        <tr>
           
           <td style="white-space:nowrap">all-of
             
@@ -49,7 +50,6 @@
           <td>Combine characteristics with AND.</td>
         
         </tr>
-
 
 
         <tr>
@@ -67,7 +67,6 @@
         </tr>
 
 
-
         <tr>
           
           <td style="white-space:nowrap">at-least
@@ -81,7 +80,6 @@
           <td>Meet at least the threshold number of characteristics for definition.</td>
         
         </tr>
-
 
 
         <tr>
@@ -99,6 +97,20 @@
         </tr>
 
 
+        <tr>
+          
+          <td style="white-space:nowrap">statistical
+            
+            <a name="characteristic-combination-statistical"> </a>
+          
+          </td>
+          
+          <td>Statistical</td>
+          
+          <td>Combine characteristics statistically. Use method to specify the statistical method.</td>
+        
+        </tr>
+
 
         <tr>
           
@@ -110,10 +122,25 @@
           
           <td>Net effect</td>
           
-          <td> Combine characteristics statistically.</td>
+          <td>Combine characteristics by addition of benefits and subtraction of harms.</td>
         
         </tr>
-      
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">dataset
+            
+            <a name="characteristic-combination-dataset"> </a>
+          
+          </td>
+          
+          <td>Dataset</td>
+          
+          <td>Combine characteristics as a collection used as the dataset.</td>
+        
+        </tr>
+		
       </table>
     
     </div>
@@ -132,7 +159,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1528"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="CharacteristicCombination"/>
   <title value="CharacteristicCombination"/>
   <status value="draft"/>
@@ -174,8 +201,18 @@
     <definition value="Meet at most the threshold number of characteristics for definition."/>
   </concept>
   <concept>
+    <code value="statistical"/>
+    <display value="Statistical"/>
+    <definition value="Combine characteristics statistically. Use method to specify the statistical method."/>
+  </concept>
+  <concept>
     <code value="net-effect"/>
     <display value="Net effect"/>
-    <definition value=" Combine characteristics statistically."/>
+    <definition value="Combine characteristics by addition of benefits and subtraction of harms."/>
+  </concept>
+  <concept>
+    <code value="dataset"/>
+    <display value="Dataset"/>
+    <definition value="Combine characteristics as a collection used as the dataset."/>
   </concept>
 </CodeSystem>

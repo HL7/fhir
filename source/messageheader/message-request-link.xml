@@ -1,14 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-
 <Bundle xmlns="http://hl7.org/fhir">
-  <id value="10bb101f-a121-4264-a920-67be9cb82c74"/>
-  <type value="message"/>
-  <timestamp value="2015-07-14T11:15:33+10:00"/>
-  <entry>
-    <fullUrl value="urn:uuid:267b18ce-3d37-4581-9baa-6fada338038b"/>
-    <resource>
-      <MessageHeader>
-        <!-- 
+	<id value="10bb101f-a121-4264-a920-67be9cb82c74"/>
+	<type value="message"/>
+	<timestamp value="2015-07-14T11:15:33+10:00"/>
+	<entry>
+		<fullUrl value="urn:uuid:267b18ce-3d37-4581-9baa-6fada338038b"/>
+		<resource>
+			<MessageHeader>
+				<!-- 
           Note about the id: according to the spec, the fullUrl must not 
           disagree with the id in the resource. For instance, if the fullUrl 
           was http://server/path/MessageHeader/267b18ce-3d37-4581-9baa-6fada338038b,
@@ -19,134 +18,135 @@
           that this doesn't really make sense; if it's present, there's less 
           potential for confusion if they match, like in this case
         -->
-        <id value="267b18ce-3d37-4581-9baa-6fada338038b"/>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-             
-            <p>This message is a request to link Patient records 654321 (Patient Donald DUCK @ Acme Healthcare, Inc) and 123456 (Patient Donald D DUCK @ Acme Healthcare, Inc)</p>
-           
-          </div>
-        </text>
-        <eventCoding>
-          <system value="http://example.org/fhir/message-events"/>
-          <code value="patient-link"/>
-        </eventCoding>    
-        <source>
-          <endpoint value="http://example.org/clients/ehr-lite"/>
-        </source>
-        <responsible>
-          <reference value="http://acme.com/ehr/fhir/Practitioner/2323-33-4"/>
-        </responsible>
-      <!--  this message is posted to http://acme.com/ehr/fhir, 
+				<id value="267b18ce-3d37-4581-9baa-6fada338038b"/>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<p>This message is a request to link Patient records 654321 (Patient Donald DUCK @ Acme Healthcare, Inc) and 123456 (Patient Donald D DUCK @ Acme Healthcare, Inc)</p>
+					</div>
+				</text>
+				<eventCoding>
+					<system value="http://example.org/fhir/message-events"/>
+					<code value="patient-link"/>
+				</eventCoding>
+				<source>
+					<endpoint value="http://example.org/clients/ehr-lite"/>
+				</source>
+
+				<responsible>
+					<reference value="http://acme.com/ehr/fhir/Practitioner/2323-33-4"/>
+				</responsible>
+				<response>
+					<identifier>
+						<value value="efdd254b-0e09-4164-883e-35cf3871715f"/>
+					</identifier>
+					<code value="ok"/>
+				</response>	
+		<!--  this message is posted to http://acme.com/ehr/fhir, 
              with an event 'link' to link 2 patient records, and nominates
              2 patients on the server  -->
-        <focus>
-          <reference value="http://acme.com/ehr/fhir/Patient/pat1"/>
-        </focus>
-        <focus>
-          <reference value="http://acme.com/ehr/fhir/Patient/pat12"/>
-        </focus>
-      </MessageHeader>
-    </resource>
-  </entry>
-  <entry>
-    <fullUrl value="http://acme.com/ehr/fhir/Patient/pat1"/>
-    <resource>
-      <Patient>
-        <id value="pat1"/>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            
-            <p>Patient Donald DUCK @ Acme Healthcare, Inc. MR = 654321</p>
-          
-          </div>
-        </text>
-        <identifier>
-          <use value="usual"/>
-          <type>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
-              <code value="MR"/>
-            </coding>
-          </type>
-          <system value="urn:oid:0.1.2.3.4.5.6.7"/>
-          <value value="654321"/>
-        </identifier>
-        <active value="true"/>
-        <name>
-          <use value="official"/>
-          <family value="Donald"/>
-          <given value="Duck"/>
-        </name>
-        <gender value="male"/>
-        <contact>
-          <relationship>
-            <coding>
-              <system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
-              <code value="E"/>
-            </coding>
-          </relationship>
-          <organization>
-            <reference value="Organization/1"/>
-            <display value="Walt Disney Corporation"/>
-          </organization>
-        </contact>
-        <managingOrganization>
-          <reference value="Organization/1"/>
-          <display value="ACME Healthcare, Inc"/>
-        </managingOrganization>
-      </Patient>
-    </resource>
-  </entry>
-  <entry>
-    <fullUrl value="http://acme.com/ehr/fhir/Patient/pat12"/>
-    <resource>
-      <Patient>
-        <id value="pat2"/>
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">
-            
-            <p>Patient Donald D DUCK @ Acme Healthcare, Inc. MR = 123456</p>
-          
-          </div>
-        </text>
-        <identifier>
-          <use value="usual"/>
-          <type>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
-              <code value="MR"/>
-            </coding>
-          </type>
-          <system value="urn:oid:0.1.2.3.4.5.6.7"/>
-          <value value="123456"/>
-        </identifier>
-        <active value="true"/>
-        <name>
-          <use value="official"/>
-          <family value="Donald"/>
-          <given value="Duck"/>
-          <given value="D"/>
-        </name>
-        <gender value="other">
-          <extension url="http://example.org/Profile/administrative-status">
-            <valueCodeableConcept>
-              <coding>
-                <system value="http://terminology.hl7.org/CodeSystem/v2-0001"/>
-                <code value="A"/>
-                <display value="Ambiguous"/>
-              </coding>
-            </valueCodeableConcept>
-          </extension>
-        </gender>
-        <managingOrganization>
-          <reference value="Organization/1"/>
-          <display value="ACME Healthcare, Inc"/>
-        </managingOrganization>
-      </Patient>
-    </resource>
-  </entry>
+				<focus>
+					<reference value="http://acme.com/ehr/fhir/Patient/pat1"/>
+				</focus>
+				<focus>
+					<reference value="http://acme.com/ehr/fhir/Patient/pat12"/>
+				</focus>
+			</MessageHeader>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://acme.com/ehr/fhir/Patient/pat1"/>
+		<resource>
+			<Patient>
+				<id value="pat1"/>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<p>Patient Donald DUCK @ Acme Healthcare, Inc. MR = 654321</p>
+					</div>
+				</text>
+				<identifier>
+					<use value="usual"/>
+					<type>
+						<coding>
+							<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+							<code value="MR"/>
+						</coding>
+					</type>
+					<system value="urn:oid:0.1.2.3.4.5.6.7"/>
+					<value value="654321"/>
+				</identifier>
+				<active value="true"/>
+				<name>
+					<use value="official"/>
+					<family value="Donald"/>
+					<given value="Duck"/>
+				</name>
+				<gender value="male"/>
+				<contact>
+					<relationship>
+						<coding>
+							<system value="http://example.org/fhir/CodeSystem/patient-contact-relationship"/>
+							<code value="E"/>
+						</coding>
+					</relationship>
+					<organization>
+						<reference value="Organization/1"/>
+						<display value="Walt Disney Corporation"/>
+					</organization>
+				</contact>
+				<managingOrganization>
+					<reference value="Organization/1"/>
+					<display value="ACME Healthcare, Inc"/>
+				</managingOrganization>
+			</Patient>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://acme.com/ehr/fhir/Patient/pat12"/>
+		<resource>
+			<Patient>
+				<id value="pat2"/>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<p>Patient Donald D DUCK @ Acme Healthcare, Inc. MR = 123456</p>
+					</div>
+				</text>
+				<identifier>
+					<use value="usual"/>
+					<type>
+						<coding>
+							<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+							<code value="MR"/>
+						</coding>
+					</type>
+					<system value="urn:oid:0.1.2.3.4.5.6.7"/>
+					<value value="123456"/>
+				</identifier>
+				<active value="true"/>
+				<name>
+					<use value="official"/>
+					<family value="Donald"/>
+					<given value="Duck"/>
+					<given value="D"/>
+				</name>
+				<gender value="other">
+					<extension url="http://example.org/Profile/administrative-status">
+						<valueCodeableConcept>
+							<coding>
+								<system value="http://terminology.hl7.org/CodeSystem/v2-0001"/>
+								<code value="A"/>
+								<display value="Ambiguous"/>
+							</coding>
+						</valueCodeableConcept>
+					</extension>
+				</gender>
+				<managingOrganization>
+					<reference value="Organization/1"/>
+					<display value="ACME Healthcare, Inc"/>
+				</managingOrganization>
+			</Patient>
+		</resource>
+	</entry>
 </Bundle>

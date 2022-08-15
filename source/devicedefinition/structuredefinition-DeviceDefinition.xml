@@ -24,7 +24,7 @@
     <valueCode value=".operationalStatus = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="DeviceDefinition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="This is a specialized resource that defines the characteristics and capabilities of a device."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
@@ -144,7 +144,7 @@
     <element id="DeviceDefinition.udiDeviceIdentifier.marketDistribution">
       <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution"/>
       <short value="Indicates whether and when the device is available on the market"/>
-      <definition value="The organization that assigns the identifier algorithm."/>
+      <definition value="Indicates where and when the device is available on the market."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -193,15 +193,12 @@
         <map value=".playedRole[typeCode=MANU].id"/>
       </mapping>
     </element>
-    <element id="DeviceDefinition.manufacturer[x]">
-      <path value="DeviceDefinition.manufacturer[x]"/>
+    <element id="DeviceDefinition.manufacturer">
+      <path value="DeviceDefinition.manufacturer"/>
       <short value="Name of device manufacturer"/>
       <definition value="A name of the manufacturer  or legal representative e.g. labeler. Whether this is the actual manufacturer or the labeler or responsible depends on implementation and jurisdiction."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
@@ -636,7 +633,7 @@
       <short value="Property value - as a code or quantity"/>
       <definition value="Property value - the data type depends on the property type."/>
       <comment value="The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>

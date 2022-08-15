@@ -7,9 +7,7 @@
 	</identifier>
 	<name value="TestReport Example for TestScript Example"/>
 	<status value="completed"/>
-	<testScript>
-		<reference value="TestScript/testscript-example"/>
-	</testScript>
+	<testScript value="http://example.com/TestScript/testscript-example"/>
 	<result value="pass"/>
 	<score value="100.0"/>
 	<tester value="HL7 Execution Engine"/>

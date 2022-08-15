@@ -18,9 +18,9 @@
 <basedOn>
   <display value="Homecare - DM follow-up"/>
 </basedOn>
-<priorRequest>
+<replaces>
   <display value="CGM ambulatory"/>
-</priorRequest>
+</replaces>
 <groupIdentifier>
   <value value="ip_request1"/>
 </groupIdentifier>

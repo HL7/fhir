@@ -133,7 +133,7 @@
           <valueString value="Immunization.performer.actor"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-performer"/>
-        <description value="The practitioner or organization who played a role in the vaccination"/>
+        <description value="The practitioner, individual or organization who played a role in the vaccination"/>
         <code value="performer"/>
         <type value="reference"/>
         <expression value="Immunization.performer.actor"/>
@@ -150,14 +150,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Immunization.reaction.detail"/>
+          <valueString value="Immunization.reaction.manifestation.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-reaction"/>
         <description value="Additional information on reaction"/>
         <code value="reaction"/>
         <type value="reference"/>
-        <expression value="Immunization.reaction.detail"/>
-        <xpath value="f:Immunization/f:reaction/f:detail"/>
+        <expression value="Immunization.reaction.manifestation.reference"/>
+        <xpath value="f:Immunization/f:reaction/f:manifestation.reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

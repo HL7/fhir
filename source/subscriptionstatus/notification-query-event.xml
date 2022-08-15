@@ -12,7 +12,6 @@
         <status value="active"/>
         <type value="query-event"/>
         <eventsSinceSubscriptionStart value="310"/>
-        <eventsInNotification value="2"/>
         <notificationEvent>
           <eventNumber value="307"/>
           <focus>
@@ -49,9 +48,11 @@
         </meta>
         <status value="in-progress" />
         <class>
-          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
-          <code value="VR"/>
-          <display value="virtual" />
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
+				<code value="VR"/>
+				<display value="virtual" />
+			</coding>
         </class>
         <subject>
           <reference value="Patient/ABC" />
@@ -94,9 +95,11 @@
         </meta>
         <status value="in-progress" />
         <class>
-          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
-          <code value="VR"/>
-          <display value="virtual" />
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
+				<code value="VR"/>
+				<display value="virtual" />
+			</coding>
         </class>
         <subject>
           <reference value="Patient/ABC" />

@@ -1,4 +1,97 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-<!-- content goes here -->
+
+<h3>Use of Condition.code</h3>
+<p>
+Many of the code systems used for coding conditions will provide codes that define not only the condition itself, but may 
+also specify a particular stage, location, or causality as part of the code. This is particularly true if 
+SNOMED CT is used for the condition, and especially if expressions are allowed. 
+</p>
+<p>
+The Condition.code may also include such concepts as "history of X" and "good health", where it is useful or appropriate to make such assertions. 
+It can also be used to capture "risk of" and "fear of", in addition to physical conditions, as well as "no known problems" or "negated" conditions (e.g., "no X" or "no history of X" - see the following section for "No Known Problems" and Negated Conditions).
+</p>
+<p>
+When the Condition.code specifies additional properties of the condition, the other properties are not given 
+a value - instead, the value must be understood from the Condition.code. 
+</p>
+
+<h3>"No Known Problems" and Negated Conditions</h3>
+
+  <p>
+    <b>Conditions/Problems Not Reviewed, Not Asked</b>
+  </p>
+  <p>When a sending system does not have any information about conditions/problems being reviewed or the statement is about conditions/problems not yet being asked, then the <a href="list.html">List</a> resource should be used to indicate the List.emptyReason.code="notasked".
+  </p>
+ 
+<p>  
+<b>Conditions/Problems Reviewed, None Identified</b>
+</p>
+
+  <p>Systems may use the List.emptyReason when a statement is about the full scope of the list (i.e. the patient has no conditions/problems of any type).  However, it may be preferred to use a code for "no known problems" (e.g., SNOMED CT: 160245001 |No current problems or disability (situation)|), so that all condition/problem data will be available and queryable from Condition resource instances.
+  </p>
+  <p>Also note that care should be used when adding new Condition resources to a list to ensure that any negation statements that are voided by the addition of a new record are removed from the list.  E.g. If the list contains a "no known problems" record and you add a "diabetes" condition record, then be sure that you remove the "no known problems" record.
+  </p>
+
+<a name="dstu-1"></a>
+[%stu-note%]
+There are two primary ways of reporting "no known problems" in the current specification: using the CodeableConcept,
+as described above, or using the <a href="list.html">List</a> resource with emptyReason. During the STU period, <a href="http://hl7.org/fhir-issues">feedback</a> is sought regarding the preferred approach.
+</p>
+<p>
+Provide feedback <a href="http://hl7.org/fhir-issues">here</a>.
+[%end-note%]
+
+  <p>
+    <b>Patient Denies Condition</b>
+  </p>
+  <p>When the patient denies a condition, that can be annotated in the Condition.note element.</p>
+  
+<h3>Assertions of Condition Absence</h3>
+<p>
+Generally, electronic records do not contain assertions of conditions that a patient does not have.  There are however two exceptions:
+<ul>
+<li>It is appropriate to capture a "refuted" Condition record if the Condition was considered present and subsequent evidence refuted it. Specifically, Condition.verificationStatus can convey refuted. The corresponding evidence of that refutation can be conveyed in Condition.evidence. When the condition is refuted, other elements may be retained for legal reasons, but those other elements are no longer clinically relevant.</li>
+<li>It is common as part of checklists prior to admission, surgery, enrollment in trials, etc. to ask questions such as "are you pregnant", "do you have a history of hypertension", etc.  This information should NOT be captured using the Condition resource but should instead be captured using QuestionnaireResponse or Observation.  In this case, the combination of the question and answer would convey that a particular condition was not present.</li>
+</ul>
+</p>
+
+<h3>Use of Condition.evidence</h3>
+
+<p>
+The Condition.evidence provides the basis for whatever is present in Condition.code.
+</p>
+
+<h3>Use of Condition.abatementRange</h3>
+
+<p>
+A range is used to communicate age period of subject at time of abatement. 
+</p>
+
+<h3>Use of Condition.asserter</h3>
+
+<p>
+If the data enterer is different from the asserter and needs to be known, this could be captured using a Provenance instance pointing to the Condition.
+For example,  it is possible that a nurse records the condition on behalf of a physician.  The physician is taking responsibility, despite the nurse entering it into the medical record.
+</p>
+
+<h3>Use of Condition.clinicalStatus</h3>
+
+<p>
+The Condition.stage and Condition.clinicalStatus may have interdependencies. For example, some "stages" of cancer, etc. will be different for a remission than for the initial occurrence.
+</p>
+
+<h3>Diagnosis Role and Rank within an Encounter</h3>
+
+<p>
+To represent the role of the diagnosis within an encounter, such as admission diagnosis or discharge diagnosis, use <a href="encounter-definitions.html#Encounter.diagnosis.role">Encounter.diagnosis.role</a>.
+</p>
+<p> 
+To represent the numeric ranking of the diagnosis within an encounter, such as primary, secondary, or tertiary, use <a href="encounter-definitions.html#Encounter.diagnosis.rank">Encounter.diagnosis.rank</a>.
+</p>
+
+<h3>Known Issue</h3>
+
+<p> A known issue exists with circular references between Condition and ClinicalImpression, which is due to the low maturity level of ClinicalImpression. The Patient Care work group intends to address this issue when ClinicalImpression is considered substantially complete and ready for implementation.
+</p>
 
 </div>

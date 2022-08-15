@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Organization"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -270,78 +270,55 @@
         <map value=".name"/>
       </mapping>
     </element>
-    <element id="Organization.telecom">
-      <path value="Organization.telecom"/>
-      <short value="A contact detail for the organization"/>
-      <definition value="A contact detail for the organization."/>
-      <comment value="The use code &#39;home&#39; is not to be used. Note that these contacts are not the contact details of people who are employed by or represent the organization, but official contacts for the organization itself."/>
-      <requirements value="Human contact for the organization."/>
+	<element id="Organization.description">
+      <path value="Organization.description"/>
+      <short value="Additional details about the Organization that could be displayed as further information to identify the Organization beyond its name"/>
+      <definition value="Description of the organization, which helps provide additional general context on the organization to ensure that the correct organization is selected."/>
+      <requirements value="Humans need additional information to verify a correct Organization has been selected."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playingEntity[classCode=PLC determinerCode=INSTANCE].desc"/>
+      </mapping>
+    </element>
+    <element id="Organization.contact">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="Organization.contact"/>
+      <short value="Official contact details for the Organization"/>
+      <definition value="The contact details of communication devices available relevant to the specific Organization. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
+      <comment value="The address/telecom use code &#39;home&#39; are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the Organization itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc."/>
+      <requirements value="Need to keep track of assigned contact points within bigger organization."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="ContactPoint"/>
+        <code value="ExtendedContactDetail"/>
       </type>
-      <condition value="org-3"/>
       <constraint>
         <key value="org-3"/>
         <severity value="error"/>
         <human value="The telecom of an organization can never be of use &#39;home&#39;"/>
-        <expression value="where(use = &#39;home&#39;).empty()"/>
-        <xpath value="count(f:use[@value=&#39;home&#39;]) = 0"/>
+        <expression value="telecom.where(use = &#39;home&#39;).empty()"/>
+        <xpath value="f:telecom.count(f:use[@value=&#39;home&#39;]) = 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </constraint>
-      <mapping>
-        <identity value="v2"/>
-        <map value="ORC-22?"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".telecom"/>
-      </mapping>
-      <mapping>
-        <identity value="interface"/>
-        <map value="ParticipantContactable.telecom"/>
-      </mapping>
-      <mapping>
-        <identity value="servd"/>
-        <map value="./ContactPoints"/>
-      </mapping>
-    </element>
-    <element id="Organization.address">
-      <path value="Organization.address"/>
-      <short value="An address for the organization"/>
-      <definition value="An address for the organization."/>
-      <comment value="Organization may have multiple addresses with different uses or applicable periods. The use code &#39;home&#39; is not to be used."/>
-      <requirements value="May need to keep track of the organization&#39;s addresses for contacting, billing or reporting requirements."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Address"/>
-      </type>
-      <condition value="org-2"/>
       <constraint>
-        <key value="org-2"/>
+        <key value="org-4"/>
         <severity value="error"/>
-        <human value="An address of an organization can never be of use &#39;home&#39;"/>
-        <expression value="where(use = &#39;home&#39;).empty()"/>
-        <xpath value="count(f:use[@value=&#39;home&#39;]) = 0"/>
+        <human value="The address of an organization can never be of use &#39;home&#39;"/>
+        <expression value="address.where(use = &#39;home&#39;).empty()"/>
+        <xpath value="f:address.count(f:use[@value=&#39;home&#39;]) = 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </constraint>
       <mapping>
-        <identity value="v2"/>
-        <map value="ORC-23?"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
-        <map value=".address"/>
-      </mapping>
-      <mapping>
-        <identity value="interface"/>
-        <map value="ParticipantContactable.address"/>
-      </mapping>
-      <mapping>
-        <identity value="servd"/>
-        <map value="./PrimaryAddress and ./OtherAddresses"/>
+        <map value=".contactParty"/>
       </mapping>
     </element>
     <element id="Organization.partOf">
@@ -372,105 +349,6 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Organization.contact">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="right"/>
-      </extension>
-      <path value="Organization.contact"/>
-      <short value="Contact for the organization for a certain purpose"/>
-      <definition value="Contact for the organization for a certain purpose."/>
-      <comment value="Where multiple contacts for the same purpose are provided there is a standard extension that can be used to determine which one is the preferred contact to use."/>
-      <requirements value="Need to keep track of assigned contact points within bigger organization."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".contactParty"/>
-      </mapping>
-    </element>
-    <element id="Organization.contact.purpose">
-      <path value="Organization.contact.purpose"/>
-      <short value="The type of contact"/>
-      <definition value="Indicates a purpose for which the contact can be reached."/>
-      <requirements value="Need to distinguish between multiple contact persons."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ContactPartyType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The purpose for which you would contact a contact party."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/contactentity-type"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./type"/>
-      </mapping>
-    </element>
-    <element id="Organization.contact.name">
-      <path value="Organization.contact.name"/>
-      <short value="A name associated with the contact"/>
-      <definition value="A name associated with the contact."/>
-      <requirements value="Need to be able to track the person by name."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="HumanName"/>
-      </type>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PID-5, PID-9"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./name"/>
-      </mapping>
-    </element>
-    <element id="Organization.contact.telecom">
-      <path value="Organization.contact.telecom"/>
-      <short value="Contact details (telephone, email, etc.)  for a contact"/>
-      <definition value="A contact detail (e.g. a telephone number or an email address) by which the party may be contacted."/>
-      <requirements value="People have (primary) ways to contact them in some way such as phone, email."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactPoint"/>
-      </type>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PID-13, PID-14"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./telecom"/>
-      </mapping>
-    </element>
-    <element id="Organization.contact.address">
-      <path value="Organization.contact.address"/>
-      <short value="Visiting or postal addresses for the contact"/>
-      <definition value="Visiting or postal addresses for the contact."/>
-      <requirements value="May need to keep track of a contact party&#39;s address for contacting, billing or reporting requirements."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Address"/>
-      </type>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PID-11"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./addr"/>
-      </mapping>
-    </element>
     <element id="Organization.endpoint">
       <path value="Organization.endpoint"/>
       <short value="Technical endpoints providing access to services operated for the organization"/>
@@ -481,6 +359,93 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Organization.qualification">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="350,0"/>
+      </extension>
+      <path value="Organization.qualification"/>
+      <short value="Qualifications, certifications, accreditations, licenses, training, etc pertaining to the provision of care"/>
+      <definition value="The official certifications, accreditations, training, designations and licenses that authorize and/or otherwise endorse the provision of care by the organization.&#xD;&#xD;For example, an approval to provide a type of services issued by a certifying body (such as the US Joint Commission) to an organization."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="CER?"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Organization.qualification.identifier">
+      <path value="Organization.qualification.identifier"/>
+      <short value="An identifier for this qualification for the organization"/>
+      <definition value="An identifier allocated to this qualification for this organization."/>
+      <requirements value="Often, specific identities are assigned for the qualification by the assigning organization."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Organization.qualification.code">
+      <path value="Organization.qualification.code"/>
+      <short value="Coded representation of the qualification"/>
+      <definition value="Coded representation of the qualification."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Qualification"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Specific qualification the organization has to provide a service."/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Organization.qualification.period">
+      <path value="Organization.qualification.period"/>
+      <short value="Period during which the qualification is valid"/>
+      <definition value="Period during which the qualification is valid."/>
+      <requirements value="Qualifications are often for a limited period of time, and can be revoked."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Organization.qualification.issuer">
+      <path value="Organization.qualification.issuer"/>
+      <short value="Organization that regulates and issues the qualification"/>
+      <definition value="Organization that regulates and issues the qualification."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <mapping>
         <identity value="rim"/>

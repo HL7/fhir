@@ -4,4 +4,9 @@
   <id value="NamingSystem-packs"/>
   <status value="current"/>
   <mode value="working"/>
+  <entry>
+    <item>
+      <reference value="ImplementationGuide/NamingSystem-core"/>
+    </item>
+  </entry>
 </List>

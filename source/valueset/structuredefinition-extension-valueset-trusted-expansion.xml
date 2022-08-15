@@ -9,13 +9,13 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-trusted-expansion"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="trusted-expansion"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
   <description value="Indicates an authoritative source for performing value set expansions."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -35,7 +35,7 @@
       <path value="Extension"/>
       <short value="Reference to a trusted expansion"/>
       <definition value="Indicates an authoritative source for performing value set expansions."/>
-      <comment value="If the designated &quot;authoritative source&quot; (as specified in the valueset-authoritativeSource extension, if present) is unable to provide a valid expansion, this extension indicates the base URL of a FHIR server that is an alternate trusted source where the value set expansion may be obtained.  This may be via a ValueSet $expand operation request (if supported by the server), or via the ValueSet endpoint directly which will return an instance of the ValueSet resource containing a persisted expansion (and the parameters that expansion is based on). &#xA;&#xA;This extension should only be used if the &quot;authoritative source&quot; (valueset-authoritativeSource extension) does not have a FHIR service which is capable of generating or returning a valid FHIR value set expansion."/>
+      <comment value="If the designated &quot;authoritative source&quot; (as specified in the valueset-authoritativeSource extension, if present) is unable to provide a valid expansion, this extension indicates an alternate authoritative source where the value set expansion may be performed. The alternate authoritative source url must reference a FHIR terminology server endpoint (the [base] url of the FHIR server)."/>
       <min value="0"/>
       <max value="*"/>
       <isModifier value="false"/>

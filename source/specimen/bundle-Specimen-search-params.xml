@@ -85,19 +85,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Specimen-container"/>
+        <id value="Specimen-procedure"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Specimen.container.type"/>
+          <valueString value="Specimen.collection.procedure"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-container"/>
-        <description value="The kind of specimen container"/>
-        <code value="container"/>
-        <type value="token"/>
-        <expression value="Specimen.container.type"/>
-        <xpath value="f:Specimen/f:container/f:type"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-procedure"/>
+        <description value="The procedure that collected the specimen"/>
+        <code value="procedure"/>
+        <type value="reference"/>
+        <expression value="Specimen.collection.procedure"/>
+        <xpath value="f:Specimen/f:collection/f:procedure"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -105,20 +105,21 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Specimen-container-id"/>
+        <id value="Specimen-container-device"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Specimen.container.identifier"/>
+          <valueString value="Specimen.container.device"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-container-id"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-container-device"/>
         <description value="The unique identifier associated with the specimen container"/>
-        <code value="container-id"/>
-        <type value="token"/>
-        <expression value="Specimen.container.identifier"/>
-        <xpath value="f:Specimen/f:container/f:identifier"/>
+        <code value="container-device"/>
+        <type value="reference"/>
+        <expression value="Specimen.container.device.where(resolve() is Device)"/>
+        <xpath value="f:Specimen/f:container/f:device"/>
         <xpathUsage value="normal"/>
+        <target value="Device"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -179,6 +180,7 @@
         <expression value="Specimen.subject.where(resolve() is Patient)"/>
         <xpath value="f:Specimen/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -3,47 +3,44 @@
 <MolecularSequence xmlns="http://hl7.org/fhir">
     <id value="sequence-complex-variant"/>
     <identifier>
-    <use value="official" />
-  </identifier>
+      <use value="official" />
+    </identifier>
     <type value="dna"/>
-    <coordinateSystem value="1"/>
-      <specimen>
-    <reference value="Specimen/genetics-example1-somatic"/>
-    <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
-  </specimen>
-   <device>
-    <display value="12 lead EKG Device Metric"/>
-  </device>
-  <performer>
-    <reference value="Organization/hl7"/>
-    <display value="HL7"/>
-  </performer>
-  <quantity>
-  <value value="25" />
-  </quantity>
-    <referenceSeq>
-        <referenceSeqId>
+    <specimen>
+      <reference value="Specimen/genetics-example1-somatic"/>
+      <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+    </specimen>
+    <device>
+      <display value="12 lead EKG Device Metric"/>
+    </device>
+    <performer>
+      <reference value="Organization/hl7"/>
+      <display value="HL7"/>
+    </performer>
+    <relative>
+      <coordinateSystem>
           <coding>
-            <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
-            <code value="NC_000002.12"/>
+              <system value="http://loinc.org"/>
+              <code value="LA30100-4"/>
+              <display value="0-based interval counting"/>
           </coding>
-        </referenceSeqId>
-        <strand value="watson"/>
-        <windowStart value="128273724"/>
-        <windowEnd value="128273754"/>
-    </referenceSeq>
-    <variant>
-        <start value="128273724"/>
-        <end value="128273736"/>
-        <observedAllele value="CTCATTGT"/>
-        <referenceAllele value="CTCCATTGCATGCGTT"/>
-        <cigar value="3M1D4M6N2M"/>
-    </variant>
-    <readCoverage value="1"/>
-      <repository>
-      <type value="other"/>
-      <datasetId value="Ensembl"/>
-     <readsetId value="v1beta2"/>
-    </repository>
-    
+      </coordinateSystem>
+      <startingSequence>
+          <sequenceCodeableConcept>
+            <coding>
+              <system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
+              <code value="NC_000002.12"/>
+            </coding>
+          </sequenceCodeableConcept>
+          <windowStart value="128273724"/>
+          <windowEnd value="128273754"/>
+          <strand value="watson"/>
+      </startingSequence>
+      <edit>
+          <start value="128273724"/>
+          <end value="128273736"/>
+          <replacementSequence value="CTCATTGT"/>
+          <replacedSequence value="CTCCATTGCATGCGTT"/>
+      </edit>    
+    </relative>
 </MolecularSequence>

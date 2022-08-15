@@ -484,4 +484,28 @@
       <display value="Combination"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request medication where there is an option of the route of administration - includes group identifier"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0343a"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0343a"/>
+      <display value="Grouped MedicationRequest for same drug with different route of administrations"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request medication where there is an option of the route of administration - includes group identifier"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0343b"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx0343b"/>
+      <display value="Grouped MedicationRequest for same drug with different route of administrations"/>
+    </item>
+  </entry>
 </List>

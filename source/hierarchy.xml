@@ -68,6 +68,7 @@ signatures.html
       </page>
       <page title="Managing Multiple FHIR Versions" filename="versioning.html"/>
       <page title="FHIRPath" filename="fhirpath.html"/>
+      <page title="NPM Packages" filename="packages.html"/>
       <page title="Version History" filename="history.html"/>
       <page title="Differences from Release 3" filename="diff.html"/>
       <page title="Release 2/3 Transforms" filename="r3maps.html"/>
@@ -112,7 +113,7 @@ signatures.html
         <page title="ElementDefinition Examples" filename="elementdefinition-examples.html"/>
         <page title="ElementDefinition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
         <page title="ElementDefinition Mappings" filename="elementdefinition-mappings.html"/>
-        <page title="ElementDefinition Extensions" filename="elementdefinition-extras.html"/>
+        <page title="Profiles and Extensions" filename="elementdefinition-extras.html"/>
       </page>
 
       <page title="Resource Guide" filename="resourceguide.html"/>
@@ -149,7 +150,10 @@ signatures.html
         <page title="_filter Parameter" filename="search_filter.html"/>
         <page title="Search Parameter Registry" filename="searchparameter-registry.html"/>
         <page title="FHIRPath Patch" filename="fhirpatch.html"/>
-        <page title="Asynchronous API" filename="async.html"/>
+        <page title="Asynchronous API" filename="async.html">
+          <page title="Asynchronous Bulk Data Request" filename="async-bulk.html"/>
+          <page title="Asynchronous Interaction Request" filename="async-bundle.html"/>
+        </page>
       </page>
       <page title="Operations" filename="operations.html">
         <page title="Example" filename="op-example-request.html"/>
@@ -167,23 +171,7 @@ signatures.html
       <page title="Using Codes" filename="terminologies.html"/>
         <page title="Terminology Binding Examples" filename="terminologies-binding-examples.html"/>
       <page title="Code Systems" filename="terminologies-systems.html">
-        <page title="SNOMED CT" filename="snomedct.html">
-          <page title="SNOMED CT Usage Report" filename="snomedct-usage.html"/>
-        </page>
-        <page title="RxNorm" filename="rxnorm.html"/>
-        <page title="LOINC" filename="loinc.html"/>
-        <page title="pCLOCD" filename="pclocd.html"/>
-        <page title="UCUM" filename="ucum.html"/>
-        <page title="NCI Metothesuaras" filename="ncimeta.html"/>
-        <page title="MED-RT" filename="medrt.html"/>
-        <page title="NDFRT" filename="ndfrt.html"/>
-        <page title="UNII" filename="unii.html"/>
-        <page title="CVX" filename="cvx.html"/>
-        <page title="CPT" filename="cpt.html"/>
-        <page title="NDC" filename="ndc.html"/>
-        <page title="ICD-X" filename="icd.html"/>
-        <page title="ISO-3166" filename="iso3166.html"/>
-        <page title="MDC Codes" filename="mdc.html"/>
+        <page title="SNOMED CT Usage Report" filename="snomedct-usage.html"/>
         <pages type="codesystem" filename="template-codesystem.html"/>
         <pages type="v2-table" filename="template-v2.html"/>
         <page title="Code Systems" filename="terminologies-v3.html"/>
@@ -198,7 +186,6 @@ signatures.html
       <page type="resource" resource="CodeSystem"/>
       <page type="resource" resource="ValueSet"/>
       <page type="resource" resource="ConceptMap"/>
-      <page type="resource" resource="ConceptMap2"/>
       <page type="resource" resource="NamingSystem"/>
       <page type="resource" resource="TerminologyCapabilities"/>
     </page>
@@ -208,7 +195,6 @@ signatures.html
         <page title="Examples" filename="profiling-examples.html"/>
       </page>
       <page type="resource" resource="CapabilityStatement"/>
-      <page type="resource" resource="CapabilityStatement2"/>
       <page type="resource" resource="StructureDefinition"/>
       <page type="resource" resource="OperationDefinition"/>
       <page type="resource" resource="SearchParameter"/>
@@ -322,6 +308,7 @@ signatures.html
       <page type="resource" resource="Observation"/>
       <page type="resource" resource="DocumentReference"/>
       <page type="resource" resource="DiagnosticReport"/>
+       <page type="resource" resource="GenomicStudy"/>
       <page type="resource" resource="ImagingStudy"/>
       <page type="resource" resource="ImagingSelection"/>
       <page type="resource" resource="MolecularSequence"/>
@@ -347,12 +334,15 @@ signatures.html
         <page title="Examples" filename="dosage-examples.html"/>
         <page title="Detailed Descriptions" filename="dosage-definitions.html"/>
         <page title="Dosage Mappings" filename="dosage-mappings.html"/>
+        <page title="Dosage Profiles &amp; Extensions" filename="dosage-extra.html"/>
       </page>
+      <page type="resource" resource="FormularyItem"/>
     </page>
 
 
     <page title="Workflow" filename="workflow-module.html" icon="workflow.png">
       <page type="resource" resource="Task"/>
+      <page type="resource" resource="Transport"/>
 <!--      <page type="resource" resource="Definition"/>
       <page type="resource" resource="Request"/>
       <page type="resource" resource="Event"/> -->
@@ -407,6 +397,8 @@ signatures.html
       <page title="Using Expressions" filename="clinicalreasoning-topics-using-expressions.html"/>
       <page title="Definitional Resources" filename="clinicalreasoning-topics-definitional-resources.html"/>
       <page title="Representing Knowledge Artifacts" filename="clinicalreasoning-knowledge-artifact-representation.html">
+        <page title="Shareable Pattern" filename="shareable.html"/>
+        <page title="Publishable Pattern" filename="publishable.html"/>
         <page title="Supporting Documentation" filename="clinicalreasoning-topics-supporting-documentation.html"/>
       </page>
       <page title="Sharing Knowledge Artifacts" filename="clinicalreasoning-knowledge-artifact-distribution.html"/>
@@ -434,7 +426,6 @@ signatures.html
       <page type="resource" resource="ManufacturedItemDefinition"/>
       <page type="resource" resource="AdministrableProductDefinition"/>
       <page type="resource" resource="RegulatedAuthorization"/>
-      <page type="resource" resource="ClinicalUseIssue"/>
       <page type="resource" resource="ClinicalUseDefinition"/>
       <page type="resource" resource="Ingredient"/>
       <page type="resource" resource="SubstanceDefinition"/>
@@ -447,21 +438,19 @@ signatures.html
         <page title="Examples" filename="marketingstatus-examples.html"/>
         <page title="Detailed Descriptions" filename="marketingstatus-definitions.html"/>
         <page title="Mappings" filename="marketingstatus-mappings.html"/>
+        <page title="Profiles and Extensions" filename="marketingstatus-extras.html"/>
       </page>
       <page title="Population" filename="population.html">
         <page title="Examples" filename="population-examples.html"/>
         <page title="Detailed Descriptions" filename="population-definitions.html"/>
         <page title="Mappings" filename="population-mappings.html"/>
-      </page>
-      <page title="ProdCharacteristic" filename="prodcharacteristic.html">
-        <page title="Examples" filename="prodcharacteristic-examples.html"/>
-        <page title="Detailed Descriptions" filename="prodcharacteristic-definitions.html"/>
-        <page title="Mappings" filename="prodcharacteristic-mappings.html"/>
+        <page title="Profiles and Extensions" filename="population-extras.html"/>
       </page>
       <page title="ProductShelfLife" filename="productshelflife.html">
         <page title="Examples" filename="productshelflife-examples.html"/>
         <page title="Detailed Descriptions" filename="productshelflife-definitions.html"/>
         <page title="Mappings" filename="productshelflife-mappings.html"/>
+        <page title="Profiles and Extensions" filename="productshelflife-extras.html"/>
       </page>
     </page>
 

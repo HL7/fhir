@@ -9,14 +9,14 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/practitioner-animalSpecies"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="animalSpecies"/>
   <title value="animalSpecies"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="HL7"/>
   <description value="This extension should be used to specifiy that a practitioner or RelatedPerson resource is a service animal."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

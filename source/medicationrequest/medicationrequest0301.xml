@@ -140,13 +140,13 @@
                 <periodUnit value="h"/>
             </repeat>
         </timing>
-        <asNeededCodeableConcept>
+        <asNeededFor>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="297217002"/>
                 <display value="Rib Pain (finding)"/>
             </coding>
-        </asNeededCodeableConcept>
+        </asNeededFor>
         <route>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -219,9 +219,7 @@
             </coding>
         </reason>
     </substitution>
-    <detectedIssue>
-        <reference value="DetectedIssue/allergy"></reference>
-    </detectedIssue>
+  
     <eventHistory>
         <reference value="#signature"/>
         <display value="Author's Signature"/>

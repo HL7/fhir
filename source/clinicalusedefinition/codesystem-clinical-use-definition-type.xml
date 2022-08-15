@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="clinical-use-issue-type"/>
+  <id value="clinical-use-definition-type"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -10,7 +10,7 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
-      <p>This code system http://hl7.org/fhir/clinical-use-issue-type defines the following codes:</p>
+      <p>This code system http://hl7.org/fhir/clinical-use-definition-type defines the following codes:</p>
       
       <table class="codes">
         
@@ -40,7 +40,7 @@
           
           <td style="white-space:nowrap">indication
             
-            <a name="clinical-use-issue-type-indication"> </a>
+            <a name="clinical-use-definition-type-indication"> </a>
           
           </td>
           
@@ -54,7 +54,7 @@
           
           <td style="white-space:nowrap">contraindication
             
-            <a name="clinical-use-issue-type-contraindication"> </a>
+            <a name="clinical-use-definition-type-contraindication"> </a>
           
           </td>
           
@@ -68,7 +68,7 @@
           
           <td style="white-space:nowrap">interaction
             
-            <a name="clinical-use-issue-type-interaction"> </a>
+            <a name="clinical-use-definition-type-interaction"> </a>
           
           </td>
           
@@ -82,7 +82,7 @@
           
           <td style="white-space:nowrap">undesirable-effect
             
-            <a name="clinical-use-issue-type-undesirable-effect"> </a>
+            <a name="clinical-use-definition-type-undesirable-effect"> </a>
           
           </td>
           
@@ -96,7 +96,7 @@
           
           <td style="white-space:nowrap">warning
             
-            <a name="clinical-use-issue-type-warning"> </a>
+            <a name="clinical-use-definition-type-warning"> </a>
           
           </td>
           
@@ -119,12 +119,12 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/clinical-use-issue-type"/>
+  <url value="http://hl7.org/fhir/clinical-use-definition-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1455"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1563"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ClinicalUseDefinitionType"/>
   <title value="ClinicalUseDefinitionType"/>
   <status value="draft"/>
@@ -141,9 +141,9 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Overall defining type of this clinical use issue."/>
+  <description value="Overall defining type of this clinical use definition."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/clinical-use-issue-type"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/clinical-use-definition-type"/>
   <content value="complete"/>
   <concept>
     <code value="indication"/>

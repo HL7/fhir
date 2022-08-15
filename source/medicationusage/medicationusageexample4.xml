@@ -40,7 +40,7 @@
         <periodUnit value="d"/>
       </repeat>
     </timing>
-    <asNeededBoolean value="false" />
+    <asNeeded value="false" />
     <route>
       <coding>
         <system value="http://snomed.info/sct"/>

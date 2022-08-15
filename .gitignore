@@ -11,6 +11,7 @@ holder.txt
 /schema/codegen
 /schema/datatypes
 /implementations/javascript/app
+.gitignore
 
 # Compiled class file
 *.class
@@ -251,6 +252,9 @@ fabric.properties
 # See https://youtrack.jetbrains.com/issue/JBR-2257
 .idea/$CACHE_FILE$
 
+# vscode user settings
+.vs/
+
 # CodeStream plugin
 # https://plugins.jetbrains.com/plugin/12206-codestream
 .idea/codestream.xml
@@ -353,6 +357,7 @@ $RECYCLE.BIN/
 ### Gradle ###
 .gradle
 build/
+gradle.properties
 
 # Ignore Gradle GUI config
 gradle-app.setting

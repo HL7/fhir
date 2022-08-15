@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/allergyintolerance-assertedDate"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="assertedDate"/>
   <title value="assertedDate"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="The date on which the existence of the AllergyIntolerance was first asserted or acknowledged."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

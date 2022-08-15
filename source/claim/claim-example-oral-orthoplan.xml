@@ -206,17 +206,21 @@
 			<currency value="USD"/> 
 		</net> 
 		<bodySite>
-			<coding>
-				<system value="http://fdi.org/fhir/oraltoothcodes"/>
-				<code value="21"/>
-			</coding>
+			<site>
+				<concept>
+					<coding>
+						<system value="http://fdi.org/fhir/oraltoothcodes"/>
+						<code value="21"/>
+					</coding>
+				</concept>
+			</site>
+			<subSite>
+				<coding>
+					<system value="http://fdi.org/fhir/oralsurfacecodes"/>
+					<code value="L"/>
+				</coding>
+			</subSite>
 		</bodySite>
-		<subSite>
-			<coding>
-				<system value="http://fdi.org/fhir/oralsurfacecodes"/>
-				<code value="L"/>
-			</coding>
-		</subSite>
 	</item>
 
 	<item>
@@ -238,10 +242,14 @@
 			<currency value="USD"/> 
 		</net> 
 		<bodySite>
-			<coding>
-				<system value="http://fdi.org/fhir/oraltoothcodes"/>
-				<code value="36"/>
-			</coding>
+			<site>
+				<concept>
+					<coding>
+						<system value="http://fdi.org/fhir/oraltoothcodes"/>
+						<code value="36"/>
+					</coding>
+				</concept>
+			</site>
 		</bodySite>
 		<detail>
 			<sequence value="1"/>

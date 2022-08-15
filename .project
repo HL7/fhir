@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>20141121_FHIR_Build</name>
+	<name>fhir</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -22,7 +22,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1632160601914</id>
+			<id>0</id>
 			<name></name>
 			<type>30</type>
 			<matcher>

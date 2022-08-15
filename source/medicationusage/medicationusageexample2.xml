@@ -103,4 +103,20 @@
   <note>
     <text value="Patient cannot take acetaminophen as per Dr instructions" />
   </note>  
+  <adherence>
+    <code> 
+      <coding> 
+        <system value="http://hl7.org/fhir/CodeSystem/medication-usage-adherence"/> 
+        <code value="not-taking"/> 
+        <display value="Not Taking"/> 
+      </coding> 
+    </code> 
+    <reason> 
+      <coding> 
+        <system value="http://snomed.info/sct"/> 
+        <code value="266710000"/> 
+        <display value="Drugs not taken/completed"/> 
+      </coding> 
+    </reason> 
+  </adherence>
 </MedicationUsage>

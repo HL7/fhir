@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="codesystem-authoritativeSource"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/codesystem-authoritativeSource"/>
+  <version value="5.0.0"/>
+  <name value="authoritativeSource"/>
+  <status value="draft"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="A reference to the authoritative, human readable, source of truth for the code system information."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="CodeSystem"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Reference to the current trusted source of the CodeSystem resource"/>
+      <definition value="A reference to the authoritative, human readable, source of truth for the code system information."/>
+      <comment value="If this extension is not present, then the canonical URL (CodeSystem.url) also serves the purpose of specifying the authoritative source.  A difference between the canonical URL and the authoritiative source might arise in some cases due to ongoing organization restructuring, etc., and in those cases this extension may be used.  The URL of the authoritative source is intended to be resolvable but that cannot be guaranteed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <isModifier value="false"/>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/codesystem-authoritativeSource"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

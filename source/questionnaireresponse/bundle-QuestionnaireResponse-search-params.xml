@@ -139,6 +139,7 @@
         <expression value="QuestionnaireResponse.subject.where(resolve() is Patient)"/>
         <xpath value="f:QuestionnaireResponse/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -227,7 +228,7 @@
       <SearchParameter>
         <id value="QuestionnaireResponse-item-subject"/>
         <url value="http://hl7.org/fhir/SearchParameter/QuestionnaireResponse-item-subject"/>
-        <version value="4.6.0"/>
+        <version value="5.0.0"/>
         <name value="item-subject"/>
         <status value="draft"/>
         <experimental value="true"/>

@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Appointment"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -91,9 +91,9 @@
       <constraint>
         <key value="app-4"/>
         <severity value="error"/>
-        <human value="Cancellation reason is only used for appointments that have been cancelled, or no-show"/>
-        <expression value="cancellationReason.exists() implies (status=&#39;no-show&#39; or status=&#39;cancelled&#39;)"/>
-        <xpath value="not(exists(f:cancellationReason)) or f:status/@value=(&#39;no-show&#39;, &#39;cancelled&#39;)"/>
+        <human value="Cancellation reason is only used for appointments that have been cancelled, or noshow"/>
+        <expression value="cancellationReason.exists() implies (status=&#39;noshow&#39; or status=&#39;cancelled&#39;)"/>
+        <xpath value="not(exists(f:cancellationReason)) or f:status/@value=(&#39;noshow&#39;, &#39;cancelled&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
       <constraint>
@@ -258,7 +258,8 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -460,6 +461,20 @@
       <mapping>
         <identity value="ical"/>
         <map value="ATTACH"/>
+      </mapping>
+    </element>
+    <element id="Appointment.virtualService">
+      <path value="Appointment.virtualService"/>
+      <short value="Connection details of a virtual service (e.g. conference call)"/>
+      <comment value="There are two types of virtual meetings that often exist:&#xD;&#xD;* a persistent, virtual meeting room that can only be used for a single purpose at a time, &#xD;* and a dynamic virtual meeting room that is generated on demand for a specific purpose.&#xD;&#xD;Implementers may consider using Location.virtualService for persistent meeting rooms.&#xD;&#xD;If each participant would have a different meeting link, an extension using the VirtualServiceContactDetail  can be applied to the Appointment.participant BackboneElement."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="VirtualServiceDetail"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
       </mapping>
     </element>
     <element id="Appointment.supportingInformation">
@@ -684,14 +699,17 @@
     </element>
     <element id="Appointment.basedOn">
       <path value="Appointment.basedOn"/>
-      <short value="The service request this appointment is allocated to assess"/>
-      <definition value="The service request this appointment is allocated to assess (e.g. incoming referral or procedure request)."/>
+      <short value="The request this appointment is allocated to assess"/>
+      <definition value="The request this appointment is allocated to assess (e.g. incoming referral or procedure request)."/>
       <alias value="incomingReferral"/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -812,8 +830,8 @@
     </element>
     <element id="Appointment.participant.actor">
       <path value="Appointment.participant.actor"/>
-      <short value="Person, Location/HealthcareService or Device"/>
-      <definition value="A Person, Location/HealthcareService or Device that is participating in the appointment."/>
+      <short value="The individual, device, location, or service participating in the appointment"/>
+      <definition value="The individual, device, location, or service participating in the appointment."/>
       <comment value="Where a CareTeam is provided, this does not imply that the entire team is included, just a single member from the group with the appropriate role. Where multiple members are required, please include the CareTeam the required number of times."/>
       <min value="0"/>
       <max value="1"/>

@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/structuredefinition-template-status"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="template-status"/>
   <status value="draft"/>
   <date value="2014-01-31"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="Status code taken from [HL7 template specification](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=377) - allows for alignment with the template DSTU, and has more authoring status codes."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

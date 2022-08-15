@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="CarePlan"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -474,14 +474,14 @@
         <map value=".participation[typeCode=AUT].time"/>
       </mapping>
     </element>
-    <element id="CarePlan.author">
+    <element id="CarePlan.custodian">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="GF#14064, GF#14446."/>
       </extension>
-      <path value="CarePlan.author"/>
+      <path value="CarePlan.custodian"/>
       <short value="Who is the designated responsible party"/>
-      <definition value="When populated, the author is responsible for the care plan.  The care plan is attributed to the author."/>
-      <comment value="The author may also be a contributor.  For example, an organization can be an author, but not listed as a contributor."/>
+      <definition value="When populated, the custodian is responsible for the care plan. The care plan is attributed to the custodian."/>
+      <comment value="The custodian might or might not be a contributor."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -510,7 +510,7 @@
       </extension>
       <path value="CarePlan.contributor"/>
       <short value="Who provided the content of the care plan"/>
-      <definition value="Identifies the individual(s) or organization who provided the contents of the care plan."/>
+      <definition value="Identifies the individual(s), organization or device who provided the contents of the care plan."/>
       <comment value="Collaborative care plans may have multiple contributors."/>
       <min value="0"/>
       <max value="*"/>

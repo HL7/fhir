@@ -23,7 +23,7 @@
     <valueCode value="Audit Events are recorded, there is no update or delete. "/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AuditEvent"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="AuditEvent"/>
   <status value="draft"/>
   <date value="2021-04-07T09:58:31.578+11:00"/>
@@ -41,7 +41,7 @@
     </telecom>
   </contact>
   <description value="A record of an event relevant for purposes such as operations, privacy, security, maintenance, and performance analysis."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -183,7 +183,7 @@
       <mapping>
         <identity value="fhirprovenance"/>
         <map value="Provenance.activity"/>
-      </mapping>    
+      </mapping>
       <mapping>
         <identity value="dicom"/>
         <map value="EventTypeCode"/>
@@ -383,7 +383,7 @@
         <identity value="dicom"/>
         <map value="EventOutcomeIndicator EventOutcomeIndicator"/>
       </mapping>
-    </element>    
+    </element>
 	<element id="AuditEvent.outcome.detail">
       <path value="AuditEvent.outcome.detail"/>
       <short value="Additional outcome detail"/>
@@ -411,7 +411,7 @@
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=OUT].target.text"/>
       </mapping>
-    </element>    
+    </element>
 	<element id="AuditEvent.authorization">
       <path value="AuditEvent.authorization"/>
       <short value="Authorization related to the event"/>
@@ -490,7 +490,38 @@
         <identity value="w3c.prov"/>
         <map value="Activity.Activity"/>
       </mapping>
-    </element>    
+    </element>
+	<element id="AuditEvent.patient">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="AuditEvent.patient"/>
+      <short value="The patient is the subject of the data used/created/updated/deleted during the activity"/>
+      <definition value="The patient element is available to enable deterministic tracking of activities that involve the patient as the subject of the data used in an activity."/>
+	  <requirements value="When the .patient is populated it shall be accurate to the subject of the used data. The .patient shall not be populated when the used data used/created/updated/deleted (.entity) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.patient"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=RTGT]"/>
+      </mapping>
+      <mapping>
+        <identity value="w3c.prov"/>
+        <map value="Entity.Identity"/>
+      </mapping>
+    </element>
 	<element id="AuditEvent.encounter">
       <path value="AuditEvent.encounter"/>
       <short value="Encounter within which this event occurred or which the event is tightly associated"/>
@@ -533,6 +564,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.performer"/>
@@ -663,7 +695,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>		
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -862,6 +894,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.witness"/>
@@ -980,6 +1013,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
@@ -1004,7 +1038,7 @@
     <element id="AuditEvent.entity.what">
       <path value="AuditEvent.entity.what"/>
       <short value="Specific instance of resource"/>
-      <definition value="Identifies a specific instance of the entity. The reference should be version specific."/>
+      <definition value="Identifies a specific instance of the entity. The reference should be version specific. This is allowed to be a Parameters resource."/>
 	  <comment value="Use .what.display when all you have is a string (e.g. ParticipantObjectName)."/>
       <min value="0"/>
       <max value="1"/>
@@ -1089,9 +1123,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="extensible"/>
-        <description value="Security Labels from the Healthcare Privacy and Security Classification System."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/security-labels"/>
+        <strength value="example"/>
+        <description value="Example Security Labels from the Healthcare Privacy and Security Classification System."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/security-label-examples"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -1226,7 +1260,7 @@
       </type>
       <type>
         <code value="base64Binary"/>
-      </type>	  
+      </type>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.context"/>

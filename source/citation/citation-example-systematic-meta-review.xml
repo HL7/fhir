@@ -1,6 +1,390 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Citation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/citation.xsd">
     <id value="citation-example-systematic-meta-review"/>
+	<contained>
+		<Organization>
+	      <id value="o1"/>
+		  <name value="WHO Rapid Evidence Appraisal for COVID-19 Therapies (REACT) Working Group"/>
+		 </Organization>
+	</contained>
+	<contained>
+		<Organization>
+	      <id value="o2"/>
+	      <name value="Population Health Sciences, Bristol Medical School, University of Bristol, Bristol, England."/>
+	    </Organization>
+	</contained>
+	<contained>
+		<Organization>
+	      <id value="o3"/>
+	      <name value="NIHR Bristol Biomedical Research Centre, Bristol, England."/>
+	    </Organization>
+	</contained>
+	<contained>
+		<Organization>
+	      <id value="o4"/>
+	      <name value="Department of Pediatrics, University of British Columbia, Vancouver, Canada."/>
+	    </Organization>
+	</contained>
+	<contained>
+		<Organization>
+	      <id value="o5"/>
+	      <name value="Clinical Unit, Health Emergencies Programme, World Health Organization, Geneva, Switzerland."/>
+	    </Organization>
+	</contained>
+	<contained>
+		<Practitioner>
+			<id value="p1"/>
+			<name>
+				<family value="Sterne"/>
+				<given value="Jonathan A C"/>
+			</name>
+			<telecom>
+				<system value="email"/>
+				<value value="jonathan.sterne@bristol.ac.uk"/>
+			</telecom>
+	    </Practitioner>
+	</contained>
+	<contained>
+		<Practitioner>
+			<id value="p2"/>
+			<name>
+				<family value="Murthy"/>
+				<given value="Srinivas"/>
+			</name>
+	    </Practitioner>
+	</contained>
+	<contained>
+		<Practitioner>
+			<id value="p3"/>
+			<name>
+				<family value="Diaz"/>
+				<given value="Janet V"/>
+			</name>
+	    </Practitioner>
+	</contained>
+	<contained>
+		<PractitionerRole>
+			<id value="pr1"/>
+			<practitioner>
+				<display value="Dr. Ethan Molitch"/>
+			</practitioner>
+			<organization>
+				<display value="University of Chicago"/>
+			</organization>
+		</PractitionerRole>
+	</contained>
+	<contained>
+		<PractitionerRole>
+			<id value="pr2"/>
+			<practitioner>
+				<display value="Erfan Shamsoddin"/>
+			</practitioner>
+			<organization>
+				<display value="COVID-19 Knowledge Accelerator"/>
+			</organization>
+		</PractitionerRole>
+	</contained>
+	<contained>
+		<ArtifactAssessment>
+			<id value="a1"/>
+			<artifactReference>
+				<reference value="Citation/citation-example-systematic-meta-review"/>
+			</artifactReference>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<text value="UC Description"/>
+				</type>
+				<classifier>
+					<text value="To assess systemic corticosteroids on 28-day mortality in critically ill patients with COVID-19"/>
+				</classifier>
+				<author>
+					<reference value="#pr1"/>
+				</author>
+				<freeToShare value="true"/>
+			</content>
+		</ArtifactAssessment>
+	</contained>
+	<contained>
+		<ArtifactAssessment>
+			<id value="a2"/>
+			<artifactReference>
+				<reference value="Citation/citation-example-systematic-meta-review"/>
+			</artifactReference>
+			<content>
+	      			<informationType value="classifier"/>
+				<classifier>
+					<text value="The World Health Organization (Conflict of interest statements included notes on several fundings for co-investigators as well, albeit not directly funding this meta-analysis)"/>
+				</classifier>
+				<author>
+					<reference value="#pr2"/>
+				</author>
+				<freeToShare value="true"/>
+			</content>
+		</ArtifactAssessment>
+	</contained>
+	<contained>
+		<ArtifactAssessment>
+			<id value="a3"/>
+			<artifactReference>
+				<reference value="Citation/citation-example-systematic-meta-review"/>
+			</artifactReference>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<code value="mesh-heading"/>
+						<display value="MeSH heading"/>
+					</coding>
+				</type>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D000073640"/>
+						<display value="Betacoronavirus"/>
+					</coding>
+				</classifier>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D000086382"/>
+						<display value="COVID-19"/>
+					</coding>
+				</classifier>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D002423"/>
+						<display value="Cause of Death"/>
+					</coding>
+				</classifier>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D016638"/>
+						<display value="Critical Illness"/>
+					</coding>
+				</classifier>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D006801"/>
+						<display value="Humans"/>
+					</coding>
+				</classifier>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D058873"/>
+						<display value="Pandemics"/>
+					</coding>
+				</classifier>
+				<author>
+					<display value="Computable Publishing: MEDLINE-to-FEvIR Converter"/>
+				</author>
+				<freeToShare value="true"/>
+			</content>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<code value="mesh-heading"/>
+						<display value="MeSH heading"/>
+					</coding>
+					<text value="components include qualifier codings"/>
+				</type>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D000305"/>
+						<display value="Adrenal Cortex Hormones"/>
+					</coding>
+				</classifier>
+				<author>
+					<display value="Computable Publishing: MEDLINE-to-FEvIR Converter"/>
+				</author>
+				<freeToShare value="true"/>
+				<component>
+					<type>
+						<text value="qualifier"/>
+					</type>
+					<classifier>
+						<coding>
+							<system value="https://meshb.nlm.nih.gov/"/>
+							<code value="Q000627"/>
+							<display value="therapeutic use"/>
+						</coding>
+					</classifier>
+					<component>
+						<type>
+							<text value="is Major topic"/>
+						</type>
+						<classifier>
+							<coding>
+								<code value="Y"/>
+							</coding>
+						</classifier>
+					</component>
+				</component>
+			</content>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<code value="mesh-heading"/>
+						<display value="MeSH heading"/>
+					</coding>
+					<text value="components include qualifier codings"/>
+				</type>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D018352"/>
+						<display value="Coronavirus Infections"/>
+					</coding>
+				</classifier>
+				<author>
+					<display value="Computable Publishing: MEDLINE-to-FEvIR Converter"/>
+				</author>
+				<freeToShare value="true"/>
+				<component>
+					<type>
+						<text value="qualifier"/>
+					</type>
+					<classifier>
+						<coding>
+							<system value="https://meshb.nlm.nih.gov/"/>
+							<code value="Q000188"/>
+							<display value="drug therapy"/>
+						</coding>
+					</classifier>
+					<component>
+						<type>
+							<text value="is Major topic"/>
+						</type>
+						<classifier>
+							<coding>
+								<code value="Y"/>
+							</coding>
+						</classifier>
+					</component>
+				</component>
+				<component>
+					<type>
+						<text value="qualifier"/>
+					</type>
+					<classifier>
+						<coding>
+							<system value="https://meshb.nlm.nih.gov/"/>
+							<code value="Q000401"/>
+							<display value="mortality"/>
+						</coding>
+					</classifier>
+					<component>
+						<type>
+							<text value="is Major topic"/>
+						</type>
+						<classifier>
+							<coding>
+								<code value="N"/>
+							</coding>
+						</classifier>
+					</component>
+				</component>
+			</content>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<code value="mesh-heading"/>
+						<display value="MeSH heading"/>
+					</coding>
+					<text value="components include qualifier codings"/>
+				</type>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D003907"/>
+						<display value="Dexamethasone"/>
+					</coding>
+				</classifier>
+				<author>
+					<display value="Computable Publishing: MEDLINE-to-FEvIR Converter"/>
+				</author>
+				<freeToShare value="true"/>
+				<component>
+					<type>
+						<text value="qualifier"/>
+					</type>
+					<classifier>
+						<coding>
+							<system value="https://meshb.nlm.nih.gov/"/>
+							<code value="Q000627"/>
+							<display value="therapeutic use"/>
+						</coding>
+					</classifier>
+					<component>
+						<type>
+							<text value="is Major topic"/>
+						</type>
+						<classifier>
+							<coding>
+								<code value="N"/>
+							</coding>
+						</classifier>
+					</component>
+				</component>
+			</content>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<code value="mesh-heading"/>
+						<display value="MeSH heading"/>
+					</coding>
+					<text value="components include qualifier codings"/>
+				</type>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D005938"/>
+						<display value="Glucocorticoids"/>
+					</coding>
+				</classifier>
+				<author>
+					<display value="Computable Publishing: MEDLINE-to-FEvIR Converter"/>
+				</author>
+				<freeToShare value="true"/>
+				<component>
+					<type>
+						<text value="qualifier"/>
+					</type>
+					<classifier>
+						<coding>
+							<system value="https://meshb.nlm.nih.gov/"/>
+							<code value="Q000627"/>
+							<display value="therapeutic use"/>
+						</coding>
+					</classifier>
+					<component>
+						<type>
+							<text value="is Major topic"/>
+						</type>
+						<classifier>
+							<coding>
+								<code value="N"/>
+							</coding>
+						</classifier>
+					</component>
+				</component>
+			</content>
+		</ArtifactAssessment>
+	</contained>
 	<url value="http://hl7.org/fhir/Citation/citation-example-systematic-meta-review"/>
 	<identifier>
 		<type>
@@ -820,7 +1204,7 @@
 			<classifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
-					<version value="4.6.0"/>
+					<version value="5.0.0"/>
 					<code value="abstract"/>
 					<display value="Abstract"/>
 					<userSelected value="true"/>
@@ -833,7 +1217,7 @@
 			<classifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
-					<version value="4.6.0"/>
+					<version value="5.0.0"/>
 					<code value="full-text"/>
 					<display value="Full-Text"/>
 					<userSelected value="true"/>
@@ -852,29 +1236,19 @@
 			<classifier>
 				<text value="Unclear risk of bias"/>
 			</classifier>
-			<whoClassified>
-				<person>
-					<display value="Brian S. Alper"/>
-				</person>
-				<freeToShare value="false"/>
-			</whoClassified>
+		</classification>
+		<classification>
+			<artifactAssessment>
+				<reference value="#a1"/>
+			</artifactAssessment>
 		</classification>
 		<classification>
 			<type>
-				<text value="UC Description"/>
+				<text value="Funding"/>
 			</type>
-			<classifier>
-				<text value="To assess systemic corticosteroids on 28-day mortality in critically ill patients with COVID-19"/>
-			</classifier>
-			<whoClassified>
-				<person>
-					<display value="Dr. Ethan Molitch"/>
-				</person>
-				<organization>
-					<display value="University of Chicago"/>
-				</organization>
-				<freeToShare value="true"/>
-			</whoClassified>
+			<artifactAssessment>
+				<reference value="#a2"/>
+			</artifactAssessment>
 		</classification>
 		<classification>
 			<type>
@@ -891,13 +1265,6 @@
 					<display value="Journal Article"/>
 				</coding>
 			</classifier>
-			<whoClassified>
-				<publisher>
-					<display value="Computable Publishing LLC"/>
-				</publisher>
-				<classifierCopyright value="https://creativecommons.org/licenses/by-nc-sa/4.0"/>
-				<freeToShare value="true"/>
-			</whoClassified>
 		</classification>
 		<classification>
 			<type>
@@ -980,190 +1347,9 @@
 			</classifier>
 		</classification>
 		<classification>
-			<type>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
-					<code value="mesh-heading"/>
-					<display value="MeSH heading"/>
-				</coding>
-			</type>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D000305"/>
-					<display value="Adrenal Cortex Hormones"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000627"/>
-					<display value="therapeutic use"/>
-				</coding>
-				<coding>
-					<code value="Y"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D000073640"/>
-					<display value="Betacoronavirus"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D000086382"/>
-					<display value="COVID-19"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D002423"/>
-					<display value="Cause of Death"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D018352"/>
-					<display value="Coronavirus Infections"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000188"/>
-					<display value="drug therapy"/>
-				</coding>
-				<coding>
-					<code value="Y"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000401"/>
-					<display value="mortality"/>
-				</coding>
-				<coding>
-					<code value="N"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D016638"/>
-					<display value="Critical Illness"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D003907"/>
-					<display value="Dexamethasone"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000627"/>
-					<display value="therapeutic use"/>
-				</coding>
-				<coding>
-					<code value="N"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D005938"/>
-					<display value="Glucocorticoids"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000627"/>
-					<display value="therapeutic use"/>
-				</coding>
-				<coding>
-					<code value="Y"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D006801"/>
-					<display value="Humans"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D006854"/>
-					<display value="Hydrocortisone"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000627"/>
-					<display value="therapeutic use"/>
-				</coding>
-				<coding>
-					<code value="N"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D008775"/>
-					<display value="Methylprednisolone"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000627"/>
-					<display value="therapeutic use"/>
-				</coding>
-				<coding>
-					<code value="N"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D058873"/>
-					<display value="Pandemics"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D011024"/>
-					<display value="Pneumonia, Viral"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000188"/>
-					<display value="drug therapy"/>
-				</coding>
-				<coding>
-					<code value="Y"/>
-				</coding>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="Q000401"/>
-					<display value="mortality"/>
-				</coding>
-				<coding>
-					<code value="N"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D016032"/>
-					<display value="Randomized Controlled Trials as Topic"/>
-				</coding>
-			</classifier>
-			<classifier>
-				<coding>
-					<system value="https://meshb.nlm.nih.gov/"/>
-					<code value="D000086402"/>
-					<display value="SARS-CoV-2"/>
-				</coding>
-			</classifier>
+			<artifactAssessment>
+				<reference value="#a3"/>
+			</artifactAssessment>
 		</classification>
 		<classification>
 			<type>
@@ -1234,463 +1420,49 @@
 				</coding>
 			</classifier>
 		</classification>
-		<classification>
-			<type>
-				<text value="Funding"/>
-			</type>
-			<classifier>
-				<text value="The World Health Organization (Conflict of interest statements included notes on several fundings for co-investigators as well, albeit not directly funding this meta-analysis)"/>
-			</classifier>
-			<whoClassified>
-				<person>
-					<display value="Erfan Shamsoddin"/>
-				</person>
-				<organization>
-					<display value="COVID-19 Knowledge Accelerator"/>
-				</organization>
-				<freeToShare value="true"/>
-			</whoClassified>
-		</classification>
 		<contributorship>
-			<complete value="true"/>
+			<complete value="false"/>
 			<entry>
-				<collectiveName value="WHO Rapid Evidence Appraisal for COVID-19 Therapies (REACT) Working Group"/>
+				<contributor>
+					<reference value="#o1"/>
+				</contributor>
 			</entry>
 			<entry>
-				<name>
-					<family value="Sterne"/>
-					<given value="Jonathan A C"/>
-				</name>
-				<initials value="JAC"/>
-				<affiliationInfo>
-					<affiliation value="Population Health Sciences, Bristol Medical School, University of Bristol, Bristol, England."/>
-				</affiliationInfo>
-				<affiliationInfo>
-					<affiliation value="NIHR Bristol Biomedical Research Centre, Bristol, England."/>
-				</affiliationInfo>
-				<telecom>
-					<system value="email"/>
-					<value value="jonathan.sterne@bristol.ac.uk"/>
-				</telecom>
+				<contributor>
+					<reference value="#p1"/>
+				</contributor>
+				<forenameInitials value="JAC"/>
+				<affiliation>
+					<reference value="#o2"/>
+				</affiliation>
+				<affiliation>
+					<reference value="#o3"/>
+				</affiliation>
 				<correspondingContact value="true"/>
 			</entry>
 			<entry>
-				<name>
-					<family value="Murthy"/>
-					<given value="Srinivas"/>
-				</name>
-				<initials value="S"/>
-				<affiliationInfo>
-					<affiliation value="Department of Pediatrics, University of British Columbia, Vancouver, Canada."/>
-				</affiliationInfo>
+				<contributor>
+					<reference value="#p2"/>
+				</contributor>
+				<forenameInitials value="S"/>
+				<affiliation>
+					<reference value="#o4"/>
+				</affiliation>
 			</entry>
 			<entry>
-				<name>
-					<family value="Diaz"/>
-					<given value="Janet V"/>
-				</name>
-				<initials value="JV"/>
-				<affiliationInfo>
-					<affiliation value="Clinical Unit, Health Emergencies Programme, World Health Organization, Geneva, Switzerland."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Slutsky"/>
-					<given value="Arthur S"/>
-				</name>
-				<initials value="AS"/>
-				<affiliationInfo>
-					<affiliation value="Applied Health Research Centre, Li Ka Shing Knowledge Institute of St Michael&apos;s Hospital, Department of Medicine, University of Toronto, Toronto, Ontario, Canada."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Villar"/>
-					<given value="Jesús"/>
-				</name>
-				<initials value="J"/>
-				<affiliationInfo>
-					<affiliation value="Research Unit, Hospital Universitario Dr Negrín, Las Palmas de Gran Canaria, Spain."/>
-				</affiliationInfo>
-				<affiliationInfo>
-					<affiliation value="CIBER de Enfermedades Respiratorias, Instituto de Salud Carlos III, Madrid, Spain."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Angus"/>
-					<given value="Derek C"/>
-				</name>
-				<initials value="DC"/>
-				<affiliationInfo>
-					<affiliation value="Department of Critical Care Medicine, University of Pittsburgh School of Medicine, Pittsburgh, Pennsylvania."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Annane"/>
-					<given value="Djillali"/>
-				</name>
-				<initials value="D"/>
-				<affiliationInfo>
-					<affiliation value="Department of Intensive Care, Raymond Poincaré Hospital (APHP), School of Medicine Simone Veil, University Paris Saclay-UVSQ, Paris, France."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Azevedo"/>
-					<given value="Luciano Cesar Pontes"/>
-				</name>
-				<initials value="LCP"/>
-				<affiliationInfo>
-					<affiliation value="Hospital Sírio-Libanês, São Paulo, Brazil."/>
-				</affiliationInfo>
-				<affiliationInfo>
-					<affiliation value="Emergency Medicine Department, University of São Paulo School of Medicine, São Paulo, Brazil."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Berwanger"/>
-					<given value="Otavio"/>
-				</name>
-				<initials value="O"/>
-				<affiliationInfo>
-					<affiliation value="Academic Research Organization, Hospital Israelita Albert Einstein, São Paulo, Brazil."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Cavalcanti"/>
-					<given value="Alexandre B"/>
-				</name>
-				<initials value="AB"/>
-				<affiliationInfo>
-					<affiliation value="HCor Research Insitute, São Paulo, Brazil."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Dequin"/>
-					<given value="Pierre-Francois"/>
-				</name>
-				<initials value="PF"/>
-				<affiliationInfo>
-					<affiliation value="Médecine Intensive-Réanimation, INSERM CIC1415, CHRU de Tours, Tours, France."/>
-				</affiliationInfo>
-				<affiliationInfo>
-					<affiliation value="CRICS-TriGGERSep Network, Centre d&apos;Etude des Pathologies Respiratoires, Université de Tours, Tours, France."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Du"/>
-					<given value="Bin"/>
-				</name>
-				<initials value="B"/>
-				<affiliationInfo>
-					<affiliation value="Peking Union Medical College Hospital, Beijing, China."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Emberson"/>
-					<given value="Jonathan"/>
-				</name>
-				<initials value="J"/>
-				<affiliationInfo>
-					<affiliation value="Nuffield Department of Population Health, University of Oxford, Oxford, England."/>
-				</affiliationInfo>
-				<affiliationInfo>
-					<affiliation value="MRC Population Health Research Unit, University of Oxford, Oxford, England."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Fisher"/>
-					<given value="David"/>
-				</name>
-				<initials value="D"/>
-				<affiliationInfo>
-					<affiliation value="MRC Clinical Trials Unit at UCL, Institute of Clinical Trials and Methodology, Faculty of Population Health Sciences, University College London, London, England."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Giraudeau"/>
-					<given value="Bruno"/>
-				</name>
-				<initials value="B"/>
-				<affiliationInfo>
-					<affiliation value="CIC INSERM 1415-CHRU de Tours, Tours, France."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Gordon"/>
-					<given value="Anthony C"/>
-				</name>
-				<initials value="AC"/>
-				<affiliationInfo>
-					<affiliation value="Division of Anaesthetics, Pain Medicine and Intensive Care, Imperial College London, London, England."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Granholm"/>
-					<given value="Anders"/>
-				</name>
-				<initials value="A"/>
-				<affiliationInfo>
-					<affiliation value="Department of Intensive Care, Rigshospitalet, University of Copenhagen, Copenhagen, Denmark."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Green"/>
-					<given value="Cameron"/>
-				</name>
-				<initials value="C"/>
-				<affiliationInfo>
-					<affiliation value="Australian and New Zealand Intensive Care Research Centre, School of Epidemiology and Preventive Medicine, Monash University, Melbourne, Australia."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Haynes"/>
-					<given value="Richard"/>
-				</name>
-				<initials value="R"/>
-				<affiliationInfo>
-					<affiliation value="Nuffield Department of Population Health, University of Oxford, Oxford, England."/>
-				</affiliationInfo>
-				<affiliationInfo>
-					<affiliation value="MRC Population Health Research Unit, University of Oxford, Oxford, England."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Heming"/>
-					<given value="Nicholas"/>
-				</name>
-				<initials value="N"/>
-				<affiliationInfo>
-					<affiliation value="Department of Intensive Care, Raymond Poincaré Hospital (APHP), School of Medicine Simone Veil, University Paris Saclay-UVSQ, Paris, France."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Higgins"/>
-					<given value="Julian P T"/>
-				</name>
-				<initials value="JPT"/>
-				<affiliationInfo>
-					<affiliation value="Population Health Sciences, Bristol Medical School, University of Bristol, Bristol, England."/>
-				</affiliationInfo>
-				<affiliationInfo>
-					<affiliation value="NIHR Bristol Biomedical Research Centre, Bristol, England."/>
-				</affiliationInfo>
-				<affiliationInfo>
-					<affiliation value="NIHR Applied Research Collaboration West, University Hospitals Bristol and Weston NHS Foundation Trust, Bristol, England."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Horby"/>
-					<given value="Peter"/>
-				</name>
-				<initials value="P"/>
-				<affiliationInfo>
-					<affiliation value="Nuffield Department of Medicine, University of Oxford, Oxford, England."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Jüni"/>
-					<given value="Peter"/>
-				</name>
-				<initials value="P"/>
-				<affiliationInfo>
-					<affiliation value="Applied Health Research Centre, Li Ka Shing Knowledge Institute of St Michael&apos;s Hospital, Department of Medicine, University of Toronto, Toronto, Ontario, Canada."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Landray"/>
-					<given value="Martin J"/>
-				</name>
-				<initials value="MJ"/>
-				<affiliationInfo>
-					<affiliation value="Nuffield Department of Population Health, University of Oxford, Oxford, England."/>
-				</affiliationInfo>
-				<affiliationInfo>
-					<affiliation value="MRC Population Health Research Unit, University of Oxford, Oxford, England."/>
-				</affiliationInfo>
-				<affiliationInfo>
-					<affiliation value="NIHR Oxford Biomedical Research Centre, Oxford University Hospitals NHS Foundation Trust, Oxford, England."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Le Gouge"/>
-					<given value="Amelie"/>
-				</name>
-				<initials value="A"/>
-				<affiliationInfo>
-					<affiliation value="CIC INSERM 1415-CHRU de Tours, Tours, France."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Leclerc"/>
-					<given value="Marie"/>
-				</name>
-				<initials value="M"/>
-				<affiliationInfo>
-					<affiliation value="CIC INSERM 1415-CHRU de Tours, Tours, France."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Lim"/>
-					<given value="Wei Shen"/>
-				</name>
-				<initials value="WS"/>
-				<affiliationInfo>
-					<affiliation value="Respiratory Medicine Department, Nottingham University Hospitals NHS Trust, Nottingham, England."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Machado"/>
-					<given value="Flávia R"/>
-				</name>
-				<initials value="FR"/>
-				<affiliationInfo>
-					<affiliation value="Anesthesiology, Pain, and Intensive Care Department, Federal University of São Paulo, São Paulo, Brazil."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="McArthur"/>
-					<given value="Colin"/>
-				</name>
-				<initials value="C"/>
-				<affiliationInfo>
-					<affiliation value="Australian and New Zealand Intensive Care Research Centre, School of Epidemiology and Preventive Medicine, Monash University, Melbourne, Australia."/>
-				</affiliationInfo>
-				<affiliationInfo>
-					<affiliation value="Department of Critical Care Medicine, Auckland City Hospital, Auckland, New Zealand."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Meziani"/>
-					<given value="Ferhat"/>
-				</name>
-				<initials value="F"/>
-				<affiliationInfo>
-					<affiliation value="Hôpitaux Universitaires de Strasbourg, Service de Médecine Intensive Réanimation, Nouvel Hôpital Civil, Strasbourg, France."/>
-				</affiliationInfo>
-				<affiliationInfo>
-					<affiliation value="INSERM UMR 1260, Regenerative Nanomedicine, FMTS, Strasbourg, France."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Møller"/>
-					<given value="Morten Hylander"/>
-				</name>
-				<initials value="MH"/>
-				<affiliationInfo>
-					<affiliation value="Department of Intensive Care, Rigshospitalet, University of Copenhagen, Copenhagen, Denmark."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Perner"/>
-					<given value="Anders"/>
-				</name>
-				<initials value="A"/>
-				<affiliationInfo>
-					<affiliation value="Department of Intensive Care, Rigshospitalet, University of Copenhagen, Copenhagen, Denmark."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Petersen"/>
-					<given value="Marie Warrer"/>
-				</name>
-				<initials value="MW"/>
-				<affiliationInfo>
-					<affiliation value="Department of Intensive Care, Rigshospitalet, University of Copenhagen, Copenhagen, Denmark."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Savovic"/>
-					<given value="Jelena"/>
-				</name>
-				<initials value="J"/>
-				<affiliationInfo>
-					<affiliation value="Population Health Sciences, Bristol Medical School, University of Bristol, Bristol, England."/>
-				</affiliationInfo>
-				<affiliationInfo>
-					<affiliation value="NIHR Applied Research Collaboration West, University Hospitals Bristol and Weston NHS Foundation Trust, Bristol, England."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Tomazini"/>
-					<given value="Bruno"/>
-				</name>
-				<initials value="B"/>
-				<affiliationInfo>
-					<affiliation value="Hospital Sírio-Libanês, São Paulo, Brazil."/>
-				</affiliationInfo>
-				<affiliationInfo>
-					<affiliation value="Department of Surgery, School of Medicine, University of São Paulo, São Paulo, Brazil."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Veiga"/>
-					<given value="Viviane C"/>
-				</name>
-				<initials value="VC"/>
-				<affiliationInfo>
-					<affiliation value="BP-A Beneficência Portuguesa de São Paulo, São Paulo, Brazil."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Webb"/>
-					<given value="Steve"/>
-				</name>
-				<initials value="S"/>
-				<affiliationInfo>
-					<affiliation value="Australian and New Zealand Intensive Care Research Centre, School of Epidemiology and Preventive Medicine, Monash University, Melbourne, Australia."/>
-				</affiliationInfo>
-				<affiliationInfo>
-					<affiliation value="St John of God Healthcare, Subiaco, Australia."/>
-				</affiliationInfo>
-			</entry>
-			<entry>
-				<name>
-					<family value="Marshall"/>
-					<given value="John C"/>
-				</name>
-				<initials value="JC"/>
-				<affiliationInfo>
-					<affiliation value="Li Ka Shing Knowledge Institute, St Michael&apos;s Hospital, University of Toronto, Toronto, Ontario, Canada."/>
-				</affiliationInfo>
+				<contributor>
+					<reference value="#p3"/>
+				</contributor>
+				<forenameInitials value="JV"/>
+				<affiliation>
+					<reference value="#o5"/>
+				</affiliation>
 			</entry>
 			<summary>
 				<type>
 					<coding>
 						<system value="http://terminology.hl7.org/CodeSystem/contributor-summary-type"/>
-						<version value="4.6.0"/>
+						<version value="5.0.0"/>
 						<code value="author-string"/>
 						<display value="Author string"/>
 					</coding>

@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="BodyStructure"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -167,31 +167,6 @@
         <map value="SPM-4/SPM-5"/>
       </mapping>
     </element>
-
-    <element id="BodyStructure.location">
-      <path value="BodyStructure.location"/>
-      <short value="Body site"/>
-      <definition value="The anatomical location or region of the specimen, lesion, or body structure."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Codes describing anatomical locations. May include laterality."/>
-        </extension>
-        <strength value="example"/>
-        <description value="SNOMED CT Body site concepts"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
-      </binding>
-      
-    </element>
-
 <element id="BodyStructure.includedStructure">
   <path value="BodyStructure.includedStructure"/>
       <short value="Included anatomic location(s)"/>

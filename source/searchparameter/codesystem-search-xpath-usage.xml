@@ -66,34 +66,6 @@
         
         <tr>
           
-          <td style="white-space:nowrap">nearby
-            
-            <a name="search-xpath-usage-nearby"> </a>
-          
-          </td>
-          
-          <td>Nearby</td>
-          
-          <td>The search parameter is based on a spatial transform of the selected nodes.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">distance
-            
-            <a name="search-xpath-usage-distance"> </a>
-          
-          </td>
-          
-          <td>Distance</td>
-          
-          <td>The search parameter is based on a spatial transform of the selected nodes, using physical distance from the middle.</td>
-        
-        </tr>
-        
-        <tr>
-          
           <td style="white-space:nowrap">other
             
             <a name="search-xpath-usage-other"> </a>
@@ -124,7 +96,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.636"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="XPathUsageType"/>
   <title value="XPathUsageType"/>
   <status value="draft"/>
@@ -154,16 +126,6 @@
     <code value="phonetic"/>
     <display value="Phonetic"/>
     <definition value="The search parameter is derived by a phonetic transform from the selected nodes."/>
-  </concept>
-  <concept>
-    <code value="nearby"/>
-    <display value="Nearby"/>
-    <definition value="The search parameter is based on a spatial transform of the selected nodes."/>
-  </concept>
-  <concept>
-    <code value="distance"/>
-    <display value="Distance"/>
-    <definition value="The search parameter is based on a spatial transform of the selected nodes, using physical distance from the middle."/>
   </concept>
   <concept>
     <code value="other"/>

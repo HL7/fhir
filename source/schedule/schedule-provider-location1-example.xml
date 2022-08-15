@@ -15,18 +15,23 @@
 	<active value="true"/>
 	<serviceCategory>
 		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/service-category"/>
 			<code value="17"/>
 			<display value="General Practice" />
 		</coding>
 	</serviceCategory>
 	<serviceType>
-		<coding>
-			<code value="75"/>
-			<display value="Genetic Counselling" />
-		</coding>
+		<concept>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/service-type"/>
+				<code value="75"/>
+				<display value="Genetic Counselling" />
+			</coding>
+		</concept>
 	</serviceType>
 	<specialty>
 		<coding>
+			<system value="http://snomed.info/sct"/>
 			<code value="394580004"/>
 			<display value="Clinical genetics" />
 		</coding>

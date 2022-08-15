@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
   <id value="example-Stroke-Thrombolysis-Trialists-2014-2016-IPD-MA-Cohort"/>
-  <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>
-        Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis
-      </p>
-	</div>
-  </text>
-  <name value="Stroke Thrombolysis Trialists’ 2014-2016 IPD-MA Cohort"/>
-  <title value="Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis"/>
+	<text>
+		<status value="generated" />
+		<div xmlns="http://www.w3.org/1999/xhtml">
+		  <p>
+			Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis
+		  </p>
+		</div>
+	</text>
+	<name value="Stroke Thrombolysis Trialists’ 2014-2016 IPD-MA Cohort"/>
+	<title value="Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis"/>
 	<status value="draft"/>
 	<relatedArtifact>
 		<type value="citation"/>
@@ -31,56 +31,59 @@
     </document>
 	</relatedArtifact>
 	<actual value="true"/>
-	<characteristicCombination>
-		<code value="any-of" />
-	</characteristicCombination>
 	<characteristic>
-		<definitionReference>
-			<reference value="Group/ECASSIII-Trial-Cohort"/>
-			<type value="Group"/>
-			<display value="ECASS III Trial Cohort"/>
-		</definitionReference>
-	</characteristic>
-	<characteristic>
-		<definitionReference>
-			<reference value="Group/IST3-Trial-Cohort"/>
-			<type value="Group"/>
-			<display value="IST3 Trial Cohort"/>
-		</definitionReference>
-	</characteristic>
-	<characteristic>
-		<definitionReference>
-			<reference value="Group/ECASS-Trial-Cohort"/>
-			<type value="Group"/>
-			<display value="ECASS Trial Cohort"/>
-		</definitionReference>
-	</characteristic>
-	<characteristic>
-		<definitionReference>
-			<reference value="Group/ECASSII-Trial-Cohort"/>
-			<type value="Group"/>
-			<display value="ECASSII Trial Cohort"/>
-		</definitionReference>
-	</characteristic>
-	<characteristic>
-		<definitionReference>
-			<reference value="Group/EPITHET-Trial-Cohort"/>
-			<type value="Group"/>
-			<display value="EPITHET Trial Cohort"/>
-		</definitionReference>
-	</characteristic>
-	<characteristic>
-		<definitionReference>
-			<reference value="Group/ATLANTIS-Trial-Cohort"/>
-			<type value="Group"/>
-			<display value="ATLANTIS Trial Cohort"/>
-		</definitionReference>
-	</characteristic>
-	<characteristic>
-		<definitionReference>
-			<reference value="Group/NINDS-Trial-Cohort"/>
-			<type value="Group"/>
-			<display value="NINDS Trial Cohort"/>
-		</definitionReference>
+		<description value="Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis" />
+		<definitionByCombination>
+			<code value="any-of" />
+			<characteristic>
+				<definitionReference>
+					<reference value="Group/ECASSIII-Trial-Cohort"/>
+					<type value="Group"/>
+					<display value="ECASS III Trial Cohort"/>
+				</definitionReference>
+			</characteristic>
+			<characteristic>
+				<definitionReference>
+					<reference value="Group/IST3-Trial-Cohort"/>
+					<type value="Group"/>
+					<display value="IST3 Trial Cohort"/>
+				</definitionReference>
+			</characteristic>
+			<characteristic>
+				<definitionReference>
+					<reference value="Group/ECASS-Trial-Cohort"/>
+					<type value="Group"/>
+					<display value="ECASS Trial Cohort"/>
+				</definitionReference>
+			</characteristic>
+			<characteristic>
+				<definitionReference>
+					<reference value="Group/ECASSII-Trial-Cohort"/>
+					<type value="Group"/>
+					<display value="ECASSII Trial Cohort"/>
+				</definitionReference>
+			</characteristic>
+			<characteristic>
+				<definitionReference>
+					<reference value="Group/EPITHET-Trial-Cohort"/>
+					<type value="Group"/>
+					<display value="EPITHET Trial Cohort"/>
+				</definitionReference>
+			</characteristic>
+			<characteristic>
+				<definitionReference>
+					<reference value="Group/ATLANTIS-Trial-Cohort"/>
+					<type value="Group"/>
+					<display value="ATLANTIS Trial Cohort"/>
+				</definitionReference>
+			</characteristic>
+			<characteristic>
+				<definitionReference>
+					<reference value="Group/NINDS-Trial-Cohort"/>
+					<type value="Group"/>
+					<display value="NINDS Trial Cohort"/>
+				</definitionReference>
+			</characteristic>
+		</definitionByCombination>
 	</characteristic>
 </EvidenceVariable>

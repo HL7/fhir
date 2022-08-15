@@ -20,13 +20,13 @@
       <expression value="[&quot;Observation&quot;: code in &quot;75859-9|LOINC&quot;] mRS where mRS.value between 0 and 2"/>
     </definitionExpression>
     <timeFromEvent>
-	  <event>
+	  <eventCodeableConcept>
 		<coding>
 			<system value="http://hl7.org/fhir/evidence-variable-event"/>
 			<code value="study-start"/>
 			<display value="Study Start"/>
 		</coding>
-	  </event>
+	  </eventCodeableConcept>
       <quantity>
         <value value="90"/>
         <unit value="day"/>

@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="animal-tissue-type"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="brr"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/animal-tissue-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+     <value value="urn:oid:2.16.840.1.113883.4.642.1.1591"/>
+  </identifier>
+  <version value="5.0.0"/>
+   <name value="AnimalTissueType"/>
+   <title value="AnimalTissueType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+   <description value="A tissue type of an animal."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/animal-tissue-type"/>
+  <content value="complete"/>
+   <concept>
+      <code value="100000072091"/>
+      <display value="All relevant tissues"/>
+   </concept>
+   <concept>
+      <code value="100000072092"/>
+      <display value="Fat"/>
+   </concept>
+   <concept>
+      <code value="100000072093"/>
+      <display value="Honey"/>
+   </concept>
+   <concept>
+      <code value="100000072094"/>
+      <display value="Liver"/>
+   </concept>
+   <concept>
+      <code value="100000072095"/>
+      <display value="Fresh Milk"/>
+   </concept>
+   <concept>
+      <code value="100000072096"/>
+      <display value="Muscle and skin in natural proportions"/>
+   </concept>
+   <concept>
+      <code value="100000072104"/>
+      <display value="Eggs"/>
+   </concept>
+   <concept>
+      <code value="100000072105"/>
+      <display value="Skin and fat"/>
+   </concept>
+   <concept>
+      <code value="100000072106"/>
+      <display value="Kidney"/>
+   </concept>
+   <concept>
+      <code value="100000072107"/>
+      <display value="Meat and offal"/>
+   </concept>
+   <concept>
+      <code value="100000072108"/>
+      <display value="Muscle"/>
+   </concept>
+   <concept>
+      <code value="100000072109"/>
+      <display value="Unspecified"/>
+   </concept>
+   <concept>
+      <code value="100000111053"/>
+      <display value="Adipose tissue"/>
+   </concept>
+   <concept>
+      <code value="100000111054"/>
+      <display value="Adrenal"/>
+   </concept>
+   <concept>
+      <code value="100000111055"/>
+      <display value="Blood vessels"/>
+   </concept>
+   <concept>
+      <code value="100000111056"/>
+      <display value="Bone"/>
+   </concept>
+   <concept>
+      <code value="100000111057"/>
+      <display value="Bone marrow"/>
+   </concept>
+   <concept>
+      <code value="100000111058"/>
+      <display value="Brain"/>
+   </concept>
+   <concept>
+      <code value="100000111059"/>
+      <display value="Connective tissue"/>
+   </concept>
+   <concept>
+      <code value="100000111060"/>
+      <display value="Cornea"/>
+   </concept>
+   <concept>
+      <code value="100000111061"/>
+      <display value="Dental pulp"/>
+   </concept>
+   <concept>
+      <code value="100000111062"/>
+      <display value="Duodenum"/>
+   </concept>
+   <concept>
+      <code value="100000111063"/>
+      <display value="Dura mater"/>
+   </concept>
+   <concept>
+      <code value="100000111064"/>
+      <display value="Egg, embryonated"/>
+   </concept>
+   <concept>
+      <code value="100000111065"/>
+      <display value="Egg"/>
+   </concept>
+   <concept>
+      <code value="100000111066"/>
+      <display value="Egg white"/>
+   </concept>
+   <concept>
+      <code value="100000111067"/>
+      <display value="Egg yolk"/>
+   </concept>
+   <concept>
+      <code value="100000111068"/>
+      <display value="Embryos"/>
+   </concept>
+   <concept>
+      <code value="100000111069"/>
+      <display value="Enteric plexuses"/>
+   </concept>
+   <concept>
+      <code value="100000111070"/>
+      <display value="Esophagus"/>
+   </concept>
+   <concept>
+      <code value="100000111071"/>
+      <display value="Feathers"/>
+   </concept>
+   <concept>
+      <code value="100000111072"/>
+      <display value="Foetus"/>
+   </concept>
+   <concept>
+      <code value="100000111073"/>
+      <display value="Fore-stomach (ruminants only)"/>
+   </concept>
+   <concept>
+      <code value="100000111074"/>
+      <display value="Gingival tissue"/>
+   </concept>
+   <concept>
+      <code value="100000111075"/>
+      <display value="Hair"/>
+   </concept>
+   <concept>
+      <code value="100000111076"/>
+      <display value="Heart/pericardium"/>
+   </concept>
+   <concept>
+      <code value="100000111077"/>
+      <display value="Hide"/>
+   </concept>
+   <concept>
+      <code value="100000111078"/>
+      <display value="Hooves"/>
+   </concept>
+   <concept>
+      <code value="100000111079"/>
+      <display value="Ileum"/>
+   </concept>
+   <concept>
+      <code value="100000111080"/>
+      <display value="Jejunum"/>
+   </concept>
+   <concept>
+      <code value="100000111081"/>
+      <display value="Kidney"/>
+   </concept>
+   <concept>
+      <code value="100000111082"/>
+      <display value="Lard/lard oil"/>
+   </concept>
+   <concept>
+      <code value="100000111083"/>
+      <display value="Large intestine"/>
+   </concept>
+   <concept>
+      <code value="100000111084"/>
+      <display value="Liver"/>
+   </concept>
+   <concept>
+      <code value="100000111085"/>
+      <display value="Lung"/>
+   </concept>
+   <concept>
+      <code value="100000111086"/>
+      <display value="Lymph nodes"/>
+   </concept>
+   <concept>
+      <code value="100000111087"/>
+      <display value="Mammary gland"/>
+   </concept>
+   <concept>
+      <code value="100000111088"/>
+      <display value="Udder"/>
+   </concept>
+   <concept>
+      <code value="100000111089"/>
+      <display value="Mammary tumour"/>
+   </concept>
+   <concept>
+      <code value="100000111090"/>
+      <display value="Meat extract"/>
+   </concept>
+   <concept>
+      <code value="100000111091"/>
+      <display value="Nasopharyngeal"/>
+   </concept>
+   <concept>
+      <code value="100000111092"/>
+      <display value="Nictitating membrane"/>
+   </concept>
+   <concept>
+      <code value="100000111093"/>
+      <display value="Nasal mucosa"/>
+   </concept>
+   <concept>
+      <code value="100000111094"/>
+      <display value="Ovary"/>
+   </concept>
+   <concept>
+      <code value="100000111095"/>
+      <display value="Pancreas"/>
+   </concept>
+   <concept>
+      <code value="100000111096"/>
+      <display value="Peripheral nerves"/>
+   </concept>
+   <concept>
+      <code value="100000111097"/>
+      <display value="Pituitary gland"/>
+   </concept>
+   <concept>
+      <code value="100000111098"/>
+      <display value="Placenta"/>
+   </concept>
+   <concept>
+      <code value="100000111099"/>
+      <display value="Prostate"/>
+   </concept>
+   <concept>
+      <code value="100000111100"/>
+      <display value="Epididymis"/>
+   </concept>
+   <concept>
+      <code value="100000111101"/>
+      <display value="Seminal vesicle"/>
+   </concept>
+   <concept>
+      <code value="100000111102"/>
+      <display value="Rennet, calf"/>
+   </concept>
+   <concept>
+      <code value="100000111103"/>
+      <display value="Retina"/>
+   </concept>
+   <concept>
+      <code value="100000111104"/>
+      <display value="Optic nerve"/>
+   </concept>
+   <concept>
+      <code value="100000111105"/>
+      <display value="Salivary gland"/>
+   </concept>
+   <concept>
+      <code value="100000111106"/>
+      <display value="Shank"/>
+   </concept>
+   <concept>
+      <code value="100000111107"/>
+      <display value="Skeletal muscle"/>
+   </concept>
+   <concept>
+      <code value="100000111108"/>
+      <display value="Skin"/>
+   </concept>
+   <concept>
+      <code value="100000111109"/>
+      <display value="Spinal ganglia"/>
+   </concept>
+   <concept>
+      <code value="100000111110"/>
+      <display value="Spinal cord"/>
+   </concept>
+   <concept>
+      <code value="100000111111"/>
+      <display value="Spleen"/>
+   </concept>
+   <concept>
+      <code value="100000111112"/>
+      <display value="Stomach"/>
+   </concept>
+   <concept>
+      <code value="100000111113"/>
+      <display value="Abomasum"/>
+   </concept>
+   <concept>
+      <code value="100000111114"/>
+      <display value="Submaxillary glands"/>
+   </concept>
+   <concept>
+      <code value="100000111115"/>
+      <display value="Tallow"/>
+   </concept>
+   <concept>
+      <code value="100000111116"/>
+      <display value="Tendon"/>
+   </concept>
+   <concept>
+      <code value="100000111117"/>
+      <display value="Testis"/>
+   </concept>
+   <concept>
+      <code value="100000111118"/>
+      <display value="Thymus"/>
+   </concept>
+   <concept>
+      <code value="100000111119"/>
+      <display value="Thyroid gland"/>
+   </concept>
+   <concept>
+      <code value="100000111120"/>
+      <display value="Tongue"/>
+   </concept>
+   <concept>
+      <code value="100000111121"/>
+      <display value="Tonsil"/>
+   </concept>
+   <concept>
+      <code value="100000111122"/>
+      <display value="Trachea"/>
+   </concept>
+   <concept>
+      <code value="100000111123"/>
+      <display value="Trigeminal ganglia"/>
+   </concept>
+   <concept>
+      <code value="100000111124"/>
+      <display value="Tripe"/>
+   </concept>
+   <concept>
+      <code value="100000111125"/>
+      <display value="Uterus (Non-gravid)"/>
+   </concept>
+   <concept>
+      <code value="100000111126"/>
+      <display value="Wool"/>
+   </concept>
+   <concept>
+      <code value="100000111127"/>
+      <display value="Ascites fluid"/>
+   </concept>
+   <concept>
+      <code value="100000111128"/>
+      <display value="Bile"/>
+   </concept>
+   <concept>
+      <code value="100000111129"/>
+      <display value="Blood1"/>
+   </concept>
+   <concept>
+      <code value="100000111130"/>
+      <display value="Blood, foetal"/>
+   </concept>
+   <concept>
+      <code value="100000111131"/>
+      <display value="Colostrum"/>
+   </concept>
+   <concept>
+      <code value="100000111132"/>
+      <display value="Cord blood"/>
+   </concept>
+   <concept>
+      <code value="100000111133"/>
+      <display value="CSF"/>
+   </concept>
+   <concept>
+      <code value="100000111134"/>
+      <display value="Faeces"/>
+   </concept>
+   <concept>
+      <code value="100000111135"/>
+      <display value="Milk"/>
+   </concept>
+   <concept>
+      <code value="100000111136"/>
+      <display value="Nasal mucus"/>
+   </concept>
+   <concept>
+      <code value="100000111137"/>
+      <display value="Placenta fluids"/>
+   </concept>
+   <concept>
+      <code value="100000111138"/>
+      <display value="Plasma"/>
+   </concept>
+   <concept>
+      <code value="100000111139"/>
+      <display value="Saliva"/>
+   </concept>
+   <concept>
+      <code value="100000111140"/>
+      <display value="Secretion from bees"/>
+   </concept>
+   <concept>
+      <code value="100000111141"/>
+      <display value="Semen"/>
+   </concept>
+   <concept>
+      <code value="100000111142"/>
+      <display value="Serum, calf"/>
+   </concept>
+   <concept>
+      <code value="100000111143"/>
+      <display value="Serum, donor adult bovine"/>
+   </concept>
+   <concept>
+      <code value="100000111144"/>
+      <display value="Serum, donor calf"/>
+   </concept>
+   <concept>
+      <code value="100000111145"/>
+      <display value="Serum, foetal bovine"/>
+   </concept>
+   <concept>
+      <code value="100000111146"/>
+      <display value="Serum, newborn calf"/>
+   </concept>
+   <concept>
+      <code value="100000111147"/>
+      <display value="Serum/plasma derivate, adult bovine"/>
+   </concept>
+   <concept>
+      <code value="100000111148"/>
+      <display value="Serum/plasma, adult bovine"/>
+   </concept>
+   <concept>
+      <code value="100000111149"/>
+      <display value="Sweat"/>
+   </concept>
+   <concept>
+      <code value="100000111150"/>
+      <display value="Tears"/>
+   </concept>
+   <concept>
+      <code value="100000111151"/>
+      <display value="Urine"/>
+   </concept>
+   <concept>
+      <code value="100000111152"/>
+      <display value="Venom"/>
+   </concept>
+   <concept>
+      <code value="100000111153"/>
+      <display value="Whey"/>
+   </concept>
+   <concept>
+      <code value="100000111154"/>
+      <display value="Casein"/>
+   </concept>
+   <concept>
+      <code value="100000111155"/>
+      <display value="Fermentation products"/>
+   </concept>
+   <concept>
+      <code value="100000111156"/>
+      <display value="Gelatin"/>
+   </concept>
+   <concept>
+      <code value="100000111157"/>
+      <display value="Lactose"/>
+   </concept>
+   <concept>
+      <code value="100000111158"/>
+      <display value="Protein"/>
+   </concept>
+   <concept>
+      <code value="100000111159"/>
+      <display value="Insulin"/>
+   </concept>
+   <concept>
+      <code value="100000111160"/>
+      <display value="Collagen"/>
+   </concept>
+   <concept>
+      <code value="100000111161"/>
+      <display value="Animal Charcoal"/>
+   </concept>
+   <concept>
+      <code value="100000111162"/>
+      <display value="Peptones"/>
+   </concept>
+   <concept>
+      <code value="100000111163"/>
+      <display value="Fatty acids"/>
+   </concept>
+   <concept>
+      <code value="100000111164"/>
+      <display value="Glycerol"/>
+   </concept>
+   <concept>
+      <code value="100000125717"/>
+      <display value="Not applicable"/>
+   </concept>
+   <concept>
+      <code value="100000136180"/>
+      <display value="Meat and offal, milk"/>
+   </concept>
+   <concept>
+      <code value="100000136181"/>
+      <display value="Agar blood"/>
+   </concept>
+   <concept>
+      <code value="100000136182"/>
+      <display value="Casamino acid"/>
+   </concept>
+   <concept>
+      <code value="100000136183"/>
+      <display value="Casein, hydrolysate"/>
+   </concept>
+   <concept>
+      <code value="100000136184"/>
+      <display value="Casein, pancreatic digest"/>
+   </concept>
+   <concept>
+      <code value="100000136185"/>
+      <display value="Casein, peptides N3"/>
+   </concept>
+   <concept>
+      <code value="100000136186"/>
+      <display value="Cells"/>
+   </concept>
+   <concept>
+      <code value="100000136187"/>
+      <display value="Cells, BHK21"/>
+   </concept>
+   <concept>
+      <code value="100000136188"/>
+      <display value="Cells, CHO"/>
+   </concept>
+   <concept>
+      <code value="100000136189"/>
+      <display value="Cells, CRFK"/>
+   </concept>
+   <concept>
+      <code value="100000136190"/>
+      <display value="Cells, embryo SPF"/>
+   </concept>
+   <concept>
+      <code value="100000136191"/>
+      <display value="Cells, IRC5"/>
+   </concept>
+   <concept>
+      <code value="100000136192"/>
+      <display value="Cells, kidney"/>
+   </concept>
+   <concept>
+      <code value="100000136193"/>
+      <display value="Cells, MDCK"/>
+   </concept>
+   <concept>
+      <code value="100000136194"/>
+      <display value="Cells, red blood"/>
+   </concept>
+   <concept>
+      <code value="100000136195"/>
+      <display value="Collagen, hydrolysate"/>
+   </concept>
+   <concept>
+      <code value="100000136196"/>
+      <display value="Cholesterol"/>
+   </concept>
+   <concept>
+      <code value="100000136197"/>
+      <display value="Egg, SPF embryonated"/>
+   </concept>
+   <concept>
+      <code value="100000136198"/>
+      <display value="Enzyme"/>
+   </concept>
+   <concept>
+      <code value="100000136199"/>
+      <display value="Enzyme, pancreatic enzymes"/>
+   </concept>
+   <concept>
+      <code value="100000136200"/>
+      <display value="Enzyme, pancreatin 6NF"/>
+   </concept>
+   <concept>
+      <code value="100000136201"/>
+      <display value="Enzyme, pepsin"/>
+   </concept>
+   <concept>
+      <code value="100000136202"/>
+      <display value="Enzyme, pronase"/>
+   </concept>
+   <concept>
+      <code value="100000136203"/>
+      <display value="Enzyme, trypsin"/>
+   </concept>
+   <concept>
+      <code value="100000136204"/>
+      <display value="Heart, digest"/>
+   </concept>
+   <concept>
+      <code value="100000136205"/>
+      <display value="Heart, extract"/>
+   </concept>
+   <concept>
+      <code value="100000136206"/>
+      <display value="Intestinal mucosae"/>
+   </concept>
+   <concept>
+      <code value="100000136207"/>
+      <display value="Lactalbumin hydrolysate"/>
+   </concept>
+   <concept>
+      <code value="100000136208"/>
+      <display value="Liver, digest"/>
+   </concept>
+   <concept>
+      <code value="100000136209"/>
+      <display value="Lymphocytes"/>
+   </concept>
+   <concept>
+      <code value="100000136210"/>
+      <display value="Meat"/>
+   </concept>
+   <concept>
+      <code value="100000136211"/>
+      <display value="Meat, enzymic hydrolysate"/>
+   </concept>
+   <concept>
+      <code value="100000136212"/>
+      <display value="Medium, cooked meat"/>
+   </concept>
+   <concept>
+      <code value="100000136213"/>
+      <display value="Medium, F10-199 medium"/>
+   </concept>
+   <concept>
+      <code value="100000136214"/>
+      <display value="Medium, FMD culture medium"/>
+   </concept>
+   <concept>
+      <code value="100000136215"/>
+      <display value="Medium, Glasgow MEM culture"/>
+   </concept>
+   <concept>
+      <code value="100000136216"/>
+      <display value="Medium, LB Agar Lennox"/>
+   </concept>
+   <concept>
+      <code value="100000136217"/>
+      <display value="Medium, LB Broth Lennox"/>
+   </concept>
+   <concept>
+      <code value="100000136218"/>
+      <display value="Medium, modified thioglycolate medium"/>
+   </concept>
+   <concept>
+      <code value="100000136219"/>
+      <display value="Medium, trypticase soy broth"/>
+   </concept>
+   <concept>
+      <code value="100000136220"/>
+      <display value="Medium, tryptose phosphate broth"/>
+   </concept>
+   <concept>
+      <code value="100000136221"/>
+      <display value="Milk, skimmed"/>
+   </concept>
+   <concept>
+      <code value="100000136222"/>
+      <display value="Pancreas, extract"/>
+   </concept>
+   <concept>
+      <code value="100000136223"/>
+      <display value="Peptones, casein hydrochloric peptone"/>
+   </concept>
+   <concept>
+      <code value="100000136224"/>
+      <display value="Peptones, casein tryptic peptone"/>
+   </concept>
+   <concept>
+      <code value="100000136225"/>
+      <display value="Pituitary extract"/>
+   </concept>
+   <concept>
+      <code value="100000136226"/>
+      <display value="Rennet"/>
+   </concept>
+   <concept>
+      <code value="100000136227"/>
+      <display value="Medium, nutrient broth"/>
+   </concept>
+   <concept>
+      <code value="100000136228"/>
+      <display value="Medium, NZ-Amine"/>
+   </concept>
+   <concept>
+      <code value="100000136229"/>
+      <display value="Medium, thioglycolate medium"/>
+   </concept>
+   <concept>
+      <code value="100000136230"/>
+      <display value="Peptones, proteose peptone"/>
+   </concept>
+   <concept>
+      <code value="100000136231"/>
+      <display value="Serum"/>
+   </concept>
+   <concept>
+      <code value="100000136232"/>
+      <display value="Serum, albumin"/>
+   </concept>
+   <concept>
+      <code value="100000136233"/>
+      <display value="Serum, Iron fortified calf"/>
+   </concept>
+   <concept>
+      <code value="100000136234"/>
+      <display value="Skin, connective tissue and bone"/>
+   </concept>
+   <concept>
+      <code value="100000136235"/>
+      <display value="Sperm"/>
+   </concept>
+   <concept>
+      <code value="100000136236"/>
+      <display value="Tryptone"/>
+   </concept>
+   <concept>
+      <code value="100000136237"/>
+      <display value="Meat, extract desiccated"/>
+   </concept>
+   <concept>
+      <code value="100000136247"/>
+      <display value="Stomach mucosa"/>
+   </concept>
+   <concept>
+      <code value="100000136248"/>
+      <display value="Transferin"/>
+   </concept>
+   <concept>
+      <code value="100000136554"/>
+      <display value="Non-neural"/>
+   </concept>
+   <concept>
+      <code value="100000136555"/>
+      <display value="Not specified"/>
+   </concept>
+   <concept>
+      <code value="100000136556"/>
+      <display value="Organ tissue"/>
+   </concept>
+   <concept>
+      <code value="100000142485"/>
+      <display value="Skin and fat in natural proportions"/>
+   </concept>
+
+</CodeSystem>
