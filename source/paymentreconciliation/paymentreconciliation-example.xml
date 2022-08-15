@@ -10,6 +10,13 @@
 		<system value="http://www.BenefitsInc.com/fhir/enrollmentresponse"/>
 		<value value="781234"/>
 	</identifier>
+	
+	<type>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/payment-type"/>
+			<code value="payment"/>
+		</coding>
+	</type>
 
 	<status value="active"/>
 
@@ -36,23 +43,30 @@
 
 	<disposition value="2014 August mid-month settlement."/>
 
-	<paymentDate value="2014-08-01"/>
+	<date value="2014-08-01"/>
 
-	<paymentAmount>
+	<amount>
 		<value value="7000.00"/>
 		<currency value="USD"/>
-	</paymentAmount>
+	</amount>
 
 	<paymentIdentifier>
 		<system value="http://www.BenefitsInc.com/payment/2018"/>
 		<value value="10-12345"/>
 	</paymentIdentifier>
 
-	<detail>
+	<allocation>
 		<identifier>
 			<system value="http://www.BenefitsInc.com/payment/2018/detail"/>
 			<value value="10-12345-001"/>
 		</identifier>
+
+		<target>
+			<identifier>
+				<system value="http://happyvalleyclinic.com/claim"/>
+				<value value="AB12345"/>
+			</identifier>
+		</target>
 
 		<type>
 			<coding>
@@ -60,12 +74,7 @@
 				<code value="payment"/>
 			</coding>
 		</type>
-		<request>
-			<identifier>
-				<system value="http://happyvalleyclinic.com/claim"/>
-				<value value="AB12345"/>
-			</identifier>
-		</request>
+
 		<submitter>
 			<reference value="Organization/1"/>
 		</submitter>
@@ -83,30 +92,33 @@
 			<value value="3500.00"/>
 			<currency value="USD"/>
 		</amount>   
-	</detail>
+	</allocation>
 
-	<detail>
+	<allocation>
 		<identifier>
 			<system value="http://www.BenefitsInc.com/payment/2018/detail"/>
 			<value value="10-12345-002"/>
 		</identifier>
+
+		<target>
+			<reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/225476332699"/>
+		</target>
+
 		<type>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/payment-type"/>
 				<code value="payment"/>
 			</coding>
 		</type>
-		<request>
-			<reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/225476332699"/>
-		</request>
+
 		<date value="2014-08-12"/>
 		<amount>
 			<value value="4000.00"/>
 			<currency value="USD"/>
 		</amount>   
-	</detail>
+	</allocation>
 
-	<detail>
+	<allocation>
 		<identifier>
 			<system value="http://www.BenefitsInc.com/payment/2018/detail"/>
 			<value value="10-12345-003"/>
@@ -122,7 +134,7 @@
 			<value value="-1500.00"/>
 			<currency value="USD"/>
 		</amount>   
-	</detail>
+	</allocation>
 
 	<formCode>
 		<coding>

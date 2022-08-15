@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="device-status"/>
+  <id value="device-availability-status"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -9,13 +9,21 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <ul>
+        
         <li>Include all codes defined in 
-          <a href="codesystem-device-status.html">
-            <code>http://hl7.org/fhir/device-status</code>
+          
+          <a href="codesystem-device-availability-status.html">
+            
+            <code>http://hl7.org/fhir/device-availability-status</code>
+          
           </a>
+        
         </li>
+      
       </ul>
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -27,14 +35,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="2"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/device-status"/>
+  <url value="http://hl7.org/fhir/ValueSet/device-availability-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.209"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
-  <version value="5.0.0"/>
-  <name value="FHIRDeviceStatus"/>
-  <title value="FHIRDeviceStatus"/>
+  <version value="5.0.0-cibuild"/>
+  <name value="FHIRDeviceAvailabilityStatus"/>
+  <title value="FHIRDeviceAvailabilityStatus"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -49,11 +57,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The status of the Device record."/>
+  <description value="The availability status of the device."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/device-status"/>
+      <system value="http://hl7.org/fhir/device-availability-status"/>
     </include>
   </compose>
 </ValueSet>
