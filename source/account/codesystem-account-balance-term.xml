@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="account-balance-term"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/account-balance-term"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="AccountBalanceTerm"/>
+  <title value="Account Balance Term"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <description value="Indicates the account balance's age"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/account-payment-terms"/>
+  <content value="complete"/>
+  <concept>
+    <code value="current"/>
+    <display value="Current"/>
+    <definition value="This balance is the current balance"/>
+  </concept>
+  <concept>
+    <code value="30"/>
+    <display value="30 day"/>
+    <definition value="This balance is outstanding over 30 days"/>
+  </concept>
+  <concept>
+    <code value="60"/>
+    <display value="60 day"/>
+    <definition value="This balance is outstanding over 60 days"/>
+  </concept>
+  <concept>
+    <code value="90"/>
+    <display value="90 day"/>
+    <definition value="This balance is outstanding over 90 days"/>
+  </concept>
+  <concept>
+    <code value="120"/>
+    <display value="120 day"/>
+    <definition value="This balance is outstanding over 120 days"/>
+  </concept>
+</CodeSystem>
