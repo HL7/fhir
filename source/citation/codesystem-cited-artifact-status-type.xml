@@ -258,7 +258,21 @@
           
           <td>The content has been approved for a state transition, with the focus of approval described in the text associated with this coding.</td>
         
-        </tr>      
+        </tr>    
+		
+        <tr>
+          
+          <td style="white-space:nowrap">unknown
+            
+            <a name="cited-artifact-status-type-unknown"> </a>
+          
+          </td>
+          
+          <td>Unknown</td>
+          
+          <td>The status of the content is not recorded in the metadata.</td>
+        
+        </tr>    
       
       </table>
     
@@ -279,7 +293,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="CitedArtifactStatusType"/>
   <title value="CitedArtifactStatusType"/>
   <status value="draft"/>
@@ -374,5 +388,10 @@
     <code value="approved"/>
     <display value="Approved"/>
     <definition value="The content has been approved for a state transition, with the focus of approval described in the text associated with this coding."/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The status of the content is not recorded in the metadata."/>
   </concept>
 </CodeSystem>

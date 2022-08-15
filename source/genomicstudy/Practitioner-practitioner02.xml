@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Practitioner xmlns="http://hl7.org/fhir">
+  <id value="practitioner02"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative</b></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource "practitioner02" </p></div><p><b>identifier</b>: Provider number: 11116 (TEMP)</p><p><b>active</b>: true</p><p><b>name</b>: Jane Doel </p></div>
+  </text>
+  <identifier>
+    <use value="temp"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+        <code value="PRN"/>
+        <display value="Provider number"/>
+      </coding>
+    </type>
+    <system value="http://www.somesystemabc.net/identifiers/persons"/>
+    <value value="11116"/>
+    <period>
+      <start value="2021-01-01"/>
+    </period>
+    <assigner>
+      <display value="Child Hospital"/>
+    </assigner>
+  </identifier>
+  <active value="true"/>
+  <name>
+    <family value="Doel"/>
+    <given value="Jane"/>
+    <prefix value="Dr"/>
+  </name>
+</Practitioner>

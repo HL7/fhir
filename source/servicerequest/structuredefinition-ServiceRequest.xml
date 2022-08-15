@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ServiceRequest"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A record of a request for service such as diagnostic investigations, treatments, or operations to be performed."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -188,7 +188,7 @@
       <max value="*"/>
       <type>
         <code value="uri"/>
-      </type>
+      </type> 
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -487,13 +487,15 @@
       </extension>
       <path value="ServiceRequest.code"/>
       <short value="What is being requested/ordered"/>
-      <definition value="A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested."/>
+      <definition value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested."/>
       <comment value="Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code."/>
       <alias value="service requested"/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -624,6 +626,30 @@
       <mapping>
         <identity value="quick"/>
         <map value="ClinicalStatement.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="ServiceRequest.focus">
+      <path value="ServiceRequest.focus"/>
+      <short value="What the service request is about, when it is not about the subject of record"/>
+      <definition value="The actual focus of a service request when it is not the subject of record representing something or someone associated with the subject such as a spouse, parent, fetus, or donor. The focus of a service request could also be an existing condition,  an intervention, the subject&#39;s diet,  another service request on the subject,  or a body structure such as tumor or implanted device."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=SBJ]"/>
       </mapping>
       <mapping>
         <identity value="w5"/>

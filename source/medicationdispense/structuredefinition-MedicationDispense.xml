@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="MedicationDispense"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -299,7 +299,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXD-2-Dispense/Give Code"/>
+        <map value="RXD-2 Dispense/Give Code"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -333,7 +333,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PID-3-Patient ID List"/>
+        <map value="PID-3 Patient ID List"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -513,7 +513,7 @@
       </binding>
       <mapping>
         <identity value="v2"/>
-        <map value="RXD-33-Dispense Type"/>
+        <map value="RXD-33 Dispense Type"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -536,7 +536,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system"/>
+        <map value="RXD-4 Actual Dispense Amount / RXD-5.1 Actual Dispense Units.code / RXD-5.3 Actual Dispense Units.name of coding system"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -595,7 +595,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
-        <map value="RXD-3-Date/Time Dispensed"/>
+        <map value="RXD-3 Date/Time Dispensed"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -624,7 +624,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXD-3-Date/Time Dispensed"/>
+        <map value="RXD-3 Date/Time Dispensed"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -808,7 +808,7 @@
       </binding>
       <mapping>
         <identity value="v2"/>
-        <map value="RXO-9-Allow Substitutions / RXE-9-Substitution Status"/>
+        <map value="RXO-9 Allow Substitutions / RXE-9 Substitution Status"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

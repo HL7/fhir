@@ -1,258 +1,471 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="Permission"/>
-  <meta>
-    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-    <valueString value="Foundation.Security"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="not-classified"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="sec"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".status = entered-in-error"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/Permission"/>
-  <version value="4.6.0"/>
-  <name value="Permission"/>
-  <status value="draft"/>
-  <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Security)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/secure/index.cfm"/>
-    </telecom>
-  </contact>
-  <description value="Permission."/>
-  <fhirVersion value="4.6.0"/>
+	<id value="Permission"/>
+	<meta>
+		<lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+		<valueString value="Foundation.Security"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="0"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+		<valueCode value="not-classified"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="sec"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+		<valueCode value=".status = entered-in-error"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/Permission"/>
+	<version value="5.0.0"/>
+	<name value="Permission"/>
+	<status value="draft"/>
+	<date value="2021-01-02T08:58:31+11:00"/>
+	<publisher value="Health Level Seven International (Security)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/secure/index.cfm"/>
+		</telecom>
+	</contact>
+	<description value="Permission resource holds access rules for a given data and context."/>
+	<fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
     <name value="FiveWs Pattern Mapping"/>
   </mapping>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="Permission"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
-  <derivation value="specialization"/>
-  <differential>
-    <element id="Permission">
-      <path value="Permission"/>
-      <short value="Permission"/>
-      <definition value="Permission."/>
-      <min value="0"/>
-      <max value="*"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="infrastructure.information"/>
-      </mapping>
-    </element>
-    <element id="Permission.status">
-      <path value="Permission.status"/>
-      <short value="active | entered-in-error | draft | rejected"/>
-      <definition value="Status."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PermissionStatus"/>
+	<mapping>
+		<identity value="fhirconsent"/>
+		<uri value="http://hl7.org/fhir/consent"/>
+		<name value="FHIR Consent Mapping"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="Permission"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+	<derivation value="specialization"/>
+	<differential>
+		<element id="Permission">
+			<path value="Permission"/>
+			<short value="Access Rules"/>
+			<definition value="Permission resource holds access rules for a given data and context."/>
+			<min value="0"/>
+			<max value="*"/>
+            <mapping>
+                <identity value="w5" />
+                <map value="infrastructure.information" />
+            </mapping>
+		</element>
+		<element id="Permission.status">
+			<path value="Permission.status"/>
+			<short value="active | entered-in-error | draft | rejected"/>
+			<definition value="Status."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PermissionStatus"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Codes identifying the lifecycle stage of a product."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/permission-status"/>
+			</binding>
+			<mapping>
+				<identity value="fhirconsent"/>
+				<map value="Consent.status"/>
+			</mapping>
+		</element>
+		<element id="Permission.asserter">
+			<path value="Permission.asserter"/>
+			<short value="The person or entity that asserts the permission"/>
+			<definition value="The person or entity that asserts the permission."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="fhirconsent"/>
+				<map value="Consent.grantor, Consent.grantee, Consent.manager, Consent.controller"/>
+			</mapping>
+		</element>
+		<element id="Permission.date">
+			<path value="Permission.date"/>
+			<short value="The date that permission was asserted"/>
+			<definition value="The date that permission was asserted."/>
+			<alias value="class"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="fhirconsent"/>
+				<map value="Consent.dateTime"/>
+			</mapping>
+		</element>
+		<element id="Permission.validity">
+			<path value="Permission.validity"/>
+			<short value="The period in which the permission is active"/>
+			<definition value="The period in which the permission is active."/>
+			<alias value="type"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Period"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="fhirconsent"/>
+				<map value="Consent.provision.period"/>
+			</mapping>
+		</element>
+		<element id="Permission.justification.basis">
+			<path value="Permission.justification.basis"/>
+			<short value="The regulatory grounds upon which this Permission builds"/>
+			<definition value="This would be a codeableconcept, or a coding, which can be constrained to , for example, the 6 grounds for processing in GDPR."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ConsentRegulatoryBasis"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Regulatory policy examples"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/consent-policy"/>
+			</binding>
+			<mapping>
+				<identity value="fhirconsent"/>
+				<map value="Consent.regulatoryBasis"/>
+			</mapping>
+		</element>
+		<element id="Permission.justification">
+			<path value="Permission.justification"/>
+			<short value="The asserted justification for using the data"/>
+			<definition value="The asserted justification for using the data."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="Permission.justification.evidence">
+			<path value="Permission.justification.evidence"/>
+			<short value="Justifing rational"/>
+			<comment value="While any resource may be used, DocumentReference, Consent, PlanDefinition, and Contract would be most frequent"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="fhirconsent"/>
+				<map value="Consent.policyBasis.reference"/>
+			</mapping>
+		</element>
+		<element id="Permission.combining">
+			<path value="Permission.combining"/>
+			<short value="deny-overrides | permit-overrides | ordered-deny-overrides | deny-unless-permit | permit-unless-deny"/>
+			<definition value="Defines a procedure for arriving at an access decision given the set of rules."/>
+			<comment value="see [XACML Combining Rules](http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-cos01-en.html#_Toc325047267)"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<isModifier value="true"/>
+			<isModifierReason value="Defines how the rules are to be combined."/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PermissionCombining"/>
+				</extension>
+				<strength value="required"/>
+				<description value="How the rules are to be combined."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/permission-rule-combining"/>
+			</binding>
+		</element>
+    <element id="Permission.rule">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+            <valueString value="rule" />
         </extension>
-        <strength value="required"/>
-        <description value="Codes identifying the lifecycle stage of a product."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/permission-status"/>
-      </binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+            <valueCode value="right" />
+        </extension>
+        <path value="Permission.rule" />
+        <short value="Constraints to the Permission" />
+        <definition value="A set of rules." />
+        <min value="0" />
+        <max value="*" />
+        <type>
+            <code value="BackboneElement" />
+        </type>
+		<orderMeaning value="The order of the rules processing is defined in rule-combining"/>
+        <isSummary value="true" />
     </element>
-    <element id="Permission.intent">
-      <path value="Permission.intent"/>
-      <short value="grant|refuse"/>
-      <definition value="grant|refuse."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Permission.asserter">
-      <path value="Permission.asserter"/>
-      <short value="The person or entity that asserts the permission"/>
-      <definition value="The person or entity that asserts the permission."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Permission.assertionDate">
-      <path value="Permission.assertionDate"/>
-      <short value="The date that permission was asserted"/>
-      <definition value="The date that permission was asserted."/>
-      <alias value="class"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Permission.validity">
-      <path value="Permission.validity"/>
-      <short value="The period in which the permission is active"/>
-      <definition value="The period in which the permission is active."/>
-      <alias value="type"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Permission.purpose">
-      <path value="Permission.purpose"/>
-      <short value="The purpose for which the permission is given"/>
-      <definition value="The purpose for which the permission is given."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Permission.dataScope">
-      <path value="Permission.dataScope"/>
-      <short value="This can be 1) the definition of data elements, or 2) a category or label) e.g. &#x201C;sensitive&#x201D;. It could also be a c) graph-like definition of a set of data elements"/>
-      <definition value="This can be 1) the definition of data elements, or 2) a category or label) e.g. &#x201C;sensitive&#x201D;. It could also be a c) graph-like definition of a set of data elements."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Expression"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Permission.processingActivity">
-      <path value="Permission.processingActivity"/>
-      <short value="A description or definition of which activities are allowed to be done on the data"/>
-      <definition value="A description or definition of which activities are allowed to be done on the data."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Permission.processingActivity.partyReference">
-      <path value="Permission.processingActivity.partyReference"/>
-      <short value="If the processing is a transfer, we must capture where it the data allowed or expected to be shared - with a party or person"/>
-      <definition value="If the processing is a transfer, we must capture where it the data allowed or expected to be shared - with a party or person."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Permission.processingActivity.partyCodeableConcept">
-      <path value="Permission.processingActivity.partyCodeableConcept"/>
-      <short value="If the processing is a transfer, or involves another party, we must capture where it the data allowed or expected to be shared - with a party or person. This can be a party instance or party type&#xA;&#xA7; Purpose &#x2013; a specific purpose of the data"/>
-      <definition value="If the processing is a transfer, or involves another party, we must capture where it the data allowed or expected to be shared - with a party or person. This can be a party instance or party type&#xA;&#xA7; Purpose &#x2013; a specific purpose of the data."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Permission.processingActivity.purpose">
-      <path value="Permission.processingActivity.purpose"/>
-      <short value="The purpose for which the permission is given"/>
-      <definition value="The purpose for which the permission is given."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Permission.justification">
-      <path value="Permission.justification"/>
-      <short value="The asserted justification for using the data"/>
-      <definition value="The asserted justification for using the data."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Permission.justification.evidence">
-      <path value="Permission.justification.evidence"/>
-      <short value="Evidence &#x2013; reference to consent, or a contract, or a policy, or a regulation, or an attachment that contains a screenshot"/>
-      <definition value="Evidence &#x2013; reference to consent, or a contract, or a policy, or a regulation, or an attachment that contains a screenshot."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Consent"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Permission.justification.grounds">
-      <path value="Permission.justification.grounds"/>
-      <short value="This would be a codeableconcept, or a coding, which can be constrained to , for example, the 6 grounds for processing in GDPR"/>
-      <definition value="This would be a codeableconcept, or a coding, which can be constrained to , for example, the 6 grounds for processing in GDPR."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Permission.usageLimitations">
-      <path value="Permission.usageLimitations"/>
-      <short value="What limits apply to the use of the data"/>
-      <definition value="What limits apply to the use of the data."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-  </differential>
+		<element id="Permission.rule.type">
+			<path value="Permission.rule.type"/>
+			<short value="deny | permit"/>
+			<definition value="deny | permit."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<isModifier value="true"/>
+			<isModifierReason value="Sets the context for the meaning of the rules."/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PermissionProvisionType"/>
+				</extension>
+				<strength value="required"/>
+				<description value="How a rule statement is applied."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/consent-provision-type"/>
+			</binding>
+			<mapping>
+				<identity value="fhirconsent"/>
+				<map value="Consent.provision.type"/>
+			</mapping>
+		</element>
+		<element id="Permission.rule.data">
+			<path value="Permission.rule.data"/>
+			<short value="The selection criteria to identify data that is within scope of this provision"/>
+			<definition value="A description or definition of which activities are allowed to be done on the data."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="Permission.rule.data.resource">
+			<path value="Permission.rule.data.resource"/>
+			<short value="Explicit FHIR Resource references"/>
+			<definition value=""/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="fhirconsent"/>
+				<map value="Consent.provision.data"/>
+			</mapping>
+		</element>
+        <element id="Permission.rule.data.resource.meaning">
+            <path value="Permission.rule.data.resource.meaning" />
+            <short value="instance | related | dependents | authoredby" />
+            <definition value="How the resource reference is interpreted when testing consent restrictions." />
+            <min value="1" />
+            <max value="1" />
+            <type>
+                <code value="code" />
+            </type>
+            <isSummary value="true" />
+            <binding>
+                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                    <valueString value="ConsentDataMeaning" />
+                </extension>
+                <strength value="required" />
+                <description value="How a resource reference is interpreted when testing consent restrictions." />
+                <valueSet value="http://hl7.org/fhir/ValueSet/consent-data-meaning" />
+            </binding>
+        </element>
+        <element id="Permission.rule.data.resource.reference">
+            <path value="Permission.rule.data.resource.reference" />
+            <short value="The actual data reference" />
+            <definition value="A reference to a specific resource that defines which resources are covered by this consent." />
+            <min value="1" />
+            <max value="1" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource" />
+            </type>
+            <isSummary value="true" />
+        </element>
+
+		<element id="Permission.rule.data.security">
+			<path value="Permission.rule.data.security"/>
+			<short value="Security tag code on .meta.security"/>
+			<definition value="The data in scope are those with the given codes present in that data .meta.security element."/>
+            <comment value="Note the ConfidentialityCode vocabulary indicates the highest value, thus a security label of &quot;R&quot; then it applies to all resources that are labeled &quot;R&quot; or lower. E.g. for Confidentiality, it's a high water mark. For other kinds of security labels, subsumption logic applies. When the purpose of use tag is on the data, access request purpose of use shall not conflict." />
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Coding"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="fhirconsent"/>
+				<map value="Consent.provision.securityLabel"/>
+			</mapping>
+		</element>
+		<element id="Permission.rule.data.period">
+			<path value="Permission.rule.data.period"/>
+			<short value="Timeframe encompasing data create/update"/>
+            <definition value="Clinical or Operational Relevant period of time that bounds the data controlled by this rule." />
+            <comment value="This has a different sense to the .validity." />
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Period"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="fhirconsent"/>
+				<map value="Consent.provision.dataPeriod"/>
+			</mapping>
+		</element>
+		<element id="Permission.rule.data.expression">
+			<path value="Permission.rule.data.expression"/>
+			<short value="Expression identifying the data"/>
+			<definition value="Used when other data selection elements are insufficient."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Expression"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="fhirconsent"/>
+				<map value="Consent.provision.class, Consent.provision.code, Consent.provision.expression"/>
+			</mapping>
+		</element>
+		<element id="Permission.rule.activity">
+			<path value="Permission.rule.activity"/>
+			<short value="A description or definition of which activities are allowed to be done on the data"/>
+			<definition value="A description or definition of which activities are allowed to be done on the data."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="Permission.rule.activity.actor">
+			<path value="Permission.rule.activity.actor"/>
+			<short value="Authorized actor(s)"/>
+			<definition value="The actor(s) authorized for the defined activity."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="fhirconsent"/>
+				<map value="Consent.provision.actor"/>
+			</mapping>
+		</element>
+		<element id="Permission.rule.activity.action">
+			<path value="Permission.rule.activity.action"/>
+			<short value="Actions controlled by this rule"/>
+			<definition value="Actions controlled by this Rule."/>
+			<comment value="Note that this is the direct action (not the grounds for the action covered in the purpose element). At present, the only action in the understood and tested scope of this resource is 'read'."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ProcessingActivityAction"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Detailed codes for the action."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/consent-action"/>
+			</binding>
+			<mapping>
+				<identity value="fhirconsent"/>
+				<map value="Consent.provision.action"/>
+			</mapping>
+		</element>
+		<element id="Permission.rule.activity.purpose">
+			<path value="Permission.rule.activity.purpose"/>
+			<short value="The purpose for which the permission is given"/>
+			<definition value="The purpose for which the permission is given."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PurposeOfUse"/>
+				</extension>
+				<strength value="preferred"/>
+				<description value="What purposes of use are controlled by this exception. If more than one label is specified, operations must have all the specified labels."/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"/>
+			</binding>
+			<mapping>
+				<identity value="fhirconsent"/>
+				<map value="Consent.provision.purpose"/>
+			</mapping>
+		</element>
+		<element id="Permission.rule.limit">
+			<path value="Permission.rule.limit"/>
+			<short value="What limits apply to the use of the data"/>
+			<definition value="What limits apply to the use of the data."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PermissionUsageLimits"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Obligations and Refrains"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/security-label-event-examples"/>
+			</binding>
+		</element>
+
+	</differential>
 </StructureDefinition>

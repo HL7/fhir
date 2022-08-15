@@ -2,20 +2,20 @@
 	<id value="provenance-activity-type"/>
 	<text>
 		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">  This is a value set of representative FHIR Activity Type codes. </div>
+		<div xmlns="http://www.w3.org/1999/xhtml">  This is a value set of representative Activity Type codes. </div>
 	</text>
 	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
 	  <valueBoolean value="true"/>
 	</extension>
 
 	<url value="http://hl7.org/fhir/ValueSet/provenance-activity-type"/>
-	<version value="1.1.0"/>
+	<version value="2.0.0"/>
 	<name value="ProvenanceActivityType"/>
-
+    <title value="ValueSet of sample of representative activity type codes."/>
 	<status value="draft"/>
 	<experimental value="false"/>
 
-	<date value="2017-01-30T18:00:00+01:00"/>
+	<date value="2022-05-10T18:00:00+01:00"/>
 	<publisher value="HL7 Security Work Group"/>
 	<contact>
 		<telecom>
@@ -27,62 +27,18 @@
 			<value value="fhir@lists.hl7.org"/>
 		</telecom>
 	</contact>
-	<description value="This value set contains representative Activity Type codes, which includes codes from the HL7 DocumentCompletion, ActStatus, and DataOperations code system, W3C PROV-DM and PROV-N concepts and display names, several HL7 Lifecycle Event codes for which there are agreed upon definitions, and non-duplicated codes from the HL7 Security and Privacy Ontology Operations codes."/>
-	<copyright value="This is a value set of representative Activity Type codes."/>
+	<description value="Some potential code systems are:&#xA;- [v3-DocumentCompletion](http://terminology.hl7.org/3.0.0/CodeSystem-v3-DocumentCompletion.html)&#xA;- [v3-DataOperation](http://terminology.hl7.org/3.0.0/CodeSystem-v3-DataOperation.html)&#xA;- [v3-ActCode](http://hl7.org/fhir/v3/ActCode/cs.html)&#xA;- [ISO Lifecycle](http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle)"/>
 
 	<compose>
 		<include>
-<!-- JIRA FHIR-23712 get iso 21089 thru the object-lifecycle-events valueset -->
-			<valueSet value="http://hl7.org/fhir/ValueSet/object-lifecycle-events"/>
+			<system value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"/>
+			<concept><code value="amend"/></concept>
+			<concept><code value="originate"/></concept>
+			<concept><code value="merge"/></concept>
+			<concept><code value="deidentify"/></concept>
+			<concept><code value="receive"/></concept>
+			<concept><code value="transform"/></concept>
+			<concept><code value="verify"/></concept>
 		</include>
-		<include>
-<!-- JIRA FHIR-23712 added these -->
-			<system value="http://hl7.org/fhir/event-status"/>
-		</include>
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion"/>
-<!-- JIRA FHIR-23712 removed this subset, so include all document completion codes  
-			<concept><code value="LA"/></concept>
--->
-		</include>
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-DataOperation"/>
-<!-- JIRA FHIR-23712 removed this subset, so include all data operations 
-			<concept><code value="CREATE"/>	</concept>
-			<concept><code value="DELETE"/>	</concept>
-			<concept><code value="UPDATE"/>	</concept>
-			<concept><code value="APPEND"/>	</concept>
-			<concept><code value="NULLIFY"/> </concept>
--->
-		</include>
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-ActStatus"/>
-		</include>
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-<!-- JIRA FHIR-23712 removed this subset, so all act codes are reasonable
-			<concept><code value="ANONY"/></concept>
-			<concept><code value="DEID"/></concept>
-			<concept><code value="MASK"/></concept>
-			<concept><code value="LABEL"/></concept>
-			<concept><code value="PSEUD"/></concept>
--->
-		</include>
-<!-- GF#19410 removed these
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-		</include>
--->
-<!-- Reduced set to most likely
-		<include>
-			<valueSet value="http://terminology.hl7.org/ValueSet/v3-ObligationPolicy"/>
-		</include>
-		<include>
-			<system value="http://hl7.org/fhir/w3c-provenance-activity-type"/>
-		</include>
-		<include>
-			<system value="http://hl7.org/fhir/extra-activity-type"/>
-		</include>
--->
 		</compose>
 </ValueSet>

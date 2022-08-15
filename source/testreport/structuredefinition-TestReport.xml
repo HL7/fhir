@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/TestReport"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="TestReport"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A summary of information based on the results of executing a TestScript."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -89,7 +89,7 @@
     <element id="TestReport.identifier">
       <path value="TestReport.identifier"/>
       <short value="External identifier"/>
-      <definition value="Identifier for the TestScript assigned for external purposes outside the context of FHIR."/>
+      <definition value="Identifier for the TestReport assigned for external purposes outside the context of FHIR."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -103,8 +103,8 @@
     </element>
     <element id="TestReport.name">
       <path value="TestReport.name"/>
-      <short value="Informal name of the executed TestScript"/>
-      <definition value="A free text natural language name identifying the executed TestScript."/>
+      <short value="Informal name of the executed TestReport"/>
+      <definition value="A free text natural language name identifying the executed TestReport."/>
       <comment value="Not expected to be globally unique."/>
       <min value="0"/>
       <max value="1"/>

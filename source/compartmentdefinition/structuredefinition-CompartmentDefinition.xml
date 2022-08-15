@@ -27,7 +27,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CompartmentDefinition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="CompartmentDefinition"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="A compartment definition that defines how resources are accessed on a server."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -91,7 +91,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CompartmentDefinition"/>
       </constraint>
@@ -162,6 +162,22 @@
       </type>
       <condition value="cnl-0"/>
       <isSummary value="true"/>
+    </element>
+    <element id="CompartmentDefinition.title">
+      <path value="CompartmentDefinition.title"/>
+      <short value="Name for this compartment definition (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the capability statement."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.title"/>
+      </mapping>
     </element>
     <element id="CompartmentDefinition.status">
       <path value="CompartmentDefinition.status"/>

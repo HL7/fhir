@@ -16,7 +16,8 @@
       <display value="Example of MolecularSequence"/>
     </item>
   </entry>
-  <entry>
+  <!--
+    <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="MolecularSequence example from precisionFDA"/>
     </extension>
@@ -28,6 +29,7 @@
       <display value="MolecularSequence example for precisionFDA"/>
     </item>
   </entry>
+  -->
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Example of representing complex variants in MolecularSequence resource"/>
@@ -90,66 +92,6 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence Graphic example-1"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="sequence-graphic-example-1"/>
-    </extension>
-    <item>
-      <reference value="MolecularSequence/graphic-example-1"/>
-      <display value="MolecularSequence graph scenario 1"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence Graphic example-2"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="sequence-graphic-example-2"/>
-    </extension>
-    <item>
-      <reference value="MolecularSequence/graphic-example-2"/>
-      <display value="MolecularSequence graph scenario 2"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence Graphic example-3"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="sequence-graphic-example-3"/>
-    </extension>
-    <item>
-      <reference value="MolecularSequence/graphic-example-3"/>
-      <display value="MolecularSequence graph scenario 3"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence Graphic example-4"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="sequence-graphic-example-4"/>
-    </extension>
-    <item>
-      <reference value="MolecularSequence/graphic-example-4"/>
-      <display value="MolecularSequence graph scenario 4"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence Graphic example-5"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="sequence-graphic-example-5"/>
-    </extension>
-    <item>
-      <reference value="MolecularSequence/graphic-example-5"/>
-      <display value="MolecularSequence graph scenario 5"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Example of a record with 0-based coordinatesystem"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
@@ -174,30 +116,6 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence example for vcf comparison on precisionFDA"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="sequence-example-fda-comparisons"/>
-    </extension>
-    <item>
-      <reference value="MolecularSequence/fda-vcf-comparison"/>
-      <display value="vcf comparison (precisionFDA)"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence example for vcf and Hap.py comparison on precisionFDA"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="sequence-example-fda-vcfeval"/>
-    </extension>
-    <item>
-      <reference value="MolecularSequence/fda-vcfeval-comparison"/>
-      <display value="vcf and Hap.py comparison (precisionFDA)"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="MolecularSequence example for patient with breast cancer gene variant"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
@@ -208,4 +126,29 @@
       <display value="patient with breast cancer gene variant"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="MolecularSequence example for long fusion RNA molecule of FGFR and MET"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="sequence-example-ordinal"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/seq-ordinal"/>
+      <display value="Long fusion of FGFR and MET"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="BCR-ABL1 fusion (COSMIC https://cancer.sanger.ac.uk/cosmic/fusion/summary?id=1755). 5-prime end comprised of BCR exons 1-14. 3-prime end comprised of ABL1 exons 2-11."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="sequence-example-fusion"/>
+    </extension>
+    <item>
+      <reference value="MolecularSequence/sequence-example-fusion"/>
+      <display value="BCR-ABL1 fusion"/>
+    </item>
+  </entry>
+
 </List>

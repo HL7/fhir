@@ -37,7 +37,7 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CodeSystem-validate-code"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="validate-code"/>
   <title value="Code System based Validation"/>
   <status value="draft"/>

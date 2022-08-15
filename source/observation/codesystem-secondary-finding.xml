@@ -17,7 +17,7 @@
   <title value="Genetic Observation Secondary Findings"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="Codes to denote a guideline or policy statement.when a genetic test result is being shared as a secondary finding."/>
+  <description value="Codes to denote a guideline or policy statement when a genetic test result is being shared as a secondary finding."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/secondary-finding"/>
   <content value="complete"/>

@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="EpisodeOfCare"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -225,9 +225,16 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="condition-code"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
+      </binding>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -300,8 +307,9 @@
         <valueString value="This was left as 0..1 to permit small systems having an implied Organization."/>
       </extension>
       <path value="EpisodeOfCare.managingOrganization"/>
-      <short value="Organization that assumes care"/>
-      <definition value="The organization that has assumed the specific responsibilities for the specified duration."/>
+      <short value="Organization that assumes responsibility for care coordination"/>
+      <definition value="The organization that has assumed the specific responsibilities for care coordination, care delivery, or other services for the specified duration."/>
+      <comment value="If multiple organizations are involved in care delivery, the care teams from those organizations would be represented in EpisodeOfCare.team, while the primary organization managing the care would be listed in EpisodeOfCare.managingOrganization.   Other organizations may have their own EpisodeOfCare for tracking their activities."/>
       <min value="0"/>
       <max value="1"/>
       <type>

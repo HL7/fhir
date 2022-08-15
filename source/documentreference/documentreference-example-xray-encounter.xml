@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
+	<id value="documentreference-example-xray-encounter"/>
+    <identifier>
+      <system value="http://someclinic.org/fhir/NamingSystem/imaging-orders"/>
+      <value value="111222"/>
+      <assigner>
+        <display value="XYZ Medical Clinic"/>
+      </assigner>
+    </identifier>
+</Encounter>

@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Endpoint"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b, a REST endpoint for another FHIR server, or a s/Mime email address. This may include any security context information."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -99,8 +99,8 @@
     <element id="Endpoint.status">
       <path value="Endpoint.status"/>
       <short value="active | suspended | error | off | entered-in-error | test"/>
-      <definition value="active | suspended | error | off | test."/>
-      <comment value="This element is labeled as a modifier because the status contains codes that mark the endpoint as not currently valid."/>
+      <definition value="The endpoint status represents the general expected availability of an endpoint."/>
+      <comment value="This element is labeled as a modifier because the status contains codes that mark the endpoint as not currently valid. Temporary downtimes or other unexpected short-term changes in availability would not be represented in this property."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -130,9 +130,9 @@
       <path value="Endpoint.connectionType"/>
       <short value="Protocol/Profile/Standard to be used with this endpoint connection"/>
       <definition value="A coded value that represents the technical details of the usage of this endpoint, such as what WSDLs should be used in what way. (e.g. XDS.b/DICOM/cds-hook)."/>
-      <comment value="For additional connectivity details for the protocol, extensions will be used at this point, as in the XDS example."/>
+      <comment value="For additional connectivity details for the protocol, extensions will be used at this point, as in the XDS example. If there are multiple payload types or mimetypes they are all applicable for all connection types, and all have the same status."/>
       <min value="1"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Coding"/>
       </type>
@@ -210,6 +210,7 @@
       <path value="Endpoint.period"/>
       <short value="Interval the endpoint is expected to be operational"/>
       <definition value="The interval during which the endpoint is expected to be operational."/>
+	  <comment value="Temporary downtimes or other short-term changes in availability would not be represented in this property."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -230,7 +231,7 @@
       <short value="The type of content that may be used at this endpoint (e.g. XDS Discharge summaries)"/>
       <definition value="The payload type describes the acceptable content that can be communicated on the endpoint."/>
       <comment value="The payloadFormat describes the serialization format of the data, where the payloadType indicates the specific document/schema that is being transferred; e.g. DischargeSummary or CarePlan."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableConcept"/>

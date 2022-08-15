@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/RequestGroup"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="RequestGroup"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A group of related requests that can be used to capture intended activities that have inter-dependencies such as &quot;give this medication after that one&quot;."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -781,7 +781,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>

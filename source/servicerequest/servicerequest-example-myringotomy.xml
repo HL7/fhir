@@ -25,12 +25,14 @@
   </category>
 	<priority value="routine"/>
 	<code>
+	  <concept>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="172676009"/>
 			<display value="Myringotomy and insertion of tympanic ventilation tube"/>
 		</coding>
 		<text value="Insertion of grommets"/>
+	   </concept>
 	</code>
 	<subject>
 		<reference value="https://fhir.orionhealth.com/blaze/fhir/Patient/77662"/>

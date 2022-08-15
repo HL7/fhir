@@ -263,7 +263,7 @@
 		<url>http://www.pharmacists.ca/</url>
 		<link>http://www.pharmacists.ca/</link>
 		<columnName>CPhA3 (Pharmacy) Mapping</columnName>
-		<title>Canadian Pharmacy Associaiton eclaims standard</title>
+		<title>Canadian Pharmacy Association eclaims standard</title>
 		<id>cpha3pharm</id>
 		<sort>21</sort>
 		<publish>true</publish>
@@ -462,6 +462,24 @@
 		<title>ISO/IEEE 11073-10207</title>
 		<id>BICEPS</id>
 		<sort>43</sort>
+		<publish>true</publish>
+	</space>
+	<space>
+		<url>http://hl7.org/fhir/consent</url>
+    <link>http://hl7.org/fhir/consent.html</link>
+		<columnName>Consent Mapping</columnName>
+		<title>FHIR Consent Mapping</title>
+		<id>fhirconsent</id>
+		<sort>44</sort>
+		<publish>true</publish>
+	</space>
+	<space>
+	    <url>https://www.isbt128.org/uri/</url>
+		<link>https://www.isbt128.org/uri/</link>
+		<columnName>ISBT 128 Code</columnName>
+		<title>ISBT 128 Codes</title>
+		<id>ISBT128Code</id>
+		<sort>51</sort>
 		<publish>true</publish>
 	</space>
 </mappingSpaces>

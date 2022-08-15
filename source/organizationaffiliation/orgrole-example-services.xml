@@ -67,10 +67,11 @@
         <reference value="http://hl7.org/fhir/ig/vhdir/HealthcareService/independencerehab2"/>
         <display value="Outpatient rehabilitation services"/>
     </healthcareService>
-
-    <telecom> <!-- Call 202-109-8765 for more information, Mon-Fri 8:00am - 6:00pm -->
-        <system value="phone"/>
-        <value value="202-109-8765"/>
-        <use value="work"/>
-    </telecom>
+    <contact>
+        <telecom> <!-- Call 202-109-8765 for more information, Mon-Fri 8:00am - 6:00pm -->
+            <system value="phone"/>
+            <value value="202-109-8765"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
 </OrganizationAffiliation>

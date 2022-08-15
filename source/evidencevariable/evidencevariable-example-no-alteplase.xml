@@ -14,6 +14,7 @@
   <actual value="false"/>
   <characteristic>
     <description value="no alteplase"/>
+	<exclude value="true"/>
     <definitionCodeableConcept>
       <coding>
         <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
@@ -21,6 +22,5 @@
         <display value="alteplase"/>
       </coding>
     </definitionCodeableConcept>
-    <exclude value="true"/>
   </characteristic>
 </EvidenceVariable>

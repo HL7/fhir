@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.1481"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="AdverseEvent Supporting Inforation"/>
   <title value="AdverseEvent Supporting Information"/>
   <status value="draft"/>
@@ -26,7 +26,7 @@
   </contact>
   <description value="This value set includes codes that describe the supporting information relevant to the event."/>
   <copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
-  <compose>
+ <compose>
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
@@ -73,6 +73,30 @@
         <property value="concept"/>
         <op value="is-a"/>
         <value value="404684003"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="410942007"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="373873005"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="106181007"/>
       </filter>
     </include>
   </compose>

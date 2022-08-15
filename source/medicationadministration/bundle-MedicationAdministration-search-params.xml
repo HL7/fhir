@@ -139,6 +139,7 @@
         <expression value="MedicationAdministration.subject.where(resolve() is Patient)"/>
         <xpath value="f:MedicationAdministration/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

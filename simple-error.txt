@@ -1,1 +1,1 @@
-﻿Resource Examples failed instance validation
+﻿unable to process end xhtml content /Users/jdln/workspace/fhir_build/fhir/source/device/device-notes.xml : evice.

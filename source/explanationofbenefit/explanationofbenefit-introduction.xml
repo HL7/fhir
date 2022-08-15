@@ -46,6 +46,8 @@ the provider will settle the claim and potentially recover costs against specifi
 <li><a href="financial-module.html#attachments">Attachments and Supporting Information</a>: how eClaims may handle the provision of supporting
  information, whether provided by content or reference, within the eClaim resource when submitted to the payor or later in a resource which refers
  to the subject eClaim resource. This also includes how payors may request additional supporting information from providers.</li>
+<li><a href="financial-module.html#3-tier">3-Tier Line Item Hierarchy</a>: 3-tier hierarchy of Goods, products, and Services, to support simple to complex billing.</li>
+<li><a href="financial-module.html#tax">Tax</a>: Tax handling of Goods, products, and Services.</li>
 </ul>
 
 </div>

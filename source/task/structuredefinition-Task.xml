@@ -1,1292 +1,1363 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="Task"/>
-  <meta>
-    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-    <valueString value="Base.Workflow"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="not-classified"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="oo"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".status = entered-in-error"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/Task"/>
-  <version value="4.6.0"/>
-  <name value="Task"/>
-  <status value="draft"/>
-  <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Orders and Observations)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
-    </telecom>
-  </contact>
-  <description value="A task to be performed."/>
-  <fhirVersion value="4.6.0"/>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="v2"/>
-    <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="Task"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
-  <derivation value="specialization"/>
-  <differential>
-    <element id="Task">
-      <path value="Task"/>
-      <short value="A task to be performed"/>
-      <definition value="A task to be performed."/>
-      <min value="0"/>
-      <max value="*"/>
-      <constraint>
-        <key value="inv-1"/>
-        <severity value="error"/>
-        <human value="Last modified date must be greater than or equal to authored-on date."/>
-        <expression value="lastModified.exists().not() or authoredOn.exists().not() or lastModified &gt;= authoredOn"/>
-        <xpath value="not(exists(f:lastModified/@value)) or not(exists(f:authoredOn/@value)) or f:lastModified/@value &gt;= f:authoredOn/@value"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Task"/>
-      </constraint>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request, Event"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="ControlAct[moodCode=INT]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="workflow.order"/>
-      </mapping>
-    </element>
-    <element id="Task.identifier">
-      <path value="Task.identifier"/>
-      <short value="Task Instance Identifier"/>
-      <definition value="The business identifier for this task."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.identifier, Event.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".id"/>
-      </mapping>
-    </element>
-    <element id="Task.instantiatesCanonical">
-      <path value="Task.instantiatesCanonical"/>
-      <short value="Formal definition of task"/>
-      <definition value="The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task."/>
-      <requirements value="Enables a formal definition of how the task is to be performed, enabling automation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.instantiatesCanonical, Event.instantiatesCanonical"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
-    <element id="Task.instantiatesUri">
-      <path value="Task.instantiatesUri"/>
-      <short value="Formal definition of task"/>
-      <definition value="The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task."/>
-      <requirements value="Enables a formal definition of how the task is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation to be associated with a task), enabling automation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiatesUrl"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
-    <element id="Task.basedOn">
-      <path value="Task.basedOn"/>
-      <short value="Request fulfilled by this task"/>
-      <definition value="BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a &quot;request&quot; resource such as a ServiceRequest, MedicationRequest, ServiceRequest, CarePlan, etc. which is distinct from the &quot;request&quot; resource the task is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a task is created to fulfill a procedureRequest ( = FocusOn ) to collect a specimen from a patient."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.basedOn, Event.basedOn"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=FLFS].target[moodCode=INT]"/>
-      </mapping>
-    </element>
-    <element id="Task.groupIdentifier">
-      <path value="Task.groupIdentifier"/>
-      <short value="Requisition or grouper id"/>
-      <definition value="An identifier that links together multiple tasks and other requests that were created in the same context."/>
-      <requirements value="Billing and/or reporting can be linked to whether multiple requests were created as a single unit."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.groupIdentifier"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[moodCode=INT].id"/>
-      </mapping>
-    </element>
-    <element id="Task.partOf">
-      <path value="Task.partOf"/>
-      <short value="Composite task"/>
-      <definition value="Task that this particular task is part of."/>
-      <comment value="This should usually be 0..1."/>
-      <requirements value="Allows tasks to be broken down into sub-steps (and this division can occur independent of the original task)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.partOf"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[moodCode=INT]"/>
-      </mapping>
-    </element>
-    <element id="Task.status">
-      <path value="Task.status"/>
-      <short value="draft | requested | received | accepted | +"/>
-      <definition value="The current status of the task."/>
-      <requirements value="These states enable coordination of task status with off-the-shelf workflow solutions that support automation of tasks."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TaskStatus"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The current status of the task."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/task-status"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.status, Event.status"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".statusCode"/>
-      </mapping>
-    </element>
-    <element id="Task.statusReason">
-      <path value="Task.statusReason"/>
-      <short value="Reason for current status"/>
-      <definition value="An explanation as to why this task is held, failed, was refused, etc."/>
-      <comment value="This applies to the current status.  Look at the history of the task to see reasons for past statuses."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TaskStatusReason"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes to identify the reason for current status.  These will typically be specific to a particular workflow."/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=&quot;status change&quot;].reasonCode"/>
-      </mapping>
-    </element>
-    <element id="Task.businessStatus">
-      <path value="Task.businessStatus"/>
-      <short value="E.g. &quot;Specimen collected&quot;, &quot;IV prepped&quot;"/>
-      <definition value="Contains business-specific nuances of the business state."/>
-      <requirements value="There&#39;s often a need to track substates of a task - this is often variable by specific workflow implementation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TaskBusinessStatus"/>
-        </extension>
-        <strength value="example"/>
-        <description value="The domain-specific business-contextual sub-state of the task.  For example: &quot;Blood drawn&quot;, &quot;IV inserted&quot;, &quot;Awaiting physician signature&quot;, etc."/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;business status&quot;]"/>
-      </mapping>
-    </element>
-    <element id="Task.intent">
-      <path value="Task.intent"/>
-      <short value="unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
-      <definition value="Indicates the &quot;level&quot; of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc."/>
-      <comment value="This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.&#xA;&#xA;In most cases, Tasks will have an intent of &quot;order&quot;."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TaskIntent"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Distinguishes whether the task is a proposal, plan or full order."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/task-intent"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.intent"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".moodCode"/>
-      </mapping>
-    </element>
-    <element id="Task.priority">
-      <path value="Task.priority"/>
-      <short value="routine | urgent | asap | stat"/>
-      <definition value="Indicates how quickly the Task should be addressed with respect to other requests."/>
-      <requirements value="Used to identify the service level expected while performing a task."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <meaningWhenMissing value="If missing, this task should be performed with normal priority"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TaskPriority"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The task&#39;s priority."/>
-        </extension>
-        <strength value="required"/>
-        <description value="The priority of a task (may affect service level applied to the task)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.priority"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.grade"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".priorityCode"/>
-      </mapping>
-    </element>
-    <element id="Task.code">
-      <path value="Task.code"/>
-      <short value="Task Type"/>
-      <definition value="A name or code (or both) briefly describing what the task involves."/>
-      <comment value="The title (eg &quot;My Tasks&quot;, &quot;Outstanding Tasks for Patient X&quot;) should go into the code."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TaskCode"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes to identify what the task involves.  These will typically be specific to a particular workflow."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/task-code"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.code, Event.code"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".code"/>
-      </mapping>
-    </element>
-    <element id="Task.description">
-      <path value="Task.description"/>
-      <short value="Human-readable explanation of task"/>
-      <definition value="A free-text description of what is to be performed."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".text"/>
-      </mapping>
-    </element>
-    <element id="Task.focus">
-      <path value="Task.focus"/>
-      <short value="What task is acting on"/>
-      <definition value="The request being actioned or the resource being manipulated by this task."/>
-      <comment value="If multiple resources need to be manipulated, use sub-tasks.  (This ensures that status can be tracked independently for each referenced resource.)."/>
-      <requirements value="Used to identify the thing to be done."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=SUBJ].target"/>
-      </mapping>
-    </element>
-    <element id="Task.for">
-      <path value="Task.for"/>
-      <short value="Beneficiary of the Task"/>
-      <definition value="The entity who benefits from the performance of the service specified in the task (e.g., the patient)."/>
-      <requirements value="Used to track tasks outstanding for a beneficiary.  Do not use to track the task owner or creator (see owner and creator respectively).  This can also affect access control."/>
-      <alias value="Patient"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.subject, Event.subject"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=RCT].role"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
-    </element>
-    <element id="Task.encounter">
-      <path value="Task.encounter"/>
-      <short value="Healthcare event during which this task originated"/>
-      <definition value="The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created."/>
-      <requirements value="For some tasks it may be important to know the link between the encounter the task originated within."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.context, Event.context"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.context"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[classCode=PCPR, moodCode=EVN]"/>
-      </mapping>
-    </element>
-    <element id="Task.executionPeriod">
-      <path value="Task.executionPeriod"/>
-      <short value="Start and end time of execution"/>
-      <definition value="Identifies the time action was first taken against the task (start) and/or the time final action was taken against the task prior to marking it as completed (end)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.occurrence[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.done[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="Task.authoredOn">
-      <path value="Task.authoredOn"/>
-      <short value="Task Creation Date"/>
-      <definition value="The date and time this task was created."/>
-      <requirements value="Most often used along with lastUpdated to track duration of task to supporting monitoring and management."/>
-      <alias value="Created Date"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <condition value="inv-1"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.authoredOn"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.recorded"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=AUT].time"/>
-      </mapping>
-    </element>
-    <element id="Task.lastModified">
-      <path value="Task.lastModified"/>
-      <short value="Task Last Modified Date"/>
-      <definition value="The date and time of last modification to this task."/>
-      <requirements value="Used along with history to track task activity and time in a particular task state.  This enables monitoring and management."/>
-      <alias value="Update Date"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <condition value="inv-1"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ, ].source[classCode=CACT, moodCode=EVN].effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="Task.requester">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,0"/>
-      </extension>
-      <path value="Task.requester"/>
-      <short value="Who is asking for task to be done"/>
-      <definition value="The creator of the task."/>
-      <requirements value="Identifies who created this task.  May be used by access control mechanisms (e.g., to ensure that only the creator can cancel a task)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.requester"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.author"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=AUT].role"/>
-      </mapping>
-    </element>
-    <element id="Task.performerType">
-      <path value="Task.performerType"/>
-      <short value="Requested performer"/>
-      <definition value="The kind of participant that should perform the task."/>
-      <requirements value="Use to distinguish tasks on different activity queues."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TaskPerformerType"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="The type(s) of task performers allowed."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/performer-role"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.performer.role, Request.performerType"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=PRF].role.code"/>
-      </mapping>
-    </element>
-    <element id="Task.owner">
-      <path value="Task.owner"/>
-      <short value="Responsible individual"/>
-      <definition value="Individual organization or Device currently responsible for task execution."/>
-      <comment value="Tasks may be created with an owner not yet identified."/>
-      <requirements value="Identifies who is expected to perform this task."/>
-      <alias value="Performer"/>
-      <alias value="Executer"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.performer.actor, Request.performer"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=PRF].role"/>
-      </mapping>
-    </element>
-    <element id="Task.location">
-      <path value="Task.location"/>
-      <short value="Where task occurs"/>
-      <definition value="Principal physical location where the this task is performed."/>
-      <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.reasonCode, Event.reasonCode"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.where[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=LOC].role"/>
-      </mapping>
-    </element>
-    <element id="Task.reasonCode">
-      <path value="Task.reasonCode"/>
-      <short value="Why task is needed"/>
-      <definition value="A description or code indicating why this task needs to be performed."/>
-      <comment value="This should only be included if there is no focus or if it differs from the reason indicated on the focus."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TaskReason"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Indicates why the task is needed.  E.g. Suspended because patient admitted to hospital."/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.location"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.why[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="EVN.7"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".reasonCode"/>
-      </mapping>
-    </element>
-    <element id="Task.reasonReference">
-      <path value="Task.reasonReference"/>
-      <short value="Why task is needed"/>
-      <definition value="A resource reference indicating why this task needs to be performed."/>
-      <comment value="Tasks might be justified based on an Observation, a Condition, a past or planned procedure, etc.   This should only be included if there is no focus or if it differs from the reason indicated on the focus.    Use the CodeableConcept text element in `Task.reasonCode` if the data is free (uncoded) text."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.reasonReference, Event.reasonReference"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.why[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=RSON].target"/>
-      </mapping>
-    </element>
-    <element id="Task.insurance">
-      <path value="Task.insurance"/>
-      <short value="Associated insurance coverage"/>
-      <definition value="Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the Task."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Coverage"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClaimResponse"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.insurance"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="IN1/IN2"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=COVBY].target"/>
-      </mapping>
-    </element>
-    <element id="Task.note">
-      <path value="Task.note"/>
-      <short value="Comments made about the task"/>
-      <definition value="Free-text information captured about the task as it progresses."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Annotation"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.note, Event.note"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ, ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value(string)"/>
-      </mapping>
-    </element>
-    <element id="Task.relevantHistory">
-      <path value="Task.relevantHistory"/>
-      <short value="Key events in history of the Task"/>
-      <definition value="Links to Provenance records for past versions of this Task that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the task."/>
-      <comment value="This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude."/>
-      <alias value="Status History"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.relevantHistory"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]"/>
-      </mapping>
-    </element>
-    <element id="Task.restriction">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,100"/>
-      </extension>
-      <path value="Task.restriction"/>
-      <short value="Constraints on fulfillment tasks"/>
-      <definition value="If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned."/>
-      <requirements value="Sometimes when fulfillment is sought, you don&#39;t want full fulfillment."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="Instead of pointing to request, would point to component of request, having these characteristics"/>
-      </mapping>
-    </element>
-    <element id="Task.restriction.repetitions">
-      <path value="Task.restriction.repetitions"/>
-      <short value="How many times to repeat"/>
-      <definition value="Indicates the number of times the requested action should occur."/>
-      <requirements value="E.g. order that requests monthly lab tests, fulfillment is sought for 1."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="positiveInt"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".repeatNumber"/>
-      </mapping>
-    </element>
-    <element id="Task.restriction.period">
-      <path value="Task.restriction.period"/>
-      <short value="When fulfillment sought"/>
-      <definition value="Over what time-period is fulfillment sought."/>
-      <comment value="Note that period.high is the due date representing the time by which the task should be completed."/>
-      <requirements value="E.g. order that authorizes 1 year&#39;s services.  Fulfillment is sought for next 3 months."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime(IVL&lt;TS&gt;)"/>
-      </mapping>
-    </element>
-    <element id="Task.restriction.recipient">
-      <path value="Task.restriction.recipient"/>
-      <short value="For whom is fulfillment sought?"/>
-      <definition value="For requests that are targeted to more than one potential recipient/target, to identify who is fulfillment is sought for."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=SBJ].role"/>
-      </mapping>
-    </element>
-    <element id="Task.input">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Parameter"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,225"/>
-      </extension>
-      <path value="Task.input"/>
-      <short value="Information used to perform task"/>
-      <definition value="Additional information that may be needed in the execution of the task."/>
-      <requirements value="Resources and data used to perform the task.  This data is used in the business logic of task execution, and is stored separately because it varies between workflows."/>
-      <alias value="Supporting Information"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="???"/>
-      </mapping>
-    </element>
-    <element id="Task.input.type">
-      <path value="Task.input.type"/>
-      <short value="Label for the input"/>
-      <definition value="A code or description indicating how the input is intended to be used as part of the task execution."/>
-      <comment value="If referencing a BPMN workflow or Protocol, the &quot;system&quot; is the URL for the workflow definition and the code is the &quot;name&quot; of the required input."/>
-      <requirements value="Inputs are named to enable task automation to bind data and pass it from one task to the next."/>
-      <alias value="Name"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TaskInputParameterType"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc."/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="???"/>
-      </mapping>
-    </element>
-    <element id="Task.input.value[x]">
-      <path value="Task.input.value[x]"/>
-      <short value="Content to use in performing the task"/>
-      <definition value="The value of the input parameter as a basic type."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="base64Binary"/>
-      </type>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <type>
-        <code value="canonical"/>
-      </type>
-      <type>
-        <code value="code"/>
-      </type>
-      <type>
-        <code value="date"/>
-      </type>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <type>
-        <code value="id"/>
-      </type>
-      <type>
-        <code value="instant"/>
-      </type>
-      <type>
-        <code value="integer"/>
-      </type>
-      <type>
-        <code value="integer64"/>
-      </type>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <type>
-        <code value="oid"/>
-      </type>
-      <type>
-        <code value="positiveInt"/>
-      </type>
-      <type>
-        <code value="string"/>
-      </type>
-      <type>
-        <code value="time"/>
-      </type>
-      <type>
-        <code value="unsignedInt"/>
-      </type>
-      <type>
-        <code value="uri"/>
-      </type>
-      <type>
-        <code value="url"/>
-      </type>
-      <type>
-        <code value="uuid"/>
-      </type>
-      <type>
-        <code value="Address"/>
-      </type>
-      <type>
-        <code value="Age"/>
-      </type>
-      <type>
-        <code value="Annotation"/>
-      </type>
-      <type>
-        <code value="Attachment"/>
-      </type>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <type>
-        <code value="ContactPoint"/>
-      </type>
-      <type>
-        <code value="Count"/>
-      </type>
-      <type>
-        <code value="Distance"/>
-      </type>
-      <type>
-        <code value="Duration"/>
-      </type>
-      <type>
-        <code value="HumanName"/>
-      </type>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <type>
-        <code value="Money"/>
-      </type>
-      <type>
-        <code value="Period"/>
-      </type>
-      <type>
-        <code value="Quantity"/>
-      </type>
-      <type>
-        <code value="Range"/>
-      </type>
-      <type>
-        <code value="Ratio"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-      </type>
-      <type>
-        <code value="SampledData"/>
-      </type>
-      <type>
-        <code value="Signature"/>
-      </type>
-      <type>
-        <code value="Timing"/>
-      </type>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <type>
-        <code value="Contributor"/>
-      </type>
-      <type>
-        <code value="DataRequirement"/>
-      </type>
-      <type>
-        <code value="Expression"/>
-      </type>
-      <type>
-        <code value="ParameterDefinition"/>
-      </type>
-      <type>
-        <code value="RelatedArtifact"/>
-      </type>
-      <type>
-        <code value="TriggerDefinition"/>
-      </type>
-      <type>
-        <code value="UsageContext"/>
-      </type>
-      <type>
-        <code value="Dosage"/>
-      </type>
-      <type>
-        <code value="Meta"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="???"/>
-      </mapping>
-    </element>
-    <element id="Task.output">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,300"/>
-      </extension>
-      <path value="Task.output"/>
-      <short value="Information produced as part of task"/>
-      <definition value="Outputs produced by the Task."/>
-      <requirements value="Resources and data produced during the execution the task.  This data is generated by the business logic of task execution, and is stored separately because it varies between workflows."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="???"/>
-      </mapping>
-    </element>
-    <element id="Task.output.type">
-      <path value="Task.output.type"/>
-      <short value="Label for output"/>
-      <definition value="The name of the Output parameter."/>
-      <requirements value="Outputs are named to enable task automation to bind data and pass it from one task to the next."/>
-      <alias value="Name"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TaskOutputParameterType"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="???"/>
-      </mapping>
-    </element>
-    <element id="Task.output.value[x]">
-      <path value="Task.output.value[x]"/>
-      <short value="Result of output"/>
-      <definition value="The value of the Output parameter as a basic type."/>
-      <requirements value="Task outputs can take any form."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="base64Binary"/>
-      </type>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <type>
-        <code value="canonical"/>
-      </type>
-      <type>
-        <code value="code"/>
-      </type>
-      <type>
-        <code value="date"/>
-      </type>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <type>
-        <code value="id"/>
-      </type>
-      <type>
-        <code value="instant"/>
-      </type>
-      <type>
-        <code value="integer"/>
-      </type>
-      <type>
-        <code value="integer64"/>
-      </type>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <type>
-        <code value="oid"/>
-      </type>
-      <type>
-        <code value="positiveInt"/>
-      </type>
-      <type>
-        <code value="string"/>
-      </type>
-      <type>
-        <code value="time"/>
-      </type>
-      <type>
-        <code value="unsignedInt"/>
-      </type>
-      <type>
-        <code value="uri"/>
-      </type>
-      <type>
-        <code value="url"/>
-      </type>
-      <type>
-        <code value="uuid"/>
-      </type>
-      <type>
-        <code value="Address"/>
-      </type>
-      <type>
-        <code value="Age"/>
-      </type>
-      <type>
-        <code value="Annotation"/>
-      </type>
-      <type>
-        <code value="Attachment"/>
-      </type>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <type>
-        <code value="ContactPoint"/>
-      </type>
-      <type>
-        <code value="Count"/>
-      </type>
-      <type>
-        <code value="Distance"/>
-      </type>
-      <type>
-        <code value="Duration"/>
-      </type>
-      <type>
-        <code value="HumanName"/>
-      </type>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <type>
-        <code value="Money"/>
-      </type>
-      <type>
-        <code value="Period"/>
-      </type>
-      <type>
-        <code value="Quantity"/>
-      </type>
-      <type>
-        <code value="Range"/>
-      </type>
-      <type>
-        <code value="Ratio"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-      </type>
-      <type>
-        <code value="SampledData"/>
-      </type>
-      <type>
-        <code value="Signature"/>
-      </type>
-      <type>
-        <code value="Timing"/>
-      </type>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <type>
-        <code value="Contributor"/>
-      </type>
-      <type>
-        <code value="DataRequirement"/>
-      </type>
-      <type>
-        <code value="Expression"/>
-      </type>
-      <type>
-        <code value="ParameterDefinition"/>
-      </type>
-      <type>
-        <code value="RelatedArtifact"/>
-      </type>
-      <type>
-        <code value="TriggerDefinition"/>
-      </type>
-      <type>
-        <code value="UsageContext"/>
-      </type>
-      <type>
-        <code value="Dosage"/>
-      </type>
-      <type>
-        <code value="Meta"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="???"/>
-      </mapping>
-    </element>
-  </differential>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="Task"/>
+	<meta>
+		<lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+		<valueString value="Base.Workflow"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="2"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+		<valueCode value="not-classified"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="oo"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+		<valueCode value=".status = entered-in-error"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/Task"/>
+	<version value="5.0.0"/>
+	<name value="Task"/>
+	<status value="draft"/>
+	<date value="2021-01-02T08:58:31+11:00"/>
+	<publisher value="Health Level Seven International (Orders and Observations)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+		</telecom>
+	</contact>
+	<description value="A task to be performed."/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="v2"/>
+		<uri value="http://hl7.org/v2"/>
+		<name value="HL7 v2 Mapping"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="Task"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+	<derivation value="specialization"/>
+	<differential>
+		<element id="Task">
+			<path value="Task"/>
+			<short value="A task to be performed"/>
+			<definition value="A task to be performed."/>
+			<min value="0"/>
+			<max value="*"/>
+			<constraint>
+				<key value="inv-1"/>
+				<severity value="error"/>
+				<human value="Last modified date must be greater than or equal to authored-on date."/>
+				<expression value="lastModified.exists().not() or authoredOn.exists().not() or lastModified &gt;= authoredOn"/>
+				<xpath value="not(exists(f:lastModified/@value)) or not(exists(f:authoredOn/@value)) or f:lastModified/@value &gt;= f:authoredOn/@value"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Task"/>
+			</constraint>
+			<constraint>
+				<key value="tsk-1"/>
+				<severity value="error"/>
+				<human value="Task.restriction is only allowed if the Task is seeking fulfillment and a focus is specified."/>
+				<expression value="restriction.exists() implies code.coding.where(code='fulfill' and system='http://hl7.org/fhir/CodeSystem/task-code').exists() and focus.exists()"/>
+				<xpath value="not(exists(f:restriction)) or (exists(f:code/f:coding[f:code/@value='fulfill' and f:system/@value='http://hl7.org/fhir/CodeSystem/task-code']) and exists(f:focus))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Task"/>
+			</constraint>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request, Event"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="ControlAct[moodCode=INT]"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="workflow.order"/>
+			</mapping>
+		</element>
+		<element id="Task.identifier">
+			<path value="Task.identifier"/>
+			<short value="Task Instance Identifier"/>
+			<definition value="The business identifier for this task."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.identifier, Event.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".id"/>
+			</mapping>
+		</element>
+		<element id="Task.instantiatesCanonical">
+			<path value="Task.instantiatesCanonical"/>
+			<short value="Formal definition of task"/>
+			<definition value="The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task."/>
+			<requirements value="Enables a formal definition of how the task is to be performed, enabling automation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.instantiatesCanonical, Event.instantiatesCanonical"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=DEFN].target"/>
+			</mapping>
+		</element>
+		<element id="Task.instantiatesUri">
+			<path value="Task.instantiatesUri"/>
+			<short value="Formal definition of task"/>
+			<definition value="The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task."/>
+			<requirements value="Enables a formal definition of how the task is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation to be associated with a task), enabling automation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Event.instantiatesUrl"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=DEFN].target"/>
+			</mapping>
+		</element>
+		<element id="Task.basedOn">
+			<path value="Task.basedOn"/>
+			<short value="Request fulfilled by this task"/>
+			<definition value="BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a &quot;request&quot; resource such as a ServiceRequest, MedicationRequest, ServiceRequest, CarePlan, etc. which is distinct from the &quot;request&quot; resource the task is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a task is created to fulfill a procedureRequest ( = FocusOn ) to collect a specimen from a patient."/>
+			<comment value="Task.basedOn is never the same as Task.focus.  Task.basedOn will typically not be present for 'please fulfill' Tasks as a distinct authorization is rarely needed to request fulfillment.  If the Task is seeking fulfillment of an order, the order to be fulfilled is always communicated using `focus`, never basedOn.  However, authorization may be needed to perform other types of Task actions.  As an example of when both would be present, a Task seeking suspension of a prescription might have a Task.basedOn pointing to the ServiceRequest ordering surgery (which is the driver for suspending the MedicationRequest - which would be the Task.focus)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.basedOn, Event.basedOn"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=FLFS].target[moodCode=INT]"/>
+			</mapping>
+		</element>
+		<element id="Task.groupIdentifier">
+			<path value="Task.groupIdentifier"/>
+			<short value="Requisition or grouper id"/>
+			<definition value="An identifier that links together multiple tasks and other requests that were created in the same context."/>
+			<requirements value="Billing and/or reporting can be linked to whether multiple requests were created as a single unit."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.groupIdentifier"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".inboundRelationship[typeCode=COMP].source[moodCode=INT].id"/>
+			</mapping>
+		</element>
+		<element id="Task.partOf">
+			<path value="Task.partOf"/>
+			<short value="Composite task"/>
+			<definition value="Task that this particular task is part of."/>
+			<comment value="This should usually be 0..1."/>
+			<requirements value="Allows tasks to be broken down into sub-steps (and this division can occur independent of the original task)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Event.partOf"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".inboundRelationship[typeCode=COMP].source[moodCode=INT]"/>
+			</mapping>
+		</element>
+		<element id="Task.status">
+			<path value="Task.status"/>
+			<short value="draft | requested | received | accepted | +"/>
+			<definition value="The current status of the task."/>
+			<requirements value="These states enable coordination of task status with off-the-shelf workflow solutions that support automation of tasks."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isModifier value="true"/>
+			<isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="TaskStatus"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The current status of the task."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/task-status"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.status, Event.status"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.status"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".statusCode"/>
+			</mapping>
+		</element>
+		<element id="Task.statusReason">
+			<path value="Task.statusReason"/>
+			<short value="Reason for current status"/>
+			<definition value="An explanation as to why this task is held, failed, was refused, etc."/>
+			<comment value="This applies to the current status.  Look at the history of the task to see reasons for past statuses."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableReference"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="TaskStatusReason"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Codes to identify the reason for current status.  These will typically be specific to a particular workflow."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/task-status-reason"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=&quot;status change&quot;].reasonCode"/>
+			</mapping>
+		</element>
+		<element id="Task.businessStatus">
+			<path value="Task.businessStatus"/>
+			<short value="E.g. &quot;Specimen collected&quot;, &quot;IV prepped&quot;"/>
+			<definition value="Contains business-specific nuances of the business state."/>
+			<requirements value="There&#39;s often a need to track substates of a task - this is often variable by specific workflow implementation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="TaskBusinessStatus"/>
+				</extension>
+				<strength value="example"/>
+				<description value="The domain-specific business-contextual sub-state of the task.  For example: &quot;Blood drawn&quot;, &quot;IV inserted&quot;, &quot;Awaiting physician signature&quot;, etc."/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;business status&quot;]"/>
+			</mapping>
+		</element>
+		<element id="Task.intent">
+			<path value="Task.intent"/>
+			<short value="unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
+			<definition value="Indicates the &quot;level&quot; of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc."/>
+			<comment value="This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.&#xA;&#xA;In most cases, Tasks will have an intent of &quot;order&quot;."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="TaskIntent"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Distinguishes whether the task is a proposal, plan or full order."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/task-intent"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.intent"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.class"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".moodCode"/>
+			</mapping>
+		</element>
+		<element id="Task.priority">
+			<path value="Task.priority"/>
+			<short value="routine | urgent | asap | stat"/>
+			<definition value="Indicates how quickly the Task should be addressed with respect to other requests."/>
+			<requirements value="Used to identify the service level expected while performing a task."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<meaningWhenMissing value="If missing, this task should be performed with normal priority"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="TaskPriority"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+					<valueString value="The task&#39;s priority."/>
+				</extension>
+				<strength value="required"/>
+				<description value="The priority of a task (may affect service level applied to the task)."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.priority"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.grade"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".priorityCode"/>
+			</mapping>
+		</element>
+		<element id="Task.doNotPerform">
+			<path value="Task.doNotPerform"/>
+			<short value="True if Task is prohibiting action"/>
+			<definition value="If true indicates that the Task is asking for the specified action to *not* occur."/>
+			<comment value="The attributes provided with the Task qualify what is not to be done. For example, if a requestedPeriod is provided, the 'do not' request only applies within the specified time. If a requestedPerformer is specified then the 'do not' request only applies to performers of that type. Qualifiers include: code, subject, occurrence, requestedPerformer and performer.&#x0a;&#x0a;In some cases, the Request.code may pre-coordinate prohibition into the requested action. E.g. 'NPO' (nothing by mouth), 'DNR' (do not recussitate). If this happens, doNotPerform SHALL NOT be set to true. I.e. The resource shall not have double negation. (E.g. 'Do not DNR').&#x0a;&#x0a;doNotPerform should ONLY be used with Tasks that are tightly bounded in time or process phase.  E.g. 'Do not fulfill the midnight dose of medication X tonight due to the early morning scheduled procedure, where the nurse could reasonably check off 'Med X not given at midnight as instructed'.  Similarly, a decision support proposal that a patient should not be given a standard intake questionnaire (because the patient is cognitively impaired) would be marked as 'complete' or 'rejected' when the clinician preps the CarePlan or order set after reviewing the decision support results.  If there is a need to create a standing order to not do something that can't be satisfied by a single 'non-action', but rather an ongoing refusal to perform the function, MedicationRequest, ServiceRequest or some other form of authorization should be used."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="TaskCode"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Codes to identify what the task involves.  These will typically be specific to a particular workflow."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/task-code"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.code, Event.code"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.what[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".code"/>
+			</mapping>
+		</element>
+		<element id="Task.code">
+			<path value="Task.code"/>
+			<short value="Task Type"/>
+			<definition value="A name or code (or both) briefly describing what the task involves."/>
+			<comment value="The title (eg &quot;My Tasks&quot;, &quot;Outstanding Tasks for Patient X&quot;) should go into the code."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="TaskCode"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Codes to identify what the task involves.  These will typically be specific to a particular workflow."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/task-code"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.code, Event.code"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.what[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".code"/>
+			</mapping>
+		</element>
+		<element id="Task.description">
+			<path value="Task.description"/>
+			<short value="Human-readable explanation of task"/>
+			<definition value="A free-text description of what is to be performed."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".text"/>
+			</mapping>
+		</element>
+		<element id="Task.focus">
+			<path value="Task.focus"/>
+			<short value="What task is acting on"/>
+			<definition value="The request being fulfilled or the resource being manipulated (changed, suspended, etc.) by this task."/>
+			<comment value="If multiple resources need to be manipulated, use sub-tasks.  (This ensures that status can be tracked independently for each referenced resource.)."/>
+			<requirements value="Used to identify the thing to be done."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.what[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=SUBJ].target"/>
+			</mapping>
+		</element>
+		<element id="Task.for">
+			<path value="Task.for"/>
+			<short value="Beneficiary of the Task"/>
+			<definition value="The entity who benefits from the performance of the service specified in the task (e.g., the patient)."/>
+			<requirements value="Used to track tasks outstanding for a beneficiary.  Do not use to track the task owner or creator (see owner and creator respectively).  This can also affect access control."/>
+			<alias value="Patient"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.subject, Event.subject"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.subject[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=RCT].role"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.subject"/>
+			</mapping>
+		</element>
+		<element id="Task.encounter">
+			<path value="Task.encounter"/>
+			<short value="Healthcare event during which this task originated"/>
+			<definition value="The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created."/>
+			<requirements value="For some tasks it may be important to know the link between the encounter the task originated within."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.context, Event.context"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.context"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".inboundRelationship[typeCode=COMP].source[classCode=PCPR, moodCode=EVN]"/>
+			</mapping>
+		</element>
+		<element id="Task.requestedPeriod">
+			<path value="Task.requestedPeriod"/>
+			<short value="When the task should be performed"/>
+			<definition value="Indicates the start and/or end of the period of time when completion of the task is desired to take place."/>
+			<comment value="This is typically used when the Task is *not* seeking fulfillment of a focus Request, as in that case the period would be specified on the Request and/or in the Task.restriction.period.  Instead, it is used for stand-alone tasks."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Period"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.occurrence[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".effectiveTime"/>
+			</mapping>
+		</element>
+		<element id="Task.executionPeriod">
+			<path value="Task.executionPeriod"/>
+			<short value="Start and end time of execution"/>
+			<definition value="Identifies the time action was first taken against the task (start) and/or the time final action was taken against the task prior to marking it as completed (end)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Period"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Event.occurrence[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.done[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".effectiveTime"/>
+			</mapping>
+		</element>
+		<element id="Task.authoredOn">
+			<path value="Task.authoredOn"/>
+			<short value="Task Creation Date"/>
+			<definition value="The date and time this task was created."/>
+			<requirements value="Most often used along with lastUpdated to track duration of task to supporting monitoring and management."/>
+			<alias value="Created Date"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<condition value="inv-1"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.authoredOn"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.recorded"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=AUT].time"/>
+			</mapping>
+		</element>
+		<element id="Task.lastModified">
+			<path value="Task.lastModified"/>
+			<short value="Task Last Modified Date"/>
+			<definition value="The date and time of last modification to this task."/>
+			<requirements value="Used along with history to track task activity and time in a particular task state.  This enables monitoring and management."/>
+			<alias value="Update Date"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<condition value="inv-1"/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".inboundRelationship[typeCode=SUBJ, ].source[classCode=CACT, moodCode=EVN].effectiveTime"/>
+			</mapping>
+		</element>
+		<element id="Task.requester">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="400,0"/>
+			</extension>
+			<path value="Task.requester"/>
+			<short value="Who is asking for task to be done"/>
+			<definition value="The creator of the task."/>
+			<requirements value="Identifies who created this task.  May be used by access control mechanisms (e.g., to ensure that only the creator can cancel a task)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.requester"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.author"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=AUT].role"/>
+			</mapping>
+		</element>
+		<element id="Task.requestedPerformer">
+			<path value="Task.requestedPerformer"/>
+			<short value="Who should perform Task"/>
+			<definition value="The kind of participant or specific participant that should perform the task."/>
+			<requirements value="Use to distinguish tasks on different activity queues."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableReference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="TaskPerformerType"/>
+				</extension>
+				<strength value="preferred"/>
+				<description value="The type(s) of task performers allowed."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/performer-role"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Event.performer.role, Request.performerType"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.actor"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=PRF].role.code"/>
+			</mapping>
+		</element>
+		<element id="Task.owner">
+			<path value="Task.owner"/>
+			<short value="Responsible individual"/>
+			<definition value="Individual organization or Device currently responsible for task execution."/>
+			<comment value="Tasks may be created with an owner not yet identified."/>
+			<requirements value="Identifies who is expected to perform this task."/>
+			<alias value="Performer"/>
+			<alias value="Executer"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Event.performer.actor, Request.performer"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.actor"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=PRF].role"/>
+			</mapping>
+		</element>
+		<element id="Task.location">
+			<path value="Task.location"/>
+			<short value="Where task occurs"/>
+			<definition value="Principal physical location where the this task is performed."/>
+			<requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+			<comment value="This should only be specified when the Task to be/being performed happens or is expected to happen primarily within the bounds of a single Location.  Other locations (e.g. source, destination, etc.) would either be reflected on the 'basedOn' Request or be conveyed as distinct Task.input values."  />      
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.reasonCode, Event.reasonCode"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.where[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=LOC].role"/>
+			</mapping>
+		</element>
+		<element id="Task.reasonCode">
+			<path value="Task.reasonCode"/>
+			<short value="Why task is needed"/>
+			<definition value="A description or code indicating why this task needs to be performed."/>
+			<comment value="This will typically not be present for Tasks with a code of 'please fulfill' as, for those, the reason for action is conveyed on the Request pointed to by Task.focus.  Some types of tasks will not need a 'reason'.  E.g. a request to discharge a patient can be inferred to be 'because the patient is ready' and this would not need a reason to be stated on the Task."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="TaskReason"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Indicates why the task is needed.  E.g. Suspended because patient admitted to hospital."/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Event.location"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.why[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="v2"/>
+				<map value="EVN.7"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".reasonCode"/>
+			</mapping>
+		</element>
+		<element id="Task.reasonReference">
+			<path value="Task.reasonReference"/>
+			<short value="Why task is needed"/>
+			<definition value="A resource reference indicating why this task needs to be performed."/>
+			<comment value="Tasks might be justified based on an Observation, a Condition, a past or planned procedure, etc.   This should only be included if there is no focus or if it differs from the reason indicated on the focus.    Use the CodeableConcept text element in `Task.reasonCode` if the data is free (uncoded) text."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.reasonReference, Event.reasonReference"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.why[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=RSON].target"/>
+			</mapping>
+		</element>
+		<element id="Task.insurance">
+			<path value="Task.insurance"/>
+			<short value="Associated insurance coverage"/>
+			<definition value="Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the Task."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Coverage"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ClaimResponse"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.insurance"/>
+			</mapping>
+			<mapping>
+				<identity value="v2"/>
+				<map value="IN1/IN2"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=COVBY].target"/>
+			</mapping>
+		</element>
+		<element id="Task.note">
+			<path value="Task.note"/>
+			<short value="Comments made about the task"/>
+			<definition value="Free-text information captured about the task as it progresses."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Annotation"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.note, Event.note"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".inboundRelationship[typeCode=SUBJ, ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value(string)"/>
+			</mapping>
+		</element>
+		<element id="Task.relevantHistory">
+			<path value="Task.relevantHistory"/>
+			<short value="Key events in history of the Task"/>
+			<definition value="Links to Provenance records for past versions of this Task that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the task."/>
+			<comment value="This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude."/>
+			<alias value="Status History"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Request.relevantHistory"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]"/>
+			</mapping>
+		</element>
+		<element id="Task.restriction">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="400,100"/>
+			</extension>
+			<path value="Task.restriction"/>
+			<short value="Constraints on fulfillment tasks"/>
+			<definition value="If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned."/>
+			<comment value="Task.restriction can only be present if the Task is seeking fulfillment of another Request resource, and the restriction identifies what subset of the authorization conveyed by the request is supposed to be fulfilled by this Task. A possible example could be a standing order (the request) covering a significant time period and/or individuals, while the Task seeks fulfillment for only a subset of that time-period and a single individual."/>
+			<requirements value="Sometimes when fulfillment is sought, you don&#39;t want full fulfillment."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="Instead of pointing to request, would point to component of request, having these characteristics"/>
+			</mapping>
+		</element>
+		<element id="Task.restriction.repetitions">
+			<path value="Task.restriction.repetitions"/>
+			<short value="How many times to repeat"/>
+			<definition value="Indicates the number of times the requested action should occur."/>
+			<requirements value="E.g. order that requests monthly lab tests, fulfillment is sought for 1."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="positiveInt"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".repeatNumber"/>
+			</mapping>
+		</element>
+		<element id="Task.restriction.period">
+			<path value="Task.restriction.period"/>
+			<short value="When fulfillment is sought"/>
+			<definition value="The time-period for which fulfillment is sought. This must fall within the overall time period authorized in the referenced request.  E.g. ServiceRequest.occurance[x]."/>
+			<comment value="This is distinct from Task.executionPeriod. ExecutionPeriod indicates when the task needs to be initiated, while Task.restriction.period specifies the subset of the overall authorization that this period covers. For example, a MedicationRequest with an overall effective period of 1 year might have a Task whose restriction.period is 2 months (i.e. satisfy 2 months of medication therapy), while the execution period might be 'between now and 5 days from now' - i.e. If you say yes to this, then you're agreeing to supply medication for that 2 month period within the next 5 days.&#x0a;&#x0a;Note that period.high is the due date representing the time by which the task should be completed."/>
+			<requirements value="E.g. order that authorizes 1 year&#39;s services.  Fulfillment is sought for next 3 months."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Period"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".effectiveTime(IVL&lt;TS&gt;)"/>
+			</mapping>
+		</element>
+		<element id="Task.restriction.recipient">
+			<path value="Task.restriction.recipient"/>
+			<short value="For whom is fulfillment sought?"/>
+			<definition value="For requests that are targeted to more than one potential recipient/target, to identify who is fulfillment is sought for."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=SBJ].role"/>
+			</mapping>
+		</element>
+		<element id="Task.input">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+				<valueString value="Parameter"/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="400,225"/>
+			</extension>
+			<path value="Task.input"/>
+			<short value="Information used to perform task"/>
+			<definition value="Additional information that may be needed in the execution of the task."/>
+			<requirements value="Resources and data used to perform the task.  This data is used in the business logic of task execution, and is stored separately because it varies between workflows."/>
+			<alias value="Supporting Information"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="???"/>
+			</mapping>
+		</element>
+		<element id="Task.input.type">
+			<path value="Task.input.type"/>
+			<short value="Label for the input"/>
+			<definition value="A code or description indicating how the input is intended to be used as part of the task execution."/>
+			<comment value="If referencing a BPMN workflow or Protocol, the &quot;system&quot; is the URL for the workflow definition and the code is the &quot;name&quot; of the required input."/>
+			<requirements value="Inputs are named to enable task automation to bind data and pass it from one task to the next."/>
+			<alias value="Name"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="TaskInputParameterType"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc."/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="???"/>
+			</mapping>
+		</element>
+		<element id="Task.input.value[x]">
+			<path value="Task.input.value[x]"/>
+			<short value="Content to use in performing the task"/>
+			<definition value="The value of the input parameter as a basic type."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="base64Binary"/>
+			</type>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<type>
+				<code value="canonical"/>
+			</type>
+			<type>
+				<code value="code"/>
+			</type>
+			<type>
+				<code value="date"/>
+			</type>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<type>
+				<code value="decimal"/>
+			</type>
+			<type>
+				<code value="id"/>
+			</type>
+			<type>
+				<code value="instant"/>
+			</type>
+			<type>
+				<code value="integer"/>
+			</type>
+			<type>
+				<code value="integer64"/>
+			</type>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<type>
+				<code value="oid"/>
+			</type>
+			<type>
+				<code value="positiveInt"/>
+			</type>
+			<type>
+				<code value="string"/>
+			</type>
+			<type>
+				<code value="time"/>
+			</type>
+			<type>
+				<code value="unsignedInt"/>
+			</type>
+			<type>
+				<code value="uri"/>
+			</type>
+			<type>
+				<code value="url"/>
+			</type>
+			<type>
+				<code value="uuid"/>
+			</type>
+			<type>
+				<code value="Address"/>
+			</type>
+			<type>
+				<code value="Age"/>
+			</type>
+			<type>
+				<code value="Annotation"/>
+			</type>
+			<type>
+				<code value="Attachment"/>
+			</type>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<type>
+				<code value="Coding"/>
+			</type>
+			<type>
+				<code value="ContactPoint"/>
+			</type>
+			<type>
+				<code value="Count"/>
+			</type>
+			<type>
+				<code value="Distance"/>
+			</type>
+			<type>
+				<code value="Duration"/>
+			</type>
+			<type>
+				<code value="HumanName"/>
+			</type>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<type>
+				<code value="Money"/>
+			</type>
+			<type>
+				<code value="Period"/>
+			</type>
+			<type>
+				<code value="Quantity"/>
+			</type>
+			<type>
+				<code value="Range"/>
+			</type>
+			<type>
+				<code value="Ratio"/>
+			</type>
+			<type>
+				<code value="Reference"/>
+			</type>
+			<type>
+				<code value="SampledData"/>
+			</type>
+			<type>
+				<code value="Signature"/>
+			</type>
+			<type>
+				<code value="Timing"/>
+			</type>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<type>
+				<code value="Contributor"/>
+			</type>
+			<type>
+				<code value="DataRequirement"/>
+			</type>
+			<type>
+				<code value="Expression"/>
+			</type>
+			<type>
+				<code value="ParameterDefinition"/>
+			</type>
+			<type>
+				<code value="RelatedArtifact"/>
+			</type>
+			<type>
+				<code value="TriggerDefinition"/>
+			</type>
+			<type>
+				<code value="UsageContext"/>
+			</type>
+			<type>
+				<code value="Dosage"/>
+			</type>
+			<type>
+				<code value="Meta"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="???"/>
+			</mapping>
+		</element>
+		<element id="Task.output">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="400,300"/>
+			</extension>
+			<path value="Task.output"/>
+			<short value="Information produced as part of task"/>
+			<definition value="Outputs produced by the Task."/>
+			<requirements value="Resources and data produced during the execution the task.  This data is generated by the business logic of task execution, and is stored separately because it varies between workflows."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="???"/>
+			</mapping>
+		</element>
+		<element id="Task.output.type">
+			<path value="Task.output.type"/>
+			<short value="Label for output"/>
+			<definition value="The name of the Output parameter."/>
+			<requirements value="Outputs are named to enable task automation to bind data and pass it from one task to the next."/>
+			<alias value="Name"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="TaskOutputParameterType"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="???"/>
+			</mapping>
+		</element>
+		<element id="Task.output.value[x]">
+			<path value="Task.output.value[x]"/>
+			<short value="Result of output"/>
+			<definition value="The value of the Output parameter as a basic type."/>
+			<requirements value="Task outputs can take any form."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="base64Binary"/>
+			</type>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<type>
+				<code value="canonical"/>
+			</type>
+			<type>
+				<code value="code"/>
+			</type>
+			<type>
+				<code value="date"/>
+			</type>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<type>
+				<code value="decimal"/>
+			</type>
+			<type>
+				<code value="id"/>
+			</type>
+			<type>
+				<code value="instant"/>
+			</type>
+			<type>
+				<code value="integer"/>
+			</type>
+			<type>
+				<code value="integer64"/>
+			</type>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<type>
+				<code value="oid"/>
+			</type>
+			<type>
+				<code value="positiveInt"/>
+			</type>
+			<type>
+				<code value="string"/>
+			</type>
+			<type>
+				<code value="time"/>
+			</type>
+			<type>
+				<code value="unsignedInt"/>
+			</type>
+			<type>
+				<code value="uri"/>
+			</type>
+			<type>
+				<code value="url"/>
+			</type>
+			<type>
+				<code value="uuid"/>
+			</type>
+			<type>
+				<code value="Address"/>
+			</type>
+			<type>
+				<code value="Age"/>
+			</type>
+			<type>
+				<code value="Annotation"/>
+			</type>
+			<type>
+				<code value="Attachment"/>
+			</type>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<type>
+				<code value="Coding"/>
+			</type>
+			<type>
+				<code value="ContactPoint"/>
+			</type>
+			<type>
+				<code value="Count"/>
+			</type>
+			<type>
+				<code value="Distance"/>
+			</type>
+			<type>
+				<code value="Duration"/>
+			</type>
+			<type>
+				<code value="HumanName"/>
+			</type>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<type>
+				<code value="Money"/>
+			</type>
+			<type>
+				<code value="Period"/>
+			</type>
+			<type>
+				<code value="Quantity"/>
+			</type>
+			<type>
+				<code value="Range"/>
+			</type>
+			<type>
+				<code value="Ratio"/>
+			</type>
+			<type>
+				<code value="Reference"/>
+			</type>
+			<type>
+				<code value="SampledData"/>
+			</type>
+			<type>
+				<code value="Signature"/>
+			</type>
+			<type>
+				<code value="Timing"/>
+			</type>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<type>
+				<code value="Contributor"/>
+			</type>
+			<type>
+				<code value="DataRequirement"/>
+			</type>
+			<type>
+				<code value="Expression"/>
+			</type>
+			<type>
+				<code value="ParameterDefinition"/>
+			</type>
+			<type>
+				<code value="RelatedArtifact"/>
+			</type>
+			<type>
+				<code value="TriggerDefinition"/>
+			</type>
+			<type>
+				<code value="UsageContext"/>
+			</type>
+			<type>
+				<code value="Dosage"/>
+			</type>
+			<type>
+				<code value="Meta"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="???"/>
+			</mapping>
+		</element>
+	</differential>
 </StructureDefinition>

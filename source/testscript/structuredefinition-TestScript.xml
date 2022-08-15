@@ -27,7 +27,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="TestScript"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -85,7 +85,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
       </constraint>
@@ -744,7 +744,7 @@
     <element id="TestScript.fixture.resource">
       <path value="TestScript.fixture.resource"/>
       <short value="Reference of the resource"/>
-      <definition value="Reference to the resource (containing the contents of the resource needed for operations)."/>
+      <definition value="Reference to the resource (containing the contents of the resource needed for operations). This is allowed to be a Parameters resource."/>
       <comment value="See http://build.fhir.org/resourcelist.html for complete list of resource types."/>
       <min value="0"/>
       <max value="1"/>

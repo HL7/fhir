@@ -1,12 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd">
 	<id value="ihe-pcd"/>
-	<text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Acme Patient Monitor</p>
-    </div>
-  </text>
 	<identifier>
       <type>
         <coding>
@@ -17,10 +11,14 @@
       </type>
     <value value="AMID-123-456"/>
   </identifier>
-	<type>
+	<manufacturer value="Acme Devices, Inc"/>
+  <lotNumber value="12345"/>
+  <deviceName>
+    <name value="Acme Patient Monitor" />
+    <type value="user-friendly-name"/>
+  </deviceName>
+	<modelNumber value="A.1.1"/>
+  <type>
     <text value="Vital Signs Monitor"/>
   </type>
-	<lotNumber value="12345"/>
-	<manufacturer value="Acme Devices, Inc"/>
-	<model value="A.1.1"/>
 </Device>

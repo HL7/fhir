@@ -8,12 +8,13 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/gender-identity"/>
+  <url value="http://terminology.hl7.org/ValueSet/gender-identity"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.972"/>
+    <value value="urn:oid:2.16.840.1.113883.11.19754"/>
   </identifier>
-  <name value="GenderIdentity"/>
+  <name value="genderIdentity"/>
+  <title value="Gender Identity"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -22,38 +23,17 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This example value set defines a set of codes that can be used to indicate a patient&#39;s gender identity."/>
+  <description value="Codes that indicate a individual&#39;s gender identity."/>
   <copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/gender-identity"/>
+	  <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.106"/>
+	</include>
+	<include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-NullFlavor"/>
       <concept>
-        <code value="male"/>
-        <display value="male"/>
-      </concept>
-      <concept>
-        <code value="female"/>
-        <display value="female"/>
-      </concept>
-      <concept>
-        <code value="non-binary"/>
-        <display value="non-binary"/>
-      </concept>
-      <concept>
-        <code value="transgender-male"/>
-        <display value="transgender male"/>
-      </concept>
-      <concept>
-        <code value="transgender-female"/>
-        <display value="transgender female"/>
-      </concept>
-      <concept>
-        <code value="other"/>
-        <display value="other"/>
-      </concept>
-      <concept>
-        <code value="non-disclose"/>
-        <display value="does not wish to disclose"/>
+        <code value="UNK"/>
+        <display value="Unknown"/>
       </concept>
     </include>
   </compose>

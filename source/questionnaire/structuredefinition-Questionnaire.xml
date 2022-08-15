@@ -26,7 +26,7 @@
 		<valueString value="MetadataResource"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-	<version value="4.6.0"/>
+	<version value="5.0.0"/>
 	<name value="Questionnaire"/>
 	<status value="draft"/>
 	<date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
 	</contact>
 	<description value="A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection."/>
 	<purpose value="To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.  Questionnaires provide greater control over presentation and allow capture of data in a domain-independent way (i.e. capturing information that would otherwise require multiple distinct types of resources)."/>
-	<fhirVersion value="4.6.0"/>
+	<fhirVersion value="5.0.0"/>
 	<mapping>
 		<identity value="workflow"/>
 		<uri value="http://hl7.org/fhir/workflow"/>
@@ -90,7 +90,7 @@
 				<key value="cnl-0"/>
 				<severity value="warning"/>
 				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-				<expression value="name.matches('[A-Z]([A-Za-z0-9_]){0,254}')"/>
+				<expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){0,254}')"/>
 				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){0,254}')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
@@ -1149,7 +1149,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 			<path value="Questionnaire.item.answerValueSet"/>
 			<short value="Valueset containing permitted answers"/>
 			<definition value="A reference to a value set containing a list of values representing permitted answers for a question."/>
-			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](loinc.html#alist). The value may come from the ElementDefinition referred to by .definition."/>
+			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

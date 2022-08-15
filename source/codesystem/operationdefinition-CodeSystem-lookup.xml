@@ -40,7 +40,7 @@
     <valueMarkdown value="Note that the $lookup operation is more than just a code system search  - the server finds the concept, and gathers the return information from the underlying code system definitions."/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CodeSystem-lookup"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="lookup"/>
   <title value="Concept Look Up &amp; Decomposition"/>
   <status value="draft"/>

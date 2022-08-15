@@ -199,6 +199,7 @@
         <expression value="DiagnosticReport.subject.where(resolve() is Patient)"/>
         <xpath value="f:DiagnosticReport/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -298,6 +299,26 @@
         <type value="token"/>
         <expression value="DiagnosticReport.status"/>
         <xpath value="f:DiagnosticReport/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DiagnosticReport-study"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DiagnosticReport.study"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-study"/>
+        <description value="Studies associated with the diagnostic report"/>
+        <code value="study"/>
+        <type value="reference"/>
+        <expression value="DiagnosticReport.study"/>
+        <xpath value="f:DiagnosticReport/f:study"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

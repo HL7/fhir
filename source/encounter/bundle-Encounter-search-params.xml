@@ -299,6 +299,7 @@
         <expression value="Encounter.subject.where(resolve() is Patient)"/>
         <xpath value="f:Encounter/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -319,6 +320,7 @@
         <expression value="Encounter.participant.actor.where(resolve() is Practitioner)"/>
         <xpath value="f:Encounter/f:participant/f:actor"/>
         <xpathUsage value="normal"/>
+        <target value="Practitioner"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -390,14 +392,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Encounter.hospitalization.specialArrangement"/>
+          <valueString value="Encounter.admission.specialArrangement"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-special-arrangement"/>
         <description value="Wheelchair, translator, stretcher, etc."/>
         <code value="special-arrangement"/>
         <type value="token"/>
-        <expression value="Encounter.hospitalization.specialArrangement"/>
-        <xpath value="f:Encounter/f:hospitalization/f:specialArrangement"/>
+        <expression value="Encounter.admission.specialArrangement"/>
+        <xpath value="f:Encounter/f:admission/f:specialArrangement"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
