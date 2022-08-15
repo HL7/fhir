@@ -334,7 +334,7 @@
     </element>
     <element id="SupplyDelivery.supplier">
       <path value="SupplyDelivery.supplier"/>
-      <short value="Supplier"/>
+      <short value="The item supplier"/>
       <definition value="The individual or organization responsible for supplying the delivery."/>
       <min value="0"/>
       <max value="1"/>
