@@ -350,6 +350,7 @@
       <short value="The absolute geographic location"/>
       <definition value="The absolute geographic location of the Location, expressed using the WGS84 datum (This is the same co-ordinate system used in KML)."/>
       <requirements value="For mobile applications and automated route-finding knowing the exact location of the Location is required."/>
+      <comment value="To define a boundary shape for this location use the standard extension [`location-boundary-geojson`](extension-location-boundary-geojson.html), and search using the `contains` special search parameter."/>
       <min value="0"/>
       <max value="1"/>
       <type>
