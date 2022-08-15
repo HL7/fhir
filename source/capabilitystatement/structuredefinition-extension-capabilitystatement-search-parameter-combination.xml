@@ -46,7 +46,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="An allowable parameter combination"/>
-      <definition value="This extension defines a possible search parameter combination,  by listing a set of search parameters and indicating whether they are required or optional. If a search combination is specified, clients should expect that they must submit a search that meets one of the required combinations or the search will be unsuccessful. If multiple search parameter combinations are specified, a client may pick between them, and supply the minimal required parameters for any of the combinations."/>
+      <definition value="This extension defines a possible search parameter combination by listing a set of search parameters and indicating whether they are required or optional. If a search combination is specified, clients should expect that they must submit a search that meets one of the required combinations or the search will be unsuccessful. If multiple search parameter combinations are specified, a client may pick between them, and supply the minimal required parameters for any of the combinations. If no parameters in the set of search parameters are listed as required, then the extension is requiring *at least one* of the listed optional parameters must be present.  This shorthand method is the same as by repeating the entire extension for each optional value."/>
       <comment value="For example, on the Patient Resource  you could use this to state support for searching by Patient.name and Patient.gender is required."/>
       <min value="0"/>
       <max value="*"/>
@@ -65,7 +65,7 @@
       <sliceName value="required"/>
       <short value="A required search parameter name"/>
       <definition value="A search parameter name in the combination which is required."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Extension"/>
