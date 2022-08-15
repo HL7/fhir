@@ -121,8 +121,8 @@
     </element>
     <element id="Encounter.status">
       <path value="Encounter.status"/>
-      <short value="planned | in-progress | onhold | completed | cancelled | entered-in-error | unknown"/>
-      <definition value="planned | in-progress | onhold | completed | cancelled | entered-in-error | unknown."/>
+      <short value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown"/>
+      <definition value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown."/>
       <comment value="Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes)."/>
       <min value="1"/>
       <max value="1"/>
@@ -180,8 +180,8 @@
     </element>
     <element id="Encounter.statusHistory.status">
       <path value="Encounter.statusHistory.status"/>
-      <short value="planned | in-progress | onhold | completed | cancelled | entered-in-error | unknown"/>
-      <definition value="planned | in-progress | onhold | completed | cancelled | entered-in-error | unknown."/>
+      <short value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown"/>
+      <definition value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown."/>
       <min value="1"/>
       <max value="1"/>
       <type>
