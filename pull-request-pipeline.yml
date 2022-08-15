@@ -36,6 +36,7 @@ jobs:
 
 - job: buildAndPublishSpecification
   pool: 'Google Cloud'
+  dependsOn: setupEnvironment
   steps:
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Gradle@2
