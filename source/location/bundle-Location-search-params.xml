@@ -302,4 +302,44 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter xmlns="http://hl7.org/fhir">
+        <id value="location-contains"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative</b></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource "location-contains" </p></div><p><b>url</b>: <code>http://hl7.org/fhir/uv/vhdir/SearchParameter/location-contains</code></p><p><b>version</b>: 0.2.0</p><p><b>name</b>: VhDir_sp_location_contains</p><p><b>status</b>: draft</p><p><b>date</b>: 2018-08-19</p><p><b>publisher</b>: HL7 International - Patient Administration Work Group</p><p><b>contact</b>: HL7 International - Patient Administration Work Group: <a href="http://www.hl7.org/Special/committees/pafm">http://www.hl7.org/Special/committees/pafm</a>,<a href="mailto:pafm@lists.HL7.org">pafm@lists.HL7.org</a></p><p><b>description</b>: Select locations that contain the specified co-ordinates</p><p><b>jurisdiction</b>: United States of America <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (unknown#US)</span></p><p><b>code</b>: contains</p><p><b>base</b>: Location</p><p><b>type</b>: special</p><p><b>expression</b>: Location.extension('http://hl7.org/fhir/StructureDefinition/location-boundary-geojson')</p><p><b>multipleOr</b>: true</p><p><b>multipleAnd</b>: true</p></div>
+        </text>
+        <url value="http://hl7.org/fhir/build/SearchParameter/location-contains"/>
+        <version value="0.2.0"/>
+        <status value="draft"/>
+        <date value="2018-08-19"/>
+        <description value="Select locations that contain the specified co-ordinates"/>
+        <code value="contains"/>
+        <base value="Location"/>
+        <type value="special"/>
+        <expression value="Location.extension(&#39;http://hl7.org/fhir/StructureDefinition/location-boundary-geojson&#39;)"/>
+      </SearchParameter>  
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="location-characteristic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Location.characteristic"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Location-characteristic"/>
+        <description value="One of the Location&#39;s characteristics"/>
+        <code value="characteristic"/>
+        <type value="token"/>
+        <expression value="Location.characteristic"/>
+        <xpath value="f:Location/f:characteristic"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
