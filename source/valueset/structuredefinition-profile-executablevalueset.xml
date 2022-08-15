@@ -16,7 +16,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/executablevalueset"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ExecutableValueSet"/>
   <title value="Executable ValueSet"/>
   <status value="draft"/>
@@ -24,7 +24,7 @@
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
   <description value="Defines an executable value set as one that SHALL have an expansion included, as well as a usage warning indicating the expansion is a point-in-time snapshot and must be maintained over time for production usage. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a computable definition of the value set must be obtained to compute the updated expansion."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

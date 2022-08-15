@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/documentreference-sourcepatient"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="sourcepatient"/>
   <status value="draft"/>
   <date value="2022-08-08T16:55:11+11:00"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="The Patient Information as known when the document was published. May be a reference to a version specific, or contained."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <kind value="complex-type"/>
   <abstract value="false"/>
   <context>

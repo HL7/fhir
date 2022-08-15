@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/capabilitystatement-search-parameter-combination"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="search-parameter-combination"/>
   <title value="Search Parameter Combination"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="This extension defines a possible search parameter combination,  by listing a set of search parameters and indicating whether they are required or optional. If a search combination is specified, clients should expect that they must submit a search that meets one of the required combinations or the search will be unsuccessful. If multiple search parameter combinations are specified, a client may pick between them, and supply the minimal required parameters for any of the combinations."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

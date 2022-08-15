@@ -15,7 +15,7 @@
 no repeating primitives in datatypes? No id's on primitives in datatypes...No dar on primitives in datatypes. It would be worthwhile to document that and the reason for it.
 -->
 
-<%edheader base%>
+<%dtxheader base ElementDefinition%>
 <h1>Element Definition</h1>
 <table class="colsn">
 		<tr>
@@ -320,7 +320,7 @@ same path must conform.
 		(e.g. inheriting extension, id, etc.). Implementations should map these FHIRPath data types to the appropriate simple data type defined in their implementation language.
 		For example, in Java, FHIRPath System.String might best map to the `java.lang.String` class.</li>
 		<li>In addition, when an element has a data type of <a href="http://hl7.org/fhirpath/System.String">http://hl7.org/fhirpath/System.String</a> then it will typically also include a
-		http://hl7.org/fhir/extension-structuredefinition-fhir-type.html extension. This extension might further constrain the allowed value of an element that might be treated as a string.
+		<a href="extension-structuredefinition-fhir-type.html">structuredefinition-fhir-type</a> extension. This extension might further constrain the allowed value of an element that might be treated as a string.
 		For example, limiting the permitted value regex, length, etc. to the corresponding FHIR-defined data type (but NOT permitting the additional elements such as id and extension).
 		If the extension is not present, no additional constraints apply.</li>
 </ul>

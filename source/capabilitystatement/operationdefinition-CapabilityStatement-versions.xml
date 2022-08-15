@@ -59,7 +59,7 @@
     <valueMarkdown value="For the convenience of clients, servers that implement this operation SHALL also support the relevant XML or JSON format:"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CapabilityStatement-versions"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="versions"/>
   <title value="Discover what versions a server supports"/>
   <status value="draft"/>

@@ -28,7 +28,7 @@
     <valueInteger value="3"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/network-type"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="AuditEventEntityDetailType"/>
   <title value="AuditEventEntityDetailType"/>
   <status value="draft"/>

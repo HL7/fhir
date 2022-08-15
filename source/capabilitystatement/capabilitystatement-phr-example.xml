@@ -40,7 +40,7 @@
     <name value="ACME PHR Server"/>
   </software>
 <!--  while the FHIR infrastructure is turning over prior to development, a version is required. Note that this may be rescinded later  -->
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
 <!-- 
     for the connectathon, servers should support both xml and json. Clients can use only one. 
    -->
