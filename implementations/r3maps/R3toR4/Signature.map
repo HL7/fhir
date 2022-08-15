@@ -8,9 +8,9 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 group Signature(source src : SignatureR3, target tgt : Signature) extends Element <<type+>> {
   src.type -> tgt.type;
   src.when -> tgt.when;
-  src.who : uri as vs ->  tgt.who as ref,  ref.reference = vs,  ref.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/BaseType',  ext.value = 'uri';
+  src.who : uri as vs ->  tgt.who as ref,  ref.reference = vs,  ref.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-BaseType',  ext.value = 'uri';
   src.who : Reference as vs0 -> tgt.who as vt0 then Reference(vs0, vt0);
-  src.onBehalfOf : uri as vs ->  tgt.onBehalfOf as ref,  ref.reference = vs,  ref.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/BaseType',  ext.value = 'uri';
+  src.onBehalfOf : uri as vs ->  tgt.onBehalfOf as ref,  ref.reference = vs,  ref.extension as ext,  ext.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-BaseType',  ext.value = 'uri';
   src.onBehalfOf : Reference as vs0 -> tgt.onBehalfOf as vt0 then Reference(vs0, vt0);
   src.contentType -> tgt.sigFormat;
   src.blob -> tgt.data;

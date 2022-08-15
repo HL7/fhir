@@ -53,8 +53,8 @@ group resource(source src, target tgt) extends BackboneElement {
   src.extension as ext where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-ImplementationGuide.package.resource.acronym' then {
     ext.value as vs0 -> tgt.acronym = vs0 "acronym2";
   } "acronym";
-  src.reference as vs0 where extension('http://hl7.org/fhir/3.0/StructureDefinition/BaseType').empty() -> tgt.source = create('Reference') as vt0 then Reference(vs0, vt0) "source1";
-  src.reference as vs0 where extension('http://hl7.org/fhir/3.0/StructureDefinition/BaseType').exists() -> tgt.source = create('uri') as vt0 then {
+  src.reference as vs0 where extension('http://hl7.org/fhir/3.0/StructureDefinition/extension-BaseType').empty() -> tgt.source = create('Reference') as vt0 then Reference(vs0, vt0) "source1";
+  src.reference as vs0 where extension('http://hl7.org/fhir/3.0/StructureDefinition/extension-BaseType').exists() -> tgt.source = create('uri') as vt0 then {
     vs0.reference as vs1 then uri(vs1, vt0) "source2a";
   } "source2";
   src.example : canonical as vs0 ->  tgt.example = true,  tgt.exampleFor as vt0 then canonical2Reference(vs0, vt0) "exampleFor";
