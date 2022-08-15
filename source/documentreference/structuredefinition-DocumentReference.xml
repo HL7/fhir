@@ -1079,7 +1079,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="Document Format Codes."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/formatcodes"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-HL7FormatCodes"/>
       </binding>
       <mapping>
         <identity value="fhircomposition"/>
