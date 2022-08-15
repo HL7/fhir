@@ -496,7 +496,7 @@
     </element>
     <element id="Account.balance.amount">
       <path value="Account.balance.amount"/>
-      <short value="calculated amount"/>
+      <short value="Calculated amount"/>
       <definition value="The actual balance value calculated for the age defined in the term property."/>
       <min value="1"/>
       <max value="1"/>

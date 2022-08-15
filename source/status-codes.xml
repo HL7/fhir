@@ -1643,7 +1643,7 @@
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">completed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">abandoned</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">discontinued</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">unknown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1673,7 +1673,7 @@
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">completed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">abandoned</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">discontinued</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">unknown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3932,7 +3932,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>5</SplitHorizontal>
-   <TopRowBottomPane>23</TopRowBottomPane>
+   <TopRowBottomPane>38</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>

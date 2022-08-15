@@ -180,8 +180,8 @@
     </element>
     <element id="Encounter.statusHistory.status">
       <path value="Encounter.statusHistory.status"/>
-      <short value="planned | in-progress | onhold | completed | cancelled | entered-in-error | unknown"/>
-      <definition value="planned | in-progress | onhold | completed | cancelled | entered-in-error | unknown."/>
+      <short value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown"/>
+      <definition value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown."/>
       <min value="1"/>
       <max value="1"/>
       <type>
