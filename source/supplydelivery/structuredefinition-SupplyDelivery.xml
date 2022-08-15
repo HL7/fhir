@@ -222,7 +222,7 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SupplyDeliveryType"/>
+          <valueString value="SupplyDeliverySupplyItemType"/>
         </extension>
         <strength value="required"/>
         <description value="The type of supply dispense."/>
