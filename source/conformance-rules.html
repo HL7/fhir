@@ -175,12 +175,12 @@ ignore an element you may miss an important piece of computable meaning.
 For example, consider Observation:
 </p>
 <ul>
- <li><code>Observation.status</code> allows the <code>entered-in-error</code> code, which indicates
+ <li><code>Observation.status</code> is a modifier. This element allows the <code>entered-in-error</code> code, which indicates
 that no actual Observation occurred at all. The definition of Observation indicates that it is a measurement that has
 been made - and doesn't allow for the possibility of a measurement that wasn't made.  As a result, if the status
 element were ignored and an Observation were interpreted at face value based on its definition, a system or user
 would infer that an Observation had occurred, which would be false</li>
- <li>If an application ignores the <code>Observation.subject</code> element, it wouldn't know who or what was observed, which
+ <li><code>Observation.subject</code> is not a modifier. If an application ignores the element, it wouldn't know who or what was observed, which
 would make the remaining information largely useless for most usage.
 However, any system that ignores the subject would not have a false understanding of the Observation as it's
 defined. The system would understand what type of observation was made, when and what was found, just not who it was about</li>

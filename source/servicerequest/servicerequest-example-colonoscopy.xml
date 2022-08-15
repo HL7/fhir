@@ -12,12 +12,14 @@
 	<status value="completed"/>
 	<intent value="order"/>
 	<code>
+	  <concept>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="73761001"/>
 			<display value="Colonoscopy (procedure)"/>
 		</coding>
 		<text value="Colonoscopy"/>
+	  </concept>
 	</code>
 	<subject>
 		<reference value="Patient/example"/>

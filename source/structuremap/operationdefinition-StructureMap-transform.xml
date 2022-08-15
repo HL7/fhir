@@ -37,7 +37,7 @@
     <valueMarkdown value="The input and return are specified as &#39;Resources&#39;. In most usage of the $transform operation, either the input or return content is not a valid FHIR resource. In these cases, the return type is actually a [Binary](binary.html) resource. For this operation, the Binary resources may be encoded directly, using a mime-type, as shown in the example. Note: this specification does not yet address the means by which the servers may know the correct mime types for the various content involved"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/StructureMap-transform"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="transform"/>
   <title value="Model Instance Transformation"/>
   <status value="draft"/>

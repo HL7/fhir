@@ -195,7 +195,7 @@ A specific time might or might not be pre-allocated.</td>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.485"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="AppointmentStatus"/>
   <title value="AppointmentStatus"/>
   <status value="draft"/>

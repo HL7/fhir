@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ConceptMap"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -216,7 +216,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -793,7 +793,7 @@
         </extension>
         <strength value="required"/>
         <description value="The relationship between concepts."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/concept-map-relationship|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/concept-map-relationship|5.0.0"/>
       </binding>
     </element>
     <element id="ConceptMap.group.element.target.comment">
@@ -815,8 +815,8 @@
         <valueCode value="580,200"/>
       </extension>
       <path value="ConceptMap.group.element.target.dependsOn"/>
-      <short value="Other elements required for this mapping (from context)"/>
-      <definition value="A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value."/>
+      <short value="Other properties required for this mapping"/>
+      <definition value="A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified property can be resolved, and it has the specified value."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -888,7 +888,7 @@
     </element>
     <element id="ConceptMap.group.element.target.product">
       <path value="ConceptMap.group.element.target.product"/>
-      <short value="Other concepts that this mapping also produces"/>
+      <short value="Other properties that this mapping also produces"/>
       <definition value="Product is the output of a ConceptMap that provides additional values relevant to the interpretation of the mapping target."/>
       <min value="0"/>
       <max value="*"/>
@@ -963,7 +963,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines which action to take if there is no match in the group."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode|5.0.0"/>
       </binding>
     </element>
     <element id="ConceptMap.group.unmapped.code">
@@ -1022,7 +1022,7 @@
         </extension>
         <strength value="required"/>
         <description value="The default relationship value to apply between the source and target concepts when no concept mapping is specified."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/concept-map-relationship|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/concept-map-relationship|5.0.0"/>
       </binding>
     </element>
     <element id="ConceptMap.group.unmapped.otherMap">

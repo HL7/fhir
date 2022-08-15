@@ -14,7 +14,7 @@
     <value value="12345"/>
   </identifier>
   <type value="animal"/>
-  <actual value="true"/>
+  <membership value="enumerated"/>
   <code>
     <text value="Horse"/>
   </code>

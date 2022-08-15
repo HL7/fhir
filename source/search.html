@@ -173,7 +173,7 @@ complexity that they require for their implementations.
   specification never defines different parameters with names that differ only in case. Clients SHOULD use 
   correct case, and servers SHALL NOT define additional parameters with different meanings with names that 
   only differ in case.
-</p>
+then the result set is sorted, then paging is applied, and includes/revincludes are returned for each page.
 <p>
   Order of operations is not driven by order in the URL - with the exception of sort. First all filters are applied, 
   then the result set is sorted, then paging is applied, and includes/revincludes are returned for each page.
@@ -3729,9 +3729,9 @@ or processed by the client.
 <p>
 The parameter <code>_count</code> is defined as an instruction to the server
 regarding how many resources should be returned in a
-single page. Servers SHALL NOT return more resources in a single page than requested, 
-even if they don't support paging, but may return less than the client requested. 
-NOTE: This means that all servers that support search or history SHALL support 
+single page. Servers SHALL NOT return more resources in a single page than requested,
+even if they don't support paging, but may return less than the client requested.
+NOTE: This means that all servers that support search or history SHALL support
 checking the _count parameter. The server should repeat
 the original <code>_count</code> parameter in its returned page links so that
 subsequent paging requests honor the original <code>_count</code>.  Note:
@@ -3824,8 +3824,8 @@ resource will be retrieved when the user selects a resource.
 <p>
 Servers are not obliged to return just a summary as requested. There are only
 a limited number of summary forms defined for resources in order to allow servers
-to store the summarized form(s) in advance. Servers SHOULD mark the resources with the
-tag <a href="https://terminology.hl7.org/CodeSystem-v3-ObservationValue.html#v3-ObservationValue-SUBSETTED"><code>SUBSETTED</code></a>
+to store the summarized form(s) in advance. Servers SHOULD mark the by populating
+<code>meta.tag</code> resources with the code <a href="https://terminology.hl7.org/CodeSystem-v3-ObservationValue.html#v3-ObservationValue-SUBSETTED"><code>SUBSETTED</code></a>
 to ensure that the incomplete resource is not accidentally used to overwrite
 a complete resource.
 </p>

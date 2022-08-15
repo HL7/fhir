@@ -24,8 +24,11 @@ There is a close relationship between <a href="structuredefinition.html">Profile
 <code>GraphDefinitions</code>:
 </p>
 <ul>
- <li>A StructureDefinition defines a profile, and profiles can make rules about the relationships between resources. A carefully defined set of profiles implies part of what is in a GraphDefinition</li>
+ <li>A <a href="structuredefinition.html">StructureDefinition</a> defines a profile, and profiles can make rules about the relationships between resources. A carefully defined set of profiles implies part of what is in a GraphDefinition</li>
  <li>A GraphDefinition defines rules about the relationships between resources, and in so doing, implies some constraints that would need to be represented in their profiles</li>
+ <li>Like <a href="compartmentdefinition.html">CompartmentDefinition</a>, GraphDefinition allows defining a grouping of resources and may be used for security access permissions.
+ However, GraphDefinitions do not define additional query capabilities and is much more limited in how membership in the collection is defined
+ (all resources that are part of a Compartment must expose a search parameter of the same name).</li>
 </ul>
 <p>
 Profiles and Graph Definitions can be used together, or separately. When used together, they should
