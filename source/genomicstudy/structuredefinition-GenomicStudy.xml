@@ -272,6 +272,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GenomicStudyMethodType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The method type of the GenomicStudy analysis."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-methodtype"/>
+      </binding>
     </element>
     <element id="GenomicStudy.analysis.changeType">
       <path value="GenomicStudy.analysis.changeType"/>
