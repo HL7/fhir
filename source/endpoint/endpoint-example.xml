@@ -20,6 +20,7 @@
 		</coding>
 	</connectionType>
 	<name value="Health Intersections CarePlan Hub" />
+	<description value="The CarePlan hub provides a test/dev environment for testing submissions"/>
 	<environmentType>
 		<coding>
 			<system value="http://hl7.org/fhir/endpoint-environment"/>
