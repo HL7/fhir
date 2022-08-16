@@ -564,7 +564,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".particiaption[typeCode=PFM].role"/>
+        <map value=".participation[typeCode=PRF].role"/>
       </mapping>
     </element>
     <element id="Encounter.participant">
@@ -590,7 +590,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=PFM]"/>
+        <map value=".participation[typeCode=PRF]"/>
       </mapping>
     </element>
     <element id="Encounter.participant.type">
