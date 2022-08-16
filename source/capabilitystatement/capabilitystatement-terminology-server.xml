@@ -30,7 +30,7 @@
   <software>
     <name value="ACME Terminology Server"/>
   </software>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
 <!--  json is mandatory, for support of mobile clients  -->
   <format value="json"/>
 <!--  xml is optional, but strongly recommended  -->

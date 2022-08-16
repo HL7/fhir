@@ -88,4 +88,16 @@
       <display value="USSS Enterprise-D Sickbay"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Washington, DC metro area - location with a boundary"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="location-wash-dc-metro"/>
+    </extension>
+    <item>
+      <reference value="Location/wash-dc-metro"/>
+      <display value="Washington, DC metro area"/>
+    </item>
+  </entry>
 </List>

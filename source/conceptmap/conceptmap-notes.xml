@@ -44,7 +44,13 @@ When attempting to translate the source to the target, an application SHOULD als
 identified in <code>dependsOn.property</code> so that the correct mapping can be performed. 
 </p>
 <p>
-All dependsOn and product values are included in the output of $translate.
+All dependsOn values are included in the output of $translate.
+</p>
+<p>
+Interpretation and use of these values is based on the definition of the associated property.
+</p>
+<p>
+The use of valueCode implies the CodeSystem is known from the property definition.  
 </p>
 <p>
 To see a real example of a mapping with dependencies, check the <a href="conceptmap-example-specimen-type.html">Specimen Type Mapping</a>.

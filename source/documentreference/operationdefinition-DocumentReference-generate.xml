@@ -37,7 +37,7 @@
     <valueMarkdown value="The server either returns a search result containing a single document reference, &#xA;or it returns an error. &#xA;If the URI refers to another server, it is at the discretion of the &#xA;server whether to retrieve it or return an error."/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/DocumentReference-generate"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="generate"/>
   <title value="Generate a DocumentReference from a document"/>
   <status value="draft"/>
@@ -67,6 +67,7 @@
     <use value="in"/>
     <min value="1"/>
     <max value="1"/>
+    <documentation value="The URL to the source document. This may be a general URL or a Binary or a Composition or a Bundle."/>
     <type value="uri"/>
   </parameter>
   <parameter>
@@ -75,7 +76,7 @@
     <min value="0"/>
     <max value="1"/>
     <documentation value="Whether to store the document at the document end-point (/Document) or not, once it is generated (default is for the server to decide)."/>
-    <type value="Binary"/>
+    <type value="boolean"/>
   </parameter>
   <parameter>
     <name value="docRef"/>

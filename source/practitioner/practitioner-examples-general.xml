@@ -87,11 +87,11 @@
           <value value="555-555-1002"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1002 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -128,11 +128,11 @@
           <value value="555-555-1021"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1020 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -169,11 +169,11 @@
           <value value="555-555-1003"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1003 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -210,11 +210,11 @@
           <value value="555-555-1004"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1004 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -251,11 +251,11 @@
           <value value="555-555-1005"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1005 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -292,11 +292,11 @@
           <value value="555-555-1006"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1006 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -333,11 +333,11 @@
           <value value="555-555-1007"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1007 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -374,11 +374,11 @@
           <value value="555-555-1022"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1021 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -415,11 +415,11 @@
           <value value="555-555-1023"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1022 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -456,11 +456,11 @@
           <value value="555-555-1024"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1023 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -497,11 +497,11 @@
           <value value="555-555-1008"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1008 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -538,11 +538,11 @@
           <value value="555-555-1009"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1009 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -579,11 +579,11 @@
           <value value="555-555-1025"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1024 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -620,11 +620,11 @@
           <value value="555-555-1012"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1012 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -661,11 +661,11 @@
           <value value="555-555-1027"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1025 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -702,11 +702,11 @@
           <value value="555-555-1028"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1026 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -743,11 +743,11 @@
           <value value="555-555-1029"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1027 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -784,11 +784,11 @@
           <value value="555-555-1030"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1028 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -825,11 +825,11 @@
           <value value="555-555-1031"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1029 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -866,11 +866,11 @@
           <value value="555-555-1032"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1030 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -907,11 +907,11 @@
           <value value="555-555-1033"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1031 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -948,11 +948,11 @@
           <value value="555-555-1034"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1032 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -989,11 +989,11 @@
           <value value="555-555-1035"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1033 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1030,11 +1030,11 @@
           <value value="555-555-1036"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1034 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1071,11 +1071,11 @@
           <value value="555-555-1037"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1035 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1112,11 +1112,11 @@
           <value value="555-555-1038"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1036 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1153,11 +1153,11 @@
           <value value="555-555-1039"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1037 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1194,11 +1194,11 @@
           <value value="555-555-1040"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1038 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1235,11 +1235,11 @@
           <value value="555-555-1041"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1039 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1276,11 +1276,11 @@
           <value value="555-555-2003"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1040 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1317,11 +1317,11 @@
           <value value="555-555-1043"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1041 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1358,11 +1358,11 @@
           <value value="555-555-1044"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1042 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1399,11 +1399,11 @@
           <value value="555-555-1045"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1043 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1440,11 +1440,11 @@
           <value value="555-555-1010"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1010 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1481,11 +1481,11 @@
           <value value="555-555-1046"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1044 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1522,11 +1522,11 @@
           <value value="555-555-1047"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1045 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1563,11 +1563,11 @@
           <value value="555-555-1048"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1046 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1604,11 +1604,11 @@
           <value value="555-555-1049"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1047 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1645,11 +1645,11 @@
           <value value="555-555-1011"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1011 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1686,11 +1686,11 @@
           <value value="555-555-1050"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1048 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1727,11 +1727,11 @@
           <value value="555-555-1013"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1013 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1768,11 +1768,11 @@
           <value value="555-555-1051"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1049 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1809,11 +1809,11 @@
           <value value="555-555-1052"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1050 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1850,11 +1850,11 @@
           <value value="555-555-1014"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1014 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1891,11 +1891,11 @@
           <value value="555-555-1015"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1015 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1932,11 +1932,11 @@
           <value value="555-555-1053"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1051 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -1973,11 +1973,11 @@
           <value value="555-555-1054"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1052 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -2014,11 +2014,11 @@
           <value value="555-555-1055"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1053 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -2055,11 +2055,11 @@
           <value value="555-555-1056"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1054 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -2096,11 +2096,11 @@
           <value value="555-555-1016"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1016 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -2137,11 +2137,11 @@
           <value value="555-555-1057"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1055 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -2178,11 +2178,11 @@
           <value value="555-555-1058"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1056 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -2219,11 +2219,11 @@
           <value value="555-555-1017"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1017 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -2260,11 +2260,11 @@
           <value value="555-555-1018"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1018 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -2300,11 +2300,11 @@
           <value value="555-555-1019"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1019 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -2341,11 +2341,11 @@
           <value value="555-555-1059"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1057 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>
@@ -2382,11 +2382,11 @@
           <value value="555-555-1060"/>
           <use value="work"/>
         </telecom>
+        <gender value="male"/>
         <address>
           <use value="home"/>
           <line value="1058 Healthcare Drive"/>
         </address>
-        <gender value="male"/>
       </Practitioner>
     </resource>
   </entry>
@@ -2423,11 +2423,11 @@
           <value value="555-555-1020"/>
           <use value="work"/>
         </telecom>
+        <gender value="female"/>
         <address>
           <use value="home"/>
           <line value="1058 Healthcare Drive"/>
         </address>
-        <gender value="female"/>
       </Practitioner>
     </resource>
   </entry>

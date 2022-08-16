@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="patient-multipleBirthTotal"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/patient-multipleBirthTotal"/>
+  <version value="5.0.0"/>
+  <name value="multipleBirthTotal"/>
+  <title value="Multiple Birth Total"/>
+  <status value="draft"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="Where a patient is a part of a multiple birth, this is the total number of births that occurred in this pregnancy.&#xD;&#xD;This value is the 4 in '3 of *4*', and the 3 would be the Patient.multipleBirth value."/>
+  <fhirVersion value="5.0.0"/>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="Patient.multipleBirth[x]"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Total births in this pregnancy"/>
+      <definition value="Total number of births in this pregnancy. This value is the 4 in '3 of *4*', and the 3 would be the Patient.multipleBirth value."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/patient-multipleBirthTotal"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -10,8 +10,10 @@
 		
 	<status value="active" />
 	<connectionType>
-		<system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type" />
-		<code value="dicom-wado-rs" />
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type" />
+			<code value="dicom-wado-rs" />
+		</coding>
 	</connectionType>
 	<name value="PACS Hospital DICOM WADO-RS endpoint" />
 	<payloadType>
@@ -21,4 +23,3 @@
 	<payloadMimeType value="application/dicom"/>
 	<address value="https://pacs.hospital.org/wado-rs"/>
 </Endpoint>
-

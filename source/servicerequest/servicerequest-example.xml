@@ -18,11 +18,13 @@
 <text value="Diagnostics Procedure"/>
 </category>
   <code>
+   <concept>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="303653007"/>
       <display value="Computed tomography of head"/>
     </coding>
+   </concept>
   </code>
   <subject>
     <reference value="Patient/example"/>

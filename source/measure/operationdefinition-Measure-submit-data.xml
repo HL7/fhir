@@ -37,7 +37,7 @@
     <valueMarkdown value="The effect of invoking this operation is that the submitted data is posted to the receiving system and can be used for subsequent calculation of the relevant quality measure. The data-of-interest for a measure can be determined by examining the measure definition, or by invoking the $data-requirements operation"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Measure-submit-data"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="submit-data"/>
   <title value="Submit Data"/>
   <status value="draft"/>

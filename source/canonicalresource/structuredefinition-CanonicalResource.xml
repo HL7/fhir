@@ -24,7 +24,7 @@
     <valueCode value=".status = retired"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="CanonicalResource"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -41,8 +41,8 @@
       <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Common Ancestor declaration for conformance and knowledge artifact resources."/>
-  <fhirVersion value="4.6.0"/>
+  <description value="Common Interface declaration for conformance and knowledge artifact resources."/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -74,8 +74,8 @@
         <valueCode value="230,160"/>
       </extension>
       <path value="CanonicalResource"/>
-      <short value="Common Ancestor declaration for definitional resources"/>
-      <definition value="Common Ancestor declaration for conformance and knowledge artifact resources."/>
+      <short value="Common Interface declaration for definitional resources"/>
+      <definition value="Common Interface declaration for conformance and knowledge artifact resources."/>
       <min value="1"/>
       <max value="1"/>
       <constraint>

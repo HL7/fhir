@@ -8,7 +8,7 @@
     </div>
   </text>
   <type value="person"/>
-  <actual value="true"/>
+  <membership value="enumerated"/>
   <characteristic>
     <code>
       <coding>

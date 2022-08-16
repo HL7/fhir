@@ -24,7 +24,7 @@
     <valueCode value="Medication does not have a status"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Medication"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Medication"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="script10.6"/>
     <uri value="http://ncpdp.org/SCRIPT10_6"/>

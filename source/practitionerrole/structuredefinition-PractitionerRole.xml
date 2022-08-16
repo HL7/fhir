@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="PractitionerRole"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -41,9 +41,9 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time."/>
+  <description value="A specific set of Roles/Locations/specialties/services that a practitioner may perform, or has performed at an organization during a period of time."/>
   <purpose value="Need to track services that a healthcare provider is able to provide at an organization&#39;s location, and the services that they can perform there."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -275,8 +275,8 @@
     <element id="PractitionerRole.specialty">
       <path value="PractitionerRole.specialty"/>
       <short value="Specific specialty of the practitioner"/>
-      <definition value="A type of specialized or skilled care the practitioner is able to deliver in the context of this particular role."/>
-	  <comment value="General capabilities of the practitioner independent of role are reflected in Practitioner.qualification."/>
+      <definition value="The specialty of a practitioner that describes the functional role they are practicing at a given organization or location."/>
+  	  <comment value="The specialty represents the functional role a practitioner is playing within an organization/location. This role may require the individual have certain qualifications, which would be represented in the Practitioner.qualifications property.  Note that qualifications may or might not relate to or be required by the practicing specialty."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -358,162 +358,18 @@
         <code value="ExtendedContactDetail"/>
       </type>
     </element>
-    <element id="PractitionerRole.telecom">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="deprecated"/>
-      </extension>
-      <path value="PractitionerRole.telecom"/>
-      <short value="Deprecated - use contact.telecom"/>
-      <definition value="Contact details that are specific to the role/location/service."/>
-      <requirements value="Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactPoint"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".telecom"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.availableTime">
+    <element id="PractitionerRole.availability">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="390,0"/>
       </extension>
-      <path value="PractitionerRole.availableTime"/>
-      <short value="Times the Service Site is available"/>
+      <path value="PractitionerRole.availability"/>
+      <short value="Times the Practitioner is available at this location and/or healthcare service (including exceptions)"/>
       <definition value="A collection of times the practitioner is available or performing this role at the location and/or healthcareservice."/>
-      <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;."/>
+      <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;.&#xD;&#xD;The NotAvailableTime(s) included indicate the general days/periods where the practitioner is not available (for things such as vacation time, or public holidays)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.availableTime.daysOfWeek">
-      <path value="PractitionerRole.availableTime.daysOfWeek"/>
-      <short value="mon | tue | wed | thu | fri | sat | sun"/>
-      <definition value="Indicates which days of the week are available between the start and end times."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DaysOfWeek"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The days of the week."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/days-of-week"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.availableTime.allDay">
-      <path value="PractitionerRole.availableTime.allDay"/>
-      <short value="Always available? i.e. 24 hour service"/>
-      <definition value="Indicates always available, hence times are irrelevant.  (i.e. 24-hour service)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.availableTime.availableStartTime">
-      <path value="PractitionerRole.availableTime.availableStartTime"/>
-      <short value="Opening time of day (ignored if allDay = true)"/>
-      <definition value="The opening time of day. Note: If the AllDay flag is set, then this time is ignored."/>
-      <comment value="The timezone is expected to be for where this HealthcareService is provided at."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="time"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.availableTime.availableEndTime">
-      <path value="PractitionerRole.availableTime.availableEndTime"/>
-      <short value="Closing time of day (ignored if allDay = true)"/>
-      <definition value="The closing time of day. Note: If the AllDay flag is set, then this time is ignored."/>
-      <comment value="The timezone is expected to be for where this HealthcareService is provided at."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="time"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.notAvailable">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="390,150"/>
-      </extension>
-      <path value="PractitionerRole.notAvailable"/>
-      <short value="Not available during this time due to provided reason"/>
-      <definition value="The practitioner is not available or performing this role during this period of time due to the provided reason."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.notAvailable.description">
-      <path value="PractitionerRole.notAvailable.description"/>
-      <short value="Reason presented to the user explaining why time not available"/>
-      <definition value="The reason that can be presented to the user as to why this time is not available."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.notAvailable.during">
-      <path value="PractitionerRole.notAvailable.during"/>
-      <short value="Service not available from this date"/>
-      <definition value="Service is not available (seasonally or for a public holiday) from this date."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="PractitionerRole.availabilityExceptions">
-      <path value="PractitionerRole.availabilityExceptions"/>
-      <short value="Description of availability exceptions"/>
-      <definition value="A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
+        <code value="Availability"/>
       </type>
       <mapping>
         <identity value="rim"/>

@@ -13,6 +13,8 @@
 	</identifier>
 
 	<status value="active"/>
+	
+	<kind value="insurance"/>
 
 	<type>
 		<coding>
@@ -47,9 +49,9 @@
 		<end value="2012-03-17"/>
 	</period>
 
-	<payor>
+	<insurer>
 		<reference value="Organization/2"/>
-	</payor>
+	</insurer>
 
 	<class>
 		<type>
@@ -58,7 +60,9 @@
 				<code value="group"/>
 			</coding>
 		</type>
-		<value value="WESTAIR"/>
+		<value>
+			<value value="WESTAIR"/>
+		</value>
 		<name value="Western Airlines"/>
 	</class>
 
@@ -69,7 +73,9 @@
 				<code value="plan"/>
 			</coding>
 		</type>
-		<value value="BG4352"/>
+		<value>
+			<value value="BG4352"/>
+		</value>
 		<name value="Full Coverage: Medical, Dental, Pharmacy, Vision, EHC"/>
 	</class>
 
@@ -80,7 +86,9 @@
 				<code value="subplan"/>
 			</coding>
 		</type>
-		<value value="D15C9"/>
+		<value>
+			<value value="D15C9"/>
+		</value>
 		<name value="Platinum"/>
 	</class>
 

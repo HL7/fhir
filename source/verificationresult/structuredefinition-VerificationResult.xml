@@ -21,7 +21,7 @@
     <valueCode value="pa"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/VerificationResult"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="VerificationResult"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -39,7 +39,7 @@
     </telecom>
   </contact>
   <description value="Describes validation requirements, source(s), status and dates for one or more elements."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>

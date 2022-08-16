@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="payment-kind"/>
+  <meta>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/payment-kind"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="PaymentKindCodes"/>
+  <title value="Payment Kind Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set contains codes for the type of workflow from which payments arise."/>
+  <copyright value="HL7 Inc."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/payment-kind"/>
+  <content value="complete"/>
+  <concept>
+    <code value="deposit"/>
+    <display value="Deposit on Account"/>
+    <definition value="The payment or adjustment is to an indicated account not to a specific charge."/>
+  </concept>
+  <concept>
+    <code value="periodic-payment"/>
+    <display value="Periodic Payment"/>
+    <definition value="The payment is one of a set of previously agreed payments, for example in fullfilment of a payment plan."/>
+  </concept>
+  <concept>
+    <code value="online"/>
+    <display value="Online Bill Payment"/>
+    <definition value="Payment, full or partial, of an invoice or statement provided to the payment issuer."/>
+  </concept>
+  <concept>
+    <code value="kiosk"/>
+    <display value="Kiosk Payment"/>
+    <definition value="Payment made at an authorized Kiosk."/>
+  </concept>
+</CodeSystem>

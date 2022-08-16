@@ -16,5 +16,12 @@
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/common-tags"/>
     </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationValue"/>
+      <concept>
+        <code value="SUBSETTED"/>
+        <display value="subsetted"/>
+      </concept>
+    </include>
   </compose>
 </ValueSet>
