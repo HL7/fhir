@@ -301,6 +301,36 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="Encounter.priority">
+      <path value="Encounter.priority"/>
+      <short value="Indicates the urgency of the encounter"/>
+      <definition value="Indicates the urgency of the encounter."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Priority"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates the urgency of the encounter."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActPriority"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.grade"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV2-25"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".priorityCode"/>
+      </mapping>
+    </element>
     <element id="Encounter.type">
       <path value="Encounter.type"/>
       <short value="Specific type of encounter"/>
@@ -329,7 +359,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.class"/>
+        <map value="FiveWs.what[x]"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -370,36 +400,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="Encounter.priority">
-      <path value="Encounter.priority"/>
-      <short value="Indicates the urgency of the encounter"/>
-      <definition value="Indicates the urgency of the encounter."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Priority"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Indicates the urgency of the encounter."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActPriority"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.grade"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PV2-25"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".priorityCode"/>
       </mapping>
     </element>
     <element id="Encounter.subject">
