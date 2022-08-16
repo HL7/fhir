@@ -9,13 +9,21 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <ul>
+        
         <li>Include major method category, method category, and primary test methodology codes defined in 
+          
           <a href="http://terminology.hl7.org/3.1.0/CodeSystem-GTR.html">
+            
             <code>http://terminology.hl7.org/3.1.0/CodeSystem-GTR.html</code>
+          
           </a>
+        
         </li>
+      
       </ul>
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -28,15 +36,13 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/genomicstudy-methodtype"/>
-<!--   <identifier>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    what would be the identifier system and value, and the version
     <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
-  </identifier> -->
-<!--   what would be the version number
-  <version value="0.1.0"/> -->
-  <name value="GenomicStudyMethodTYpe"/>
-  <title value="GenomicStudyMethodTYpe"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="GenomicStudyMethodType"/>
+  <title value="GenomicStudyMethodType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-08-16T13:55:11-05:00"/>
@@ -52,343 +58,342 @@
     </telecom>
   </contact>
   <description value="The method type of the GenomicStudy analysis."/>
-  <!-- will it be immutable -->
   <immutable value="false"/>
   <compose>
     <include>
-        <system value="https://terminology.hl7.org/3.1.0/CodeSystem-GTR.html"/>
-        <concept>
+      <system value="http://www.ncbi.nlm.nih.gov/"/>
+      <concept>
         <code value="Biochemical Genetics"/>
         <display value="Biochemical Genetics"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Cytogenetics"/>
         <display value="Cytogenetics"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Molecular Genetics"/>
         <display value="Molecular Genetics"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Analyte"/>
         <display value="Analyte"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Chromosome breakage studies"/>
         <display value="Chromosome breakage studies"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Deletion/duplication analysis"/>
         <display value="Deletion/duplication analysis"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Detection of homozygosity"/>
         <display value="Detection of homozygosity"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Enzyme assay"/>
         <display value="Enzyme assay"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="FISH-interphase"/>
         <display value="FISH-interphase"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="FISH-metaphase"/>
         <display value="FISH-metaphase"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Flow cytometry"/>
         <display value="Flow cytometry"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Fluorescence in situ hybridization (FISH)"/>
         <display value="Fluorescence in situ hybridization (FISH)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Immunohistochemistry"/>
         <display value="Immunohistochemistry"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Karyotyping"/>
         <display value="Karyotyping"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Linkage analysis"/>
         <display value="Linkage analysis"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Methylation analysis"/>
         <display value="Methylation analysis"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Microsatellite instability testing (MSI)"/>
         <display value="Microsatellite instability testing (MSI)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Multicolor FISH (M-FISH)/Spectral Karyotypingâ„¢ (SKYâ„¢)"/>
         <display value="Multicolor FISH (M-FISH)/Spectral Karyotypingâ„¢ (SKYâ„¢)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Mutation scanning of select exons"/>
         <display value="Mutation scanning of select exons"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Mutation scanning of the entire coding region"/>
         <display value="Mutation scanning of the entire coding region"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Protein analysis"/>
         <display value="Protein analysis"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Protein expression"/>
         <display value="Protein expression"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="RNA analysis"/>
         <display value="RNA analysis"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Sequence analysis of select exons"/>
         <display value="Sequence analysis of select exons"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Sequence analysis of the entire coding region"/>
         <display value="Sequence analysis of the entire coding region"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Sister chromatid exchange"/>
         <display value="Sister chromatid exchange"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Targeted variant analysis"/>
         <display value="Targeted variant analysis"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Uniparental disomy study (UPD)"/>
         <display value="Uniparental disomy study (UPD)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Allele-specific primer extension (ASPE)"/>
         <display value="Allele-specific primer extension (ASPE)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Alternative splicing detection"/>
         <display value="Alternative splicing detection"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Bi-directional Sanger Sequence Analysis"/>
         <display value="Bi-directional Sanger Sequence Analysis"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="C-banding"/>
         <display value="C-banding"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Chemiluminescent Immunoassay (CIA)"/>
         <display value="Chemiluminescent Immunoassay (CIA)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Chromatin Immunoprecipitation on ChIP"/>
         <display value="Chromatin Immunoprecipitation on ChIP"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Comparative Genomic Hybridization"/>
         <display value="Comparative Genomic Hybridization"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="DamID"/>
         <display value="DamID"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Digital / Virtual karyotyping"/>
         <display value="Digital / Virtual karyotyping"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Digital microfluidic microspheres"/>
         <display value="Digital microfluidic microspheres"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Enzymatic levels"/>
         <display value="Enzymatic levels"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Enzyme activity"/>
         <display value="Enzyme activity"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Enzyme-Linked Immunosorbent Assays (ELISA)"/>
         <display value="Enzyme-Linked Immunosorbent Assays (ELISA)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Flow cytometry"/>
         <display value="Flow cytometry"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Fluorescence in situ hybridization (FISH)"/>
         <display value="Fluorescence in situ hybridization (FISH)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Fluorometry"/>
         <display value="Fluorometry"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Fusion genes microarrays"/>
         <display value="Fusion genes microarrays"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="G-banding"/>
         <display value="G-banding"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Gas chromatographyâ€“mass spectrometry (GC-MS)"/>
         <display value="Gas chromatographyâ€“mass spectrometry (GC-MS)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Gene expression profiling"/>
         <display value="Gene expression profiling"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="GeneID"/>
         <display value="GeneID"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Gold nanoparticle probe technology"/>
         <display value="Gold nanoparticle probe technology"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="High-performance liquid chromatography (HPLC)"/>
         <display value="High-performance liquid chromatography (HPLC)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Liquid chromatographyâ€“mass spectrometry (LC-MS)"/>
         <display value="Liquid chromatographyâ€“mass spectrometry (LC-MS)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Liquid chromatography-tandem mass spectrometry (LC-MS/MS)"/>
         <display value="Liquid chromatography-tandem mass spectrometry (LC-MS/MS)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Metabolite levels"/>
         <display value="Metabolite levels"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Methylation-specific PCR"/>
         <display value="Methylation-specific PCR"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Microarray"/>
         <display value="Microarray"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Multiplex Ligation-dependent Probe Amplification (MLPA)"/>
         <display value="Multiplex Ligation-dependent Probe Amplification (MLPA)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Next-Generation (NGS)/Massively parallel sequencing (MPS)"/>
         <display value="Next-Generation (NGS)/Massively parallel sequencing (MPS)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Oligonucleotide Ligation Assay (OLA)"/>
         <display value="Oligonucleotide Ligation Assay (OLA)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Oligonucleotide hybridization-based DNA sequencing"/>
         <display value="Oligonucleotide hybridization-based DNA sequencing"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Other"/>
         <display value="Other"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="PCR"/>
         <display value="PCR"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="PCR with allele specific hybridization"/>
         <display value="PCR with allele specific hybridization"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="PCR-RFLP with Southern hybridization"/>
         <display value="PCR-RFLP with Southern hybridization"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Protein truncation test"/>
         <display value="Protein truncation test"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Pyrosequencing"/>
         <display value="Pyrosequencing"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Q-banding"/>
         <display value="Q-banding"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Quantitative PCR (qPCR)"/>
         <display value="Quantitative PCR (qPCR)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="R-banding"/>
         <display value="R-banding"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="RFLP"/>
         <display value="RFLP"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="RT-LAMP"/>
         <display value="RT-LAMP"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="RT-PCR"/>
         <display value="RT-PCR"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="RT-PCR with gel analysis"/>
         <display value="RT-PCR with gel analysis"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="RT-qPCR"/>
         <display value="RT-qPCR"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="SNP Detection"/>
         <display value="SNP Detection"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Silver staining"/>
         <display value="Silver staining"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Spectral karyotyping (SKY)"/>
         <display value="Spectral karyotyping (SKY)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="T-banding"/>
         <display value="T-banding"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Tandem mass spectrometry (MS/MS)"/>
         <display value="Tandem mass spectrometry (MS/MS)"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Tetra-nucleotide repeat by PCR or Southern Blot"/>
         <display value="Tetra-nucleotide repeat by PCR or Southern Blot"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Tiling Arrays"/>
         <display value="Tiling Arrays"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Trinucleotide repeat by PCR or Southern Blot"/>
         <display value="Trinucleotide repeat by PCR or Southern Blot"/>
-        </concept>
-        <concept>
+      </concept>
+      <concept>
         <code value="Uni-directional Sanger sequencing"/>
         <display value="Uni-directional Sanger sequencing"/>
-        </concept>
+      </concept>
     </include>
   </compose>
 </ValueSet>
