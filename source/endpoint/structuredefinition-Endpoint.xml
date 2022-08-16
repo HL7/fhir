@@ -172,6 +172,28 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="Endpoint.environmentType">
+      <path value="Endpoint.environmentType"/>
+      <short value="The type of environment(s) exposed at this endpoint"/>
+      <definition value="The type of environment(s) exposed at this endpoint (dev, prod, test, etc)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="endpoint-environment-type"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/endpoint-environment"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="Endpoint.managingOrganization">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="This was left as 0..1 to permit small systems having an implied Organization."/>
