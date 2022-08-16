@@ -175,7 +175,7 @@
     <element id="Endpoint.description">
       <path value="Endpoint.description"/>
       <short value="Additional details about the endpoint that could be displayed as further information to identify the description beyond its name"/>
-      <definition value="The description of the endpoint and what it is for (typically used as supplemental information in an endpoint directory describing it's usage/purpose)"/>
+      <definition value="The description of the endpoint and what it is for (typically used as supplemental information in an endpoint directory describing it's usage/purpose)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
