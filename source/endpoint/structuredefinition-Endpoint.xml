@@ -217,7 +217,7 @@
     <element id="Endpoint.contact">
       <path value="Endpoint.contact"/>
       <short value="Contact details for source (e.g. troubleshooting)"/>
-      <definition value="Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting."/>
+      <definition value="Contact details for a human to contact about the endpoint. The primary use of this for system administrator troubleshooting."/>
       <min value="0"/>
       <max value="*"/>
       <type>
