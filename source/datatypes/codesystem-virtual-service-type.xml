@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="virtual-service-type"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/virtual-service-type"/>
+  <version value="4.6.0"/>
+  <name value="VirtualServiceType"/>
+  <title value="VirtualServiceType"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <description value="Example codes for possible virtual service connection types."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/virtual-service-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="zoom"/>
+    <display value="Zoom web conferencing"/>
+    <definition value="the amount is the base price used for calculating the total price before applying surcharges, discount or taxes."/>
+  </concept>
+  <concept>
+    <code value="ms-teams"/>
+    <display value="Microsoft Teams"/>
+    <definition value="Microsoft Teams web conferencing meeting"/>
+  </concept>
+  <concept>
+    <code value="whatsapp"/>
+    <display value="WhatsApp conference call"/>
+    <definition value="A conference call using the WhatsApp conference call service"/>
+  </concept>
+</CodeSystem>

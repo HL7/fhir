@@ -15,7 +15,9 @@
 		<text value="Twinrix (HepA/HepB)"/>
 	</vaccineCode>
 	<manufacturer>
-		<reference value="Organization/hl7"/>
+		<reference>
+			<reference value="Organization/hl7"/>
+		</reference>
 	</manufacturer>
 	<lotNumber value="PT123F"/>
 	<expirationDate value="2018-12-15"/>
@@ -73,10 +75,15 @@
 	</performer>
 	<isSubpotent value="false"/>
 	<programEligibility>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"/>
-			<code value="ineligible"/>
-		</coding>
+		<program>
+			<text value="VFC"/>
+		</program>
+		<programStatus>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"/>
+				<code value="ineligible"/>
+			</coding>
+		</programStatus>
 	</programEligibility>
 	<fundingSource>
 		<coding>
