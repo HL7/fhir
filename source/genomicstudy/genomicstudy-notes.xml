@@ -1,11 +1,11 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
-<a name="examplecode"></a>
+<a name="examplecodes"></a>
 <h3>Example Codes</h3>
 <p>Genomic Study resource uses many example codes for terminology binding. Reviewers and implementers are strongly encouraged to provide their comments and feedback about the example codes for terminology binding purposes.</p>
 <h4>The GenomicStudy.analysis.methodType</h4>
-<p>The method type example codes were pulled from the NCBI-GTR values of descripting different testing methods, on various levels: major method category, method category, and primary methodology.
+<p>The method type example codes were pulled from the NCBI-GTR values of descripting different testing methods, on various levels: <a href="https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Major_method_category.txt">major method category</a>, <a href="https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Method_category.txt">method category</a>, and <a href="https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Primary_test_methodology.txt">primary methodology</a>.
 </p>
 <a name="notes"></a>
 <h3>Implementation Notes</h3>
