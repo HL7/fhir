@@ -30,7 +30,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="CapabilityStatement"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -48,7 +48,7 @@
     </telecom>
   </contact>
   <description value="A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -114,7 +114,7 @@
         <severity value="error"/>
         <human value="If kind = capability, implementation must be absent, software must be present"/>
         <expression value="(kind != &#39;capability&#39;) or (implementation.exists().not() and software.exists())"/>
-        <xpath value=" not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and exists(f:software))"/>
+        <xpath value="not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and exists(f:software))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
       </constraint>
       <constraint>

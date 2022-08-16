@@ -105,6 +105,46 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Encounter-date-start"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.actualPeriod.start"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-date-start"/>
+        <description value="The actual start date of the Encounter"/>
+        <code value="date-start"/>
+        <type value="date"/>
+        <expression value="Encounter.actualPeriod.start"/>
+        <xpath value="f:Encounter/f:actualPeriod/f:start"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-date-end"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.actualPeriod.end"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-date-end"/>
+        <description value="The actual end date of the Encounter"/>
+        <code value="end-date"/>
+        <type value="date"/>
+        <expression value="Encounter.actualPeriod.end"/>
+        <xpath value="f:Encounter/f:actualPeriod/f:end"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Encounter-diagnosis"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -392,14 +432,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Encounter.hospitalization.specialArrangement"/>
+          <valueString value="Encounter.admission.specialArrangement"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-special-arrangement"/>
         <description value="Wheelchair, translator, stretcher, etc."/>
         <code value="special-arrangement"/>
         <type value="token"/>
-        <expression value="Encounter.hospitalization.specialArrangement"/>
-        <xpath value="f:Encounter/f:hospitalization/f:specialArrangement"/>
+        <expression value="Encounter.admission.specialArrangement"/>
+        <xpath value="f:Encounter/f:admission/f:specialArrangement"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -480,6 +520,26 @@
         <type value="token"/>
         <expression value="Encounter.type"/>
         <xpath value="f:Encounter/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-careteam"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.careTeam"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-episode-of-care"/>
+        <description value="Careteam allocated to participate in the encounter"/>
+        <code value="careteam"/>
+        <type value="reference"/>
+        <expression value="Encounter.careTeam"/>
+        <xpath value="f:Encounter/f:careTeam"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

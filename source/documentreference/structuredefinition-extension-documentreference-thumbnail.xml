@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/documentreference-thumbnail"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Thumbnail"/>
   <status value="draft"/>
   <date value="2022-03-16T16:55:11+11:00"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="True or False indicating whether this content is a thumbnail."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <kind value="complex-type"/>
   <abstract value="false"/>
   <context>

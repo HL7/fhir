@@ -18,11 +18,14 @@ The Claim resource may be interpreted differently depending on its intended use 
 				<li>predetermination - where the provision of goods and services is <b>explored</b> to determine what services may be covered and to what amount. Essentially a 'what if' claim.</li>
 			</ul> 
 		</p>
+<p>
+The Claim.type code system provides oral, pharmacy, vision, professional and institutional claim types. Claim types supported are influenced by the requirements of the implementing jurisdiction. 
+The valueset is extensible to accommodate other types of claims as required by the jurisdiction. </p>
 
 		<p>
 The Claim also supports:
 			<ul>
-				<li>Up to a 3-tier hierarchy of Goods, products, and Services, to support simple to complex billing.</li>
+				<li>Up to a 3-tier hierarchy of Goods, products, and Services, to support simple to complex billing, see <a href="financial-module.html#3-tier">3-Tier Line Item Hierarchy</a>.</li>
 				<li>Multiple insurance programs arranged in a Coordination of Benefit sequence to enable exchange with primary, secondary, tertiary etc. insurance coverages.</li>
 				<li>Assignment of benefit - the benefit may be requested to be directed to the subscriber, the provider or another party.</li>
 			</ul>
@@ -32,6 +35,8 @@ The Claim also supports:
 at <a href="https://confluence.hl7.org/display/FM/FHIR+Resource+Development">https://confluence.hl7.org/display/FM/FHIR+Resource+Development</a>.
 Mappings to other specifications may be made available where IP restrictions permit.  
 		</p>
+
+
 <h3>Additional Information</h3>
 <p>
 Additional information regarding electronic claims content and usage may be found at:
@@ -47,6 +52,8 @@ the provider will settle the claim and potentially recover costs against specifi
 <li><a href="financial-module.html#attachments">Attachments and Supporting Information</a>: how eClaims may handle the provision of supporting
  information, whether provided by content or reference, within the eClaim resource when submitted to the payor or later in a resource which refers
  to the subject eClaim resource. This also includes how payors may request additional supporting information from providers.</li>
+<li><a href="financial-module.html#3-tier">3-Tier Line Item Hierarchy</a>: 3-tier hierarchy of Goods, products, and Services, to support simple to complex billing.</li>
+<li><a href="financial-module.html#tax">Tax</a>: Tax handling of Goods, products, and Services.</li>
 </ul>
 	</div>
 

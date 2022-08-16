@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.881"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="OrganizationAffiliationRole"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -23,6 +23,7 @@
   <concept>
     <code value="provider"/>
     <display value="Provider"/>
+    <definition value="An organization that delivers care services (e.g. hospitals, clinics, community and social services, etc.)."/>
   </concept>
   <concept>
     <code value="agency"/>

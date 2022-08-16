@@ -36,6 +36,8 @@
         <value value="0205664987"/>
         <use value="work"/>
     </telecom>
+    <gender value="male" />
+    <birthDate value="1975-12-07"/>
     <address>
         <use value="work"/>
         <line value="Galapagosweg 91"/>
@@ -43,8 +45,4 @@
         <postalCode value="9105 PZ"/>
         <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
     </address>
-    
-    <gender value="male" />
-    <birthDate value="1975-12-07"/>
-
 </Practitioner>

@@ -35,6 +35,8 @@
         <value value="0205664440"/>
         <use value="work"/>
     </telecom>
+    <gender value="male" />
+    <birthDate value="1980-02-04"/>
     <address>
         <use value="work"/>
         <line value="Galapagosweg 91"/>
@@ -42,10 +44,6 @@
         <postalCode value="1105 AZ"/>
         <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
     </address>
-
-    <gender value="male" />
-    <birthDate value="1980-02-04"/>
-
 	<communication>
         <coding>
             <system value="urn:ietf:bcp:47"/>

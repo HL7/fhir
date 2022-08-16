@@ -8,13 +8,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/pronouns"/>
+  <url value="http://terminology.hl7.org/ValueSet/pronouns"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+    <value value="urn:oid:2.16.840.1.113883.11.19755"/>
   </identifier>
-  <version value="4.6.0"/>
-  <name value="Pronouns"/>
+  <version value="5.0.0"/>
+  <name value="personalPronouns"/>
+  <title value="Personal Pronouns"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -23,7 +24,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set defines a set of codes that can be used to indicate the pronouns used to communicate about an individual."/>
+  <description value="Codes that indicate the pronouns to be used when communicating with or about an individual."/>
   <copyright value="This content from LOINC&#xAE; is copyright &#xA9; 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
   <compose>
     <include>

@@ -27,7 +27,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Observation"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -46,7 +46,7 @@
   </contact>
   <description value="Measurements and simple assertions made about a patient, device or other subject."/>
   <purpose value="Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -311,6 +311,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -1239,6 +1240,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
       </type>
       <isSummary value="true"/>
       <mapping>

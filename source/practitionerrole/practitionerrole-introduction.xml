@@ -4,15 +4,31 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-PractitionerRole covers the recording of the location and types of services that Practitioners are able to provide
-for an organization.
+The PractitionerRole describes the types of services that practitioners provide for an organization at specific location(s).
 </p>
+<p>
+The PractitionerRole resource can be used in multiple contexts including:
+</p>
+<ul>
+  <li>Provider Registries where it indicates what a practitioner can perform for an organization (may indicate multiple healthcareservices, locations, and roles)</li>
+  <li>In a Clinical system where it indicates the role, healthcareservice and location details associated with a practitioner that are applicable to the healthcare event (e.g. Observation, Appointment, Condition, CarePlan)</li>
+  <li>In a Clinical system as a point of reference rather than an event, such as a patient's preferred general practitioner (at a specific clinic)</li>
+</ul>
+
 <p>
 The role, specialty, Location telecom and HealthcareService properties can be repeated if required in other instances
 of the PractitionerRole. Some systems record a collection of service values for a single location, others record the 
 single service and the list of locations it is available. Both are acceptable options for representing this data.<br/>
 Where availability, telecom, or other details are not the same across all healthcareservices, or locations 
-a seperate PractitionerRole instance should be created.
+a separate PractitionerRole instance should be created.
+</p>
+<p>
+Many resource types have a choice of a reference to either a Practitioner resource or a PractitionerRole resource. The latter
+provides organizational context for the practitioners participation when it is required, otherwise a direct reference to the
+practitioner may be used.<br/>
+Many implementations may choose to profile the PractitionerRole to a single location/role/healthcareservice for their specific usage.<br/>
+As the property that references a PractitionerRole typically has a specific context, the code on the PractitionerRole having duplicate code values is not a big concern (and is used for discovery where required).<br/>
+e.g. These references are all very context specific: Patient.GeneralPractitioner, CarePlan.reported, CarePlan.contributor, Appointment.participant (through the participant.role), Immunization.informationSource, Immunization.performer (through the performer.function property)
 </p>
 <p>
 For use cases where an organization has activities where a practitioner is not defined/pre-allocated for a specific role 
