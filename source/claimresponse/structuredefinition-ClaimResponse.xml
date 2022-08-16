@@ -1267,7 +1267,7 @@
       <path value="ClaimResponse.addItem.detail.adjudication"/>
       <short value="Added items detail adjudication"/>
       <definition value="The adjudication results."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="*"/>
       <contentReference value="#ClaimResponse.item.adjudication"/>
     </element>

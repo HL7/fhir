@@ -10,6 +10,14 @@ in the models for <a href="organization.html">Organization</a> and <a href="prac
 using the Location.partOf element.</li>
 <li>Location.position is expressed using the same syntax, datum and reference system as used in Google Earth's KML files,
 see <a href="http://www.opengeospatial.org/standards/kml">Google/OGS's KML</a>.</li>
+<li>
+    Location availability exceptions such as public holidays or planned maintenance can be blocked out
+    using the <code>hoursOfOperation.notAvailableTime</code> properties. It might be defined as just a textual description
+    (e.g. Public Holidays) in which case the user would need to know what that means.
+    Preferably it should include the actual start/end dates that is it not available.<br/>
+    Not intended to store ongoing historic data here, but the most recent/upcoming relevant data
+    (however nothing prevents that data from existing either)
+</li>
 </ul>
 
 <a name="loc-mode"></a>
@@ -78,6 +86,7 @@ Mobile Services (kind)
   
 <a name="positional"></a>
     <h3>Positional Searching</h3>
+    <h4>Near: Locations within a specified distance of a provided geocode</h4>
     <p>
         Searching for locations often require that a facility is within a specified distance of a specified point.
         For example, to locate healthcare facilities within 11.2 kms of a client's home, or the current geo-coded
@@ -136,4 +145,25 @@ Mobile Services (kind)
 <pre>
  GET [base]/Location?near=-83.694810|42.256500|11.20|km&amp;_sortby=near
 </pre>	
+
+<h4>Contains: Locations with a boundary that contains the provided geocode</h4>
+<p>
+    Locations can also include a definition of their boundary shape in the standard extension <a href="extension-location-boundary-geojson.html">location-boundary-geojson</a>.
+    This is very useful with defining explicit coverage areas.<br/>
+    The special <code>contains</code> search parameter tests that the geocoded point(s) provided (expressed as [latitude]|[longitude] using the
+    WGS84 datum) are contained by the defined boundary.
+</p>
+<pre>
+    GET [base]/Location?contains=-83.694810|42.256500
+</pre>
+<p>
+    Support for multiple points can also be provided using the <code>,</code> syntax which is interpretted as the location returned in the search contains at least 1 of the provided co-ordinates.
+</p>
+<blockquote>
+    <p>
+        <b>Note:</b> Searching this data requires specialized geo-spatial search infrastructure, or other
+        approximating implementations.
+    </p>
+</blockquote>
+
 </div>

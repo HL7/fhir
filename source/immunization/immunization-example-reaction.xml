@@ -15,7 +15,9 @@
 		<text value="Rabies - IM Diploid cell culture"/>
 	</vaccineCode>
 	<manufacturer>
-		<reference value="Organization/hl7"/>
+		<reference>
+			<reference value="Organization/hl7"/>
+		</reference>
 	</manufacturer>
 	<lotNumber value="PPL909K"/>
 	<expirationDate value="2023-01-21"/>

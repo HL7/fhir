@@ -68,12 +68,17 @@
 	<quantity>
 		<value value= "1"/>
 	</quantity> 
-	<factorOverride value="0.8"/>
-	<priceOverride>
-	    <value value="40"/>
-        <currency value="EUR"/>
-	</priceOverride>
-	<overrideReason value= "Patient is Cardiologist's golf buddy, so he gets a 20% discount!"/>
+	<totalPriceComponent>
+		<type value="base"/>
+		<factor value="0.8"/>
+		<amount>
+			<value value="40"/>
+			<currency value="EUR"/>
+		</amount>
+	</totalPriceComponent>
+	<overrideReason>
+		<text value= "Patient is Cardiologist's golf buddy, so he gets a 20% discount!"/>
+	</overrideReason>
 	<enterer>
 		<reference value="Practitioner/example"/>
 	</enterer>
