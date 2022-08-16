@@ -2,7 +2,9 @@
 	<id value="direct-endpoint"/>
 	<status value="active"/>
 	<connectionType>
-		<code value="direct-project"/>
+		<coding>
+			<code value="direct-project"/>
+		</coding>
 	</connectionType>
 	<name value="MARTIN SMIETANKA"/>
 	<managingOrganization>

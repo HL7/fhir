@@ -14,10 +14,25 @@
 	</identifier>
 	<status value="active" />
 	<connectionType>
-		<system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type" />
-		<code value="hl7-fhir-rest" />
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type" />
+			<code value="hl7-fhir-rest" />
+		</coding>
 	</connectionType>
 	<name value="Health Intersections CarePlan Hub" />
+	<description value="The CarePlan hub provides a test/dev environment for testing submissions"/>
+	<environmentType>
+		<coding>
+			<system value="http://hl7.org/fhir/endpoint-environment"/>
+			<code value="test"/>
+		</coding>
+	</environmentType>
+	<environmentType>
+		<coding>
+			<system value="http://hl7.org/fhir/endpoint-environment"/>
+			<code value="dev"/>
+		</coding>
+	</environmentType>
 	<managingOrganization>
 		<reference value="Organization/hl7" />
 	</managingOrganization>
