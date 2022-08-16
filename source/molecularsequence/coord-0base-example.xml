@@ -3,33 +3,37 @@
 <MolecularSequence xmlns="http://hl7.org/fhir">
     <id value="coord-0-base"/>
     <type value="dna"/>
-    <coordinateSystem value="0"/>
-    <referenceSeq>
-        <referenceSeqString value="ACGTAGTC"/>
-        <strand value="watson"/>
-        <windowStart value="0"/>
-        <windowEnd value="8"/>
-    </referenceSeq>
-    <variant>
-        <start value="2"/>
-        <end value="2"/>
-        <observedAllele value="ATG"/>
-        <referenceAllele value="-"/>
-        <cigar value="3I"/>
-    </variant>
-    <variant>
-        <start value="4"/>
-        <end value="5"/>
-        <observedAllele value="T"/>
-        <referenceAllele value="A"/>
-        <cigar value="1M"/>
-    </variant>
-    <variant>
-        <start value="6"/>
-        <end value="7"/>
-        <observedAllele value="-"/>
-        <referenceAllele value="T"/>
-        <cigar value="1D"/>
-    </variant> 
-    <observedSeq value="ACATGGTAGC"/>
+    <relative>
+        <coordinateSystem>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="LA30101-2"/>
+                <display value="0-based character counting"/>
+            </coding>
+        </coordinateSystem>
+        <startingSequence>
+            <sequenceString value="ACGTAGTC"/>
+            <windowStart value="0"/>
+            <windowEnd value="8"/>
+            <strand value="watson"/>
+        </startingSequence>
+        <edit>
+            <start value="2"/>
+            <end value="2"/>
+            <replacementSequence value="ATG"/>
+            <replacedSequence value="-"/>
+        </edit>
+        <edit>
+            <start value="4"/>
+            <end value="5"/>
+            <replacementSequence value="T"/>
+            <replacedSequence value="A"/>
+        </edit>
+        <edit>
+            <start value="6"/>
+            <end value="7"/>
+            <replacementSequence value="-"/>
+            <replacedSequence value="T"/>
+        </edit> 
+    </relative>
 </MolecularSequence>

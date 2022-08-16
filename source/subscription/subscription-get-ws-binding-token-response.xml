@@ -10,5 +10,13 @@
     <name value="expiration"/>
     <valueDateTime value="2020-01-17T19:30:22-05:00"/>
   </parameter>
-</Bundle>
+  <parameter>
+    <name value="subscription"/>
+    <valueString value="ABC123"/>
+  </parameter>
+  <parameter>
+    <name value="websocket-url"/>
+    <valueUrl value="wss://example.org/fhir/R5/subscription-websocket"/>
+  </parameter>
+</Parameters>
 

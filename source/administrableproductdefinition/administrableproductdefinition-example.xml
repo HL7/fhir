@@ -6,6 +6,7 @@
     <system value="http://ema.europa.eu/example/phpididentifiersets"/>
     <value value="{PhPID}"/>
   </identifier>
+  <status value="active"/>
   <administrableDoseForm>
     <coding>
       <system value="http://ema.europa.eu/example/administrabledoseform"/>
@@ -18,9 +19,6 @@
       <code value="Tablet"/>
     </coding>
   </unitOfPresentation>
-  <ingredient>
-    <reference value="Ingredient/example"/>
-  </ingredient>
   <routeOfAdministration>
      <code>
        <coding>

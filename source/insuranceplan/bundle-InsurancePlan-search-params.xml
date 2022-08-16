@@ -196,7 +196,7 @@
         <description value="A portion of the organization&#39;s name or alias"/>
         <code value="name"/>
         <type value="string"/>
-        <expression value="name | alias"/>
+        <expression value="InsurancePlan.name | InsurancePlan.alias"/>
         <xpath value="f:InsurancePlan/f:name | f:InsurancePlan/f:alias"/>
         <xpathUsage value="normal"/>
       </SearchParameter>

@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Immunization"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -193,6 +193,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
       </type>
       <isSummary value="true"/>
@@ -490,35 +491,13 @@
         <map value="ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/effectiveTime/value"/>
       </mapping>
     </element>
-    <element id="Immunization.recorded">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Approved to add 8/9/2018."/>
-      </extension>
-      <path value="Immunization.recorded"/>
-      <short value="When the immunization was first captured in the subject&#39;s record"/>
-      <definition value="The date the occurrence of the immunization was first captured in the record - potentially significantly after the occurrence of the event."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="false"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.recorded"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=AUT].time"/>
-      </mapping>
-    </element>
     <element id="Immunization.primarySource">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="gForge #15696 and #20327."/>
       </extension>
       <path value="Immunization.primarySource"/>
       <short value="Indicates context the data was recorded in"/>
-      <definition value="Indicates if this record was captured as a secondary &#39;reported&#39; record rather than as an original primary source-of-truth record."/>
+      <definition value="Indicates whether this record was captured as an original primary source-of-truth record rather than a secondary 'reported' record. A value &quot;true&quot; means this is a primary record of the immunization."/>
       <comment value="Reflects the &#x201C;reliability&#x201D; of the content."/>
       <min value="0"/>
       <max value="1"/>
@@ -543,21 +522,18 @@
         <map value="immunization.uncertaintycode (if primary source=false, uncertainty=U)"/>
       </mapping>
     </element>
-    <element id="Immunization.informationSource[x]">
+    <element id="Immunization.informationSource">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="gForge #15696 and #20327."/>
       </extension>
-      <path value="Immunization.informationSource[x]"/>
+      <path value="Immunization.informationSource"/>
       <short value="Indicates the source of a  reported record"/>
       <definition value="Typically the source of the data when the report of the immunization event is not based on information from the person who administered the vaccine."/>
       <comment value="Typically will not be populated if primarySource = True, not required even if primarySource = False."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
@@ -781,6 +757,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -1098,14 +1076,14 @@
         <map value=".effectiveTime"/>
       </mapping>
     </element>
-    <element id="Immunization.reaction.detail">
-      <path value="Immunization.reaction.detail"/>
+    <element id="Immunization.reaction.manifestation">
+      <path value="Immunization.reaction.manifestation"/>
       <short value="Additional information on reaction"/>
       <definition value="Details of the reaction."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
       <mapping>

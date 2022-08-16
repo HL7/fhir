@@ -47,6 +47,8 @@
     </assigner>
   </identifier>
 
+  <active value="true"/>
+
   <!-- Peter James Chalmers, but called "Jim" -->
   <name>
     <use value="official"/>
@@ -84,7 +86,5 @@
   <managingOrganization>
     <reference value="Organization/1"/>
   </managingOrganization>
-
-  <active value="true"/>
 
 </Person>

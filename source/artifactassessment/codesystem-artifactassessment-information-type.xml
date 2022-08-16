@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="artifactassessment-information-type"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/artifactassessment-information-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="ArtifactAssessmentInformationType"/>
+  <title value="Artifact Assessment Information Type"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The type of information contained in a component of an artifact assessment."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-information-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="comment"/>
+    <display value="Comment"/>
+    <definition value="A comment on the artifact"/>
+  </concept>
+  <concept>
+    <code value="classifier"/>
+    <display value="Classifier"/>
+    <definition value="A classifier of the artifact"/>
+  </concept>
+  <concept>
+    <code value="rating"/>
+    <display value="Rating"/>
+    <definition value="A rating of the artifact"/>
+  </concept>
+  <concept>
+    <code value="container"/>
+    <display value="Container"/>
+    <definition value="A container for multiple components"/>
+  </concept>
+  <concept>
+    <code value="response"/>
+    <display value="Response"/>
+    <definition value="A response to a comment"/>
+  </concept>
+  <concept>
+    <code value="change-request"/>
+    <display value="Change Request"/>
+    <definition value="A change request for the artifact"/>
+  </concept>
+</CodeSystem>

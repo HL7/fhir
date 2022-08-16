@@ -250,14 +250,34 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Practitioner.identifier"/>
+          <valueString value="Practitioner.identifier | Practitioner.qualification.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-identifier"/>
         <description value="A practitioner&#39;s Identifier"/>
         <code value="identifier"/>
         <type value="token"/>
-        <expression value="Practitioner.identifier"/>
-        <xpath value="f:Practitioner/f:identifier"/>
+        <expression value="Practitioner.identifier | Practitioner.qualification.identifier"/>
+        <xpath value="f:Practitioner/f:identifier | Practitioner/f:qualification/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-qualification-period"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.qualification.period"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-qualification-period"/>
+        <description value="The date(s) a qualification is valid for"/>
+        <code value="qualification-period"/>
+        <type value="date"/>
+        <expression value="Practitioner.qualification.period"/>
+        <xpath value="f:Practitioner/f:qualification/f:period"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -338,6 +358,46 @@
         <type value="token"/>
         <expression value="Practitioner.telecom"/>
         <xpath value="f:Practitioner/f:telecom"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-death-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.deceasedDateTime"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-death-date"/>
+        <description value="The date of death has been provided and satisfies this search value"/>
+        <code value="death-date"/>
+        <type value="date"/>
+        <expression value="(Practitioner.deceased as dateTime)"/>
+        <xpath value="f:Practitioner/f:deceasedDateTime"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Practitioner-deceased"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Practitioner.deceased[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-deceased"/>
+        <description value="This Practitioner has been marked as deceased, or has a death date entered"/>
+        <code value="deceased"/>
+        <type value="token"/>
+        <expression value="Practitioner.deceased.exists() and Practitioner.deceased != false"/>
+        <xpath value="f:Practitioner/f:deceasedBoolean | f:Practitioner/f:deceasedDateTime"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

@@ -9,18 +9,12 @@
 	<status value="completed"/>
 	<!--Encounter has finished-->
 	<class>
-		<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-		<code value="AMB"/>
-		<!-- outpatient encounter for chemotherapy -->
-		<display value="ambulatory"/>
-	</class>
-	<type>
 		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="367336001"/>
-			<display value="Chemotherapy"/> 
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<code value="AMB"/><!-- outpatient encounter for chemotherapy -->
+			<display value="ambulatory"/>
 		</coding>
-	</type>
+	</class>
 	<priority>
 		<!--Urgent priority, because of complications-->
 		<coding>
@@ -29,14 +23,24 @@
 			<display value="Urgent"/>
 		</coding>
 	</priority>
+	<type>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="367336001"/>
+			<display value="Chemotherapy"/>
+		</coding>
+	</type>
 	<subject>
 		<reference value="Patient/f201"/>
 		<display value="Roel"/>
 	</subject>
+	<serviceProvider>
+		<reference value="Organization/f201"/>
+	</serviceProvider>
 	<participant>
-		<individual>
+		<actor>
 			<reference value="Practitioner/f201"/>
-		</individual>
+		</actor>
 	</participant>
 	<length>
 		<value value="56"/>
@@ -76,8 +80,5 @@
 		</use>
 		<rank value="1"/>
 	</diagnosis>
-	<!--No hospitalization was deemed necessary-->
-	<serviceProvider>
-		<reference value="Organization/f201"/>
-	</serviceProvider>
+	<!--No admission was deemed necessary-->
 </Encounter>

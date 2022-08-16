@@ -50,5 +50,15 @@
         <reference value="StructureDefinition/auditevent-ParticipantObjectContainsStudy"/>
       </reference>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/auditevent-Lifecycle"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/auditevent-AlternativeUserID"/>
+      </reference>
+    </resource>
   </definition>
 </ImplementationGuide>

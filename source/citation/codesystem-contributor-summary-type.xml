@@ -35,8 +35,8 @@
           </td>
         
         </tr>
-        
-        <tr>
+		
+		<tr>
           
           <td style="white-space:nowrap">author-string
             
@@ -49,7 +49,25 @@
           <td>Display of the author list as a complete string.</td>
         
         </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">contributorship-list
+            
+            <a name="contributor-summary-type-contributorship-list"> </a>
+          
+          </td>
+          
+          <td>Contributorship list</td>
+          
+          <td>Display of the list of contributors as a complete string.</td>
         
+        </tr>
+
+
+
         <tr>
           
           <td style="white-space:nowrap">contributorship-statement
@@ -63,21 +81,71 @@
           <td>Compiled summary of contributions.</td>
         
         </tr>
-        
+
+
+
         <tr>
           
-          <td style="white-space:nowrap">acknowledgment
+          <td style="white-space:nowrap">acknowledgement-list
             
-            <a name="contributor-summary-type-acknowledgment"> </a>
+            <a name="contributor-summary-type-acknowledgement-list"> </a>
           
           </td>
           
-          <td>Acknowledgment</td>
+          <td>Acknowledgment list</td>
+          
+          <td>Display of the list of acknowledged parties as a complete string.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">acknowledgment-statement
+            
+            <a name="contributor-summary-type-acknowledgment-statement"> </a>
+          
+          </td>
+          
+          <td>Acknowledgment statement</td>
           
           <td>Statement of acknowledgment of contributions beyond those compiled for formal contributorship statements.</td>
         
         </tr>
-      
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">funding-statement
+            
+            <a name="contributor-summary-type-funding-statement"> </a>
+          
+          </td>
+          
+          <td>Funding statement</td>
+          
+          <td>Statement of financial support for the creation of the cited artifact.</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">competing-interests-statement
+            
+            <a name="contributor-summary-type-competing-interests-statement"> </a>
+          
+          </td>
+          
+          <td>Competing interests statement</td>
+          
+          <td>Statement of completing interests related to the creation of the cited artifact. Also called conflicts of interest or declaration of interests.</td>
+        
+        </tr>
+	  
       </table>
     
     </div>
@@ -96,7 +164,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ContributorSummaryType"/>
   <title value="ContributorSummaryType"/>
   <status value="draft"/>
@@ -123,13 +191,33 @@
     <definition value="Display of the author list as a complete string."/>
   </concept>
   <concept>
+    <code value="contributorship-list"/>
+    <display value="Contributorship list"/>
+    <definition value="Display of the list of contributors as a complete string."/>
+  </concept>
+  <concept>
     <code value="contributorship-statement"/>
     <display value="Contributorship statement"/>
     <definition value="Compiled summary of contributions."/>
   </concept>
   <concept>
-    <code value="acknowledgment"/>
-    <display value="Acknowledgment"/>
+    <code value="acknowledgement-list"/>
+    <display value="Acknowledgment list"/>
+    <definition value="Display of the list of acknowledged parties as a complete string."/>
+  </concept>
+  <concept>
+    <code value="acknowledgment-statement"/>
+    <display value="Acknowledgment statement"/>
     <definition value="Statement of acknowledgment of contributions beyond those compiled for formal contributorship statements."/>
+  </concept>
+  <concept>
+    <code value="funding-statement"/>
+    <display value="Funding statement"/>
+    <definition value="Statement of financial support for the creation of the cited artifact."/>
+  </concept>
+  <concept>
+    <code value="competing-interests-statement"/>
+    <display value="Competing interests statement"/>
+    <definition value="Statement of completing interests related to the creation of the cited artifact. Also called conflicts of interest or declaration of interests."/>
   </concept>
 </CodeSystem>

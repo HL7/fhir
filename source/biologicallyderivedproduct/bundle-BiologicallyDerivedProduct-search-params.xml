@@ -2,4 +2,151 @@
 
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="BiologicallyDerivedProduct-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BiologicallyDerivedProduct-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProduct.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-identifier"/>
+        <description value="Identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="BiologicallyDerivedProduct.identifier"/>
+        <xpath value="f:BiologicallyDerivedProduct/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>   
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BiologicallyDerivedProduct-biological-source-event"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProduct.biologicalSourceEvent"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-biological-source-event"/>
+        <description value="The biological source for the biologically derived product"/>
+        <code value="biological-source-event"/>
+        <type value="token"/>
+        <expression value="BiologicallyDerivedProduct.biologicalSourceEvent"/>
+        <xpath value="f:BiologicallyDerivedProduct/f:biologicalSourceEvent"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BiologicallyDerivedProduct-product-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProduct.productCategory"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-product-category"/>
+        <description value="Broad category of this product."/>
+        <code value="product-category"/>
+        <type value="token"/>
+        <expression value="BiologicallyDerivedProduct.productCategory"/>
+        <xpath value="f:BiologicallyDerivedProduct/f:productCategory"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BiologicallyDerivedProduct-product-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProduct.productCode"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-product-code"/>
+        <description value="A code that identifies the kind of this biologically derived product (SNOMED CT code)."/>
+        <code value="product-code"/>
+        <type value="token"/>
+        <expression value="BiologicallyDerivedProduct.productCode"/>
+        <xpath value="f:BiologicallyDerivedProduct/f:productCode"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BiologicallyDerivedProduct-product-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProduct.productStatus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-product-status"/>
+        <description value="Whether the product is currently available."/>
+        <code value="product-status"/>
+        <type value="token"/>
+        <expression value="BiologicallyDerivedProduct.productStatus"/>
+        <xpath value="f:BiologicallyDerivedProduct/f:productStatus"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BiologicallyDerivedProduct-request"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProduct.request"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-request"/>
+        <description value="Procedure request to obtain this biologically derived product."/>
+        <code value="request"/>
+        <type value="reference"/>
+        <expression value="BiologicallyDerivedProduct.request"/>
+        <xpath value="f:BiologicallyDerivedProduct/f:request"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BiologicallyDerivedProduct-collection-collector"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProduct.collection.collector"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-collection-collector"/>
+        <description value="Procedure request to obtain this biologically derived product."/>
+        <code value="collector"/>
+        <type value="reference"/>
+        <expression value="BiologicallyDerivedProduct.collection.collector"/>
+        <xpath value="f:BiologicallyDerivedProduct/f:collection/f:collector"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
+
+<!-- 
+product-category token   BiologicallyDerivedProduct.productCategory
+product-code token         BiologicallyDerivedProduct.productCode
+status token                      BiologicallyDerivedProduct.status
+request reference             BiologicallyDerivedProduct.request (SerivceRequest)
+collector reference           BiologicallyDerivedProduct.collector (Practitioner  | PractitionerRole) -->

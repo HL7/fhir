@@ -27,7 +27,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="TestScript"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -85,7 +85,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
       </constraint>
@@ -108,7 +108,7 @@
       <alias value="authoritative-url"/>
       <alias value="destination"/>
       <alias value="identity"/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="uri"/>
@@ -130,7 +130,7 @@
       <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this test script outside of FHIR, where it is not possible to use the logical URI."/>
       <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Identifier"/>
       </type>
@@ -666,8 +666,8 @@
     </element>
     <element id="TestScript.scope.conformance">
       <path value="TestScript.scope.conformance"/>
-      <short value="required | optional"/>
-      <definition value="The expectation of whether the test must pass for the system to be considered conformant with the artifact: required - all tests must pass, optional - all test are expected to pass but non-pass status may be allowed."/>
+      <short value="required | optional | strict"/>
+      <definition value="The expectation of whether the test must pass for the system to be considered conformant with the artifact: required - all tests are expected to pass, optional - all test are expected to pass but non-pass status may be allowed, strict - all tests are expected to pass and warnings are treated as a failure."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -744,7 +744,7 @@
     <element id="TestScript.fixture.resource">
       <path value="TestScript.fixture.resource"/>
       <short value="Reference of the resource"/>
-      <definition value="Reference to the resource (containing the contents of the resource needed for operations)."/>
+      <definition value="Reference to the resource (containing the contents of the resource needed for operations). This is allowed to be a Parameters resource."/>
       <comment value="See http://build.fhir.org/resourcelist.html for complete list of resource types."/>
       <min value="0"/>
       <max value="1"/>
@@ -957,12 +957,12 @@
     <element id="TestScript.setup.action.operation.resource">
       <path value="TestScript.setup.action.operation.resource"/>
       <short value="Resource type"/>
-      <definition value="The type of the resource.  See http://build.fhir.org/resourcelist.html."/>
+      <definition value="The type of the FHIR resource. See http://build.fhir.org/resourcelist.html. Data type of uri is needed when non-HL7 artifacts are identified."/>
       <comment value="If &quot;url&quot; element is specified, then &quot;targetId&quot;, &quot;params&quot;, and &quot;resource&quot; elements will be ignored as &quot;url&quot; element will have everything needed for constructing the request url.  If &quot;params&quot; element is specified, then &quot;targetId&quot; element is ignored. For FHIR operations that require a resource (e.g. &quot;read&quot; and &quot;vread&quot; operations), the &quot;resource&quot; element must be specified when &quot;params&quot; element is specified.  If &quot;url&quot; and &quot;params&quot; elements are absent, then the request url will be constructed from &quot;targetId&quot; fixture if present. For &quot;read&quot; operation, the resource and id values will be extracted from &quot;targetId&quot; fixture and used to construct the url. For &quot;vread&quot; and &quot;history&quot; operations, the versionId value will also be used."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="uri"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -971,7 +971,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="A list of all the concrete types defined in this version of the FHIR specification - Data Types and Resource Types."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
       </binding>
@@ -1233,8 +1233,8 @@
         <key value="tst-5"/>
         <severity value="error"/>
         <human value="Only a single assertion SHALL be present within setup action assert element."/>
-        <expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count()  + validateProfileId.count() &lt;=1)"/>
-        <xpath value="count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:requestMethod) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId)  &lt;=1"/>
+        <expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() &lt;=1) or (((expression.count() + minimumId.count() &lt;=2) or (expression.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1)) or (((path.count() + minimumId.count() &lt;=2) or (path.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1))"/>
+        <xpath value="(count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:requestMethod) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId) &lt;=1) or (((count(f:expression) + count(f:minimumId) &lt;=2) or (count(f:expression) + count(f:validateProfileId) &lt;=2)) and (count(f:expression) + count(f:path) &lt;=1) and (count(f:minimumId) + count(f:validateProfileId) &lt;=1)) or (((count(f:path) + count(f:minimumId) &lt;=2) or (count(f:path) + count(f:validateProfileId) &lt;=2)) and (count(f:expression) + count(f:path) &lt;=1) and (count(f:minimumId) + count(f:validateProfileId) &lt;=1))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
       </constraint>
       <constraint>
@@ -1670,8 +1670,8 @@
         <key value="tst-6"/>
         <severity value="error"/>
         <human value="Only a single assertion SHALL be present within test action assert element."/>
-        <expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() &lt;=1)"/>
-        <xpath value="count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:requestMethod) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId)  &lt;=1"/>
+        <expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() &lt;=1) or (((expression.count() + minimumId.count() &lt;=2) or (expression.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1)) or (((path.count() + minimumId.count() &lt;=2) or (path.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1))"/>
+        <xpath value="(count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:requestMethod) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId) &lt;=1) or (((count(f:expression) + count(f:minimumId) &lt;=2) or (count(f:expression) + count(f:validateProfileId) &lt;=2)) and (count(f:expression) + count(f:path) &lt;=1) and (count(f:minimumId) + count(f:validateProfileId) &lt;=1)) or (((count(f:path) + count(f:minimumId) &lt;=2) or (count(f:path) + count(f:validateProfileId) &lt;=2)) and (count(f:expression) + count(f:path) &lt;=1) and (count(f:minimumId) + count(f:validateProfileId) &lt;=1))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
       </constraint>
     </element>

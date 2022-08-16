@@ -60,6 +60,21 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Resource-_list"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_list"/>
+        <description value="Allows for the retrieval of resources that are referenced by a List resource or by one of the pre-defined functional lists"/>
+        <code value="_list"/>
+        <type value="special"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Resource-_profile"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
@@ -70,7 +85,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_profile"/>
         <description value="Profiles this resource claims to conform to"/>
         <code value="_profile"/>
-        <type value="uri"/>
+        <type value="reference"/>
         <expression value="Resource.meta.profile"/>
         <xpath value="f:Resource/f:meta/f:profile"/>
         <xpathUsage value="normal"/>

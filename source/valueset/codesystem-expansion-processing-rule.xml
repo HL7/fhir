@@ -13,22 +13,23 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ExpansionProcessingRule"/>
   <caseSensitive value="true"/>
+  <content value="complete"/>
   <concept>
     <code value="all-codes"/>
     <display value="All Codes"/>
-    <definition value="The expansion (when in UI mode) includes all codes *and* any defined groups (in extensions)."/>
+    <definition value="he expansion (e.g. when in UI mode) includes all codes; those included in a group and those not included in a group, as well as the codes for the groups themselves (e.g. a parent node in a hierarchical code system)."/>
   </concept>
   <concept>
     <code value="ungrouped"/>
     <display value="Groups + Ungrouped codes"/>
-    <definition value="The expanion (when in UI mode) lists the groups, and then any codes that have not been included in a group."/>
+    <definition value="The expansion (e.g. when in UI mode) includes the codes for the groups, and any codes that are not included in a group."/>
   </concept>
   <concept>
     <code value="groups-only"/>
     <display value="Groups Only"/>
-    <definition value="The expansion (when in UI mode) only includes the defined groups."/>
+    <definition value="The expansion (e.g. when in UI mode) only includes the codes for the groups."/>
   </concept>
 </CodeSystem>

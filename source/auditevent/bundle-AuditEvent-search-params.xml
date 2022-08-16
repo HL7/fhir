@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?> 
 
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="AuditEvent-search-params"/>
@@ -22,26 +22,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="AuditEvent-address"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AuditEvent.agent.network.address"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-address"/>
-        <description value="Identifier for the network access point of the user device"/>
-        <code value="address"/>
-        <type value="string"/>
-        <expression value="AuditEvent.agent.network.address"/>
-        <xpath value="f:AuditEvent/f:agent/f:network/f:address"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
+
   <entry>
     <resource>
       <SearchParameter>
@@ -65,26 +46,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AuditEvent-agent-name"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AuditEvent.agent.name"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-agent-name"/>
-        <description value="Human friendly name for the agent"/>
-        <code value="agent-name"/>
-        <type value="string"/>
-        <expression value="AuditEvent.agent.name"/>
-        <xpath value="f:AuditEvent/f:agent/f:name"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="AuditEvent-agent-role"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -98,26 +59,6 @@
         <type value="token"/>
         <expression value="AuditEvent.agent.role"/>
         <xpath value="f:AuditEvent/f:agent/f:role"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="AuditEvent-altid"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AuditEvent.agent.altId"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-altid"/>
-        <description value="Alternative User identity"/>
-        <code value="altid"/>
-        <type value="token"/>
-        <expression value="AuditEvent.agent.altId"/>
-        <xpath value="f:AuditEvent/f:agent/f:altId"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -205,26 +146,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AuditEvent-entity-name"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AuditEvent.entity.name"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-entity-name"/>
-        <description value="Descriptor for entity"/>
-        <code value="entity-name"/>
-        <type value="string"/>
-        <expression value="AuditEvent.entity.name"/>
-        <xpath value="f:AuditEvent/f:entity/f:name"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="AuditEvent-entity-role"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -245,39 +166,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AuditEvent-entity-type"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AuditEvent.entity.type"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-entity-type"/>
-        <description value="Type of entity involved"/>
-        <code value="entity-type"/>
-        <type value="token"/>
-        <expression value="AuditEvent.entity.type"/>
-        <xpath value="f:AuditEvent/f:entity/f:type"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="AuditEvent-outcome"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AuditEvent.outcome"/>
+          <valueString value="AuditEvent.outcome.code"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-outcome"/>
         <description value="Whether the event succeeded or failed"/>
         <code value="outcome"/>
         <type value="token"/>
-        <expression value="AuditEvent.outcome"/>
-        <xpath value="f:AuditEvent/f:outcome"/>
+        <expression value="AuditEvent.outcome.code"/>
+        <xpath value="f:AuditEvent/f:outcome/f:code"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -290,15 +191,16 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AuditEvent.agent.who,AuditEvent.entity.what"/>
+          <valueString value="AuditEvent.patient"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-patient"/>
-        <description value="Identifier of who"/>
+        <description value="Where the activity involved patient data"/>
         <code value="patient"/>
         <type value="reference"/>
-        <expression value="AuditEvent.agent.who.where(resolve() is Patient) | AuditEvent.entity.what.where(resolve() is Patient)"/>
-        <xpath value="f:AuditEvent/f:agent/f:who | f:AuditEvent/f:entity/f:what"/>
+        <expression value="AuditEvent.patient"/>
+        <xpath value="f:AuditEvent/f:patient"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -325,39 +227,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AuditEvent-purpose"/>
+        <id value="AuditEvent-authorization"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AuditEvent.purposeOfEvent,AuditEvent.agent.purposeOfUse"/>
+          <valueString value="AuditEvent.authorization,AuditEvent.agent.authorization"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-purpose"/>
-        <description value="The purposeOfUse of the event"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-authorization"/>
+        <description value="The authorization (purposeOfUse) of the event"/>
         <code value="purpose"/>
         <type value="token"/>
-        <expression value="AuditEvent.purposeOfEvent | AuditEvent.agent.purposeOfUse"/>
-        <xpath value="f:AuditEvent/f:purposeOfEvent | f:AuditEvent/f:agent/f:purposeOfUse"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="AuditEvent-site"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AuditEvent.source.site"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-site"/>
-        <description value="Logical source location within the enterprise"/>
-        <code value="site"/>
-        <type value="token"/>
-        <expression value="AuditEvent.source.site"/>
-        <xpath value="f:AuditEvent/f:source/f:site"/>
+        <expression value="AuditEvent.authorization | AuditEvent.agent.authorization"/>
+        <xpath value="f:AuditEvent/f:authorization | f:AuditEvent/f:agent/f:authorization"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -385,19 +267,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AuditEvent-subtype"/>
+        <id value="AuditEvent-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AuditEvent.subtype"/>
+          <valueString value="AuditEvent.code"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-subtype"/>
-        <description value="More specific type/id for the event"/>
-        <code value="subtype"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-code"/>
+        <description value="More specific code for the event"/>
+        <code value="code"/>
         <type value="token"/>
-        <expression value="AuditEvent.subtype"/>
-        <xpath value="f:AuditEvent/f:subtype"/>
+        <expression value="AuditEvent.code"/>
+        <xpath value="f:AuditEvent/f:code"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -405,19 +287,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AuditEvent-type"/>
+        <id value="AuditEvent-category"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AuditEvent.type"/>
+          <valueString value="AuditEvent.category"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-type"/>
-        <description value="Type/identifier of event"/>
-        <code value="type"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-category"/>
+        <description value="Category of event"/>
+        <code value="category"/>
         <type value="token"/>
-        <expression value="AuditEvent.type"/>
-        <xpath value="f:AuditEvent/f:type"/>
+        <expression value="AuditEvent.category"/>
+        <xpath value="f:AuditEvent/f:category"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

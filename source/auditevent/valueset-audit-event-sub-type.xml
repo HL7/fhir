@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.464"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="AuditEventSub-Type"/>
   <title value="Audit Event Sub-Type"/>
   <status value="active"/>
@@ -33,11 +33,27 @@
     <include>
       <system value="http://hl7.org/fhir/restful-interaction"/>
     </include>
-    <include>
-      <system value="http://hl7.org/fhir/bundle-type"/>
-    </include>
-    <include>
-      <system value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"/>
-    </include>
+	<!-- JFM: want these here, but build does not like a system value like this
+	<include>
+		<system value="urn:ihe:event-type-code" />
+		<concept>
+			<code value="ITI-65" />
+			<display value="Provide Document Bundle" />
+		</concept>
+		<concept>
+			<code value="ITI-66" />
+			<display value="Find Document Lists" />
+		</concept>
+		<concept>
+			<code value="ITI-67" />
+			<display value="Find Document References" />
+		</concept>
+		<concept>
+			<code value="ITI-68" />
+			<display value="Retrieve Document" />
+		</concept>
+
+	</include>
+	-->
   </compose>
 </ValueSet>

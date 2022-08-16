@@ -129,14 +129,18 @@
   <status value="draft"/>
   <description value="Provide mosquito prevention advice"/>
   <relatedArtifact>
-	<type value="documentation"/>
-	<display value="Advice for patients about how to avoid Mosquito bites."/>
-	<url value="http://www.cdc.gov/zika/prevention/index.html"/>
+		<type value="documentation"/>
+		<display value="Advice for patients about how to avoid Mosquito bites."/>
+		<document>
+			<url value="http://www.cdc.gov/zika/prevention/index.html"/>
+		</document>
   </relatedArtifact>
   <relatedArtifact>
-	<type value="documentation"/>
-	<display value="Advice for patients about which mosquito repellents are effective and safe to use in pregnancy. [DEET, IF3535 and Picardin are safe during]"/>
-	<url value="https://www.epa.gov/insect-repellents/find-insect-repellent-right-you"/>
+		<type value="documentation"/>
+		<display value="Advice for patients about which mosquito repellents are effective and safe to use in pregnancy. [DEET, IF3535 and Picardin are safe during]"/>
+		<document>
+			<url value="https://www.epa.gov/insect-repellents/find-insect-repellent-right-you"/>
+		</document>
   </relatedArtifact>
   <library value="http://example.org/fhir/Library/zika-virus-intervention-logic"/>
   <kind value="CommunicationRequest"/>

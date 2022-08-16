@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Schedule"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Schedule"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A container for slots of time that may be available for booking appointments."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -151,7 +151,8 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -193,6 +194,18 @@
         <map value="FiveWs.class"/>
       </mapping>
     </element>
+    <element id="Schedule.name">
+      <path value="Schedule.name"/>
+      <short value="Human-readable label"/>
+      <definition value="Further description of the schedule as it would be presented to a consumer while searching."/>
+      <comment value="This MAY be used to describe what the schedule is for where it is clearer than just the name of the single actor." />
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="Schedule.actor">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Many discussions were had at 2 WGMs over the name of this field, and considered individual, subject and several others, but landed on this property name as it doesn&#39;t have other meanings and is applicable for people, services, locations and devices, also this has been updated to support multiple actors for a single schedule where they are not managed seperately (e.g. context where a practitioner and location are not available alone)."/>
@@ -208,6 +221,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>

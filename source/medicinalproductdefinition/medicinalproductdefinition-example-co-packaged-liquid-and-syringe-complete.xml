@@ -181,20 +181,23 @@
 	<contained>
 		<PackagedProductDefinition>
 			<id value="package"/>
-			<package>
-				<package>
+			<packageFor>
+				<reference value="#"/>
+			</packageFor>
+			<packaging>
+				<packaging>
 					<type>
 						<coding>
 							<code value="cardboard box (outer)"/>
 						</coding>
 					</type>
-					<package>
+					<packaging>
 						<type>
 							<coding>
 								<code value="cardboard box (inner)"/>
 							</coding>
 						</type>
-						<package>
+						<packaging>
 							<type>
 								<coding>
 									<code value="sachet"/>
@@ -206,13 +209,15 @@
 									<reference value="#powderItem"/>
 									</reference>
 								</item>
-								<amountQuantity>
+								<amount>
 									<value value="5"/>
 									<unit value="g"/>
-								</amountQuantity>
+									<system value="http://unitsofmeasure.org"/> 
+									<code value="g"/>
+								</amount>
 							</containedItem>
-						</package>
-						<package>
+						</packaging>
+						<packaging>
 							<type>
 								<coding>
 									<code value="bottle"/>
@@ -224,14 +229,16 @@
 									<reference value="#solventItem"/>
 									</reference>
 								</item>
-								<amountQuantity>
+								<amount>
 									<value value="20"/>
 									<unit value="ml"/>
-								</amountQuantity>
+									<system value="http://unitsofmeasure.org"/> 
+									<code value="mL"/>
+								</amount>
 							</containedItem>
-						</package>
-					</package>
-					<package>
+						</packaging>
+					</packaging>
+					<packaging>
 						<type>
 							<coding>
 								<code value="foil bag"/>
@@ -243,53 +250,47 @@
 								<reference value="#syringeDevice"/>
 								</reference>
 							</item>
-							<amountQuantity>
+							<amount>
 								<value value="1"/>
-							</amountQuantity>
+							</amount>
 						</containedItem>
-					</package>
-				</package>
-			</package>
+					</packaging>
+				</packaging>
+			</packaging>
 		</PackagedProductDefinition>
 	</contained>
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="solventItem"/>
+			<status value="active"/> 
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
 					<code value="solvent for powder for injection"/>
 				</coding>
 			</manufacturedDoseForm>
-			<ingredient>
-				<reference>
-					<reference value="#ingredientSolvent"/>
-				</reference>
-			</ingredient>
 		</ManufacturedItemDefinition>
 	</contained>
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="powderItem"/>
+			<status value="active"/> 
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
 					<code value="powder for solution for injection"/>
 				</coding>
 			</manufacturedDoseForm>
-			<ingredient>
-				<reference>
-					<reference value="#ingredientPowder"/>
-				</reference>
-			</ingredient>
 		</ManufacturedItemDefinition>
 	</contained>
 	<contained>
 		<DeviceDefinition>
 			<id value="syringeDevice"/>
-			<type>
-				<text value="syringe"/>
-			</type>
+			<classification>
+				<type>
+					<text value="syringe"/>
+				</type>
+			</classification>
 			<!-- Schema appears to be broken, deviceName is not present in XSD -->
 			<!--deviceName>
 				<name value="WonderSyringe"/>
@@ -297,9 +298,13 @@
 			</deviceName-->
 		</DeviceDefinition>
 	</contained>
-	<contained>
+	<!--contained>
 		<Ingredient>
 			<id value="ingredientPowder"/>
+			<status value="active"/> 
+			<for>
+				<reference value="ManufacturedItemDefinition/powderItem"/>
+			</for>
 			<role>
 				<coding>
 					<system value="http://example.org.uk/fhir/ingredientRole"/>
@@ -311,19 +316,22 @@
 					<concept>
 					<coding>
 						<system value="http://example.org.uk/fhir/ingredients"/>
-						<!-- SNOMED perhaps -->
 						<code value="12345"/>
 						<display value="Wonderdrug BP"/>
 					</coding>
 					</concept>
 				</code>
-				<!-- can be strength here but not necessary for this example -->
 			</substance>
 		</Ingredient>
 	</contained>
 	<contained>
 		<Ingredient>
 			<id value="ingredientSolvent"/>
+			<status value="active"/>
+			<for>
+				<reference value="ManufacturedItemDefinition/solventItem"/>
+			</for>
+			
 			<role>
 				<coding>
 					<system value="http://example.org.uk/fhir/ingredientRole"/>
@@ -342,10 +350,14 @@
 				</code>
 			</substance>
 		</Ingredient>
-	</contained>
+	</contained-->
 	<contained>
 		<AdministrableProductDefinition>
 			<id value="administrable-form"/>
+			<status value="active"/> 
+			<formOf>
+				<reference value="#"/>
+			</formOf>
 			<administrableDoseForm>
 				<coding>
 					<code value="solution for injection"/>
@@ -380,14 +392,4 @@
 	<name>
 		<productName value="Wonderdrug liquid 20ml (integral syringe)"/>
 	</name>
-	<package>
-		<package>
-			<reference value="#package"/>
-		</package>
-	</package>
-	<administrableProduct>
-		<product>
-			<reference value="#administrable-form"/>
-		</product>
-	</administrableProduct>
 </MedicinalProductDefinition>

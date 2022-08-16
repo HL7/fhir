@@ -6,7 +6,7 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/unknown-content-code"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="UnknownContentCode"/>
   <concept>
     <code value="no"/>

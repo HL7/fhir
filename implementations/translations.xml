@@ -86,6 +86,11 @@
 		<translation lang="it">RispostaAppuntamento</translation>
 		<translation lang="zh">预约响应</translation>
 	</item>
+	<item id="ArtifactAssessment">
+		<translation lang="en">ArtifactAssessment</translation>
+		<translation lang="es">ArtefactoEvaluacion</translation>
+		<translation lang="it">ArtefattoValutazione</translation>
+	</item>
 	<item id="AuditEvent">
 		<translation lang="en">AuditEvent</translation>
 		<translation lang="es">EventoSeguridad</translation>
@@ -150,11 +155,6 @@
 		<translation lang="en">Catalog</translation>
 		<translation lang="it">Catalogo</translation>
 	</item>
-	<item id="CatalogEntry">
-		<translation lang="en">CatalogEntry</translation>
-		<translation lang="es">EntradaDeCatalogo</translation>
-		<translation lang="zh">条目定义</translation>
-	</item>
 	<item id="ChargeItem">
 		<translation lang="en">ChargeItem</translation>
 		<translation lang="es">CargoDeItem</translation>
@@ -184,11 +184,8 @@
 		<translation lang="it">ImpressioneClinica</translation>
 		<translation lang="zh">临床印象</translation>
 	</item>
-	<!--item id="ClinicalParticulars">
-		<translation lang="en">ClinicalParticulars</translation>
-	</item-->
-	<item id="ClinicalUseIssue">
-		<translation lang="en">ClinicalUseIssue</translation>
+	<item id="ClinicalUseDefinition">
+		<translation lang="en">ClinicalUseDefinition</translation>
 	</item>
 	<item id="CodeSystem">
 		<translation lang="en">CodeSystem</translation>
@@ -228,6 +225,13 @@
 		<translation lang="zh">概念映射</translation>
 		<translation lang="fr">CarteDeConcepts</translation>
 		<translation lang="it">MappaDiConcetti</translation>
+	</item>
+	<item id="ConceptMap2">
+		<translation lang="en">ConceptMap2</translation>
+		<translation lang="es">MapaDeConceptos2</translation>
+		<translation lang="zh">概念映射2</translation>
+		<translation lang="fr">CarteDeConcepts2</translation>
+		<translation lang="it">MappaDiConcetti2</translation>
 	</item>
 	<item id="Condition">
 		<translation lang="en">Condition</translation>
@@ -300,6 +304,11 @@
 		<translation lang="fr">DéfinitionDeDispositif</translation>
 		<translation lang="es">DefiniciónDeDispositivo</translation>
 		<translation lang="zh">装置组件</translation>
+	</item>
+	<item id="DeviceDispense">
+		<translation lang="en">DeviceDispense</translation>
+		<translation lang="fr">DispensationDeDispositif</translation>
+		<translation lang="es">DispensaciónDeDispositivo</translation>
 	</item>
 	<item id="DeviceMetric">
 		<translation lang="en">DeviceMetric</translation>
@@ -423,6 +432,9 @@
 		<translation lang="fr">Drapeau</translation>
 		<translation lang="zh">标记</translation>
 	</item>
+	<item id="FormularyItem">
+		<translation lang="en">FormularyItem</translation>
+	</item>
 	<item id="GeneExpression">
 		<translation lang="en">GeneExpression</translation>
 		<translation lang="zh">基因表达</translation>
@@ -433,6 +445,9 @@
 		<translation lang="zh">基因分析</translation>
 		<translation lang="fr">AnalyseGénétique</translation>
 		<translation lang="it">AnalisiGenetica</translation>
+	</item>
+	<item id="GenomicStudy">
+		<translation lang="en">GenomicStudy</translation>
 	</item>
 	<item id="Goal">
 		<translation lang="en">Goal</translation>
@@ -469,6 +484,9 @@
 		<translation lang="es">ManifiestoDeImagen</translation>
 		<translation lang="fr">ImagingManifest</translation>
 		<translation lang="zh">成像清单</translation>
+	</item>
+	<item id="ImagingSelection">
+		<translation lang="en">ImagingSelection</translation>
 	</item>
 	<item id="ImagingStudy">
 		<translation lang="en">ImagingStudy</translation>
@@ -587,10 +605,6 @@
 	<item id="MedicationKnowledge">
 		<translation lang="en">MedicationKnowledge</translation>
 	</item>
-	<!--item id="MedicinalProduct">
-		<translation lang="en">MedicinalProduct</translation>
-		<translation lang="it">ProdottoMedicinale</translation>
-	</item-->
 	<item id="RegulatedMedicinalProduct">
 		<translation lang="en">RegulatedMedicinalProduct</translation>
 	</item>
@@ -1040,6 +1054,9 @@
 		<translation lang="es">ScriptDePrueba</translation>
 		<translation lang="fr">ScriptTest</translation>
 		<translation lang="zh">测试脚本</translation>
+	</item>
+	<item id="Transport">
+		<translation lang="en">Transport</translation>
 	</item>
 	<item id="User">
 		<translation lang="en">User</translation>

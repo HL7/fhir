@@ -70,7 +70,7 @@
   	<type value="Condition"/>
   	<codeFilter>
   	  <path value="code"/>
-  	  <valueSet value="urn:oid:X.Y.Z"/> <!-- Pregnancy -->
+  	  <valueSet value="urn:oid:2.999.0.1.2.3"/> <!-- Pregnancy -->
   	</codeFilter>
   </dataRequirement>
 
@@ -78,7 +78,7 @@
   	<type value="Observation"/>
   	<codeFilter>
   	  <path value="code"/>
-  	  <valueSet value="urn:oid:X.Y.Z"/> <!-- Zika Exposure Assessment -->
+  	  <valueSet value="urn:oid:2.999.0.1.2.3"/> <!-- Zika Exposure Assessment -->
   	</codeFilter>
   </dataRequirement>
 

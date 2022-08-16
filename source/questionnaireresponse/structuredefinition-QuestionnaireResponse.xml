@@ -23,7 +23,7 @@
 		<valueCode value=".status = entered-in-error"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
-	<version value="4.6.0"/>
+	<version value="5.0.0"/>
 	<name value="QuestionnaireResponse"/>
 	<status value="draft"/>
 	<date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
 	</contact>
 	<description value="A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to."/>
 	<purpose value="To support structured, hierarchical reporting of data gathered using digital forms and other questionnaires."/>
-	<fhirVersion value="4.6.0"/>
+	<fhirVersion value="5.0.0"/>
 	<mapping>
 		<identity value="workflow"/>
 		<uri value="http://hl7.org/fhir/workflow"/>
@@ -95,7 +95,7 @@
 			<definition value="A business identifier assigned to a particular completed (or partially completed) questionnaire."/>
 			<requirements value="Used for tracking, registration and other business purposes."/>
 			<min value="0"/>
-			<max value="1"/>
+			<max value="*"/>
 			<type>
 				<code value="Identifier"/>
 			</type>
@@ -283,7 +283,7 @@
 		<element id="QuestionnaireResponse.authored">
 			<path value="QuestionnaireResponse.authored"/>
 			<short value="Date the answers were gathered"/>
-			<definition value="The date and/or time that this set of answers were last changed."/>
+			<definition value="The date and/or time that this questionnaire response was last modified by the user - e.g. changing answers or revising status."/>
 			<comment value="May be different from the lastUpdateTime of the resource itself, because that reflects when the data was known to the server, not when the data was captured.&#xA;&#xA;This element is optional to allow for systems that might not know the value, however it SHOULD be populated if possible."/>
 			<requirements value="Clinicians need to be able to check the date that the information in the questionnaire was collected, to derive the context of the answers."/>
 			<alias value="Date Created"/>
@@ -311,9 +311,9 @@
 		</element>
 		<element id="QuestionnaireResponse.author">
 			<path value="QuestionnaireResponse.author"/>
-			<short value="Person who received and recorded the answers"/>
-			<definition value="Person who received the answers to the questions in the QuestionnaireResponse and recorded them in the system."/>
-			<comment value="Mapping a subject&#39;s answers to multiple choice options and determining what to put in the textual answer is a matter of interpretation.  Authoring by device would indicate that some portion of the questionnaire had been auto-populated."/>
+			<short value="The individual or device that received and recorded the answers"/>
+			<definition value="The individual or device that received the answers to the questions in the QuestionnaireResponse and recorded them in the system."/>
+			<comment value="Mapping a subject&#39;s answers to multiple choice options and determining what to put in the textual answer is a matter of interpretation. Authoring by device would indicate that some portion of the questionnaire had been auto-populated. Device should only be used if it directly determined the answers, not if it was merely used as a capture tool to record answers provided by others. In the latter case, information about the physical device, software, etc. would be captured using Provenance."/>
 			<requirements value="Need to know who interpreted the subject&#39;s answers to the questions in the questionnaire, and selected the appropriate options for answers."/>
 			<alias value="Laboratory"/>
 			<alias value="Service"/>
@@ -348,14 +348,16 @@
 		</element>
 		<element id="QuestionnaireResponse.source">
 			<path value="QuestionnaireResponse.source"/>
-			<short value="The person who answered the questions"/>
-			<definition value="The person who answered the questions about the subject."/>
-			<comment value="If not specified, no inference can be made about who provided the data."/>
+			<short value="The individual or device that answered the questions"/>
+			<definition value="The individual or device that answered the questions about the subject."/>
+			<comment value="If not specified, no inference can be made about who provided the data. Device should only be used if it directly determined the answers, not if it was merely used as a capture tool to record answers provided by others. In the latter case, information about the physical device, software, etc. would be captured using Provenance."/>
 			<requirements value="When answering questions about a subject that is minor, incapable of answering or an animal, another human source may answer the questions."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
@@ -471,7 +473,7 @@
 			<definition value="The answer (or one of the answers) provided by the respondent to the question."/>
 			<comment value="More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire."/>
 			<requirements value="Ability to retain a single-valued answer to a question."/>
-			<min value="0"/>
+			<min value="1"/>
 			<max value="1"/>
 			<type>
 				<code value="boolean"/>

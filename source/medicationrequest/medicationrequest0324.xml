@@ -38,6 +38,7 @@
         </coding>
       </concept>
     </reason>
+    <dose>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Insert one suppository rectally twice daily as needed for fever to a maximim of 3 per day"/>
@@ -55,13 +56,13 @@
                 <periodUnit value="d"/>
             </repeat>
         </timing>
-    <asNeededCodeableConcept>
+    <asNeededFor>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="386661006"/>
             <display value="Fever (finding)"/>
         </coding>
-    </asNeededCodeableConcept>
+    </asNeededFor>
         <doseAndRate>
             <type>
                 <coding>
@@ -91,6 +92,7 @@
             </denominator>
         </maxDosePerPeriod>
     </dosageInstruction>
+    </dose>
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>

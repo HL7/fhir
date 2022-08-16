@@ -11,7 +11,7 @@
 
 [%profilesheader examples%]
 
-<div class="col-12">
+
 
 <h2>Slicing and Discriminator Examples</h2>
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
@@ -95,7 +95,7 @@ In a StructureDefinition, this will look like:
   &lt;!-- first slice: home phone --&gt;
   &lt;element&gt; 
     &lt;path value=&quot;Patient.telecom&quot;/&gt;
-    &lt;name value=&quot;HomePhone&quot;/&gt; &lt;!-- mandatory - gives the slice a name --&gt;
+    &lt;sliceName value=&quot;HomePhone&quot;/&gt; &lt;!-- mandatory - gives the slice a name --&gt;
     &lt;min value=&quot;1&quot;/&gt;
     &lt;max value=&quot;1&quot;/&gt;
   &lt;/element&gt;
@@ -1284,11 +1284,6 @@ prohibits the 3rd:
     &lt;max value=&quot;0&quot;/&gt;
   &lt;/element&gt;
 </pre>  
-
-</div>
-
-
-
 
 [%file newfooter%]
 </body>

@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="PlanDefinition"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical and non-clinical artifacts such as clinical decision support rules, order sets, protocols, and drug quality specifications."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -88,7 +88,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </constraint>
@@ -280,7 +280,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -327,6 +327,7 @@
       <path value="PlanDefinition.subject[x]"/>
       <short value="Type of individual the plan definition is focused on"/>
       <definition value="A code, group definition, or canonical reference that describes  or identifies the intended subject of the plan definition. Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource."/>
+      <comment value="Note that the choice of canonical for the subject element was introduced in R4B to support pharmaceutical quality use cases. To ensure as much backwards-compatibility as possible, it is recommended to only use the new canonical type with these use cases."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -343,6 +344,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </type>
       <meaningWhenMissing value="Patient"/>
       <binding>
@@ -966,6 +968,7 @@
       <path value="PlanDefinition.goal.target.detail[x]"/>
       <short value="The target value to be achieved"/>
       <definition value="The target value of the measure to be achieved to signify fulfillment of the goal, e.g. 150 pounds or 7.0%, or in the case of pharmaceutical quality - NMT 0.6%, Clear solution, etc. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any value at or above the low value."/>
+      <comment value="A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the goal.target.measure defines a coded value."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -976,6 +979,18 @@
       </type>
       <type>
         <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="Ratio"/>
       </type>
       <mapping>
         <identity value="rim"/>
@@ -1067,7 +1082,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1145,10 +1160,24 @@
         <map value="Act[classCode=ACT; moodCode=DEFN]"/>
       </mapping>
     </element>
+    <element id="PlanDefinition.action.linkId">
+      <path value="PlanDefinition.action.linkId"/>
+      <short value="Unique id for the action in the PlanDefinition"/>
+      <definition value="An identifier that is unique within the PlanDefinition to allow linkage within the realized CarePlan and/or RequestGroup."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
     <element id="PlanDefinition.action.prefix">
       <path value="PlanDefinition.action.prefix"/>
       <short value="User-visible prefix for the action (e.g. 1. or A.)"/>
-      <definition value="A user-visible prefix for the action."/>
+      <definition value="A user-visible prefix for the action. For example a section or item numbering such as 1. or A."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1228,7 +1257,7 @@
         </extension>
         <strength value="required"/>
         <description value="Identifies the level of importance to be assigned to actioning the request."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1347,7 +1376,7 @@
     <element id="PlanDefinition.action.trigger">
       <path value="PlanDefinition.action.trigger"/>
       <short value="When the action should be triggered"/>
-      <definition value="A description of when the action should be triggered."/>
+      <definition value="A description of when the action should be triggered. When multiple triggers are specified on an action, any triggering event invokes the action."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1392,7 +1421,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines the kinds of conditions that can appear on actions."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-condition-kind|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-condition-kind|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1589,7 +1618,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines the types of relationships between actions."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1702,7 +1731,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1814,7 +1843,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines organization behavior of a group."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-grouping-behavior|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-grouping-behavior|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1836,7 +1865,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines selection behavior of a group."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-selection-behavior|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-selection-behavior|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1858,7 +1887,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines expectations around whether an action or action group is required."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-required-behavior|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-required-behavior|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1880,7 +1909,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines selection frequency behavior for an action or group."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-precheck-behavior|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-precheck-behavior|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1902,7 +1931,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines behavior for an action or a group for how many times that item may be repeated."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-cardinality-behavior|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-cardinality-behavior|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1912,15 +1941,17 @@
     <element id="PlanDefinition.action.definition[x]">
       <path value="PlanDefinition.action.definition[x]"/>
       <short value="Description of the activity to be performed"/>
-      <definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken."/>
+      <definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, or an ObservationDefinition that specifies what observation should be captured."/>
       <comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
       </type>
       <type>
         <code value="uri"/>

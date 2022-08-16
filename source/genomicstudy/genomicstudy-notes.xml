@@ -1,0 +1,15 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- insert xhtml content here -->
+<a name="notes"></a>
+<h3>Implementation Notes</h3>
+<p>
+</p>
+
+<a name="use-case"></a>
+<h3>Use Case</h3>
+<a name="ehr-usecase"></a>
+<h4>EHR access to genomic studies</h4>
+<p>
+</p>
+</div>

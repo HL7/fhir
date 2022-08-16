@@ -5,16 +5,14 @@
     <profile value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-restriction"/>
   </meta>
   <status value="active"/>
-  <scope>
-    <text value="Direct Referral use only"/>
-  </scope>
+
   <category>
     <text value="conditional release (per DUA)"/>
   </category>
   <dateTime value="2017-12-18"/>
-  <policy>
+  <sourceAttachment>
     <uri value="http://example.org/federal/policy#womans-shelter"/>
-  </policy>
+  </sourceAttachment>
   <provision>
     <type value="permit"/>
     <actor>

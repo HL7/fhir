@@ -11,7 +11,7 @@
 [%file newnavbar%]
 
 
-<div class="col-12">
+
 
 <h2>FHIR Life Cycle Page</h2>
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
@@ -183,7 +183,7 @@ On the RESTful API, this is done using the <a href="search.html#current">list se
  GET [base]/AllergyIntolerance?patient=42&amp;_list=$current-allergies
 </pre>
 <p>
-This is a request to fetch all the allergies in the patient 42's "Current Problem List".
+This is a request to fetch all the allergies in the patient 42's "Current Allergy List".
 Note that the server is not required to actually make a resource representation of the current allergy list
 available, though doing so assists clients in their audit/integrity tasks. See
 <a href="list-operation-find.html">List Operation "Find"</a> for further information.
@@ -252,8 +252,6 @@ that the data it contains is subsequently found to be an erroneous entry.
 <p>
 Note: Resources that are not listed in this table do not have any explicit documentation with regard to being entered in error.
 </p>
-
-</div>
 
 [%file newfooter%]
 

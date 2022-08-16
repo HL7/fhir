@@ -40,9 +40,18 @@
   <recordedDate value="2010-03-01"/>
   
   <!-- who made the record / last updated it -->
-  <recorder>
-    <reference value="Practitioner/13"/>
-  </recorder>
+  <participant> 
+    <function> 
+      <coding> 
+        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/> 
+        <code value="author"/> 
+        <display value="Author"/> 
+      </coding> 
+    </function> 
+    <actor> 
+      <reference value="Practitioner/example"/> 
+    </actor> 
+  </participant> 
   
   <reaction> 
     <manifestation>

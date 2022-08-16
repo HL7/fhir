@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="example-metadata"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <url value="http://hl7.org/fhir/ValueSet/example-metadata"/>
+  <version value="20210721"/>
+
+  <name value="ExampleMetadata"/>
+  <title value="Metadata Example"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2021-07-21"/>
+  <publisher value="FHIR (Example)"/>
+  <contact>
+    <name value="FHIR project team"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This is an example value set that illustrates usage of the metadata resource elements introduced in R5"/>
+
+  <approvalDate value="2021-07-21"/>
+  <lastReviewDate value="2022-07-21"/>
+  <effectivePeriod>
+    <start value="2021-08-01"/>
+    <end value="2022-07-31"/>
+  </effectivePeriod>
+  <topic>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/definition-topic"/>
+      <code value="treatment"/>
+      <display value="Treatment"/>
+    </coding>
+  </topic>
+  <author>
+    <name value="ACME ValueSet Development"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://acme.org/development"/>
+    </telecom>
+  </author>
+  <editor>
+    <name value="ACME ValueSet Management"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://acme.org/managememnt"/>
+    </telecom>
+  </editor>
+  <reviewer>
+    <name value="Society for Creative ValueSet Review"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://example.org/scvr"/>
+    </telecom>
+  </reviewer>
+  <endorser>
+    <name value="National Foundation for ValueSet Quality"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://example.org/nfvq"/>
+    </telecom>
+  </endorser>
+  <relatedArtifact>
+    <type value="derived-from"/>
+    <resource value="http://hl7.org/fhir/ValueSet/example"/>
+  </relatedArtifact>
+
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/example-metadata"/>
+      <version value="20210721"/>
+    </include>
+  </compose>
+
+</ValueSet>

@@ -34,7 +34,7 @@
 			<li>
 				<b>Replying to the request</b>
 				<p>
-					The reply process is simply performed by the person/system handing the requests updating
+					The reply process is simply performed by the person/system handling the requests updating
 					the participant statuses as needed. If there are multiple systems involved, then these
 					will create AppointmentResponse entries with the desired statuses.
 				</p>

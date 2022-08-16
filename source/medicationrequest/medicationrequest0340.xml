@@ -10,11 +10,7 @@
     </identifier>
     <status value="draft"/>
     <intent value="plan"/>
-    <reported value="true"></reported>
-    <informationSource>
-        <reference value="Patient/pat1"></reference>
-        <display value="Donald Duck"></display>
-    </informationSource>
+
     <medication>
     <concept>
         <coding>
@@ -29,13 +25,20 @@
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>   
     </subject>
+    <informationSource>
+        <reference value="Patient/pat1"></reference>
+        <display value="Donald Duck"></display>
+    </informationSource>
     <authoredOn value="2015-01-15"/>
     <requester>
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/> 
     </requester>
+    <reported value="true"></reported>
+    <dose>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Apply to affected areas four times daily"/>
     </dosageInstruction>
+    </dose>
 </MedicationRequest>

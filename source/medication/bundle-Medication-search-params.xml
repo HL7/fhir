@@ -141,13 +141,13 @@
     <resource>
       <SearchParameter>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Medication.sponsor"/>
+          <valueString value="Medication.marketingAuthorizationHolder"/>
         </extension>
-        <description value="Returns medications made or sold for this manufacturer"/>
-        <code value="sponsor"/>
+        <description value="Returns medications made or sold for this marketing authorization holder"/>
+        <code value="marketingauthorizationholder"/>
         <type value="reference"/>
-        <expression value="Medication.sponsor"/>
-        <xpath value="f:Medication/f:sponsor"/>
+        <expression value="Medication.marketingAuthorizationHolder"/>
+        <xpath value="f:Medication/f:marketingAuthorizationHolder"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -220,7 +220,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.236"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="DiagnosticReportStatus"/>
   <title value="DiagnosticReportStatus"/>
   <status value="draft"/>
@@ -240,8 +240,9 @@
   <description value="The status of the diagnostic report."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/diagnostic-report-status"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
-  <concept>
+  <concept> 
     <code value="registered"/>
     <display value="Registered"/>
     <definition value="The existence of the report is registered, but there is nothing yet available."/>
@@ -253,7 +254,7 @@
     <concept>
       <code value="preliminary"/>
       <display value="Preliminary"/>
-      <definition value="Verified early results are available, but not all  results are final."/>
+      <definition value="Verified early results are available, but not all results are final."/>
     </concept>
   </concept>
   <concept>
@@ -268,7 +269,7 @@
     <concept>
       <code value="corrected"/>
       <display value="Corrected"/>
-      <definition value="Subsequent to being final, the report has been modified  to correct an error in the report or referenced results."/>
+      <definition value="Subsequent to being final, the report has been modified to correct an error in the report or referenced results."/>
     </concept>
     <concept>
       <code value="appended"/>

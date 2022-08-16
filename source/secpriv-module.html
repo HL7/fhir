@@ -12,8 +12,8 @@ in order to support consistent definitions for schema and UML derived code.
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
-<table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> &amp; <a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
 <h2>Security and Privacy Module</h2>
@@ -122,8 +122,11 @@ Full audit trails can be constructed and used to detect anomalous access pattern
 For general security considerations and principles, see <a href="security.html">Security</a>.
 Please leverage mature Security Frameworks covering device security, cloud security, big-data security, service-to-service security, etc.
 See <a href="https://nccoe.nist.gov/projects/building_blocks/mobile_device_security"> NIST Mobile Device Security</a>
-and <a href="https://www.owasp.org/index.php/Mobile_Top_10_2016-Top_10">OWASP Mobile Security</a>. 
+and <a href="https://www.owasp.org">OWASP</a>. 
 These security frameworks include prioritized lists of most important concerns.
+</p>
+<p>
+Recent evidence indicates lack of implementer attention to addressing common security vulnerabilities emphasized by <a href="https://owasp.org/www-project-api-security/">OWASP top 10 API</a>.   Reviewing the <a href="https://owasp.org/www-project-top-ten/">OWASP Top Ten</a>and <a href="https://owasp.org/www-project-mobile-top-10/">OWASP mobile top 10</a> and ensuring those vulnerabilities are mitigated is important for good security.
 </p>
 <a name="privacy"></a>
 <h3>Privacy</h3>
@@ -175,6 +178,9 @@ see <a href="security.html#authentication">Security: Authentication</a> as an
 externally-reviewed authorization mechanism with a real-world deployment base -
 but we note that community efforts are underway to explore a variety of
 approaches to authorization. 
+</p><p>
+Resource Servers MUST enforce the authorization associated with the access token. This enforcement includes verification of the token, verification of the token expiration, and might include using introspection to verify the token has not been revoked. This enforcement includes constraining results returned to the scopes authorized by the access token. The Resource server might have further access controls beyond those in the token to enforce, such as Consent or business rules.
+</p><p>
 For further details, see <a href="security.html#binding">Security: Authorization and Access Control</a>.
 
 </p>
@@ -210,6 +216,10 @@ be conveyed using standard codes from <a href="valueset-security-role-type.html"
 </p><p>
 A purpose of use should be asserted for each requested action on a Resource.  Purpose of use 
 should be conveyed using standard codes from <a href="v3/PurposeOfUse/vs.html">Purpose of Use Vocabulary</a>.
+</p><p>
+The FHIR core specification does not include a "User" resource, as a User resource would be general IT and used well
+beyond healthcare workflows. A RESTful User resource is defined in 
+the <a href="https://en.wikipedia.org/wiki/System_for_Cross-domain_Identity_Management">System for Cross-domain Identity Management (SCIM) specification</a>.
 </p><p>
 When using OAuth, the requested action on a Resource for specified one or more purpose of use and 
 the role of the user are managed by the OAuth authorization service (AS) and may be communicated 
@@ -279,6 +289,8 @@ The Privacy Consent may be a pointer to privacy rules documented elsewhere, such
 The Privacy Consent has the ability to point at a scanned image of an ink-on-paper signing ceremony, 
 and supports digital signatures through use of <a href="provenance.html">Provenance</a>.
 The Privacy Consent has the ability to include some simple FHIR centric base and exception rules. 
+</p><p>
+When a use / access / disclosure is requested and an Access Control decision finds multiple Consent resources apply equally, a policy must cover this case. For example: one possible policy might be that the most recent Consent would be seen as more authoritative and thus apply rather than an older Consent. There may also be policy mechanisms to assure that only one Consent is ever active for a given Patient and context.
 </p><p>
 All uses of FHIR Resources would be security/privacy relevant and thus should be recorded in an <a href="auditevent.html">AuditEvent</a>. 
 The data access that qualifies as a Disclosure should additionally be recorded as a Disclosure, see <a href="auditevent-example-disclosure.html">Disclosure Audit Event Example</a>.
@@ -478,8 +490,6 @@ more detailed Consent management, including support for specific consent use cas
 guidance and methods to support GDPR or other emerging Privacy regulations.
 </li>
 </ul>
-
-</div>
 
 [%file newfooter%]
 </body>

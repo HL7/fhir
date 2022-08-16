@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Provenance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/provenance.xsd">
 	<id value="signature"/>
+<!--
 	<text>
-		<status value="generated"/>
+		<status value="extensions"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from Referral received 26-June</div>
 	</text>
+-->
 	<!-- 
     where possible, provenance targets should be version specific,
     so that there is no ambiguity about which version of the 
@@ -14,13 +16,15 @@
 		<reference value="DocumentReference/example"/>    
 	</target>
 	<recorded value="2015-08-27T08:39:24+10:00"/>
-	<reason>
+	<authorization>
+	  <concept>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
 			<code value="TREAT"/>
 			<display value="treatment"/>
 		</coding>
-	</reason>
+      </concept>
+	</authorization>
 	<activity>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion"/>

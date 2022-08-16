@@ -1,0 +1,136 @@
+<Medication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd" xmlns="http://hl7.org/fhir">
+  <id value="med0322"/>
+  <contained>
+    <Substance>
+      <id value="sub10"/>
+      <instance value="false"/>
+      <code>
+        <concept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="419442005"/>
+            <display value="Ethanol (substance)"/>
+          </coding>
+        </concept>
+      </code>
+    </Substance>
+  </contained>
+<contained>
+  <Substance>
+    <id value="sub11"/>
+    <instance value="false"/>
+    <code>    
+      <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="387171003"/>
+        <display value="Hydrogen peroxide (substance)"/>
+      </coding>
+    </concept>
+    </code>
+  </Substance>
+</contained>
+  <contained>
+  <Substance>
+    <id value="sub12"/>
+    <instance value="false"/>
+    <code>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="80582002"/>
+        <display value="Glycerol (substance)"/>
+      </coding>
+    </concept>
+    </code>
+  </Substance>
+  </contained>
+  <contained>
+    <Substance>
+      <id value="sub13"/>
+      <instance value="false"/>
+      <code>
+        <concept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="444883009"/>
+            <display value="Distilled Water (substance)"/>
+          </coding>
+        </concept>
+      </code>
+    </Substance>
+  </contained>
+  <code>
+   <text value="WHO Hand Sanitizer Formulation 1"/>
+  </code>
+    <doseForm>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="739006009"/>
+        <display value="Solution (basic dose form) (qualifier value)"/>
+      </coding>
+    </doseForm>
+  <totalVolume>
+    <numerator>
+     <value value="10"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="L"/>
+    </numerator>
+  </totalVolume>
+    <ingredient>
+      <item>
+      <reference>
+        <reference value="#sub10"/>
+        </reference>
+      </item>
+      <strengthQuantity>
+
+          <value value="8333"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mL"/>
+        
+
+      </strengthQuantity>
+    </ingredient>
+  <ingredient>
+    <item>
+      <reference>
+        <reference value="#sub11"/>
+      </reference>
+    </item>
+    <strengthQuantity>
+        <value value="417"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mL"/>
+    </strengthQuantity>
+  </ingredient>
+  <ingredient>
+    <item>
+      <reference>
+        <reference value="#sub12"/>
+      </reference>
+    </item>
+    <strengthQuantity>
+
+        <value value="145"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mL"/>
+
+    </strengthQuantity>
+  </ingredient>
+  <ingredient>
+    <item>
+      <reference>
+        <reference value="#sub13"/>
+      </reference>
+    </item>
+    <strengthQuantity>
+      <value value="10"/>
+
+      <comparator value="ad"></comparator>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="L"/>
+    </strengthQuantity>
+  </ingredient>
+</Medication>

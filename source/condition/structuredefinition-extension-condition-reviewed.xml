@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="condition-reviewed"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/condition-reviewed"/>
+  <version value="5.0.0"/>
+  <name value="reviewed"/>
+  <title value="reviewed"/>
+  <status value="draft"/>
+  <date value="2021-07-06"/>
+  <publisher value="Health Level Seven, Inc. - FHIR WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="HL7"/>
+    </telecom>
+  </contact>
+  <description value="The date on which the clinician indicates that the condition has been reviewed"/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="Condition"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Date the condition was reviewed"/>
+      <definition value="The date on which the clinician indicates that the condition has been reviewed."/>
+      <comment value="Having a reviewed date valued implies that the clinician indicates that the data has been reviewed, but doesn't imply the data has been validated since clinician interpretation of reviewed may vary."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/condition-reviewed"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

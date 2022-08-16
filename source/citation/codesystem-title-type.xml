@@ -35,35 +35,71 @@
           </td>
         
         </tr>
-        
+
         <tr>
           
-          <td style="white-space:nowrap">primary-human-use
+          <td style="white-space:nowrap">primary
             
-            <a name="title-type-primary-human-use"> </a>
+            <a name="title-type-primary"> </a>
           
           </td>
           
-          <td>Primary human use</td>
+          <td>Primary title</td>
           
-          <td>Human-friendly main or official title</td>
+          <td>Main title for common use. The primary title used for representation if multiple titles exist.</td>
         
         </tr>
-        
+
+
+
         <tr>
           
-          <td style="white-space:nowrap">primary-machine-use
+          <td style="white-space:nowrap">official
             
-            <a name="title-type-primary-machine-use"> </a>
+            <a name="title-type-official"> </a>
           
           </td>
           
-          <td>Primary Machine Use</td>
+          <td>Official title</td>
           
-          <td>Machine-friendly main or official title</td>
+          <td>The official or authoritative title.</td>
         
         </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">scientific
+            
+            <a name="title-type-scientific"> </a>
+          
+          </td>
+          
+          <td>Scientific title</td>
+          
+          <td>Title using scientific terminology.</td>
         
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">plain-language
+            
+            <a name="title-type-plain-language"> </a>
+          
+          </td>
+          
+          <td>Plain language title</td>
+          
+          <td>Title using language common to lay public discourse.</td>
+        
+        </tr>
+
+
+
         <tr>
           
           <td style="white-space:nowrap">subtitle
@@ -74,10 +110,12 @@
           
           <td>Subtitle</td>
           
-          <td>Subtitle or Secondary title.</td>
+          <td>Subtitle or secondary title.</td>
         
         </tr>
-		        
+
+
+
         <tr>
           
           <td style="white-space:nowrap">short-title
@@ -91,7 +129,9 @@
           <td>Brief title (e.g. 'running title' or title used in page headers)</td>
         
         </tr>
-		        
+
+
+
         <tr>
           
           <td style="white-space:nowrap">acronym
@@ -105,7 +145,25 @@
           <td>Abbreviation used as title</td>
         
         </tr>
-        		        
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">earlier-title
+            
+            <a name="title-type-earlier-title"> </a>
+          
+          </td>
+          
+          <td>Different text in an earlier version</td>
+          
+          <td>Alternative form of title in an earlier version such as epub ahead of print.</td>
+        
+        </tr>
+
+
+
         <tr>
           
           <td style="white-space:nowrap">language
@@ -119,7 +177,9 @@
           <td>Additional form of title in a different language.</td>
         
         </tr>
-        
+
+
+
         <tr>
           
           <td style="white-space:nowrap">autotranslated
@@ -129,36 +189,56 @@
           </td>
           
           <td>Different language derived from autotranslation</td>
-
+          
           <td>Machine translated form of title in a different language, language element codes the language into which it was translated by machine.</td>
         
         </tr>
-        
+
+
+
         <tr>
           
-          <td style="white-space:nowrap">duplicate-pmid
+          <td style="white-space:nowrap">human-use
             
-            <a name="title-type-duplicate-pmid"> </a>
+            <a name="title-type-human-use"> </a>
           
           </td>
           
-          <td>Different text in additional Medline entry</td>
+          <td>Human use</td>
           
-          <td>Alternative form of title in two or more Medline entries.</td>
+          <td>Human-friendly title</td>
         
         </tr>
-        
+
+
+
         <tr>
           
-          <td style="white-space:nowrap">earlier-title
+          <td style="white-space:nowrap">machine-use
             
-            <a name="title-type-earlier-title"> </a>
+            <a name="title-type-machine-use"> </a>
           
           </td>
           
-          <td>Different text in an earlier version</td>
+          <td>Machine use</td>
           
-          <td>Alternative form of title in an earlier version such as epub ahead of print.</td>
+          <td>Machine-friendly title</td>
+        
+        </tr>
+
+
+
+        <tr>
+          
+          <td style="white-space:nowrap">duplicate-uid
+            
+            <a name="title-type-duplicate-uid"> </a>
+          
+          </td>
+          
+          <td>Different text for the same object with a different identifier</td>
+          
+          <td>An alternative form of the title in two or more entries, e.g. in multiple medline entries</td>
         
         </tr>
       
@@ -180,7 +260,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1492"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="TitleType"/>
   <title value="TitleType"/>
   <status value="draft"/>
@@ -202,19 +282,29 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/title-type"/>
   <content value="complete"/>
   <concept>
-    <code value="primary-human-use"/>
-    <display value="Primary human use"/>
-    <definition value="Human-friendly main or official title"/>
+    <code value="primary"/>
+    <display value="Primary title"/>
+    <definition value="Main title for common use. The primary title used for representation if multiple titles exist."/>
   </concept>
   <concept>
-    <code value="primary-machine-use"/>
-    <display value="Primary machine use"/>
-    <definition value="Machine-friendly main or official title"/>
+    <code value="official"/>
+    <display value="Official title"/>
+    <definition value="The official or authoritative title."/>
+  </concept>
+  <concept>
+    <code value="scientific"/>
+    <display value="Scientific title"/>
+    <definition value="Title using scientific terminology."/>
+  </concept>
+  <concept>
+    <code value="plain-language"/>
+    <display value="Plain language title"/>
+    <definition value="Title using language common to lay public discourse."/>
   </concept>
   <concept>
     <code value="subtitle"/>
     <display value="Subtitle"/>
-    <definition value="Subtitle or Secondary title."/>
+    <definition value="Subtitle or secondary title."/>
   </concept>
   <concept>
     <code value="short-title"/>
@@ -225,7 +315,12 @@
     <code value="acronym"/>
     <display value="Acronym"/>
     <definition value="Abbreviation used as title"/>
-  </concept>  
+  </concept>
+  <concept>
+    <code value="earlier-title"/>
+    <display value="Different text in an earlier version"/>
+    <definition value="Alternative form of title in an earlier version such as epub ahead of print."/>
+  </concept>
   <concept>
     <code value="language"/>
     <display value="Different language"/>
@@ -237,13 +332,18 @@
     <definition value="Machine translated form of title in a different language, language element codes the language into which it was translated by machine."/>
   </concept>
   <concept>
-    <code value="duplicate-pmid"/>
-    <display value="Different text in additional Medline entry"/>
-    <definition value="Alternative form of title in two or more Medline entries."/>
+    <code value="human-use"/>
+    <display value="Human use"/>
+    <definition value="Human-friendly title"/>
   </concept>
   <concept>
-    <code value="earlier-title"/>
-    <display value="Different text in an earlier version"/>
-    <definition value="Alternative form of title in an earlier version such as epub ahead of print."/>
+    <code value="machine-use"/>
+    <display value="Machine use"/>
+    <definition value="Machine-friendly title"/>
+  </concept>
+  <concept>
+    <code value="duplicate-uid"/>
+    <display value="Different text for the same object with a different identifier"/>
+    <definition value="An alternative form of the title in two or more entries, e.g. in multiple medline entries"/>
   </concept>
 </CodeSystem>

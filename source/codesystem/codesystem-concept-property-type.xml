@@ -88,7 +88,7 @@
           
           <td>integer</td>
           
-          <td>The property value is a string (often used to assign ranking values to concepts for supporting score assessments).</td>
+          <td>The property value is an integer (often used to assign ranking values to concepts for supporting score assessments).</td>
         
         </tr>
         
@@ -155,7 +155,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.781"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="PropertyType"/>
   <title value="PropertyType"/>
   <status value="active"/>
@@ -194,7 +194,7 @@
   <concept>
     <code value="integer"/>
     <display value="integer"/>
-    <definition value="The property value is a string (often used to assign ranking values to concepts for supporting score assessments)."/>
+    <definition value="The property value is an integer (often used to assign ranking values to concepts for supporting score assessments)."/>
   </concept>
   <concept>
     <code value="boolean"/>

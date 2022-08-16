@@ -1,0 +1,2 @@
+// Request specific previous events from Subscription ABC123
+GET [base]/Subscription/ABC123/$events?eventsSinceNumber=307&eventsUntilNumber=308

@@ -5,19 +5,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="SubstanceDefinition-category"/>
+        <id value="SubstanceDefinition-classification"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="SubstanceDefinition.category"/>
+          <valueString value="SubstanceDefinition.classification"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/SubstanceDefinition-category"/>
-        <description value="High level categorization, e.g. polymer or nucleic acid, or food, chemical, biological"/>
-        <code value="category"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SubstanceDefinition-classification"/>
+        <description value="High or low level categorization, e.g. polymer vs. nucleic acid or linear vs. branch chain"/>
+        <code value="classification"/>
         <type value="token"/>
-        <expression value="SubstanceDefinition.category"/>
-        <xpath value="f:SubstanceDefinition/f:category"/>
+        <expression value="SubstanceDefinition.classification"/>
+        <xpath value="f:SubstanceDefinition/f:classification"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

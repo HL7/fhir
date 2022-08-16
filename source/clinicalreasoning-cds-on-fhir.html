@@ -8,7 +8,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <table class="cols"><tbody><tr><td id="wg">Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></tbody></table>
 
@@ -267,7 +267,7 @@
   <tr><td>Service.prefetch</td><td>PlanDefinition.data-requirement</td></tr>
 </table>
 
-<p>To support this representation, this module defines a <a href="plandefinition-cdshooks.html">CDS Hooks Service PlanDefinition</a> profile, which also supports specifying the CDS Hooks endpoint on which the PlanDefinition should be exposed.</p>
+<p>To support this representation, this module defines a <a href="plandefinition-cdshooks.html">CDSHooksServicePlanDefinition</a> profile, which also supports specifying the CDS Hooks endpoint on which the PlanDefinition should be exposed.</p>
 
 <p>The PlanDefinition/$apply operation can then be used to provide the behavior of the CDS Hooks service, as described in the Processing CDS Hooks Requests section below.</p>
 
@@ -299,8 +299,6 @@
 <p>As depicted in the above diagram, an EHR invokes a CDS Hooks request at the appropriate point in the workflow, providing the requested context and data. The CDS Service responds by performing an $apply operation against the specified PlanDefinition, and transforming the resulting RequestGroup into a CDS Hooks response.</p>
 
 <p>Because PlanDefinitions can be used in a broad range of use cases, this module defines the <a href="library-cqf.html">CQL Library</a> and <a href="computableplandefinition.html">Computable PlanDefinition</a> profiles to describe the special case of a PlanDefinition being used as an event-condition-action rule with conditions and other dynamic behavior specified in a CQL Library. This arrangement provides a common and consistent pattern for describing decision support that can be easily integrated using the CDS Hooks specification.</p>
-
-</div>
 [%file newfooter%]
 </body>
 </html>

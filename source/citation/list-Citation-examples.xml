@@ -6,14 +6,14 @@
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of citation"/>
+      <valueString value="NInFEA Citation"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="citation-example"/>
+      <valueString value="citation-example-research-doi"/>
     </extension>
     <item>
-      <reference value="Citation/example"/>
-      <display value="General"/>
+      <reference value="Citation/citation-example-research-doi"/>
+      <display value="NInFEA Citation"/>
     </item>
   </entry>
 </List>

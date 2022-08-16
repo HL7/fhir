@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="AdministrableProductDefinition"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc. has been performed)."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
@@ -66,11 +66,19 @@
   <differential>
     <element id="AdministrableProductDefinition">
       <path value="AdministrableProductDefinition"/>
-      <short value="A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc. has been performed)"/>
+      <short value="A medicinal product in the final form, suitable for administration - after any mixing of multiple components"/>
       <definition value="A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc. has been performed)."/>
       <alias value="Pharmaceutical Product"/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="apd-1"/>
+        <severity value="error"/>
+        <human value="RouteOfAdministration cannot be used when the 'formOf' product already uses MedicinalProductDefinition.route (and vice versa)"/>
+        <expression value="(AdministrableProductDefinition.routeOfAdministration.code.count() + AdministrableProductDefinition.formOf.resolve().route.count())  &lt; 2"/>
+        <xpath value="count(f:AdministrableProductDefinition/f:routeOfAdministration/f:code|//f:MedicinalProductDefinition[f:id/@value=current()/ancestor::f:AdministrableProductDefinition/f:formOf/f:reference/@value]/f:route) &lt; 2"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
+      </constraint>
       <mapping>
         <identity value="idmp"/>
         <map value="Pharmaceutical Product"/>
@@ -92,13 +100,46 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
+        <map value="PhPID"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="AdministrableProductDefinition.status">
+      <path value="AdministrableProductDefinition.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The status of this administrable product. Enables tracking the life-cycle of the content."/>
+      <comment value="Allows filtering of administrable products that are appropriate for use versus not."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="AdministrableProductDefinition.subject">
-      <path value="AdministrableProductDefinition.subject"/>
-      <short value="The medicinal product that this is an administrable form of. This is not a reference to the item(s) that make up this administrable form - it is the whole product"/>
-      <definition value="The medicinal product that this is an administrable form of. This is not a reference to the item(s) that make up this administrable form - it is the whole product."/>
+    <element id="AdministrableProductDefinition.formOf">
+      <path value="AdministrableProductDefinition.formOf"/>
+      <short value="References a product from which one or more of the constituent parts of that product can be prepared and used as described by this administrable product"/>
+      <definition value="References a product from which one or more of the constituent parts of that product can be prepared and used as described by this administrable product.  If this administrable product describes the administration of a crushed tablet, the 'formOf' would be the product representing a distribution containing tablets and possibly also a cream.  This is distinct from the 'producedFrom' which refers to the specific components of the product that are used in this preparation, rather than the product as a whole."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -113,14 +154,22 @@
     </element>
     <element id="AdministrableProductDefinition.administrableDoseForm">
       <path value="AdministrableProductDefinition.administrableDoseForm"/>
-      <short value="The administrable dose form, i.e. the dose form of the final product after necessary reconstitution or processing"/>
-      <definition value="The administrable dose form, i.e. the dose form of the final product after necessary reconstitution or processing."/>
+      <short value="The dose form of the final product after necessary reconstitution or processing"/>
+      <definition value="The dose form of the final product after necessary reconstitution or processing. Contrasts to the manufactured dose form (see ManufacturedItemDefinition). If the manufactured form was 'powder for solution for injection', the administrable dose form could be 'solution for injection' (once mixed with another item having manufactured form 'solvent for solution for injection')."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdministrableDoseForm"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Dose form for a medication, in the form suitable for administering to the patient, after mixing, where necessary."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/administrable-dose-form"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Pharmaceutical Product.Administrable Dose Form"/>
@@ -128,14 +177,22 @@
     </element>
     <element id="AdministrableProductDefinition.unitOfPresentation">
       <path value="AdministrableProductDefinition.unitOfPresentation"/>
-      <short value="The units of presentation for the administrable product, for example &#39;tablet&#39;"/>
-      <definition value="The units of presentation for the administrable product, for example &#39;tablet&#39;."/>
+      <short value="The presentation type in which this item is given to a patient. e.g. for a spray - 'puff'"/>
+      <definition value="The presentation type in which this item is given to a patient. e.g. for a spray - 'puff' (as in 'contains 100 mcg per puff'), or for a liquid - 'vial' (as in 'contains 5 ml per vial')."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="UnitOfPresentation"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The presentation type in which an administrable medicinal product is given to a patient."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/unit-of-presentation"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Pharmaceutical Product.Unit of Presentation"/>
@@ -143,8 +200,8 @@
     </element>
     <element id="AdministrableProductDefinition.producedFrom">
       <path value="AdministrableProductDefinition.producedFrom"/>
-      <short value="The manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solution item). Note that these are not raw ingredients"/>
-      <definition value="The manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solution item). Note that these are not raw ingredients."/>
+      <short value="Indicates the specific manufactured items that are part of the 'formOf' product that are used in the preparation of this specific administrable form"/>
+      <definition value="Indicates the specific manufactured items that are part of the 'formOf' product that are used in the preparation of this specific administrable form.  In some cases, an administrable form might use all of the items from the overall product (or there might only be one item), while in other cases, an administrable form might use only a subset of the items available in the overall product.  For example, an administrable form might involve combining a liquid and a powder available as part of an overall product, but not involve applying the also supplied cream."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -159,26 +216,33 @@
     </element>
     <element id="AdministrableProductDefinition.ingredient">
       <path value="AdministrableProductDefinition.ingredient"/>
-      <short value="The ingredients of this administrable medicinal product. Sometimes it may be appropriate to specify these via the associated manufactured item(s)"/>
-      <definition value="The ingredients of this administrable medicinal product. Sometimes it may be appropriate to specify these via the associated manufactured item(s)."/>
+      <short value="The ingredients of this administrable medicinal product. This is only needed if the ingredients are not specified either using ManufacturedItemDefiniton, or using by incoming references from the Ingredient resource"/>
+      <definition value="The ingredients of this administrable medicinal product. This is only needed if the ingredients are not specified either using ManufacturedItemDefiniton (via AdministrableProductDefinition.producedFrom) to state which component items are used to make this, or using by incoming references from the Ingredient resource, to state in detail which substances exist within this. This element allows a basic coded ingredient to be used."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTSubstanceCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all substance codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Pharmaceutical Product.Ingredient"/>
+        <map value="Pharmaceutical Product.Ingredient (see also FHIR Ingredient resource)"/>
       </mapping>
     </element>
     <element id="AdministrableProductDefinition.device">
       <path value="AdministrableProductDefinition.device"/>
-      <short value="A device that is integral to the medicinal product, in effect being considered as an &quot;ingredient&quot; of the medicinal product. This is not intended for devices that are just co-packaged"/>
+      <short value="A device that is integral to the medicinal product, in effect being considered as an &quot;ingredient&quot; of the medicinal product"/>
       <definition value="A device that is integral to the medicinal product, in effect being considered as an &quot;ingredient&quot; of the medicinal product. This is not intended for devices that are just co-packaged."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
@@ -191,11 +255,11 @@
     </element>
     <element id="AdministrableProductDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="500,17"/>
+        <valueCode value="500,25"/> <!-- was 500, 17 -->
       </extension>
       <path value="AdministrableProductDefinition.property"/>
-      <short value="Characteristics e.g. a products onset of action"/>
-      <definition value="Characteristics e.g. a products onset of action."/>
+      <short value="Characteristics e.g. a product's onset of action"/>
+      <definition value="Characteristics e.g. a product's onset of action."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -217,6 +281,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTCharacteristicCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all observable entity codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/product-characteristic-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Pharmaceutical Product Characteristics.Code System (not a one to one map, the resource is more capable)"/>
@@ -259,6 +331,17 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Pharmaceutical Product Characteristics.Status"/>
@@ -266,11 +349,11 @@
     </element>
     <element id="AdministrableProductDefinition.routeOfAdministration">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="57,185"/>
+        <valueCode value="57,205"/>
       </extension>
       <path value="AdministrableProductDefinition.routeOfAdministration"/>
-      <short value="The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route"/>
-      <definition value="The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route."/>
+      <short value="The path by which the product is taken into or makes contact with the body"/>
+      <definition value="The path by which the product is taken into or makes contact with the body. In some regions this is referred to as the licenced or approved route. RouteOfAdministration cannot be used when the 'formOf' product already uses MedicinalProductDefinition.route (and vice versa)."/>
       <min value="1"/>
       <max value="*"/>
       <type>
@@ -292,6 +375,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTRouteCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient's body."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/route-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Route of Administration.Route of Administration"/>
@@ -299,7 +390,7 @@
     </element>
     <element id="AdministrableProductDefinition.routeOfAdministration.firstDose">
       <path value="AdministrableProductDefinition.routeOfAdministration.firstDose"/>
-      <short value="The first dose (dose quantity) administered can be specified for the product, using a numerical value and its unit of measurement"/>
+      <short value="The first dose (dose quantity) administered can be specified for the product"/>
       <definition value="The first dose (dose quantity) administered can be specified for the product, using a numerical value and its unit of measurement."/>
       <min value="0"/>
       <max value="1"/>
@@ -314,8 +405,8 @@
     </element>
     <element id="AdministrableProductDefinition.routeOfAdministration.maxSingleDose">
       <path value="AdministrableProductDefinition.routeOfAdministration.maxSingleDose"/>
-      <short value="The maximum single dose that can be administered, can be specified using a numerical value and its unit of measurement"/>
-      <definition value="The maximum single dose that can be administered, can be specified using a numerical value and its unit of measurement."/>
+      <short value="The maximum single dose that can be administered"/>
+      <definition value="The maximum single dose that can be administered, specified using a numerical value and its unit of measurement."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -329,7 +420,7 @@
     </element>
     <element id="AdministrableProductDefinition.routeOfAdministration.maxDosePerDay">
       <path value="AdministrableProductDefinition.routeOfAdministration.maxDosePerDay"/>
-      <short value="The maximum dose per day (maximum dose quantity to be administered in any one 24-h period) that can be administered"/>
+      <short value="The maximum dose quantity to be administered in any one 24-h period"/>
       <definition value="The maximum dose per day (maximum dose quantity to be administered in any one 24-h period) that can be administered."/>
       <min value="0"/>
       <max value="1"/>
@@ -359,8 +450,8 @@
     </element>
     <element id="AdministrableProductDefinition.routeOfAdministration.maxTreatmentPeriod">
       <path value="AdministrableProductDefinition.routeOfAdministration.maxTreatmentPeriod"/>
-      <short value="The maximum treatment period during which an Investigational Medicinal Product can be administered"/>
-      <definition value="The maximum treatment period during which an Investigational Medicinal Product can be administered."/>
+      <short value="The maximum treatment period during which the product can be administered"/>
+      <definition value="The maximum treatment period during which the product can be administered."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -374,7 +465,7 @@
     </element>
     <element id="AdministrableProductDefinition.routeOfAdministration.targetSpecies">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="360,219"/>
+        <valueCode value="360,239"/>
       </extension>
       <path value="AdministrableProductDefinition.routeOfAdministration.targetSpecies"/>
       <short value="A species for which this route applies"/>
@@ -400,6 +491,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TargetSpecies"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A tissue type of an animal."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/target-species"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -407,7 +506,7 @@
     </element>
     <element id="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="620,209"/>
+        <valueCode value="620,229"/>
       </extension>
       <path value="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod"/>
       <short value="A species specific time during which consumption of animal product is not appropriate"/>
@@ -425,14 +524,22 @@
     </element>
     <element id="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod.tissue">
       <path value="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod.tissue"/>
-      <short value="Coded expression for the type of tissue for which the withdrawal period applues, e.g. meat, milk"/>
-      <definition value="Coded expression for the type of tissue for which the withdrawal period applues, e.g. meat, milk."/>
+      <short value="The type of tissue for which the withdrawal period applies, e.g. meat, milk"/>
+      <definition value="Coded expression for the type of tissue for which the withdrawal period applies, e.g. meat, milk."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AnimalTissueType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A tissue type of an animal."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/animal-tissue-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>

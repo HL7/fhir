@@ -26,7 +26,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.823"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ResearchStudyObjectiveType"/>
   <title value="ResearchStudyObjectiveType"/>
   <status value="draft"/>
@@ -47,7 +47,12 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+      <system value="http://hl7.org/fhir/research-study-classifiers"/>
+	  <filter>
+	    <property value="concept"/>
+	    <op value="descendent-of"/>
+	    <value value="research-study-objective-type"/>
+	  </filter>
     </include>
   </compose>
 </ValueSet>

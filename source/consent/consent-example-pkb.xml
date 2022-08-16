@@ -13,12 +13,7 @@
     </div>
   </text>
   <status value="active"/>
-  <scope>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
-      <code value="patient-privacy"/>
-    </coding>
-  </scope>
+
   <category>
     <coding>
       <system value="http://loinc.org"/>
@@ -34,12 +29,12 @@
     <reference value="Organization/f001"/>
   </controller>
   <!-- nothing is approved unless the patient says it is -->
-  <policyRule>
+  <regulatoryBasis>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="INFA"/>
     </coding>
-  </policyRule>
+  </regulatoryBasis>
   <provision>
     <type value="deny"/>
     <provision>

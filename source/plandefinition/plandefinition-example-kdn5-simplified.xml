@@ -251,7 +251,9 @@
   <relatedArtifact>
     <type value="derived-from" />
     <display value="NCCN Guidelines for Kidney Cancer. V.2.2016" />
-    <url value="http://www.example.org/professionals/physician_gls/PDF/kidney.pdf" />
+    <document>
+      <url value="http://www.example.org/professionals/physician_gls/PDF/kidney.pdf" />
+    </document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="citation">
@@ -260,7 +262,9 @@
       </extension>
     </type>
     <citation value="Oudard S, et al. J Urol. 2007;177(5):1698-702" />
-    <url value="http://www.ncbi.nlm.nih.gov/pubmed/17437788" />
+    <document>
+      <url value="http://www.ncbi.nlm.nih.gov/pubmed/17437788" />
+    </document>
   </relatedArtifact>
 
   <action>

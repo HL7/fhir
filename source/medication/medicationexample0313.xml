@@ -15,7 +15,7 @@
         <display value="Injection solution (qualifier value)"/>
       </coding>
     </doseForm>
-  <amount>
+  <totalVolume>
     <numerator><value value="1"></value>
       <unit value="ml"></unit>
       <system value="http://unitsofmeasure.org"></system>
@@ -26,7 +26,7 @@
       <system value="http://terminology.hl7.org/CodeSystem/medicationknowledge-package-type"/>
       <code value="vial"/>
     </denominator>
-    </amount>
+    </totalVolume>
     <ingredient>
       <item>
         <concept>

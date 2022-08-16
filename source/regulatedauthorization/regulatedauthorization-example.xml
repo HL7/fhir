@@ -30,9 +30,9 @@
   </dataExclusivityPeriod>
   <dateOfFirstAuthorization value="2010-08-15"/>
   <internationalBirthDate value="2010-08-15"/-->
-  <jurisdictionalAuthorization id="1">
+  <!--jurisdictionalAuthorization id="1">
     <reference value="RegulatedAuthorization/Jurusdictional1"/>
-  </jurisdictionalAuthorization>
+  </jurisdictionalAuthorization-->
   <holder>
     <reference value="Organization/example"/>
   </holder>

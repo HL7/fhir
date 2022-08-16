@@ -27,7 +27,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Patient"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -46,7 +46,7 @@
   </contact>
   <description value="Demographics and other administrative information about an individual or animal receiving care or other health-related services."/>
   <purpose value="Tracking patient is the center of the healthcare process."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -175,7 +175,7 @@
       <path value="Patient.name"/>
       <short value="A name associated with the patient"/>
       <definition value="A name associated with the individual."/>
-      <comment value="A patient may have multiple names with different uses or applicable periods. For animals, the name is a &quot;HumanName&quot; in the sense that is assigned and used by humans and has the same patterns."/>
+      <comment value="A patient may have multiple names with different uses or applicable periods. For animals, the name is a &quot;HumanName&quot; in the sense that is assigned and used by humans and has the same patterns. Animal names may be communicated as given names, and optionally may include a family name."/>
       <requirements value="Need to be able to track the patient by multiple names. Examples are your official name and a partner name."/>
       <min value="0"/>
       <max value="*"/>
@@ -259,7 +259,7 @@
         </extension>
         <strength value="required"/>
         <description value="The gender of a person used for administrative purposes."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|5.0.0"/>
       </binding>
       <mapping>
         <identity value="v2"/>
@@ -285,7 +285,7 @@
       <path value="Patient.birthDate"/>
       <short value="The date of birth for the individual"/>
       <definition value="The date of birth for the individual."/>
-      <comment value="At least an estimated year should be provided as a guess if the real DOB is unknown  There is a standard extension &quot;patient-birthTime&quot; available that should be used where Time is required (such as in maternity/infant care systems)."/>
+      <comment value="Partial dates are allowed if the specific date of birth is unknown. There is a standard extension &quot;patient-birthTime&quot; available that should be used where Time is required (such as in maternity/infant care systems)."/>
       <requirements value="Age of the individual drives many clinical processes."/>
       <min value="0"/>
       <max value="1"/>
@@ -622,7 +622,7 @@
         </extension>
         <strength value="required"/>
         <description value="The gender of a person used for administrative purposes."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|5.0.0"/>
       </binding>
       <mapping>
         <identity value="v2"/>
@@ -713,7 +713,7 @@
     <element id="Patient.communication.language">
       <path value="Patient.communication.language"/>
       <short value="The language which can be used to communicate with the patient about his or her health"/>
-      <definition value="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-EN&quot; for England English."/>
+      <definition value="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English."/>
       <comment value="The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type."/>
       <requirements value="Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect."/>
       <min value="1"/>
@@ -832,8 +832,8 @@
         <valueCode value="380,90"/>
       </extension>
       <path value="Patient.link"/>
-      <short value="Link to another patient resource that concerns the same actual person"/>
-      <definition value="Link to another patient resource that concerns the same actual patient."/>
+      <short value="Link to a Patient or RelatedPerson resource that concerns the same actual individual"/>
+      <definition value="Link to a Patient or RelatedPerson resource that concerns the same actual individual."/>
       <comment value="There is no assumption that linked patient records have mutual links."/>
       <requirements value="There are multiple use cases:   &#xA;&#xA;* Duplicate patient records due to the clerical errors associated with the difficulties of identifying humans consistently, and &#xA;* Distribution of patient information across multiple servers."/>
       <min value="0"/>
@@ -856,7 +856,7 @@
     <element id="Patient.link.other">
       <path value="Patient.link.other"/>
       <short value="The other patient or related person resource that the link refers to"/>
-      <definition value="The other patient resource that the link refers to."/>
+      <definition value="Link to a Patient or RelatedPerson resource that concerns the same actual individual."/>
       <comment value="Referencing a RelatedPerson here removes the need to use a Person record to associate a Patient and RelatedPerson as the same individual."/>
       <min value="1"/>
       <max value="1"/>
@@ -895,7 +895,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of link between this patient resource and another patient resource."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/link-type|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/link-type|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>

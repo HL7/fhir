@@ -25,7 +25,7 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="SubscriptionTopic-derived-or-self"/>
+        <id value="SubscriptionTopic-compatible-with"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
         </extension>
@@ -65,39 +65,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="SubscriptionTopic-publisher"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="SubscriptionTopic.publisher"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/SubscriptionTopic-publisher"/>
-        <description value="The name of the individual or organization that published the SubscriptionTopic"/>
-        <code value="publisher"/>
-        <type value="reference"/>
-        <expression value="SubscriptionTopic.publisher"/>
-        <xpath value="f:SubscriptionTopic/f:publisher"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="SubscriptionTopic-resource-type"/>
+        <id value="SubscriptionTopic-resource"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="SubscriptionTopic.resourceTrigger.resourceType"/>
+          <valueString value="SubscriptionTopic.resourceTrigger.resource"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/SubscriptionTopic-resource-type"/>
-        <description value="Allowed Data type or Resource (reference to definition) for this definition"/>
-        <code value="resource-type"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SubscriptionTopic-resource"/>
+        <description value="Allowed Data type or Resource (reference to definition) for this definition, searches resourceTrigger, eventTrigger, and notificationShape for matches."/>
+        <code value="resource"/>
         <type value="uri"/>
-        <expression value="SubscriptionTopic.resourceTrigger.resourceType"/>
-        <xpath value="f:SubscriptionTopic/f:resourceTrigger/f:resourceType"/>
+        <expression value="SubscriptionTopic.resourceTrigger.resource"/>
+        <xpath value="f:SubscriptionTopic/f:resourceTrigger/f:resource"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Subscription-get-ws-binding-token"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="get-ws-binding-token"/>
   <title value="Get a binding token for use in a websocket connection"/>
   <status value="draft"/>
@@ -59,19 +59,43 @@
   <type value="true"/>
   <instance value="true"/>
   <parameter>
-    <name value="ids"/>
+    <name value="id"/>
     <use value="in"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="At the Resource level, one or more parameters containing one or more comma-delimited FHIR ids of Subscriptions to get tokens for.  In the absense of any specified ids, the server returns tokens for all Subscriptions available to the caller with a channel-type of websocket.  At the Instance level, this parameter is ignored."/>
+    <documentation value="At the Instance level, this parameter is ignored. At the Resource level, one or more parameters containing a FHIR id for a Subscription to get a token for. In the absense of any specified ids, the server may either return a token for all Subscriptions available to the caller with a channel-type of websocket or fail the request."/>
     <type value="id"/>
   </parameter>
   <parameter>
-    <name value="return"/>
+    <name value="token"/>
     <use value="out"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="The returned Parameters MUST include a valueString named &quot;token&quot; and a valueDateTime named &quot;expiration&quot;.  The returned Parameters MAY include a valueString named &quot;subscriptions&quot; with a comma-delimited list of subscriptions covered by this token."/>
-    <type value="Parameters"/>
+    <documentation value="An access token that a client may use to show authorization during a websocket connection."/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="expiration"/>
+    <use value="out"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="The date and time this token is valid until."/>
+    <type value="dateTime"/>
+  </parameter>
+  <parameter>
+    <name value="subscription"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="The subscriptions this token is valid for."/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="websocket-url"/>
+    <use value="out"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="The URL the client should use to connect to Websockets."/>
+    <type value="url"/>
   </parameter>
 </OperationDefinition>

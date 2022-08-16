@@ -68,13 +68,13 @@
                 <periodUnit value="d"/>
             </repeat>
         </timing>
-        <asNeededCodeableConcept>
+        <asNeededFor>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="32914008"/>
                 <display value="Restless Legs"/>
             </coding>
-        </asNeededCodeableConcept>
+        </asNeededFor>
         <route>
             <coding>
                 <system value="http://snomed.info/sct"/>

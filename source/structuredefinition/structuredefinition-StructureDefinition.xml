@@ -30,7 +30,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="StructureDefinition"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -48,7 +48,7 @@
     </telecom>
   </contact>
   <description value="A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -95,7 +95,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
@@ -379,7 +379,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -634,7 +634,7 @@
         </extension>
         <strength value="required"/>
         <description value="All published FHIR Versions."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version|5.0.0"/>
       </binding>
     </element>
     <element id="StructureDefinition.mapping">
@@ -718,7 +718,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines the type of structure that a definition is describing."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/structure-definition-kind|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/structure-definition-kind|5.0.0"/>
       </binding>
     </element>
     <element id="StructureDefinition.abstract">
@@ -761,7 +761,7 @@
         </extension>
         <strength value="required"/>
         <description value="How an extension context is interpreted."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/extension-context-type|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/extension-context-type|5.0.0"/>
       </binding>
     </element>
     <element id="StructureDefinition.context.expression">
@@ -792,7 +792,7 @@
       <path value="StructureDefinition.type"/>
       <short value="Type defined or constrained by this structure"/>
       <definition value="The type this structure describes. If the derivation kind is &#39;specialization&#39; then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. &quot;string&quot; is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models."/>
-      <comment value="Note that in the case of constraints, the type could be determined by chasing through the baseDefinition references until a concrete structure (derivation = specialization) is reached, or by looking at the path of the first element in the snapshot - if present - but providing the type directly makes for simpler tooling and indexing. &#xA;&#xA;The type must match the elements defined in the differential and the snapshot. For all FHIR defined types, the path name of the element will start with the type name. For logical models, where the type is a URL, the type name SHOULD start with the tail of the type URL where required."/>
+      <comment value="Note that in the case of constraints, the type could be determined by chasing through the baseDefinition references until a concrete structure (derivation = specialization) is reached, or by looking at the path of the first element in the snapshot - if present - but providing the type directly makes for simpler tooling and indexing. &#xA;&#xA;The type must match the elements defined in the differential and the snapshot. For all FHIR defined types, the path name of the element will start with the type name. For logical models, where the type SHALL be a fully specified URL, the type name SHOULD start with the final path segment of the type URL where required. E.g. If the type was &quot;http://example.org/fhir/MyLogicalModelType&quot;, the type name should start with 'MyLogicalModelType'."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -846,7 +846,7 @@
         </extension>
         <strength value="required"/>
         <description value="How a type relates to its baseDefinition."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/type-derivation-rule|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/type-derivation-rule|5.0.0"/>
       </binding>
     </element>
     <element id="StructureDefinition.snapshot">
@@ -886,6 +886,20 @@
         <xpath value="count(f:element) = count(f:element/f:base)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
+      <constraint>
+        <key value="sdf-24"/>
+        <severity value="error"/>
+        <human value="For CodeableReference elements, target profiles must be listed on the CodeableReference, not the CodeableReference.reference"/>
+        <expression value="element.where(type.code='Reference' and id.endsWith('.reference') and type.targetProfile.exists() and id.substring(0,$this.length()-10) in %context.element.where(type.code='CodeableReference').id).exists().not()"/>
+        <xpath value="not(exists(for $cr in f:element[f:type/f:code/@value='CodeableReference'] return $cr/following-sibling::f:element[@id=concat($cr/@id, '.reference') and f:type/f:code/@value='Reference' and exists(f:type/f:targetProfile)]))"/>
+      </constraint>
+      <constraint>
+        <key value="sdf-25"/>
+        <severity value="error"/>
+        <human value="For CodeableReference elements, bindings must be listed on the CodeableReference, not the CodeableReference.concept"/>
+        <expression value="element.where(type.code='CodeableConcept' and id.endsWith('.concept') and binding.exists() and id.substring(0,$this.length()-8) in %context.element.where(type.code='CodeableReference').id).exists().not()"/>
+        <xpath value="not(exists(for $cr in f:element[f:type/f:code/@value='CodeableReference'] return $cr/following-sibling::f:element[@id=concat($cr/@id, '.concept') and f:type/f:code/@value='CodeableConcept' and exists(f:binding)]))"/>
+      </constraint>
     </element>
     <element id="StructureDefinition.snapshot.element">
       <path value="StructureDefinition.snapshot.element"/>
@@ -904,6 +918,14 @@
         <human value="provide either a binding reference or a description (or both)"/>
         <expression value="binding.empty() or binding.valueSet.exists() or binding.description.exists()"/>
         <xpath value="not(exists(f:binding)) or exists(f:binding/f:valueSet) or exists(f:binding/f:description)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+      </constraint>
+      <constraint>
+        <key value="sdf-24"/>
+        <severity value="error" />
+        <human value="If there are no discriminators, there must be a definition"/>
+        <expression value="slicing.exists().not() or (slicing.discriminator.exists() or slicing.description.exists())"/>
+        <xpath value="empty(f:slicing) or f:slicing[f:discriminator | f:description]"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <mapping>

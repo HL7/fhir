@@ -1,144 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
- 
 <ImagingStudy xmlns="http://hl7.org/fhir">
-  <id value="example-xr"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">XR Wrist 3+ Views. John Smith (MRN: 09236). Accession: W12342398. Performed: 2017-01-01.
+	<id value="example-xr"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">XR Wrist 3+ Views. John Smith (MRN: 09236). Accession: W12342398. Performed: 2017-01-01.
        1 series, 2 images.</div>
-  </text>
-  <identifier>
-    <use value="official"/>
-    <system value="urn:dicom:uid"/>
-    <value value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430046"/>
-  </identifier>
-  <identifier>
-    <use value="secondary"/>
-    <value value="55551234"/>
-    <assigner>
-      <reference value="Organization/dicom-organization"/>
-    </assigner>
-  </identifier>
-  <status value="available"/>
-  <modality>
-    <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-    <code value="DX"/>
-  </modality>
-  <subject>
-    <reference value="Patient/dicom"/>
-  </subject>
-  <encounter>
-    <reference value="Encounter/example"/>
-  </encounter>
-  <started value="2017-01-01T11:01:20+03:00"/>
-  <basedOn>
-    <type value="ServiceRequest" />
-    <identifier>
-        <type>
-          <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
-            <code value="ACSN"/>
-          </coding>
-        </type>
-        <value value="W12342398"/>
-        <assigner>
-          <reference value="Organization/dicom-organization"/>
-        </assigner>
-    </identifier>
-  </basedOn>
-  <basedOn>
-    <reference value="ServiceRequest/example"/>
-  </basedOn>
-  <referrer>
-    <reference value="Practitioner/example"/>
-  </referrer>
-  <interpreter>
-    <reference value="Practitioner/example"/>
-  </interpreter>
-  <endpoint>
-    <reference value="Endpoint/example-wadors"/>
-  </endpoint>
-  <numberOfSeries value="1"/>
-  <numberOfInstances value="2"/>
-  <procedure>
-  <valueReference>
-    <reference value="Procedure/example"/>
-  </valueReference>
-  </procedure>
-  <procedure>
-  <valueCodeableConcept>
-    <coding>
-      <system value="http://www.radlex.org"/>
-      <code value="RPID2589"/>
-      <display value="XR Wrist 3+ Views"/>
-    </coding>
-    <text value="XR Wrist 3+ Views"/>
-  </valueCodeableConcept>
-  </procedure>
-  <reason>
-    <concept>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="357009"/>
-        <display value="Closed fracture of trapezoidal bone of wrist"/>
-      </coding>
-    </concept>
-  </reason>
-  <note>
-      <text value="XR Wrist 3+ Views"/>
-  </note>
-  <series>
-    <uid value="2.16.124.113543.6003.1154777499.30246.19789.3503430045.1"/>
-    <number value="3"/>
-    <modality>
-      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-      <code value="DX"/>
-    </modality>
-    <description value="XR Wrist 3+ Views"/>
-    <numberOfInstances value="2"/>
-    <endpoint>
-      <reference value="Endpoint/example-wadors"/>
-    </endpoint>
-    <bodySite>
-      <!--     Added body site to support duplicate checking example     -->
-      <system value="http://snomed.info/sct"/>
-      <code value="T-15460"/>
-      <display value="Wrist Joint"/>
-    </bodySite>
-    <laterality>
-      <system value="http://snomed.info/sct"/>
-      <code value="419161000"/>
-      <display value="Unilateral left"/>
-    </laterality>
-    <started value="2011-01-01T11:01:20+03:00"/>
-    <performer>
-      <function>
-      <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-      <code value="PRF"/>
-      </coding>
-      </function>
-      <actor>
-      <reference value="Practitioner/example"/>
-      </actor>
-    </performer>
-    <instance>
-      <uid value="2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.1"/>
-      <sopClass>
-        <system value="urn:ietf:rfc:3986"/>
-        <code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
-      </sopClass> 
-      <number value="1"/>
-      <title value="PA VIEW"/>
-    </instance>
-    <instance>
-      <uid value="2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.2"/>
-      <sopClass>
-        <system value="urn:ietf:rfc:3986"/>
-        <code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
-      </sopClass> 
-      <number value="2"/>
-      <title value="LL VIEW"/>
-    </instance>
-  </series>
+	</text>
+	<identifier>
+		<use value="official"/>
+		<system value="urn:dicom:uid"/>
+		<value value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430046"/>
+	</identifier>
+	<identifier>
+		<use value="secondary"/>
+		<value value="55551234"/>
+		<assigner>
+			<reference value="Organization/dicom-organization"/>
+		</assigner>
+	</identifier>
+	<status value="available"/>
+	<modality>
+		<coding>
+			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+			<code value="DX"/>
+		</coding>
+	</modality>
+	<subject>
+		<reference value="Patient/dicom"/>
+	</subject>
+	<encounter>
+		<reference value="Encounter/example"/>
+	</encounter>
+	<started value="2017-01-01T11:01:20+03:00"/>
+	<basedOn>
+		<type value="ServiceRequest"/>
+		<identifier>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+					<code value="ACSN"/>
+				</coding>
+			</type>
+			<value value="W12342398"/>
+			<assigner>
+				<reference value="Organization/dicom-organization"/>
+			</assigner>
+		</identifier>
+	</basedOn>
+	<basedOn>
+		<reference value="ServiceRequest/example"/>
+	</basedOn>
+	<referrer>
+		<reference value="Practitioner/example"/>
+	</referrer>
+	<interpreter>
+		<reference value="Practitioner/example"/>
+	</interpreter>
+	<endpoint>
+		<reference value="Endpoint/example-wadors"/>
+	</endpoint>
+	<numberOfSeries value="1"/>
+	<numberOfInstances value="2"/>
+	<procedure>
+		<reference>
+			<reference value="Procedure/example"/>
+		</reference>
+	</procedure>
+	<procedure>
+		<concept>
+			<coding>
+				<system value="http://www.radlex.org"/>
+				<code value="RPID2589"/>
+				<display value="XR Wrist 3+ Views"/>
+			</coding>
+			<text value="XR Wrist 3+ Views"/>
+		</concept>
+	</procedure>
+	<reason>
+		<concept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="357009"/>
+				<display value="Closed fracture of trapezoidal bone of wrist"/>
+			</coding>
+		</concept>
+	</reason>
+	<note>
+		<text value="XR Wrist 3+ Views"/>
+	</note>
+	<series>
+		<uid value="2.16.124.113543.6003.1154777499.30246.19789.3503430045.1"/>
+		<number value="3"/>
+		<modality>
+			<coding>
+				<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+				<code value="DX"/>
+			</coding>
+		</modality>
+		<description value="XR Wrist 3+ Views"/>
+		<numberOfInstances value="2"/>
+		<endpoint>
+			<reference value="Endpoint/example-wadors"/>
+		</endpoint>
+		<bodySite>
+			<concept>
+				<coding>
+					<!--     Added body site to support duplicate checking example     -->
+					<system value="http://snomed.info/sct"/>
+					<code value="T-15460"/>
+					<display value="Wrist Joint"/>
+				</coding>
+			</concept>
+		</bodySite>
+		<laterality>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="419161000"/>
+				<display value="Unilateral left"/>
+			</coding>
+		</laterality>
+		<started value="2011-01-01T11:01:20+03:00"/>
+		<performer>
+			<function>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+					<code value="PRF"/>
+				</coding>
+			</function>
+			<actor>
+				<reference value="Practitioner/example"/>
+			</actor>
+		</performer>
+		<instance>
+			<uid value="2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.1"/>
+			<sopClass>
+				<system value="urn:ietf:rfc:3986"/>
+				<code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
+			</sopClass>
+			<number value="1"/>
+			<title value="PA VIEW"/>
+		</instance>
+		<instance>
+			<uid value="2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.2"/>
+			<sopClass>
+				<system value="urn:ietf:rfc:3986"/>
+				<code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
+			</sopClass>
+			<number value="2"/>
+			<title value="LL VIEW"/>
+		</instance>
+	</series>
 </ImagingStudy>

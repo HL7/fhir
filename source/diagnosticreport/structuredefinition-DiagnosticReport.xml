@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="DiagnosticReport"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -43,7 +43,7 @@
   </contact>
   <description value="The findings and interpretation of diagnostic tests performed on patients, groups of patients, products, substances, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports. The report also includes non-clinical context such as batch analysis and stability reporting of products and substances."/>
   <purpose value="To support reporting for any diagnostic report into a clinical data repository."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -316,6 +316,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -571,33 +572,43 @@
         <map value="outboundRelationship[typeCode=COMP].target"/>
       </mapping>
     </element>
-    <element id="DiagnosticReport.imagingStudy">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="6246."/>
-      </extension>
-      <path value="DiagnosticReport.imagingStudy"/>
-      <short value="Reference to full details of imaging associated with the diagnostic report"/>
-      <definition value="One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images."/>
-      <comment value="ImagingStudy and the image element are somewhat overlapping - typically, the list of image references in the image element will also be found in one of the imaging study resources. However, each caters to different types of displays for different types of purposes. Neither, either, or both may be provided."/>
+    <element id="DiagnosticReport.note">
+      <path value="DiagnosticReport.note"/>
+      <short value="Comments about the diagnostic report"/>
+      <definition value="Comments about the diagnostic report."/>
+      <comment value="May include general statements about the diagnostic report, or statements about significant, unexpected or unreliable results values contained within the diagnostic report, or information about its source when relevant to its interpretation."/>
+      <requirements value="Need to be able to provide free text additional information."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="unknown"/>
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.study">
+      <path value="DiagnosticReport.study"/>
+      <short value="Reference to full details of an analysis associated with the diagnostic report"/>
+      <definition value="One or more links to full details of any study performed during the diagnostic investigation. An ImagingStudy might comprise a set of radiologic images obtained via a procedure that are analyzed as a group. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images. A GenomicStudy might comprise one or more analyses, each serving a specific purpose. These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted."/>
+      <comment value="For laboratory-type studies like GenomeStudy, type resources will be used for tracking additional metadata and workflow aspects of complex studies. ImagingStudy and the image element are somewhat overlapping - typically, the list of image references in the image element will also be found in one of the imaging study resources. However, each caters to different types of displays for different types of purposes. Neither, either, or both may be provided."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
       </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="outboundRelationship[typeCode=COMP].target[classsCode=DGIMG, moodCode=EVN]"/>
-      </mapping>
     </element>
     <element id="DiagnosticReport.media">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,125"/>
       </extension>
       <path value="DiagnosticReport.media"/>
-      <short value="Key images associated with this report"/>
-      <definition value="A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest)."/>
-      <requirements value="Many diagnostic services include images in the report as part of their service."/>
+      <short value="Key images or data associated with this report"/>
+      <definition value="A list of key images or data associated with this report. The images or data are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest)."/>
+      <requirements value="Many diagnostic services include images or data in the report as part of their service."/>
       <alias value="DICOM"/>
       <alias value="Slides"/>
       <alias value="Scans"/>
@@ -618,10 +629,10 @@
     </element>
     <element id="DiagnosticReport.media.comment">
       <path value="DiagnosticReport.media.comment"/>
-      <short value="Comment about the image (e.g. explanation)"/>
-      <definition value="A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer&#39;s attention to important features."/>
-      <comment value="The comment should be displayed with the image. It would be common for the report to include additional discussion of the image contents in other sections such as the conclusion."/>
-      <requirements value="The provider of the report should make a comment about each image included in the report."/>
+      <short value="Comment about the image or data (e.g. explanation)"/>
+      <definition value="A comment about the image or data. Typically, this is used to provide an explanation for why the image or data is included, or to draw the viewer&#39;s attention to important features."/>
+      <comment value="The comment should be displayed with the image or data. It would be common for the report to include additional discussion of the image or data contents or in other sections such as the conclusion."/>
+      <requirements value="The provider of the report should make a comment about each image or data included in the report."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -634,8 +645,8 @@
     </element>
     <element id="DiagnosticReport.media.link">
       <path value="DiagnosticReport.media.link"/>
-      <short value="Reference to the image source"/>
-      <definition value="Reference to the image source."/>
+      <short value="Reference to the image or data source"/>
+      <definition value="Reference to the image or data source."/>
       <min value="1"/>
       <max value="1"/>
       <type>

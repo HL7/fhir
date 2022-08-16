@@ -1,80 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
   <id value="example-Stroke-Thrombolysis-Trialists-2014-2016-IPD-MA-Cohort"/>
-  <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>
-        Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis
-      </p>
-	</div>
-  </text>
-  <name value="Stroke Thrombolysis Trialists’ 2014-2016 IPD-MA Cohort"/>
-  <title value="Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis"/>
+	<text>
+		<status value="generated" />
+		<div xmlns="http://www.w3.org/1999/xhtml">
+		  <p>
+			Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis
+		  </p>
+		</div>
+	</text>
+	<name value="Stroke Thrombolysis Trialists’ 2014-2016 IPD-MA Cohort"/>
+	<title value="Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis"/>
 	<status value="draft"/>
 	<relatedArtifact>
 		<type value="citation"/>
 		<label value="Emberson 2014"/>
 		<display value="Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials."/>
 		<citation value="Emberson J, Lees KR, Lyden P, Blackwell L, Albers G, Bluhmki E, et al;Stroke Thrombolysis Trialists&apos; Collaborative Group. Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials. Lancet 2014 Nov 29;384(9958):1929-35 PMID 25106063"/>
-		<url value="https://doi.org/10.1016/S0140-6736(14)60584-5"/>
+    <document>
+  		<url value="https://doi.org/10.1016/S0140-6736(14)60584-5"/>
+    </document>
 	</relatedArtifact>
 	<relatedArtifact>
 		<type value="citation"/>
 		<label value="Lees 2016"/>
 		<display value="Figure 2 Lees 2016"/>
 		<citation value="Lees KR, Emberson J, Blackwell L, Bluhmki E, Davis SM, Donnan GA, et al; Stroke Thrombolysis Trialists’ Collaborators Group. Effects of alteplase for acute stroke on the distribution of functional outcomes: a pooled analysis of 9 trials. Stroke. 2016;47:2373-2379. PMID 27507856"/>
-		<url value="https://doi.org/10.1161/STROKEAHA.116.013644"/>
+    <document>
+	    <url value="https://doi.org/10.1161/STROKEAHA.116.013644"/>
+    </document>
 	</relatedArtifact>
 	<actual value="true"/>
-	<characteristicCombination value="union"/>
 	<characteristic>
-		<definitionReference>
-			<reference value="Group/ECASSIII-Trial-Cohort"/>
-			<type value="Group"/>
-			<display value="ECASS III Trial Cohort"/>
-		</definitionReference>
-	</characteristic>
-	<characteristic>
-		<definitionReference>
-			<reference value="Group/IST3-Trial-Cohort"/>
-			<type value="Group"/>
-			<display value="IST3 Trial Cohort"/>
-		</definitionReference>
-	</characteristic>
-	<characteristic>
-		<definitionReference>
-			<reference value="Group/ECASS-Trial-Cohort"/>
-			<type value="Group"/>
-			<display value="ECASS Trial Cohort"/>
-		</definitionReference>
-	</characteristic>
-	<characteristic>
-		<definitionReference>
-			<reference value="Group/ECASSII-Trial-Cohort"/>
-			<type value="Group"/>
-			<display value="ECASSII Trial Cohort"/>
-		</definitionReference>
-	</characteristic>
-	<characteristic>
-		<definitionReference>
-			<reference value="Group/EPITHET-Trial-Cohort"/>
-			<type value="Group"/>
-			<display value="EPITHET Trial Cohort"/>
-		</definitionReference>
-	</characteristic>
-	<characteristic>
-		<definitionReference>
-			<reference value="Group/ATLANTIS-Trial-Cohort"/>
-			<type value="Group"/>
-			<display value="ATLANTIS Trial Cohort"/>
-		</definitionReference>
-	</characteristic>
-	<characteristic>
-		<definitionReference>
-			<reference value="Group/NINDS-Trial-Cohort"/>
-			<type value="Group"/>
-			<display value="NINDS Trial Cohort"/>
-		</definitionReference>
+		<description value="Stroke Thrombolysis Trialists’ Collaborators Group collection used for individual patient data meta-analysis" />
+		<definitionByCombination>
+			<code value="any-of" />
+			<characteristic>
+				<definitionReference>
+					<reference value="Group/ECASSIII-Trial-Cohort"/>
+					<type value="Group"/>
+					<display value="ECASS III Trial Cohort"/>
+				</definitionReference>
+			</characteristic>
+			<characteristic>
+				<definitionReference>
+					<reference value="Group/IST3-Trial-Cohort"/>
+					<type value="Group"/>
+					<display value="IST3 Trial Cohort"/>
+				</definitionReference>
+			</characteristic>
+			<characteristic>
+				<definitionReference>
+					<reference value="Group/ECASS-Trial-Cohort"/>
+					<type value="Group"/>
+					<display value="ECASS Trial Cohort"/>
+				</definitionReference>
+			</characteristic>
+			<characteristic>
+				<definitionReference>
+					<reference value="Group/ECASSII-Trial-Cohort"/>
+					<type value="Group"/>
+					<display value="ECASSII Trial Cohort"/>
+				</definitionReference>
+			</characteristic>
+			<characteristic>
+				<definitionReference>
+					<reference value="Group/EPITHET-Trial-Cohort"/>
+					<type value="Group"/>
+					<display value="EPITHET Trial Cohort"/>
+				</definitionReference>
+			</characteristic>
+			<characteristic>
+				<definitionReference>
+					<reference value="Group/ATLANTIS-Trial-Cohort"/>
+					<type value="Group"/>
+					<display value="ATLANTIS Trial Cohort"/>
+				</definitionReference>
+			</characteristic>
+			<characteristic>
+				<definitionReference>
+					<reference value="Group/NINDS-Trial-Cohort"/>
+					<type value="Group"/>
+					<display value="NINDS Trial Cohort"/>
+				</definitionReference>
+			</characteristic>
+		</definitionByCombination>
 	</characteristic>
 </EvidenceVariable>

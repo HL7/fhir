@@ -8,17 +8,12 @@
     </identifier>
     <status value="completed"/>
     <class>
-        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-        <code value="AMB"/> <!-- outpatient -->
-        <display value="ambulatory"/>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<code value="AMB"/> <!-- outpatient -->
+			<display value="ambulatory"/>
+		</coding>
     </class>
-    <type>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="270427003"/>
-            <display value="Patient-initiated encounter"/>
-        </coding>
-    </type>
     <priority>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -26,19 +21,30 @@
             <display value="Non-urgent cardiological admission"/>
         </coding>
     </priority>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="270427003"/>
+            <display value="Patient-initiated encounter"/>
+        </coding>
+    </type>
 	<subject>
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </subject>
+    <serviceProvider>
+        <reference value="Organization/f001"/>
+        <display value="Burgers University Medical Center"/>
+    </serviceProvider>
     <participant>
-        <individual>
+        <actor>
             <reference value="Practitioner/f002"/>
             <display value="P. Voigt"/>
-        </individual>
+        </actor>
     </participant>
     <length>
         <value value="140"/>
-        <unit value="min"/>    
+        <unit value="min"/>
         <system value="http://unitsofmeasure.org"/>
         <code value="min"/>
     </length>
@@ -51,7 +57,7 @@
         </coding>
       </concept>
     </reason>
-    <hospitalization>
+    <admission>
         <preAdmissionIdentifier>
             <use value="official"/>
             <system value="http://www.amc.nl/zorgportal/identifiers/pre-admissions"/>
@@ -83,9 +89,5 @@
                 <display value="Discharge to home"/>
             </coding>
         </dischargeDisposition>
-    </hospitalization>
-    <serviceProvider>
-        <reference value="Organization/f001"/>
-        <display value="Burgers University Medical Center"/>
-    </serviceProvider>
+    </admission>
 </Encounter>

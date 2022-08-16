@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SubscriptionStatus"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="SubscriptionStatus"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="The SubscriptionStatus resource describes the state of a Subscription during notifications."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -65,6 +65,14 @@
       <definition value="The SubscriptionStatus resource describes the state of a Subscription during notifications."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="sst-1"/>
+        <severity value="error"/>
+        <human value="events listed in event notifications"/>
+        <expression value="type = 'event-notification' implies (notificationEvent.exists() and notificationEvent.first().exists())"/>
+        <xpath value="not(f:type/@value='event-notification') or exists(f:notificationEvent[1])"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/SubscriptionStatus"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="N/A"/>
@@ -86,11 +94,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubscriptionState"/>
+          <valueString value="SubscriptionStatus"/>
         </extension>
         <strength value="required"/>
         <description value="The status of a subscription at the time this notification was generated."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-state"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-status"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -99,7 +107,7 @@
     </element>
     <element id="SubscriptionStatus.type">
       <path value="SubscriptionStatus.type"/>
-      <short value="handshake | heartbeat | event-notification | query-status"/>
+      <short value="handshake | heartbeat | event-notification | query-status | query-event"/>
       <definition value="The type of event being conveyed with this notificaiton."/>
       <min value="1"/>
       <max value="1"/>
@@ -133,16 +141,57 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="SubscriptionStatus.eventsInNotification">
-      <path value="SubscriptionStatus.eventsInNotification"/>
-      <short value="The number of actual notifications represented by this bundle"/>
-      <definition value="The total number of actual events represented within this notification.  For handshake and heartbeat notifications, this will be zero or not present.  For event-notifications, this number may be one or more, depending on server batching."/>
+    <element id="SubscriptionStatus.notificationEvent">
+      <path value="SubscriptionStatus.notificationEvent"/>
+      <short value="Detailed information about any events relevant to this notification"/>
+      <definition value="Detailed information about events relevant to this subscription notification."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="SubscriptionStatus.notificationEvent.eventNumber">
+      <path value="SubscriptionStatus.notificationEvent.eventNumber"/>
+      <short value="Event number"/>
+      <definition value="The sequential number of this event in this subscription context."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer64"/>
+      </type>
+    </element>
+    <element id="SubscriptionStatus.notificationEvent.timestamp">
+      <path value="SubscriptionStatus.notificationEvent.timestamp"/>
+      <short value="The instant this event occurred"/>
+      <definition value="The actual time this event occured on the server."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="integer"/>
+        <code value="instant"/>
       </type>
-      <isSummary value="true"/>
+    </element>
+    <element id="SubscriptionStatus.notificationEvent.focus">
+      <path value="SubscriptionStatus.notificationEvent.focus"/>
+      <short value="The focus of this event"/>
+      <definition value="The focus of this event. While this will usually be a reference to the focus resource of the event, it MAY contain a reference to a non-FHIR object."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+    </element>
+    <element id="SubscriptionStatus.notificationEvent.additionalContext">
+      <path value="SubscriptionStatus.notificationEvent.additionalContext"/>
+      <short value="Additional context for this event"/>
+      <definition value="Additional context information for this event. Generally, this will contain references to additional resources included with the event (e.g., the Patient relevant to an Encounter), however it MAY refer to non-FHIR objects."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
     </element>
     <element id="SubscriptionStatus.subscription">
       <path value="SubscriptionStatus.subscription"/>
@@ -164,7 +213,8 @@
       <path value="SubscriptionStatus.topic"/>
       <short value="Reference to the SubscriptionTopic this notification relates to"/>
       <definition value="The reference to the SubscriptionTopic for the Subscription which generated this notification."/>
-      <min value="1"/>
+      <comment value="This value SHOULD NOT be present when using `empty` payloads, MAY be present when using `id-only` payloads, and SHOULD be present when using `full-resource` payloads."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="canonical"/>

@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="PackagedProductDefinition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A medically related item or items, in a container or package."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
@@ -84,8 +84,8 @@
     </element>
     <element id="PackagedProductDefinition.identifier">
       <path value="PackagedProductDefinition.identifier"/>
-      <short value="Unique identifier"/>
-      <definition value="Unique identifier."/>
+      <short value="A unique identifier for this package as whole - not for the content of the package"/>
+      <definition value="A unique identifier for this package as whole - not the the content of the package. Unique instance identifiers assigned to a package by manufacturers, regulators, drug catalogue custodians or other organizations."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -96,10 +96,14 @@
         <identity value="idmp"/>
         <map value="Packaged Medicinal Product.PCID"/>
       </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
     </element>
     <element id="PackagedProductDefinition.name">
       <path value="PackagedProductDefinition.name"/>
-      <short value="A name for this package. Typically what it would be listed as in a drug formulary or catalogue, inventory etc"/>
+      <short value="A name for this package. Typically as listed in a drug formulary, catalogue, inventory etc"/>
       <definition value="A name for this package. Typically what it would be listed as in a drug formulary or catalogue, inventory etc."/>
       <min value="0"/>
       <max value="1"/>
@@ -114,7 +118,7 @@
     </element>
     <element id="PackagedProductDefinition.type">
       <path value="PackagedProductDefinition.type"/>
-      <short value="A high level category e.g. medicinal product, raw material, shipping/transport container, etc"/>
+      <short value="A high level category e.g. medicinal product, raw material, shipping container etc"/>
       <definition value="A high level category e.g. medicinal product, raw material, shipping/transport container, etc."/>
       <min value="0"/>
       <max value="1"/>
@@ -122,15 +126,23 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PackageType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A high level categorisation of a package."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/package-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.subject">
-      <path value="PackagedProductDefinition.subject"/>
+    <element id="PackagedProductDefinition.packageFor">
+      <path value="PackagedProductDefinition.packageFor"/>
       <short value="The product that this is a pack for"/>
-      <definition value="The product that this is a pack for."/>
+      <definition value="The product this package model relates to, not the contents of the package (for which see package.containedItem)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -145,20 +157,22 @@
     </element>
     <element id="PackagedProductDefinition.status">
       <path value="PackagedProductDefinition.status"/>
-      <short value="The status within the lifecycle of this item. A high level status, this is not intended to duplicate details carried elsewhere such as legal status, or authorization or marketing status"/>
+      <short value="The status within the lifecycle of this item. High level - not intended to duplicate details elsewhere e.g. legal status, or authorization/marketing status"/>
       <definition value="The status within the lifecycle of this item. A high level status, this is not intended to duplicate details carried elsewhere such as legal status, or authorization or marketing status."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PublicationStatus"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
@@ -183,8 +197,8 @@
     </element>
     <element id="PackagedProductDefinition.containedItemQuantity">
       <path value="PackagedProductDefinition.containedItemQuantity"/>
-      <short value="A total of the amount of items in the package, per item type. This can be considered as the pack size. This attribite is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Repeats are not to be used to represent differerent pack sizes (e.g. 20 pack vs 50 pack) - which would be different resource instances. This attribute differs from  containedItem.amount in that it can give a single count of all tablet types in a pack, even when these are different manufactured items"/>
-      <definition value="A total of the amount of items in the package, per item type. This can be considered as the pack size. This attribite is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Repeats are not to be used to represent differerent pack sizes (e.g. 20 pack vs 50 pack) - which would be different resource instances. This attribute differs from  containedItem.amount in that it can give a single count of all tablet types in a pack, even when these are different manufactured items."/>
+      <short value="A total of the complete count of contained items of a particular type/form, independent of sub-packaging or organization. This can be considered as the pack size"/>
+      <definition value="A total of the complete count of contained items of a particular type/form, independent of sub-packaging or organization. This can be considered as the pack size. This attribute differs from containedItem.amount in that it can give a single aggregated count of all tablet types in a pack, even when these are different manufactured items. For example a pill pack of 21 tablets plus 7 sugar tablets, can be denoted here as '28 tablets'. This attribute is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Each repeat must have different units, so that it is clear what the different sets of counted items are, and it is not intended to allow different counts of similar items (e.g. not '2 tubes and 3 tubes'). Repeats are not to be used to represent different pack sizes (e.g. 20 pack vs. 50 pack) - which would be different instances of this resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -212,13 +226,16 @@
       </mapping>
     </element>
     <element id="PackagedProductDefinition.legalStatusOfSupply">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="27,270"/> 
+      </extension>
       <path value="PackagedProductDefinition.legalStatusOfSupply"/>
       <short value="The legal status of supply of the packaged item as classified by the regulator"/>
       <definition value="The legal status of supply of the packaged item as classified by the regulator."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="BackboneElement"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -226,10 +243,57 @@
         <map value="Marketing Authorisation.Legal Status of Supply (for a package)"/>
       </mapping>
     </element>
+    <element id="PackagedProductDefinition.legalStatusOfSupply.code">
+      <path value="PackagedProductDefinition.legalStatusOfSupply.code"/>
+      <short value="The actual status of supply. In what situation this package type may be supplied for use"/>
+      <definition value="The actual status of supply. Conveys in what situation this package type may be supplied for use."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>      
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LegalStatusOfSupply"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The prescription supply types appropriate to a medicinal product"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/legal-status-of-supply"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Marketing Authorisation.Legal Status of Supply (for a package)"/>
+      </mapping>
+    </element>
+    <element id="PackagedProductDefinition.legalStatusOfSupply.jurisdiction">
+      <path value="PackagedProductDefinition.legalStatusOfSupply.jurisdiction"/>
+      <short value="The place where the legal status of supply applies"/>
+      <definition value="The place where the legal status of supply applies. When not specified, this indicates it is unknown in this context."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Jurisdiction codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    
     <element id="PackagedProductDefinition.marketingStatus">
       <path value="PackagedProductDefinition.marketingStatus"/>
-      <short value="Marketing information"/>
-      <definition value="Marketing information."/>
+      <short value="Allows specifying that an item is on the market for sale, or that it is not available, and the dates and locations associated"/>
+      <definition value="Allows specifying that an item is on the market for sale, or that it is not available, and the dates and locations associated."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -243,7 +307,7 @@
     </element>
     <element id="PackagedProductDefinition.characteristic">
       <path value="PackagedProductDefinition.characteristic"/>
-      <short value="Allows the key features to be recorded, such as &quot;hospital pack&quot;, &quot;nurse prescribable&quot;, &quot;calendar pack&quot;"/>
+      <short value="Allows the key features to be recorded, such as &quot;hospital pack&quot;, &quot;nurse prescribable&quot;"/>
       <definition value="Allows the key features to be recorded, such as &quot;hospital pack&quot;, &quot;nurse prescribable&quot;, &quot;calendar pack&quot;."/>
       <min value="0"/>
       <max value="*"/>
@@ -251,6 +315,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PackageCharacteristic"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A characteristic of a package."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/package-characteristic"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -258,38 +330,23 @@
     </element>
     <element id="PackagedProductDefinition.copackagedIndicator">
       <path value="PackagedProductDefinition.copackagedIndicator"/>
-      <short value="States whether a drug product is supplied with another item such as a diluent or adjuvant"/>
-      <definition value="States whether a drug product is supplied with another item such as a diluent or adjuvant."/>
+      <short value="Identifies if the drug product is supplied with another item such as a diluent or adjuvant"/>
+      <definition value="Identifies if the package contains different items, such as when a drug product is supplied with another item e.g. a diluent or adjuvant."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
+      <meaningWhenMissing value="If this value is not present, there is no statement being made about whether this is co-packaged or not. No inference can be made"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.marketingAuthorization">
-      <path value="PackagedProductDefinition.marketingAuthorization"/>
-      <short value="An authorization for this package type"/>
-      <definition value="An authorization for this package type."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RegulatedAuthorization"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Packaged Medicinal Product.Marketing Authorisation"/>
-      </mapping>
-    </element>
     <element id="PackagedProductDefinition.manufacturer">
       <path value="PackagedProductDefinition.manufacturer"/>
-      <short value="Manufacturer of this package type. When there are multiple it means these are all possible manufacturers"/>
+      <short value="Manufacturer of this package type (multiple means these are all possible manufacturers)"/>
       <definition value="Manufacturer of this package type. When there are multiple it means these are all possible manufacturers."/>
       <min value="0"/>
       <max value="*"/>
@@ -319,12 +376,12 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package">
+    <element id="PackagedProductDefinition.packaging">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="403,50"/> <!-- down 20 -->
+        <valueCode value="453,47"/>
       </extension>
-      <path value="PackagedProductDefinition.package"/>
-      <short value="A packaging item, as a container for medically related items, possibly with other packaging items within, or a packaging component, such as bottle cap (which is not a device or a medication manufactured item)"/>
+      <path value="PackagedProductDefinition.packaging"/>
+      <short value="A packaging item, as a container for medically related items, possibly with other packaging items within, or a packaging component, such as bottle cap"/>
       <definition value="A packaging item, as a container for medically related items, possibly with other packaging items within, or a packaging component, such as bottle cap (which is not a device or a medication manufactured item)."/>
       <min value="0"/>
       <max value="1"/>
@@ -337,10 +394,10 @@
         <map value="Packaged Medicinal Product.Package Item (Container), Package Item (Container).Package (Component)"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.identifier">
-      <path value="PackagedProductDefinition.package.identifier"/>
-      <short value="Including possibly Data Carrier Identifier"/>
-      <definition value="Including possibly Data Carrier Identifier."/>
+    <element id="PackagedProductDefinition.packaging.identifier">
+      <path value="PackagedProductDefinition.packaging.identifier"/>
+      <short value="An identifier that is specific to this particular part of the packaging. Including possibly a Data Carrier Identifier"/>
+      <definition value="A business identifier that is specific to this particular part of the packaging, often assigned by the manufacturer. Including possibly Data Carrier Identifier (a GS1 barcode)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -352,8 +409,8 @@
         <map value="Package Item (Container).Data Carrier Identifier"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.type">
-      <path value="PackagedProductDefinition.package.type"/>
+    <element id="PackagedProductDefinition.packaging.type">
+      <path value="PackagedProductDefinition.packaging.type"/>
       <short value="The physical type of the container of the items"/>
       <definition value="The physical type of the container of the items."/>
       <min value="0"/>
@@ -362,15 +419,23 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PackagingType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A high level categorisation of a package."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/packaging-type"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Package Item (Container).Package Item (Container) Type"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.quantity">
-      <path value="PackagedProductDefinition.package.quantity"/>
-      <short value="The quantity of this level of packaging in the package that contains it. If specified, the outermost level is always 1"/>
-      <definition value="The quantity of this level of packaging in the package that contains it. If specified, the outermost level is always 1."/>
+    <element id="PackagedProductDefinition.packaging.quantity">
+      <path value="PackagedProductDefinition.packaging.quantity"/>
+      <short value="The quantity of this level of packaging in the package that contains it (with the outermost level being 1)"/>
+      <definition value="The quantity of packaging items contained at this layer of the package. This does not relate to the number of contained items but relates solely to the number of packaging items. When looking at the outermost layer it is always 1. If there are two boxes within, at the next layer it would be 2."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -382,8 +447,8 @@
         <map value="Package Item (Container).Package Item (Container) Quantity"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.material">
-      <path value="PackagedProductDefinition.package.material"/>
+    <element id="PackagedProductDefinition.packaging.material">
+      <path value="PackagedProductDefinition.packaging.material"/>
       <short value="Material type of the package item"/>
       <definition value="Material type of the package item."/>
       <min value="0"/>
@@ -392,28 +457,44 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PackageMaterial"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A material used in the construction of packages and their components."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/package-material"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Package Item (Container).Material"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.alternateMaterial">
-      <path value="PackagedProductDefinition.package.alternateMaterial"/>
-      <short value="A possible alternate material for the packaging"/>
-      <definition value="A possible alternate material for the packaging."/>
+    <element id="PackagedProductDefinition.packaging.alternateMaterial">
+      <path value="PackagedProductDefinition.packaging.alternateMaterial"/>
+      <short value="A possible alternate material for this part of the packaging, that is allowed to be used instead of the usual material"/>
+      <definition value="A possible alternate material for this part of the packaging, that is allowed to be used instead of the usual material (e.g. different types of plastic for a blister sleeve)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PackageMaterial"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A material used in the construction of packages and their components."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/package-material"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Package Item (Container).Alternate Material"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.shelfLifeStorage">
-      <path value="PackagedProductDefinition.package.shelfLifeStorage"/>
+    <element id="PackagedProductDefinition.packaging.shelfLifeStorage">
+      <path value="PackagedProductDefinition.packaging.shelfLifeStorage"/>
       <short value="Shelf Life and storage information"/>
       <definition value="Shelf Life and storage information."/>
       <min value="0"/>
@@ -427,10 +508,10 @@
         <map value="Package Item (Container).Shelf Life / Storage"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.manufacturer">
-      <path value="PackagedProductDefinition.package.manufacturer"/>
-      <short value="Manufacturer of this package Item. When there are multiple it means these are all possible manufacturers"/>
-      <definition value="Manufacturer of this package Item. When there are multiple it means these are all possible manufacturers."/>
+    <element id="PackagedProductDefinition.packaging.manufacturer">
+      <path value="PackagedProductDefinition.packaging.manufacturer"/>
+      <short value="Manufacturer of this packaging item (multiple means these are all potential manufacturers)"/>
+      <definition value="Manufacturer of this packaging item. When there are multiple values each one is a potential manufacturer of this packaging item."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -443,11 +524,11 @@
         <map value="Package Item (Container).Manufacturer / Establishment (Organisation)"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.property">
+    <element id="PackagedProductDefinition.packaging.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="250,270"/> <!-- down 20 -->
+        <valueCode value="320,270"/>
       </extension>
-      <path value="PackagedProductDefinition.package.property"/>
+      <path value="PackagedProductDefinition.packaging.property"/>
       <short value="General characteristics of this item"/>
       <definition value="General characteristics of this item."/>
       <min value="0"/>
@@ -461,8 +542,8 @@
         <map value="Package Item (Container).Physical Characteristics"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.property.type">
-      <path value="PackagedProductDefinition.package.property.type"/>
+    <element id="PackagedProductDefinition.packaging.property.type">
+      <path value="PackagedProductDefinition.packaging.property.type"/>
       <short value="A code expressing the type of characteristic"/>
       <definition value="A code expressing the type of characteristic."/>
       <min value="1"/>
@@ -471,13 +552,21 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProductCharacteristic"/>
+        </extension>
+        <strength value="example"/>
+        <description value="This value set includes all observable entity codes from SNOMED CT - provided as an exemplar value set."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/product-characteristic-codes"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Physical Characteristics, all attributes"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.property.value[x]">
-      <path value="PackagedProductDefinition.package.property.value[x]"/>
+    <element id="PackagedProductDefinition.packaging.property.value[x]">
+      <path value="PackagedProductDefinition.packaging.property.value[x]"/>
       <short value="A value for the characteristic"/>
       <definition value="A value for the characteristic."/>
       <min value="0"/>
@@ -503,11 +592,11 @@
         <map value="Physical Characteristics, attribute&#39;s value"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.containedItem">
+    <element id="PackagedProductDefinition.packaging.containedItem">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="560,270"/> <!-- down 20 -->
+        <valueCode value="630,270"/>
       </extension>
-      <path value="PackagedProductDefinition.package.containedItem"/>
+      <path value="PackagedProductDefinition.packaging.containedItem"/>
       <short value="The item(s) within the packaging"/>
       <definition value="The item(s) within the packaging."/>
       <min value="0"/>
@@ -521,12 +610,12 @@
         <map value="Package Item (Container).Manufactured Item, Package Item (Container).Device"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.containedItem.item">
-      <path value="PackagedProductDefinition.package.containedItem.item"/>
-      <short value="The actual item(s) of medication, as manufactured, or a device (typically, but not necessarily, a co-packaged one), or other medically related item (such as food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package. This also allows another packaged product to be included, which is solely for the case where a package of other entire packages is wanted - such as a wholesale or distribution pack"/>
-      <definition value="The actual item(s) of medication, as manufactured, or a device (typically, but not necessarily, a co-packaged one), or other medically related item (such as food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package. This also allows another packaged product to be included, which is solely for the case where a package of other entire packages is wanted - such as a wholesale or distribution pack."/>
-      <min value="0"/>
-      <max value="*"/>
+    <element id="PackagedProductDefinition.packaging.containedItem.item">
+      <path value="PackagedProductDefinition.packaging.containedItem.item"/>
+      <short value="The actual item(s) of medication, as manufactured, or a device, or other medically related item (food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package"/>
+      <definition value="The actual item(s) of medication, as manufactured, or a device (typically, but not necessarily, a co-packaged one), or other medically related item (such as food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package. This also allows another whole packaged product to be included, which is solely for the case where a package of other entire packages is wanted - such as a wholesale or distribution pack (for layers within one package, use PackagedProductDefinition.packaging.packaging)."/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
@@ -541,8 +630,8 @@
         <map value="(the link to) Package Item (Container).Manufactured Item, Package Item (Container).Device"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.containedItem.amount[x]">
-      <path value="PackagedProductDefinition.package.containedItem.amount[x]"/>
+    <element id="PackagedProductDefinition.packaging.containedItem.amount">
+      <path value="PackagedProductDefinition.packaging.containedItem.amount"/>
       <short value="The number of this type of item within this packaging"/>
       <definition value="The number of this type of item within this packaging."/>
       <min value="0"/>
@@ -550,22 +639,19 @@
       <type>
         <code value="Quantity"/>
       </type>
-      <type>
-        <code value="integer"/>
-      </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
         <map value="Manufactured Item.Manufactured Item Quantity"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.package.package">
-      <path value="PackagedProductDefinition.package.package"/>
-      <short value="Allows containers within containers"/>
-      <definition value="Allows containers within containers."/>
+    <element id="PackagedProductDefinition.packaging.packaging">
+      <path value="PackagedProductDefinition.packaging.packaging"/>
+      <short value="Allows containers (and parts of containers) within containers, still a single packaged product"/>
+      <definition value="Allows containers (and parts of containers) parwithin containers, still a single packaged product.  See also PackagedProductDefinition.packaging.containedItem.item(PackagedProductDefinition)."/>
       <min value="0"/>
       <max value="*"/>
-      <contentReference value="#PackagedProductDefinition.package"/>
+      <contentReference value="#PackagedProductDefinition.packaging"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>

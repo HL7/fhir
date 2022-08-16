@@ -204,7 +204,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.272"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="GoalLifecycleStatus"/>
   <title value="GoalLifecycleStatus"/>
   <status value="draft"/>
@@ -224,6 +224,7 @@
   <description value="Codes that reflect the current state of a goal and whether the goal is still being targeted."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/goal-status"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="proposed"/>

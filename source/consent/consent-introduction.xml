@@ -1,71 +1,109 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<div>
-<a name="scope"></a>
-<h2>Scope and Usage</h2>
-<p>
+    <div>
+        <a name="scope"></a>
+        <h2>Scope and Usage</h2>
+        <p>
 The purpose of this Resource is to be used to express a Consent regarding Healthcare. There are four 
 anticipated uses for the Consent Resource, all of which are written or verbal agreements by a 
 healthcare consumer [grantor] or a personal representative, made to an authorized entity [grantee] 
 concerning authorized or restricted actions with any limitations on purpose of use, and 
 handling instructions to which the authorized entity must comply: 
 </p>
-<ul>
- <li>Privacy Consent Directive: Agreement, Restriction, or Prohibition to collect, access, use or disclose (share) information.</li>
- <li>Medical Treatment Consent Directive: Consent to undergo a specific treatment (or record of refusal to consent).</li>
- <li>Research Consent Directive: Consent to participate in research protocol and information sharing required.</li>
- </ul>
-<p>
-This resource is scoped to cover all three uses, but at this time, only the privacy use case is fully modeled, others are being used but no formal modelling exists.  
+        <ul>
+            <li>Privacy Consent Directive: Agreement, Restriction, or Prohibition to collect, access, use or disclose (share) information.</li>
+            <li>Medical Treatment Consent Directive: Consent to undergo a specific treatment (or record of refusal to consent).</li>
+            <li>Research Consent Directive: Consent to participate in research protocol and information sharing required.</li>
+        </ul>
+        <p>
+            This resource is scoped to cover all three uses, but at this time, only the privacy use case is fully modeled, others are being used but no formal modelling exists.  
 The scope of the resource may change when the other possible scopes are investigated, tested, or profiled. HL7 is working on Advance Directives and would welcome participation by the community.
+        </p>
+        <p>
+            Usage of the
+            <a href="https://www.hl7.org/fhir/provenance.html">Provenance</a>
+            resource may be the best way to manage the tracking of the changes to Consent. In addition, the
+            <a href="https://www.hl7.org/fhir/documentreference.html">DocumentReference</a>
+            may be used as an attachment to show the stages of consent ceremony with additional or updated document(s) attached at each stage.
+            <a href="https://www.hl7.org/fhir/contract.html">Contract</a>
+            may also be used in this fashion where as signatures are gathered or conditions applied, the Contract resource can be updated and attached to the Consent.
+        </p>
+        <h3>Simple vs. Computable Consent</h3>
+        <p>
+            In its simplest form, the Consent resource provides the means to record the content and the metadata of a consent (either implicit consent as an event or an explicit consent document). At this level of implementation, basic metadata about the Consent (e.g., status, data and time, patient, and organization) is recorded in the corresponding attributes of the Consent resource to enable consent discovery by indexing, searching, and retrieval of consents based on this metadata. The
+            <code>source[x]</code>
+            attribute can be used to record the original consent document either in the form of a pointer to another resource or in the form of an attachment.
+        </p>
+        <p>In a more advanced usage of the Consent resource, in addition to recording the metadata and potentially the original content, the privacy preferences stated in the consent are encoded directly in the form of machine-readable rules. These rules can be processed by a decision engine to adjudicate whether the consent permits a specific given activity (e.g., sharing the patient information with a requester or enrolling the patient in a research project). In other words, the Consent resource is used directly to record rules that can be used by a rules engine to understand and enforce the preferences expressed by the consenter as they were intended.</p>
+        <p>The current version of the Consent resource provides two different mechanisms for recording computable rules:</p>
+        <ul>
+            <li>
+                the
+                <code>provision</code>
+                structure which provides a simple structure for capturing most common privacy rules.>
+            </li>
+            <li>
+                the
+                <code>policy</code>
+                attribute which provides a more flexible mechanism to reference a policy coded in a policy language of choice (e.g.,
+                <a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=xacml">XACML</a>
+                ,
+                <a href="https://www.w3.org/community/odrl/">ODRL</a>
+                , etc.).
+            </li>
+        </ul>
+    </div>
 
-</p>
+    <div>
+        <a name="bnr"></a>
+        <h2>Boundaries and Relationships</h2>
 
-</div>
-
-<div>
-<a name="bnr"></a>
-<h2>Boundaries and Relationships</h2>
-
-<p>
+        <p>
 Consent management - particularly privacy consent - is complicated by the fact that consent to share 
 is often itself necessary to protect. The need to protect the privacy of the privacy statement itself
 competes with the execution of the consent statement. For this reason, it is common to deal with 
 'consent statements' that are only partial representations of the full consent statement that the 
 patient provided. 
 </p>
-<p>
+        <p>
 For this reason, the consent resource contains two elements that refer back to the source: an inline attachment and a direct reference to content from which this Consent Statement was derived. That
 reference can be one of several things:
 </p>
-<ul>
- <li>A reference to another consent resource from which this limited statement was derived</li>
- <li>A reference to a document format for the original source (e.g. PDF or CDA - see the 
- <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=280">HL7 CDAR2 ConsentDirective Implementation Guide</a>, 
- which incorporated the <a href="http://wiki.ihe.net/index.php?title=Basic_Patient_Privacy_Consents">IHE Basic Patient Privacy Consents (BPPC)</a> ), either directly, or in a reference</li>
- <li>The source can be included in the consent as an attachment</li>
-</ul>
-<p>
+        <ul>
+            <li>A reference to another consent resource from which this limited statement was derived</li>
+            <li>
+                A reference to a document format for the original source (e.g. PDF or CDA - see the
+                <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=280">HL7 CDAR2 ConsentDirective Implementation Guide</a>
+                , 
+ which incorporated the
+                <a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-19.html">IHE Basic Patient Privacy Consents (BPPC)</a>
+                ), either directly, or in a reference
+            </li>
+            <li>The source can be included in the consent as an attachment</li>
+        </ul>
+        <p>
 The consent statements represent a chain that refers back to the original source consent
 directive. Applications may be able to follow the chain back to the source but should
 not generally assume that they are authorized to do this.
 </p>
-<p>
-Consent Directives are executed by verbal acknowledgement or by being signed - either on paper, or digitally. Consent Signatures will
-be found in the <a href="provenance.html">Provenance</a> resource. Implementation Guides will generally 
+        <p>
+            Consent Directives are executed by verbal acknowledgement or by being signed - either on paper, or digitally. Consent Signatures will
+be found in the
+            <a href="provenance.html">Provenance</a>
+            resource. Implementation Guides will generally 
 make rules about what signatures are required, and how they are to be shared and used.
-</p>
-</div>
+        </p>
+    </div>
 
-<div>
-<a name="bnc"></a>
-<h2>Background and Context</h2>
-<p>
+    <div>
+        <a name="bnc"></a>
+        <h2>Background and Context</h2>
+        <p>
 The Consent resource is structured with a base policy (represented as Consent.policy/Consent.policyRule) which is either permit or deny, followed by a listing of exceptions to that policy (represented as Consent.provision(s)). The exceptions can be additional positive 
 or negative exceptions upon the base policy. The set of exceptions include a list of data objects, 
 list of authors, list of recipients, list of Organizations, list of purposeOfUse, and Date Range.
 </p>
-<p>
+        <p>
 The enforcement of the Privacy Consent Directive is not included but is expected that 
 enforcement can be done using a mix of the various Access Control enforcement methodologies (e.g. OAuth, UMA, XACML).
 This enforcement includes the details of the enforcement meaning of the elements of the Privacy Consent Directive, 
@@ -74,6 +112,6 @@ organizational roles have access to what kinds of resources (e.g. RBAC, ABAC).
 The specification of these details is not in scope for the Consent resource.
 </p>
 
-</div>
+    </div>
 
 </div>

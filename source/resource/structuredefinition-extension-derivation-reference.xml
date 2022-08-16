@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="derivation-reference"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/derivation-reference"/>
+  <version value="5.0.0"/>
+  <name value="DerivationReference"/>
+  <title value="Derivation Reference"/>
+  <status value="draft"/>
+  <date value="2020-01-18"/>
+  <publisher value="HL7"/>
+  <description value="References a location within a set of source text from which the discrete information described by this Resource/Element was extracted."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="Resource"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="Element"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="References a location within a set of source text from which the discrete information described by this Resource/Element was extracted."/>
+      <definition value="References a location within a set of source text from which the discrete information described by this Resource/Element was extracted."/>
+      <constraint>
+        <key value="der-1"/>
+        <severity value="error"/>
+        <human value="Cannot have length if offset is missing."/>
+        <expression value="extension.where(url=&#39;length&#39;).exists() implies extension.where(url=&#39;offset&#39;).exists()"/>
+        <xpath value="todo-remove-this-line-when-build-process-allows-that"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/derivation-reference"/>
+      </constraint>
+    </element>
+    <element id="Extension.extension:reference">
+      <path value="Extension.extension"/>
+      <sliceName value="reference"/>
+      <short value="Source reference."/>
+      <definition value="References a location within a set of source text from which the discrete information described by this Resource/Element was extracted."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Extension.extension:reference.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:reference.url">
+      <path value="Extension.extension.url"/>
+      <fixedUri value="reference"/>
+    </element>
+    <element id="Extension.extension:reference.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="Reference"/>
+      </type>
+    </element>
+    <element id="Extension.extension:path">
+      <path value="Extension.extension"/>
+      <sliceName value="path"/>
+      <short value="Element containing text."/>
+      <definition value="Corresponds to the element within the resource containing the text."/>
+      <comment value="Follows the FHIRPath expression syntax used for OperationOutcome. If not present, then the resource must either be a Binary or a DocumentReference (with a single content element) and the content is the text represented by the instance or the attachment.  If the DocumentReference has more than one &#39;content&#39;, then this path element SHALL be present to distinguish which repetition the derivation occurred from."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Extension.extension:path.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:path.url">
+      <path value="Extension.extension.url"/>
+      <fixedUri value="path"/>
+    </element>
+    <element id="Extension.extension:path.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Extension.extension:offset">
+      <path value="Extension.extension"/>
+      <sliceName value="offset"/>
+      <short value="Starting position."/>
+      <definition value="Indicates the starting position (as a count of characters) within the text where the relevant derivation began."/>
+      <min value="0"/>
+      <max value="1"/>
+      <meaningWhenMissing value="If not specified, the location at which derivation started is unknown."/>
+    </element>
+    <element id="Extension.extension:offset.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:offset.url">
+      <path value="Extension.extension.url"/>
+      <fixedUri value="offset"/>
+    </element>
+    <element id="Extension.extension:offset.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+    <element id="Extension.extension:length">
+      <path value="Extension.extension"/>
+      <sliceName value="length"/>
+      <short value="Number of characters."/>
+      <definition value="Indicates the number of characters following the start position/beginning of the document that was used as part of the derivation process."/>
+      <min value="0"/>
+      <max value="1"/>
+      <meaningWhenMissing value="If not specified, the location at which derivation ended is unknown."/>
+    </element>
+    <element id="Extension.extension:length.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:length.url">
+      <path value="Extension.extension.url"/>
+      <fixedUri value="length"/>
+    </element>
+    <element id="Extension.extension:length.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/derivation-reference"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <max value="0"/>
+    </element>
+  </differential>
+</StructureDefinition>

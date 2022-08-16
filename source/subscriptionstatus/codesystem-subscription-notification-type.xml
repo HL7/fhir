@@ -9,91 +9,55 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
       <p>This code system http://hl7.org/fhir/subscription-notification-type defines the following codes:</p>
-      
       <table class="codes">
-        
         <tr>
-          
           <td style="white-space:nowrap">
-            
             <b>Code</b>
-          
           </td>
-          
           <td>
-            
             <b>Display</b>
-          
           </td>
-          
           <td>
-            
             <b>Definition</b>
-          
           </td>
-        
         </tr>
-        
         <tr>
-          
           <td style="white-space:nowrap">handshake
-            
             <a name="subscription-notification-type-handshake"> </a>
-          
           </td>
-          
           <td>Handshake</td>
-          
           <td>The status was generated as part of the setup or verification of a communications channel.</td>
-        
         </tr>
-        
         <tr>
-          
           <td style="white-space:nowrap">heartbeat
-            
             <a name="subscription-notification-type-heartbeat"> </a>
-          
           </td>
-          
           <td>Heartbeat</td>
-          
           <td>The status was generated to perform a heartbeat notification to the subscriber.</td>
-        
         </tr>
-        
         <tr>
-          
           <td style="white-space:nowrap">event-notification
-            
             <a name="subscription-notification-type-event-notification"> </a>
-          
           </td>
-          
           <td>Event Notification</td>
-          
           <td>The status was generated for an event to the subscriber.</td>
-        
         </tr>
-        
         <tr>
-          
           <td style="white-space:nowrap">query-status
-            
             <a name="subscription-notification-type-query-status"> </a>
-          
           </td>
-          
           <td>Query Status</td>
-          
-          <td>The status was generated in response to a query/request.</td>
-        
+          <td>The status was generated in response to a status query/request.</td>
         </tr>
-      
+        <tr>
+          <td style="white-space:nowrap">query-status
+            <a name="subscription-notification-type-query-event"> </a>
+          </td>
+          <td>Query Event</td>
+          <td>The status was generated in response to an event query/request.</td>
+        </tr>
       </table>
-    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -110,7 +74,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1524"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="SubscriptionNotificationType"/>
   <title value="SubscriptionNotificationType"/>
   <status value="draft"/>
@@ -149,6 +113,11 @@
   <concept>
     <code value="query-status"/>
     <display value="Query Status"/>
-    <definition value="The status was generated in response to a query/request."/>
+    <definition value="The status was generated in response to a status query/request."/>
+  </concept>
+  <concept>
+    <code value="query-event"/>
+    <display value="Query Event"/>
+    <definition value="The status was generated in response to an event query/request."/>
   </concept>
 </CodeSystem>

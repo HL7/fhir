@@ -3,49 +3,36 @@
 		<a name="bnc"> </a>
 		<h2>Scope and Usage</h2>
 
-[%stu-note%]
-<a name="dstu"/>
-<strong>Note that this content is preliminary has not undergone proper review by the appropriate Workgroups.</strong>
-[%end-note%]
-
-
 		<p>
-A material substance originating from a biological entity intended to be transplanted or infused into another (possibly the same) biological entity.
-</p>
-		<p>
-Examples include:
-</p>
-		<ul>
-			<li>hematopoietic stem cells (bone marrow, peripheral blood, or cord blood extraction)
-</li>
-			<li>blood (whole, extracted cells, plasma, etc.)
-</li>
-			<li>organs
-</li>
-			<li>tissues (porcine valves, skin, bovine cardiac tissue, etc.)
-</li>
-			<li>manipulated cells (e.g. CAR T-cells)
-
-</li>
-		</ul>
-		<p>
-The workflow using this resource (e.g., request, administration) should be discussed and implemented in a consistent way as other similar resources are handled (e.g., device, medication)
-</p>
-	</div>
+		This is a base resource that represents a material substance originating from a biological entity intended to be clinically applied (e.g., transplanted, infused, grafted) to another (possibly the same) biological entity. Examples include:
+		</p>
+	<ul>
+		<li>hematopoietic stem cells (bone marrow, peripheral blood, or cord blood extraction)</li>
+        <li>mesenchymal stromal cells</li>
+		<li>blood products (whole blood, red blood cells, platelets, plasma, etc)</li>
+        <li>organs (kidney, lung, heart, liver etc)</li>
+        <li>tissues, human (cornea, heart valves, blood vessels, skin, tendons, cartilage, bone)</li>
+		<li>tissues, non-human (porcine valves, porcine skin, bovine cardiac tissue, etc.)</li>
+        <li>ART tissue (sperm, oocyte, embryo)</li>
+        <li>manipulated cells (e.g. CAR T-cells)</li>
+        <li>human milk for immunological properties</li>
+        <li>topical products (serum eye drops, fibrin sealant)</li>
+        <li>fecal microbiota</li>
+        <li>regenerated tissue products (regenerated epidermis, regenerated corneal epithelium, regenerated trachea)</li>
+	</ul>
+</div>
 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource relates to these other resource:</p>
-
+The following boundaries need to be considered:
+</p>
 <ul>
-	<li>ProcedureRequest (for collection)</li>
-	<li>Patient ("receiver" and "source")</li>
-	<li>Practitioner (who collected product)</li>
-	<li>Substance (product processing)</li>
-	<li>DiagnosticReport (containing HLA-typing)</li>
-	<li>BiologicallyDerivedProduct ("parent" product for multi-day collections)</li>
-	<li>Procedure (one for collection and one for transplantation, will need to add BiologicallyDerivedProduct to the "usedReference")</li>
+	<li>Medication - If the product is derived from an individual or small pool, or is blood group specific, it is a BiologicallyDerivedProduct, otherwise it is to be considered a Medication.</li>
+    <li>NutritionProduct - If the product is for normal human dietary consumption it is a NutritionProduct, while if the product is for transplant, infusion, or injection it is a  BiologicallyDerivedProduct.  We note that this is remains a grey area, particularly around certain uses of human milk, that specific implementations can more specifically resolve.</li>
+    <li>Device - Some biologically derived products are considered a device within certain jurisdictions.</li>
+    <li>Specimen - A biologically derived product may involve the same material (e.g., tissue, blood, organ, etc.) as a specimen where the intended use determines whether to use Specimen or BiologicallyDerivedProduct.  The focus of the Specimen is to conduct a diagnostic test, while the BiologicallyDerivedProduct is to use for a clinical therapy or procedure on the same or different patient.  E.g., blood used for a test is represented by a Specimen, while blood for transfusion is represented as a BiologicallyDerivedProduct.  A specimen can be obtained from a BiologicallyDerivedProduct thus creating a Specimen instance where Specimen.subject needs is a BiologicallyDerivedProduct as a source.  Note that a specimen or biologically derived product can be obtained through similar procedures such as sampling, harvesting, biopsy, or other techniques.</li>
+    <li>Substance - A substance is a homogeneous material with a definite composition that can be reproduced in the same way consistently.  Certain substances may include or originate from biologically derived product, but from the point forward where we do not care about the relationship with the originating donor(s) it is now considered and managed as a substance.</li>
 </ul>
 </div>
 

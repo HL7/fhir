@@ -24,7 +24,7 @@
     <valueCode value=".participantStatus=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AppointmentResponse"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="AppointmentResponse"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -94,7 +94,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="Appointment[@moodCode &amp;lt;= &#39;PRMS&#39;]"/>
+        <map value="Act[@moodCode &amp;lt;= &#39;PRMS&#39;]"/>
       </mapping>
       <mapping>
         <identity value="ical"/>
@@ -152,6 +152,29 @@
         <map value="scheduleRequest.ActAppointmentRequest[@moodCode &amp;lt;= &#39;ARQ&#39;]"/>
       </mapping>
     </element>
+    <element id="AppointmentResponse.proposedNewTime">
+      <path value="AppointmentResponse.proposedNewTime"/>
+      <short value="Indicator for a counter proposal"/>
+      <definition value="Indicates that the response is proposing a different time that was initially requested.  The new proposed time will be indicated in the start and end properties."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="n/a"/>
+      </mapping>	  
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="ical"/>
+        <map value="n/a"/>
+      </mapping>	  
+    </element>	
     <element id="AppointmentResponse.start">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Should we include the existing times, or rely on resource histories. Decision to wait for implementer feedback to see if these are used."/>
@@ -237,13 +260,14 @@
     </element>
     <element id="AppointmentResponse.actor">
       <path value="AppointmentResponse.actor"/>
-      <short value="Person, Location, HealthcareService, or Device"/>
+      <short value="Person(s), Location, HealthcareService, or Device"/>
       <definition value="A Person, Location, HealthcareService, or Device that is participating in the appointment."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>

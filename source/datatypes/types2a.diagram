@@ -1,15 +1,8 @@
 [diagram]
-classes=Timing,SampledData,OrderedDistribution,Statistic
+classes=Timing,SampledData
 element-attributes=true
 
 [directions]
 SampledData=-230;120
 Timing=0;140
 Timing.repeat=0;270
-Statistic=230;-170
-Statistic.sampleSize=200;0
-Statistic.precisionEstimate=400;0
-Statistic.certainty=255;160
-Statistic.certainty.certaintySubcomponent=250;280
-OrderedDistribution=-230;-170
-OrderedDistribution.interval=-230;0

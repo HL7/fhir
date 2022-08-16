@@ -13,7 +13,7 @@ in order to support consistent definitions for schema and UML derived code.
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 <table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg fm%]">[%wgt fm%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
@@ -149,7 +149,15 @@ Protected Health Information and as such must be afforded the same protection an
  <tr><td>Claim</td><td>Claim</td><td>Claim</td><td>A request to an Insurer to adjudicate the supplied charges for health care goods and services under the identified policy and to pay the determined Benefit amount, if any.</td></tr>
  <tr><td>Coordination of Benefit</td><td>COB</td><td>n/a</td><td>The rules, usually regionally defined, which govern the order of application of multiple Insurance coverages or Self-Pay to a given suite of health care expenses.</td></tr>
  <tr><td>Dependent</td><td></td><td>Patient, RelatedPerson</td><td>A person who receives their coverage via a policy which is own or subscribed to by another. Typically, these include spouses, partners and minor children but may also include students, parents and disabled persons.</td></tr>
- <tr><td>Insurer</td><td>Payer, Payor</td><td>Organization</td><td>A public or private insurer which will adjudicate Claims for health care goods and services to determine if the there is any benefit payable, amount due, under the policy which covers the patient.</td></tr>
+ <tr><td>Insurer</td><td>Payer, Payor</td><td>Organization</td><td>The term ”payer” as used in the transactions is defined as the intended entity that is responsible for one or more of the following:
+
+<ul>
+<li>Final processing of the claim in order to return the remittance advice.</li>
+<li>Final processing of the inquiry (eligibility, services review or claim status) in order to return the response (eligibility, services review or claim status).</li>
+<li>Final processing of the (member) enrollment or premium payment.</li>
+<li>The person or organization who pays for the goods an/or services.</li>
+</ul>
+Note: This definition excludes any business associate used to create or receive a transaction on behalf of a payer, e.g. a clearinghouse processing eligibility inquiries and response on behalf of a payer Information Source. US Realm examples of the value of a payer ID include, but are not limited to NAIC code, EIN, etc.</td></tr>
  <tr><td>Network</td><td></td><td>n/a</td><td>An insurer defined grouping of Providers for which the Beneficiary's plan preferentially covers the costs of treatment, e.g. closed, rental, etc.</td></tr>
  <tr><td>Payer</td><td>Payor, Insurer</td><td>Organization</td><td>A public or private insurer.</td></tr>
  <tr><td>Payor</td><td>Payer, Insurer</td><td>Organization</td><td>A public or private insurer.</td></tr>
@@ -450,6 +458,47 @@ Deferred responses, those which could not be returned in real-time, and those re
  (a GET or SEARCH) or via a <a href="#poll">Poll</a> depending upon the style of information exchange supported.
 </p>
 
+<a name="3-tier"></a>
+<h3>3-Tier Line Item Hierarchy</h3>
+<p>
+While most current eClaim data models current only support a single tier structure for line items, that is there is only a list of 'n' line items
+to support exchanging multiple services where complex relations between line items are expressed through business rules such as 'put the professional fee
+line item before the lab/device/service line item', the FHIR claim-related resources (Claim, ClaimResponse and ExplanationOfBenefit) all support a 3-tier
+structure, as illustrated in the diagram below. The tiers are:
+<ul> 
+  <li>.item, which contains the context information, such as diagnosis and care team and body site, the item service identification and costing, 
+  and an optional list of .details. When .details are provided the .item serves as a grouper where the .item costs are the sum of the .detail costs;</li> 
+ <li>.detail, which contains detail service identification and costing, and an optional list of .subDetails. When .subDetails are provided 
+ the .detail serves as a grouper where the .detail costs are the sum of the .subDetail costs; and</li> 
+  <li>.subDetail, which contains detail service identification and costing.</li> 
+</ul>
+</p>
+<div>
+   <img src="claim-3-tiers.png" alt="Image showing the 3-tiers within the financial resources" height="326px" width="400px" />
+    </div>
+
+<p>
+The base FHIR specification provides for an unlimited numer of .items and within each .item and unlimited number or .details, and similarly 
+and unlimited number of .subDetails within each .detail. It is up to the implementation guides and profiles to determine when .details and .subDetails are permitted
+ and the allowable numbers of .items, .details and .subDetails.
+</p>
+
+<a name="tax"></a>
+<h3>Tax</h3>
+<p>
+For jurisdictions where tax is billed as a separate line item, through a billing code or category, there is no additional structural 
+information required. The handling of Tax should be detailed in the jurisdictional implementation guide and jurisdictional profiles 
+should remove unnecessary tax-related elements. Therefore: .net=.quantity * .unitPrice * .factor. Also the jurisdictional implementation 
+guide should clarify whether line items are inclusive or exclusive of tax.
+</p>
+<p>
+For jurisdictions where tax is applied per line item/detail/sub-detail etc. a single tax element shall be added to the respective 
+strictures for .item, ,item.detail, .item.detail.subdetail and similarly in the addItem structure of the Claim, ClaimResponse and 
+ExplanationOfBenefit resources. The Tax element contains the total of any taxes and extensions may be used to breakdown the Tax should 
+that be required. Therefore: .net= (.quantity * .unitPrice * .factor) + .tax. The total tax may be reflected in the resource.total 
+structure if appropriate.
+</p>
+
 <a name="roadmap"></a>
 <h3>Developmental Roadmap</h3>
 <p>
@@ -475,8 +524,6 @@ In many cases an <b>example</b> valueset has been provided in this release. Fina
 preparation to Release 5 of FHIR to develop more representative example sets and to determine where global codesets exist such
 that some of the valuesets may be elevated in strength to extensible or required.
 </p>
-</div>
-
 [%file newfooter%]
 </body>
 </html>

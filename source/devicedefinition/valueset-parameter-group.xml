@@ -6,7 +6,7 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/parameter-group"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="DeviceDefinitionParameterGroup"/>
   <compose>
     <include>

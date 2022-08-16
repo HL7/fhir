@@ -162,7 +162,7 @@
     <use value="official"/>
     <value value="FHIRHelpers"/>
     </identifier>
-    <version value="4.6.0"/>
+    <version value="5.0.0"/>
     <title value="FHIR Helpers"/>
     <status value="active"/>
     <experimental value="true"/>

@@ -12,7 +12,7 @@ in order to support consistent definitions for schema and UML derived code.
 <body>
     [%file newnavbar%]
 
-    <div class="col-12">
+    
         <table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg pa%]">[%wgt pa%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
         <a name="root"></a>
@@ -76,7 +76,9 @@ in order to support consistent definitions for schema and UML derived code.
         <a name="patient-reg"></a>
         <h4>Patient Registers</h4>
         <p>
-            Track people involved in receiving healthcare, the basics nearly everything else references back to
+            Resources that contain details of people and animals that are either receiving care, or are associated with
+            these subjects. Many other resources refer back to these as either the subject of care, or are somehow
+            involved in that patient's record.
         </p>
         <table class="bare">
             <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
@@ -134,6 +136,8 @@ in order to support consistent definitions for schema and UML derived code.
             [%res-item PractitionerRole%]
             [%res-item HealthcareService%]
             [%res-item Endpoint%]
+            [%res-item OrganizationAffiliation%]
+            [%res-item InsurancePlan%]
         </table>
         <div>
             <img src="administration-module-prov-dir.png" alt="Image showing the provider directory resources" width="513px" />
@@ -155,6 +159,9 @@ in order to support consistent definitions for schema and UML derived code.
         <div>
             <img src="administration-module-scheduling.png" alt="Image showing the scheduling interactions" width="600px" />
         </div>
+        <p>
+            When the scheduling resources need to identify the specific activity or service that is being scheduled, they may use either a HealthcareService or a coding to represent that activity.
+        </p>
         <p></p>
 
         <a name="dev-sub"></a>
@@ -170,6 +177,26 @@ in order to support consistent definitions for schema and UML derived code.
             [%res-item Substance%]
         </table>
 
+        <a name="research"></a>
+        <h4>Research Studies and Subjects</h4>
+        <p>
+            Resources that capture information about research studies, and who is participating in them.
+        </p>
+        <div>
+            <img src="administration-module-research.png" alt="Image showing the research resource relationships" width="600px" />
+        </div>
+        <table class="bare">
+            <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+            [%res-item ResearchStudy%]
+            [%res-item ResearchSubject%]
+        </table>
+        [%impl-note%]
+        The episode and study properties are through standard extensions, and servers might not implement suitable search
+        parameters on these extensions (still to be defined).<br/>
+        If an encounter has a mix of research and non research content, recommend creating 2 encounters in the system, 
+        however could derive that information Based on the presence of the extension on the 
+        obs/diagnosticreport/immunization etc which then feeds to episodeofcare and onto account
+        [%end-note%]
 
         <a name="secpriv"></a>
         <h3>Security and Privacy</h3>
@@ -250,8 +277,6 @@ in order to support consistent definitions for schema and UML derived code.
             use first and have formed the basis for most people's first experiences with FHIR.<br />
             However this limited exposure has still to be proven in all contexts, such as veterinary, public health and clinical research.
         </p>
-    </div>
-
     [%file newfooter%]
 </body>
 </html>

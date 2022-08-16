@@ -4,19 +4,13 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
-      	The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose.</p>
+      <p>The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose.</p>
       <p>Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.)</p>
       <p>Patient "Donald D DUCK" wishes to withhold disclosure of all of her lab results to any provider.</p>
     </div>
   </text>
   <status value="active"/>
-  <scope>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/consentscope"/>
-      <code value="patient-privacy"/>
-    </coding>
-  </scope>
+
   <category>
     <coding>
       <system value="http://loinc.org"/>
@@ -28,6 +22,9 @@
     <display value="P. van de Heuvel"/>
   </subject>
   <dateTime value="2015-11-18"/>
+  <manager>
+    <reference value="Practitioner/f007" />
+  </manager>
   <controller>
     <reference value="Organization/f001"/>
   </controller>
@@ -37,12 +34,12 @@
     <!-- likely use url pointer to common text -->
   </sourceAttachment>
   <!-- this is opt-in - e.g. everything approved unless otherwise stated -->
-  <policyRule>
+  <regulatoryBasis>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
       <code value="INFA"/>
     </coding>
-  </policyRule>
+  </regulatoryBasis>
   <provision>
     <type value="permit"/>
     <provision>

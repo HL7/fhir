@@ -78,7 +78,9 @@
 	<relatedArtifact>
 		<type value="documentation"/>
 		<display value="CDC guideline for prescribing opioids for chronic pain"/>
-		<url value="https://guidelines.gov/summaries/summary/50153/cdc-guideline-for-prescribing-opioids-for-chronic-pain---united-states-2016#420"/>
+    <document>
+	    <url value="https://guidelines.gov/summaries/summary/50153/cdc-guideline-for-prescribing-opioids-for-chronic-pain---united-states-2016#420"/>
+    </document>
 	</relatedArtifact>
 	<library value="http://example.org/fhir/Library/opioidcds-recommendation-10"/>
 	<action>

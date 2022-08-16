@@ -1,9 +1,14 @@
 ﻿_query
+_security
+recruitment_actual
+_lastupdated
+_list
+lifecycle
+subject_state
 _profile
 _tag
-_security
 _source
 _id
 _content
 _text
-_lastupdated
+recruitment_target

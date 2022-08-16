@@ -26,6 +26,7 @@ functionality of the Provenance resource. These properties in other resources
 should always be used in preference to the Provenance resource, and the 
 Provenance resource should be used where additional information is required,
 or explicit record or provenance is desired. 
+Details on this overlap can be found on the <a href="fivews.html">FiveWs</a>, including a mapping from the at the Resource Element level.
 </p>
 <p>
 The relationship between a resource and its provenance is established

@@ -8,7 +8,7 @@
 [%file newnavbar%]
 
 
-<div class="col-12">
+
 <%mdtheader definitions%>
 <h2>Metadata Types - Detailed Descriptions</h2>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Partially Normative</a></td></tr></table>
@@ -18,15 +18,20 @@
 <table class="grid">
  <tr>
   <td style="background-color: #e6ffe6"><a href="#ContactDetail">ContactDetail</a></td>
-  <td style="background-color: #ffe6e6"><a href="#Contributor">Contributor</a></td>
   <td style="background-color: #ffe6e6"><a href="#DataRequirement">DataRequirement</a></td>
   <td style="background-color: #ffe6e6"><a href="#ParameterDefinition">ParameterDefinition</a></td>
- </tr>
- <tr>
   <td style="background-color: #ffe6e6"><a href="#RelatedArtifact">RelatedArtifact</a></td>
+</tr>
+<tr>
   <td style="background-color: #ffe6e6"><a href="#TriggerDefinition">TriggerDefinition</a></td>
   <td style="background-color: #ffe6e6"><a href="#Expression">Expression</a></td>
   <td style="background-color: #ffe6e6"><a href="#UsageContext">UsageContext</a></td>
+  <td style="background-color: #ffe6e6"><a href="#ExtendedContactDetail">ExtendedContactDetail</a></td>
+ </tr>
+ <tr>
+  <td style="background-color: #ffe6e6"><a href="#VirtualServiceDetail">VirtualServiceDetail</a></td>
+  <td style="background-color: #ffe6e6"><a href="#Availability">Availability</a></td>
+  <td style="background-color: #ffe6e6"><a href="#MonetaryComponent">MonetaryComponent</a></td>
  </tr>
 </table>
 
@@ -40,16 +45,6 @@ See also <a href="metadatatypes.html#ContactDetail">Base Definition</a>, <a href
 [%StandardsStatus normative DataType infrastructure%] 
 
 <%dictionary ContactDetail%>
-
-<a name="Contributor"></a>
-<a name="contributor"></a>
-<h3 style="margin-bottom: 1px">Contributor</h3>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="metadatatypes.html#Contributor">Base Definition</a>, <a href="metadatatypes-examples.html#Contributor">Examples</a> and <a href="metadatatypes-mappings.html#Contributor">Mappings</a>.
-</p>
-[%StandardsStatus trial-use DataType_(and_the_rest_on_this_page) n/a%]
-
-<%dictionary Contributor%>
 
 <a name="DataRequirement"></a>
 <a name="datarequirement"></a>
@@ -105,9 +100,41 @@ See also <a href="metadatatypes.html#UsageContext">Base Definition</a>, <a href=
 
 <%dictionary UsageContext%>
 
+<a name="ExtendedContactDetail"></a>
+<a name="extendedcontactdetail"></a>
+<h3 style="margin-bottom: 1px">ExtendedContactDetail</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes.html#ExtendedContactDetail">Base Definition</a>, <a href="metadatatypes-examples.html#ExtendedContactDetail">Examples</a> and <a href="metadatatypes-mappings.html#ExtendedContactDetail">Mappings</a>.
+</p>
 
+<%dictionary ExtendedContactDetail%>
 
-</div>
+<a name="VirtualServiceDetail"></a>
+<a name="virtualservicedetail"></a>
+<h3 style="margin-bottom: 1px">VirtualServiceDetail</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes.html#VirtualServiceDetail">Base Definition</a>, <a href="metadatatypes-examples.html#VirtualServiceDetail">Examples</a> and <a href="metadatatypes-mappings.html#VirtualServiceDetail">Mappings</a>.
+</p>
+
+<%dictionary VirtualServiceDetail%>
+
+<a name="Availability"></a>
+<a name="availability"></a>
+<h3 style="margin-bottom: 1px">Availability</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes.html#Availability">Base Definition</a>, <a href="metadatatypes-examples.html#Availability">Examples</a> and <a href="metadatatypes-mappings.html#Availability">Mappings</a>.
+</p>
+
+<%dictionary Availability%>
+
+<a name="MonetaryComponent"></a>
+<a name="monetarycomponent"></a>
+<h3 style="margin-bottom: 1px">MonetaryComponent</h3>
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes.html#MonetaryComponent">Base Definition</a>, <a href="metadatatypes-examples.html#MonetaryComponent">Examples</a> and <a href="metadatatypes-mappings.html#MonetaryComponent">Mappings</a>.
+</p>
+
+<%dictionary MonetaryComponent%>
 
 [%file newfooter%]
 </body>

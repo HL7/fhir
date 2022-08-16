@@ -40,6 +40,7 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
+    <dose>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="1 tablet every four hours as needed for pain" />
@@ -57,13 +58,13 @@
                 <periodUnit value="h"/>
             </repeat>
         </timing>
-        <asNeededCodeableConcept>
+        <asNeededFor>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="203082005"/>
                 <display value="Fibromyalgia (disorder)"/>
             </coding>
-        </asNeededCodeableConcept>
+        </asNeededFor>
         <route>
             <coding>
                 <system value="http://snomed.info/sct"/>
@@ -88,6 +89,7 @@
         </doseAndRate>
         
     </dosageInstruction>
+    </dose>
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>

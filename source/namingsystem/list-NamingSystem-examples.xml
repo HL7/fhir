@@ -42,20 +42,26 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Defined Code systems"/>
+      <valueString value="Example Namning System Metadata"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="namingsystem-terminologies"/>
+      <valueString value="namingsystem-example-metadata"/>
     </extension>
-    <flag>
-      <coding>
-        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
-        <code value="tool"/>
-      </coding>
-    </flag>
     <item>
-      <reference value="null/terminologies"/>
-      <display value="namingsystem-terminologies"/>
+      <reference value="namingSystem/example-metadata"/>
+      <display value="Metadata"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Naming System Metadata v2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="namingsystem-example-metadata-2"/>
+    </extension>
+    <item>
+      <reference value="NamingSystem/example-metadata-2"/>
+      <display value="Metadata v2"/>
     </item>
   </entry>
 </List>

@@ -11,8 +11,13 @@
         <id value="d195d9b8-6f78-4d71-9d22-3c1a923bfea5"/>
         <status value="active"/>
         <type value="event-notification"/>
-        <eventsSinceSubscriptionStart value="310"/>
-        <eventsInNotification value="1"/>
+        <eventsSinceSubscriptionStart value="2"/>
+        <notificationEvent>
+          <eventNumber value="2"/>
+          <focus>
+            <reference value="http://example.org/FHIR/R5/Encounter/2"/>
+          </focus>
+        </notificationEvent>
         <subscription>
           <reference value="http://example.org/FHIR/R5/Subscription/123"/>
         </subscription>
@@ -21,32 +26,33 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="https://example.org/FHIR/R5/Encounter/3" />
+    <fullUrl value="https://example.org/FHIR/R5/Encounter/2" />
     <resource>
       <Encounter xmlns="http://hl7.org/fhir">
-        <id value="3" />
+        <id value="2" />
         <meta>
           <versionId value="1" />
           <lastUpdated value="2019-08-07T10:49:22Z" />
         </meta>
         <status value="in-progress" />
         <class>
-          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
-          <code value="VR"/>
-          <display value="virtual" />
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
+				<code value="VR"/>
+				<display value="virtual" />
+			</coding>
         </class>
         <subject>
-          <reference value="Patient/123" />
+          <reference value="Patient/ABC" />
         </subject>
       </Encounter>
     </resource>
     <request>
       <method value="PUT" />
-      <url value="Encounter/3" />
+      <url value="Encounter/2" />
     </request>
     <response>
       <status value="201"/>
     </response>
   </entry>
 </Bundle>
-

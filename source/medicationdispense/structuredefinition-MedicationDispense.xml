@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="MedicationDispense"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -214,8 +214,8 @@
         <map value="CombinedMedicationDispense.SupplyEvent.statusCode"/>
       </mapping>
     </element>
-    <element id="MedicationDispense.statusReason">
-      <path value="MedicationDispense.statusReason"/>
+    <element id="MedicationDispense.notPerformedReason">
+      <path value="MedicationDispense.notPerformedReason"/>
       <short value="Why a dispense was not performed"/>
       <definition value="Indicates the reason why a dispense was not performed."/>
       <min value="0"/>
@@ -229,16 +229,21 @@
           <valueString value="MedicationDispenseStatusReason"/>
         </extension>
         <strength value="example"/>
-        <description value="A code describing why a dispense was not performed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-status-reason"/>
       </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.statusReason"/>
-      </mapping>
+    </element>
+    <element id="MedicationDispense.statusChanged">
+      <path value="MedicationDispense.statusChanged"/>
+      <short value="When the status changed"/>
+      <definition value="The date (and maybe time) when the status of the dispense record changed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=&quot;not done reason&quot;].value"/>
+        <map value=".subjectOf Observation[code = statusChange].value = date"/>
       </mapping>
     </element>
     <element id="MedicationDispense.category">
@@ -294,7 +299,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXD-2-Dispense/Give Code"/>
+        <map value="RXD-2 Dispense/Give Code"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -328,7 +333,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PID-3-Patient ID List"/>
+        <map value="PID-3 Patient ID List"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -508,7 +513,7 @@
       </binding>
       <mapping>
         <identity value="v2"/>
-        <map value="RXD-33-Dispense Type"/>
+        <map value="RXD-33 Dispense Type"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -531,7 +536,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system"/>
+        <map value="RXD-4 Actual Dispense Amount / RXD-5.1 Actual Dispense Units.code / RXD-5.3 Actual Dispense Units.name of coding system"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -554,11 +559,25 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="TQ1.6 Timing/Quantity Segment Service Duration.&#xD;Prior to v2.5, ORC.7.3 Common Order Segment / Quantity/Timing / Duration component.  This is a formatted string, first character for the time unit (e.g., D=days), followed by the value.  For example, &#x201C;D14&#x201D; represents &#x201C;14 days supply&#x201D;&#xD;From v2.5 on, TQ1.6 Timing/Quantity Segment / Service Duration.  This is a CQ data type (&lt;Quantity (NM)&gt; ^ &lt;Units (CWE)&gt;), thus for days supply, assuming the unit of measure is &#x201C;days&#x201D;, the numeric value is TQ1.6.1 (&#x2026;|14^&#xD;For backwards compatibility, ORC.7 was permitted through v2.6.  Both forms (field and segment) may be present in v2.5, v2.5.1, and v2.6"/>
+        <map value="TQ1.6 Timing/Quantity Segment Service Duration.&#xD;Prior to v2.5, ORC.7.3 Common Order Segment / Quantity/Timing / Duration component.  This is a formatted string, first character for the time unit (e.g., D=days), followed by the value.  For example, “D14” represents “14 days supply”&#xD;From v2.5 on, TQ1.6 Timing/Quantity Segment / Service Duration.  This is a CQ data type (&lt;Quantity (NM)&gt; ^ &lt;Units (CWE)&gt;), thus for days supply, assuming the unit of measure is “days”, the numeric value is TQ1.6.1 (…|14^&#xD;For backwards compatibility, ORC.7 was permitted through v2.6.  Both forms (field and segment) may be present in v2.5, v2.5.1, and v2.6"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
         <map value="effectiveUseTime"/>
+      </mapping>
+    </element>
+    <element id="MedicationDispense.recorded">
+      <path value="MedicationDispense.recorded"/>
+      <short value="When the recording of the dispense started"/>
+      <definition value="The date (and maybe time) when the dispense activity started if whenPrepared or whenHandedOver is not populated."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".MedicationDispense.dataEnterer..time"/>
       </mapping>
     </element>
     <element id="MedicationDispense.whenPrepared">
@@ -576,7 +595,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
-        <map value="RXD-3-Date/Time Dispensed"/>
+        <map value="RXD-3 Date/Time Dispensed"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -605,7 +624,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXD-3-Date/Time Dispensed"/>
+        <map value="RXD-3 Date/Time Dispensed"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -789,7 +808,7 @@
       </binding>
       <mapping>
         <identity value="v2"/>
-        <map value="RXO-9-Allow Substitutions / RXE-9-Substitution Status"/>
+        <map value="RXO-9 Allow Substitutions / RXE-9 Substitution Status"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -850,30 +869,11 @@
         <map value="CombinedMedicationDispense.substitutionMade.ResponsibleParty"/>
       </mapping>
     </element>
-    <element id="MedicationDispense.detectedIssue">
-      <path value="MedicationDispense.detectedIssue"/>
-      <short value="Clinical issue with action"/>
-      <definition value="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. drug-drug interaction, duplicate therapy, dosage alert etc."/>
-      <comment value="This element can include a detected issue that has been identified either by a decision support system or by a clinician and may include information on the steps that were taken to address the issue."/>
-      <alias value="Contraindication"/>
-      <alias value="Drug Utilization Review (DUR)"/>
-      <alias value="Alert"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DetectedIssue"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=ALRT,moodCode=EVN].value"/>
-      </mapping>
-    </element>
     <element id="MedicationDispense.eventHistory">
       <path value="MedicationDispense.eventHistory"/>
       <short value="A list of relevant lifecycle events"/>
       <definition value="A summary of the events of interest that have occurred, such as when the dispense was verified."/>
-      <comment value="This might not include provenances for all versions of the request &#x2013; only those deemed &#x201C;relevant&#x201D; or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a &#x201C;relevant&#x201D; change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)."/>
+      <comment value="This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

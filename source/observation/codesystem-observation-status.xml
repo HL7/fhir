@@ -191,7 +191,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.401"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ObservationStatus"/>
   <title value="ObservationStatus"/>
   <status value="active"/>
@@ -211,6 +211,7 @@
   <description value="Codes providing the status of an observation."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/observation-status"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="registered"/>

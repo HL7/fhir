@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="ElementTypes"/>
+  <title value="Common Tags"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Allowed types for FHIR elements"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/fhirpath-types"/>
+    </include>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
+    </include>
+  </compose>
+</ValueSet>

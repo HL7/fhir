@@ -9,7 +9,7 @@
       </p>
 	</div>
   </text>
-	<url value="Evidence/example-ASTRAL-12-alteplase-mRS3-6"/>
+	<url value="http://hl7.org/fhir/Evidence/example-ASTRAL-12-alteplase-mRS3-6"/>
 	<title value="Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12"/>
 	<status value="draft"/>
 	<relatedArtifact>
@@ -17,7 +17,9 @@
 		<label value="Cooray 2016 Validation Study"/>
 		<display value="External Validation of the ASTRAL and DRAGON Scores for Prediction of Functional Outcome in Stroke."/>
 		<citation value="Cooray C, Mazya M, Bottai M, Dorado L, Skoda O, Toni D, Ford GA, Wahlgren N, Ahmed N. External Validation of the ASTRAL and DRAGON Scores for Prediction of Functional Outcome in Stroke. Stroke. 2016 Jun;47(6):1493-9. Epub 2016 May 12. PMID 27174528"/>
-		<url value="https://doi.org/10.1161/STROKEAHA.116.012802"/>
+    <document>
+	    <url value="https://doi.org/10.1161/STROKEAHA.116.012802"/>
+    </document>
 	</relatedArtifact>
 	<description value="5.3% risk of mRS 3-6 at 90 days"/>
 	<variableDefinition>

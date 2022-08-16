@@ -10,7 +10,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 <a name="conformance"></a>
 <h2>Conformance</h2>
@@ -55,11 +55,11 @@ The specification also <a href="validation.html">provides a number of tools that
 to this base specification.
 </p>
 <p>
-FHIR is a <i>closed</i> specification. The specification defines what is possible and required for those portions 
-of an API or exchange framework that wish to declare themselves as FHIR conformant, and that includes exchange 
-resources that conform to the documented requirements of this specification. Systems may choose to 
-support capabilities beyond those defined by FHIR (e.g. by adding additional end points/services with other 
-names), but those portions of their interfaces that extend beyond what FHIR explicitly allows cannot be 
+FHIR is a <i>closed</i> specification. The specification defines what is possible and required for those portions
+of an API or exchange framework that wish to declare themselves as FHIR conformant, and that includes exchange
+resources that conform to the documented requirements of this specification. Systems may choose to
+support capabilities beyond those defined by FHIR (e.g. by adding additional end points/services with other
+names), but those portions of their interfaces that extend beyond what FHIR explicitly allows cannot be
 considered or described as "FHIR conformant".
 </p>
 <p>
@@ -112,8 +112,10 @@ of the cardinality defined by the base resource.
 </p>
 <p>
 Note that when present, elements cannot be empty - they SHALL have a value attribute,
-child elements, or extensions. This means that setting an element to a minimum cardinality
-of 1 does not ensure that valid data will be present; specific FHIRPath constraints are required
+child elements, or extensions. The element's value attribute/property can never be empty.
+Either it is absent, or it is present with at least one character of non-whitespace content.
+This means that setting an element to a minimum cardinality
+of 1 does not ensure that data will be present; specific FHIRPath constraints are required
 to ensure that the required data will be present.
 </p>
 <p>
@@ -158,46 +160,46 @@ Is-Modifier is a boolean property that is assigned when an element is defined, e
 the base resource contents in this specification, or when <a href="structuredefinition.html">extensions are defined</a>.
 </p>
 <p>
-An element is a modifier if and only if it cannot be safely ignored because its value, or its <a href="elementdefinition.html#missing">meaning if missing</a>, may 
-cause the interpretation of the containing element or one of its descendants to no longer conform to the stated 
-definition for the element. Typical examples of elements that are labeled "Is-Modifier" are elements such as 
-"status", "active", "refuted", or "certainty" that invert or negate the meaning of the resource (or element) 
+An element is a modifier if and only if it cannot be safely ignored because its value, or its <a href="elementdefinition.html#missing">meaning if missing</a>, may
+cause the interpretation of the containing element or one of its descendants to no longer conform to the stated
+definition for the element. Typical examples of elements that are labeled "Is-Modifier" are elements such as
+"status", "active", "refuted", or "certainty" that invert or negate the meaning of the resource (or element)
 that contains them.
 </p>
 <p>
-Modifier is not an indication of the degree of importance for a particular piece of information or whether 
-the element ought to be ignored when the resource is used for common use-cases.  It is expected that if you 
+Modifier is not an indication of the degree of importance for a particular piece of information or whether
+the element ought to be ignored when the resource is used for common use-cases.  It is expected that if you
 ignore an element you may miss an important piece of computable meaning.
 </p>
 <p>
 For example, consider Observation:
 </p>
 <ul>
- <li><code>Observation.status</code> allows the <code>entered-in-error</code> code, which indicates 
-that no actual Observation occurred at all. The definition of Observation indicates that it is a measurement that has 
-been made - and doesn't allow for the possibility of a measurement that wasn't made.  As a result, if the status 
-element were ignored and an Observation were interpreted at face value based on its definition, a system or user 
+ <li><code>Observation.status</code> is a modifier. This element allows the <code>entered-in-error</code> code, which indicates
+that no actual Observation occurred at all. The definition of Observation indicates that it is a measurement that has
+been made - and doesn't allow for the possibility of a measurement that wasn't made.  As a result, if the status
+element were ignored and an Observation were interpreted at face value based on its definition, a system or user
 would infer that an Observation had occurred, which would be false</li>
- <li>If an application ignores the <code>Observation.subject</code> element, it wouldn't know who or what was observed, which 
-would make the remaining information largely useless for most usage.  
-However, any system that ignores the subject would not have a false understanding of the Observation as it's 
+ <li><code>Observation.subject</code> is not a modifier. If an application ignores the element, it wouldn't know who or what was observed, which
+would make the remaining information largely useless for most usage.
+However, any system that ignores the subject would not have a false understanding of the Observation as it's
 defined. The system would understand what type of observation was made, when and what was found, just not who it was about</li>
 <li>
-Even something as critical as <code>Observation.code</code> is not a modifier element.  While the Observation would have 
-little utility without the code, the understanding when ignoring the element that “some” Observation had been 
-made on the specified subject at the specified date and time would still be true when the element was 
-reintroduced.  The only exception would be if a value expressed in the Observation.code element could 
-somehow convey that the Observation had not occurred or otherwise cause the instance to diverge from 
+Even something as critical as <code>Observation.code</code> is not a modifier element.  While the Observation would have
+little utility without the code, the understanding when ignoring the element that “some” Observation had been
+made on the specified subject at the specified date and time would still be true when the element was
+reintroduced.  The only exception would be if a value expressed in the Observation.code element could
+somehow convey that the Observation had not occurred or otherwise cause the instance to diverge from
 the defined meaning of Observation when ignoring the element</li>
 </ul>
 
 <p>
-The definition of <code>is-modifier</code> has a corollary: any element that meets the requirement that it could 
-cause the interpretation of the containing element or its descendants to diverge from their definition 
-SHALL explicitly declare how such divergence could occur and must be marked as a modifier element.  
-Any element not marked <code>is-modifier</code> and without that explanation SHALL NOT be used by an implementer in such a 
-manner as to make the element behave as a modifier. For example, using a special "name" on a patient 
-to indicate that the subject isn’t a real patient, but is instead an artificial structure used for 
+The definition of <code>is-modifier</code> has a corollary: any element that meets the requirement that it could
+cause the interpretation of the containing element or its descendants to diverge from their definition
+SHALL explicitly declare how such divergence could occur and must be marked as a modifier element.
+Any element not marked <code>is-modifier</code> and without that explanation SHALL NOT be used by an implementer in such a
+manner as to make the element behave as a modifier. For example, using a special "name" on a patient
+to indicate that the subject isn’t a real patient, but is instead an artificial structure used for
 non-patient tests would be non-conformant with FHIR because Patient.name is not a modifier element
 </p>
 <p>
@@ -218,10 +220,10 @@ instance, in the following fragment of a resource definition:
 </tbody></table>
 
 <p>
-The definition of an AllergyIntolerance is that it contains information about "Risk of harmful or undesirable, 
+The definition of an AllergyIntolerance is that it contains information about "Risk of harmful or undesirable,
 physiological response which is unique to an individual and associated with exposure to a substance".
 If the value of the 'verificationStatus' element is set to <code>entered-in-error</code>, the
-entire resource does not actually contain valid information about any risk of exposure, and 
+entire resource does not actually contain valid information about any risk of exposure, and
 it is not safe for applications to ignore this element. As a consequence, it is labeled as 'is modifier = true'. In this tabular representation of the resource,
 this shows as the flag '?!'. The <a href="json.html">JSON</a> and <a href="xml.html">XML</a> representations
 of a resource definition have their own representation of 'is modifier = true' status, and
@@ -234,16 +236,16 @@ If Narrative is present with some other status Is-modifier elements SHOULD be re
 <p>
 If the value of a modifier element is not explicit in the instance, or known by the context,
 the resource might not be able to be safely understood. Wherever possible, elements labeled
-"Is-Modifier = true" also have a minimum cardinality of 1, in order to introduce certainty in 
-their handling. However, sometimes this is not possible - much legacy data is not well 
-described. Implementations producing resources SHOULD ensure that appropriate values for 
+"Is-Modifier = true" also have a minimum cardinality of 1, in order to introduce certainty in
+their handling. However, sometimes this is not possible - much legacy data is not well
+described. Implementations producing resources SHOULD ensure that appropriate values for
 isModifier elements are provided at all times.
 </p>
 <p>
 Implementations processing the data in resources SHALL understand the impact of the element when using the data.
 Implementations are not required to "support" the element in any meaningful way - they
 may achieve this understanding by rejecting instances that contain values outside those they support (for instance,
-an application may refuse to accept observations with a reliability other than "ok"). Alternatively,
+an application may refuse to accept observations with a status other than "final"). Alternatively,
 implementations may be able to be sure that, due to their implementation environment, such values
 will never occur. However applications SHOULD always check the value irrespective of this.
 </p>
@@ -285,8 +287,8 @@ part of the base specification. This flag is intended for use in profiles that h
 For this reason, the specification itself never labels any elements as MustSupport.
 This is done in <a href="profiling.html#mustsupport">StructureDefinitions</a>, where the profile
 labels an element as mustSupport=true. When a profile does this, it SHALL also make clear
-exactly what kind of "support" is required, as this could involve expectations around what 
-a system must store, display, allow data capture of, include in decision logic, pass on to 
+exactly what kind of "support" is required, as this could involve expectations around what
+a system must store, display, allow data capture of, include in decision logic, pass on to
 other data consumers, etc.
 </p>
 
@@ -366,8 +368,6 @@ or dead - is entirely coincidental.  In some cases, examples may be drawn from r
 However, if this has occurred, the content has been scrubbed to remove any identifying information.
 </p>
 
-
-</div>
 
 [%file newfooter%]
 </body>

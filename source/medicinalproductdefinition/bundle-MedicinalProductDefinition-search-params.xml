@@ -10,14 +10,34 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MedicinalProductDefinition.characteristic"/>
+          <valueString value="MedicinalProductDefinition.characteristic.value"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-characteristic"/>
         <description value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;"/>
         <code value="characteristic"/>
         <type value="token"/>
-        <expression value="MedicinalProductDefinition.characteristic"/>
-        <xpath value="f:MedicinalProductDefinition/f:characteristic"/>
+        <expression value="MedicinalProductDefinition.characteristic.value"/>
+        <xpath value="f:MedicinalProductDefinition/f:characteristic/f:value"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicinalProductDefinition-characteristic-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicinalProductDefinition.characteristic.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-characteristic-type"/>
+        <description value="A category for the characteristic"/>
+        <code value="characteristic-type"/>
+        <type value="token"/>
+        <expression value="MedicinalProductDefinition.characteristic.type"/>
+        <xpath value="f:MedicinalProductDefinition/f:characteristic/f:type"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -90,34 +110,14 @@
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MedicinalProductDefinition.ingredient.reference"/>
+          <valueString value="MedicinalProductDefinition.ingredient"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-ingredient"/>
-        <description value="Reference to a resource (by instance)"/>
+        <description value="An ingredient of this product"/>
         <code value="ingredient"/>
-        <type value="reference"/>
-        <expression value="MedicinalProductDefinition.ingredient.reference"/>
-        <xpath value="f:MedicinalProductDefinition/f:ingredient/f:reference"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="MedicinalProductDefinition-ingredient-code"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MedicinalProductDefinition.ingredient.concept"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-ingredient-code"/>
-        <description value="Reference to a concept (by class)"/>
-        <code value="ingredient-code"/>
         <type value="token"/>
-        <expression value="MedicinalProductDefinition.ingredient.concept"/>
-        <xpath value="f:MedicinalProductDefinition/f:ingredient/f:concept"/>
+        <expression value="MedicinalProductDefinition.ingredient"/>
+        <xpath value="f:MedicinalProductDefinition/f:ingredient"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -170,14 +170,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MedicinalProductDefinition.name.countryLanguage.language"/>
+          <valueString value="MedicinalProductDefinition.name.usage.language"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-name-language"/>
         <description value="Language code for this name"/>
         <code value="name-language"/>
         <type value="token"/>
-        <expression value="MedicinalProductDefinition.name.countryLanguage.language"/>
-        <xpath value="f:MedicinalProductDefinition/f:name/f:countryLanguage/f:language"/>
+        <expression value="MedicinalProductDefinition.name.usage.language"/>
+        <xpath value="f:MedicinalProductDefinition/f:name/f:usage/f:language"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

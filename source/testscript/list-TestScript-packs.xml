@@ -4,4 +4,9 @@
   <id value="TestScript-packs"/>
   <status value="current"/>
   <mode value="working"/>
+  <entry>
+    <item>
+      <reference value="ImplementationGuide/TestScript-core"/>
+    </item>
+  </entry>
 </List>

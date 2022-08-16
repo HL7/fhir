@@ -16,183 +16,114 @@
       
       <table class="codes">
         
-        
+
         <tr>
-          
-          
-          <td style="white-space:nowrap">
-            
-            
-            <b>Code</b>
-          
-          
-          </td>
-          
-          
-          <td>
-            
-            
-            <b>Display</b>
-          
-          
-          </td>
-          
-          
-          <td>
-            
-            
-            <b>Definition</b>
-          
-          
-          </td>
-        
-        
-        </tr>
-        
-        
-        <tr>
-          
           
           <td style="white-space:nowrap">publisher
             
-            
             <a name="contributor-role-publisher"> </a>
-          
           
           </td>
           
-          
           <td>Publisher</td>
           
-          
-          <td>Publisher</td>
-        
+          <td>Entity that makes the content available for public use</td>
         
         </tr>
-        
-        
+
+
+
         <tr>
-          
           
           <td style="white-space:nowrap">author
             
-            
             <a name="contributor-role-author"> </a>
-          
           
           </td>
           
+          <td>Author/Creator</td>
           
-          <td>Author</td>
-          
-          
-          <td>Author</td>
-        
+          <td>An entity primarily responsible for making the resource, often called author or creator</td>
         
         </tr>
-        
-        
+
+
+
         <tr>
-          
           
           <td style="white-space:nowrap">reviewer
             
-            
             <a name="contributor-role-reviewer"> </a>
-          
           
           </td>
           
-          
           <td>Reviewer</td>
           
-          
-          <td>Reviewer</td>
-        
+          <td>Entity that examines the content, formally or informally, and suggests revisions or comments</td>
         
         </tr>
-        
-        
+
+
+
         <tr>
-          
           
           <td style="white-space:nowrap">endorser
             
-            
             <a name="contributor-role-endorser"> </a>
-          
           
           </td>
           
-          
           <td>Endorser</td>
           
-          
-          <td>Endorser</td>
-        
+          <td>Entity that supports, approves, or advocates for the content</td>
         
         </tr>
-        
-        
+
+
+
         <tr>
-          
           
           <td style="white-space:nowrap">editor
             
-            
             <a name="contributor-role-editor"> </a>
-          
           
           </td>
           
-          
           <td>Editor</td>
           
-          
-          <td>Editor</td>
-        
+          <td>Entity that revises or has authority to control the content</td>
         
         </tr>
-        
-        
+
+
+
         <tr>
-          
           
           <td style="white-space:nowrap">informant
             
-            
             <a name="contributor-role-informant"> </a>
-          
           
           </td>
           
-          
           <td>Informant</td>
           
-          
-          <td>Informant</td>
-        
+          <td>Entity that supplies information</td>
         
         </tr>
-        
-        
+
+
+
         <tr>
-          
           
           <td style="white-space:nowrap">funder
             
-            
             <a name="contributor-role-funder"> </a>
-          
           
           </td>
           
-          
           <td>Funder</td>
           
-          
-          <td>Funder</td>
-        
+          <td>Entity that supplies financial support</td>
         
         </tr>
       
@@ -216,7 +147,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ContributorRole"/>
   <title value="ContributorRole"/>
   <status value="draft"/>
@@ -240,36 +171,36 @@
   <concept>
     <code value="publisher"/>
     <display value="Publisher"/>
-    <definition value="Publisher"/>
+    <definition value="Entity that makes the content available for public use"/>
   </concept>
   <concept>
     <code value="author"/>
-    <display value="Author"/>
-    <definition value="Author"/>
+    <display value="Author/Creator"/>
+    <definition value="An entity primarily responsible for making the resource, often called author or creator"/>
   </concept>
   <concept>
     <code value="reviewer"/>
     <display value="Reviewer"/>
-    <definition value="Reviewer"/>
+    <definition value="Entity that examines the content, formally or informally, and suggests revisions or comments"/>
   </concept>
   <concept>
     <code value="endorser"/>
     <display value="Endorser"/>
-    <definition value="Endorser"/>
+    <definition value="Entity that supports, approves, or advocates for the content"/>
   </concept>
   <concept>
     <code value="editor"/>
     <display value="Editor"/>
-    <definition value="Editor"/>
+    <definition value="Entity that revises or has authority to control the content"/>
   </concept>
   <concept>
     <code value="informant"/>
     <display value="Informant"/>
-    <definition value="Informant"/>
+    <definition value="Entity that supplies information"/>
   </concept>
   <concept>
     <code value="funder"/>
     <display value="Funder"/>
-    <definition value="Funder"/>
+    <definition value="Entity that supplies financial support"/>
   </concept>
 </CodeSystem>

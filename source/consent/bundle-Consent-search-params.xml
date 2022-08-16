@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="Consent-search-params"/>
@@ -199,6 +199,7 @@
         <expression value="Consent.subject.where(resolve() is Patient)"/>
         <xpath value="f:Consent/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -222,6 +223,7 @@
       </SearchParameter>
     </resource>
   </entry>
+  <!--
   <entry>
     <resource>
       <SearchParameter>
@@ -242,6 +244,7 @@
       </SearchParameter>
     </resource>
   </entry>
+  -->
   <entry>
     <resource>
       <SearchParameter>
@@ -262,26 +265,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Consent-scope"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Consent.scope"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Consent-scope"/>
-        <description value="Which of the three areas this resource covers (extensible)"/>
-        <code value="scope"/>
-        <type value="token"/>
-        <expression value="Consent.scope"/>
-        <xpath value="f:Consent/f:scope"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
+
   <entry>
     <resource>
       <SearchParameter>

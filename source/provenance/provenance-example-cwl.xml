@@ -63,9 +63,9 @@
 	</occurredPeriod>
 	<recorded value="2016-12-01T08:12:14+10:00"/>
 
-	<reason>
+	<activity>
 		<text value="profiling Short Tandem Repeats (STRs) from high throughput sequencing data."/>
-	</reason>
+	</activity>
 	<agent> 
 		<type>
 			<coding>

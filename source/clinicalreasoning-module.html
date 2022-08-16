@@ -13,7 +13,7 @@ in order to support consistent definitions for schema and UML derived code.
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 <table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a> &amp; <a _target="blank" href="[%wg cqi%]">[%wgt cqi%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
@@ -91,7 +91,6 @@ in order to support consistent definitions for schema and UML derived code.
 		<tr><td><a href="plandefinition.html">PlanDefinition</a></td><td>Represents the description of a plan for accomplishing a particular goal. This resource is used to represent a broad variety of clinical knowledge artifacts including decision support rules, order sets, and protocols.</td></tr>
 		<tr><td><a href="requestgroup.html">RequestGroup</a></td><td>Represents a group of options for a particular subject that can be used to accomplish a particular goal. This resource is often, but not always, the result of applying a PlanDefinition to a particular patient.</td></tr>
 		<tr><td><a href="evidence.html">Evidence</a></td><td>Represents a single analytic result about a group.</td></tr>
-		<tr><td><a href="statistic.html">Statistic</a></td><td>A data type that represents a quantitative analytic result.</td></tr>
 		<tr><td><a href="citation.html">Citation</a></td><td>Represents the identification, location, and contributor attribution for a knowledge artifact.</td></tr>
 		<tr><td><a href="evidencereport.html">EvidenceReport</a></td><td>Represents a composition of non-individualized knowledge.</td></tr>
 	</tbody>
@@ -156,7 +155,7 @@ in order to support consistent definitions for schema and UML derived code.
 			<td>Defines a computable PlanDefinition that specifies a single library and requires all expressions referenced from the PlanDefinition to be definitions in that single library</td>
 		</tr>
 		<tr>
-			<td><a href="cdshooksserviceplandefinition.html"></a>CDS Hooks PlanDefinition</td>
+			<td><a href="cdshooksserviceplandefinition.html"></a>CDSHooksPlanDefinition</td>
 			<td>Defines a PlanDefinition that implements the behavior for a CDS Hooks service</td>
 		</tr>
 		<tr>
@@ -308,9 +307,6 @@ Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
 <h3>Acknowledgements</h3>
 
 <p>The guidance in this module is the work of a joint project between the HL7 Clinical Quality Information and  Clinical Decision Support Work Groups with the co-sponsorship of the FHIR Infrastructure, Implementable Technology Specifications, and Service Oriented Architecture Work Groups.</p>
-
-</div>
-
 
 [%file newfooter%]
 </body>

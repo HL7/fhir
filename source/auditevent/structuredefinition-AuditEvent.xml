@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="AuditEvent"/>
   <meta>
@@ -24,7 +23,7 @@
     <valueCode value="Audit Events are recorded, there is no update or delete. "/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AuditEvent"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="AuditEvent"/>
   <status value="draft"/>
   <date value="2021-04-07T09:58:31.578+11:00"/>
@@ -42,7 +41,7 @@
     </telecom>
   </contact>
   <description value="A record of an event relevant for purposes such as operations, privacy, security, maintenance, and performance analysis."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -106,15 +105,16 @@
         <map value="infrastructure.information"/>
       </mapping>
     </element>
-    <element id="AuditEvent.type">
-      <path value="AuditEvent.type"/>
+    <element id="AuditEvent.category">
+      <path value="AuditEvent.category"/>
       <short value="Type/identifier of event"/>
-      <definition value="Identifier for a family of the event.  For example, a menu item, program, rule, policy, function code, application name or URL. It identifies the performed function."/>
-      <requirements value="This identifies the performed function. For &quot;Execute&quot; Event Action Code audit records, this identifies the application function performed."/>
-      <min value="1"/>
-      <max value="1"/>
+      <definition value="Classification of the type of event."/>
+      <requirements value="Codes that classify the general type of event that happened."/>
+	  <alias value="type"/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -124,7 +124,7 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
           <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="Type of event."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-type"/>
       </binding>
@@ -149,15 +149,16 @@
         <map value="Activity"/>
       </mapping>
     </element>
-    <element id="AuditEvent.subtype">
-      <path value="AuditEvent.subtype"/>
-      <short value="More specific type/id for the event"/>
-      <definition value="Identifier for the category of event."/>
+    <element id="AuditEvent.code">
+      <path value="AuditEvent.code"/>
+      <short value="Specific type of event"/>
+      <definition value="Describes what happened. The most specific code for the event."/>
       <requirements value="This field enables queries of messages by implementation-defined event categories."/>
-      <min value="0"/>
-      <max value="*"/>
+	  <alias value="subtype"/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -167,8 +168,8 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
           <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
         </extension>
-        <strength value="extensible"/>
-        <description value="Sub-type of event."/>
+        <strength value="example"/>
+        <description value="Specific type of event."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-sub-type"/>
       </binding>
       <mapping>
@@ -178,6 +179,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".code (type, subtype and action are pre-coordinated or sent as translations)"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirprovenance"/>
+        <map value="Provenance.activity"/>
       </mapping>
       <mapping>
         <identity value="dicom"/>
@@ -253,15 +258,18 @@
         <map value="PRI"/>
       </mapping>
     </element>
-    <element id="AuditEvent.period">
-      <path value="AuditEvent.period"/>
+    <element id="AuditEvent.occurred[x]">
+      <path value="AuditEvent.occurred[x]"/>
       <short value="When the activity occurred"/>
-      <definition value="The period during which the activity occurred."/>
-      <comment value="The period can be a little arbitrary; where possible, the time should correspond to human assessment of the activity time."/>
+      <definition value="The time or period during which the activity occurred."/>
+      <comment value="The time or period can be a little arbitrary; where possible, the time should correspond to human assessment of the activity time."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Period"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -282,8 +290,7 @@
       <mapping>
         <identity value="fhirprovenance"/>
         <map value="Provenance.occurred[x]"/>
-      </mapping>
-    </element>
+      </mapping>    </element>
     <element id="AuditEvent.recorded">
       <path value="AuditEvent.recorded"/>
       <short value="Time when the event was recorded"/>
@@ -326,7 +333,28 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=OUT].target.text"/>
+      </mapping>
+    </element>
+    <element id="AuditEvent.outcome.code">
+      <path value="AuditEvent.outcome.code"/>
+      <short value="Whether the event succeeded or failed"/>
+      <definition value="Indicates whether the event succeeded or failed."/>
+      <comment value="In some cases a &quot;success&quot; may be partial, for example, an incomplete or interrupted transfer of a radiological study. For the purpose of establishing accountability, these distinctions are not relevant."/>
+      <requirements value="when a code is given there must be one code from the given codeSystem."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -339,7 +367,7 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
           <valueString value="Indicates whether the event succeeded or failed."/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="DICOM Audit Event Outcome"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-outcome"/>
       </binding>
@@ -356,12 +384,41 @@
         <map value="EventOutcomeIndicator EventOutcomeIndicator"/>
       </mapping>
     </element>
-    <element id="AuditEvent.purposeOfEvent">
-      <path value="AuditEvent.purposeOfEvent"/>
-      <short value="The purposeOfUse of the event"/>
-      <definition value="The purposeOfUse (reason) that was used during the event being recorded."/>
-      <comment value="Use AuditEvent.agent.purposeOfUse when you know that it is specific to the agent, otherwise use AuditEvent.purposeOfEvent. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why."/>
-      <requirements value="record of any relevant security context not restricted to purposeOfUse valueSet, may include security compartments or other security tags."/>
+	<element id="AuditEvent.outcome.detail">
+      <path value="AuditEvent.outcome.detail"/>
+      <short value="Additional outcome detail"/>
+      <definition value="Additional details about the error. This may be a text description of the error or a system code that identifies the error."/>
+      <comment value="A human readable description of the error issue SHOULD be placed in details.text."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AuditEventOutcomeDetail"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code that provides details as the exact issue."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-outcome-detail"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=OUT].target.text"/>
+      </mapping>
+    </element>
+	<element id="AuditEvent.authorization">
+      <path value="AuditEvent.authorization"/>
+      <short value="Authorization related to the event"/>
+      <definition value="The authorization (e.g., PurposeOfUse) that was used during the event being recorded."/>
+      <comment value="Use AuditEvent.agent.authorization when you know that it is specific to the agent, otherwise use AuditEvent.authorization. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why."/>
+      <requirements value="Record of any relevant security context, not restricted to purposeOfUse valueSet. May include security compartments, refrain, obligation, or other security tags."/>
+	  <alias value="PurposeOfEvent"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -372,8 +429,8 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AuditPurposeOfUse"/>
         </extension>
-        <strength value="extensible"/>
-        <description value="The reason the activity took place."/>
+        <strength value="example"/>
+        <description value="The authorized purposeOfUse for the activity."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"/>
       </binding>
       <mapping>
@@ -398,7 +455,7 @@
       </mapping>
       <mapping>
         <identity value="fhirprovenance"/>
-        <map value="Provenance.reason, Provenance.activity"/>
+        <map value="Provenance.authorization"/>
       </mapping>
     </element>
     <element id="AuditEvent.basedOn">
@@ -415,6 +472,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -432,7 +490,38 @@
         <identity value="w3c.prov"/>
         <map value="Activity.Activity"/>
       </mapping>
-    </element>    
+    </element>
+	<element id="AuditEvent.patient">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="AuditEvent.patient"/>
+      <short value="The patient is the subject of the data used/created/updated/deleted during the activity"/>
+      <definition value="The patient element is available to enable deterministic tracking of activities that involve the patient as the subject of the data used in an activity."/>
+	  <requirements value="When the .patient is populated it shall be accurate to the subject of the used data. The .patient shall not be populated when the used data used/created/updated/deleted (.entity) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.patient"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=RTGT]"/>
+      </mapping>
+      <mapping>
+        <identity value="w3c.prov"/>
+        <map value="Entity.Identity"/>
+      </mapping>
+    </element>
 	<element id="AuditEvent.encounter">
       <path value="AuditEvent.encounter"/>
       <short value="Encounter within which this event occurred or which the event is tightly associated"/>
@@ -467,7 +556,7 @@
       <path value="AuditEvent.agent"/>
       <short value="Actor involved in the event"/>
       <definition value="An actor taking an active role in the event or activity that is logged."/>
-      <comment value="Several agents may be associated (i.e. have some responsibility for an activity) with an event or activity.&#xA;&#xA;For example, an activity may be initiated by one user for other users or involve more than one user. However, only one user may be the initiator/requestor for the activity."/>
+      <comment value="Several agents may be associated (i.e. have some responsibility for an activity) with an event or activity.&#xA;&#xA;For example, an activity may be initiated by one user for other users or involve more than one user. However, only one user may be the initiator/requestor for the activity. &#xA;&#xA;When a network are used in an event being recorded, there should be distinct agent elements for the known actors using the network. The agent with a network detail would be the responsible agent for use of that network."/>
       <requirements value="An agent can be a person, an organization, software, device, or other actors that may be ascribed responsibility."/>
       <alias value="ActiveParticipant"/>
       <min value="1"/>
@@ -475,6 +564,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.performer"/>
@@ -503,8 +593,10 @@
     <element id="AuditEvent.agent.type">
       <path value="AuditEvent.agent.type"/>
       <short value="How agent participated"/>
-      <definition value="Specification of the participation type the user plays when performing the event."/>
-      <comment value="The most relevant role code for how the agent participated in the activity."/>
+      <definition value="The Functional Role of the user when performing the event."/>
+      <comment value="For example: assembler, author, prescriber, signer, investigator, etc."/>
+      <requirements value="Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. This element will hold the functional role that the agent played in the activity that is the focus of this Provenance. Where an agent played multiple functional roles, they will be listed as multiple .agent elements representing each functional participation. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models."/>
+
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -517,7 +609,7 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
           <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="The Participation type of the agent to the event."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participation-role-type"/>
       </binding>
@@ -549,9 +641,9 @@
     <element id="AuditEvent.agent.role">
       <path value="AuditEvent.agent.role"/>
       <short value="Agent role in the event"/>
-      <definition value="The security role that the user was acting under, that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context."/>
-      <comment value="Should be all the relevant roles (Functional and Structural) inclusive of the value in .agent.type."/>
-      <requirements value="This value ties an audited event to a user&#39;s role(s). It is an optional value that might be used to group events for analysis by user functional role categories."/>
+      <definition value="The structural roles of the agent indicating the agent&#39;s competency. The security role enabling the agent with respect to the activity."/>
+      <comment value="For example: Chief-of-Radiology, Nurse, Physician, Medical-Student, etc."/>
+      <requirements value="Structural roles reflect the structural aspects of relationships between entities. Structural roles describe prerequisites, feasibilities, or competences for acts. Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models.."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -590,18 +682,19 @@
       <path value="AuditEvent.agent.who"/>
       <short value="Identifier of who"/>
       <definition value="Reference to who this agent is that was involved in the event."/>
-      <comment value="Where a User ID is available it will go into who.identifier."/>
+      <comment value="Where a User ID is available it will go into who.identifier. Where a name of the user (human readable) it will go into who.display."/>
       <requirements value="This field ties an audit event to a specific resource or identifier."/>
       <alias value="userId"/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
@@ -619,7 +712,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="UserId"/>
+        <map value="UserName and UserId"/>
       </mapping>
       <mapping>
         <identity value="w3c.prov"/>
@@ -630,71 +723,18 @@
         <map value="Provenance.agent.who"/>
       </mapping>
     </element>
-    <element id="AuditEvent.agent.altId">
-      <path value="AuditEvent.agent.altId"/>
-      <short value="Alternative User identity"/>
-      <definition value="Alternative agent Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available."/>
-      <requirements value="In some situations, a human user may authenticate with one identity but, to access a specific application system, may use a synonymous identify. For example, some &quot;single sign on&quot; implementations will do this. The alternative identifier would then be the original identify  used for authentication, and the User ID is the one known to and used by the application."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.who"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".id (distinguish id type by root)"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="AlternativeUserId"/>
-      </mapping>
-      <mapping>
-        <identity value="w3c.prov"/>
-        <map value="Agent.Identity"/>
-      </mapping>
-    </element>
-    <element id="AuditEvent.agent.name">
-      <path value="AuditEvent.agent.name"/>
-      <short value="Human friendly name for the agent"/>
-      <definition value="Human-meaningful name for the agent."/>
-      <requirements value="The User ID and Authorization User ID may be internal or otherwise obscure values. This field assists the auditor in identifying the actual user."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.who"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".name"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="UserName"/>
-      </mapping>
-      <mapping>
-        <identity value="w3c.prov"/>
-        <map value="Agent.Identity"/>
-      </mapping>
-    </element>
     <element id="AuditEvent.agent.requestor">
       <path value="AuditEvent.agent.requestor"/>
       <short value="Whether user is initiator"/>
       <definition value="Indicator that the user is or is not the requestor, or initiator, for the event being audited."/>
       <comment value="There can only be one initiator. If the initiator is not clear, then do not choose any one agent as the initiator."/>
       <requirements value="This value is used to distinguish between requestor-users and recipient-users. For example, one person may initiate a report-output to be sent to another user."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
+	  <meaningWhenMissing value="false"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -711,8 +751,8 @@
     </element>
     <element id="AuditEvent.agent.location">
       <path value="AuditEvent.agent.location"/>
-      <short value="Where"/>
-      <definition value="Where the event occurred."/>
+      <short value="The agent location when the event occurred"/>
+      <definition value="Where the agent location is known, the agent location when the event occurred."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -742,8 +782,8 @@
     </element>
     <element id="AuditEvent.agent.policy">
       <path value="AuditEvent.agent.policy"/>
-      <short value="Policy that authorized event"/>
-      <definition value="The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used."/>
+      <short value="Policy that authorized the agent participation in the event"/>
+      <definition value="Where the policy(ies) are known that authorized the agent participation in the event. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used."/>
       <comment value="For example: Where an OAuth token authorizes, the unique identifier from the OAuth token is placed into the policy element Where a policy engine (e.g. XACML) holds policy logic, the unique policy identifier is placed into the policy element."/>
       <requirements value="This value is used retrospectively to determine the authorization policies."/>
       <min value="0"/>
@@ -768,72 +808,25 @@
         <map value="Provenance.policy"/>
       </mapping>
     </element>
-    <element id="AuditEvent.agent.media">
-      <path value="AuditEvent.agent.media"/>
-      <short value="Type of media"/>
-      <definition value="Type of media involved. Used when the event is about exporting/importing onto media."/>
-      <requirements value="Usually, this is used instead of specifying a network address. This field is not used for Media Id (i.e. the serial number of a CD)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DICOMMediaType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Used when the event is about exporting/importing onto media."/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="DICOM Media Types"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/audit-media-type"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.where[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".player.description.mediaType"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="MediaType"/>
-      </mapping>
-    </element>
-    <element id="AuditEvent.agent.network">
+
+    <element id="AuditEvent.agent.network[x]">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
       </extension>
-      <path value="AuditEvent.agent.network"/>
-      <short value="Logical network location for application activity"/>
-      <definition value="Logical network location for application activity, if the activity has a network location."/>
+      <path value="AuditEvent.agent.network[x]"/>
+      <short value="This agent network location for the activity"/>
+      <comment value="When remote network endpoint is known, another agent representing the remote agent would indicate the remote network endpoint used. Convention is to indicate data flowing from Source to Destination. The convention for Search, given data flows both ways (query parameters vs results), is to have the Source as the initiator of the Search Transaction, and the Destination the responder to the Search transaction."/>
+      <definition value="When the event utilizes a network there should be an agent describing the local system, and an agent describing remote system, with the network interface details."/>
+      <requirements value="When a network protocol is used the endpoint is associated with the agent most directly using the endpoint. This is usually the software agent that has implemented the application level protocol.  Preference is to define network in terns of a Reference(Endpoint), or URI; use address only when address or hostname is known."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="BackboneElement"/>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
       </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.where[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".player.description.reference"/>
-      </mapping>
-    </element>
-    <element id="AuditEvent.agent.network.address">
-      <path value="AuditEvent.agent.network.address"/>
-      <short value="Identifier for the network access point of the user device"/>
-      <definition value="An identifier for the network access point of the user device for the audit event."/>
-      <comment value="This could be a device id, IP address or some other identifier associated with a device."/>
-      <requirements value="This datum identifies the user&#39;s network access point, which may be distinct from the server that performed the action. It is an optional value that may be used to group events recorded on separate servers for analysis of a specific network access point&#39;s data access across all servers."/>
-      <min value="0"/>
-      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
       <type>
         <code value="string"/>
       </type>
@@ -843,60 +836,24 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="pre-coordinated into URL"/>
+        <map value=".player.description"/>
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="NetworkAccessPointID"/>
+        <map value="NetworkAccessPointID and NetworkAccessPointTypeCode"/>
       </mapping>
       <mapping>
         <identity value="w3c.prov"/>
         <map value="Agent.Location"/>
       </mapping>
     </element>
-    <element id="AuditEvent.agent.network.type">
-      <path value="AuditEvent.agent.network.type"/>
-      <short value="The type of network access point"/>
-      <definition value="An identifier for the type of network access point that originated the audit event."/>
-      <requirements value="This datum identifies the type of network access point identifier of the user device for the audit event. It is an optional value that may be used to group events recorded on separate servers for analysis of access according to a network access point&#39;s type."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AuditEventAgentNetworkType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The type of network access point of this agent in the audit event."/>
-        </extension>
-        <strength value="required"/>
-        <description value="DICOM Audit Event Network Type"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/network-type"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.where[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="pre-coordinated into URL"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="NetworkAccessPointTypeCode"/>
-      </mapping>
-    </element>
-    <element id="AuditEvent.agent.purposeOfUse">
-      <path value="AuditEvent.agent.purposeOfUse"/>
-      <short value="Reason given for this user"/>
-      <definition value="The reason (purpose of use), specific to this agent, that was used during the event being recorded."/>
-      <comment value="Use AuditEvent.agent.purposeOfUse when you know that is specific to the agent, otherwise use AuditEvent.purposeOfEvent. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why."/>
-      <requirements value="record of any relevant security context not restricted to purposeOfUse valueSet, may include security compartments or other security tags."/>
+    <element id="AuditEvent.agent.authorization">
+      <path value="AuditEvent.agent.authorization"/>
+      <short value="Allowable authorization for this agent"/>
+      <definition value="The authorization (e.g., PurposeOfUse) that was used during the event being recorded."/>
+      <comment value="Use AuditEvent.agent.authorization when you know that is specific to the agent, otherwise use AuditEvent.authorization. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why."/>
+      <requirements value="Record of any relevant security context, not restricted to purposeOfUse valueSet. May include security compartments, refrain, obligation, or other security tags."/>
+	  <alias value="PurposeOfUse"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -906,7 +863,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AuditPurposeOfUse"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="The reason the activity took place."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"/>
       </binding>
@@ -929,14 +886,15 @@
       </extension>
       <path value="AuditEvent.source"/>
       <short value="Audit Event Reporter"/>
-      <definition value="The system that is reporting the event."/>
-      <comment value="Since multi-tier, distributed, or composite applications make source identification ambiguous, this collection of fields may repeat for each application or process actively involved in the event. For example, multiple value-sets can identify participating web servers, application processes, and database server threads in an n-tier distributed application. Passive event participants (e.g. low-level network transports) need not be identified."/>
+      <definition value="The actor that is reporting the event."/>
+      <comment value="Events are reported by the actor that detected them. This may be one of the participating actors, but may also be different. The actor may be a human such as a medical-records clerk disclosing data manually, that clerk would be the source for the record of disclosure."/>
       <requirements value="The event is reported by one source."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.witness"/>
@@ -958,7 +916,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
       <mapping>
         <identity value="w5"/>
@@ -983,11 +942,12 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
@@ -1012,7 +972,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1021,8 +981,8 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
           <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
         </extension>
-        <strength value="extensible"/>
-        <description value="Code specifying the type of system that detected and recorded the event."/>
+        <strength value="preferred"/>
+        <description value="Code specifying the type of system that detected and recorded the event. Use of these codes is not required but is encouraged to maintain translation with DICOM AuditMessage schema."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/security-source-type"/>
       </binding>
       <mapping>
@@ -1053,14 +1013,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <constraint>
-        <key value="sev-1"/>
-        <severity value="error"/>
-        <human value="Either a name or a query (NOT both)"/>
-        <expression value="name.empty() or query.empty()"/>
-        <xpath value="not(exists(f:name)) or not(exists(f:query))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/AuditEvent"/>
-      </constraint>
+      <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
@@ -1085,7 +1038,8 @@
     <element id="AuditEvent.entity.what">
       <path value="AuditEvent.entity.what"/>
       <short value="Specific instance of resource"/>
-      <definition value="Identifies a specific instance of the entity. The reference should be version specific."/>
+      <definition value="Identifies a specific instance of the entity. The reference should be version specific. This is allowed to be a Parameters resource."/>
+	  <comment value="Use .what.display when all you have is a string (e.g. ParticipantObjectName)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1103,57 +1057,11 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="ParticipantObjectID and ParticipantObjectIDTypeCode"/>
+        <map value="ParticipantObjectTypeCode, ParticipantObjectName, ParticipantObjectID and ParticipantObjectIDTypeCode"/>
       </mapping>
       <mapping>
         <identity value="fhirprovenance"/>
         <map value="Provenance.target, Provenance.entity.what"/>
-      </mapping>
-    </element>
-    <element id="AuditEvent.entity.type">
-      <path value="AuditEvent.entity.type"/>
-      <short value="Type of entity involved"/>
-      <definition value="The type of the object that was involved in this audit event."/>
-      <comment value="This value is distinct from the user&#39;s role or any user relationship to the entity."/>
-      <requirements value="To describe the object being acted upon. In addition to queries on the subject of the action in an auditable event, it is also important to be able to query on the object type for the action."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AuditEventEntityType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Code for the entity type involved in the audit event."/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="DICOM Audit Event Entity Type"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/audit-entity-type"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="[self::Act].code or role.player.code"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="ParticipantObjectTypeCode"/>
-      </mapping>
-      <mapping>
-        <identity value="w3c.prov"/>
-        <map value="Entity.type"/>
-      </mapping>
-      <mapping>
-        <identity value="fhirprovenance"/>
-        <map value="Provenance.entity.type"/>
       </mapping>
     </element>
     <element id="AuditEvent.entity.role">
@@ -1164,7 +1072,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1197,49 +1105,6 @@
         <map value="Entity.role"/>
       </mapping>
     </element>
-    <element id="AuditEvent.entity.lifecycle">
-      <path value="AuditEvent.entity.lifecycle"/>
-      <short value="Life-cycle stage for the entity"/>
-      <definition value="Identifier for the data life-cycle stage for the entity."/>
-      <comment value="This can be used to provide an audit trail for data, over time, as it passes through the system."/>
-      <requirements value="Institutional policies for privacy and security may optionally fall under different accountability rules based on data life cycle. This provides a differentiating value for those cases."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AuditEventEntityLifecycle"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Identifier for the data life-cycle stage for the entity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/object-lifecycle-events"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.context"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="target of ObservationEvent[code=&quot;lifecycle&quot;].value"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="ParticipantObjectDataLifeCycle"/>
-      </mapping>
-      <mapping>
-        <identity value="w3c.prov"/>
-        <map value="Entity.role"/>
-      </mapping>
-      <mapping>
-        <identity value="fhirprovenance"/>
-        <map value="Provenance.entity.role"/>
-      </mapping>
-    </element>
     <element id="AuditEvent.entity.securityLabel">
       <path value="AuditEvent.entity.securityLabel"/>
       <short value="Security labels on the entity"/>
@@ -1249,7 +1114,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1258,9 +1123,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="extensible"/>
-        <description value="Security Labels from the Healthcare Privacy and Security Classification System."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/security-labels"/>
+        <strength value="example"/>
+        <description value="Example Security Labels from the Healthcare Privacy and Security Classification System."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/security-label-examples"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -1275,48 +1140,17 @@
         <map value="ParticipantObjectSensitivity"/>
       </mapping>
     </element>
-    <element id="AuditEvent.entity.name">
-      <path value="AuditEvent.entity.name"/>
-      <short value="Descriptor for entity"/>
-      <definition value="A name of the entity in the audit event."/>
-      <comment value="This field may be used in a query/report to identify audit events for a specific person.  For example, where multiple synonymous entity identifiers (patient number, medical record number, encounter number, etc.) have been used."/>
-      <requirements value="Use only where entity can&#39;t be identified with an identifier."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <condition value="sev-1"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.context"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".title"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="ParticipantObjectName"/>
-      </mapping>
-      <mapping>
-        <identity value="w3c.prov"/>
-        <map value="Entity.Label"/>
-      </mapping>
-    </element>
     <element id="AuditEvent.entity.query">
       <path value="AuditEvent.entity.query"/>
       <short value="Query parameters"/>
       <definition value="The query parameters for a query-type entities."/>
-      <comment value="The meaning and secondary-encoding of the content of base64 encoded blob is specific to the AuditEvent.type, AuditEvent.subtype, AuditEvent.entity.type, and AuditEvent.entity.role.  The base64 is a general-use and safe container for event specific data blobs regardless of the encoding used by the transaction being recorded.  An AuditEvent consuming application must understand the event it is consuming and the formats used by the event. For example, if auditing an Oracle network database access, the Oracle formats must be understood as they will be simply encoded in the base64binary blob."/>
+      <comment value="The meaning and secondary-encoding of the content of base64 encoded blob is specific to the AuditEvent.type, AuditEvent.subtype, and AuditEvent.entity.role.  The base64 is a general-use and safe container for event specific data blobs regardless of the encoding used by the transaction being recorded.  An AuditEvent consuming application must understand the event it is consuming and the formats used by the event. For example, if auditing an Oracle network database access, the Oracle formats must be understood as they will be simply encoded in the base64binary blob.&#xA;&#xA;The DICOM AuditMessage schema does not support both .name and .query being populated."/>
       <requirements value="For query events, it may be necessary to capture the actual query input to the query process in order to identify the specific event. Because of differences among query implementations and data encoding for them, this is a base 64 encoded data blob. It may be subsequently decoded or interpreted by downstream audit analysis processing."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="base64Binary"/>
       </type>
-      <condition value="sev-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -1364,8 +1198,16 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AuditEventDetailType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Additional detail about an entity used in an event."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-type"/>
+      </binding>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.context"/>
@@ -1383,12 +1225,38 @@
       <path value="AuditEvent.entity.detail.value[x]"/>
       <short value="Property value"/>
       <definition value="The  value of the extra detail."/>
-      <comment value="The value can be string when known to be a string, else base64 encoding should be used to protect binary or undefined content.  The meaning and secondary-encoding of the content of base64 encoded blob is specific to the AuditEvent.type, AuditEvent.subtype, AuditEvent.entity.type, and AuditEvent.entity.role.  The base64 is a general-use and safe container for event specific data blobs regardless of the encoding used by the transaction being recorded.  An AuditEvent consuming application must understand the event it is consuming and the formats used by the event. For example if auditing an Oracle network database access, the Oracle formats must be understood as they will be simply encoded in the base64binary blob."/>
       <requirements value="Should not duplicate the entity value unless absolutely necessary."/>
       <min value="1"/>
       <max value="1"/>
       <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
         <code value="string"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Ratio"/>
+      </type>
+      <type>
+        <code value="time"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
       </type>
       <type>
         <code value="base64Binary"/>
@@ -1404,6 +1272,27 @@
       <mapping>
         <identity value="dicom"/>
         <map value="ParticipantObjectDetail.value"/>
+      </mapping>
+    </element>
+    <element id="AuditEvent.entity.agent">
+      <path value="AuditEvent.entity.agent"/>
+      <short value="Entity is attributed to this agent"/>
+      <definition value="The entity is attributed to an agent to express the agent&#39;s responsibility for that entity in the activity. This is most used to indicate when persistence media (the entity) are used by an agent. For example when importing data from a device, the device would be described in an entity, and the user importing data from that media would be indicated as the entity.agent."/>
+      <comment value="A usecase where one AuditEvent.entity.agent is used where the Entity that was used in the creation/updating of a target resource, is not in the context of the same custodianship as the target resource, and thus the meaning of AuditEvent.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 v2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the provenance of that Entity&#39;s use in the context of this AuditEvent activity."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#AuditEvent.agent"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./author/role"/>
+      </mapping>
+      <mapping>
+        <identity value="fhirprovenance"/>
+        <map value="Provenance.entity.agent"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="ActiveParticipant.MediaType"/>
       </mapping>
     </element>
   </differential>

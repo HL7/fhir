@@ -13,9 +13,10 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ResourceSecurityCategory"/>
   <caseSensitive value="true"/>
+  <content value="complete"/>
   <concept>
     <code value="anonymous"/>
     <display value="Anonymous READ Access Resource"/>

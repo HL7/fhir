@@ -8,7 +8,7 @@
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
+
 
 
 <h1>Downloads</h1>
@@ -27,7 +27,6 @@
       <ul>
        <li><a href="definitions.xml.zip">XML</a></li>
        <li><a href="definitions.json.zip">JSON</a></li>
-       <li><a href="definitions-r2.xml.zip">Forge</a>: Special version of definitions for <a href="https://simplifier.net/Forge">Forge</a> (temporary)</li>
       </ul>
       This is the master set of definitions that should be the first choice whenever generating any implementation artifacts. All
       the other forms below include only subsets of the information available in these definition files, and do not contain all of the rules about what makes resources valid. Implementers
@@ -73,7 +72,7 @@
       <ul>
        <li><a href="examples-ttl.zip">Turtle Examples</a> - all the example resources in Turtle format</li>
        <li><a href="fhir.schema.shex.zip">ShEx Schemas</a> - <a href="https://www.w3.org/2001/sw/wiki/ShEx">ShEx</a> definitions for validating RDF resources</li>
-       <li><a href="fhir.rdf.ttl.zip">Definitions</a> - the formal definitions that define the predicates and classes used in the RDF format (not up to date)</li>
+       <li><a href="fhir.rdf.ttl.zip">Definitions</a> - the formal definitions that define the predicates and classes used in the RDF format</li>
       </ul>
     </td>
   </tr>
@@ -170,7 +169,7 @@
    <td>C#</td>
    <td>
     <a href="https://www.nuget.org/packages/Hl7.Fhir.R4/">Hl7.Fhir.R4</a> / <a href="https://www.nuget.org/packages/Hl7.Fhir.STU3/">Hl7.Fhir.STU3</a>:
-    Object models, Parsers/Serializers, Utilities, and a Client. Source code on GitHub at <a href="https://github.com/FirelyTeam/fhir-net-api">https://github.com/FirelyTeam/fhir-net-api</a>
+    Object models, Parsers/Serializers, Utilities, and a Client. Source code on GitHub at <a href="https://github.com/FirelyTeam/firely-net-sdk">https://github.com/FirelyTeam/firely-net-sdk</a>
    </td>
   </tr>
   <tr>
@@ -193,11 +192,10 @@
    </td>
   </tr> 
   <tr>
-   <td>Python</td>
-   <td>
-    <a href="https://github.com/smart-on-fhir/client-py">Python SMART on FHIR client</a>:
-    Object Model, Client and Utilities
-   </td>
+    <td>Python</td>
+    <td>- <a href="https://github.com/smart-on-fhir/client-py">Python SMART on FHIR client</a> Object Model, Client and
+      Utilities<br />- <a href="https://pypi.org/project/fhir.resources/">fhir.resources</a> Python classes with built-in
+      data validation<br />- <a href="https://pypi.org/project/fhirpy/">fhir-py</a> async/sync FHIR client for python3</td>
   </tr>
   <tr>
    <td>Swift</td>
@@ -226,8 +224,6 @@ listed on <a href="https://confluence.hl7.org/display/FHIR/Open+Source+Implement
 It is not necessary to use these particular implementations in order to be conformant. Any other approach
 may be used, including code generated from the schemas.
 </p>
-
-</div>
 
 [%file newfooter%]
 </body>

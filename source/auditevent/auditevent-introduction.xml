@@ -53,7 +53,7 @@ Security relevant events are not limited to communications or RESTful events. Th
 </ul>
 <p>
 See the 
-<a href="valueset-audit-event-sub-type.html">Audit Event Sub-Type</a> vocabulary for guidance on some security relevant events.
+<a href="valueset-audit-event-type.html">Audit Event Category</a> vocabulary for guidance on some security relevant event categories.
 </p>
 <p>
 The AuditEvent resource holds the details of an event in terms of who, what, where, when, and why. 

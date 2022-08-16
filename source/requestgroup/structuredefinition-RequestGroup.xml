@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/RequestGroup"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="RequestGroup"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A group of related requests that can be used to capture intended activities that have inter-dependencies such as &quot;give this medication after that one&quot;."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -414,6 +414,25 @@
         <map value="FiveWs.why[x]"/>
       </mapping>
     </element>
+    <element id="RequestGroup.goal">
+      <path value="RequestGroup.goal"/>
+      <short value="What goals"/>
+      <definition value="Goals that are intended to be achieved by following the requests in this RequestGroup."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Goal"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
     <element id="RequestGroup.note">
       <path value="RequestGroup.note"/>
       <short value="Additional notes about the response"/>
@@ -449,10 +468,24 @@
         <source value="http://hl7.org/fhir/StructureDefinition/RequestGroup"/>
       </constraint>
     </element>
+    <element id="RequestGroup.action.linkId">
+      <path value="RequestGroup.action.linkId"/>
+      <short value="Pointer to specific item from the PlanDefinition"/>
+      <definition value="The linkId of the action from the PlanDefinition that corresponds to this action in the RequestGroup resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
     <element id="RequestGroup.action.prefix">
       <path value="RequestGroup.action.prefix"/>
       <short value="User-visible prefix for the action (e.g. 1. or A.)"/>
-      <definition value="A user-visible prefix for the action."/>
+      <definition value="A user-visible prefix for the action. For example a section or item numbering such as 1. or A."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -546,6 +579,25 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Request.supportingInfo"/>
+      </mapping>
+    </element>
+    <element id="RequestGroup.action.goal">
+      <path value="RequestGroup.action.goal"/>
+      <short value="What goals"/>
+      <definition value="Goals that are intended to be achieved by following the requests in this action."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Goal"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
       </mapping>
     </element>
     <element id="RequestGroup.action.condition">
@@ -729,7 +781,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>

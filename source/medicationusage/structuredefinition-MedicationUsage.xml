@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="MedicationUsage"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="MedicationUsage"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A record of a medication that is being consumed by a patient.   A MedicationUsage may indicate that the patient may be taking the medication now or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient&#39;s memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. &#xA;&#xA;The primary difference between a medicationusage and a medicationadministration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medicationusage is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the Medication Usage information may come from the patient&#39;s memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -113,11 +113,26 @@
         <map value=".id"/>
       </mapping>
     </element>
+    <element id="MedicationUsage.partOf">
+      <path value="MedicationUsage.partOf"/>
+      <short value="Part of referenced event"/>
+      <definition value="A larger event of which this particular MedicationUsage is a component or step."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP]/target[classCode=SPLY or SBADM or PROC or OBS,moodCode=EVN]"/>
+      </mapping>
+    </element>
     <element id="MedicationUsage.status">
       <path value="MedicationUsage.status"/>
-      <short value="completed | entered-in-error | unknown"/>
+      <short value="recorded | entered-in-error | draft"/>
       <definition value="A code representing the status of recording the medication usage."/>
-      <comment value="This status concerns just the recording of the medication usage.  MedicationUsage.adherence should be used for indicating a patient&#39;s adherence to the information in this resource.&#xD;&#xD;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <comment value="This status concerns just the recording of the medication usage.  MedicationUsage.adherence should be used for indicating a patient&#39;s adherence to the information in this resource.  Note, the statuses are different than in previous releases for MedicationUsage or MedicationStatement.&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -150,33 +165,6 @@
         <map value=".statusCode"/>
       </mapping>
     </element>
-    <element id="MedicationUsage.statusReason">
-      <path value="MedicationUsage.statusReason"/>
-      <short value="Reason for current status"/>
-      <definition value="Captures the reason for the current state of the MedicationUsage."/>
-      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;entered-in-error&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicationUsageStatusReason"/>
-        </extension>
-        <strength value="example"/>
-        <description value="A coded concept indicating the reason for the status of the statement."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/reason-medication-status-codes"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.statusReason"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCOde"/>
-      </mapping>
-    </element>
     <element id="MedicationUsage.category">
       <path value="MedicationUsage.category"/>
       <short value="Type of medication usage"/>
@@ -193,7 +181,7 @@
         </extension>
         <strength value="example"/>
         <description value="A coded concept identifying where the medication included in the MedicationUsage is expected to be consumed or administered."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medication-usage-admin-location"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-admin-location"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -259,7 +247,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PID-3-Patient ID List"/>
+        <map value="PID-3 Patient ID List"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -341,7 +329,7 @@
       <short value="Person or organization that provided the information about the taking of this medication"/>
       <definition value="The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationUsage is derived from other resources, e.g. Claim or MedicationRequest."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
@@ -427,6 +415,22 @@
         <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=&quot;annotation&quot;].value"/>
       </mapping>
     </element>
+    <element id="MedicationUsage.relatedClinicalInformation">
+      <path value="MedicationUsage.relatedClinicalInformation"/>
+      <short value="Link to information relevant to the usage of a medication"/>
+      <definition value="Link to information that is relevant to a medication usage, for example, illicit drug use, gestational age, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="TBD"/>
+      </mapping>
+    </element>
     <element id="MedicationUsage.renderedDosageInstruction">
       <path value="MedicationUsage.renderedDosageInstruction"/>
       <short value="Full representation of the dosage instructions"/>
@@ -467,6 +471,21 @@
       <min value="0"/>
       <max value="1"/>
       <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=PERT].target[classCode=OBV,moodCode=EVN].value[xsi:type=BL]"/>
+      </mapping>
+    </element>
+    <element id="MedicationUsage.adherence.code">
+      <path value="MedicationUsage.adherence.code"/>
+      <short value="Type of adherence"/>
+      <definition value="Type of the adherence for the medication."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
@@ -475,12 +494,33 @@
           <valueString value="MedicationUsageAdherence"/>
         </extension>
         <strength value="example"/>
-        <description value="A coded concept identifying whether the medication is being consumed or administered as instructed"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-usage-adherence"/>
       </binding>
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=PERT].target[classCode=OBV,moodCode=EVN].value[xsi:type=BL]"/>
+      </mapping>
+    </element>
+    <element id="MedicationUsage.adherence.reason">
+      <path value="MedicationUsage.adherence.reason"/>
+      <short value="Details of the reason for the current use of the medication"/>
+      <definition value="Captures the reason for the current use or adherence of a medication."/>
+      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;entered-in-error&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationUsageStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/reason-medication-status-codes"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCode"/>
       </mapping>
     </element>
   </differential>

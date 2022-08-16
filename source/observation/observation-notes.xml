@@ -57,7 +57,7 @@
 		<a name="usingcodes">
 		</a>
 	  <h3> Using codes in Observation </h3>
-		<p>When a result value is a represented as a predefined concept using a code, <code>valueCodeableConcept</code> is used.  This element is <a href="terminologies.html">bound</a> to a value set comprised of a standard nomenclature such as SNOMED CT or a source system ("local") coded result values.</p>
+		<p>When a result value is represented as a predefined concept using a code, <code>valueCodeableConcept</code> is used.  This element is <a href="terminologies.html">bound</a> to a value set comprised of a standard nomenclature such as SNOMED CT or a source system ("local") coded result values.</p>
 		<a name="mult-codes"></a>
 	  <h4>Multiple Codings</h4>
 		<p>Results may be coded in multiple value sets based on different code systems and these may be mapped using the <a href="conceptmap.html">ConceptMap</a> resource and/or given as <a href="datatypes.html#CodeableConcept">additional codings</a> directly in the element as shown in the example below.</p>
@@ -356,8 +356,15 @@
 		<a name="observation-operations">
 		</a>
 		<a name="genetics"></a>
-		<h3>Genetic Observations</h3>
-		<p>Genetic reporting makes heavy use of the DiagnosticReport and Observation resources.  An implementation guide describing how to represent genetic results can be found <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">here</a>.</p>
+		<h3>Genomic Reporting - Trial Use</h3>
+		<p>Genomic reporting makes heavy use of the DiagnosticReport and Observation resources to represent structured, computable genomic data.  An implementation guide describing how to represent genetic results can be found <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">here</a>.
+		</p>
+		<p>
+		Beyond the structured, computable data available in DiagnosticReport and Observation, metadata about the analysis performed is captured in the <a href="genomicstudy.html">GenomicStudy</a> resource. GenomicStudy aims at delineating relevant information of a genomic study. A genomic study might comprise one or more analyses, each serving a specific purpose. These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted.
+		</p>
+		<p>
+		When referencing genomic analysis from an Observation, the <code>partOf</code> attribute MAY be used to reference the GenomicStudy that led to this observation being made. Another option is that <code>derivedFrom</code> MAY be used to reference a DocumentReference when the observation was derived from the data in the file, even with that file was produced as part of a GenomicStudy output. Also, <code>derivedFrom</code> MAY be used to reference the GenomicStudy where the data was produced.
+		</p>
 
 	<a name="ops"></a>
 		<h2>Operations defined for Observation</h2>

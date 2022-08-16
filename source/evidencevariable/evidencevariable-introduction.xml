@@ -5,7 +5,7 @@
 <h2>Scope and Usage</h2>
 <p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
 
-<p>The scope of the EvidenceVariable resource is to describe an element that knowledge (evidence) is about. The EvidenceVariable resources are expected to be used with Evidence resources to facilitate searching and knowledge representation.</p>
+<p>The scope of the EvidenceVariable Resource is to describe an element that knowledge (evidence) is about. The EvidenceVariable Resources are expected to be used with <a href="evidence.html">Evidence</a> Resources to facilitate searching and knowledge representation.</p>
 
 <p>Evidence may be reported for different types of knowledge.  One commonly used format for expression of what evidence is about is the "PICO" format. PICO stands for:</p>
 
@@ -15,13 +15,13 @@
 <p>Outcome - the result or effect of an intervention or exposure in a population</p>
 <p>PICO (and its variants like PECO or PICOT) is a universal acronym used in evidence-based medicine communities to clearly express research questions and evidence findings.</p>
 
-<p>The EvidenceVariable resource allows expression of the components of a PICO question in codeable and reusable formats.  As an exception, the Population specification will NOT use the EvidenceVariable resource. The Population specification will use the Group resource to facilitate interoperability in matching Evidence resources to actual groups.</p>
+<p>The EvidenceVariable Resource allows expression of the components of a PICO question in codeable and reusable formats.  As an exception, the Population specification will NOT use the EvidenceVariable Resource. The Population specification will use the <a href="group.html">Group</a> Resource to facilitate interoperability in matching <a href="evidence.html">Evidence</a> Resources to actual groups.</p>
 
 </div>
 
 <div>
 <h2>Boundaries and Relationships</h2>
-<p>The resource describing evidence findings (Evidence) will reference EvidenceVariable to describe what the evidence findings are about.</p>
+<p>The Resource describing evidence findings (<a href="evidence.html">Evidence</a>) will reference EvidenceVariable to describe what the evidence findings are about.</p>
 </div>
 
 <!-- (optional):

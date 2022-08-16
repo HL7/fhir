@@ -2,11 +2,10 @@
   <div>
     <a name="scope"/>
     <h2>Scope and Usage</h2>
-    <p>Note that this content is preliminary has not undergone proper review by the appropriate
-            Workgroups.</p>
-    <p>This resource supports use cases for creation of and querying for drug information
-            including attributes such as drug classifications, images of medications, drug costs
-            and/or coverages, etc. This resource can be used to return drug information as part of a
+    <p>This resource supports use cases for creation of and querying for medication information
+            including attributes such as medication classifications, images of medications, costs
+            and/or coverages, etc. This resource can be used to return medication information as part of a
             formulary or a catalogue.</p>
+		<p> Where the Medication resource is intended for the simple identification of a medication for prescribing, dispensing, or administering, the MedicationKnowledge resource is intended to provide more detailed information about the medication.  Unlike the MedicinalProductDefinition resource, the MedicationKnowledge resource is not a complete definition of the medication but provides some definitional information along with formulary/catalogue-specific information such as costs, monitoring programs, etc.</p>
   </div>
 </div>

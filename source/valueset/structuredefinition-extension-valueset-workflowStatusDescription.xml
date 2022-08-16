@@ -9,13 +9,13 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-workflowStatusDescription"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="workflowStatusDescription"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
   <description value="Workflow Status is used to represent details of the value set development process while in a single Activity Status."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -35,7 +35,7 @@
       <path value="Extension"/>
       <short value="Indicates the state of development of the value set"/>
       <definition value="Workflow Status Description is used to represent details of the value set development process while in a single Activity Status."/>
-      <comment value="The values that are traditionally used for this element while the Value Set Definition has an Activity Status of Preliminary are assumed to include phrases that capture various stages in review and approval. It is expected that this would be used to manage maintenance activities, but that a terminology service would not be expected to expose this information. Different services might adopt different workflow status values reflecting their local practices."/>
+      <comment value="Values for this element are intended to provide additional information about the workflow or intended use of the value set. These values are intended to distinguish specific use of the value set when the ValueSet.status will be the same even though the workflow status is different. Different services might adopt different workflow status values reflecting their local practices."/>
       <min value="0"/>
       <max value="1"/>
       <isModifier value="false"/>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="device-productidentifierinudi"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/devicedefinition-productidentifierinudi"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <url value="http://terminology.hl7.org/CodeSystem/device-productidentifierinudi"/>
+  <version value="5.0.0"/>
+  <name value="DeviceProductionIdentifierInUDI"/>
+  <title value="DeviceProductionIdentifierInUDI"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The production identifier(s) that are expected to appear in the UDI carrier."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="lot-number"/>
+    <display value="Lot Number"/>
+    <definition value="The label includes the lot number."/>
+  </concept>
+  <concept>
+    <code value="manufactured-date"/>
+    <display value="Manufactured date"/>
+    <definition value="The label includes the manufacture date."/>
+  </concept>
+  <concept>
+    <code value="serial-number"/>
+    <display value="Serial Number"/>
+    <definition value="The label includes the serial number."/>
+  </concept>
+  <concept>
+    <code value="expiration-date"/>
+    <display value="Expiration date"/>
+    <definition value="The label includes the expiration date."/>
+  </concept>
+  <concept>
+    <code value="biological-source"/>
+    <display value="Biological source"/>
+    <definition value="The label includes the biological source identifier."/>
+  </concept>
+  <concept>
+    <code value="software-version"/>
+    <display value="Software Version"/>
+    <definition value="The label includes the software version."/>
+  </concept>
+</CodeSystem>

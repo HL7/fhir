@@ -13,9 +13,9 @@
                     <display value="Adcetris (Brentuximab Vedotin 50mg/10.5ml)"/>
                 </coding>
             </code>
-            <sponsor>
+            <marketingAuthorizationHolder>
                 <reference value="Organization/mmanu" />
-            </sponsor>
+            </marketingAuthorizationHolder>
                 <doseForm>
                     <coding>
                         <system value="http://snomed.info/sct"/>

@@ -16,7 +16,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/catalog"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Profile for Catalog"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -29,7 +29,7 @@
     </telecom>
   </contact>
   <description value="A set of resources composed into a single coherent clinical statement with clinical attestation"/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -139,16 +139,6 @@
       <min value="0"/>
       <max value="*"/>
     </element>
-    <element id="Composition.section.entry">
-      <path value="Composition.section.entry"/>
-      <short value="The Content of the section"/>
-      <definition value="The content (narrative and data) associated with the section."/>
-      <min value="1"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CatalogEntry"/>
-      </type>
-    </element>
+    
   </differential>
 </StructureDefinition>

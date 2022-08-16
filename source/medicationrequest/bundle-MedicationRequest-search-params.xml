@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
   <id value="MedicationRequest-search-params"/>
   <entry>
     <resource>
@@ -70,14 +70,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MedicationRequest.dosageInstruction.timing.event,MedicationRequest.dosageInstruction.timing.repeat.boundsPeriod"/>
+          <valueString value="MedicationRequest.dose.dosageInstruction.timing.event,MedicationRequest.dose.dosageInstruction.timing.repeat.boundsPeriod"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicationRequest-combo-date"/>
         <description value="Returns medication request to be administered on a specific date or within a date range"/>
         <code value="combo-date"/>
         <type value="date"/>
-        <expression value="MedicationRequest.dosageInstruction.timing.event | (MedicationRequest.dosageInstruction.timing.repeat.bounds as Period)"/>
-        <xpath value="f:MedicationRequest/f:dosageInstruction/f:timing/f:event | f:MedicationRequest/f:dosageInstruction/f:timing/f:repeat/f:boundsPeriod"/>
+        <expression value="MedicationRequest.dose.dosageInstruction.timing.event | (MedicationRequest.dose.dosageInstruction.timing.repeat.bounds as Period)"/>
+        <xpath value="f:MedicationRequest/f:dose.dosageInstruction/f:timing/f:event | f:MedicationRequest/f:dose.dosageInstruction/f:timing/f:repeat/f:boundsPeriod"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -239,6 +239,7 @@
         <expression value="MedicationRequest.subject.where(resolve() is Patient)"/>
         <xpath value="f:MedicationRequest/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

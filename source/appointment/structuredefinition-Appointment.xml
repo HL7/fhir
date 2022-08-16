@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Appointment"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -80,12 +80,20 @@
       <definition value="A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)."/>
       <min value="0"/>
       <max value="*"/>
+			<constraint>
+				<key value="app-5"/>
+				<severity value="error"/>
+				<human value="The start must be less than or equal to the end"/>
+        <expression value="start.exists() implies start &lt;= end"/>
+        <xpath value="f:start &lt;= f:end or not(start.exists() and end.exists())"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+			</constraint>
       <constraint>
         <key value="app-4"/>
         <severity value="error"/>
-        <human value="Cancelation reason is only used for appointments that have been cancelled, or no-show"/>
-        <expression value="Appointment.cancelationReason.exists() implies (Appointment.status=&#39;no-show&#39; or Appointment.status=&#39;cancelled&#39;)"/>
-        <xpath value="not(exists(f:cancellationReason)) or f:status/@value=(&#39;no-show&#39;, &#39;cancelled&#39;)"/>
+        <human value="Cancellation reason is only used for appointments that have been cancelled, or noshow"/>
+        <expression value="cancellationReason.exists() implies (status=&#39;noshow&#39; or status=&#39;cancelled&#39;)"/>
+        <xpath value="not(exists(f:cancellationReason)) or f:status/@value=(&#39;noshow&#39;, &#39;cancelled&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
       <constraint>
@@ -194,8 +202,8 @@
         <map value="STATUS"/>
       </mapping>
     </element>
-    <element id="Appointment.cancelationReason">
-      <path value="Appointment.cancelationReason"/>
+    <element id="Appointment.cancellationReason">
+      <path value="Appointment.cancellationReason"/>
       <short value="The coded reason for the appointment being cancelled"/>
       <definition value="The coded reason for the appointment being cancelled. This is often used in reporting/billing/futher processing to determine if further actions are required, or specific fees apply."/>
       <min value="0"/>
@@ -206,7 +214,7 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="cancelation-reason"/>
+          <valueString value="cancellation-reason"/>
         </extension>
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/appointment-cancellation-reason"/>
@@ -250,7 +258,8 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -263,6 +272,10 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Request.code"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ARQ-8, SCH-8"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -314,7 +327,7 @@
       </binding>
       <mapping>
         <identity value="v2"/>
-        <map value="ARQ-7"/>
+        <map value="ARQ-7, SCH-7"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -353,7 +366,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="AIS-3, SCH-7"/>
+        <map value="AIS-3"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -421,6 +434,47 @@
       <mapping>
         <identity value="ical"/>
         <map value="SUMMARY"/>
+      </mapping>
+    </element>
+    <element id="Appointment.replaces">
+      <path value="Appointment.replaces"/>
+      <short value="Appointment replaced by this Appointment"/>
+      <definition value="Appointment replaced by this Appointment in cases where there is a cancellation, the details of the cancellation can be found in the cancellationReason property (on the referenced resource)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.replaces"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[@typeCode = &#39;SPRT&#39;].observation"/>
+      </mapping>
+      <mapping>
+        <identity value="ical"/>
+        <map value="ATTACH"/>
+      </mapping>
+    </element>
+    <element id="Appointment.virtualService">
+      <path value="Appointment.virtualService"/>
+      <short value="Connection details of a virtual service (e.g. conference call)"/>
+      <comment value="There are two types of virtual meetings that often exist:&#xD;&#xD;* a persistent, virtual meeting room that can only be used for a single purpose at a time, &#xD;* and a dynamic virtual meeting room that is generated on demand for a specific purpose.&#xD;&#xD;Implementers may consider using Location.virtualService for persistent meeting rooms.&#xD;&#xD;If each participant would have a different meeting link, an extension using the VirtualServiceContactDetail  can be applied to the Appointment.participant BackboneElement."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="VirtualServiceDetail"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
       </mapping>
     </element>
     <element id="Appointment.supportingInformation">
@@ -552,6 +606,22 @@
         <map value=".outboundRelationship[@typeCode = &#39;REFR&#39;].act[@classCode = &#39;ACT&#39;][@moodCode = &#39;SLOT&#39;]"/>
       </mapping>
     </element>
+    <element id="Appointment.account">
+      <path value="Appointment.account"/>
+      <short value="The set of accounts that may be used for billing for this Appointment"/>
+      <definition value="The set of accounts that is expected to be used for billing the activities that result from this Appointment."/>
+      <comment value="The specified account(s) could be those identified during pre-registration workflows in preparation for an upcoming Encounter."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Account"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".pertains.A_Account"/>
+      </mapping>
+    </element>
     <element id="Appointment.created">
       <path value="Appointment.created"/>
       <short value="The date that this appointment was initially created"/>
@@ -575,15 +645,15 @@
         <map value="CREATED"/>
       </mapping>
     </element>
-    <element id="Appointment.comment">
-      <path value="Appointment.comment"/>
+    <element id="Appointment.note">
+      <path value="Appointment.note"/>
       <short value="Additional comments"/>
-      <definition value="Additional comments about the appointment."/>
-      <comment value="Additional text to aid in facilitating the appointment. For instance, a comment might be, &quot;patient should proceed immediately to infusion room upon arrival&quot;&#xD;&#xD;Where this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it."/>
+      <definition value="Additional notes/comments about the appointment."/>
+      <comment value="Additional text to aid in facilitating the appointment. For instance, a note might be, &quot;patient should proceed immediately to infusion room upon arrival&quot;&#xD;&#xD;Where this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.&#xD;&#xD;Typically only the concept.text will be used, however occasionally a reference to some generic documentation (or specific) and also supports coded instructions if/when they are required."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="string"/>
+        <code value="Annotation"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -605,11 +675,14 @@
     <element id="Appointment.patientInstruction">
       <path value="Appointment.patientInstruction"/>
       <short value="Detailed information and instructions for the patient"/>
-      <definition value="While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before)."/>
+      <definition value="While Appointment.note contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="string"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Binary"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Communication"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -626,14 +699,17 @@
     </element>
     <element id="Appointment.basedOn">
       <path value="Appointment.basedOn"/>
-      <short value="The service request this appointment is allocated to assess"/>
-      <definition value="The service request this appointment is allocated to assess (e.g. incoming referral or procedure request)."/>
+      <short value="The request this appointment is allocated to assess"/>
+      <definition value="The request this appointment is allocated to assess (e.g. incoming referral or procedure request)."/>
       <alias value="incomingReferral"/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -642,6 +718,31 @@
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[@typeCode = &#39;FLFS&#39;].act[@classCode &lt; &#39;ActCareProvisionRequestType&#39;][@moodCode = &#39;RQO&#39;]"/>
+      </mapping>
+    </element>
+    <element id="Appointment.subject">
+      <path value="Appointment.subject"/>
+      <short value="The patient or group associated with the appointment"/>
+      <definition value="The patient or group associated with the appointment, if they are to be present (usually) then they should also be included in the participant backbone element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.who"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3-Patient ID List"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="subject.patient"/>
       </mapping>
     </element>
     <element id="Appointment.participant">
@@ -713,17 +814,34 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="Appointment.participant.period">
+      <path value="Appointment.participant.period"/>
+      <short value="Participation period of the actor"/>
+      <definition value="Participation period of the actor."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="Appointment.participant.actor">
       <path value="Appointment.participant.actor"/>
-      <short value="Person, Location/HealthcareService or Device"/>
-      <definition value="A Person, Location/HealthcareService or Device that is participating in the appointment."/>
+      <short value="The individual, device, location, or service participating in the appointment"/>
+      <definition value="The individual, device, location, or service participating in the appointment."/>
+      <comment value="Where a CareTeam is provided, this does not imply that the entire team is included, just a single member from the group with the appropriate role. Where multiple members are required, please include the CareTeam the required number of times."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
@@ -749,22 +867,15 @@
     </element>
     <element id="Appointment.participant.required">
       <path value="Appointment.participant.required"/>
-      <short value="required | optional | information-only"/>
-      <definition value="Whether this participant is required to be present at the meeting. This covers a use-case where two doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present."/>
+      <short value="The participant is required to attend (optional when false)"/>
+      <definition value="Whether this participant is required to be present at the meeting. If false, the participant is optional."/>
+      <comment value="For the use-case where two doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present include the patient in the subject field, but do not include them as a participant - this was formerly done prior to R5 with required='information-only'."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="boolean"/>
       </type>
       <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ParticipantRequired"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Is the Participant required to attend the appointment."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/participantrequired"/>
-      </binding>
       <mapping>
         <identity value="rim"/>
         <map value="(performer | reusableDevice | subject | location).@performInd"/>
@@ -803,20 +914,6 @@
       <mapping>
         <identity value="ical"/>
         <map value="ATTENDEE;CN=&quot;John Doe&quot;;RSVP=TRUE:mailto:john@doe.com (rsvpparam | partstatparam)"/>
-      </mapping>
-    </element>
-    <element id="Appointment.participant.period">
-      <path value="Appointment.participant.period"/>
-      <short value="Participation period of the actor"/>
-      <definition value="Participation period of the actor."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
       </mapping>
     </element>
     <element id="Appointment.requestedPeriod">

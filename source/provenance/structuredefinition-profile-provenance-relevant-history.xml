@@ -16,7 +16,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/provenance-relevant-history"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Provenance Relevant History"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -29,7 +29,7 @@
     </telecom>
   </contact>
   <description value="Guidance on using Provenance for related history elements"/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -84,9 +84,9 @@
       </type>
       <mustSupport value="true"/>
     </element>
-    <element id="Provenance.reason">
-      <path value="Provenance.reason"/>
-      <comment value="Plain text reasons can be sent in the &quot;text&quot; component with no codings.  Domains may wish to define a constrained terminology.  The reason for the resource&#39;s existence of the resource itself will be maintained on the resource, not here."/>
+    <element id="Provenance.authorization">
+      <path value="Provenance.authorization"/>
+      <comment value="Plain text reasons can be sent in the &quot;text&quot; component with no codings.  Domains may wish to define a constrained terminology.  The authorization for the resource&#39;s existence of the resource itself will be maintained on the resource, not here."/>
       <mustSupport value="true"/>
     </element>
     <element id="Provenance.activity">

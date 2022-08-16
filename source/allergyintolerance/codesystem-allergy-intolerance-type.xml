@@ -82,7 +82,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.132"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="AllergyIntoleranceType"/>
   <title value="AllergyIntoleranceType"/>
   <status value="draft"/>
@@ -111,6 +111,6 @@
   <concept>
     <code value="intolerance"/>
     <display value="Intolerance"/>
-    <definition value="A propensity for adverse reactions to a substance that is not judged to be allergic or &quot;allergy-like&quot;.  These reactions are typically (but not necessarily) non-immune.  They are to some degree idiosyncratic and/or patient-specific (i.e. are not a reaction that is expected to occur with most or all patients given similar circumstances)."/>
+    <definition value="A propensity for adverse reactions to a substance that is judged to be not allergic or &quot;allergy-like&quot;.  These reactions are typically (but not necessarily) non-immune.  They are to some degree idiosyncratic and/or patient-specific (i.e. are not a reaction that is expected to occur with most or all patients given similar circumstances)."/>
   </concept>
 </CodeSystem>

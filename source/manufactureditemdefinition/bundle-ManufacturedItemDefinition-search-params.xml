@@ -50,34 +50,14 @@
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ManufacturedItemDefinition.ingredient.reference"/>
+          <valueString value="ManufacturedItemDefinition.ingredient"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ManufacturedItemDefinition-ingredient"/>
-        <description value="Reference to a resource (by instance)"/>
+        <description value="An ingredient of this item"/>
         <code value="ingredient"/>
-        <type value="reference"/>
-        <expression value="ManufacturedItemDefinition.ingredient.reference"/>
-        <xpath value="f:ManufacturedItemDefinition/f:ingredient/f:reference"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="ManufacturedItemDefinition-ingredient-code"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ManufacturedItemDefinition.ingredient.concept"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ManufacturedItemDefinition-ingredient-code"/>
-        <description value="Reference to a concept (by class)"/>
-        <code value="ingredient-code"/>
         <type value="token"/>
-        <expression value="ManufacturedItemDefinition.ingredient.concept"/>
-        <xpath value="f:ManufacturedItemDefinition/f:ingredient/f:concept"/>
+        <expression value="ManufacturedItemDefinition.ingredient"/>
+        <xpath value="f:ManufacturedItemDefinition/f:ingredient"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

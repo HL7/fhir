@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="provenance-entity-role"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <lastUpdated value="2021-10-01T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <text>
@@ -70,7 +70,7 @@
           
           <td>Revision</td>
           
-          <td>A derivation for which the resulting entity is a revised version of some original.</td>
+          <td>An entity that is used by the activity to produce a new version of that entity.</td>
         
         </tr>
         
@@ -86,7 +86,7 @@
           
           <td>Quotation</td>
           
-          <td>The repeat of (some or all of) an entity, such as text or image, by someone who might or might not be its original author.</td>
+          <td>An entity that is copied in full or part by an agent that is not the author of the entity.</td>
         
         </tr>
         
@@ -102,7 +102,23 @@
           
           <td>Source</td>
           
-          <td>A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic&#39;s study, without benefit from hindsight.</td>
+          <td>An entity that is used as input to the activity that produced the target.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td>2</td>
+          
+          <td style="white-space:nowrap">  instantiates
+            
+            <a name="provenance-entity-role-instantiates"> </a>
+          
+          </td>
+          
+          <td>Instantiates</td>
+          
+          <td>The record resulting from this event adheres to the protocol, guideline, order set or other definition represented by this entity.</td>
         
         </tr>
         
@@ -118,7 +134,7 @@
           
           <td>Removal</td>
           
-          <td>A derivation for which the entity is removed from accessibility usually through the use of the Delete operation.</td>
+          <td>An entity that is removed from accessibility, usually through the DELETE operator.</td>
         
         </tr>
       
@@ -140,12 +156,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.437"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="4.7.0"/>
   <name value="ProvenanceEntityRole"/>
   <title value="ProvenanceEntityRole"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
+  <date value="2021-10-01T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -160,30 +176,31 @@
   <description value="How an entity was used in an activity."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/provenance-entity-role"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
-  <concept>
-    <code value="derivation"/>
-    <display value="Derivation"/>
-    <definition value="A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."/>
     <concept>
       <code value="revision"/>
       <display value="Revision"/>
-      <definition value="A derivation for which the resulting entity is a revised version of some original."/>
+      <definition value="An entity that is used by the activity to produce a new version of that entity."/>
     </concept>
     <concept>
       <code value="quotation"/>
       <display value="Quotation"/>
-      <definition value="The repeat of (some or all of) an entity, such as text or image, by someone who might or might not be its original author."/>
+      <definition value="An entity that is copied in full or part by an agent that is not the author of the entity."/>
     </concept>
     <concept>
       <code value="source"/>
       <display value="Source"/>
-      <definition value="A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic&#39;s study, without benefit from hindsight."/>
+      <definition value="An entity that is used as input to the activity that produced the target."/>
+    </concept>
+    <concept>
+      <code value="instantiates"/>
+      <display value="Instantiates"/>
+      <definition value="The record resulting from this event adheres to the protocol, guideline, order set or other definition represented by this entity."/>
     </concept>
     <concept>
       <code value="removal"/>
       <display value="Removal"/>
-      <definition value="A derivation for which the entity is removed from accessibility usually through the use of the Delete operation."/>
+      <definition value="An entity that is removed from accessibility, usually through the DELETE operator."/>
     </concept>
-  </concept>
 </CodeSystem>

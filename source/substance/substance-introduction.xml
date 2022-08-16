@@ -5,23 +5,40 @@
 <h2>Scope and Usage</h2>
 
 <p>
-This resource allows for a material to be represented. The resource can be used to represent either a kind of a 
-substance - e.g. a formulation commonly used for treating patients, or it can be used to describe a particular package
-of a known substance (e.g. bottle, jar, packet). 
+This is a base resource that represents raw materials used to represent a  packaged or measured amount of a known substance (e.g. bottle, jar, packet, drum) that is not in a consumable form nor associated directly with a patient.  For example, the materials used for a medication that are not yet in an administrable form. 
+</p>  
+<p>
+The resource can be used to represent either a kind of a substance - e.g. a formulation commonly used for treating patients (a "definitional" use of Substance), 
+or it can be used to describe a particular package of a known substance (an "instance" use of Substance).
 </p>  
 <p>
 The composition of the material can be specified in terms of a mix of other materials, including with precise amounts if required.
 </p>
+<p>
+A Substance may be identifiable as precise as the specific container it is stored in, while more commonly it would be based on a combination of lot number, quantity, and package type.
+</p>
+
 </div>
 
 <div> 
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2> 
 <p>
-A medication is a substance that is packaged and used as an administered medication. 
-The <a href="medication.html">medication resource</a> uses the substance resource to represent 
-the actual ingredients of a medication.
+    A medication is a substance that is packaged and used as an administered medication. 
+    The <a href="medication.html">medication resource</a> uses the substance resource to represent 
+    the actual ingredients of a medication.
+    This resource can represent an instance of a substance or a definition (type, kind) of one. See also the <a href="substancedefinition.html">SubstanceDefinition</a> resource, which is purely definitional.
 </p>
+<p>
+A <a href="substancedefinition.html">SubstanceDefinition</a> describes the common characteristics of the substance, including those needed for regulatory agencies.
+</p>
+<p>
+A <a href="nutritionproduct.html">NutritionProduct</a> distinguishes from a Substance in that a nutrition product is primary consumable purpose is for its nutritional effect.
+</p>
+<p>
+A <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a> distinguishes from a Substance in that a BiologicallyDerivedProduct has its origins in a biological entity and needs to carry the source’s characteristics to enable matching and compatibility with the biological target to which it will be transfused or implanted, as well as traceability to the source.
+</p>
+
 
 </div> 
 

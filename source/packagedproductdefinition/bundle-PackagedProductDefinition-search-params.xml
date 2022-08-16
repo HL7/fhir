@@ -10,14 +10,14 @@
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PackagedProductDefinition.package.containedItem.item.reference"/>
+          <valueString value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-biological"/>
         <description value="A biologically derived product within this packaged product"/>
         <code value="biological"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.package.containedItem.item.reference"/>
-        <xpath value="f:PackagedProductDefinition/f:package/f:containedItem/f:item/f:reference"/>
+        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -30,14 +30,14 @@
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PackagedProductDefinition.package.containedItem.item.reference"/>
+          <valueString value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-contained-item"/>
         <description value="Any of the contained items within this packaged product"/>
         <code value="contained-item"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.package.containedItem.item.reference"/>
-        <xpath value="f:PackagedProductDefinition/f:package/f:containedItem/f:item/f:reference"/>
+        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -50,14 +50,14 @@
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PackagedProductDefinition.package.containedItem.item.reference"/>
+          <valueString value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-device"/>
         <description value="A device within this packaged product"/>
         <code value="device"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.package.containedItem.item.reference"/>
-        <xpath value="f:PackagedProductDefinition/f:package/f:containedItem/f:item/f:reference"/>
+        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -90,14 +90,14 @@
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PackagedProductDefinition.package.containedItem.item.reference"/>
+          <valueString value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-manufactured-item"/>
         <description value="A manufactured item of medication within this packaged product"/>
         <code value="manufactured-item"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.package.containedItem.item.reference"/>
-        <xpath value="f:PackagedProductDefinition/f:package/f:containedItem/f:item/f:reference"/>
+        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -110,14 +110,14 @@
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PackagedProductDefinition.package.containedItem.item.reference"/>
+          <valueString value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-medication"/>
         <description value="A manufactured item of medication within this packaged product"/>
         <code value="medication"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.package.containedItem.item.reference"/>
-        <xpath value="f:PackagedProductDefinition/f:package/f:containedItem/f:item/f:reference"/>
+        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -150,14 +150,14 @@
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PackagedProductDefinition.package.containedItem.item.reference"/>
+          <valueString value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-nutrition"/>
         <description value="A nutrition product within this packaged product"/>
         <code value="nutrition"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.package.containedItem.item.reference"/>
-        <xpath value="f:PackagedProductDefinition/f:package/f:containedItem/f:item/f:reference"/>
+        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -170,14 +170,14 @@
           <valueCode value="draft"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PackagedProductDefinition.package.containedItem.item.reference"/>
+          <valueString value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-package"/>
         <description value="A complete packaged product within this packaged product"/>
         <code value="package"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.package.containedItem.item.reference"/>
-        <xpath value="f:PackagedProductDefinition/f:package/f:containedItem/f:item/f:reference"/>
+        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -205,19 +205,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="PackagedProductDefinition-subject"/>
+        <id value="PackagedProductDefinition-package-for"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PackagedProductDefinition.subject"/>
+          <valueString value="PackagedProductDefinition.packageFor"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-subject"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-package-for"/>
         <description value="The product that this is a pack for"/>
-        <code value="subject"/>
+        <code value="package-for"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.subject"/>
-        <xpath value="f:PackagedProductDefinition/f:subject"/>
+        <expression value="PackagedProductDefinition.packageFor"/>
+        <xpath value="f:PackagedProductDefinition/f:packageFor"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

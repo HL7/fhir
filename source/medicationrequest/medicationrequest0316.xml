@@ -31,6 +31,7 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
+    <instantiatesUri value="http://www.bccancer.bc.ca/chemotherapy-protocols-site/Documents/Lymphoma-Myeloma/ULYBRENTUX%20Protocol_1Jun2017.pdf"/>
     <status value="completed"/>
     <intent value="order"/>
     <medication> <!-- Linked to a RESOURCE Medication -->
@@ -51,7 +52,7 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <instantiatesUri value="http://www.bccancer.bc.ca/chemotherapy-protocols-site/Documents/Lymphoma-Myeloma/ULYBRENTUX%20Protocol_1Jun2017.pdf"/>
+    <dose>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="1.8 mg/kg IV infusion over 20 minutes every 3 weeks for 16 cycles" />
@@ -106,4 +107,5 @@
         </maxDosePerLifetime>
         
     </dosageInstruction>
+    </dose>
 </MedicationRequest>

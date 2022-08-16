@@ -280,4 +280,16 @@
       <display value="Generic"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Compounded Preparation - Hand Sanitizer - includes qs Ingredient strength"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationexample0323"/>
+    </extension>
+    <item>
+      <reference value="Medication/med0323"/>
+      <display value="Compound"/>
+    </item>
+  </entry>
 </List>

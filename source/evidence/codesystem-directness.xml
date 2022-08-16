@@ -44,9 +44,9 @@
           
           </td>
           
-          <td>Low quality match</td>
+          <td>Low quality match between observed and intended variable</td>
           
-          <td>Low level of directness.</td>
+          <td>Low matching quality between observed and intended variable, so very serious concern for indirectness in evidence interpretation.</td>
         
         </tr>
         
@@ -58,9 +58,9 @@
           
           </td>
           
-          <td>Moderate quality match</td>
+          <td>Moderate quality match between observed and intended variable</td>
           
-          <td>Moderate level of directness.</td>
+          <td>Moderate matching quality between observed and intended variable, so serious concern for indirectness in evidence interpretation.</td>
         
         </tr>
         
@@ -72,9 +72,9 @@
           
           </td>
           
-          <td>High quality match</td>
+          <td>High quality match between observed and intended variable</td>
           
-          <td>High level of directness.</td>
+          <td>High matching quality between observed and intended variable, so little concern for indirectness in evidence interpretation.</td>
         
         </tr>
         
@@ -86,9 +86,9 @@
           
           </td>
           
-          <td>Exact match</td>
+          <td>Exact match between observed and intended variable</td>
           
-          <td>Exact directness.</td>
+          <td>Exact matching quality between observed and intended variable, so no concern for indirectness in evidence interpretation.</td>
         
         </tr>
       
@@ -110,7 +110,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1459"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="EvidenceDirectness"/>
   <title value="EvidenceDirectness"/>
   <status value="draft"/>
@@ -133,22 +133,22 @@
   <content value="complete"/>
   <concept>
     <code value="low"/>
-    <display value="Low quality match"/>
-    <definition value="Low level of directness."/>
+    <display value="Low quality match between observed and intended variable"/>
+    <definition value="Low matching quality between observed and intended variable, so very serious concern for indirectness in evidence interpretation."/>
   </concept>
   <concept>
     <code value="moderate"/>
-    <display value="Moderate quality match"/>
-    <definition value="Moderate level of directness."/>
+    <display value="Moderate quality match between observed and intended variable"/>
+    <definition value="Moderate matching quality between observed and intended variable, so serious concern for indirectness in evidence interpretation."/>
   </concept>
   <concept>
     <code value="high"/>
-    <display value="High quality match"/>
-    <definition value="High level of directness."/>
+    <display value="High quality match between observed and intended variable"/>
+    <definition value="High matching quality between observed and intended variable, so little concern for indirectness in evidence interpretation."/>
   </concept>
   <concept>
     <code value="exact"/>
-    <display value="Exact match"/>
-    <definition value="Exact directness."/>
+    <display value="Exact match between observed and intended variable"/>
+    <definition value="Exact matching quality between observed and intended variable, so no concern for indirectness in evidence interpretation."/>
   </concept>
 </CodeSystem>

@@ -7,7 +7,7 @@ POST [base]/ValueSet/$validate-code
 [other headers]
 
 {
-  "ResourceType" : "Parameters",
+  "resourceType" : "Parameters",
   "parameter" : [
     {
     "name" : "codeableConcept",

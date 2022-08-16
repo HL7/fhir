@@ -38,6 +38,7 @@
         </coding>
       </concept>
     </reason>
+    <dose>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="75mcg daily" />
@@ -72,6 +73,7 @@
         </doseAndRate>
 
     </dosageInstruction> 
+    </dose>
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>
@@ -90,4 +92,5 @@
             <code value="d"/>
         </expectedSupplyDuration>
     </dispenseRequest>
+
 </MedicationRequest>

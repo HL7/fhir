@@ -27,20 +27,17 @@ ObservationDefinition may be used to characterize observations from any discipli
 An ObservationDefinition resource provides the definitional characteristics for a certain kind of observation. Each time that kind of observation is collected and recorded it is instantiated as an Observation resource, which conforms to these definitional characteristics. Thus, there is a relationship between ObservationDefinition and Observation: The latter may instantiate the former.
 </p>
 <p>
-When an Observation instantiates an ObservationDefinition, a number of elements of the Observation resource are expected to have their content conforming to the corresponding definitional elements declared in the ObservationDefinition resource:
-</p>
+When an Observation instantiates an ObservationDefinition, the elements of the Observation resource are expected to inherit their content from the corresponding definitional elements declared in the ObservationDefinition resource:</p>
  <ul>
-<li>Elements category, code, bodySite, method SHOULD be directly inherited from ObservationDefinition.</li>
-<li>Observation.subject should belong to the kind of subject specified by ObservationDefinition.suject.</li>
-<li>Observation.device SHOULD be conformant to ObservationDefinition.device. In particular, if ObservationDefinition references one or more DeviceDefinition resources, a Device resource referenced by Observation SHOULD be conformant to the model of device described in a DeviceDefinition resource referenced by ObservationDefinition.</li>
-<li>Observation.specimen SHOULD be conformant to ObservationDefinition.specimen. In particular, a Specimen resource referenced by Observation SHOULD be of the kind of specimen described in a SpecimenDefinition resource referenced by ObservationDefinition.</li>
-<li>Observation.value SHOULD be conformant to the characteristics specified in ObservationDefinition for values: permittedDataType, multipleResultsAllowed, quantitativeDetails, qualifiedValue.</li>
-<li>If ObservationDefinition contains qualifiedValue elements embedding range elements, then a referenceRange element in Observation SHOULD derive from the appropriate ObservationDefinition.qualifiedValue.range  according to the criteria elements specified within ObservationDefinition.qualifiedValue, met by the current context of the observation.</li>
-<li>If ObservationDefinition contains qualifiedValue elements embedding a validCodedValueSet element, and if Observation.value is a coded value, that value should come from the ValueSet referenced by a validCodedValueSet element of the qualifiedValue element met by the current context of the observation.</li>
+<li>Category, code, datatype of the value, bodySite, method.</li>
+<li>Each referenceRange element present in Observation should come from a qualifiedInterval element of ObservationDefinition.</li>
+<li>If ObservationDefinition has declared a ValueSet of valid coded values, and if Observation has a valueCodeableConcept, the value is expected to be part of that ValueSet.</li>
+<li>The subject of the Observation should be conformant with one of the subjectCodeableConcept listed in ObservationDefinition.</li>
+<li>If the Observation has a device element, the referenced Device resource should conform to a DeviceDefinition or Device referenced by ObservationDefinition.device (if present).</li>
+<li>If the Observation has a specimen element, the referenced Specimen resource should conform to a SpecimenDefinition referenced by ObservationDefinition.specimen (if present).</li>
 </ul>
 <p>
-ObservationDefinition enables to express some Quantity results in two distinct units of measure: the primary or SI one, represented by element unit, and a converted one, provided for accommodation of some actors, represented by element customaryUnit. Observation may pick only the primary unit, or may express its result in both units, in two component results.
-</p>
+ObservationDefinition enables to express some Quantity results in two distinct units of measure: the primary or SI one, represented by element unit, and a converted one, provided for accommodation of some actors, represented by element customaryUnit. Observation may pick only the primary unit, or may express its result in both units, in two component results.</p>
 </div>
 
 

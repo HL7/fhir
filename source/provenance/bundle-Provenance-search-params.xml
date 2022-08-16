@@ -170,15 +170,16 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Provenance.target"/>
+          <valueString value="Provenance.patient"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Provenance-patient"/>
-        <description value="Target Reference(s) (usually version specific)"/>
+        <description value="Where the activity involved patient data"/>
         <code value="patient"/>
         <type value="reference"/>
-        <expression value="Provenance.target.where(resolve() is Patient)"/>
-        <xpath value="f:Provenance/f:target"/>
+        <expression value="Provenance.patient"/>
+        <xpath value="f:Provenance/f:patient"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

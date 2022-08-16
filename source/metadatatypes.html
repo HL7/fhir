@@ -1,16 +1,16 @@
 <!DOCTYPE HTML>
-      
+
 [%settitle MetaData Types%]
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
 </head>
 <body>
 [%file newnavbar%]
 
-<div class="col-12">
 
-<%mdtheader base%>  
+
+<%mdtheader base%>
 
 <h1>MetaData Types</h1>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Partially Normative</a></td></tr></table>
@@ -18,8 +18,8 @@
 
 
 <p>
-This page describes a set of types used for conveying metadata 
-about knowledge resources (mainly for 
+This page describes a set of types used for conveying metadata
+about knowledge resources (mainly for
 <a href="terminology-module.html">Terminology</a>,
 <a href="conformance-module.html">Conformance</a> and
 <a href="clinicalreasoning-module.html">Clinical Definition</a> resources).
@@ -29,15 +29,20 @@ about knowledge resources (mainly for
 <table class="grid">
  <tr>
   <td style="background-color: #e6ffe6"><a href="#ContactDetail">ContactDetail</a></td>
-  <td style="background-color: #ffe6e6"><a href="#Contributor">Contributor</a></td>
   <td style="background-color: #ffe6e6"><a href="#DataRequirement">DataRequirement</a></td>
   <td style="background-color: #ffe6e6"><a href="#ParameterDefinition">ParameterDefinition</a></td>
+  <td style="background-color: #ffe6e6"><a href="#RelatedArtifact">RelatedArtifact</a></td>
  </tr>
  <tr>
-  <td style="background-color: #ffe6e6"><a href="#RelatedArtifact">RelatedArtifact</a></td>
   <td style="background-color: #ffe6e6"><a href="#TriggerDefinition">TriggerDefinition</a></td>
   <td style="background-color: #ffe6e6"><a href="#Expression">Expression</a></td>
   <td style="background-color: #ffe6e6"><a href="#UsageContext">UsageContext</a></td>
+  <td style="background-color: #ffe6e6"><a href="#ExtendedContactDetail">ExtendedContactDetail</a></td>
+ </tr>
+ <tr>
+  <td style="background-color: #ffe6e6"><a href="#VirtualServiceDetail">VirtualServiceDetail</a></td>
+  <td style="background-color: #ffe6e6"><a href="#Availability">Availability</a></td>
+  <td style="background-color: #ffe6e6"><a href="#MonetaryComponent">MonetaryComponent</a></td>
  </tr>
 </table>
 <p>
@@ -46,7 +51,7 @@ For an index of all data types, see <a href="datatypes.html">the Data types page
 
 <a name="ContactDetail"></a>
 <a name="contactdetail"></a>
-<h3 style="margin-bottom: 1px">ContactDetail</h3>
+<h2 style="margin-bottom: 1px">ContactDetail</h2>
 [%StandardsStatus normative DataType infrastructure%]
 
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
@@ -74,38 +79,9 @@ ContactDetail is used in the following places: [%dtusage ContactDetail%]
 &nbsp;
 </p>
 
-<a name="Contributor"></a>
-<a name="contributor"></a>
-<h3 style="margin-bottom: 1px">Contributor</h3>
-[%StandardsStatus trial-use DataType_(and_the_rest_on_this_page) infrastructure%]
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
-See also <a href="metadatatypes-examples.html#Contributor">Examples</a>, <a href="metadatatypes-definitions.html#Contributor">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#Contributor">Mappings</a>.
-</p>
-
-[%dt Contributor 1%]
-
-
-<div class="use">
-<p><b>Constraints</b></p>
-[%dt.constraints Contributor%]
-[%tx Contributor%]
-</div>
-
-<p>
-Contributor is used in the following places: [%dtusage Contributor%]
-</p>
-
-<a name="interpretation"></a>
-<h4>Interpretation of Contributor in different contexts</h4>
-
-<!-- TODO -->
-<p>
-&nbsp;
-</p>
-
 <a name="DataRequirement"></a>
 <a name="datarequirement"></a>
-<h3 style="margin-bottom: 1px">DataRequirement</h3>
+<h2 style="margin-bottom: 1px">DataRequirement</h2>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#DataRequirement">Examples</a>, <a href="metadatatypes-definitions.html#DataRequirement">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#DataRequirement">Mappings</a>.
 </p>
@@ -181,7 +157,7 @@ DataRequirement is used in the following places: [%dtusage DataRequirement%]
 </p>
 <a name="ParameterDefinition"></a>
 <a name="parameterdefinition"></a>
-<h3 style="margin-bottom: 1px">ParameterDefinition</h3>
+<h2 style="margin-bottom: 1px">ParameterDefinition</h2>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#ParameterDefinition">Examples</a>, <a href="metadatatypes-definitions.html#ParameterDefinition">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#ParameterDefinition">Mappings</a>.
 </p>
@@ -202,13 +178,13 @@ See also <a href="metadatatypes-examples.html#ParameterDefinition">Examples</a>,
 </p>
 <a name="RelatedArtifact"></a>
 <a name="relatedartifact"></a>
-<h3 style="margin-bottom: 1px">RelatedArtifact</h3>
+<h2 style="margin-bottom: 1px">RelatedArtifact</h2>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#RelatedArtifact">Examples</a>, <a href="metadatatypes-definitions.html#RelatedArtifact">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#RelatedArtifact">Mappings</a>.
 </p>
 
 
-<p>The RelatedArtifact structure defines resources related to a module such as previous and next versions of documents, documentation, citations, etc. Note that the name <i>resource</i> here is being used in a more general sense than the FHIR-specific Resource. The related resource may be a FHIR resource, or it may be another type of resource, represented using the Attachment data type.</p>
+<p>The RelatedArtifact structure defines resources related to an artifact such as previous and next versions of documents, documentation, citations, etc. Note that the name <i>artifact</i> here is being used in a general sense; The related artifact may be a FHIR resource, or it may be another type of resource, represented using the Attachment data type.</p>
 
 [%dt RelatedArtifact 1%]
 
@@ -243,14 +219,16 @@ RelatedArtifact is used in the following places: [%dtusage RelatedArtifact%]
 <a name="interpretation"></a>
 <h4>Interpretation of RelatedArtifact in different contexts</h4>
 
-<!-- TODO -->
+<p>
+The RelatedArtifact type is used in a variety of contexts, and supports flexible description of relationships between artifacts. For example, the type can be used to describe both successor and predecessor relationships. This flexibility is needed to support use cases where only one side or other of the relationship is represented in FHIR. In practice, this datatype SHALL NOT be used to create bi-directional linking between FHIR resources.
+</p>
 
 <p>
 &nbsp;
 </p>
 <a name="TriggerDefinition"></a>
 <a name="triggerdefinition"></a>
-<h3 style="margin-bottom: 1px">TriggerDefinition</h3>
+<h2 style="margin-bottom: 1px">TriggerDefinition</h2>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#TriggerDefinition">Examples</a>, <a href="metadatatypes-definitions.html#TriggerDefinition">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#TriggerDefinition">Mappings</a>.
 </p>
@@ -266,10 +244,10 @@ depending on the value of <code>type</code>:</p>
 </ul>
 
 <p>
-A named event is an event identified by the implementation environment. This allows 
-any event generated within the implementation environment to be used as a trigger, 
+A named event is an event identified by the implementation environment. This allows
+any event generated within the implementation environment to be used as a trigger,
 but it requires pre-coordination of the names involved with the consuming environments.
-<a href="v2/0003/index.html">HL7 v2 events</a> are assigned the URI http://terminology.hl7.org/CodeSystem/v2-0003#[code] 
+<a href="v2/0003/index.html">HL7 v2 events</a> are assigned the URI http://terminology.hl7.org/CodeSystem/v2-0003#[code]
 e.g. http://terminology.hl7.org/CodeSystem/v2-0003/A01, and reference any data change that would trigger
 the sending of the matching HL7 v2 version, if the application providing the FHIR API
 supports v2 events internally.
@@ -277,9 +255,9 @@ supports v2 events internally.
 
 <p>A scheduled event occurs on a fixed or periodic schedule.</p>
 
-<p>And finally, a data event occurs in response to some data-related event in the 
-integrated environment such as a record being added or updated. The data-of-interest 
-for a data event is described using a <a href="metadatatypes.html#DataRequirement">DataRequirement</a>. 
+<p>And finally, a data event occurs in response to some data-related event in the
+integrated environment such as a record being added or updated. The data-of-interest
+for a data event is described using a <a href="metadatatypes.html#DataRequirement">DataRequirement</a>.
 This allows for systems to automatically invoke based on data activity occurring within the system.
 A condition may also be specified to further refine the trigger</p>
 
@@ -301,7 +279,7 @@ TriggerDefinition is used in the following places: [%dtusage TriggerDefinition%]
 </p>
 <a name="Expression"></a>
 <a name="expression"></a>
-<h3 style="margin-bottom: 1px">Expression</h3>
+<h2 style="margin-bottom: 1px">Expression</h2>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#Expression">Examples</a>, <a href="metadatatypes-definitions.html#Expression">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#Expression">Mappings</a>.
 </p>
@@ -311,7 +289,7 @@ See also <a href="metadatatypes-examples.html#Expression">Examples</a>, <a href=
 The expression is provided in a specifed language (by mime type)</p>
 
 <p>
-The context of use of the expression must specify the context in which the 
+The context of use of the expression must specify the context in which the
 expression is evaluated, and how the result of the expression is used.
 </p>
 
@@ -334,7 +312,7 @@ Expression is used in the following places: [%dtusage Expression%]
 </p>
 <a name="UsageContext"></a>
 <a name="usagecontext"></a>
-<h3 style="margin-bottom: 1px">UsageContext</h3>
+<h2 style="margin-bottom: 1px">UsageContext</h2>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#UsageContext">Examples</a>, <a href="metadatatypes-definitions.html#UsageContext">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#UsageContext">Mappings</a>.
 </p>
@@ -362,7 +340,114 @@ UsageContext is used in the following places: [%dtusage UsageContext%]
 &nbsp;
 </p>
 
+<a name="ExtendedContactDetail"></a>
+<a name="extendedcontactdetail"></a>
+<h2 style="margin-bottom: 1px">ExtendedContactDetail</h2>
+
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes-examples.html#ExtendedContactDetail">Examples</a>, <a href="metadatatypes-definitions.html#ExtendedContactDetail">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#ExtendedContactDetail">Mappings</a>.
+</p>
+
+<p>The ExtendedContactDetail structure defines extended contact details for a named, or unnamed individual/purpose.</p>
+<p>
+  These are extensively used in provider directory resources where contact information is 
+  often very rich in nature, and requires additional metadata around their usage.<br/>
+  This datatype permits the context of the contact informations use to be provided, and
+  groups them together with other important metadata.
+</p>
+<p>
+  Not all properties are expected to be present in all instances, and only the ones that apply.<br/>
+  e.g. A website contact will only have the telecom included, but might also include a purpose 
+  and possibly a period if required. Whereas an accounts contact detail could include their name,
+  postal address and telephone number (and possibly Organization if it was an outsourced capability)
+</p>
+<p>
+  The period provides the general start and end of the contact's applicability for usage.
+  This is not intended to store a history of usages over time, but a convenient way to 
+  record upcoming relevant changes to the content when it is being published.<br/>
+  This permits the a contact to be marked as becoming available from X, or is expected
+  to no longer be available from Y. An extension may be used to mark a contact's general 
+  availability times (9am - 5pm) and also exceptions where the contact is not available
+  (e.g. Public holidays)
+</p>
+
+[%dt ExtendedContactDetail 1%]
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints ExtendedContactDetail%]
+[%tx ExtendedContactDetail%]
 </div>
+
+<p>
+ExtendedContactDetail is used in the following places: [%dtusage ExtendedContactDetail%]
+</p>
+
+<a name="VirtualServiceDetail"></a>
+<a name="virtualservicedetail"></a>
+<h2 style="margin-bottom: 1px">VirtualServiceDetail</h2>
+
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes-examples.html#VirtualServiceDetail">Examples</a>, <a href="metadatatypes-definitions.html#VirtualServiceDetail">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#VirtualServiceDetail">Mappings</a>.
+</p>
+
+<p>The VirtualServiceDetail structure defines details of a virtual communication capability, such as a web conference call.</p>
+
+[%dt VirtualServiceDetail 1%]
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints VirtualServiceDetail%]
+[%tx VirtualServiceDetail%]
+</div>
+
+<p>
+VirtualServiceDetail is used in the following places: [%dtusage VirtualServiceDetail%]
+</p>
+
+<a name="Availability"></a>
+<a name="availability"></a>
+<h2 style="margin-bottom: 1px">Availability</h2>
+
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes-examples.html#Availability">Examples</a>, <a href="metadatatypes-definitions.html#Availability">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#Availability">Mappings</a>.
+</p>
+
+<p>The Availability structure defines a pattern of availability data typically used in directory resources.</p>
+
+[%dt Availability 1%]
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints Availability%]
+[%tx Availability%]
+</div>
+
+<p>
+  Availability is used in the following places: [%dtusage Availability%]
+</p>
+
+<a name="MonetaryComponent"></a>
+<a name="monetarycomponent"></a>
+<h2 style="margin-bottom: 1px">MonetaryComponent</h2>
+
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+See also <a href="metadatatypes-examples.html#MonetaryComponent">Examples</a>, <a href="metadatatypes-definitions.html#MonetaryComponent">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#MonetaryComponent">Mappings</a>.
+</p>
+
+<p>The MonetaryComponent structure defines a the set of properties across the financial resources.</p>
+
+[%dt MonetaryComponent 1%]
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints MonetaryComponent%]
+[%tx MonetaryComponent%]
+</div>
+
+<p>
+  MonetaryComponent is used in the following places: [%dtusage MonetaryComponent%]
+</p>
 
 [%file newfooter%]
 
@@ -371,38 +456,44 @@ UsageContext is used in the following places: [%dtusage UsageContext%]
 <script>
  try {
    var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
- } catch(exception){ 
+ } catch(exception){
  }
  if (!currentTabIndex)
    currentTabIndex = '0';
 
 $( '#tabs-ContactDetail' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
-$( '#tabs-Contributor' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-DataRequirement' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-ParameterDefinition' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-RelatedArtifact' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-TriggerDefinition' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Expression' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-UsageContext' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
-     
-     
+$( '#tabs-ExtendedContactDetail' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-VirtualServiceDetail' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-Availability' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-MonetaryComponent' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+
+
 function store(currentTab) {
   try {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
-  } catch(exception){ 
+  } catch(exception){
   }
   $( '#tabs-ContactDetail' ).tabs('option', 'active', currentTab);
-  $( '#tabs-Contributor' ).tabs('option', 'active', currentTab);
   $( '#tabs-DataRequirement' ).tabs('option', 'active', currentTab);
   $( '#tabs-ParameterDefinition' ).tabs('option', 'active', currentTab);
   $( '#tabs-RelatedArtifact' ).tabs('option', 'active', currentTab);
   $( '#tabs-TriggerDefinition' ).tabs('option', 'active', currentTab);
   $( '#tabs-Expression' ).tabs('option', 'active', currentTab);
   $( '#tabs-UsageContext' ).tabs('option', 'active', currentTab);
+  $( '#tabs-ExtendedContactDetail' ).tabs('option', 'active', currentTab);
+  $( '#tabs-VirtualServiceDetail' ).tabs('option', 'active', currentTab);
+  $( '#tabs-Availability' ).tabs('option', 'active', currentTab);
+  $( '#tabs-MonetaryComponent' ).tabs('option', 'active', currentTab);
   document.activeElement.blur();
-}     
+}
 </script>
 
-  
+
 </body>
 </html>

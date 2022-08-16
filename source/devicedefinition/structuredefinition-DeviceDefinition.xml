@@ -24,7 +24,7 @@
     <valueCode value=".operationalStatus = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="DeviceDefinition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -41,8 +41,8 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="The characteristics, operational status and capabilities of a medical-related component of a medical device."/>
-  <fhirVersion value="4.6.0"/>
+  <description value="This is a specialized resource that defines the characteristics and capabilities of a device."/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
@@ -74,10 +74,20 @@
         <map value="administrative.device"/>
       </mapping>
     </element>
+    <element id="DeviceDefinition.description">
+      <path value="DeviceDefinition.description"/>
+      <short value="Additional information to describe the device"/>
+      <definition value="Additional information to describe the device."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
     <element id="DeviceDefinition.identifier">
       <path value="DeviceDefinition.identifier"/>
       <short value="Instance identifier"/>
-      <definition value="Unique instance identifiers assigned to a device by the software, manufacturers, other organizations or owners. For example: handle ID."/>
+      <definition value="Unique instance identifiers assigned to a device by the software, manufacturers, other organizations or owners. For example: handle ID. The identifier is typically valued if the udiDeviceIdentifier, partNumber or modelNumber is not valued and represents a different type of identifier.  However, it is permissible to still include those identifiers in DeviceDefinition.identifier with the appropriate identifier.type."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -103,8 +113,8 @@
     </element>
     <element id="DeviceDefinition.udiDeviceIdentifier.deviceIdentifier">
       <path value="DeviceDefinition.udiDeviceIdentifier.deviceIdentifier"/>
-      <short value="The identifier that is to be associated with every Device that references this DeviceDefintiion for the issuer and jurisdication porvided in the DeviceDefinition.udiDeviceIdentifier"/>
-      <definition value="The identifier that is to be associated with every Device that references this DeviceDefintiion for the issuer and jurisdication porvided in the DeviceDefinition.udiDeviceIdentifier."/>
+      <short value="The identifier that is to be associated with every Device that references this DeviceDefintiion for the issuer and jurisdiction provided in the DeviceDefinition.udiDeviceIdentifier"/>
+      <definition value="The identifier that is to be associated with every Device that references this DeviceDefintiion for the issuer and jurisdiction provided in the DeviceDefinition.udiDeviceIdentifier."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -131,15 +141,64 @@
         <code value="uri"/>
       </type>
     </element>
-    <element id="DeviceDefinition.manufacturer[x]">
-      <path value="DeviceDefinition.manufacturer[x]"/>
-      <short value="Name of device manufacturer"/>
-      <definition value="A name of the manufacturer  or legal representative e.g. labeler. Whether this is the actual manufacturer or the labeler or responsible depends on implementation and jurisdiction."/>
+    <element id="DeviceDefinition.udiDeviceIdentifier.marketDistribution">
+      <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution"/>
+      <short value="Indicates whether and when the device is available on the market"/>
+      <definition value="Indicates where and when the device is available on the market."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.udiDeviceIdentifier.marketDistribution.marketPeriod">
+      <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution.marketPeriod"/>
+      <short value="Begin and end dates for the commercial distribution of the device"/>
+      <definition value="Begin and end dates for the commercial distribution of the device."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.udiDeviceIdentifier.marketDistribution.subJurisdiction">
+      <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution.subJurisdiction"/>
+      <short value="National state or territory where the device is commercialized"/>
+      <definition value="National state or territory to which the marketDistribution recers, typically where the device is commercialized."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.partNumber">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="W5 note what = what.productidentification."/>
+      </extension>
+      <path value="DeviceDefinition.partNumber"/>
+      <short value="The part number or catalog number of the device"/>
+      <definition value="The part number or catalog number of the device."/>
+      <comment value="Alphanumeric Maximum 20."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playedRole[typeCode=MANU].id"/>
+      </mapping>
+    </element>
+    <element id="DeviceDefinition.manufacturer">
+      <path value="DeviceDefinition.manufacturer"/>
+      <short value="Name of device manufacturer"/>
+      <definition value="A name of the manufacturer  or legal representative e.g. labeler. Whether this is the actual manufacturer or the labeler or responsible depends on implementation and jurisdiction."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
@@ -182,8 +241,8 @@
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
       <path value="DeviceDefinition.deviceName.type"/>
-      <short value="udi-label-name | user-friendly-name | patient-reported-name | manufacturer-name | model-name | other"/>
-      <definition value="The type of deviceName.&#xA;UDILabelName | UserFriendlyName | PatientReportedName | ManufactureDeviceName | ModelName."/>
+      <short value="registered-name | user-friendly-name | patient-reported-name"/>
+      <definition value="The type of deviceName.&#xA;RegisteredName | UserFriendlyName | PatientReportedName."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -227,12 +286,23 @@
         <map value=".softwareName (included as part)"/>
       </mapping>
     </element>
-    <element id="DeviceDefinition.type">
-      <path value="DeviceDefinition.type"/>
+    <element id="DeviceDefinition.classification">
+      <path value="DeviceDefinition.classification"/>
       <short value="What kind of device or device system this is"/>
       <definition value="What kind of device or device system this is."/>
+      <comment value="In this element various classifications can be used, such as GMDN, EMDN, SNOMED CT, risk classes, national product codes."/>
       <min value="0"/>
       <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.classification.type">
+      <path value="DeviceDefinition.classification.type"/>
+      <short value="A classification or risk class of the device model"/>
+      <definition value="A classification or risk class of the device model."/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -245,6 +315,16 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
       </binding>
     </element>
+    <element id="DeviceDefinition.classification.justification">
+      <path value="DeviceDefinition.classification.justification"/>
+      <short value="Further information qualifying this classification of the device model"/>
+      <definition value="Further information qualifying this classification of the device model."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
+    </element>
     <element id="DeviceDefinition.specialization">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="600,170"/>
@@ -255,21 +335,9 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
+        <code value="RelatedArtifact"/>
       </type>
     </element>
-    <element id="DeviceDefinition.specialization.systemType">
-      <path value="DeviceDefinition.specialization.systemType"/>
-      <short value="The standard that is used to operate and communicate"/>
-      <definition value="The standard that is used to operate and communicate."/>
-      <alias value="&#x3A3;"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-
     <element id="DeviceDefinition.hasPart">
       <path value="DeviceDefinition.hasPart"/>
       <short value="A device, part of the current one"/>
@@ -413,6 +481,38 @@
         <code value="uri"/>
       </type>
     </element>    
+
+    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution">
+      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution"/>
+      <short value="Indicates whether and when the device is available on the market"/>
+      <definition value="The organization that assigns the identifier algorithm."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.marketPeriod">
+      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.marketPeriod"/>
+      <short value="Begin and end dates for the commercial distribution of the device"/>
+      <definition value="Begin and end dates for the commercial distribution of the device."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.subJurisdiction">
+      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.subJurisdiction"/>
+      <short value="National state or territory where the device is commercialized"/>
+      <definition value="National state or territory to which the marketDistribution refers, typically where the device is commercialized."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+
     <element id="DeviceDefinition.packaging.packaging">
       <path value="DeviceDefinition.packaging.packaging"/>
       <short value="Allows packages within packages"/>
@@ -420,39 +520,6 @@
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#DeviceDefinition.packaging"/>
-    </element>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <element id="DeviceDefinition.specialization.version">
-      <path value="DeviceDefinition.specialization.version"/>
-      <short value="The version of the standard that is used to operate and communicate"/>
-      <definition value="The version of the standard that is used to operate and communicate."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
     </element>
     <element id="DeviceDefinition.version">
       <path value="DeviceDefinition.version"/>
@@ -500,10 +567,6 @@
         <code value="string"/>
       </type>
     </element>
-
-
-
-
     <element id="DeviceDefinition.safety">
       <path value="DeviceDefinition.safety"/>
       <short value="Safety characteristics of the device"/>
@@ -532,53 +595,10 @@
         <code value="ProductShelfLife"/>
       </type>
     </element>
-    <element id="DeviceDefinition.physicalCharacteristics">
-      <path value="DeviceDefinition.physicalCharacteristics"/>
-      <short value="Physical characteristics to define or specify the product - for example dimensions, color etc."/>
-      <definition value="Physical characteristics to define or specify the product - for example dimensions, color etc. These can be defined by the manufacturer or labeler, or can be used to specify characteristics when ordering."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="ProdCharacteristic"/>
-      </type>
-    </element>
     <element id="DeviceDefinition.languageCode">
       <path value="DeviceDefinition.languageCode"/>
       <short value="Language code for the human-readable text strings produced by the device (all supported)"/>
       <definition value="Language code for the human-readable text strings produced by the device (all supported)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-    </element>
-    <element id="DeviceDefinition.capability">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="600,90"/>
-      </extension>
-      <path value="DeviceDefinition.capability"/>
-      <short value="Additional capabilities of the device"/>
-      <definition value="Additional capabilities that the device is defined or required to have e.g. &quot;water resistant&quot;, &quot;long life&quot;."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="DeviceDefinition.capability.type">
-      <path value="DeviceDefinition.capability.type"/>
-      <short value="The type of capability - whether it is a physical attribute, a customization needed"/>
-      <definition value="The type of capability - whether it is a physical attribute, a customization needed. For exampl e &quot;water ingress protection&quot;."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-    </element>
-    <element id="DeviceDefinition.capability.description">
-      <path value="DeviceDefinition.capability.description"/>
-      <short value="The actual capability of the device"/>
-      <definition value="The actual capability of the device e.g. IP67."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -590,8 +610,8 @@
         <valueCode value="600,240"/>
       </extension>
       <path value="DeviceDefinition.property"/>
-      <short value="The actual configuration settings of a device as it actually operates, e.g., regulation status, time properties"/>
-      <definition value="The actual configuration settings of a device as it actually operates, e.g., regulation status, time properties."/>
+      <short value="The potential, valid configuration settings of a device, e.g., regulation status, time properties"/>
+      <definition value="The potential, valid configuration settings of a device, e.g., regulation status, time properties."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -600,32 +620,41 @@
     </element>
     <element id="DeviceDefinition.property.type">
       <path value="DeviceDefinition.property.type"/>
-      <short value="Code that specifies the property DeviceDefinitionPropetyCode (Extensible)"/>
-      <definition value="Code that specifies the property DeviceDefinitionPropetyCode (Extensible)."/>
+      <short value="Code that specifies the property"/>
+      <definition value="Code that specifies the property."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="DeviceDefinition.property.valueQuantity">
-      <path value="DeviceDefinition.property.valueQuantity"/>
-      <short value="Property value as a quantity"/>
-      <definition value="Property value as a quantity."/>
-      <min value="0"/>
-      <max value="*"/>
+    <element id="DeviceDefinition.property.value[x]">
+      <path value="DeviceDefinition.property.value[x]"/>
+      <short value="Property value - as a code or quantity"/>
+      <definition value="Property value - the data type depends on the property type."/>
+      <comment value="The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc."/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="Quantity"/>
       </type>
-    </element>
-    <element id="DeviceDefinition.property.valueCode">
-      <path value="DeviceDefinition.property.valueCode"/>
-      <short value="Property value as a code, e.g., NTP4 (synced to NTP)"/>
-      <definition value="Property value as a code, e.g., NTP4 (synced to NTP)."/>
-      <min value="0"/>
-      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
       </type>
     </element>
     <element id="DeviceDefinition.owner">
@@ -666,6 +695,7 @@
         <map value=".scopedRole[typeCode=CON].player"/>
       </mapping>
     </element>
+<!--
     <element id="DeviceDefinition.onlineInformation">
       <path value="DeviceDefinition.onlineInformation"/>
       <short value="Access to on-line information"/>
@@ -674,6 +704,46 @@
       <max value="1"/>
       <type>
         <code value="uri"/>
+      </type>
+    </element>
+-->
+    <element id="DeviceDefinition.link">
+      <path value="DeviceDefinition.link"/>
+      <short value="An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device"/>
+      <definition value="An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.link.relation">
+      <path value="DeviceDefinition.link.relation"/>
+      <short value="The type indicates the relationship of the related device to the device instance"/>
+      <definition value="The type indicates the relationship of the related device to the device instance."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceDefinitionRelationType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The type of relation between this and the linked device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-relationtype"/>
+      </binding>
+    </element>
+    <element id="DeviceDefinition.link.relatedDevice">
+      <path value="DeviceDefinition.link.relatedDevice"/>
+      <short value="A reference to the linked device"/>
+      <definition value="A reference to the linked device."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
     </element>
     <element id="DeviceDefinition.note">
@@ -755,6 +825,216 @@
       <max value="1"/>
       <type>
         <code value="boolean"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.productionIdentifierInUDI">
+      <path value="DeviceDefinition.productionIdentifierInUDI"/>
+      <short value="lot-number | manufactured-date | serial-number | expiration-date | biological-source | software-version"/>
+      <definition value="Indicates the production identifier(s) that are expected to appear in the UDI carrier on the device label."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceProductionIdentifierInUDI"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The production identifier(s) that are expected to appear in the UDI carrier."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-productidentifierinudi"/>
+      </binding>
+    </element>
+    <element id="DeviceDefinition.guideline">
+      <path value="DeviceDefinition.guideline"/>
+      <short value="Information aimed at providing directions for the usage of this model of device"/>
+      <definition value="Information aimed at providing directions for the usage of this model of device."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+          <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.guideline.useContext">
+      <path value="DeviceDefinition.guideline.useContext"/>
+      <short value="The circumstances that form the setting for using the device"/>
+      <definition value="The circumstances that form the setting for using the device."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+          <code value="UsageContext"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.guideline.usageInstruction">
+      <path value="DeviceDefinition.guideline.usageInstruction"/>
+      <short value="Detailed written and visual directions for the user on how to use the device"/>
+      <definition value="Detailed written and visual directions for the user on how to use the device."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+          <code value="markdown"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.guideline.relatedArtifact">
+      <path value="DeviceDefinition.guideline.relatedArtifact"/>
+      <short value="A source of information or reference for this guideline"/>
+      <definition value="A source of information or reference for this guideline."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+          <code value="RelatedArtifact"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.guideline.indication">
+      <path value="DeviceDefinition.guideline.indication"/>
+      <short value="A clinical condition for which the device was designed to be used"/>
+      <definition value="A clinical condition for which the device was designed to be used."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+          <code value="CodeableReference"/>
+          <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.guideline.contraindication">
+      <path value="DeviceDefinition.guideline.contraindication"/>
+      <short value="A specific situation when a device should not be used because it may cause harm"/>
+      <definition value="A specific situation when a device should not be used because it may cause harm."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+          <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.guideline.warning">
+      <path value="DeviceDefinition.guideline.warning"/>
+      <short value="Specific hazard alert information that a user needs to know before using the device"/>
+      <definition value="Specific hazard alert information that a user needs to know before using the device."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+          <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.guideline.intendedUse">
+      <path value="DeviceDefinition.guideline.intendedUse"/>
+      <short value="A description of the general purpose or medical use of the device or its function"/>
+      <definition value="A description of the general purpose or medical use of the device or its function."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+          <code value="string"/>
+      </type>
+    </element>
+
+
+    <element id="DeviceDefinition.correctiveAction">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="350,0"/>
+      </extension>
+      <path value="DeviceDefinition.correctiveAction"/>
+      <short value="Tracking of latest field safety corrective action"/>
+      <definition value="Tracking of latest field safety corrective action."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.correctiveAction.recall">
+      <path value="DeviceDefinition.correctiveAction.recall"/>
+      <short value="Whether the corrective action was a recall"/>
+      <definition value="Whether the last corrective action known for this device was a recall."/>
+      <comment value="When a field safety action has been initiated but not yet resulted in a recall, this element will be set to 'false'."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.correctiveAction.scope">
+      <path value="DeviceDefinition.correctiveAction.scope"/>
+      <short value="model | lot-numbers | serial-numbers"/>
+      <definition value="The scope of the corrective action - whether the action targeted all units of a given device model, or only a specific set of batches identified by lot numbers, or individually identified devices identified by the serial name."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceCorrectiveActionScope"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type or scope of the corrective action."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-correctiveactionscope"/>
+      </binding>
+    </element>
+    <element id="DeviceDefinition.correctiveAction.period">
+      <path value="DeviceDefinition.correctiveAction.period"/>
+      <short value="Start and end dates of the  corrective action"/>
+      <definition value="Start and end dates of the  corrective action."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.chargeItem">
+      <path value="DeviceDefinition.chargeItem"/>
+      <short value="Billing code or reference associated with the device"/>
+      <definition value="Billing code or reference associated with the device."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+          <code value="BackboneElement"/>
+      </type>
+    </element>
+
+    <element id="DeviceDefinition.chargeItem.chargeItemCode">
+      <path value="DeviceDefinition.chargeItem.chargeItemCode"/>
+      <short value="The code or reference for the charge item"/>
+      <definition value="The code or reference for the charge item."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+          <code value="CodeableReference"/>
+          <targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
+      </type>
+    </element>
+
+    <element id="DeviceDefinition.chargeItem.count">
+      <path value="DeviceDefinition.chargeItem.count"/>
+      <short value="Coefficient applicable to the billing code"/>
+      <definition value="Coefficient applicable to the billing code."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+          <code value="Quantity"/>
+      </type>
+    </element>
+
+    <element id="DeviceDefinition.chargeItem.effectivePeriod">
+      <path value="DeviceDefinition.chargeItem.effectivePeriod"/>
+      <short value="A specific time period in which this charge item applies"/>
+      <definition value="A specific time period in which this charge item applies."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+          <code value="Period"/>
+      </type>
+    </element>
+
+    <element id="DeviceDefinition.chargeItem.useContext">
+      <path value="DeviceDefinition.chargeItem.useContext"/>
+      <short value="The context to which this charge item applies"/>
+      <definition value="The context to which this charge item applies."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+          <code value="UsageContext"/>
       </type>
     </element>
   </differential>

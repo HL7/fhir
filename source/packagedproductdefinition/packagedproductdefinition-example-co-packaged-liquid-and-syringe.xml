@@ -6,9 +6,11 @@
 	<contained>
 		<DeviceDefinition>
 			<id value="syringeDevice"/>
-			<type>
-				<text value="syringe"/>
-			</type>
+			<classification>
+				<type>
+					<text value="syringe"/>
+				</type>
+			</classification>
 			<!-- Schema appears to be broken, deviceName is not present in XSD -->
 			<!--deviceName>
 				<name value="WonderSyringe"/>
@@ -19,25 +21,21 @@
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="liquidItem"/>
+			<status value="active"/> 
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
 					<code value="solution for injection"/>
 				</coding>
 			</manufacturedDoseForm>
-			<ingredient>
-				<reference>
-					<reference value="Ingredient/liquidIngredient"/>
-				</reference>
-			</ingredient>
 		</ManufacturedItemDefinition>
 	</contained>
 	<!-- the product for which this is one available package type (possibly one package type of several for this product) -->
-	<subject>
+	<packageFor>
 		<reference value="MedicinalProductDefinition/ProductThatHasThisPackType"/>
-	</subject>
+	</packageFor>
 	<!-- package contents start here, consists of a liquid and a syringe -->
-	<package>
+	<packaging>
 		<!-- here we can describe the packaging, but in this case we just want to talk about the contents -->
 		<!-- Note that containedItem here is a completely different meaning to "contained" above
 	         This refers to items physically contained in the package. -->
@@ -48,10 +46,12 @@
 				<reference value="#liquidItem"/>
 				</reference>
 			</item>
-			<amountQuantity>
+			<amount>
 				<value value="20"/>
 				<unit value="ml"/>
-			</amountQuantity>
+				<system value="http://unitsofmeasure.org"/> 
+				<code value="mL"/>
+			</amount>
 		</containedItem>
 		<containedItem>
 			<item>
@@ -61,5 +61,5 @@
 				</reference>
 			</item>
 		</containedItem>
-	</package>
+	</packaging>
 </PackagedProductDefinition>

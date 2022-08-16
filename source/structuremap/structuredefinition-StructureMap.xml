@@ -27,7 +27,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="StructureMap"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="A Map of relationships between 2 structures that can be used to transform data."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -87,7 +87,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
       </constraint>
@@ -222,7 +222,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -464,7 +464,7 @@
         </extension>
         <strength value="required"/>
         <description value="How the referenced structure is used in this mapping."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-model-mode|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-model-mode|5.0.0"/>
       </binding>
     </element>
     <element id="StructureMap.structure.alias">
@@ -554,7 +554,7 @@
         </extension>
         <strength value="required"/>
         <description value="If this is the default rule set to apply for the source type, or this combination of types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-group-type-mode|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-group-type-mode|5.0.0"/>
       </binding>
     </element>
     <element id="StructureMap.group.documentation">
@@ -621,7 +621,7 @@
         </extension>
         <strength value="required"/>
         <description value="Mode for this instance of data."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-input-mode|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-input-mode|5.0.0"/>
       </binding>
     </element>
     <element id="StructureMap.group.input.documentation">
@@ -717,165 +717,15 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="StructureMap.group.rule.source.defaultValue[x]">
-      <path value="StructureMap.group.rule.source.defaultValue[x]"/>
+    <element id="StructureMap.group.rule.source.defaultValue">
+      <path value="StructureMap.group.rule.source.defaultValue"/>
       <short value="Default value if no value exists"/>
       <definition value="A value to use if there is no existing value in the source object."/>
       <comment value="If there&#39;s a default value on an item that can repeat, it will only be used once."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="base64Binary"/>
-      </type>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <type>
-        <code value="canonical"/>
-      </type>
-      <type>
-        <code value="code"/>
-      </type>
-      <type>
-        <code value="date"/>
-      </type>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <type>
-        <code value="id"/>
-      </type>
-      <type>
-        <code value="instant"/>
-      </type>
-      <type>
-        <code value="integer"/>
-      </type>
-      <type>
-        <code value="integer64"/>
-      </type>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <type>
-        <code value="oid"/>
-      </type>
-      <type>
-        <code value="positiveInt"/>
-      </type>
-      <type>
         <code value="string"/>
-      </type>
-      <type>
-        <code value="time"/>
-      </type>
-      <type>
-        <code value="unsignedInt"/>
-      </type>
-      <type>
-        <code value="uri"/>
-      </type>
-      <type>
-        <code value="url"/>
-      </type>
-      <type>
-        <code value="uuid"/>
-      </type>
-      <type>
-        <code value="Address"/>
-      </type>
-      <type>
-        <code value="Age"/>
-      </type>
-      <type>
-        <code value="Annotation"/>
-      </type>
-      <type>
-        <code value="Attachment"/>
-      </type>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <type>
-        <code value="ContactPoint"/>
-      </type>
-      <type>
-        <code value="Count"/>
-      </type>
-      <type>
-        <code value="Distance"/>
-      </type>
-      <type>
-        <code value="Duration"/>
-      </type>
-      <type>
-        <code value="HumanName"/>
-      </type>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <type>
-        <code value="Money"/>
-      </type>
-      <type>
-        <code value="Period"/>
-      </type>
-      <type>
-        <code value="Quantity"/>
-      </type>
-      <type>
-        <code value="Range"/>
-      </type>
-      <type>
-        <code value="Ratio"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-      </type>
-      <type>
-        <code value="SampledData"/>
-      </type>
-      <type>
-        <code value="Signature"/>
-      </type>
-      <type>
-        <code value="Timing"/>
-      </type>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <type>
-        <code value="Contributor"/>
-      </type>
-      <type>
-        <code value="DataRequirement"/>
-      </type>
-      <type>
-        <code value="Expression"/>
-      </type>
-      <type>
-        <code value="ParameterDefinition"/>
-      </type>
-      <type>
-        <code value="RelatedArtifact"/>
-      </type>
-      <type>
-        <code value="TriggerDefinition"/>
-      </type>
-      <type>
-        <code value="UsageContext"/>
-      </type>
-      <type>
-        <code value="Dosage"/>
-      </type>
-      <type>
-        <code value="Meta"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -906,7 +756,7 @@
         </extension>
         <strength value="required"/>
         <description value="If field is a list, how to manage the source."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-source-list-mode|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-source-list-mode|5.0.0"/>
       </binding>
     </element>
     <element id="StructureMap.group.rule.source.variable">
@@ -1025,7 +875,7 @@
         </extension>
         <strength value="required"/>
         <description value="If field is a list, how to manage the production."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-target-list-mode|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-target-list-mode|5.0.0"/>
       </binding>
     </element>
     <element id="StructureMap.group.rule.target.listRuleId">
@@ -1055,7 +905,7 @@
         </extension>
         <strength value="required"/>
         <description value="How data is copied/created."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-transform|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-transform|5.0.0"/>
       </binding>
     </element>
     <element id="StructureMap.group.rule.target.parameter">
@@ -1093,6 +943,15 @@
       <type>
         <code value="decimal"/>
       </type>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="time"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
       <isSummary value="true"/>
     </element>
     <element id="StructureMap.group.rule.rule">
@@ -1129,15 +988,13 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="StructureMap.group.rule.dependent.variable">
-      <path value="StructureMap.group.rule.dependent.variable"/>
-      <short value="Variable to pass to the rule or group"/>
-      <definition value="Variable to pass to the rule or group."/>
+    <element id="StructureMap.group.rule.dependent.parameter">
+      <path value="StructureMap.group.rule.dependent.parameter"/>
+      <short value="Parameter to pass to the rule or group"/>
+      <definition value="Parameter to pass to the rule or group."/>
       <min value="1"/>
       <max value="*"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <contentReference value="#StructureMap.group.rule.target.parameter"/>
       <isSummary value="true"/>
     </element>
     <element id="StructureMap.group.rule.documentation">

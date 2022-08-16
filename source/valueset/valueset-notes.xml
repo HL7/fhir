@@ -15,7 +15,7 @@ using the facilities provided by the <a href="codesystem.html">code system</a>. 
  <li><b><code>valueSet</code>(s) only</b>: Codes are 'selected' for inclusion if they are in all the referenced value sets</li>
  <li>If a <b><code>System</code> only</b> is specified, the following rules apply: 
     <ul>
-     <li><b>no <code>concept</code> or <code>filter</code></b>: All codes in the system are included</li>
+     <li><b>no <code>concept</code> or <code>filter</code></b>: All codes defined by the code system, independent of code status, are included</li>
      <li><b><code>concept</code></b>: Only the enumerated codes are selected</li>
      <li><b><code>filter</code></b>: Any codes meeting the filter criteria are selected</li>
     </ul>
@@ -80,7 +80,7 @@ the UI label for the matching data element.
 </p>
 <div class="example">
 <p>
-As an example, the <a href="loinc.html">LOINC code</a> <a href="https://s.details.loinc.org/LOINC/55423-8.html?sections=Comprehensive"><code>55423-8</code></a> 
+As an example, the <a href="http://loinc.org">LOINC</a> code <a href="https://s.details.loinc.org/LOINC/55423-8.html?sections=Comprehensive"><code>55423-8</code></a> 
 has a display value of "Number of steps in unspecified time Pedometer". A value set for a pick list
 in a patient generated data form might choose a simpler name:
 </p>
@@ -195,16 +195,15 @@ used in <code>ValueSet.compose.include.filter</code>. All code systems have
 filters defined in (<a href="codesystem-definitions.html#CodeSystem.filter">CodeSystem.filter)</a>.
 </p>
 <p>
-This specification also defines filters for various published code systems:
+HL7 Terminology defines filters for various published code systems:
 </p>
 <ul>
- <li><a href="loinc.html#filters">LOINC Filters</a></li>
- <li><a href="snomedct.html#filters">Using CT Filters</a></li>
- <li><a href="rxnorm.html#filters">RxNorm Filters</a></li>
- <li><a href="ucum.html#filters">UCUM Filters</a></li>
- <li><a href="ncimeta.html#filters">Using Metathesaurus Filters</a></li>
- <li><a href="cpt.html#filters">CPT Filters</a></li>
- <li><a href="ndfrt.html#filters">NDF-RT Filters</a></li>
+ <li><a href="https://terminology.hl7.org/LOINC.html">LOINC</a></li>
+ <li><a href="https://terminology.hl7.org/SNOMEDCT.html">SNOMED CT</a></li>
+ <li><a href="https://terminology.hl7.org/RxNorm.html">RxNorm</a></li>
+ <li><a href="https://terminology.hl7.org/UCUM.html">UCUM</a></li>
+ <li><a href="https://terminology.hl7.org/CPT.html">CPT</a></li>
+ <li><a href="https://terminology.hl7.org/NDFRT.html">NDF-RT</a></li>
 </ul>
 
 <a name="expansion"></a>
@@ -251,7 +250,7 @@ the following process should be followed:
   </ol>
  </li>
  <li>For each <i>compose.exclude</i>, follow the same process as for <i>compose.include</i>, but remove codes from the expansion in step 3 instead of adding them.</li>
- <li>When available, ValueSet.status and ValueSet.version from the ValueSet resource instance which contains the definition SHALL be persisted to the ValueSet resource instance which contains the expansion.</li>
+ <li>When available, ValueSet.status and ValueSet.version from the ValueSet resource instance which contains the definition SHALL be returned in the ValueSet resource instance which contains the expansion.</li>
 </ul>
 <p>
 The final "result set" is then represented in <i>expansion</i>.
@@ -277,13 +276,11 @@ level of depth. This specification does not fix the meaning of the hierarchy: th
 no implication about the logical relationship between the nested <code>contain</code> elements, and the 
 structure cannot be used for logical inferencing. The structure 
 exists to provide navigational assistance for helping human users to 
-locate codes in the expansion. There is an <a href="valueset-example-hierarchical.html">example of use of a hierarchical expansion</a>.
+locate codes in the expansion.
 </p>
 <p>
 Note that the 
-<code>CodeSystem</code> resource and <code>ValueSet.compose</code> offer no direct support for defining hierarchies and groups;
-applications may want to take advantage of the <a href="extension-valueset-expand-rules.html">expand-rules</a> and 
-<a href="extension-valueset-expand-group.html">expand-group</a> extensions as an implementation feature.
+<code>CodeSystem</code> resource and <code>ValueSet.compose</code> offer no direct support for defining hierarchies and groups.
 An expansion may include entries in the expansion that only serve an arbitrary grouping purpose, to make it easier
 for a human to use the list. These entries have no system or code, and must be marked as abstract.  
 </p>
@@ -325,9 +322,8 @@ produced must be clearly identified so that there is no confusion. The following
 The expansion contains a set of parameters in <code>ValueSet.expansion.parameter</code> that record what controlled the expansion process. 
 These parameters may be used by users of expanded value sets to check whether the expansion 
 is suitable for a particular purpose, or to pick the correct expansion. The server decides which 
-parameters to include here, but at a minimum, the list SHOULD include all of the parameters that 
-affect the <a href="valueset-operation-expand.html">$expand</a> operation. If the expansion will be persisted all of these parameters SHALL 
-be included. If the codeSystem on the server has a specified 
+parameters to return in <code>ValueSet.expansion.parameter</code>, but at a minimum, the list SHOULD include all of the parameters (server default and provided) that 
+affect the <a href="valueset-operation-expand.html">$expand</a> operation. If the codeSystem on the server has a specified 
 version then this version SHALL be provided as a parameter in the expansion (note that not all 
 code systems have a version). 
 </p>
@@ -347,7 +343,7 @@ Other parameters that servers may be required to use:
 </p>
 <table class="grid">
  <tr><td><code>[canonical]#CodeSystem.content</code></td><td>[content] : The content value for the <a href="codesystem.html">code system</a> for the canonical URL. 
-   Applications generating expansions SHALL use this parameter if the CodeSystem.content value is "fragment" or " </td></tr>
+   Applications generating expansions SHALL use this parameter if the CodeSystem.content value is "fragment"</td></tr>
  <tr><td><code>[canonical1]#supplement</code></td><td>[canonical2] : Indicates that the specified supplement (canonical2) contributed to the content
   of the expansion for the code system canonical1 (by influencing selection, or providing designations). Applications generating expansions SHALL use this parameter to record 
 	that a supplement was used during the expansion process</td></tr>

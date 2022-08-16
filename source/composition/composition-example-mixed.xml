@@ -27,9 +27,14 @@
 		<display value="Harold Hippocrates, MD"/>
 	</author>
 	<title value="Discharge Summary (Neonatal Service)"/>
-	<confidentiality value="N"/>
 	<attester>
-		<mode value="legal"/>
+		<mode>
+			<coding>
+				<system value="http://hl7.org/fhir/composition-attestation-mode"/>
+				<code value="legal"/>
+				<display value="Legal"/>
+			</coding>
+		</mode>
 		<time value="2012-01-04T09:10:14Z"/>
 		<party>
 			<reference value="Practitioner/xcda-author"/>

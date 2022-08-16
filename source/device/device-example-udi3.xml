@@ -13,26 +13,31 @@
 		<value value="XYZ456789012345678"/>
 		<!--  this is the serial number -->
 	</identifier>
-	<udi>
-		<!--brand name on label-->
-		<name value="FHIR® Ulltra Implantable"/>
-		<!-- This is  US FDA example -->
-		<jurisdiction value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
-		<!--  The Human readable form here  which is FDA GS-1 format of the udi  -->
-		<carrierHRF value="+H123PARTNO1234567890120/$$420020216LOT123456789012345/SXYZ456789012345678/16D20130202C"/>
+	<udiCarrier>
+	    <deviceIdentifier value="007444534255003288"/>
 		<issuer value="http://hl7.org/fhir/NamingSystem/hibcc"/>
-		<!-- YOu may want to know how the data was entered for data integrity reasons.  This has overlap with Provenance which could identify the enterer-->
+		<jurisdiction value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
+		<carrierHRF value="+H123PARTNO1234567890120/$$420020216LOT123456789012345/SXYZ456789012345678/16D20130202C"/>
 		<entryType value="manual"/>
-	</udi>
+	</udiCarrier>
 	<status value="inactive"/>
-	<lotNumber value="LOT123456789012345"/>
 	<manufacturer value="GlobalMed, Inc"/>
 	<manufactureDate value="2013-02-02"/>
-	<!--20130202= this is the manufacturing date expressed in  [YYYYMMDD]-->
 	<expirationDate value="2020-02-02"/>
-	<!--20020216 = this is the expiration date expressed in YYMMDDHH-->
-	<model value="Ultra Implantable"/>
-	<patient>
+	<lotNumber value="LOT123456789012345"/>
+	<deviceName>
+      <name value="Ultra Implantable" />
+      <type value="user-friendly-name"/>
+    </deviceName>
+	<association>
+	  <status> 
+	     <coding>
+		   <system value="http://terminology.hl7.org/CodeSystem/device-association-status" />
+           <code value="attached"/>
+		 </coding>
+	  </status>
+      <humanSubject>
 		<reference value="Patient/example"/>
-	</patient>
+	  </humanSubject>
+	</association>
 </Device>

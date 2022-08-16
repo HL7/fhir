@@ -38,29 +38,43 @@
         
         <tr>
           
-          <td style="white-space:nowrap">response
+          <td style="white-space:nowrap">required
             
-            <a name="assert-direction-codes-response"> </a>
+            <a name="testscript-scope-conformance-codes-request"> </a>
           
           </td>
           
-          <td>required</td>
+          <td>Required</td>
           
-          <td>All tests are expected to pass. This is the default value.</td>
+          <td>All tests are expected to pass. Warning statuses are permitted. This is the default value.</td>
         
         </tr>
         
         <tr>
           
-          <td style="white-space:nowrap">request
+          <td style="white-space:nowrap">optional
             
-            <a name="assert-direction-codes-request"> </a>
+            <a name="testscript-scope-conformance-codes-optional"> </a>
           
           </td>
           
-          <td>optional</td>
+          <td>Optional</td>
           
           <td>All tests are expected to pass but non-pass statuses may be allowed.</td>
+        
+        </tr>
+        
+        <tr>
+          
+          <td style="white-space:nowrap">strict
+            
+            <a name="testscript-scope-conformance-codes-strict"> </a>
+          
+          </td>
+          
+          <td>Strict</td>
+          
+          <td>All tests are expected to pass. Warnings are treated as a failure.</td>
         
         </tr>
       
@@ -82,7 +96,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1535"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="TestScriptScopeConformanceType"/>
   <title value="TestScriptScopeConformanceType"/>
   <status value="draft"/>
@@ -105,12 +119,17 @@
   <content value="complete"/>
   <concept>
     <code value="required"/>
-    <display value="required"/>
-    <definition value="All tests are expected to pass. This is the default value."/>
+    <display value="Required"/>
+    <definition value="All tests are expected to pass. Warning statuses are permitted. This is the default value."/>
   </concept>
   <concept>
     <code value="optional"/>
-    <display value="optional"/>
+    <display value="Optional"/>
     <definition value="All tests are expected to pass but non-pass statuses may be allowed."/>
+  </concept>
+  <concept>
+    <code value="strict"/>
+    <display value="Strict"/>
+    <definition value="All tests are expected to pass. Warnings are treated as a failure."/>
   </concept>
 </CodeSystem>

@@ -61,11 +61,13 @@
 	<status value="active"/>
 	<intent value="original-order"/>
 	<code>
-		<coding>
+	   <concept>
+	  	  <coding>
 			<system value="http://acme.org/tests"/>
 			<code value="LIPID"/>
-		</coding>
-		<text value="Lipid Panel"/>
+		  </coding>
+		  <text value="Lipid Panel"/>
+		</concept>
 	</code>
 	<subject>
 		<reference value="Patient/example"/>

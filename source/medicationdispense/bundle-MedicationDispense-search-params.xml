@@ -119,6 +119,7 @@
         <expression value="MedicationDispense.subject.where(resolve() is Patient)"/>
         <xpath value="f:MedicationDispense/f:subject"/>
         <xpathUsage value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -299,6 +300,34 @@
         <expression value="MedicationDispense.whenPrepared"/>
         <xpath value="f:MedicationDispense/f:whenPrepared"/>
         <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.recorded"/>
+        </extension>
+        <description value="Returns dispenses where dispensing activity began on this date"/>
+        <code value="recorded"/>
+        <type value="date"/>
+        <expression value="MedicationDispense.recorded"/>
+        <xpath value="f:MedicationDispense/f:recorded"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationDispense.location"/>
+        </extension>
+        <description value="Returns dispense for a given location"/>
+        <code value="location"/>
+        <type value="reference"/>
+        <expression value="MedicationDispense.location"/>
+        <xpath value="f:MedicationDispense/f:location"/>
       </SearchParameter>
     </resource>
   </entry>

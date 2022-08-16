@@ -19,7 +19,7 @@
 
     The identifier should be globally unique - a UUID, an OID, or a URL/URI
     -->
-	<url value="urn:uuid:68D043B5-9ECF-4559-A57A-396E0D452311"/>
+	<url value="urn:uuid:68d043b5-9ecf-4559-a57a-396e0d452311"/>
 	<version value="20130510"/>
 	<name value="ACME-EHR"/>
 	<title value="ACME EHR capability statement"/>
@@ -69,7 +69,7 @@
 	</implementation>
 	<!--  while the FHIR infrastructure is turning over prior to development, a version is 
     required.   -->
-	<fhirVersion value="4.6.0"/>
+	<fhirVersion value="5.0.0"/>
 	<!--  this system can do either xml or json. (Listing both implies full support for either, with interconversion)  -->
 	<format value="xml"/>
 	<format value="json"/>

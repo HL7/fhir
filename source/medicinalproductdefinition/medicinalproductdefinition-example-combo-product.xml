@@ -167,13 +167,16 @@
 	<contained>
 		<PackagedProductDefinition>
 			<id value="packageCombo"/>
-			<package>
+			<packageFor>
+				<reference value="#"/>
+			</packageFor>
+			<packaging>
 				<type>
 					<coding>
 						<code value="Box"/>
 					</coding>
 				</type>
-				<package>
+				<packaging>
 					<type>
 						<coding>
 							<code value="blister pack"/>
@@ -185,12 +188,12 @@
 							<reference value="#tabletItem"/>
 							</reference>
 						</item>
-						<amountQuantity>
+						<amount>
 							<value value="1"/>
-						</amountQuantity>
+						</amount>
 					</containedItem>
-				</package>
-				<package>
+				</packaging>
+				<packaging>
 					<type>
 						<coding>
 							<code value="tube"/>
@@ -202,25 +205,28 @@
 							<reference value="#creamItem"/>
 							</reference>
 						</item>
-						<amountQuantity>
+						<amount>
 							<value value="20"/>
 							<unit value="g"/>
-						</amountQuantity>
+							<system value="http://unitsofmeasure.org"/> 
+							<code value="g"/>
+						</amount>
 					</containedItem>
-					<package>
+					<packaging>
 						<type>
 							<coding>
 								<code value="cap"/>
 							</coding>
 						</type>
-					</package>
-				</package>
-			</package>
+					</packaging>
+				</packaging>
+			</packaging>
 		</PackagedProductDefinition>
 	</contained>
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="tabletItem"/>
+			<status value="active"/>
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
@@ -233,6 +239,7 @@
 	<contained>
 		<ManufacturedItemDefinition>
 			<id value="creamItem"/>
+			<status value="active"/>
 			<manufacturedDoseForm>
 				<coding>
 					<system value="http://example.org.uk/fhir/doseform"/>
@@ -255,9 +262,4 @@
 	<name>
 		<productName value="ThrushTreat Combo"/>
 	</name>
-	<package>
-		<package>
-			<reference value="#packageCombo"/>
-		</package>
-	</package>
 </MedicinalProductDefinition>

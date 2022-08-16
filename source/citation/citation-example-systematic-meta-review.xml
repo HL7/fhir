@@ -1,0 +1,1477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Citation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/citation.xsd">
+    <id value="citation-example-systematic-meta-review"/>
+	<contained>
+		<Organization>
+	      <id value="o1"/>
+		  <name value="WHO Rapid Evidence Appraisal for COVID-19 Therapies (REACT) Working Group"/>
+		 </Organization>
+	</contained>
+	<contained>
+		<Organization>
+	      <id value="o2"/>
+	      <name value="Population Health Sciences, Bristol Medical School, University of Bristol, Bristol, England."/>
+	    </Organization>
+	</contained>
+	<contained>
+		<Organization>
+	      <id value="o3"/>
+	      <name value="NIHR Bristol Biomedical Research Centre, Bristol, England."/>
+	    </Organization>
+	</contained>
+	<contained>
+		<Organization>
+	      <id value="o4"/>
+	      <name value="Department of Pediatrics, University of British Columbia, Vancouver, Canada."/>
+	    </Organization>
+	</contained>
+	<contained>
+		<Organization>
+	      <id value="o5"/>
+	      <name value="Clinical Unit, Health Emergencies Programme, World Health Organization, Geneva, Switzerland."/>
+	    </Organization>
+	</contained>
+	<contained>
+		<Practitioner>
+			<id value="p1"/>
+			<name>
+				<family value="Sterne"/>
+				<given value="Jonathan A C"/>
+			</name>
+			<telecom>
+				<system value="email"/>
+				<value value="jonathan.sterne@bristol.ac.uk"/>
+			</telecom>
+	    </Practitioner>
+	</contained>
+	<contained>
+		<Practitioner>
+			<id value="p2"/>
+			<name>
+				<family value="Murthy"/>
+				<given value="Srinivas"/>
+			</name>
+	    </Practitioner>
+	</contained>
+	<contained>
+		<Practitioner>
+			<id value="p3"/>
+			<name>
+				<family value="Diaz"/>
+				<given value="Janet V"/>
+			</name>
+	    </Practitioner>
+	</contained>
+	<contained>
+		<PractitionerRole>
+			<id value="pr1"/>
+			<practitioner>
+				<display value="Dr. Ethan Molitch"/>
+			</practitioner>
+			<organization>
+				<display value="University of Chicago"/>
+			</organization>
+		</PractitionerRole>
+	</contained>
+	<contained>
+		<PractitionerRole>
+			<id value="pr2"/>
+			<practitioner>
+				<display value="Erfan Shamsoddin"/>
+			</practitioner>
+			<organization>
+				<display value="COVID-19 Knowledge Accelerator"/>
+			</organization>
+		</PractitionerRole>
+	</contained>
+	<contained>
+		<ArtifactAssessment>
+			<id value="a1"/>
+			<artifactReference>
+				<reference value="Citation/citation-example-systematic-meta-review"/>
+			</artifactReference>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<text value="UC Description"/>
+				</type>
+				<classifier>
+					<text value="To assess systemic corticosteroids on 28-day mortality in critically ill patients with COVID-19"/>
+				</classifier>
+				<author>
+					<reference value="#pr1"/>
+				</author>
+				<freeToShare value="true"/>
+			</content>
+		</ArtifactAssessment>
+	</contained>
+	<contained>
+		<ArtifactAssessment>
+			<id value="a2"/>
+			<artifactReference>
+				<reference value="Citation/citation-example-systematic-meta-review"/>
+			</artifactReference>
+			<content>
+	      			<informationType value="classifier"/>
+				<classifier>
+					<text value="The World Health Organization (Conflict of interest statements included notes on several fundings for co-investigators as well, albeit not directly funding this meta-analysis)"/>
+				</classifier>
+				<author>
+					<reference value="#pr2"/>
+				</author>
+				<freeToShare value="true"/>
+			</content>
+		</ArtifactAssessment>
+	</contained>
+	<contained>
+		<ArtifactAssessment>
+			<id value="a3"/>
+			<artifactReference>
+				<reference value="Citation/citation-example-systematic-meta-review"/>
+			</artifactReference>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<code value="mesh-heading"/>
+						<display value="MeSH heading"/>
+					</coding>
+				</type>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D000073640"/>
+						<display value="Betacoronavirus"/>
+					</coding>
+				</classifier>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D000086382"/>
+						<display value="COVID-19"/>
+					</coding>
+				</classifier>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D002423"/>
+						<display value="Cause of Death"/>
+					</coding>
+				</classifier>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D016638"/>
+						<display value="Critical Illness"/>
+					</coding>
+				</classifier>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D006801"/>
+						<display value="Humans"/>
+					</coding>
+				</classifier>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D058873"/>
+						<display value="Pandemics"/>
+					</coding>
+				</classifier>
+				<author>
+					<display value="Computable Publishing: MEDLINE-to-FEvIR Converter"/>
+				</author>
+				<freeToShare value="true"/>
+			</content>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<code value="mesh-heading"/>
+						<display value="MeSH heading"/>
+					</coding>
+					<text value="components include qualifier codings"/>
+				</type>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D000305"/>
+						<display value="Adrenal Cortex Hormones"/>
+					</coding>
+				</classifier>
+				<author>
+					<display value="Computable Publishing: MEDLINE-to-FEvIR Converter"/>
+				</author>
+				<freeToShare value="true"/>
+				<component>
+					<type>
+						<text value="qualifier"/>
+					</type>
+					<classifier>
+						<coding>
+							<system value="https://meshb.nlm.nih.gov/"/>
+							<code value="Q000627"/>
+							<display value="therapeutic use"/>
+						</coding>
+					</classifier>
+					<component>
+						<type>
+							<text value="is Major topic"/>
+						</type>
+						<classifier>
+							<coding>
+								<code value="Y"/>
+							</coding>
+						</classifier>
+					</component>
+				</component>
+			</content>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<code value="mesh-heading"/>
+						<display value="MeSH heading"/>
+					</coding>
+					<text value="components include qualifier codings"/>
+				</type>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D018352"/>
+						<display value="Coronavirus Infections"/>
+					</coding>
+				</classifier>
+				<author>
+					<display value="Computable Publishing: MEDLINE-to-FEvIR Converter"/>
+				</author>
+				<freeToShare value="true"/>
+				<component>
+					<type>
+						<text value="qualifier"/>
+					</type>
+					<classifier>
+						<coding>
+							<system value="https://meshb.nlm.nih.gov/"/>
+							<code value="Q000188"/>
+							<display value="drug therapy"/>
+						</coding>
+					</classifier>
+					<component>
+						<type>
+							<text value="is Major topic"/>
+						</type>
+						<classifier>
+							<coding>
+								<code value="Y"/>
+							</coding>
+						</classifier>
+					</component>
+				</component>
+				<component>
+					<type>
+						<text value="qualifier"/>
+					</type>
+					<classifier>
+						<coding>
+							<system value="https://meshb.nlm.nih.gov/"/>
+							<code value="Q000401"/>
+							<display value="mortality"/>
+						</coding>
+					</classifier>
+					<component>
+						<type>
+							<text value="is Major topic"/>
+						</type>
+						<classifier>
+							<coding>
+								<code value="N"/>
+							</coding>
+						</classifier>
+					</component>
+				</component>
+			</content>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<code value="mesh-heading"/>
+						<display value="MeSH heading"/>
+					</coding>
+					<text value="components include qualifier codings"/>
+				</type>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D003907"/>
+						<display value="Dexamethasone"/>
+					</coding>
+				</classifier>
+				<author>
+					<display value="Computable Publishing: MEDLINE-to-FEvIR Converter"/>
+				</author>
+				<freeToShare value="true"/>
+				<component>
+					<type>
+						<text value="qualifier"/>
+					</type>
+					<classifier>
+						<coding>
+							<system value="https://meshb.nlm.nih.gov/"/>
+							<code value="Q000627"/>
+							<display value="therapeutic use"/>
+						</coding>
+					</classifier>
+					<component>
+						<type>
+							<text value="is Major topic"/>
+						</type>
+						<classifier>
+							<coding>
+								<code value="N"/>
+							</coding>
+						</classifier>
+					</component>
+				</component>
+			</content>
+			<content>
+	      			<informationType value="classifier"/>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<code value="mesh-heading"/>
+						<display value="MeSH heading"/>
+					</coding>
+					<text value="components include qualifier codings"/>
+				</type>
+				<classifier>
+					<coding>
+						<system value="https://meshb.nlm.nih.gov/"/>
+						<code value="D005938"/>
+						<display value="Glucocorticoids"/>
+					</coding>
+				</classifier>
+				<author>
+					<display value="Computable Publishing: MEDLINE-to-FEvIR Converter"/>
+				</author>
+				<freeToShare value="true"/>
+				<component>
+					<type>
+						<text value="qualifier"/>
+					</type>
+					<classifier>
+						<coding>
+							<system value="https://meshb.nlm.nih.gov/"/>
+							<code value="Q000627"/>
+							<display value="therapeutic use"/>
+						</coding>
+					</classifier>
+					<component>
+						<type>
+							<text value="is Major topic"/>
+						</type>
+						<classifier>
+							<coding>
+								<code value="N"/>
+							</coding>
+						</classifier>
+					</component>
+				</component>
+			</content>
+		</ArtifactAssessment>
+	</contained>
+	<url value="http://hl7.org/fhir/Citation/citation-example-systematic-meta-review"/>
+	<identifier>
+		<type>
+			<text value="FEvIR Object Identifier"/>
+		</type>
+		<system value="https://fevir.net"/>
+		<value value="27121"/>
+		<assigner>
+			<display value="Computable Publishing LLC"/>
+		</assigner>
+	</identifier>
+	<title value="SMR Sterne JAC JAMA 32876694"/>
+	<status value="active"/>
+	<description value="A systematic review included in the Steroids SMR Project"/>
+	<useContext>
+		<code>
+			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+			<code value="program"/>
+			<display value="Program"/>
+		</code>
+		<valueCodeableConcept>
+			<text value="Steroids SMR Project"/>
+		</valueCodeableConcept>
+	</useContext>
+	<copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+	<author>
+		<name value="Brian S. Alper"/>
+	</author>
+	<summary>
+		<style>
+			<coding>
+				<system value="http://terminology.hl7.org/ValueSet/citation-summary-style"/>
+				<code value="comppub"/>
+				<display value="Computable Publishing"/>
+			</coding>
+		</style>
+		<text value="Association Between Administration of Systemic Corticosteroids and Mortality Among Critically Ill Patients With COVID-19: A Meta-analysis [Journal Article]. Contributors: The WHO Rapid Evidence Appraisal for COVID-19 Therapies (REACT) Working Group Authors and Members of the Writing Committee: Jonathan A. C. Sterne, MA, MSc, PhD; Srinivas Murthy, MD, MSc; Janet V. Diaz, MD; Arthur S. Slutsky, CM, MD; JesÃºs Villar, MD, PhD; Derek C. Angus, MD, MPH; Djillali Annane, MD, PhD; Luciano Cesar Pontes Azevedo, MD, PhD; Otavio Berwanger, MD, PhD; Alexandre B. Cavalcanti, MD, PhD; Pierre-Francois Dequin, MD, PhD; Bin Du, MD; Jonathan Emberson, PhD; David Fisher, MSc; Bruno Giraudeau, PhD; Anthony C. Gordon, MBBS, MD; Anders Granholm, MD; Cameron Green, MSc; Richard Haynes, DM; Nicholas Heming, MD, PhD; Julian P. T. Higgins, BA, PhD; Peter Horby, PhD; Peter JÃ¼ni, MD; Martin J. Landray, PhD; Amelie Le Gouge, MSc; Marie Leclerc, MSc; Wei Shen Lim, BMedSci, BMBS, DM; FlÃ¡via R. Machado, MD, PhD; Colin McArthur, MBChB; Ferhat Meziani, MD, PhD; Morten Hylander MÃ¸ller, MD, PhD; Anders Perner, MD, PhD; Marie Warrer Petersen, MD; Jelena SavoviÄ‡, BPharm, MSc, PhD; Bruno Tomazini, MD; Viviane C. Veiga, MD, PhD; Steve Webb, MBBS, MPH, PhD; John C. Marshall, MD. In: JAMA, PMID 32876694. Accessed February 15, 2021. Available at: http://doi.org/10.1001/jama.2020.17023."/>
+	</summary>
+	<classification>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/citation-classification-type"/>
+				<code value="fevir-platform-use"/>
+				<display value="FEvIR Platform Use"/>
+			</coding>
+		</type>
+		<classifier>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+				<code value="project-specific"/>
+				<display value="Project Specific"/>
+			</coding>
+		</classifier>
+	</classification>
+	<statusDate>
+		<activity>
+			<text value="ROB assessment"/>
+		</activity>
+		<actual value="true"/>
+		<period>
+			<end value="2021-06-07"/>
+		</period>
+	</statusDate>
+	<statusDate>
+		<activity>
+			<text value="Author contact"/>
+		</activity>
+		<actual value="true"/>
+		<period>
+			<start value="2021-06-07"/>
+		</period>
+	</statusDate>
+	<relatedArtifact>
+		<type value="derived-from"/>
+		<classifier>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+				<code value="fhir-resource"/>
+				<display value="FHIR Resource"/>
+			</coding>
+		</classifier>
+		<resourceReference>
+			<reference value="Citation/87"/>
+			<type value="Citation"/>
+			<identifier>
+				<system value="https://fevir.net"/>
+				<value value="87"/>
+				<assigner>
+					<display value="FEvIR ID"/>
+				</assigner>
+			</identifier>
+			<display value="32876694 Medline Base"/>
+		</resourceReference>
+	</relatedArtifact>
+	<citedArtifact>
+		<identifier>
+			<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+			<value value="32876694"/>
+			<assigner>
+				<display value="NLM"/>
+			</assigner>
+		</identifier>
+		<identifier>
+			<type>
+				<text value="pii"/>
+			</type>
+			<value value="2770279"/>
+		</identifier>
+		<identifier>
+			<system value="https://doi.org"/>
+			<value value="10.1001/jama.2020.17023"/>
+		</identifier>
+		<identifier>
+			<system value="https://www.ncbi.nlm.nih.gov/pmc/"/>
+			<value value="PMC7489434"/>
+			<assigner>
+				<display value="NLM"/>
+			</assigner>
+		</identifier>
+		<relatedIdentifier>
+			<system value="https://www.crd.york.ac.uk/prospero"/>
+			<value value="CRD42020197242"/>
+			<assigner>
+				<display value="PROSPERO"/>
+			</assigner>
+		</relatedIdentifier>
+		<dateAccessed value="2021-02-15"/>
+		<title>
+			<type>
+				<text value="primary-human-use"/>
+			</type>
+			<language>
+				<coding>
+					<system value="urn:ietf:bcp:47"/>
+					<code value="en"/>
+					<display value="English"/>
+				</coding>
+			</language>
+			<text value="Association Between Administration of Systemic Corticosteroids and Mortality Among Critically Ill Patients With COVID-19: A Meta-analysis."/>
+		</title>
+		<abstract>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-abstract-type"/>
+					<code value="primary-human-use"/>
+					<display value="Primary human use"/>
+				</coding>
+			</type>
+			<text value="&lt;AbstractText Label=&quot;Importance&quot;&gt;Effective therapies for patients with coronavirus disease 2019 (COVID-19) are needed, and clinical trial data have demonstrated that low-dose dexamethasone reduced mortality in hospitalized patients with COVID-19 who required respiratory support.&lt;/AbstractText&gt;&lt;AbstractText Label=&quot;Objective&quot;&gt;To estimate the association between administration of corticosteroids compared with usual care or placebo and 28-day all-cause mortality.&lt;/AbstractText&gt;&lt;AbstractText Label=&quot;Design, Setting, and Participants&quot;&gt;Prospective meta-analysis that pooled data from 7 randomized clinical trials that evaluated the efficacy of corticosteroids in 1703 critically ill patients with COVID-19. The trials were conducted in 12 countries from February 26, 2020, to June 9, 2020, and the date of final follow-up was July 6, 2020. Pooled data were aggregated from the individual trials, overall, and in predefined subgroups. Risk of bias was assessed using the Cochrane Risk of Bias Assessment Tool. Inconsistency among trial results was assessed using the I2 statistic. The primary analysis was an inverse variance-weighted fixed-effect meta-analysis of overall mortality, with the association between the intervention and mortality quantified using odds ratios (ORs). Random-effects meta-analyses also were conducted (with the Paule-Mandel estimate of heterogeneity and the Hartung-Knapp adjustment) and an inverse variance-weighted fixed-effect analysis using risk ratios.&lt;/AbstractText&gt;&lt;AbstractText Label=&quot;Exposures&quot;&gt;Patients had been randomized to receive systemic dexamethasone, hydrocortisone, or methylprednisolone (678 patients) or to receive usual care or placebo (1025 patients).&lt;/AbstractText&gt;&lt;AbstractText Label=&quot;Main Outcomes and Measures&quot;&gt;The primary outcome measure was all-cause mortality at 28 days after randomization. A secondary outcome was investigator-defined serious adverse events.&lt;/AbstractText&gt;&lt;AbstractText Label=&quot;Results&quot;&gt;A total of 1703 patients (median age, 60 years [interquartile range, 52-68 years]; 488 [29%] women) were included in the analysis. Risk of bias was assessed as &quot;low&quot; for 6 of the 7 mortality results and as &quot;some concerns&quot; in 1 trial because of the randomization method. Five trials reported mortality at 28 days, 1 trial at 21 days, and 1 trial at 30 days. There were 222 deaths among the 678 patients randomized to corticosteroids and 425 deaths among the 1025 patients randomized to usual care or placebo (summary OR, 0.66 [95% CI, 0.53-0.82]; P &lt; .001 based on a fixed-effect meta-analysis). There was little inconsistency between the trial results (I2 = 15.6%; P = .31 for heterogeneity) and the summary OR was 0.70 (95% CI, 0.48-1.01; P = .053) based on the random-effects meta-analysis. The fixed-effect summary OR for the association with mortality was 0.64 (95% CI, 0.50-0.82; P &lt; .001) for dexamethasone compared with usual care or placebo (3 trials, 1282 patients, and 527 deaths), the OR was 0.69 (95% CI, 0.43-1.12; P = .13) for hydrocortisone (3 trials, 374 patients, and 94 deaths), and the OR was 0.91 (95% CI, 0.29-2.87; P = .87) for methylprednisolone (1 trial, 47 patients, and 26 deaths). Among the 6 trials that reported serious adverse events, 64 events occurred among 354 patients randomized to corticosteroids and 80 events occurred among 342 patients randomized to usual care or placebo.&lt;/AbstractText&gt;&lt;AbstractText Label=&quot;Conclusions and Relevance&quot;&gt;In this prospective meta-analysis of clinical trials of critically ill patients with COVID-19, administration of systemic corticosteroids, compared with usual care or placebo, was associated with lower 28-day all-cause mortality.&lt;/AbstractText&gt;"/>
+		</abstract>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="JAMA. 2020 Oct 6;324(13):1307-1316"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/32876695/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="32876695"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="Res Synth Methods. 2017 Jun;8(2):181-198"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/27060925/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="27060925"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="Trials. 2020 Aug 24;21(1):734"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/32831155/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="32831155"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="Clin Infect Dis. 2020 Aug 12;:"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/32785710/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="32785710"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="Stat Med. 2001 Dec 30;20(24):3875-89"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/11782040/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="11782040"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="JAMA. 2020 Oct 6;324(13):1298-1306"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/32876689/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="32876689"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="N Engl J Med. 2020 Jul 17;:"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/32678530/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="32678530"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="BMJ. 2020 May 22;369:m1985"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/32444460/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="32444460"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="Cochrane Database Syst Rev. 2019 Dec 6;12:CD002243"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/31808551/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="31808551"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="Intensive Care Med. 2017 Dec;43(12):1751-1763"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/28940011/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="28940011"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="BMJ. 2008 Apr 26;336(7650):924-6"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/18436948/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="18436948"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="BMJ. 2017 Mar 3;356:j573"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/28258124/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="28258124"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="Crit Care Explor. 2020 Apr 29;2(4):e0111"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/32426753/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="32426753"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="JAMA. 2020 Oct 6;324(13):1317-1329"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/32876697/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="32876697"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="BMJ. 2019 Aug 28;366:l4898"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/31462531/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="31462531"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="BMC Med Res Methodol. 2014 Feb 18;14:25"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/24548571/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="24548571"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="JAMA. 2012 Jun 20;307(23):2526-33"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/22797452/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="22797452"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="Ann Am Thorac Soc. 2020 Jul;17(7):879-891"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/32267771/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="32267771"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="JAMA. 2009 Jun 10;301(22):2362-75"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/19509383/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="19509383"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="Lancet. 2020 Feb 15;395(10223):473-475"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/32043983/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="32043983"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="Crit Care Med. 2020 Feb;48(2):e98-e106"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/31939808/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="31939808"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="PLoS One. 2020 Jul 10;15(7):e0235653"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/32649661/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="32649661"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="cites"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<citation value="Med Clin North Am. 1973 Sep;57(5):1277-87"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/4593200/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="4593200"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="comment-in"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016420"/>
+					<display value="Comment"/>
+					<userSelected value="false"/>
+				</coding>
+			</classifier>
+			<citation value="CJEM. 2021 Mar;23(2):162-163"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/33709361/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="33709361"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<relatesTo>
+			<type value="comment-in"/>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016420"/>
+					<display value="Comment"/>
+					<userSelected value="false"/>
+				</coding>
+			</classifier>
+			<citation value="Rev Chilena Infectol. 2020 Dec;37(6):646-666"/>
+			<document>
+				<url value="https://pubmed.ncbi.nlm.nih.gov/33844805/"/>
+			</document>
+			<resourceReference>
+				<identifier>
+					<system value="https://pubmed.ncbi.nlm.nih.gov"/>
+					<value value="33844805"/>
+					<assigner>
+						<display value="NLM"/>
+					</assigner>
+				</identifier>
+			</resourceReference>
+		</relatesTo>
+		<publicationForm>
+			<publishedIn>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/published-in-type"/>
+						<code value="D020492"/>
+						<display value="Periodical"/>
+					</coding>
+				</type>
+				<identifier>
+					<type>
+						<coding>
+							<system value="https://www.nlm.nih.gov/bsd/licensee/elements_descriptions.html#issn"/>
+							<code value="Electronic"/>
+							<display value="Electronic"/>
+						</coding>
+						<text value="ISSN Type"/>
+					</type>
+					<system value="https://portal.issn.org"/>
+					<value value="1538-3598"/>
+				</identifier>
+				<identifier>
+					<type>
+						<text value="ISOAbbreviation"/>
+					</type>
+					<system value="https://www.issn.org/services/online-services/access-to-the-ltwa/"/>
+					<value value="JAMA"/>
+				</identifier>
+				<identifier>
+					<type>
+						<text value="ISSN Linking"/>
+					</type>
+					<system value="https://www.issn.org/understanding-the-issn/assignment-rules/the-issn-l-for-publications-on-multiple-media/"/>
+					<value value="0098-7484"/>
+				</identifier>
+				<identifier>
+					<type>
+						<text value="Medline Title Abbreviation"/>
+					</type>
+					<system value="https://www.nlm.nih.gov/tsd/cataloging/contructitleabbre.html"/>
+					<value value="JAMA"/>
+				</identifier>
+				<identifier>
+					<type>
+						<text value="NLM Unique ID"/>
+					</type>
+					<system value="https://locatorplus.gov/cgi-bin/Pwebrecon.cgi?DB=local"/>
+					<value value="7501160"/>
+				</identifier>
+				<title value="JAMA"/>
+				<publisherLocation value="United States"/>
+			</publishedIn>
+			<periodicRelease>
+				<citedMedium>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/journal-issue-medium"/>
+						<code value="Internet"/>
+						<display value="Internet"/>
+					</coding>
+				</citedMedium>
+				<volume value="324"/>
+				<issue value="13"/>
+				<dateOfPublication>
+					<date value="2020-10-06"/>
+					<year value="2020"/>
+					<month value="10"/>
+					<day value="06"/>
+				</dateOfPublication>
+			</periodicRelease>
+			<language>
+				<coding>
+					<system value="urn:ietf:bcp:47"/>
+					<code value="en"/>
+					<display value="English"/>
+				</coding>
+			</language>
+			<pageString value="1330-1341"/>
+		</publicationForm>
+		<webLocation>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
+					<code value="doi-based"/>
+					<display value="DOI Based"/>
+				</coding>
+			</classifier>
+			<url value="http://doi.org/10.1001/jama.2020.17023"/>
+		</webLocation>
+		<webLocation>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
+					<version value="5.0.0"/>
+					<code value="abstract"/>
+					<display value="Abstract"/>
+					<userSelected value="true"/>
+				</coding>
+				<text value="on PubMed"/>
+			</classifier>
+			<url value="https://pubmed.ncbi.nlm.nih.gov/32876694/"/>
+		</webLocation>
+		<webLocation>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
+					<version value="5.0.0"/>
+					<code value="full-text"/>
+					<display value="Full-Text"/>
+					<userSelected value="true"/>
+				</coding>
+				<text value="on JAMA"/>
+			</classifier>
+			<url value="https://jamanetwork.com/journals/jama/fullarticle/2770279"/>
+		</webLocation>
+		<classification>
+			<type>
+				<text value="Steroids SMR project use"/>
+			</type>
+			<classifier>
+				<text value="primary article"/>
+			</classifier>
+			<classifier>
+				<text value="Unclear risk of bias"/>
+			</classifier>
+		</classification>
+		<classification>
+			<artifactAssessment>
+				<reference value="#a1"/>
+			</artifactAssessment>
+		</classification>
+		<classification>
+			<type>
+				<text value="Funding"/>
+			</type>
+			<artifactAssessment>
+				<reference value="#a2"/>
+			</artifactAssessment>
+		</classification>
+		<classification>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+					<code value="knowledge-artifact-type"/>
+					<display value="Knowledge Artifact Type"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+		</classification>
+		<classification>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+					<code value="publishing-model"/>
+					<display value="Publishing Model"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<code value="Print"/>
+					<display value="Print"/>
+				</coding>
+			</classifier>
+		</classification>
+		<classification>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+					<code value="chemical"/>
+					<display value="Chemical"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="https://www.cas.org/support/documentation/chemical-substances"/>
+					<code value="0"/>
+				</coding>
+				<coding>
+					<system value="https://meshb.nlm.nih.gov/"/>
+					<code value="D000305"/>
+					<display value="Adrenal Cortex Hormones"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://www.cas.org/support/documentation/chemical-substances"/>
+					<code value="0"/>
+				</coding>
+				<coding>
+					<system value="https://meshb.nlm.nih.gov/"/>
+					<code value="D005938"/>
+					<display value="Glucocorticoids"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://www.cas.org/support/documentation/chemical-substances"/>
+					<code value="7S5I7G3JQL"/>
+				</coding>
+				<coding>
+					<system value="https://meshb.nlm.nih.gov/"/>
+					<code value="D003907"/>
+					<display value="Dexamethasone"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://www.cas.org/support/documentation/chemical-substances"/>
+					<code value="WI4X0X7BPJ"/>
+				</coding>
+				<coding>
+					<system value="https://meshb.nlm.nih.gov/"/>
+					<code value="D006854"/>
+					<display value="Hydrocortisone"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://www.cas.org/support/documentation/chemical-substances"/>
+					<code value="X4W7ZR7023"/>
+				</coding>
+				<coding>
+					<system value="https://meshb.nlm.nih.gov/"/>
+					<code value="D008775"/>
+					<display value="Methylprednisolone"/>
+				</coding>
+			</classifier>
+		</classification>
+		<classification>
+			<artifactAssessment>
+				<reference value="#a3"/>
+			</artifactAssessment>
+		</classification>
+		<classification>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+					<code value="publication-type"/>
+					<display value="Publication type"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="https://meshb.nlm.nih.gov/"/>
+					<code value="D016428"/>
+					<display value="Journal Article"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://meshb.nlm.nih.gov/"/>
+					<code value="D017418"/>
+					<display value="Meta-Analysis"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://meshb.nlm.nih.gov/"/>
+					<code value="D013485"/>
+					<display value="Research Support, Non-U.S. Gov&apos;t"/>
+				</coding>
+			</classifier>
+		</classification>
+		<classification>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+					<code value="supplemental-mesh-protocol"/>
+					<display value="Supplemental MeSH for Protocol"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="https://meshb.nlm.nih.gov/"/>
+					<code value="C000705127"/>
+					<display value="COVID-19 drug treatment"/>
+				</coding>
+			</classifier>
+		</classification>
+		<classification>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+					<code value="citation-subset"/>
+					<display value="Citation subset"/>
+				</coding>
+			</type>
+			<classifier>
+				<coding>
+					<system value="https://www.nlm.nih.gov/bsd/licensee/elements_descriptions.html#citationsubset"/>
+					<code value="AIM"/>
+					<display value="AIM"/>
+				</coding>
+			</classifier>
+			<classifier>
+				<coding>
+					<system value="https://www.nlm.nih.gov/bsd/licensee/elements_descriptions.html#citationsubset"/>
+					<code value="IM"/>
+					<display value="IM"/>
+				</coding>
+			</classifier>
+		</classification>
+		<contributorship>
+			<complete value="false"/>
+			<entry>
+				<contributor>
+					<reference value="#o1"/>
+				</contributor>
+			</entry>
+			<entry>
+				<contributor>
+					<reference value="#p1"/>
+				</contributor>
+				<forenameInitials value="JAC"/>
+				<affiliation>
+					<reference value="#o2"/>
+				</affiliation>
+				<affiliation>
+					<reference value="#o3"/>
+				</affiliation>
+				<correspondingContact value="true"/>
+			</entry>
+			<entry>
+				<contributor>
+					<reference value="#p2"/>
+				</contributor>
+				<forenameInitials value="S"/>
+				<affiliation>
+					<reference value="#o4"/>
+				</affiliation>
+			</entry>
+			<entry>
+				<contributor>
+					<reference value="#p3"/>
+				</contributor>
+				<forenameInitials value="JV"/>
+				<affiliation>
+					<reference value="#o5"/>
+				</affiliation>
+			</entry>
+			<summary>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/contributor-summary-type"/>
+						<version value="5.0.0"/>
+						<code value="author-string"/>
+						<display value="Author string"/>
+					</coding>
+				</type>
+				<source>
+					<text value="articleCopy"/>
+				</source>
+				<value value="The WHO Rapid Evidence Appraisal for COVID-19 Therapies (REACT) Working Group Authors and Members of the Writing Committee: Jonathan A. C. Sterne, MA, MSc, PhD; Srinivas Murthy, MD, MSc; Janet V. Diaz, MD; Arthur S. Slutsky, CM, MD; JesÃºs Villar, MD, PhD; Derek C. Angus, MD, MPH; Djillali Annane, MD, PhD; Luciano Cesar Pontes Azevedo, MD, PhD; Otavio Berwanger, MD, PhD; Alexandre B. Cavalcanti, MD, PhD; Pierre-Francois Dequin, MD, PhD; Bin Du, MD; Jonathan Emberson, PhD; David Fisher, MSc; Bruno Giraudeau, PhD; Anthony C. Gordon, MBBS, MD; Anders Granholm, MD; Cameron Green, MSc; Richard Haynes, DM; Nicholas Heming, MD, PhD; Julian P. T. Higgins, BA, PhD; Peter Horby, PhD; Peter JÃ¼ni, MD; Martin J. Landray, PhD; Amelie Le Gouge, MSc; Marie Leclerc, MSc; Wei Shen Lim, BMedSci, BMBS, DM; FlÃ¡via R. Machado, MD, PhD; Colin McArthur, MBChB; Ferhat Meziani, MD, PhD; Morten Hylander MÃ¸ller, MD, PhD; Anders Perner, MD, PhD; Marie Warrer Petersen, MD; Jelena SavoviÄ‡, BPharm, MSc, PhD; Bruno Tomazini, MD; Viviane C. Veiga, MD, PhD; Steve Webb, MBBS, MPH, PhD; John C. Marshall, MD."/>
+			</summary>
+		</contributorship>
+	</citedArtifact>
+</Citation>

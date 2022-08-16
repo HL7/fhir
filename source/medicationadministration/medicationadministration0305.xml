@@ -13,9 +13,9 @@
             <display value="Adcetris"/>
           </coding>
         </code>
-        <sponsor>
+        <marketingAuthorizationHolder>
           <reference value="Organization/mmanu" />
-        </sponsor>
+        </marketingAuthorizationHolder>
           <doseForm>
             <coding>
               <system value="http://snomed.info/sct"/>
@@ -75,11 +75,17 @@
       <system value="http://unitsofmeasure.org"/>
       <code value="mg/kg"/> 
     </dose>
-    <rateQuantity>
-      <value value="20"/>
-      <unit value="min"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="min"/> 
-    </rateQuantity>
+    <rateRatio>
+      <numerator>
+        <value value="250"></value>
+        <unit value="ml"></unit>
+        <system value="http://unitsofmeasure.org"></system>
+      </numerator>
+      <denominator>
+        <value value="30"></value>
+        <unit value="min"></unit>
+        <system value="http://unitsofmeasure.org"></system>
+      </denominator>
+    </rateRatio>
   </dosage>
 </MedicationAdministration>
