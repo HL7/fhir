@@ -506,6 +506,21 @@
         <map value=".reason.ClinicalDocument"/>
       </mapping>
     </element>
+    <element id="Encounter.careTeam">
+      <path value="Encounter.careTeam"/>
+      <short value="The group(s) that are allocated to participate in this encounter"/>
+      <definition value="The group(s) of individuals, organizations that are allocated to participate in this encounter. The participants backbone will record the actuals of when these individuals participated during the encounter."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="Encounter.partOf">
       <path value="Encounter.partOf"/>
       <short value="Another Encounter this encounter is part of"/>
