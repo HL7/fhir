@@ -21,7 +21,7 @@ A Logical Data Model or Logical Model is a representation of data structures, th
 Logical Models contain data elements (entities and attributes) and their constraints and relationships. They allows data requirements to be described from a functional perspective, without attaching to a specific implementation or technology. 
 </p>
 <p>A FHIR logical data model - or simply logical model - is an expression of a data structure captured using FHIR. 
-(There are other formats for representing logical models: visual models (such as UML diagrams), and proprietary formats, such as Sparx Enterprise Architect or others. )
+(There are other formats for representing logical models: visual models (such as UML diagrams), and proprietary formats, such as Sparx Enterprise Architect or others.)
 </p>
 <p>Although FHIR logical models use FHIR for their representation, this does not imply that the logical models represent or are attached to FHIR resources. 
 Logical models are abstract data structures, normally defined for a given purpose, which can be instantiated into one or more "physical" FHIR resources (or profiles) to be implemented in data exchange. But they can also be implemented in other standards.
@@ -42,7 +42,12 @@ Logical models are abstract data structures, normally defined for a given purpos
     </ul>
     <h2 id="content-of-logical-models">Content of logical models</h2>
     <p>Logical models are expressed in FHIR with <a href="https://hl7.org/fhir/StructureDefinition.html">StructureDefinition</a> with <a href="https://hl7.org/fhir/ElementDefinition.html">ElementDefinitions</a>.</p>
-    <p>The StructureDefinition defines * metadata - title, status, authorship, purpose, etc. * Base of the structure (Base, Element, or another logical model)</p>
+    <p>The StructureDefinition defines:
+        <ul>
+            <li> metadata - title, status, authorship, purpose, etc. </li>
+            <li> Base of the structure (Base, Element, or another logical model)</li>
+            <li>
+        </ul>
     <p>ElementDefinition capture the actual data elements that constitute the structure. ElementDefinitions in a logical model typycally contain</p> 
         <ul>
             <li> Name and definition: These are context-specific definitions of the element, regardless of whether they correspond to a given FHIR element</li>
@@ -50,7 +55,7 @@ Logical models are abstract data structures, normally defined for a given purpos
             <li> Type - if the logical model intends to define types</li>
             <li> Binding - for coded elements, it is possible - but not mandatory - to define some terminology binding</li>
             <li> Example content (for illustrative purposes)</li>
-            </ul>
+        </ul>
         
     <h3 id="data-types-in-logical-models">Data types in logical models</h3>
     <p>Elements in a logical model are expected to have a type because how FHIR structures are defined. It is posible to use the FHIR <a href="https://hl7.org/fhir/datatypes">data types</a>, although this brings "physical" constraints, formats, etc. into abstract logical data models which might not be intended. For example, a logical model may need to define a date, regardless of the "physical" format of the date being
@@ -93,18 +98,17 @@ To do
 Logical models can map to conceptual terminologies such as SNOMED CT, in different ways
 
 <ul>
-    <li> the concept represented by the model may correspond to a standard concept
+    <li> in some cases, the concept represented by the model can correspond to a standard concept
     <ul>
-        <li> e.g. "Patient" --> 116154003;</li>
+        <li> e.g. "Patient" --> SCT#116154003;</li>
     </ul></li>
-    <li> the elements in the model may correspond to standard concepts
+    <li> some elements in the model may correspond to standard concepts
     <ul>
-        <li> e.g. "Gender identity" = 33821000087103;</li>
+        <li> e.g. "Gender identity" = SCT#33821000087103;</li>
     </ul></li>
-    446151000124109 -->  Identifies as male gender
-    <li> the values allowed for the data element may correspond to a standard concept;
+    <li> or the actual values allowed for the data element may correspond to standard concepts;
     <ul>
-        <li> e.g. "Identifies as male gender (finding)" = 446151000124109 ;</li>
+        <li> e.g. "Identifies as male gender (finding)" = SCT#446151000124109 ;</li>
     </ul></li>
 </ul>
 
