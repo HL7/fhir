@@ -53,7 +53,7 @@ Logical models are abstract data structures, normally defined for a given purpos
             </ul>
         
     <h3 id="data-types-in-logical-models">Data types in logical models</h3>
-    <p>Elements in a logical model are expected to have a type because how FHIR structures are defined. It is posible to use the FHIR <a href="https://hl7.org/fhir/datatypes">data types</a>, although this brings "physical" constraints, formats, etc into abstract logical data models which may not be intended. For example, a logical model may need to define a date, regardless of the "physical" format of the date being
+    <p>Elements in a logical model are expected to have a type because how FHIR structures are defined. It is posible to use the FHIR <a href="https://hl7.org/fhir/datatypes">data types</a>, although this brings "physical" constraints, formats, etc. into abstract logical data models which might not be intended. For example, a logical model may need to define a date, regardless of the "physical" format of the date being
     <code>DDMMYY</code>, <code>DDMMYYYY</code> or <code>MM-DD-YYYY</code>. It is possible to define data types for use in logical models, by profiling the existing types in FHIR.</p>
     <h3 id="terminology-bindings">Terminology bindings</h3>
 <p>Logical models may contain bindings for coded elements, and the corresponding binding strength. This can be used to capture the "intended" or "business / functional" requirements on data elements, independently of any actual coding system. It may also be used to impose terminology constraints on a functional level, if they are meaningful at that level.
