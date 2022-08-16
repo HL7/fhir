@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Endpoint xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/endpoint.xsd">
 	<id value="example"/>
 	<text>
@@ -14,8 +14,10 @@
 	</identifier>
 	<status value="active" />
 	<connectionType>
-		<system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type" />
-		<code value="hl7-fhir-rest" />
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type" />
+			<code value="hl7-fhir-rest" />
+		</coding>
 	</connectionType>
 	<name value="Health Intersections CarePlan Hub" />
 	<environmentType>

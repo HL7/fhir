@@ -134,14 +134,14 @@
       <min value="1"/>
       <max value="*"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="endpoint-contype"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/endpoint-connection-type"/>
       </binding>
       <mapping>
