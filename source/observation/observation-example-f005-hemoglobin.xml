@@ -18,7 +18,6 @@
 		<display value="P. van de Heuvel"/>
 	</subject>
 	<effectiveDateTime value="2013-04-05T10:30:10+01:00"/>
-	</effectiveDateTime>
 	<issued value="2013-04-05T15:30:10+01:00"/>
 	<performer>
 		<reference value="Practitioner/f005"/>
