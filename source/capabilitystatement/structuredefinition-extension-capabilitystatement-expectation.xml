@@ -9,20 +9,20 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="expectation"/>
   <title value="Conformance expectation"/>
   <status value="draft"/>
-  <date value="2014-04-12"/>
-  <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>
-  <contact>
+  <date value="2022-08-14"/>
+  <publisher value="HL7"/>
+  <!-- <contact>
     <telecom>
       <system value="url"/>
       <value value="http://hl7.org/special/committees/fhir.htm"/>
     </telecom>
-  </contact>
+  </contact> -->
   <description value="Defines the level of expectation associated with a given system capability."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -154,6 +154,10 @@
   <context>
     <type value="element"/>
     <expression value="CapabilityStatement.rest.security.service"/>
+  </context>
+  <context>
+    <type value="extension"/>
+    <expression value="http://hl7.org/fhir/StructureDefinition/capabilitystatement-search-parameter-combination"/>
   </context>
   <type value="Extension"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>

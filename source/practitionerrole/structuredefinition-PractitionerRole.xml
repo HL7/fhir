@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="PractitionerRole"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -41,9 +41,9 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time."/>
+  <description value="A specific set of Roles/Locations/specialties/services that a practitioner may perform, or has performed at an organization during a period of time."/>
   <purpose value="Need to track services that a healthcare provider is able to provide at an organization&#39;s location, and the services that they can perform there."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -275,8 +275,8 @@
     <element id="PractitionerRole.specialty">
       <path value="PractitionerRole.specialty"/>
       <short value="Specific specialty of the practitioner"/>
-      <definition value="A type of specialized or skilled care the practitioner is able to deliver in the context of this particular role."/>
-	  <comment value="General capabilities of the practitioner independent of role are reflected in Practitioner.qualification."/>
+      <definition value="The specialty of a practitioner that describes the functional role they are practicing at a given organization or location."/>
+  	  <comment value="The specialty represents the functional role a practitioner is playing within an organization/location. This role may require the individual have certain qualifications, which would be represented in the Practitioner.qualifications property.  Note that qualifications may or might not relate to or be required by the practicing specialty."/>
       <min value="0"/>
       <max value="*"/>
       <type>

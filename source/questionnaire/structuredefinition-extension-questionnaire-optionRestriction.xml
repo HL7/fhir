@@ -8,7 +8,7 @@
 		<valueInteger value="1"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/questionnaire-optionRestriction"/>
-	<version value="4.6.0"/>
+	<version value="5.0.0"/>
 	<name value="QuestionnaireOptionRestriction"/>
 	<title value="Questionnaire option restriction"/>
 	<status value="draft"/>
@@ -21,7 +21,7 @@
 		</telecom>
 	</contact>
 	<description value="Allows disabling certain questionnaire options for the containing item based on evaluating expressions."/>
-	<fhirVersion value="4.6.0"/>
+	<fhirVersion value="5.0.0"/>
 	<kind value="complex-type"/>
 	<abstract value="false"/>
 	<context>

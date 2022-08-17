@@ -27,7 +27,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="SearchParameter"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="A search parameter that defines a named search item that can be used to search/filter on a resource."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -510,6 +510,16 @@
         <description value="How a search parameter relates to the set of elements returned by evaluating its xpath query."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/search-xpath-usage"/>
       </binding>
+    </element>
+    <element id="SearchParameter.constraint">
+      <path value="SearchParameter.constraint"/>
+      <short value="FHIRPath expression that constraints the usage of this SearchParamete"/>
+      <definition value="FHIRPath expression that defines/sets a complex constraint for when this SearchParameter is applicable."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="SearchParameter.target">
       <path value="SearchParameter.target"/>

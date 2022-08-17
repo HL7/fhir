@@ -21,7 +21,7 @@
     <valueCode value="ii"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ImagingSelection"/>
   <status value="draft"/>
   <date value="2022-06-29T08:58:31+11:00"/>
@@ -39,7 +39,7 @@
     </telecom>
   </contact>
   <description value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation UID or a Segmentation Number, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

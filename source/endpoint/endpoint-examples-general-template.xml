@@ -19,8 +19,10 @@
         </text>
         <status value="[%status%]"/>
         <connectionType>
-           <system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type" />
-           <code value="[%connectionType%]" />
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type" />
+            <code value="[%connectionType%]" />
+          </coding>
         </connectionType>
         <name value="[%name%]"/>
         <managingOrganization>

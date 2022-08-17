@@ -134,7 +134,7 @@
     <use value="official"/>
     <value value="FHIR"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <title value="FHIR Model Definition"/>
   <status value="draft"/>
   <type>

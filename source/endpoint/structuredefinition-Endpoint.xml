@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Endpoint"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b, a REST endpoint for another FHIR server, or a s/Mime email address. This may include any security context information."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -134,14 +134,14 @@
       <min value="1"/>
       <max value="*"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="endpoint-contype"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/endpoint-connection-type"/>
       </binding>
       <mapping>
@@ -172,6 +172,43 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="Endpoint.description">
+      <path value="Endpoint.description"/>
+      <short value="Additional details about the endpoint that could be displayed as further information to identify the description beyond its name"/>
+      <definition value="The description of the endpoint and what it is for (typically used as supplemental information in an endpoint directory describing it's usage/purpose)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Endpoint.environmentType">
+      <path value="Endpoint.environmentType"/>
+      <short value="The type of environment(s) exposed at this endpoint"/>
+      <definition value="The type of environment(s) exposed at this endpoint (dev, prod, test, etc)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="endpoint-environment-type"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/endpoint-environment"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="Endpoint.managingOrganization">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="This was left as 0..1 to permit small systems having an implied Organization."/>
@@ -195,7 +232,7 @@
     <element id="Endpoint.contact">
       <path value="Endpoint.contact"/>
       <short value="Contact details for source (e.g. troubleshooting)"/>
-      <definition value="Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting."/>
+      <definition value="Contact details for a human to contact about the endpoint. The primary use of this for system administrator troubleshooting."/>
       <min value="0"/>
       <max value="*"/>
       <type>

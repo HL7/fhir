@@ -113,7 +113,7 @@ signatures.html
         <page title="ElementDefinition Examples" filename="elementdefinition-examples.html"/>
         <page title="ElementDefinition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
         <page title="ElementDefinition Mappings" filename="elementdefinition-mappings.html"/>
-        <page title="ElementDefinition Extensions" filename="elementdefinition-extras.html"/>
+        <page title="Profiles and Extensions" filename="elementdefinition-extras.html"/>
       </page>
 
       <page title="Resource Guide" filename="resourceguide.html"/>
@@ -334,6 +334,7 @@ signatures.html
         <page title="Examples" filename="dosage-examples.html"/>
         <page title="Detailed Descriptions" filename="dosage-definitions.html"/>
         <page title="Dosage Mappings" filename="dosage-mappings.html"/>
+        <page title="Dosage Profiles &amp; Extensions" filename="dosage-extra.html"/>
       </page>
       <page type="resource" resource="FormularyItem"/>
     </page>
@@ -437,21 +438,19 @@ signatures.html
         <page title="Examples" filename="marketingstatus-examples.html"/>
         <page title="Detailed Descriptions" filename="marketingstatus-definitions.html"/>
         <page title="Mappings" filename="marketingstatus-mappings.html"/>
+        <page title="Profiles and Extensions" filename="marketingstatus-extras.html"/>
       </page>
       <page title="Population" filename="population.html">
         <page title="Examples" filename="population-examples.html"/>
         <page title="Detailed Descriptions" filename="population-definitions.html"/>
         <page title="Mappings" filename="population-mappings.html"/>
+        <page title="Profiles and Extensions" filename="population-extras.html"/>
       </page>
-      <!--page title="ProdCharacteristic" filename="prodcharacteristic.html">
-        <page title="Examples" filename="prodcharacteristic-examples.html"/>
-        <page title="Detailed Descriptions" filename="prodcharacteristic-definitions.html"/>
-        <page title="Mappings" filename="prodcharacteristic-mappings.html"/>
-      </page-->
       <page title="ProductShelfLife" filename="productshelflife.html">
         <page title="Examples" filename="productshelflife-examples.html"/>
         <page title="Detailed Descriptions" filename="productshelflife-definitions.html"/>
         <page title="Mappings" filename="productshelflife-mappings.html"/>
+        <page title="Profiles and Extensions" filename="productshelflife-extras.html"/>
       </page>
     </page>
 

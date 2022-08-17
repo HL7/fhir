@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/device-commercialBrand"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="commercialBrand"/>
   <title value="Commercial brand of a Device"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="The overall name of a collection of branded devices that an organization brings to market.  It is typically not the same as, although can be derived from, the organization name that owns the name."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

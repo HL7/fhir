@@ -6,6 +6,6 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/device-component-property"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="DeviceComponentPropertyCode"/>
 </CodeSystem>

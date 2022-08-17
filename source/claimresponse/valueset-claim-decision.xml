@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="supplydelivery-type"/>
+  <id value="claim-decision"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="oo"/>
+    <valueCode value="fm"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/supplydelivery-type"/>
+  <url value="http://hl7.org/fhir/ValueSet/claim-decision"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.702"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
-  <name value="SupplyItemType"/>
-  <title value="Supply Item Type"/>
+  <version value="5.0.0-cibuild"/>
+  <name value="ClaimAdjudicationDecisionsCodes"/>
+  <title value="Claim Adjudication Decision Codes"/>
   <status value="draft"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -23,10 +25,11 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value sets refers to a specific supply item."/>
+  <description value="This value set includes Claim Adjudication Decision codes."/>
+  <copyright value="HL7 Inc."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/supply-item-type"/>
+      <system value="http://hl7.org/fhir/claim-decision"/>
     </include>
   </compose>
 </ValueSet>

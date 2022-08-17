@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Appointment"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -479,8 +479,8 @@
     </element>
     <element id="Appointment.virtualService">
       <path value="Appointment.virtualService"/>
-      <short value="Connection details of a virtual service"/>
-      <comment value="There are two types of virtual meetings that often exist: a persistent, virtual meeting room that can only be used for a single purpose at a time, and a dynamic virtual meeting room that is generated on demand for a specific purpose.  Implementers may consider using Location.virtualService for persistent meeting rooms.&#xD;&#xD;If each participant would have a different meeting link, an extension using the VirtualServiceContactDetail  can be applied to the Appointment.participant BackboneElement."/>
+      <short value="Connection details of a virtual service (e.g. conference call)"/>
+      <comment value="There are two types of virtual meetings that often exist:&#xD;&#xD;* a persistent, virtual meeting room that can only be used for a single purpose at a time, &#xD;* and a dynamic virtual meeting room that is generated on demand for a specific purpose.&#xD;&#xD;Implementers may consider using Location.virtualService for persistent meeting rooms.&#xD;&#xD;If each participant would have a different meeting link, an extension using the VirtualServiceContactDetail  can be applied to the Appointment.participant BackboneElement."/>
       <min value="0"/>
       <max value="*"/>
       <type>
