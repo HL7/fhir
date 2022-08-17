@@ -24,7 +24,7 @@
     <valueCode value="n/a - this resource is not expected to be stored"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="OperationOutcome"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A collection of error, warning, or information messages that result from a system action."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

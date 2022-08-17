@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="DocumentReference"/>
   <status value="draft"/>
   <date value="2022-06-09T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A reference to a document of any kind for any purpose. While the term “document” implies a more narrow focus, for this resource this &quot;document&quot; encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -1079,7 +1079,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="Document Format Codes."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/formatcodes"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-HL7FormatCodes"/>
       </binding>
       <mapping>
         <identity value="fhircomposition"/>

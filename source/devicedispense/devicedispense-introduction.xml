@@ -9,14 +9,14 @@ Todo
 </p>
 </div>
 
-<!-- (recommended): 
+
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
+To determine the purchase date, a search of DeviceRequest, SupplyRequest, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done , as the context of the use case actually determines which date of either resource is considered the purchase date.
 </p>
 </div>
--->
+
 
 <!-- (optional):
 <div>

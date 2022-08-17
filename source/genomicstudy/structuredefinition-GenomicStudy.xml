@@ -25,7 +25,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="GenomicStudy"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -43,7 +43,7 @@
     </telecom>
   </contact>
   <description value="A Genomic Study is a set of analysis performed to analyze and generate genomic data."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -222,6 +222,29 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
     </element>
+
+    <element id="GenomicStudy.instantiatesCanonical">
+      <path value="GenomicStudy.instantiatesCanonical"/>
+      <short value="The defined protocol that describes the study"/>
+      <definition value="The defined protocol that describes the study."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+      </type>
+    </element>
+    <element id="GenomicStudy.instantiatesUri">
+      <path value="GenomicStudy.instantiatesUri"/>
+      <short value="The URL pointing to an externally maintained protocol that describes the study"/>
+      <definition value="The URL pointing to an externally maintained protocol that describes the study."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+
     <element id="GenomicStudy.note">
       <path value="GenomicStudy.note"/>
       <short value="Comments related to the genomic study"/>
@@ -313,6 +336,7 @@
       <type>
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
       </type>
     </element>
     <element id="GenomicStudy.analysis.instantiatesUri">

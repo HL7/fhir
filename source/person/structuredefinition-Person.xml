@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Person"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Person"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -43,7 +43,7 @@
   </contact>
   <description value="Demographics and administrative information about a person independent of a specific health-related context."/>
   <purpose value="Need to track persons potentially across multiple roles."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -97,6 +97,7 @@
       <type>
         <code value="Identifier"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
@@ -279,6 +280,7 @@
       <type>
         <code value="Address"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
         <map value="PID-11"/>
@@ -292,7 +294,7 @@
       <path value="Person.maritalStatus"/>
       <short value="Marital (civil) status of a person"/>
       <definition value="This field contains a person&#39;s most recent marital (civil) status."/>
-      <comment value="Many contries maintain a register of births, deaths and marriages, and this would simplify that interaction"/>
+      <comment value="Many countries maintain a register of births, deaths and marriages, and this would simplify that interaction"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -334,23 +336,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="player[classCode=PSN|ANM and determinerCode=INSTANCE]/desc"/>
-      </mapping>
-    </element>
-    <element id="Person.managingOrganization">
-      <path value="Person.managingOrganization"/>
-      <short value="The organization that is the custodian of the person record"/>
-      <definition value="The organization that is the custodian of the person record."/>
-      <requirements value="Need to know who recognizes this person record, manages and updates it."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="scoper"/>
       </mapping>
     </element>
     <element id="Person.communication">
@@ -430,6 +415,23 @@
       <mapping>
         <identity value="rim"/>
         <map value="preferenceInd"/>
+      </mapping>
+    </element>
+    <element id="Person.managingOrganization">
+      <path value="Person.managingOrganization"/>
+      <short value="The organization that is the custodian of the person record"/>
+      <definition value="The organization that is the custodian of the person record."/>
+      <requirements value="Need to know who recognizes this person record, manages and updates it."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="scoper"/>
       </mapping>
     </element>
     <element id="Person.link">

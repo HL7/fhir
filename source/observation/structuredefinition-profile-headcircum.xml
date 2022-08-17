@@ -22,7 +22,7 @@
     <valueString value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**&#39;http ://loinc.org&#39;**&#xD;    -   a fixed  `Observation.code.coding.code`= **&#39;9843-4&#39;**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have an system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **&#39;cm&#39;, or &#39;[in_i]&#39;**"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/headcircum"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="observation-headcircum"/>
   <title value="Observation Head Circumference Profile"/>
   <status value="draft"/>
@@ -36,7 +36,7 @@
     </telecom>
   </contact>
   <description value="FHIR Head Circumference Profile"/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>

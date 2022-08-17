@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Invoice"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Invoice"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Invoice"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -248,7 +248,19 @@
     </element>
     <element id="Invoice.date">
       <path value="Invoice.date"/>
-      <short value="Invoice date / posting date"/>
+      <short value="DEPRICATED"/>
+      <definition value="Depricared by the element below."/>
+      <requirements value="Required to suppress the Data Type VirtualServiceDetail: ERROR: Invoice::date: Expression 'Invoice.date' has illegal path."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="Invoice.creation">
+      <path value="Invoice.creation"/>
+      <short value="When posted"/>
       <definition value="Date/time(s) of when this Invoice was posted."/>
       <comment value="The list of types may be constrained as appropriate for the type of charge item."/>
       <min value="0"/>
@@ -257,18 +269,20 @@
         <code value="dateTime"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.done[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Varies by domain"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
+    </element>
+    <element id="Invoice.period[x]">
+      <path value="Invoice.period[x]"/>
+      <short value="Billing date or period"/>
+      <definition value="Date/time(s) range of services included in this invoice."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
     </element>
     <element id="Invoice.participant">
       <path value="Invoice.participant"/>
@@ -401,6 +415,20 @@
       </type>
       <isSummary value="false"/>
     </element>
+    <element id="Invoice.lineItem.serviced[x]">
+      <path value="Invoice.lineItem.serviced[x]"/>
+      <short value="Service data or period"/>
+      <definition value="Date/time(s) range when this service was delivered or completed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
     <element id="Invoice.lineItem.chargeItem[x]">
       <path value="Invoice.lineItem.chargeItem[x]"/>
       <short value="Reference to ChargeItem containing details of this line item or an inline billing code"/>
@@ -431,7 +459,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
+        <code value="MonetaryComponent"/>
       </type>
       <isSummary value="false"/>
       <mapping>
@@ -443,99 +471,15 @@
         <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
       </mapping>
     </element>
-    <element id="Invoice.lineItem.priceComponent.type">
-      <path value="Invoice.lineItem.priceComponent.type"/>
-      <short value="base | surcharge | deduction | discount | tax | informational"/>
-      <definition value="This code identifies the type of the component."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="false"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="InvoicePriceComponentType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Codes indicating the kind of the price component."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/invoice-priceComponentType"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.code"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="FT1.7"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".code"/>
-      </mapping>
-    </element>
-    <element id="Invoice.lineItem.priceComponent.code">
-      <path value="Invoice.lineItem.priceComponent.code"/>
-      <short value="Code identifying the specific component"/>
-      <definition value="A code that identifies the component. Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="false"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.code"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="FT1.7"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".code"/>
-      </mapping>
-    </element>
-    <element id="Invoice.lineItem.priceComponent.factor">
-      <path value="Invoice.lineItem.priceComponent.factor"/>
-      <short value="Factor used for calculating this component"/>
-      <definition value="The factor that has been applied on the base price for calculating this component."/>
-      <comment value="There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overridden."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <isSummary value="false"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="FT1.22"/>
-      </mapping>
-    </element>
-    <element id="Invoice.lineItem.priceComponent.amount">
-      <path value="Invoice.lineItem.priceComponent.amount"/>
-      <short value="Monetary amount associated with this component"/>
-      <definition value="The amount calculated for this component."/>
-      <comment value="There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overridden."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Money"/>
-      </type>
-      <isSummary value="false"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="FT1.22"/>
-      </mapping>
-    </element>
     <element id="Invoice.totalPriceComponent">
       <path value="Invoice.totalPriceComponent"/>
       <short value="Components of Invoice total"/>
       <definition value="The total amount for the Invoice may be calculated as the sum of the line items with surcharges/deductions that apply in certain conditions.  The priceComponent element can be used to offer transparency to the recipient of the Invoice of how the total price was calculated."/>
       <min value="0"/>
       <max value="*"/>
-      <contentReference value="#Invoice.lineItem.priceComponent"/>
+      <type>
+        <code value="MonetaryComponent"/>
+      </type>
       <isSummary value="false"/>
       <mapping>
         <identity value="v2"/>

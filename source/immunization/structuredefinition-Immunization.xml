@@ -24,11 +24,11 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Immunization"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="Health Level Seven International (Public Health and Emergency Response)"/>
+  <publisher value="Health Level Seven International (Public Health)"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -284,7 +284,7 @@
         <valueString value="#6128."/>
       </extension>
       <path value="Immunization.vaccineCode"/>
-      <short value="Vaccine product administered"/>
+      <short value="Vaccine administered"/>
       <definition value="Vaccine that was administered or was to be administered."/>
       <comment value="The code for the administered vaccine may be reported at various levels of granularity from a very generic code for a general type of vaccine (e.g. the SNOMED or CVX code for the flu vaccine) to a very discrete code for a specific product including the form and packaging (e.g. an NDC code). Because vaccineCode uses the CodeableConcept data type, multiple codes at different levels of granularity may be reported for a single immunization event provided that all codes are appropriate for the same vaccine. For example, both NDC and CVX codes may be provided for a given immunization event by repeating the coding element within vaccineCode."/>
       <min value="1"/>
@@ -325,6 +325,40 @@
         <map value="ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code"/>
       </mapping>
     </element>
+    <element id="Immunization.administeredProduct">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#27108."/>
+      </extension>
+      <path value="Immunization.administeredProduct"/>
+      <short value="Product that was administered"/>
+      <definition value="An indication of which product was administered to the patient. This is typically a more detailed representation of the concept conveyed by the vaccineCode data element. If a Medication resource is referenced, it may be to a stand-alone resource or a contained resource within the Immunization resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXA-5"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value="ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/consumable/manfacturedProduct/manufacturedMaterial/realmCode/code"/>
+      </mapping>
+    </element>
     <element id="Immunization.manufacturer">
       <path value="Immunization.manufacturer"/>
       <short value="Vaccine manufacturer"/>
@@ -332,7 +366,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <mapping>
@@ -978,13 +1012,62 @@
     </element>
     <element id="Immunization.programEligibility">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="#5758."/>
+        <valueString value="#5758; #32397."/>
       </extension>
       <path value="Immunization.programEligibility"/>
-      <short value="Patient eligibility for a vaccination program"/>
+      <short value="Patient eligibility for a specific vaccination program"/>
       <definition value="Indicates a patient&#39;s eligibility for a funding program."/>
       <min value="0"/>
       <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-5 : OBX-3 = 64994-7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Immunization.programEligibility.program">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#32397."/>
+      </extension>
+      <path value="Immunization.programEligibility.program"/>
+      <short value="The program that eligibility is declared for"/>
+      <definition value="Indicates which program the patient had their eligility evaluated for."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="VaccineFundingProgram"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The vaccation funding program a patient may be eligible for."/>
+        </extension>
+        <strength value="example"/>
+        <description value="x"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-vaccine-funding-program"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="Immunization.programEligibility.programStatus">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#32397."/>
+      </extension>
+      <path value="Immunization.programEligibility.programStatus"/>
+      <short value="The patient's eligibility status for the program"/>
+      <definition value="Indicates the patient's eligility status for for a specific payment program."/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -1000,12 +1083,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-program-eligibility"/>
       </binding>
       <mapping>
-        <identity value="v2"/>
-        <map value="OBX-5 : OBX-3 = 64994-7"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
-        <map value="N/A"/>
+        <map value="n/a"/>
       </mapping>
     </element>
     <element id="Immunization.fundingSource">

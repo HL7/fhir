@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Practitioner"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -43,7 +43,7 @@
   </contact>
   <description value="A person who is directly or indirectly involved in the provisioning of healthcare or related services."/>
   <purpose value="Need to track doctors, staff, locums etc. for both healthcare practitioners, funders, etc."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -149,6 +149,8 @@
         <code value="boolean"/>
       </type>
       <meaningWhenMissing value="This resource is generally assumed to be active if no value is provided for the active element"/>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -219,54 +221,6 @@
       <mapping>
         <identity value="servd"/>
         <map value="./ContactPoints"/>
-      </mapping>
-    </element>
-    <element id="Practitioner.deceased[x]">
-      <path value="Practitioner.deceased[x]"/>
-      <short value="Indicates if the practitioner is deceased or not"/>
-      <definition value="Indicates if the practitioner is deceased or not."/>
-      <comment value="If there&#39;s no value in the instance, it means there is no statement on whether or not the practitioner is deceased. Most systems will interpret the absence of a value as a sign of the person being alive."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedInd, player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedTime"/>
-      </mapping>
-    </element>
-    <element id="Practitioner.address">
-      <path value="Practitioner.address"/>
-      <short value="Address(es) of the practitioner that are not role specific (typically home address)"/>
-      <definition value="Address(es) of the practitioner that are not role specific (typically home address). &#xD;Work addresses are not typically entered in this property as they are usually role dependent."/>
-      <comment value="The PractitionerRole does not have an address value on it, as it is expected that the location property be used for this purpose (which has an address)."/>
-      <requirements value="The home/mailing address of the practitioner is often required for employee administration purposes, and also for some rostering services where the start point (practitioners home) can be used in calculations."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Address"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="ORC-24, STF-11, ROL-11, PRT-14"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./addr"/>
-      </mapping>
-      <mapping>
-        <identity value="interface"/>
-        <map value="ParticipantContactable.address"/>
-      </mapping>
-      <mapping>
-        <identity value="servd"/>
-        <map value="./Addresses"/>
       </mapping>
     </element>
     <element id="Practitioner.gender">
@@ -342,6 +296,54 @@
         <map value="(not represented in ServD)"/>
       </mapping>
     </element>
+    <element id="Practitioner.deceased[x]">
+      <path value="Practitioner.deceased[x]"/>
+      <short value="Indicates if the practitioner is deceased or not"/>
+      <definition value="Indicates if the practitioner is deceased or not."/>
+      <comment value="If there&#39;s no value in the instance, it means there is no statement on whether or not the practitioner is deceased. Most systems will interpret the absence of a value as a sign of the person being alive."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedInd, player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedTime"/>
+      </mapping>
+    </element>
+    <element id="Practitioner.address">
+      <path value="Practitioner.address"/>
+      <short value="Address(es) of the practitioner that are not role specific (typically home address)"/>
+      <definition value="Address(es) of the practitioner that are not role specific (typically home address). &#xD;Work addresses are not typically entered in this property as they are usually role dependent."/>
+      <comment value="The PractitionerRole does not have an address value on it, as it is expected that the location property be used for this purpose (which has an address)."/>
+      <requirements value="The home/mailing address of the practitioner is often required for employee administration purposes, and also for some rostering services where the start point (practitioners home) can be used in calculations."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Address"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC-24, STF-11, ROL-11, PRT-14"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./addr"/>
+      </mapping>
+      <mapping>
+        <identity value="interface"/>
+        <map value="ParticipantContactable.address"/>
+      </mapping>
+      <mapping>
+        <identity value="servd"/>
+        <map value="./Addresses"/>
+      </mapping>
+    </element>
     <element id="Practitioner.photo">
       <path value="Practitioner.photo"/>
       <short value="Image of the person"/>
@@ -367,11 +369,12 @@
     </element>
     <element id="Practitioner.qualification">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="350,200"/>
+        <valueCode value="350,0"/>
       </extension>
       <path value="Practitioner.qualification"/>
-      <short value="Certification, licenses, or training pertaining to the provision of care"/>
-      <definition value="The official certifications, training, and licenses that authorize or otherwise pertain to the provision of care by the practitioner.  For example, a medical license issued by a medical board authorizing the practitioner to practice medicine within a certain locality."/>
+      <short value="Qualifications, certifications, accreditations, licenses, training, etc pertaining to the provision of care"/>
+      <definition value="The official qualifications, certifications, accreditations, training, licenses (and other types of educations/skills/capabilities) that authorize or otherwise pertain to the provision of care by the practitioner.&#xD;&#xD;For example, a medical license issued by a medical board of licensure authorizing the practitioner to practice medicine within a certain locality."/>
+      <comment value="The PractitionerRole.specialty defines the functional role that they are practicing at a given organization or location.  Those specialties may or might not require a qualification, and are not defined on the practitioner."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -393,7 +396,7 @@
     <element id="Practitioner.qualification.identifier">
       <path value="Practitioner.qualification.identifier"/>
       <short value="An identifier for this qualification for the practitioner"/>
-      <definition value="An identifier that applies to this person&#39;s qualification in this role."/>
+      <definition value="An identifier that applies to this person&#39;s qualification."/>
       <requirements value="Often, specific identities are assigned for the qualification."/>
       <min value="0"/>
       <max value="*"/>

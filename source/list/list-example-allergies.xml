@@ -4,6 +4,7 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>List prepared for Dr Adam Careful</p>
       <p>Patient Peter Chalmers, DOB = Dec 25, 1974, MRN = 12345 (Acme Healthcare) has the following allergies</p>
       <ul>
         <li>cashew nut allergenic extract Injectable Product (<b>High</b>)</li>
@@ -11,6 +12,12 @@
       </ul>
     </div>
   </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/list-for">
+    <valueReference>
+      <reference value="Patient/example"/>
+      <display value="Dr Adam Careful"/>
+    </valueReference>
+  </extension>
   <status value="current"/>
   <mode value="working"/>
   <title value="Current Allergy List"/>
