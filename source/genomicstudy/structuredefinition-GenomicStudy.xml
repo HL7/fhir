@@ -451,6 +451,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GenomicStudyDataFormat"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The data format of the data file."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-dataformat"/>
+      </binding>
     </element>
     <element id="GenomicStudy.analysis.input.generatedBy[x]">
       <path value="GenomicStudy.analysis.input.generatedBy[x]"/>
@@ -517,6 +525,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GenomicStudyDataFormat"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The data format of the data file."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-dataformat"/>
+      </binding>
     </element>
     <element id="GenomicStudy.analysis.performer">
       <path value="GenomicStudy.analysis.performer"/>
