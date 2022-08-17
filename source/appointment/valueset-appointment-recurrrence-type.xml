@@ -2,18 +2,9 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="appointment-recurrrence-type"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <ul>
-        <li>Include all codes defined in 
-          <a href="codesystem-participationstatus.html">
-            <code>http://hl7.org/fhir/participationstatus</code>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </text>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
@@ -24,6 +15,10 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/appointment-recurrrence-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+  </identifier>
   <version value="4.6.0"/>
   <name value="AppointmentRecurrenceType"/>
   <title value="AppointmentRecurrenceType"/>
@@ -42,56 +37,55 @@
     </telecom>
   </contact>
   <description value="The recurrence type of a recurring appointment."/>
-  <copyright value="The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved."/>
   <immutable value="true"/>
+  <copyright value="The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved."/>
   <compose>
     <include>
-      <system value="http://unitsofmeasure.org"/> 
-      <concept> 
+      <system value="http://unitsofmeasure.org"/>
+      <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
-          <valueString value="day"/> 
-        </extension> 
-        <code value="d"/> 
-        <display value="day"/> 
-        <designation> 
-          <language value="zh"/> 
-          <value value="天"/> 
-        </designation> 
-      </concept> 
-      <concept> 
+          <valueString value="day"/>
+        </extension>
+        <code value="d"/>
+        <display value="day"/>
+        <designation>
+          <language value="zh"/>
+          <value value="天"/>
+        </designation>
+      </concept>
+      <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
-          <valueString value="week"/> 
-        </extension> 
-        <code value="wk"/> 
-        <display value="week"/> 
-        <designation> 
-          <language value="zh"/> 
-          <value value="星期"/> 
-        </designation> 
-      </concept> 
-      <concept> 
+          <valueString value="week"/>
+        </extension>
+        <code value="wk"/>
+        <display value="week"/>
+        <designation>
+          <language value="zh"/>
+          <value value="星期"/>
+        </designation>
+      </concept>
+      <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
-          <valueString value="month - Normal practice is to use the 'mo' code as a calendar month when calculating the
-           next occurrence."/> 
-        </extension> 
-        <code value="mo"/> 
-        <display value="month"/> 
-        <designation> 
-          <language value="zh"/> 
-          <value value="月"/> 
-        </designation> 
-      </concept> 
-      <concept> 
+          <valueString value="month - Normal practice is to use the 'mo' code as a calendar month when calculating the            next occurrence."/>
+        </extension>
+        <code value="mo"/>
+        <display value="month"/>
+        <designation>
+          <language value="zh"/>
+          <value value="月"/>
+        </designation>
+      </concept>
+      <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
-          <valueString value="year"/> 
-        </extension> 
-        <code value="a"/> 
-        <display value="year"/> 
-        <designation> 
-          <language value="zh"/> 
-          <value value="年"/> 
-        </designation> 
-      </concept> 
+          <valueString value="year"/>
+        </extension>
+        <code value="a"/>
+        <display value="year"/>
+        <designation>
+          <language value="zh"/>
+          <value value="年"/>
+        </designation>
+      </concept>
     </include>
   </compose>
 </ValueSet>

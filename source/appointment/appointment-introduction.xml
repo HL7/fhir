@@ -19,7 +19,7 @@
 			them to be relevant in the community healthcare space, and to ease exposure to other
 			appointment / calendar standards widely used outside of healthcare.
 		</p>
-
+			
 <a name="basic-workflow"></a>
     <h3>The basic workflow to create an appointment</h3>
 		<ul>
@@ -132,6 +132,28 @@
 		</ul>
 	</div>
   <div>
+
+	<a name="recurring"> </a>
+	<h3>Recurring Appointments</h3>
+	<p>
+		Explain the difference between series and recurring and how to represent those
+	Recurrence template data is on the original appointment.
+	Each occurrence points back to the original
+	Series uses the PreviousAppointment, not the recurring template/original structure
+	Describe how to accept individual occurrences vs. all occurrences using AppointmentResponse
+	Describe how the timezone property in the template works (the correct timezone is stamped at the time of schedule?)
+
+	Appointment.previousAppointment - this is used in a series appointment (simple chain - usually manually booked/re-booked each time - often irregular in nature)
+	Appointment.originatingAppointment - this is used to link back to the original appointment in a recurring appointment.
+	</p>
+	[%stu-note%]
+		<b>Note:</b>  We are seeking input from the implementer community on the recurring appointment functionality
+		and specifically if there is a need for a "recur forever" or similar flag.
+		</p>
+		<p>
+		Feedback <a href="http://hl7.org/fhir-issues">here</a>.
+	[%end-note%]
+
 <a name="bnr"></a>
     <h2>Boundaries and Relationships</h2>
 		<h3>Appointment Request/Response Pattern</h3>
