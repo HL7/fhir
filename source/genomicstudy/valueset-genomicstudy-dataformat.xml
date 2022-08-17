@@ -10,19 +10,27 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <ul>
+        
         
         <li>Include major genomic data file format as described by Broad Institue 
           
+          
           <a href="http://terminology.hl7.org/3.1.0/CodeSystem-GTR.html">
+            
             
             <code>http://terminology.hl7.org/3.1.0/CodeSystem-GTR.html</code>
           
+          
           </a>
+        
         
         </li>
       
+      
       </ul>
+    
     
     </div>
   </text>
@@ -36,11 +44,11 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/genomicstudy-dataformat"/>
-<!--   <identifier>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
-  </identifier> -->
-  <version value="0.1.0-cibuild"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
   <name value="GenomicStudyDataFormat"/>
   <title value="GenomicStudyDataFormat"/>
   <status value="draft"/>
