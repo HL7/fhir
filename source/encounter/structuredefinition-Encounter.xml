@@ -85,7 +85,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="Encounter[@moodCode=&#39;EVN&#39;]"/>
+        <map value="PatientEncounter[@moodCode=&#39;EVN&#39;]"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -301,6 +301,36 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="Encounter.priority">
+      <path value="Encounter.priority"/>
+      <short value="Indicates the urgency of the encounter"/>
+      <definition value="Indicates the urgency of the encounter."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Priority"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates the urgency of the encounter."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActPriority"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.grade"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV2-25"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".priorityCode"/>
+      </mapping>
+    </element>
     <element id="Encounter.type">
       <path value="Encounter.type"/>
       <short value="Specific type of encounter"/>
@@ -329,7 +359,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.class"/>
+        <map value="FiveWs.what[x]"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -370,36 +400,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="Encounter.priority">
-      <path value="Encounter.priority"/>
-      <short value="Indicates the urgency of the encounter"/>
-      <definition value="Indicates the urgency of the encounter."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Priority"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Indicates the urgency of the encounter."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActPriority"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.grade"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PV2-25"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".priorityCode"/>
       </mapping>
     </element>
     <element id="Encounter.subject">
@@ -506,6 +506,21 @@
         <map value=".reason.ClinicalDocument"/>
       </mapping>
     </element>
+    <element id="Encounter.careTeam">
+      <path value="Encounter.careTeam"/>
+      <short value="The group(s) that are allocated to participate in this encounter"/>
+      <definition value="The group(s) of individuals, organizations that are allocated to participate in this encounter. The participants backbone will record the actuals of when these individuals participated during the encounter."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="Encounter.partOf">
       <path value="Encounter.partOf"/>
       <short value="Another Encounter this encounter is part of"/>
@@ -549,7 +564,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".particiaption[typeCode=PFM].role"/>
+        <map value=".participation[typeCode=PRF].role"/>
       </mapping>
     </element>
     <element id="Encounter.participant">
@@ -575,7 +590,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=PFM]"/>
+        <map value=".participation[typeCode=PRF]"/>
       </mapping>
     </element>
     <element id="Encounter.participant.type">
@@ -769,7 +784,6 @@
       <path value="Encounter.reason"/>
       <short value="Reason the encounter takes place (core or reference)"/>
       <definition value="Reason the encounter takes place, expressed as a code or a reference to another resource. For admissions, this can be used for a coded admission diagnosis."/>
-      <comment value="For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis)."/>
       <alias value="Indication"/>
       <alias value="Admission diagnosis"/>
       <min value="0"/>
@@ -833,7 +847,6 @@
       <path value="Encounter.diagnosis.condition"/>
       <short value="The diagnosis or procedure relevant to the encounter"/>
       <definition value="Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure."/>
-      <comment value="For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis)."/>
       <alias value="Admission diagnosis"/>
       <alias value="discharge diagnosis"/>
       <alias value="indication"/>
@@ -883,6 +896,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/diagnosis-role"/>
       </binding>
       <mapping>
+        <identity value="v2"/>
+        <map value="DG1-6 (Diagnosis Type)"/>
+      </mapping>
+      <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
       </mapping>
@@ -896,6 +913,10 @@
       <type>
         <code value="positiveInt"/>
       </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="DG1-15 (Diagnosis Priority)"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=RSON].priority"/>

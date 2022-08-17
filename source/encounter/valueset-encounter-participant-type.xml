@@ -34,18 +34,6 @@
       </filter>
     </include>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-      <concept>
-        <code value="SPRF"/>
-      </concept>
-      <concept>
-        <code value="PPRF"/>
-      </concept>
-      <concept>
-        <code value="PART"/>
-      </concept>
-    </include>
-    <include>
       <system value="http://terminology.hl7.org/CodeSystem/participant-type"/>
     </include>
     <exclude>

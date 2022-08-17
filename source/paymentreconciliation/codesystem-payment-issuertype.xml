@@ -1,49 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="account-aggregate"/>
+  <id value="payment-issuertype"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="pa"/>
+    <valueCode value="fm"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="2"/>
   </extension>
-  <url value="http://hl7.org/fhir/account-aggregate"/>
+  <url value="http://hl7.org/fhir/payment-issuertype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
-  <name value="AccountAggregate"/>
-  <title value="Account Aggregate"/>
+  <name value="PaymentIssuerTypeCodes"/>
+  <title value="Payment Issuer Type Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="HL7 (FHIR Project)"/>
-  <description value="Indicates who is expected to pay a part of the account balance."/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set contains codes for the type of payment issuers."/>
+  <copyright value="HL7 Inc."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/account-aggregate"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/payment-issuertype"/>
   <content value="complete"/>
   <concept>
     <code value="patient"/>
     <display value="Patient"/>
-    <definition value="This (aggregated) balance is expected to be paid by the Patient"/>
+    <definition value="The patient or a party issuing payment on behalf of the patient."/>
   </concept>
   <concept>
     <code value="insurance"/>
     <display value="Insurance"/>
-    <definition value="This (aggregated) balance is expected to be paid by Insurance coverage(s)"/>
-  </concept>
-  <concept>
-    <code value="total"/>
-    <display value="Total"/>
-    <definition value="There is no aggregation on this balance"/>
+    <definition value="An insurer, or party acting on their behalf, which is making payment following a contract, direct or indirect, with the patient to pay for healthcare-related services."/>
   </concept>
 </CodeSystem>

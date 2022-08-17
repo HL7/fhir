@@ -28,4 +28,28 @@
       <display value="Pump Delivery"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ISBT 128 Supply Delivery"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="supplydelivery-example-ISBT128"/>
+    </extension>
+    <item>
+      <reference value="SupplyDelivery/ISBT128"/>
+      <display value="ISBT 128"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="MPHO Supply Delivery"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="supplydelivery-example-mphodelivery"/>
+    </extension>
+    <item>
+      <reference value="SupplyDelivery/mphodelivery"/>
+      <display value="MPHO Supply Delivery"/>
+    </item>
+  </entry>
 </List>

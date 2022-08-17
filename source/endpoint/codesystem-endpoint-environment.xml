@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="account-balance-term"/>
+  <id value="endpoint-environment"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -15,45 +15,45 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/account-balance-term"/>
+  <url value="http://hl7.org/fhir/endpoint-environment"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
-  <name value="AccountBalanceTerm"/>
-  <title value="Account Balance Term"/>
+  <name value="EndpointEnvironment"/>
+  <title value="Endpoint Environment"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
-  <description value="Indicates the account balance's age"/>
+  <description value="The environment type of the endpoint."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/account-payment-terms"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/endpoint-environment"/>
   <content value="complete"/>
   <concept>
-    <code value="current"/>
-    <display value="Current"/>
-    <definition value="This balance is the current balance"/>
+    <code value="prod"/>
+    <display value="Production"/>
+    <definition value="Production environment and is expected to contain real data and should be protected appropriately"/>
   </concept>
   <concept>
-    <code value="30"/>
-    <display value="30 day"/>
-    <definition value="This balance is outstanding over 30 days"/>
+    <code value="staging"/>
+    <display value="Staging"/>
+    <definition value="Staging environment typically used while preparing for a release to production"/>
   </concept>
   <concept>
-    <code value="60"/>
-    <display value="60 day"/>
-    <definition value="This balance is outstanding over 60 days"/>
+    <code value="dev"/>
+    <display value="Development"/>
+    <definition value="Development environment used while building systems"/>
   </concept>
   <concept>
-    <code value="90"/>
-    <display value="90 day"/>
-    <definition value="This balance is outstanding over 90 days"/>
+    <code value="test"/>
+    <display value="Test"/>
+    <definition value="Test environment, it is not intended for production usage."/>
   </concept>
   <concept>
-    <code value="120"/>
-    <display value="120 day"/>
-    <definition value="This balance is outstanding over 120 days"/>
+    <code value="train"/>
+    <display value="Training"/>
+    <definition value="Training environment, it is not intended for production usage and typically contains data specifically prepared for training usage."/>
   </concept>
 </CodeSystem>
