@@ -939,7 +939,20 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
+
+<constraint>
+        <key value="obs-9"/>
+        <severity value="error"/>
+        <human value="If Observation.specimen is a reference to Group, the group can only have specimens"/>
+        <expression value="reference = 'Group' implies member.entity.resolve() is Specimen"/>
+        <xpath value="starts-with(f:member/f:entity/f:reference/@value, &#39;Specimen/&#39;) or contains(f:member/f:entity/f:reference/@value, &#39;/Specimen/&#39;) or not(f:specimen/@value = 'Specimen')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </constraint>
+
+
+
       <mapping>
         <identity value="sct-concept"/>
         <map value="&lt; 123038009 |Specimen|"/>
