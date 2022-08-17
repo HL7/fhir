@@ -17,10 +17,10 @@
 		<reference value="Patient/f001"/>
 		<display value="P. van de Heuvel"/>
 	</subject>
-	<effectivePeriod>
+	<effectiveDateTime>
 		<start value="2013-04-05T10:30:10+01:00"/>
 		<end value="2013-04-05T10:30:10+01:00"/>
-	</effectivePeriod>
+	</effectiveDateTime>
 	<issued value="2013-04-05T15:30:10+01:00"/>
 	<performer>
 		<reference value="Practitioner/f005"/>
