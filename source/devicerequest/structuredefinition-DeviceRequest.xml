@@ -857,6 +857,26 @@
         <map value="Action.indication.reason"/>
       </mapping>
     </element>
+    <element id="DeviceRequest.asNeeded">
+      <path value="DeviceRequest.asNeeded"/>
+      <short value="PRN status of request"/>
+      <definition value="This status is to indicate whether the request is a PRN or may be given as needed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+				<code value="boolean"/>
+			</type>
+    </element>
+    <element id="DeviceRequest.asNeededFor">
+      <path value="DeviceRequest.asNeededFor"/>
+      <short value="Device usage reason"/>
+      <definition value="The reason for using the device."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>  
+    </element>
     <element id="DeviceRequest.insurance">
       <path value="DeviceRequest.insurance"/>
       <short value="Associated insurance coverage"/>
