@@ -784,7 +784,6 @@
       <path value="Encounter.reason"/>
       <short value="Reason the encounter takes place (core or reference)"/>
       <definition value="Reason the encounter takes place, expressed as a code or a reference to another resource. For admissions, this can be used for a coded admission diagnosis."/>
-      <comment value="For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis)."/>
       <alias value="Indication"/>
       <alias value="Admission diagnosis"/>
       <min value="0"/>
@@ -848,7 +847,6 @@
       <path value="Encounter.diagnosis.condition"/>
       <short value="The diagnosis or procedure relevant to the encounter"/>
       <definition value="Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure."/>
-      <comment value="For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis)."/>
       <alias value="Admission diagnosis"/>
       <alias value="discharge diagnosis"/>
       <alias value="indication"/>
