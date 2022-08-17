@@ -2,6 +2,39 @@
 <!--  This is an example of Observations made about something other than a patient - namely a location -->
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/fhir-all-xsd/valueset.xsd">
 	<id value="vp-oyster"/>
+	<contained>
+	  <Specimen>
+	    <id value="bed1" />
+		<note>
+	       <text value="Live Oysters Acc#20171014-1234 from Bed 1" />
+	    </note>
+	  </Specimen>
+	</contained>
+	<contained>
+	  <Specimen>
+	    <id value="bed2" />
+		<note>
+	       <text value="Live Oysters Acc#20171014-1234 from Bed 2" />
+	    </note>
+	  </Specimen>
+	</contained>
+	<contained>
+	  <Group>
+	    <id value="group1" />
+	    <type value = "animal" />
+		<membership value = "enumerated" />
+		<member>
+		  <entity>
+		    <reference value="#bed1" />
+		  </entity>
+		</member>
+		<member>
+		  <entity>
+		    <reference value="#bed2" />
+		  </entity>
+		</member>
+	  </Group>
+	</contained>
 	<identifier>
 		<use value="official"/>
 		<system value="http://sonomacounty.ca.gov/Health/Public-Health/Laboratory"/>
@@ -64,7 +97,7 @@
 		</coding>
 	</interpretation>
 	<specimen>
-		<display value="Live Oysters Acc#20171014-1234"/>
+		<reference value="#group1" />
 	</specimen>
 	<referenceRange>
 		<text value="NEGATIVE"/>
