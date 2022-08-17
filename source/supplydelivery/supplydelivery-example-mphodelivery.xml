@@ -4,7 +4,9 @@
   <BiologicallyDerivedProduct>
    <id value = "Item1"/>
    <productCode> 
+    <coding>
       <code value="E0398"/> 
+    </coding>
    </productCode> 
    <identifier> 
     <system value="https://www.isbt128.org/uri/MPHOUniqueIdentifier"/> 
@@ -52,7 +54,9 @@
    <BiologicallyDerivedProduct>
     <id value = "Item2"/>
    <productCode> 
+    <coding>
       <code value="E0398"/> 
+    </coding>
    </productCode> 
    <identifier> 
     <system value="https://www.isbt128.org/uri/MPHOUniqueIdentifier"/> 
@@ -100,7 +104,9 @@
   <BiologicallyDerivedProduct>
     <id value = "Item3"/>
    <productCode> 
+     <coding>
       <code value="E0398"/> 
+     </coding>
    </productCode> 
    <identifier> 
     <system value="https://www.isbt128.org/uri/MPHOUniqueIdentifier"/> 
