@@ -898,6 +898,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/diagnosis-role"/>
       </binding>
       <mapping>
+        <identity value="v2"/>
+        <map value="DG1-6 (Diagnosis Type)"/>
+      </mapping>
+      <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
       </mapping>
@@ -911,6 +915,10 @@
       <type>
         <code value="positiveInt"/>
       </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="DG1-15 (Diagnosis Priority)"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=RSON].priority"/>
