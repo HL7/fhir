@@ -155,7 +155,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX.21  For OBX segments from systems without OBX-21 support a combination of ORC/OBR and OBX must be negotiated between trading partners to uniquely identify the OBX segment. Depending on how V2 has been implemented each of these may be an option: 1) OBR-3 + OBX-3 + OBX-4 or 2) OBR-3 + OBR-4 + OBX-3 + OBX-4 or 2) some other way to uniquely ID the OBR/ORC + OBX-3 + OBX-4."/>
+        <map value="OBX-21  For OBX segments from systems without OBX-21 support a combination of ORC/OBR and OBX must be negotiated between trading partners to uniquely identify the OBX segment. Depending on how V2 has been implemented each of these may be an option: 1) OBR-3 + OBX-3 + OBX-4 or 2) OBR-3 + OBR-4 + OBX-3 + OBX-4 or 2) some other way to uniquely ID the OBR/ORC + OBX-3 + OBX-4."/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -625,7 +625,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBR.22 (or MSH.7), or perhaps OBX-19 (depends on who observation made)"/>
+        <map value="OBR-22 (or MSH-7), or perhaps OBX-19 (depends on who observation made)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -662,7 +662,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX.15 / (Practitioner)  OBX-16,  PRT-5:PRT-4=&#39;RO&#39; /  (Device)  OBX-18 , PRT-10:PRT-4=&#39;EQUIP&#39; / (Organization)  OBX-23,  PRT-8:PRT-4=&#39;PO&#39;"/>
+        <map value="OBX-15 / (Practitioner)  OBX-16,  PRT-5:PRT-4=&#39;RO&#39; /  (Device)  OBX-18 , PRT-10:PRT-4=&#39;EQUIP&#39; / (Organization)  OBX-23,  PRT-8:PRT-4=&#39;PO&#39;"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -724,7 +724,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX.2, OBX.5, OBX.6"/>
+        <map value="OBX-2, OBX-5, OBX-6"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -820,7 +820,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="NTE.3 (partner NTE to OBX, or sometimes another (child?) OBX)"/>
+        <map value="NTE-3 (partner NTE to OBX, or sometimes another (child?) OBX)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1026,7 +1026,7 @@
       </constraint>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX.7"/>
+        <map value="OBX-7"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1383,7 +1383,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX.2, OBX.5, OBX.6"/>
+        <map value="OBX-2, OBX-5, OBX-6"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1477,7 +1477,7 @@
       <contentReference value="#Observation.referenceRange"/>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX.7"/>
+        <map value="OBX-7"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
