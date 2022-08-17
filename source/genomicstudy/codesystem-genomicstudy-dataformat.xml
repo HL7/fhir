@@ -42,23 +42,23 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-dataformat"/>
   <content value="example"/>
   <concept>
-    <code value="BAM"/>
+    <code value="bam"/>
     <display value="BAM"/>
   </concept>
   <concept>
-    <code value="BED"/>
+    <code value="bed"/>
     <display value="BED"/>
   </concept>
   <concept>
-    <code value="BEDPE"/>
+    <code value="bedpe"/>
     <display value="BEDPE"/>
   </concept>
   <concept>
-    <code value="BedGraph"/>
+    <code value="bedgraph"/>
     <display value="BedGraph"/>
   </concept>
   <concept>
-    <code value="bigBed"/>
+    <code value="bigbed"/>
     <display value="bigBed"/>
   </concept>
   <concept>
@@ -66,19 +66,19 @@
     <display value="bigWig"/>
   </concept>
   <concept>
-    <code value="Birdsuite-Files"/>
+    <code value="birdsuite-files"/>
     <display value="Birdsuite-Files"/>
   </concept>
   <concept>
-    <code value="broadPeak"/>
+    <code value="broadpeak"/>
     <display value="broadPeak"/>
   </concept>
   <concept>
-    <code value="CBS"/>
+    <code value="cbs"/>
     <display value="CBS"/>
   </concept>
   <concept>
-    <code value="Chemical-Reactivity-Probing-Profiles"/>
+    <code value="chemical-reactivity-probing-profiles"/>
     <display value="Chemical-Reactivity-Probing-Profiles"/>
   </concept>
   <concept>
@@ -86,119 +86,119 @@
     <display value="chrom-sizes"/>
   </concept>
   <concept>
-    <code value="CN"/>
+    <code value="cn"/>
     <display value="CN"/>
   </concept>
   <concept>
-    <code value="Custom-File-Formats"/>
+    <code value="custom-file-formats"/>
     <display value="Custom-File-Formats"/>
   </concept>
   <concept>
-    <code value="Cytoband"/>
+    <code value="cytoband"/>
     <display value="Cytoband"/>
   </concept>
   <concept>
-    <code value="FASTA"/>
+    <code value="fasta"/>
     <display value="FASTA"/>
   </concept>
   <concept>
-    <code value="GCT"/>
+    <code value="gct"/>
     <display value="GCT"/>
   </concept>
   <concept>
-    <code value="CRAM"/>
+    <code value="cram"/>
     <display value="CRAM"/>
   </concept>
   <concept>
-    <code value="genePred"/>
+    <code value="genepred"/>
     <display value="genePred"/>
   </concept>
   <concept>
-    <code value="GFF/GTF"/>
+    <code value="gff-gtf"/>
     <display value="GFF/GTF"/>
   </concept>
   <concept>
-    <code value="GISTIC"/>
+    <code value="gistic"/>
     <display value="GISTIC"/>
   </concept>
   <concept>
-    <code value="Goby"/>
+    <code value="goby"/>
     <display value="Goby"/>
   </concept>
   <concept>
-    <code value="GWAS"/>
+    <code value="gwas"/>
     <display value="GWAS"/>
   </concept>
   <concept>
-    <code value="IGV"/>
+    <code value="igv"/>
     <display value="IGV"/>
   </concept>
   <concept>
-    <code value="LOH"/>
+    <code value="loh"/>
     <display value="LOH"/>
   </concept>
   <concept>
-    <code value="MAF-Multiple-Alignment-Format"/>
+    <code value="maf-multiple-alignment-format"/>
     <display value="MAF-Multiple Alignment Format"/>
   </concept>
   <concept>
-    <code value="MAF-Mutation-Annotation-Format"/>
+    <code value="maf-mutation-annotation-format"/>
     <display value="MAF-Mutation-Annotation-Format"/>
   </concept>
   <concept>
-    <code value="Merged-BAM-File"/>
+    <code value="merged-bam-file"/>
     <display value="Merged BAM File"/>
   </concept>
   <concept>
-    <code value="MUT"/>
+    <code value="mut"/>
     <display value="MUT"/>
   </concept>
   <concept>
-    <code value="narrowPeak"/>
+    <code value="narrowpeak"/>
     <display value="narrowPeak"/>
   </concept>
   <concept>
-    <code value="PSL"/>
+    <code value="psl"/>
     <display value="PSL"/>
   </concept>
   <concept>
-    <code value="RES"/>
+    <code value="res"/>
     <display value="RES"/>
   </concept>
   <concept>
-    <code value="RNA-Secondary-Structure-Formats"/>
+    <code value="rna-secondary-structure-formats"/>
     <display value="RNA-Secondary-Structure-Formats"/>
   </concept>
   <concept>
-    <code value="SAM"/>
+    <code value="sam"/>
     <display value="SAM"/>
   </concept>
   <concept>
-    <code value="Sample-Info-Attributes-file"/>
+    <code value="sample-info-attributes-file"/>
     <display value="Sample-Info-Attributes-file"/>
   </concept>
   <concept>
-    <code value="SEG"/>
+    <code value="seg"/>
     <display value="SEG"/>
   </concept>
   <concept>
-    <code value="TDF"/>
+    <code value="tdf"/>
     <display value="TDF"/>
   </concept>
   <concept>
-    <code value="Track-Line"/>
+    <code value="track-line"/>
     <display value="Track Line"/>
   </concept>
   <concept>
-    <code value="Type-Line"/>
+    <code value="type-line"/>
     <display value="Type Line"/>
   </concept>
   <concept>
-    <code value="VCF"/>
+    <code value="vcf"/>
     <display value="VCF"/>
   </concept>
   <concept>
-    <code value="WIG"/>
+    <code value="wig"/>
     <display value="WIG"/>
   </concept>
 </CodeSystem>
