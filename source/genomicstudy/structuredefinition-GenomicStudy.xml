@@ -290,6 +290,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GenomicStudyChangeType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The change type relevant to GenomicStudy analysis."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-changetype"/>
+      </binding>
     </element>
     <element id="GenomicStudy.analysis.genomeBuild"> <!-- Genome build -->
     <path value="GenomicStudy.analysis.genomeBuild"/>
