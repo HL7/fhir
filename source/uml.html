@@ -132,16 +132,42 @@ to being abstract, the definitions associated with the class have no implementat
   <li>Any classes the implement the interface redeclare any attributes and associations that are on the interface, and gives them an order</li>
   <li>Such re-declarations will be consistent with the interface but may be a subset of the value domain e.g. the cardinality of an attribute may be 0..* on the interface, and 0..1 on a particular resource</li>
   <li>In addition, the resource might not implement the attribute at all - this is equivalent to constraining the attribute to a cardinality of 0..0 - not used with this resource</li>
-  <li>Since the interface supports both read and write, the interface is described using attributes not operations</li>
+  <li>Since interfaces support both read and write, the interface is described using attributes not operations</li>
+  <li>Interfaces that inherit from an abstract resource (e.g. <a href="domainresource.html">DomainResource</a>)
+      can only be implemented by Resources that also inherit from the same abstract resource</li>
   <li>The interface resources also define search parameters, invariants and other information about the resources that are all inherited by the resources the implement these interfaces</li>
 </ul>
 
 <p>
+Rules for referring to interface types:
+</p>
+<ul>
+  <li>StructureDefinition.context.expression: If an extension has a context 
+     which is an interface, All resources that implement the interface become valid contexts.  
+     If the context is a path within the interface, the resource must have that path.</li>
+  <li>SearchParameter.base: Interfaces can be referenced here, and if they are, the search parameter
+     applies to all the implementing resources that a system supports, and appear in the list of 
+     search parameters that implement the interface (though note that implementing any search 
+     parameters is at the discretion of the server)</li>
+  <li>Reference.type: literal references cannot refer to interfaces (or abstract resources)</li>
+  <li>ElementDefinition.type.code: The stated type of an element cannot be an interface (but it can be an abstract resource)</li>
+  <li>ElementDefinition.type.profile: If a profile references an interface, then all 
+    resources that implement the interface are valid resources (e.g. on Bundle.entry.resource)</li>
+  <li>ElementDefinition.type.target:- yes. If a profile references an interface, then all 
+    resources that implement the interface are valid target resources</li>
+</ul>
+<p>
 Notes for implementers:
 </p>
 <ul>
-  <li>The interfaces are declared as part of a single hierarchy. This specification itself does not define any multiple inheritance</li>
-  <li>Some reference implementations may wish to represent the interfaces as classes internally - the best way to handle this depends on language features</li>
+  <li>The interfaces may be treated as part of a single hierarchy, though allowance will have to be 
+    made for cardinality changes when interfaces are implemented. This specification itself does 
+    not define any multiple inheritance paths</li>
+  <li>Some reference implementations may wish to represent the interfaces as classes internally - the 
+    best way to handle this depends on language features</li>
+  <li>
+
+  </li>
 </ul>
 
 <a name="pattern"></a>
@@ -149,10 +175,10 @@ Notes for implementers:
 <h3>Pattern</h3>
 <p>
 Some of types are labeled with the stereotype <code>«Pattern»</code>. This indicates that in addition 
-to being abstract, and an interface, classes that follow the interface do so loosely. As such: 
+to being abstract, and potentially an interface, classes that do follow the interface do so loosely. As such: 
 </p>
 <ul>
-  <li>There is no direct implementation of the interfaces</li>
+  <li>There is no direct implementation of the patterns</li>
   <li>The relationship between the attributes and associations may be indirect - e.g. attributes may be renamed, restructured, or have different value domains</li>
   <li>Such patterns are there primarily to provide document general design intentions, which are subject to ongoing harmonization with observed real world requirements</li>
   <li>The relationship between the patterns and the resources that follow them is found in the <a href="formats.html#mappings">mappings for the resources</a></li>
@@ -161,7 +187,7 @@ to being abstract, and an interface, classes that follow the interface do so loo
 Notes for implementers:
 </p>
 <ul>
-  <li>It is possible to implement these interfaces, but in general implementers should expect to write code manually to implement the mappings, and have arrangements for dealing with differences such as adding 'canDoX' to the interface</li>
+  <li>It is possible to implement these patterns using code generation as interfaces, but in general implementers should expect to write code manually to implement the mappings, and have arrangements for dealing with differences such as adding 'canDoX' to the implementation of the pattern</li>
 </ul>
 
 <a name="stereotypes"></a>
