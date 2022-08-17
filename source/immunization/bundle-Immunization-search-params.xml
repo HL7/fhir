@@ -90,14 +90,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Immunization.manufacturer"/>
+          <valueString value="Immunization.manufacturer.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Immunization-manufacturer"/>
         <description value="Vaccine Manufacturer"/>
         <code value="manufacturer"/>
         <type value="reference"/>
-        <expression value="Immunization.manufacturer"/>
-        <xpath value="f:Immunization/f:manufacturer"/>
+        <expression value="Immunization.manufacturer.reference"/>
+        <xpath value="f:Immunization/f:manufacturer.reference"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
