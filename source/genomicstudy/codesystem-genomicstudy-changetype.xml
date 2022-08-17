@@ -16,11 +16,11 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/genomicstudy-changetype"/>
-<!--   <identifier>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
-  </identifier> -->
-  <version value="0.1.0-cibuild"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
   <name value="GenomicStudyChangeType"/>
   <title value="GenomicStudyChangeType"/>
   <status value="draft"/>
@@ -42,23 +42,23 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-changetype"/>
   <content value="example"/>
   <concept>
-<code value="DNA"/>
-<display value="DNA change"/>
-</concept>
-<concept>
-<code value="RNA"/>
-<display value="RNA change"/>
-</concept>
-<concept>
-<code value="AA"/>
-<display value="Protein/amino Acids change "/>
-</concept>
-<concept>
-<code value="CHR"/>
-<display value="Chromosomal changes"/>
-</concept>
-<concept>
-<code value="CNV"/>
-<display value="Copy number variations"/>
-</concept>
+    <code value="DNA"/>
+    <display value="DNA change"/>
+  </concept>
+  <concept>
+    <code value="RNA"/>
+    <display value="RNA change"/>
+  </concept>
+  <concept>
+    <code value="AA"/>
+    <display value="Protein/amino Acids change "/>
+  </concept>
+  <concept>
+    <code value="CHR"/>
+    <display value="Chromosomal changes"/>
+  </concept>
+  <concept>
+    <code value="CNV"/>
+    <display value="Copy number variations"/>
+  </concept>
 </CodeSystem>
