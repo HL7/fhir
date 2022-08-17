@@ -136,7 +136,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC.2, ORC.3, RF1-6 / RF1-11,"/>
+        <map value="ORC-2, ORC-3, RF1-6 / RF1-11,"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -226,7 +226,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC.8 (plus others)"/>
+        <map value="ORC-8 (plus others)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -256,7 +256,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="Handled by message location of ORC (ORC.1=RO or RU)"/>
+        <map value="Handled by message location of ORC (ORC-1=RO or RU)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -286,7 +286,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC.4"/>
+        <map value="ORC-4"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -327,7 +327,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC.5,RF1-1"/>
+        <map value="ORC-5,RF1-1"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -790,7 +790,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC.9,  RF1-7 / RF1-9"/>
+        <map value="ORC-9,  RF1-7 / RF1-9"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -833,7 +833,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC.12, PRT"/>
+        <map value="ORC-12, PRT"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -995,7 +995,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC.16, RF1-10"/>
+        <map value="ORC-16, RF1-10"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
