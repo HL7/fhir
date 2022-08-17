@@ -85,7 +85,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="Encounter[@moodCode=&#39;EVN&#39;]"/>
+        <map value="PatientEncounter[@moodCode=&#39;EVN&#39;]"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
