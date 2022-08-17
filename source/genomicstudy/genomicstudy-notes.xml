@@ -4,6 +4,9 @@
 <a name="examplecodes"></a>
 <h3>Example Codes</h3>
 <p>Genomic Study resource uses many example codes for terminology binding. Reviewers and implementers are strongly encouraged to provide their comments and feedback about the example codes for terminology binding purposes.</p>
+<h4>The GenomicStudy.type</h4>
+<p>The type example codes were based on discussions by Clinical Genomics Workgroup.
+</p>
 <h4>The GenomicStudy.analysis.methodType</h4>
 <p>The method type example codes were pulled from <a href="https://www.ncbi.nlm.nih.gov/gtr/">National Library of Medicine-Genetic Testing Registry (NCBI-GTR)</a> values of describing different testing methods on various levels: <a href="https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Major_method_category.txt">major method category</a>, <a href="https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Method_category.txt">method category</a>, and <a href="https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Primary_test_methodology.txt">primary methodology</a>.
 </p>
