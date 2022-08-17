@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="genomicstudy-type"/>
+  <meta>
+    <lastUpdated value="2022-08-17T16:18:24.148-05:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cg"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/genomicstudy-type"/>
+<!--   <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier> -->
+  <version value="0.1.0-cibuild"/>
+  <name value="GenomicStudyType"/>
+  <title value="GenomicStudyType"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2022-08-17T16:19:24-05:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The type relevant to GenomicStudy."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-type"/>
+  <content value="example"/>
+  <concept>
+    <code value="trio"/>
+    <display value="Trio-analysis"/>
+  </concept>
+  <concept>
+    <code value="bd"/>
+    <display value="Biomarker Detection"/>
+  </concept>
+    <concept>
+    <code value="prs"/>
+    <display value="Polygenetic Risk Score"/>
+  </concept>
+</CodeSystem>
