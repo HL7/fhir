@@ -34,6 +34,7 @@ using this basic pattern:
   "url": the identity of this structure definition,
   "kind": (primitive-type | complex-type | resource | logical),
   "type": the type being constrained (if it's a constraint)
+  "abstract" : {true | false},
   "baseDefinition": the structure definition from which this is derived
 }
 </pre>
@@ -48,6 +49,7 @@ This list shows a number of examples, with links to real examples for each:
   "url": "http://hl7.org/fhir/StructureDefinition/Quantity",
   "name": "Quantity",
   "kind": "complex-type",
+  "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element"
 }
 </pre>
@@ -61,6 +63,7 @@ This list shows a number of examples, with links to real examples for each:
   "name": "Money",
   "kind": "complex-type",
   "type": "Quantity",
+  "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Quantity"
 }
 </pre>
@@ -73,6 +76,7 @@ This list shows a number of examples, with links to real examples for each:
   "url": "http://hl7.org/fhir/StructureDefinition/Patient",
   "name": "Patient",
   "kind": "resource",
+  "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DomainResource"
 }
 </pre>
@@ -86,6 +90,7 @@ This list shows a number of examples, with links to real examples for each:
   "name": "Clinical Document Profile for Composition",
   "kind": "resource",
   "type": "Composition",
+  "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Composition"
 }
 </pre>
@@ -98,6 +103,7 @@ This list shows a number of examples, with links to real examples for each:
   "url": "http://hl7.org/fhir/StructureDefinition/Extension",
   "name": "Extension",
   "kind": "datatype",
+  "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element"
 }
 </pre>
@@ -111,6 +117,7 @@ This list shows a number of examples, with links to real examples for each:
   "name": "Data Absent Reason",
   "kind": "complex-type",
   "type": "Extension",
+  "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension"
 }
 </pre>
@@ -124,15 +131,44 @@ This list shows a number of examples, with links to real examples for each:
   "name": "Race codes used by institution (a subset of meaningful use codes)",
   "kind": "complex-type",
   "type": "Extension",
+  "abstract" : false,
+  "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
 }
 </pre>
  </li>
 
+
+ <li>A base abstract Resource (see e.g. <a href="resource.html">Resource</a>): <br/>
+<pre class="json" fragment="StructureDefinition">
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://hl7.org/fhir/StructureDefinition/Resource",
+  "name": "Resource",
+  "kind": "resource",
+  "type": "Resource",
+  "abstract" : true,
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/Base"
+}
+</pre>
+ </li>
+ <li>An interface defined in the base specification (see e.g. <a href="canonicalresource.html">CanonicalResource</a>): <br/>
+<pre class="json" fragment="StructureDefinition">
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://hl7.org/fhir/StructureDefinition/CanonicalResource",
+  "name": "CanonicalResource",
+  "kind": "resource",
+  "type": "CanonicalResource",
+  "abstract" : true,
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/DomainResource"
+}
+</pre>
+ </li>
 </ol>
 
 <p>
-On this list, structure definitions of type 1, 3, and 5 can only be defined by the FHIR specification itself. The other kinds of structure definitions
+On this list, structure definitions of type 1, 3, 5 and 8 - 9 can only be defined by the FHIR specification itself. The other kinds of structure definitions
 are (or may be) created by the specification but can also be defined by other implementers.
 </p>
 
