@@ -140,6 +140,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GenomicStudyType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type relevant to GenomicStudy."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-type"/>
+      </binding>
     </element>
     <element id="GenomicStudy.subject">
       <path value="GenomicStudy.subject"/>
