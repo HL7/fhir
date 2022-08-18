@@ -21,7 +21,7 @@
       <value value="http://hl7.org/special/committees/FHIR"/>
     </telecom>
   </contact>
-  <description value="Helps a user track down the source of the problem."/>
+  <description value="Identifies the logical module/software section responsible for identifying the issue"/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -41,7 +41,9 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="Source of a validation message"/>
-      <definition value="Helps a user track down the source of the problem."/>
+      <definition value="Identifies the logical module/software section responsible for identifying the issue."/>
+      <comment value="This is a high-level category. Information such as a stack track should be conveyed in the issue.detail"/>
+      <requirements value="When debugging issues, it's helpful to know where within the logic stack an issue was identified"/>
       <min value="0"/>
       <max value="1"/>
     </element>

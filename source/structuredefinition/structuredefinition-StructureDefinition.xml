@@ -904,9 +904,12 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
           <valueBoolean value="true"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
+          <valueMarkdown value="It is bad practice to set the root element of a profile to 'mustSupport' as mustSupport should always be determined by the element referencing a type.  The designer of a StructureDefinition cannot know all circumstances in which a type or profile might be used"/>
+        </extension>
         <key value="sdf-26"/>
         <severity value="error"/>
-        <human value="It is bad practice to set the root element of a profile to 'mustSupport' as mustSupport should always be determined by the element referencing a type.  The designer of a StructureDefinition cannot know all circumstances in which a type or profile might be used"/>
+        <human value="The root element of a profile should not have mustSupport = true"/>
         <expression value="snapshot.where(element[0].mustSupport='true').exists().not()"/>
         <xpath value="not(exists(f:snapshot/f:element[1][f:mustSupport/@value='true']))"/>
       </constraint>
