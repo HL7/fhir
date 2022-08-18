@@ -397,6 +397,14 @@
 				<xpath value="not(exists(f:answer) and exists(f:item))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
 			</constraint>
+			<constraint>
+				<key value="qrs-2"/>
+				<severity value="error"/>
+				<human value="Repeated answers are combined in the answers array of a single item"/>
+				<expression value="repeat(answer|item).select(item.where(answer.value.exists()).linkId.isDistinct()).allTrue()"/>
+				<xpath value="not(exists(//f:item[exists(f:answer/f:value)][preceding-sibling::f:item/f:linkId/@value=current()/f:linkId/@value]))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
+			</constraint>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]"/>
