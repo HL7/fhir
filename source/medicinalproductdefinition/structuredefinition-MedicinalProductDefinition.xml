@@ -23,7 +23,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="MedicinalProductDefinition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -41,7 +41,7 @@
     </telecom>
   </contact>
   <description value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs, to support prescribing, adverse events management etc.)."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
@@ -77,6 +77,10 @@
         <map value="Medicinal Product and Investigational Medicinal Product"/>
       </mapping>
       <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct[classCode='MMAT']"/>
+      </mapping>
+      <mapping>
         <identity value="w5"/>
         <map value="administrative.medication"/>
       </mapping>
@@ -93,8 +97,16 @@
       </type>
       <isSummary value="true"/>
       <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.MPID, Investigational Medicinal Product.IMPID"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct[classCode='MMAT'].code"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.type">
@@ -119,6 +131,10 @@
         <identity value="idmp"/>
         <map value="(indicates if this is Medicinal Product or an Investigational Medicinal Product)"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asSpecializedKind.generalizedMaterialKind.code"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.domain">
       <path value="MedicinalProductDefinition.domain"/>
@@ -142,6 +158,10 @@
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.characteristic[@code='{domain}'].value"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.version">
       <path value="MedicinalProductDefinition.version"/>
@@ -156,6 +176,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Header.Version Number"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.status">
@@ -182,6 +206,10 @@
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.statusDate">
       <path value="MedicinalProductDefinition.statusDate"/>
@@ -195,6 +223,10 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
         <map value="n/a"/>
       </mapping>
     </element>
@@ -211,6 +243,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct[classCode='MMAT'].desc"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.combinedPharmaceuticalDoseForm">
@@ -235,6 +271,10 @@
         <identity value="idmp"/>
         <map value="Medicinal Product.Combined Pharmaceutical Dose Form"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct[classCode='MMAT'].formCode"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.route">
       <path value="MedicinalProductDefinition.route"/>
@@ -258,6 +298,10 @@
         <identity value="idmp"/>
         <map value="Pharmaceutical Product.Route of Administration"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].productOf.reconstitution.consumable.administerableMaterial.consumedIn.substanceAdministration1.routeCode"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.indication">
       <path value="MedicinalProductDefinition.indication"/>
@@ -272,6 +316,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="(roll up of all text in Therapeutic Indication.Indication Text, for common case where information is not granular)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].consumedIn.substanceAdministration1.reason.indicationObservationCriterion[@code='{Observation_MedicalProblem}'].value.originalText.@value"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.legalStatusOfSupply">
@@ -296,6 +344,10 @@
         <identity value="idmp"/>
         <map value="Marketing Authorisation.Legal Status of Supply (moved here for practicality)"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.approval[@code='{Approval_MarketingAuthorisation}'].pertinentInformation.policy.code"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.additionalMonitoringIndicator">
       <path value="MedicinalProductDefinition.additionalMonitoringIndicator"/>
@@ -318,6 +370,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Additional Monitoring Indicator"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.policy.code"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.specialMeasures">
@@ -342,6 +398,10 @@
         <identity value="idmp"/>
         <map value="Medicinal Product.Special Measures"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.policy.code[@nullFlavor='OTH'].displayName"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.pediatricUseIndicator">
       <path value="MedicinalProductDefinition.pediatricUseIndicator"/>
@@ -364,6 +424,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Pediatric Use Indicator"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.policy.code"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.classification">
@@ -388,6 +452,10 @@
         <identity value="idmp"/>
         <map value="Product Classification.Value"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct/asSpecializedKind/generalizedMaterialKind/code"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.marketingStatus">
       <path value="MedicinalProductDefinition.marketingStatus"/>
@@ -402,6 +470,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Marketing Status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.approval[@code='{Approval_MarketingAuthorisation}'].statusCode"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.packagedMedicinalProduct">
@@ -426,21 +498,30 @@
         <identity value="idmp"/>
         <map value="Packaged Medicinal Product"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asContent.containerPackagedProduct.asContent.containerPackagedProduct.code"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.comprisedOf">
       <path value="MedicinalProductDefinition.comprisedOf"/>
-      <short value="A medicinal manufactured item that this product consists of, such as a tablet or capsule"/>
-      <definition value="A medicinal manufactured item that this product consists of, such as a tablet or capsule. Used as a direct link when the item's packaging is not being recorded (see also PackagedProductDefinition.package.containedItem.item)."/>
+      <short value="Types of medicinal manufactured items and/or devices that this product consists of, such as tablets, capsule, or syringes"/>
+      <definition value="Types of medicinal manufactured items and/or devices that this product consists of, such as tablets, capsule, or syringes. Used as a direct link when the item's packaging is not being recorded (see also PackagedProductDefinition.package.containedItem.item)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Packaged Medicinal Product"/>
+        <map value="Manufactured Item"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.formCode"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.ingredient">
@@ -464,6 +545,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product.Ingredient (see also FHIR Ingredient resource)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct[classCode='MMAT'].ingredient.ingredientSubstance.code"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.impurity">
@@ -489,6 +574,10 @@
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="(to do)"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.attachedDocument">
       <path value="MedicinalProductDefinition.attachedDocument"/>
@@ -505,6 +594,10 @@
         <identity value="idmp"/>
         <map value="Attached Document"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.document"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.masterFile">
       <path value="MedicinalProductDefinition.masterFile"/>
@@ -520,6 +613,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Master File"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.document"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.contact">
@@ -538,6 +635,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.assignedEntity.assignedOrganization.contactParty"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.contact.type">
@@ -562,6 +663,10 @@
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.assignedEntity.assignedOrganization.contactParty.code"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.contact.contact">
       <path value="MedicinalProductDefinition.contact.contact"/>
@@ -579,6 +684,10 @@
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.assignedEntity.assignedOrganization.contactParty"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.clinicalTrial">
       <path value="MedicinalProductDefinition.clinicalTrial"/>
@@ -594,6 +703,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Investigational Medicinal Product.Clinical Trial Status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.monitoringProgram"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.code">
@@ -618,6 +731,10 @@
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct[classCode='MMAT'].code"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -636,6 +753,10 @@
         <identity value="idmp"/>
         <map value="Medicinal Product Name"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.name"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.name.productName">
       <path value="MedicinalProductDefinition.name.productName"/>
@@ -650,6 +771,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Medicinal Product Name.Full Name"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.name"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.name.type">
@@ -674,12 +799,16 @@
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asNamedEntity.code"/>
+      </mapping>
     </element>
-    <element id="MedicinalProductDefinition.name.namePart">
+    <element id="MedicinalProductDefinition.name.part">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="50,315"/> <!-- 50,292 -->
       </extension>
-      <path value="MedicinalProductDefinition.name.namePart"/>
+      <path value="MedicinalProductDefinition.name.part"/>
       <short value="Coding words or phrases of the name"/>
       <definition value="Coding words or phrases of the name."/>
       <min value="0"/>
@@ -692,9 +821,13 @@
         <identity value="idmp"/>
         <map value="(any and all of the name parts e.g. Medicinal Product Name.Formulation Part)"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.name.suffix"/>
+      </mapping>
     </element>
-    <element id="MedicinalProductDefinition.name.namePart.part">
-      <path value="MedicinalProductDefinition.name.namePart.part"/>
+    <element id="MedicinalProductDefinition.name.part.part">
+      <path value="MedicinalProductDefinition.name.part.part"/>
       <short value="A fragment of a product name"/>
       <definition value="A fragment of a product name."/>
       <min value="1"/>
@@ -707,9 +840,13 @@
         <identity value="idmp"/>
         <map value="(text of any of the name parts e.g. Medicinal Product Name.Formulation Part)"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.name.suffix"/>
+      </mapping>
     </element>
-    <element id="MedicinalProductDefinition.name.namePart.type">
-      <path value="MedicinalProductDefinition.name.namePart.type"/>
+    <element id="MedicinalProductDefinition.name.part.type">
+      <path value="MedicinalProductDefinition.name.part.type"/>
       <short value="Identifying type for this part of the name (e.g. strength part)"/>
       <definition value="Identifying type for this part of the name (e.g. strength part)."/>
       <min value="1"/>
@@ -730,12 +867,16 @@
         <identity value="idmp"/>
         <map value="(which of the name parts this is e.g. Formulation Part)"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asNamedEntity.code"/>
+      </mapping>
     </element>
-    <element id="MedicinalProductDefinition.name.countryLanguage">
+    <element id="MedicinalProductDefinition.name.usage">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="30,70"/> <!-- was 50,42 -->
       </extension>
-      <path value="MedicinalProductDefinition.name.countryLanguage"/>
+      <path value="MedicinalProductDefinition.name.usage"/>
       <short value="Country and jurisdiction where the name applies"/>
       <definition value="Country and jurisdiction where the name applies, and associated language."/>
       <min value="0"/>
@@ -748,9 +889,13 @@
         <identity value="idmp"/>
         <map value="Country / Language"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asNamedEntity"/>
+      </mapping>
     </element>
-    <element id="MedicinalProductDefinition.name.countryLanguage.country">
-      <path value="MedicinalProductDefinition.name.countryLanguage.country"/>
+    <element id="MedicinalProductDefinition.name.usage.country">
+      <path value="MedicinalProductDefinition.name.usage.country"/>
       <short value="Country code for where this name applies"/>
       <definition value="Country code for where this name applies."/>
       <min value="1"/>
@@ -771,9 +916,13 @@
         <identity value="idmp"/>
         <map value="Country / Language.Country"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asNamedEntity.assigningTerritory.code"/>
+      </mapping>
     </element>
-    <element id="MedicinalProductDefinition.name.countryLanguage.jurisdiction">
-      <path value="MedicinalProductDefinition.name.countryLanguage.jurisdiction"/>
+    <element id="MedicinalProductDefinition.name.usage.jurisdiction">
+      <path value="MedicinalProductDefinition.name.usage.jurisdiction"/>
       <short value="Jurisdiction code for where this name applies"/>
       <definition value="Jurisdiction code for where this name applies. A jurisdiction may be a sub- or supra-national entity (e.g. a state or a geographic region)."/>
       <min value="0"/>
@@ -794,9 +943,13 @@
         <identity value="idmp"/>
         <map value="Country / Language.Jurisdiction"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asNamedEntity.assigningTerritory.code"/>
+      </mapping>
     </element>
-    <element id="MedicinalProductDefinition.name.countryLanguage.language">
-      <path value="MedicinalProductDefinition.name.countryLanguage.language"/>
+    <element id="MedicinalProductDefinition.name.usage.language">
+      <path value="MedicinalProductDefinition.name.usage.language"/>
       <short value="Language code for this name"/>
       <definition value="Language code for this name."/>
       <min value="1"/>
@@ -826,6 +979,10 @@
         <identity value="idmp"/>
         <map value="Country / Language.Language"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asNamedEntity.name.@xml:lang"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.crossReference">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -843,6 +1000,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Product Cross-Reference"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asEquivalentEntity"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.crossReference.product">
@@ -862,6 +1023,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Product Cross-Reference"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asEquivalentEntity.definingMaterialKind.code"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.crossReference.type">
@@ -889,6 +1054,10 @@
         <identity value="idmp"/>
         <map value="Product Cross-Reference"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asEquivalentEntity.code"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.operation">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -907,6 +1076,10 @@
         <identity value="idmp"/>
         <map value="Manufacturing / Business Operation"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.action"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.operation.type">
       <path value="MedicinalProductDefinition.operation.type"/>
@@ -924,6 +1097,10 @@
         <identity value="idmp"/>
         <map value="Manufacturing / Business Operation.Operation Type"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.action.code"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.operation.effectiveDate">
       <path value="MedicinalProductDefinition.operation.effectiveDate"/>
@@ -938,6 +1115,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Manufacturing / Business Operation.Effective Date"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.action.effectiveTime"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.operation.organization">
@@ -954,6 +1135,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Manufacturer / Establishment (Organisation)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.action.participation.organzation"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.operation.confidentialityIndicator">
@@ -978,6 +1163,10 @@
         <identity value="idmp"/>
         <map value="Manufacturing / Business Operation.Confidentiality Indicator"/>
       </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.action.confidentialityCode"/>
+      </mapping>
     </element>
     <element id="MedicinalProductDefinition.characteristic">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -995,6 +1184,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Package Item (Container).Physical Characteristics"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.characteristic"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.characteristic.type">
@@ -1018,6 +1211,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Physical Characteristics, all attributes"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.characteristic[@code='{type}']"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.characteristic.value[x]">
@@ -1054,6 +1251,10 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Physical Characteristics, attribute&#39;s value"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.characteristic[@code='{type}'].value"/>
       </mapping>
     </element>
   </differential>

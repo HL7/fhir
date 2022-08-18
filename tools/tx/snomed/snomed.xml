@@ -195,15 +195,23 @@
     <display value="Prednisone"/>
     <display value="Prednisone (substance)"/>
   </concept>
+  <concept id="117040002" display="Nucleic acid sequencing">
+    <display value="Nucleic acid sequencing"/>
+    <display value="Nucleic acid sequencing (procedure)"/>
+  </concept>
+  <concept id="1179448000" display="Ondansetron 4 mg oral lyophilisate">
+    <display value="Ondansetron 4 mg oral lyophilisate"/>
+    <display value="Product containing precisely ondansetron 4 milligram/1 each conventional release oral lyophilisate (clinical drug)"/>
+  </concept>
   <concept id="11830008" display="Delaware chicken">
     <display value="Delaware chicken"/>
     <display value="Delaware chicken (organism)"/>
   </concept>
-  <concept id="11840006" display="Traveler&#39;s diarrhea">
-    <display value="Traveler&#39;s diarrhea"/>
+  <concept id="11840006" display="Traveler's diarrhea">
+    <display value="Traveler's diarrhea"/>
     <display value="Turista"/>
-    <display value="Traveler&#39;s diarrhoea"/>
-    <display value="Traveler&#39;s diarrhea (disorder)"/>
+    <display value="Traveler's diarrhoea"/>
+    <display value="Traveler's diarrhea (disorder)"/>
   </concept>
   <concept id="119295008" display="Specimen obtained by aspiration">
     <display value="Specimen obtained by aspiration"/>
@@ -472,6 +480,11 @@
     <display value="Specimen from lung obtained by bronchial washing procedure"/>
     <display value="Specimen from lung obtained by bronchial washing procedure (specimen)"/>
     <display value="Bronchial washings"/>
+  </concept>
+  <concept id="122610009" display="Specimen from lung obtained by biopsy">
+    <display value="Specimen from lung obtained by biopsy"/>
+    <display value="Specimen from lung obtained by biopsy (specimen)"/>
+    <display value="Lung biopsy sample"/>
   </concept>
   <concept id="122877000" display="Upper respiratory fluid specimen obtained by tracheal aspiration">
     <display value="Upper respiratory fluid specimen obtained by tracheal aspiration"/>
@@ -1043,10 +1056,10 @@
     <display value="Nanyang cattle breed (organism)"/>
     <display value="Nanyang cattle breed"/>
   </concept>
-  <concept id="131505008" display="N&#39;Dama Sanga cattle">
-    <display value="N&#39;Dama Sanga cattle"/>
-    <display value="N&#39;Dama Sanga cattle breed (organism)"/>
-    <display value="N&#39;Dama Sanga cattle breed"/>
+  <concept id="131505008" display="N'Dama Sanga cattle">
+    <display value="N'Dama Sanga cattle"/>
+    <display value="N'Dama Sanga cattle breed (organism)"/>
+    <display value="N'Dama Sanga cattle breed"/>
   </concept>
   <concept id="131506009" display="Nganda cattle">
     <display value="Nganda cattle"/>
@@ -1977,10 +1990,10 @@
     <display value="Damani goat breed (organism)"/>
     <display value="Damani goat breed"/>
   </concept>
-  <concept id="131690002" display="Des Fosses (Communes de l&#39;Ouest) goat">
-    <display value="Des Fosses (Communes de l&#39;Ouest) goat"/>
-    <display value="Des Fosses (Communes de l&#39;Ouest) goat breed (organism)"/>
-    <display value="Des Fosses (Communes de l&#39;Ouest) goat breed"/>
+  <concept id="131690002" display="Des Fosses (Communes de l'Ouest) goat">
+    <display value="Des Fosses (Communes de l'Ouest) goat"/>
+    <display value="Des Fosses (Communes de l'Ouest) goat breed (organism)"/>
+    <display value="Des Fosses (Communes de l'Ouest) goat breed"/>
   </concept>
   <concept id="131691003" display="English goat">
     <display value="English goat"/>
@@ -5895,10 +5908,10 @@
     <display value="Moghani sheep breed (organism)"/>
     <display value="Moghani sheep breed"/>
   </concept>
-  <concept id="132789004" display="Rouge de l&#39;Quest sheep">
-    <display value="Rouge de l&#39;Quest sheep"/>
-    <display value="Rouge de l&#39;Quest sheep breed (organism)"/>
-    <display value="Rouge de l&#39;Quest sheep breed"/>
+  <concept id="132789004" display="Rouge de l'Quest sheep">
+    <display value="Rouge de l'Quest sheep"/>
+    <display value="Rouge de l'Quest sheep breed (organism)"/>
+    <display value="Rouge de l'Quest sheep breed"/>
   </concept>
   <concept id="132790008" display="Soay sheep">
     <display value="Soay sheep"/>
@@ -6683,10 +6696,10 @@
     <display value="Mustang horse breed (organism)"/>
     <display value="Mustang horse breed"/>
   </concept>
-  <concept id="133034004" display="M&#39;Bayar horse">
-    <display value="M&#39;Bayar horse"/>
-    <display value="M&#39;Bayar horse breed (organism)"/>
-    <display value="M&#39;Bayar horse breed"/>
+  <concept id="133034004" display="M'Bayar horse">
+    <display value="M'Bayar horse"/>
+    <display value="M'Bayar horse breed (organism)"/>
+    <display value="M'Bayar horse breed"/>
   </concept>
   <concept id="133035003" display="Lusitano horse">
     <display value="Lusitano horse"/>
@@ -7780,10 +7793,10 @@
     <display value="Kurdi cattle breed (organism)"/>
     <display value="Kurdi cattle breed"/>
   </concept>
-  <concept id="133253003" display="N&#39;dama cattle">
-    <display value="N&#39;dama cattle"/>
-    <display value="N&#39;dama cattle breed (organism)"/>
-    <display value="N&#39;dama cattle breed"/>
+  <concept id="133253003" display="N'dama cattle">
+    <display value="N'dama cattle"/>
+    <display value="N'dama cattle breed (organism)"/>
+    <display value="N'dama cattle breed"/>
   </concept>
   <concept id="133254009" display="Norwegian Red cattle">
     <display value="Norwegian Red cattle"/>
@@ -8530,10 +8543,10 @@
     <display value="Pester cattle breed (organism)"/>
     <display value="Pester cattle breed"/>
   </concept>
-  <concept id="133403007" display="Pie Rouge de l&#39;Est cattle">
-    <display value="Pie Rouge de l&#39;Est cattle"/>
-    <display value="Pie Rouge de l&#39;Est cattle breed (organism)"/>
-    <display value="Pie Rouge de l&#39;Est cattle breed"/>
+  <concept id="133403007" display="Pie Rouge de l'Est cattle">
+    <display value="Pie Rouge de l'Est cattle"/>
+    <display value="Pie Rouge de l'Est cattle breed (organism)"/>
+    <display value="Pie Rouge de l'Est cattle breed"/>
   </concept>
   <concept id="133404001" display="Pisana cattle">
     <display value="Pisana cattle"/>
@@ -9186,10 +9199,10 @@
     <display value="Nejdi cattle breed (organism)"/>
     <display value="Nejdi cattle breed"/>
   </concept>
-  <concept id="133534009" display="N&#39;Gabou cattle">
-    <display value="N&#39;Gabou cattle"/>
-    <display value="N&#39;Gabou cattle breed (organism)"/>
-    <display value="N&#39;Gabou cattle breed"/>
+  <concept id="133534009" display="N'Gabou cattle">
+    <display value="N'Gabou cattle"/>
+    <display value="N'Gabou cattle breed (organism)"/>
+    <display value="N'Gabou cattle breed"/>
   </concept>
   <concept id="133535005" display="North Finncattle cattle">
     <display value="North Finncattle cattle"/>
@@ -10220,10 +10233,10 @@
     <display value="Nepalese Hill Zebu cattle breed (organism)"/>
     <display value="Nepalese Hill Zebu cattle breed"/>
   </concept>
-  <concept id="133742008" display="N&#39;Gaoundere cattle">
-    <display value="N&#39;Gaoundere cattle"/>
-    <display value="N&#39;Gaoundere cattle breed (organism)"/>
-    <display value="N&#39;Gaoundere cattle breed"/>
+  <concept id="133742008" display="N'Gaoundere cattle">
+    <display value="N'Gaoundere cattle"/>
+    <display value="N'Gaoundere cattle breed (organism)"/>
+    <display value="N'Gaoundere cattle breed"/>
   </concept>
   <concept id="133743003" display="Nkedi cattle">
     <display value="Nkedi cattle"/>
@@ -10285,10 +10298,10 @@
     <display value="Prewakwa cattle breed (organism)"/>
     <display value="Prewakwa cattle breed"/>
   </concept>
-  <concept id="133755009" display="Pul-M&#39;bor cattle">
-    <display value="Pul-M&#39;bor cattle"/>
-    <display value="Pul-M&#39;bor cattle breed (organism)"/>
-    <display value="Pul-M&#39;bor cattle breed"/>
+  <concept id="133755009" display="Pul-M'bor cattle">
+    <display value="Pul-M'bor cattle"/>
+    <display value="Pul-M'bor cattle breed (organism)"/>
+    <display value="Pul-M'bor cattle breed"/>
   </concept>
   <concept id="133756005" display="Punganur cattle">
     <display value="Punganur cattle"/>
@@ -10519,10 +10532,10 @@
     <display value="Djakore cattle breed (organism)"/>
     <display value="Djakore cattle breed"/>
   </concept>
-  <concept id="133802009" display="Gambian N&#39;Dama cattle">
-    <display value="Gambian N&#39;Dama cattle"/>
-    <display value="Gambian N&#39;Dama cattle breed (organism)"/>
-    <display value="Gambian N&#39;Dama cattle breed"/>
+  <concept id="133802009" display="Gambian N'Dama cattle">
+    <display value="Gambian N'Dama cattle"/>
+    <display value="Gambian N'Dama cattle breed (organism)"/>
+    <display value="Gambian N'Dama cattle breed"/>
   </concept>
   <concept id="133803004" display="Ghana Sanga cattle">
     <display value="Ghana Sanga cattle"/>
@@ -10943,6 +10956,12 @@
     <display value="Computed tomography of chest (procedure)"/>
     <display value="Computed tomography of chest"/>
   </concept>
+  <concept id="16932000" display="Nausea and vomiting">
+    <display value="Nausea and vomiting"/>
+    <display value="Nausea and vomiting (disorder)"/>
+    <display value="N&amp;V - Nausea and vomiting"/>
+    <display value="N+V - Nausea and vomiting"/>
+  </concept>
   <concept id="169895004" display="Apgar at 1 minute">
     <display value="Apgar at 1 minute"/>
     <display value="Apgar score at 1 minute (observable entity)"/>
@@ -11074,7 +11093,7 @@
   </concept>
   <concept id="1857005" display="Gestational rubella syndrome">
     <display value="Gestational rubella syndrome"/>
-    <display value="Gregg&#39;s syndrome"/>
+    <display value="Gregg's syndrome"/>
     <display value="Congenital rubella"/>
     <display value="Congenital rubella syndrome"/>
     <display value="Congenital rubella syndrome (disorder)"/>
@@ -11106,6 +11125,11 @@
     <display value="Malignant neoplasm of craniopharyngeal duct"/>
     <display value="Malignant tumour of craniopharyngeal duct"/>
     <display value="Malignant tumor of craniopharyngeal duct (disorder)"/>
+  </concept>
+  <concept id="18850004" display="Laboratory hematologist">
+    <display value="Laboratory hematologist"/>
+    <display value="Laboratory haematologist"/>
+    <display value="Laboratory hematologist (occupation)"/>
   </concept>
   <concept id="18911002" display="Penis">
     <display value="Penis"/>
@@ -11142,15 +11166,15 @@
     <display value="Infection by Francisella tularensis"/>
     <display value="Deer fly fever"/>
     <display value="Rabbit fever"/>
-    <display value="Ohara&#39;s disease"/>
+    <display value="Ohara's disease"/>
     <display value="Yatobyo"/>
     <display value="Pahvant Valley fever"/>
     <display value="Pahvant Valley plague"/>
     <display value="Tularaemia"/>
     <display value="Tularemia (disorder)"/>
     <display value="Deerfly fever"/>
-    <display value="Francis&#39; disease"/>
-    <display value="O&#39;Hara&#39;s disease"/>
+    <display value="Francis' disease"/>
+    <display value="O'Hara's disease"/>
   </concept>
   <concept id="19356005" display="Hunter horse">
     <display value="Hunter horse"/>
@@ -11167,10 +11191,10 @@
     <display value="Ischaemic heart disease - angina"/>
     <display value="Angina (disorder)"/>
   </concept>
-  <concept id="19602009" display="Fee-for-service private physicians&#39; group office">
-    <display value="Fee-for-service private physicians&#39; group office"/>
-    <display value="Fee-for-service private physicians&#39; group clinic"/>
-    <display value="Fee-for-service private physicians&#39; group office (environment)"/>
+  <concept id="19602009" display="Fee-for-service private physicians' group office">
+    <display value="Fee-for-service private physicians' group office"/>
+    <display value="Fee-for-service private physicians' group clinic"/>
+    <display value="Fee-for-service private physicians' group office (environment)"/>
   </concept>
   <concept id="19770007" display="Hereford pig">
     <display value="Hereford pig"/>
@@ -11503,7 +11527,7 @@
   </concept>
   <concept id="23502006" display="Lyme disease">
     <display value="Lyme disease"/>
-    <display value="Steere&#39;s disease"/>
+    <display value="Steere's disease"/>
     <display value="Lyme borreliosis"/>
     <display value="Lyme disease (disorder)"/>
     <display value="Infection due to Borrelia burgdorferi sensu lato"/>
@@ -12071,9 +12095,14 @@
   <concept id="267425008" display="Lactose intolerance">
     <display value="Lactose intolerance"/>
     <display value="LM - Lactose malabsorption"/>
-    <display value="Cow&#39;s milk enteropathy"/>
+    <display value="Cow's milk enteropathy"/>
     <display value="Lactose malabsorption"/>
     <display value="Lactose intolerance (disorder)"/>
+  </concept>
+  <concept id="267431006" display="Disorder of lipid metabolism">
+    <display value="Disorder of lipid metabolism"/>
+    <display value="Disorder of lipid metabolism (disorder)"/>
+    <display value="Lipid metabolism disorder"/>
   </concept>
   <concept id="26837006" display="American cream horse">
     <display value="American cream horse"/>
@@ -12510,6 +12539,10 @@
     <display value="Fetus specimen (specimen)"/>
     <display value="Foetus specimen"/>
   </concept>
+  <concept id="309529002" display="Lung mass">
+    <display value="Lung mass"/>
+    <display value="Lung mass (finding)"/>
+  </concept>
   <concept id="309898008" display="Psychogeriatric day hospital">
     <display value="Psychogeriatric day hospital"/>
     <display value="Psychogeriatric day hospital (environment)"/>
@@ -12631,6 +12664,11 @@
   <concept id="32297006" display="Boar power pig 48">
     <display value="Boar power pig 48"/>
     <display value="Boar power pig 48 (organism)"/>
+  </concept>
+  <concept id="323418000" display="Penicillin V (as penicillin V potassium) 25 mg/mL oral solution">
+    <display value="Penicillin V (as penicillin V potassium) 25 mg/mL oral solution"/>
+    <display value="Phenoxymethylpenicillin (as phenoxymethylpenicillin potassium) 25 mg/mL oral solution"/>
+    <display value="Product containing precisely phenoxymethylpenicillin (as phenoxymethylpenicillin potassium) 25 milligram/1 milliliter conventional release oral solution (clinical drug)"/>
   </concept>
   <concept id="32361000" display="Popliteal fossa">
     <display value="Popliteal fossa"/>
@@ -13341,10 +13379,10 @@
     <display value="Amoxicillin + clavulanate potassium 875mg/125mg tablet"/>
     <display value="Amoxicillin + clavulanic acid 875mg/125mg tablet"/>
   </concept>
-  <concept id="39350007" display="Private physicians&#39; group office">
-    <display value="Private physicians&#39; group office"/>
+  <concept id="39350007" display="Private physicians' group office">
+    <display value="Private physicians' group office"/>
     <display value="Medical clinic"/>
-    <display value="Private physicians&#39; group office (environment)"/>
+    <display value="Private physicians' group office (environment)"/>
   </concept>
   <concept id="394539006" display="Paediatric surgery">
     <display value="Paediatric surgery"/>
@@ -13725,6 +13763,10 @@
   <concept id="398090008" display="Patient unavailable">
     <display value="Patient unavailable (finding)"/>
     <display value="Patient unavailable"/>
+  </concept>
+  <concept id="3981005" display="Carrier detection, molecular genetics">
+    <display value="Carrier detection, molecular genetics"/>
+    <display value="Carrier detection, molecular genetics (procedure)"/>
   </concept>
   <concept id="398102009" display="Acute poliomyelitis">
     <display value="Acute poliomyelitis (disorder)"/>
@@ -14121,8 +14163,8 @@
   <concept id="409909005" display="Antwerp bearded bantam">
     <display value="Antwerp bearded bantam (organism)"/>
     <display value="Antwerp bearded bantam"/>
-    <display value="Barbu d&#39;Anvers"/>
-    <display value="Bearded d&#39;Anvers"/>
+    <display value="Barbu d'Anvers"/>
+    <display value="Bearded d'Anvers"/>
   </concept>
   <concept id="409910000" display="Bantam">
     <display value="Bantam (organism)"/>
@@ -14309,11 +14351,11 @@
     <display value="Primary degenerative dementia of the Alzheimer type, presenile onset (disorder)"/>
     <display value="Primary degenerative dementia of the Alzheimer type, presenile onset"/>
     <display value="Primary degenerative dementia of the Alzheimer type, early onset"/>
-    <display value="Dementia in Alzheimer&#39;s disease with early onset"/>
+    <display value="Dementia in Alzheimer's disease with early onset"/>
     <display value="Dementia of the Alzheimers type with early onset"/>
-    <display value="Presenile dementia, Alzheimer&#39;s type"/>
-    <display value="Alzheimer&#39;s disease with early onset"/>
-    <display value="Dementia in Alzheimer&#39;s disease - type 2"/>
+    <display value="Presenile dementia, Alzheimer's type"/>
+    <display value="Alzheimer's disease with early onset"/>
+    <display value="Dementia in Alzheimer's disease - type 2"/>
   </concept>
   <concept id="41695006" display="Scalp">
     <display value="Scalp"/>
@@ -15077,6 +15119,10 @@
     <display value="Apgar score at 20 minutes (observable entity)"/>
     <display value="Apgar score at 20 minutes"/>
   </concept>
+  <concept id="443968007" display="Sequencing of entire coding region of gene">
+    <display value="Sequencing of entire coding region of gene (procedure)"/>
+    <display value="Sequencing of entire coding region of gene"/>
+  </concept>
   <concept id="444321000124108" display="Standard pudding oral supplement (product)">
     <display value="Standard pudding oral supplement (product)"/>
     <display value="Standard pudding oral supplement"/>
@@ -15328,10 +15374,10 @@
     <display value="Silkie chicken"/>
     <display value="Silkie chicken (organism)"/>
   </concept>
-  <concept id="48311003" display="Veteran&#39;s administration hospital">
-    <display value="Veteran&#39;s administration hospital"/>
+  <concept id="48311003" display="Veteran's administration hospital">
+    <display value="Veteran's administration hospital"/>
     <display value="V.A. hospital"/>
-    <display value="Veteran&#39;s administration hospital (environment)"/>
+    <display value="Veteran's administration hospital (environment)"/>
   </concept>
   <concept id="4834000" display="Typhoid fever">
     <display value="Typhoid fever"/>
@@ -15629,7 +15675,7 @@
   </concept>
   <concept id="56415008" display="Klebsiella pneumoniae">
     <display value="Klebsiella pneumoniae"/>
-    <display value="Friedlander&#39;s bacillus"/>
+    <display value="Friedlander's bacillus"/>
     <display value="Klebsiella pneumoniae (organism)"/>
   </concept>
   <concept id="56717001" display="Tuberculosis">
@@ -15713,9 +15759,9 @@
     <display value="Navajo sheep"/>
     <display value="Navajo sheep (organism)"/>
   </concept>
-  <concept id="59374000" display="Traveler&#39;s aid clinic">
-    <display value="Traveler&#39;s aid clinic"/>
-    <display value="Traveler&#39;s aid clinic (environment)"/>
+  <concept id="59374000" display="Traveler's aid clinic">
+    <display value="Traveler's aid clinic"/>
+    <display value="Traveler's aid clinic (environment)"/>
   </concept>
   <concept id="59427005" display="Synchronized intermittent mandatory ventilation">
     <display value="Synchronized intermittent mandatory ventilation"/>
@@ -15828,9 +15874,9 @@
     <display value="Royal palm turkey"/>
     <display value="Royal palm turkey (organism)"/>
   </concept>
-  <concept id="62153005" display="Blonde d&#39;Aquitaine">
-    <display value="Blonde d&#39;Aquitaine"/>
-    <display value="Blonde d&#39;Aquitaine (organism)"/>
+  <concept id="62153005" display="Blonde d'Aquitaine">
+    <display value="Blonde d'Aquitaine"/>
+    <display value="Blonde d'Aquitaine (organism)"/>
   </concept>
   <concept id="6220006" display="Galiceno horse">
     <display value="Galiceno horse"/>
@@ -15998,6 +16044,10 @@
     <display value="Airway clearance impairment"/>
     <display value="Ineffective airway clearance (finding)"/>
   </concept>
+  <concept id="67799006" display="Cystic fibrosis, prenatal detection">
+    <display value="Cystic fibrosis, prenatal detection"/>
+    <display value="Cystic fibrosis, prenatal detection (procedure)"/>
+  </concept>
   <concept id="67889009" display="Irrigation">
     <display value="Irrigation"/>
     <display value="Lavage"/>
@@ -16157,6 +16207,10 @@
     <display value="Evacuated blood collection tube"/>
     <display value="Evacuated blood collection tube (physical object)"/>
   </concept>
+  <concept id="706687001" display="Software">
+    <display value="Software"/>
+    <display value="Software (physical object)"/>
+  </concept>
   <concept id="70777001" display="Urine specimen collection, catheterized">
     <display value="Urine specimen collection, catheterized"/>
     <display value="CSU - Collection of catheter specimen of urine"/>
@@ -16219,9 +16273,9 @@
   <concept id="715345007" display="Young onset Parkinson disease">
     <display value="Young onset Parkinson disease (disorder)"/>
     <display value="Young onset Parkinson disease"/>
-    <display value="Young onset Parkinson&#39;s disease"/>
+    <display value="Young onset Parkinson's disease"/>
     <display value="Early onset Parkinson disease"/>
-    <display value="Early onset Parkinson&#39;s disease"/>
+    <display value="Early onset Parkinson's disease"/>
     <display value="A form of Parkinson disease with age of onset between 21 and 45 years, rigidity, painful cramps followed by tremor, bradykinesia, dystonia, gait complaints, falls and other non-motor symptoms. A slow disease progression and a more pronounced response to dopaminergic therapy are also observed in most forms. The exact etiology is still unknown. Gene mutations have been implicated in some cases, most cases are sporadic however familial cases have been reported in which an autosomal recessive mode of inheritance has been suggested."/>
     <display value="A form of Parkinson disease with age of onset between 21 and 45 years, rigidity, painful cramps followed by tremor, bradykinesia, dystonia, gait complaints, falls and other non-motor symptoms. A slow disease progression and a more pronounced response to dopaminergic therapy are also observed in most forms. The exact aetiology is still unknown. Gene mutations have been implicated in some cases, most cases are sporadic however familial cases have been reported in which an autosomal recessive mode of inheritance has been suggested."/>
   </concept>
@@ -16547,9 +16601,21 @@
     <display value="Malay chicken"/>
     <display value="Malay chicken (organism)"/>
   </concept>
+  <concept id="782032003" display="Ondansetron (as ondansetron hydrochloride) 2 mg/mL solution for injection">
+    <display value="Ondansetron (as ondansetron hydrochloride) 2 mg/mL solution for injection"/>
+    <display value="Product containing precisely ondansetron (as ondansetron hydrochloride) 2 milligram/1 milliliter conventional release solution for injection (clinical drug)"/>
+  </concept>
   <concept id="78375007" display="Andalusian chicken">
     <display value="Andalusian chicken"/>
     <display value="Andalusian chicken (organism)"/>
+  </concept>
+  <concept id="78421000" display="Intramuscular route">
+    <display value="Intramuscular route"/>
+    <display value="Intramuscular route (qualifier value)"/>
+    <display value="Intramuscular use"/>
+    <display value="IM route"/>
+    <display value="IM use"/>
+    <display value="A route that begins within a muscle."/>
   </concept>
   <concept id="7843000" display="Horned Hereford">
     <display value="Horned Hereford"/>
@@ -16699,9 +16765,9 @@
     <display value="Amputation (procedure)"/>
     <display value="Excision of normal topography"/>
   </concept>
-  <concept id="82242000" display="Children&#39;s hospital">
-    <display value="Children&#39;s hospital"/>
-    <display value="Children&#39;s hospital (environment)"/>
+  <concept id="82242000" display="Children's hospital">
+    <display value="Children's hospital"/>
+    <display value="Children's hospital (environment)"/>
   </concept>
   <concept id="82249009" display="California chicken">
     <display value="California chicken"/>
@@ -16753,7 +16819,7 @@
   </concept>
   <concept id="83891005" display="Solo practice private office">
     <display value="Solo practice private office"/>
-    <display value="Doctor&#39;s office"/>
+    <display value="Doctor's office"/>
     <display value="Solo practice private office (environment)"/>
   </concept>
   <concept id="83996001" display="Criollo cattle">

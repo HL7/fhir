@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.1316"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="MedicationDispense Status Reason Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -26,7 +26,7 @@
   <description value="MedicationDispense Status Reason Codes"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-status-reason"/>
+      <system value="http://hl7.org/fhir/CodeSystem/medicationdispense-status-reason"/>
     </include>
   </compose>
 </ValueSet>

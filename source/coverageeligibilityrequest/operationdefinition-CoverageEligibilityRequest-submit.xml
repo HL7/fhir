@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/OperationDefinition.xsd">
   <id value="CoverageEligibilityRequest-submit"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CoverageEligibilityRequest-submit"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="submit"/>
   <title value="Submit an EligibilityRequest resource for assessment"/>
   <status value="draft"/>

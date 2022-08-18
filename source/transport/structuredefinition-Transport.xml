@@ -2,7 +2,7 @@
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Transport"/>
-  <meta>
+  <meta> 
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Transport"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Transport"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Record of transport."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -221,9 +221,8 @@
     </element>
     <element id="Transport.status">
       <path value="Transport.status"/>
-      <short value="in-progress | completed | abandoned | entered-in-error"/>
-      <definition value="A code specifying the state of the dispense event."/>
-      <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <short value="in-progress | completed | abandoned | cancelled | planned | entered-in-error"/>
+      <definition value="A code specifying the state of the transport event."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -266,6 +265,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes to identify the reason for current status.  These will typically be specific to a particular workflow."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/transport-status-reason"/>
       </binding>
       <mapping>
         <identity value="rim"/>

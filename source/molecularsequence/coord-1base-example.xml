@@ -11,32 +11,29 @@
                 <display value="1-based character counting"/>
             </coding>
         </coordinateSystem>
-        <reference>
-            <referenceSeqString value="ACGTAGTC"/>
-            <strand value="watson"/>
+        <startingSequence>
+            <sequenceString value="ACGTAGTC"/>
             <windowStart value="1"/>
             <windowEnd value="8"/>
-        </reference>
+            <strand value="watson"/>
+        </startingSequence>
         <edit>
             <start value="2"/>
             <end value="3"/>
-            <observedAllele value="ATG"/>
-            <referenceAllele value="-"/>
-            <cigar value="3I"/>
+            <replacementSequence value="ATG"/>
+            <replacedSequence value="-"/>
         </edit>
         <edit>
             <start value="5"/>
             <end value="5"/>
-            <observedAllele value="T"/>
-            <referenceAllele value="A"/>
-            <cigar value="3I"/>
+            <replacementSequence value="T"/>
+            <replacedSequence value="A"/>
         </edit>
         <edit>
             <start value="7"/>
             <end value="7"/>
-            <observedAllele value="-"/>
-            <referenceAllele value="T"/>
-            <cigar value="1D"/>
+            <replacementSequence value="-"/>
+            <replacedSequence value="T"/>
         </edit>  
     </relative>
 </MolecularSequence>

@@ -2,6 +2,9 @@
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="valueset-keyWord"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="deprecated"/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
   </extension>
@@ -9,13 +12,13 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-keyWord"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="keyWord"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="Word or words used in an information retrieval system to indicate the content of the value set."/>
-  <fhirVersion value="4.6.0"/>
+  <description value="Word or words used in an information retrieval system to indicate the content of the value set. (deprecated)"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -33,8 +36,9 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="Descriptors and key terms for search"/>
-      <definition value="Word or words used in an information retrieval system to indicate the content of the value set."/>
+      <short value="Descriptors and key terms for search (deprecated)"/>
+      <definition value="Word or words used in an information retrieval system to indicate the content of the value set. (deprecated)"/>
+      <comment value="This extension is deprecated, use the topic element of the CodeSystem resource instead."/>
       <min value="0"/>
       <max value="*"/>
       <isModifier value="false"/>

@@ -14,14 +14,14 @@
         <text value="Homo sapiens"/>
     </species>
     <relative>
-        <reference>
-            <referenceSeqId>
+        <startingSequence>
+            <sequenceCodeableConcept>
                 <coding>
                     <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
                     <code value="NM_000927.4"/>
                     <display value="Homo sapiens ATP-binding cassette, sub-family B (MDR/TAP), member 1 (ABCB1), mRNA"/>
                 </coding>
-            </referenceSeqId>
-        </reference>
+            </sequenceCodeableConcept>
+        </startingSequence>
     </relative>
 </MolecularSequence>

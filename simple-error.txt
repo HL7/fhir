@@ -1,1 +1,1 @@
-﻿Errors executing build. Details logged.
+Errors executing build. Details logged.

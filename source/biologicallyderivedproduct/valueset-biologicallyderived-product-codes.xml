@@ -10,19 +10,27 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <ul>
+        
         
         <li>Include all codes defined in 
           
+          
           <a href="codesystem-biologicallyderived-product-codes.html">
+            
             
             <code>http://hl7.org/fhir/biologicallyderived-product-codes</code>
           
+          
           </a>
+        
         
         </li>
       
+      
       </ul>
+    
     
     </div>
   </text>
@@ -40,8 +48,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
-  <version value="4.6.0"/>
-  <name value="BiologicallyDerivedProductProductCodes"/>
+  <version value="5.0.0-cibuild"/>
+  <name value="BiologicallyDerivedProductCodes"/>
   <title value="BiologicallyDerivedProductCodes"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -57,7 +65,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Biologically Derived Product Codes."/>
+  <description value="BiologicallyDerived Product Codes"/>
   <immutable value="true"/>
   <compose>
     <include>

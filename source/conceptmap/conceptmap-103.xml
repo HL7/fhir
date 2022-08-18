@@ -34,11 +34,11 @@
     </jurisdiction>
     <purpose value="Show example rule based mappings"/>
     <copyright value="Creative Commons 0"/>
-    <sourceCanonical value="http://snomed.info/sct?fhir_vs"/>
-    <targetCanonical value="http://hl7.org/fhir/sid/icd-10-us"/>
+    <sourceScopeCanonical value="http://snomed.info/sct?fhir_vs"/>
+    <!-- <targetScopeCanonical value="http://hl7.org/fhir/sid/icd-10-cm"/> -->
     <group>
         <source value="http://snomed.info/sct"/>
-        <target value="http://hl7.org/fhir/sid/icd-10-us"/>
+        <target value="http://hl7.org/fhir/sid/icd-10-cm"/>
         <!-- Unspecified fracture of shaft of unspecified ulna (initial encounter for closed fracture) -->
         <element>
             <!-- Fracture of shaft of ulna -->
@@ -50,6 +50,7 @@
             </target>
         </element>
         <element>
+            <code value="263204007"/>
             <target>
                 <code value="S52.209D"/>
                 <relationship value="source-is-broader-than-target"/>

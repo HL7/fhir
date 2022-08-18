@@ -14,6 +14,14 @@
 
 	<status value="active"/>
 
+	<kind value="self-pay"/>
+
+	<paymentBy>
+		<party>
+			<reference value="Patient/5"/>
+		</party>
+	</paymentBy>
+
 	<type>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/coverage-selfpay"/>
@@ -21,7 +29,7 @@
 			<display value="PAY"/>
 		</coding>
 	</type>
-
+	
 	<subscriber>
 		<reference value="Patient/5"/>
 	</subscriber>
@@ -39,9 +47,5 @@
 	<period> 
 		<end value="2012-03-17"/>
 	</period>
-
-	<payor>
-		<reference value="Patient/5"/>
-	</payor>
 
 </Coverage>

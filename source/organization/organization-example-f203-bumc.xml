@@ -38,19 +38,21 @@
     </coding>
   </type>
   <name value="Blijdorp Medisch Centrum (BUMC)"/>
-  <telecom>
-  <!-- BMC's contact detail -->
-    <system value="phone"/>
-    <value value="+31107040704"/>
-    <use value="work"/>
-  </telecom>
-  <address>
-  <!-- BMC's address -->
-    <use value="work"/>
-    <line value="apenrots 230"/>
-    <city value="Blijdorp"/>
-    <postalCode value="3056BE"/>
-    <country value="NLD"/>
-  <!-- ISO 3166 3 letter code -->
-  </address>
+  <contact>
+    <telecom>
+    <!-- BMC's contact detail -->
+      <system value="phone"/>
+      <value value="+31107040704"/>
+      <use value="work"/>
+    </telecom>
+    <address>
+    <!-- BMC's address -->
+      <use value="work"/>
+      <line value="apenrots 230"/>
+      <city value="Blijdorp"/>
+      <postalCode value="3056BE"/>
+      <country value="NLD"/>
+    <!-- ISO 3166 3 letter code -->
+    </address>
+  </contact>
 </Organization>

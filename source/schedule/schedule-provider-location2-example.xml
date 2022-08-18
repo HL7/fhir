@@ -15,6 +15,7 @@
 	<active value="true"/>
 	<serviceCategory>
 		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/service-category"/>
 			<code value="31"/>
 			<display value="Specialist Surgical" />
 		</coding>
@@ -22,6 +23,7 @@
 	<serviceType>
 		<concept>
 			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/service-type"/>
 				<code value="221"/>
 				<display value="Surgery - General" />
 			</coding>
@@ -29,6 +31,7 @@
 	</serviceType>
 	<specialty>
 		<coding>
+			<system value="http://snomed.info/sct"/>
 			<code value="394610002"/>
 			<display value="Surgery-Neurosurgery" />
 		</coding>

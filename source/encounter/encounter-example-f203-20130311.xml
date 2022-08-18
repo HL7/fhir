@@ -15,18 +15,13 @@
     </statusHistory>
     <!--Encounter has been completed-->
     <class>
-        <!--Inpatient encounter for straphylococcus infection-->
-        <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-        <code value="IMP"/>
-        <display value="inpatient encounter"/>
+		<coding>
+			<!--Inpatient encounter for straphylococcus infection-->
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<code value="IMP"/>
+			<display value="inpatient encounter"/>
+		</coding>
     </class>
-    <type>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="183807002"/>
-            <display value="Inpatient stay for nine days"/>
-        </coding>
-    </type>
     <priority>
         <!--High priority-->
         <coding>
@@ -35,6 +30,13 @@
             <display value="High priority"/>
         </coding>
     </priority>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="183807002"/>
+            <display value="Inpatient stay for nine days"/>
+        </coding>
+    </type>
     <subject>
         <reference value="Patient/f201"/>
         <display value="Roel"/>
@@ -45,6 +47,12 @@
     <basedOn>
         <reference value="ServiceRequest/myringotomy"/>
     </basedOn>
+    <partOf>
+        <reference value="Encounter/f203"/>
+    </partOf>
+    <serviceProvider>
+        <reference value="Organization/2"/>
+    </serviceProvider>
     <participant>
         <type>
             <coding>
@@ -93,11 +101,11 @@
         </coding>
       </use>
     </diagnosis>
-<account>
+    <account>
         <reference value="Account/example"></reference>
     </account>
     <!--No indication, because no referral took place-->
-    <hospitalization>
+    <admission>
         <origin>
             <reference value="Location/2"/>
         </origin>
@@ -139,11 +147,5 @@
             <!--Fictive-->
             <reference value="Location/2"/>
         </destination>
-    </hospitalization>
-    <serviceProvider>
-        <reference value="Organization/2"/>
-    </serviceProvider>
-    <partOf>
-        <reference value="Encounter/f203"/>
-    </partOf>
+    </admission>
 </Encounter>

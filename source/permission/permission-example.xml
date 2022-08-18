@@ -6,6 +6,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text>
 	<status value="active" />
+  <combining value="deny-overrides"/>
 
   <!-- insert contents here -->
   

@@ -42,7 +42,8 @@
     Could also be a UUID too   -->
 	<version value="20150622"/>
 	<!--   set of loinc codes for cholesterol for LONC 2.36   -->
-	<name value="LOINC Codes for Cholesterol in Serum/Plasma"/>
+	<name value="LOINCCodesForCholesterolInSerumPlasma"/>
+	<title value="LOINC Codes for Cholesterol in Serum/Plasma"/>
 	<status value="draft"/>
 	<experimental value="true"/>
 	<date value="2015-06-22"/>

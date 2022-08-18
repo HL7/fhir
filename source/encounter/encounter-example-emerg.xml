@@ -35,9 +35,11 @@
 		</period>
 	</statusHistory>
 	<class>
-		<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-		<code value="IMP"/>
-		<display value="inpatient encounter"/>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<code value="IMP"/>
+			<display value="inpatient encounter"/>
+		</coding>
 	</class>
 	<classHistory>
 		<class>
@@ -66,7 +68,7 @@
 	<actualPeriod>
 		<start value="2017-02-01T07:15:00+10:00"/>
 	</actualPeriod>
-	<hospitalization>
+	<admission>
 		<admitSource>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/admit-source"/>
@@ -74,7 +76,7 @@
 				<display value="From accident/emergency department" />
 			</coding>
 		</admitSource>
-	</hospitalization>
+	</admission>
 	<location>
 		<location>
 			<display value="Emergency Waiting Room"/>

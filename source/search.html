@@ -110,10 +110,10 @@ Search operations can also be implemented in <a href="messaging.html#search">the
 </p>
 <p>
 In the absence of any search filters, e.g. <code>GET [base]/Patient</code> or <code>POST [base]/Patient/_search</code> with empty body, server SHOULD return
-all records. NOTE: Sever MAY impose expectations prohibiting queries without or with insufficient parameters. 
+all records. NOTE: Sever MAY impose expectations prohibiting queries without or with insufficient parameters.
 </p>
 <p>
-Order of operations is not driven by order in the URL - with the exception of sort. First all filters are applied, 
+Order of operations is not driven by order in the URL - with the exception of sort. First all filters are applied,
 then the result set is sorted, then paging is applied, and includes/revincludes are returned for each page.
 </p>
 <p>
@@ -952,7 +952,7 @@ The interpretation of a <i>reference</i> parameter is either:
  <li><b><code>[parameter]=[id]</code></b> the logical [id] of a resource using a local reference (i.e. a relative reference)</li>
  <li><b><code>[parameter]=[type]/[id]</code></b> the logical [id] of a resource of a specified type using a local reference (i.e. a relative reference),
    for when the reference can point to different types of resources (e.g. <a href="observation-definitions.html#Observation.subject">Observation.subject</a>)</li>
- <li><b><code>[parameter]=[url]</code></b> where the [url] is an absolute URL - a reference to a resource by its absolute location, or by it's canonical URL</li>
+ <li><b><code>[parameter]=[url]</code></b> where the [url] is an absolute URL - a reference to a resource by its absolute location, or by its canonical URL</li>
 </ul>
 <p>
 Note: A relative reference resolving to the same value as a specified absolute URL, or vice versa, qualifies as a match.
@@ -1557,7 +1557,7 @@ Notes:
 <div class="trial-content">
 <p>
 The _total parameter has the status <a href="versions.html#std-process" title="Trial Content" class="draft-flag">trial-use</a>
-pending real world experience of it's use.
+pending real world experience of its use.
 </p>
 
 <a name="total"></a>
@@ -1575,7 +1575,7 @@ a particular response (see <a href="#count">paging</a>, immediately below).
 Providing a precise number of matching resources may be onerous for the
 server, depending on how the server is designed. To help reduce the server
 load, a client can provide the parameter <code>_total</code> to indicate
-it's preference with regard to the total, which can have one of the
+its preference with regard to the total, which can have one of the
 following values:
 </p>
 <table class="codes">
@@ -1610,9 +1610,9 @@ or processed by the client.
 <p>
 The parameter <code>_count</code> is defined as an instruction to the server
 regarding how many resources should be returned in a
-single page. Servers SHALL NOT return more resources in a single page than requested, 
-even if they don't support paging, but may return less than the client requested. 
-NOTE: This means that all servers that support search or history SHALL support 
+single page. Servers SHALL NOT return more resources in a single page than requested,
+even if they don't support paging, but may return less than the client requested.
+NOTE: This means that all servers that support search or history SHALL support
 checking the _count parameter. The server should repeat
 the original <code>_count</code> parameter in its returned page links so that
 subsequent paging requests honor the original <code>_count</code>.  Note:
@@ -1920,13 +1920,13 @@ resource will be retrieved when the user selects a resource.
 Servers are not obliged to return just a summary as requested. There are only
 a limited number of summary forms defined for resources in order to allow servers
 to store the summarized form(s) in advance. Servers SHOULD mark the resources with the
-tag <a href="v3/SecurityIntegrityObservationValue/cs.html#SUBSETTED"><code>SUBSETTED</code></a>
-to ensure that the incomplete resource is not accidentally used to overwrite
+tag <a href="v3/ObservationValue/cs.html#v3-ObservationValue-SUBSETTED"><code>SUBSETTED</code></a>
+code to ensure that the incomplete resource is not accidentally used to overwrite
 a complete resource.
 </p>
 <p>
-The self link in the search result Bundle is important for the interpretation of the result 
-and should always be returned, regardless of the type of _summary.  
+The self link in the search result Bundle is important for the interpretation of the result
+and should always be returned, regardless of the type of _summary.
 </p>
 <p>
 Note that the <code>_include</code> and <code>_revinclude</code> parameters cannot be mixed with <code>_summary=text</code>.
@@ -1959,8 +1959,8 @@ does not apply to <a href="#include">included resources</a>.
 Servers are not obliged to return just the requested elements.
 Servers SHOULD always return mandatory elements whether they are
 requested or not. Servers SHOULD mark the resources with the
-tag <a href="v3/SecurityIntegrityObservationValue/cs.html#SUBSETTED"><code>SUBSETTED</code></a>
-to ensure that the incomplete resource is not actually used to overwrite
+tag <a href="v3/ObservationValue/cs.html#v3-ObservationValue-SUBSETTED"><code>SUBSETTED</code></a>
+code to ensure that the incomplete resource is not actually used to overwrite
 a complete resource.
 </p>
 

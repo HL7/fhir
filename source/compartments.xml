@@ -208,7 +208,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ChargeItem</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">enterer | performer-actor</Data></Cell>
     <Cell><Data ss:Type="String">enterer | performer-actor</Data></Cell>
     <Cell><Data ss:Type="String">enterer | performer-actor</Data></Cell>
@@ -277,9 +277,6 @@
     <Cell><Data ss:Type="String">ConceptMap</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ConceptMap2</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Condition</Data></Cell>
     <Cell><Data ss:Type="String">patient | participant-actor</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
@@ -288,9 +285,6 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CapabilityStatement</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CapabilityStatement2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DetectedIssue</Data></Cell>
@@ -303,8 +297,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Coverage</Data></Cell>
-    <Cell><Data ss:Type="String">policy-holder | subscriber | beneficiary |payor</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">policy-holder | subscriber |payor</Data></Cell>
+    <Cell><Data ss:Type="String">policy-holder | subscriber | beneficiary | paymentby-party</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">policy-holder | subscriber | paymentby-party</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Device</Data></Cell>
@@ -696,6 +690,10 @@
     <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">GenomicStudy</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Task</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -832,7 +830,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>130</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

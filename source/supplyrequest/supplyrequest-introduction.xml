@@ -38,6 +38,9 @@ These instances can be linked in different ways, depending on the needs of the w
 		</p>
 		<p>The SupplyRequest resource is used for <em>inventory management</em>.  When requesting medication, substances and devices when there is a patient focus or instructions regarding their use, <a href="devicerequest.html">DeviceRequest</a> or <a href="medicationrequest.html">MedicationRequest</a> should be used instead.
 		</p>
+		<p>
+        To determine the purchase date, a search of DeviceRequest, SupplyRequest, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done , as the context of the use case actually determines which date of either resource is considered the purchase date.
+		</p>
 
 	</div>
 </div>

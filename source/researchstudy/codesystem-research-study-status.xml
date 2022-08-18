@@ -20,7 +20,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.820"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ResearchStudyStatus"/>
   <title value="ResearchStudyStatus"/>
   <status value="draft"/>
@@ -41,6 +41,11 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/research-study-status"/>
   <content value="complete"/>
+  <concept>
+    <code value="overall-study"/>
+    <display value="Overall study"/>
+    <definition value="Used for documenting the start and end of the overall study, distinct from progress states."/>
+  </concept>
   <concept>
     <code value="active"/>
     <display value="Active"/>

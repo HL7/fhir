@@ -9,7 +9,9 @@
    <code value="cells" />
   </productCategory>
   <productCode>
-  		<code value="S1127" />
+    <coding>
+  		<code value="S1128" />
+    </coding>
   </productCode>
   <request>
     <reference value="BiologicallyDerivedProduct/HCTcollection-servicerequest" />
@@ -19,10 +21,10 @@
     <system value="https://www.isbt128.org/uri/SingleEuropeanCode" />
     <value value="PL001499Z549917123456 A00T041600320171231" /> 
   </identifier>
-  <biologicalSource>
+  <biologicalSourceEvent>
     <system value="https://www.isbt128.org/uri/DonationIdentificationNumber" />
 	  <value value="W000022000687" />
-  </biologicalSource>
+  </biologicalSourceEvent>
   <processingFacility>
     <reference value="Organization/Example" />
   </processingFacility>

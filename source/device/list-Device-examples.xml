@@ -28,4 +28,196 @@
       <display value="device-example-f001-feedingtube.html"/>
     </item>
   </entry>
-</List>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="AND20601BPMonitor"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-AND20601BPMonitor"/>
+    </extension>
+    <item>
+      <reference value="Device/and20601bpmonitor"/>
+      <display value="device-example-AND20601BPMonitor.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ANDThermometer"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-ANDThermometer"/>
+    </extension>
+    <item>
+      <reference value="Device/ANDThermometer"/>
+      <display value="device-example-ANDThermometer.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="AndroidGatewayPHG"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-AndroidGatewayPHG"/>
+    </extension>
+    <item>
+      <reference value="Device/AndroidGatewayPHG"/>
+      <display value="device-example-AndroidGatewayPHG.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Bodimetrics"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-Bodimetrics"/>
+    </extension>
+    <item>
+      <reference value="Device/Bodimetrics"/>
+      <display value="device-example-Bodimetrics.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="KinsaThermometer"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-KinsaThermometer"/>
+    </extension>
+    <item>
+      <reference value="Device/KinsaThermometer"/>
+      <display value="device-example-KinsaThermometer.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nonin20601PulseOx"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-Nonin20601PulseOx"/>
+    </extension>
+    <item>
+      <reference value="Device/Nonin20601PulseOx"/>
+      <display value="device-example-Nonin20601PulseOx.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="NoninBlePulseOx"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-NoninBlePulseOx"/>
+    </extension>
+    <item>
+      <reference value="Device/NoninBlePulseOx"/>
+      <display value="device-example-NoninBlePulseOx.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="PhilipsThermometer"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-PhilipsThermometer"/>
+    </extension>
+    <item>
+      <reference value="Device/PhilipsThermometer"/>
+      <display value="device-example-PhilipsThermometer.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="RocheGlucoseMonitor"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-RocheGlucoseMonitor"/>
+    </extension>
+    <item>
+      <reference value="Device/RocheGlucoseMonitor"/>
+      <display value="device-example-RocheGlucoseMonitor.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ihe-pcd"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-ihe-pcd"/>
+    </extension>
+    <item>
+      <reference value="Device/ihe-pcd"/>
+      <display value="device-example-ihe-pcd.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="example-pacemaker"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-pacemaker"/>
+    </extension>
+    <item>
+      <reference value="Device/example-pacemaker"/>
+      <display value="device-example-pacemaker.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="example-software"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-software"/>
+    </extension>
+    <item>
+      <reference value="Device/example-software"/>
+      <display value="device-example-software.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="example-udi1"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-udi1"/>
+    </extension>
+    <item>
+      <reference value="Device/example-udi1"/>
+      <display value="device-example-udi1.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="example-udi2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-udi2"/>
+    </extension>
+    <item>
+      <reference value="Device/example-udi2"/>
+      <display value="device-example-udi2.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="example-udi3"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-udi3"/>
+    </extension>
+    <item>
+      <reference value="Device/example-udi3"/>
+      <display value="device-example-udi3.html"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="example-udi4"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-udi4"/>
+    </extension>
+    <item>
+      <reference value="Device/example-udi4"/>
+      <display value="device-example-udi4.html"/>
+    </item>
+  </entry>
+</List> 

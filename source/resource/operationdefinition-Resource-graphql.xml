@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Resource-graphql"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="graphql"/>
   <title value="Execute a graphql statement"/>
   <status value="draft"/>

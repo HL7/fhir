@@ -74,10 +74,16 @@
     <code>Request.supportingInfo</code>.
   </p>
   <p>
-    Each "component" behaves as an independent request and has its own status that changes independently.  In general the
-    requisitionId, practitioner, authoredOn and subject for each will be immutable, but there may be situations where
-    some workflows allow them to change.  The shared requisitionId allows business processes dependent on 
-    "simultaneous/requisition-based ordering" such as payment rules to know that the requests were ordered at the same time.
+    Each "component" behaves as an independent request and has its own status that changes independently.  The shared 
+    requisitionId allows business processes dependent on "simultaneous/requisition-based ordering" such as payment rules to 
+    know that the requests were ordered at the same time.
+  </p>    
+  <p>
+    In general, the requisitionId, requester, authoredOn, and subject for each Request will not change over the lifetime of the 
+    instance, particularly once the status becomes 'active', though there may be situations where some workflows allow these 
+    elements to change.  Because of this, there could be situations where the subject, requester, authoredOn could differ between 
+    Requests that share the same requisitionId. Systems can enforce business rules to prevent such inconsistency from happening if 
+    it would be problematic.
   </p>
 
   <a name="basedon"></a>
@@ -95,8 +101,8 @@
   <p>
     <code>basedOn</code> is distinct from the notion of <code>replaces</code>.  In a "based on" relationship both resources are
     "active" and in force and the authority cascades from the initial request to the request that is based on that original request.
-     In a "replaces" relationship, the target resource is no longer in force and should have a status of
-    "completed" or "cancelled" or some other terminal state.
+    The source and target of a "replaces" relationship should have the same "intent". I.e. An order can replace another order, but 
+    can't generally replace a proposal - though an order can be "basedOn" a proposal.
   </p>
 
   <a name="requestgroup"></a>
@@ -105,7 +111,7 @@
     This approach makes use of the <a href="requestgroup.html">RequestGroup</a> resource which allows the assertion of complex
     timing and other dependencies between a collection of requests.  These effectively become one overall Request instance with
     a single status.  All resources referenced by the RequestGroup must have an intent of "option", meaning that they cannot
-    be interpretted independently - and that changes to them must take into account the impact on referencing resources.
+    be interpreted independently - and that changes to them must take into account the impact on referencing resources.
     Typically these will either be contained resources or tightly controlled or immutable instances based on ActivityDefinitions
     that can safely be referenced without concern of them changing independent of referencing Requests.
   </p>
@@ -115,4 +121,56 @@
     with both the "parent" Request as well as the specific "option" Request they are tied to.
   </p>
 
+  <a name="notes"> </a>
+  <h2>Notes and Related Information</h2>
+  <p>
+    Both the 'note' and 'supportingInfo' element provide additional supporting or contextual information about the overall Request.
+    However, they have slightling different purposes.
+  </p>
+  <ul>
+    <li><code>supportingInfo</code> <i>can</i> be a reference to a <a href="documentreference.html">DocumentReference</a> containing 
+      ad-hoc clinical notes, however in most cases, <code>supportingInfo</code> will be other types of resources containing discrete 
+      information.  In the situation where a DocumentReference is used to contain notes, those notes have an independent existence and
+      maintenance cycle from the referencing Request resource and might be linked to multiple Request or other resources.  On the other
+      hand, <code>notes</code> are associated with exactly one Request instance.</li>
+    <li>Notes are typically added to a request after it has been activated, though they can come before.  A key thing is that you want 
+      to track who made the note and when.</li>
+    <li>Notes can be clinical or administrative in nature.  E.g. "Holding off sending the referral until patient is back from vacation", 
+      "Expect to resume med roughly 2 weeks post-discharge", "Possible compliance issues, follow up next appointment".</li>
+    <li><code>supportingInfo</code> is information typically provided at the time the request is activated, though it can be added later.</li>
+    <li><code>supportingInfo</code> is information needed by the filler in order to be able to perform the order (e.g. recent lab tests 
+      supporting a referral, patient height/weight/age supporting a dosage instruction - or allowing calculation of dosage, previous 
+      procedures done, etc. to support a Claim.</li>
+    <li><code>notes</code> should never be used to reflect information conveyed in <code>supportingInfo</code>.</li>  
+  </ul>
+  
+  <a name="history"> </a>
+  <h2>Relevant history</h2>
+  <p>
+    This pattern contains an element called "relevantHistory" that points to <a href="provenance.html">Provenance</a>.  This allows the 
+    resource to summarize key events that have happened over the lifespan of the resource.  For example, when the request was created, 
+    when it was suspended, when it was released, etc.  The list of referenced Provenence entries don't necessarily include <i>all</i> events 
+    that have occurred over the lifespan of the resource.  Instead, they list those the author considers 'significant' and relevant to 
+    downstream users.  Modifications to drafts or small corrections that do not impact fulfillment might not be needed.  In some cases,
+    Provenance for changes to other resources (e.g. fulfilling events) might also be included if the source system tracks those as
+    'events' tied to the Request.
+  </p>
+  <p>
+    <b>IMPORTANT:</b> the relevantHistory generally excludes the most recent change on 'pure' FHIR repositories.  That is because in
+    pure FHIR environments, the Provenance instance must be created after the update has been made - because it needs to point to the new 
+    'version' of the resource that has been created.  This means that if there is a desire to include the 'current' change in relevant history, 
+    it is necessary to first make the change, then update the resource to add the event to recentHistory.  More typically, recentHistory 
+    simply won't include the most recent event.  If the full history is needed, the system will need to retrieve both the history as well as
+    the Provenance that points to the current release.  
+  </p>
+  <p>
+    For systems that don't store history separately from the base resource, the relevantHistory Provenance instances can be conveyed
+    as <a href="references.html#contained">contained resources</a>.  In this circumstance, there might also not be an issue with relevantHistory 
+    also including the 'most recent' change as the history is updated at the same time the change is applied.
+  </p>
+  <p>
+    The full set of potential Provenance information may be overkill for those systems that are only interested in it from a
+    relevantHistory perspective.  The <a href="provenance-relevant-history.html">Provenance Relevant History</a> profile is included to give guidance 
+    on what data elements are most likely to be relevant for systems looking at Provenance from the perspective of relevantHistory.
+  </p>
 </div>

@@ -19,7 +19,7 @@
 			them to be relevant in the community healthcare space, and to ease exposure to other
 			appointment / calendar standards widely used outside of healthcare.
 		</p>
-
+			
 <a name="basic-workflow"></a>
     <h3>The basic workflow to create an appointment</h3>
 		<ul>
@@ -132,6 +132,63 @@
 		</ul>
 	</div>
   <div>
+
+	<a name="recurring"> </a>
+	<h3>Recurring Appointments</h3>
+	<p>
+		There are 2 main forms of recurring appointments recognized by FHIR:
+		<ul>
+			<li>(recurring) Regular meetings which occur based on a template, usually pre-allocated with a well defined frequency and a set purpose</li>
+			<li>(series) An appointment that has a series of follow up appointments which are more adhoc/irregular in nature<br/>
+				This type does not typically pre-allocate bookings, but are re-booked each time based on loose guidance.
+				These could also have different services on each re-booking (potentially via a protocol)
+			</li>
+		</ul>
+	</p>
+	<h4>Recurring (template/pattern)</h4>
+	<p>
+		The recurring appointment uses the <code>recurrenceTemplate</code> property to define when all of the occurrences
+		of the appointment should occur. This value only exists on the original booking for the appointment, for all the 
+		subsequent occurrences the <code>originatingAppointment</code> refers back to original for the template details.
+	</p>
+	<p>
+		Accepting a recurring appointment can be done either as accepting the entire series 
+		(using <code>AppointmentRequest.recurring=true</code>) or can accept each occurrence individually
+		(using <code>AppointmentRequest.recurring=false</code> along with <code>AppointmentRequest.occurrenceDate</code>
+		or <code>AppointmentRequest.recurrenceId</code> to indicate which repitition specifically)
+	</p>
+	<p>
+		Note that in the template the <code>timezone</code> property defines which timezone the start/end times
+		apply. This is required as the <code>time</code> properties only have the offset (+10), and not the zone (Australia/Melbourne), which means
+		that they cannot be used by the template to generate 9am every Wednesday all year (as Melbourne changes to +11 during daylight saving time).<br/>
+		</p>
+	
+	<h4>Series (simple chain)</h4>
+	<p>
+		A series appointment has no template information, and thus don't use the 
+		<code>recurrenceTemplate</code> property. Often when first booked it is likely not known
+		that it will become a series of bookings, and only on conclusion of the encounter it is decided to follow-up
+		and then book a new appointment (or even book it later on) and relate the new booking to the previous in the series
+		through the <code>previousAppointment</code> property.
+		This style of recurring appointment likely won't use the <code>originatingAppointment</code> property either.
+	</p>
+	<p>
+		As each appointment in a series is a separate appointment and booked as needed, the acceptance of requests here is
+		just as it would be normally if they didn't have a sequence.
+	</p>
+	<p>
+		As each occurrence is booked independently there are no specific issues with timezones, as each instance exactly
+		defines when it occurs (there is no template).
+	</p>
+
+	[%stu-note%]
+		<b>Note:</b>  We are seeking input from the implementer community on the recurring appointment functionality
+		and specifically if there is a need for a "recur forever" or similar flag.
+		</p>
+		<p>
+		Feedback <a href="http://hl7.org/fhir-issues">here</a>.
+	[%end-note%]
+
 <a name="bnr"></a>
     <h2>Boundaries and Relationships</h2>
 		<h3>Appointment Request/Response Pattern</h3>

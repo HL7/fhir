@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/List"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="List"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -41,8 +41,8 @@
       <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A list is a curated collection of resources."/>
-  <fhirVersion value="4.6.0"/>
+  <description value="A List is a curated collection of resources, for things such as problem lists, allergy lists, facility list, organization list, etc."/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -62,7 +62,7 @@
     <element id="List">
       <path value="List"/>
       <short value="A list is a curated collection of resources"/>
-      <definition value="A list is a curated collection of resources."/>
+      <definition value="A List is a curated collection of resources, for things such as problem lists, allergy lists, facility list, organization list, etc."/>
       <alias value="Collection"/>
       <alias value="WorkingList"/>
       <alias value="Organizer"/>
@@ -138,7 +138,7 @@
         </extension>
         <strength value="required"/>
         <description value="The current state of the list."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/list-status|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/list-status|5.0.0"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -169,7 +169,7 @@
         </extension>
         <strength value="required"/>
         <description value="The processing mode that applies to this list."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/list-mode|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/list-mode|5.0.0"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -315,6 +315,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -377,6 +378,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <orderMeaning value="Order has no meaning unless specifically asserted by List.orderedBy, in which case the List SHALL be interpreted as being ordered as specified by List.orderedBy."/>
       <condition value="lst-1"/>
       <mapping>
         <identity value="rim"/>

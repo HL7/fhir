@@ -17,12 +17,22 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/no-fixed-address"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/patient-birthPlace"/>
       </reference>
     </resource>
     <resource>
       <reference>
         <reference value="StructureDefinition/patient-birthTime"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/patient-multipleBirthTotal"/>
       </reference>
     </resource>
     <resource>
@@ -77,7 +87,22 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/patient-genderIdentity"/>
+        <reference value="StructureDefinition/individual-genderIdentity"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/patient-sexForClinicalUse"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/individual-recordedSexOrGender"/>
+      </reference>
+    </resource>
+	<resource>
+      <reference>
+        <reference value="StructureDefinition/individual-pronouns"/>
       </reference>
     </resource>
     <resource>

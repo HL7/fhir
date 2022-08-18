@@ -20,11 +20,11 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cg"/>
   </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="MolecularSequence"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Representation of a molecular sequence."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
@@ -69,14 +69,6 @@
         <identity value="w5"/>
         <map value="clinical.diagnostics"/>
       </mapping>
-      <constraint>
-        <key value="msq-1"/>
-        <severity value="error"/>
-        <human value="Each MolecularSequence SHALL have only one representation of a sequence: literal, formatted, or relative."/>
-        <expression value="(literal.count() + formatted.count() + relative.count()) = 1"/>
-        <xpath value="count(f:literal)+count(f:formatted)+count(f:relative)=1"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
-      </constraint>
     </element>
     <element id="MolecularSequence.identifier">
       <path value="MolecularSequence.identifier"/>
@@ -164,7 +156,7 @@
     <element id="MolecularSequence.literal">
       <path value="MolecularSequence.literal"/>
       <short value="Sequence that was observed"/>
-      <definition value="Sequence that was observed. It is the result marked by referenceSeq along with variant records on referenceSeq. This shall start from referenceSeq.windowStart and end by referenceSeq.windowEnd."/>
+      <definition value="Sequence that was observed."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -177,21 +169,18 @@
       <short value="Embedded file or a link (URL) which contains content to represent the sequence"/>
       <definition value="Sequence that was observed as file content. Can be an actual file contents, or referenced by a URL to an external system."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Attachment"/>
       </type>
       <isSummary value="true"/>
     </element>
     <element id="MolecularSequence.relative">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="up"/>
-      </extension>
       <path value="MolecularSequence.relative"/>
       <short value="A sequence defined relative to another sequence"/>
       <definition value="A sequence defined relative to another sequence."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -211,21 +200,37 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="LL5323-2"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Genomic coordinate system."/>
-        </extension>
         <strength value="extensible"/>
-        <description value="The chromosome containing the genetic finding"/>
+        <description value="Genomic coordinate system."/>
         <valueSet value="http://loinc.org/LL5323-2/"/>
       </binding>
     </element>
-    <element id="MolecularSequence.relative.reference">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="up"/>
-      </extension>
-      <path value="MolecularSequence.relative.reference"/>
-      <short value="A sequence used as reference"/>
-      <definition value="A sequence that is used as a reference to describe variants that are present in a sequence analyzed."/>
+    <element id="MolecularSequence.relative.ordinalPosition">
+      <path value="MolecularSequence.relative.ordinalPosition"/>
+      <short value="Indicates the order in which the sequence should be considered when putting multiple 'relative' elements together"/>
+      <definition value="Indicates the order in which the sequence should be considered when putting multiple 'relative' elements together."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularSequence.relative.sequenceRange">
+      <path value="MolecularSequence.relative.sequenceRange"/>
+      <short value="Indicates the nucleotide range in the composed sequence when multiple 'relative' elements are used together"/>
+      <definition value="Indicates the nucleotide range in the composed sequence when multiple 'relative' elements are used together."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Range"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="MolecularSequence.relative.startingSequence">
+      <path value="MolecularSequence.relative.startingSequence"/>
+      <short value="A sequence used as starting sequence"/>
+      <definition value="A sequence that is used as a starting sequence to describe variants that are present in a sequence analyzed."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -234,23 +239,42 @@
       <constraint>
         <key value="msq-6"/>
         <severity value="error"/>
-        <human value="Have and only have one of the following elements in referenceSeq : 1. genomeBuild ; 2 referenceSeqId; 3. referenceSeqPointer;  4. referenceSeqString;"/>
-        <expression value="(genomeBuild.count()+referenceSeqId.count()+ referenceSeqPointer.count()+ referenceSeqString.count()) = 1"/>
-        <xpath value="count(f:genomeBuild)+count(f:referenceSeqId)+count(f:referenceSeqPointer)+count(f:referenceSeqString)=1"/>
+        <human value="Have and only have one of the following elements in startingSequence: 1. genomeAssembly; 2 sequence"/>
+        <expression value="(genomeAssembly.count()+sequenceCodeableConcept.count()+ sequenceReference.count()+ sequenceString.count()) = 1"/>
+        <xpath value="count(f:genomeAssembly)+count(f:sequenceCodeableConcept)+count(f:sequenceReference)+count(f:sequenceString)=1"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </constraint>
       <constraint>
         <key value="msq-5"/>
         <severity value="error"/>
-        <human value="GenomeBuild and chromosome must be both contained if either one of them is contained"/>
-        <expression value="(chromosome.empty() and genomeBuild.empty()) or (chromosome.exists() and genomeBuild.exists())"/>
-        <xpath value="(exists(f:chromosome) and exists(f:genomeBuild)) or (not(exists(f:chromosome)) and not(exists(f:genomeBuild)))"/>
+        <human value="Both genomeAssembly and chromosome must be both contained if either one of them is contained"/>
+        <expression value="(chromosome.empty() and genomeAssembly.empty()) or (chromosome.exists() and genomeAssembly.exists())"/>
+        <xpath value="(exists(f:chromosome) and exists(f:genomeAssembly)) or (not(exists(f:chromosome)) and not(exists(f:genomeAssembly)))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </constraint>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.relative.reference.chromosome">
-      <path value="MolecularSequence.relative.reference.chromosome"/>
+    <element id="MolecularSequence.relative.startingSequence.genomeAssembly">
+      <path value="MolecularSequence.relative.startingSequence.genomeAssembly"/>
+      <short value="The genome assembly used for starting sequence, e.g. GRCh38"/>
+      <definition value="The genome assembly used for starting sequence, e.g. GRCh38."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LL1040-6"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Human reference sequence NCBI build ID."/>
+        <valueSet value="http://loinc.org/LL1040-6/"/>
+      </binding>
+    </element>
+    <element id="MolecularSequence.relative.startingSequence.chromosome">
+      <path value="MolecularSequence.relative.startingSequence.chromosome"/>
       <short value="Chromosome Identifier"/>
       <definition value="Structural unit composed of a nucleic acid molecule which controls its own replication through the interaction of specific proteins at one or more origins of replication ([SO:0000340](http://www.sequenceontology.org/browser/current_svn/term/SO:0000340))."/>
       <min value="0"/>
@@ -263,27 +287,61 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="LL2938-0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="List of human chromosomes."/>
-        </extension>
-        <strength value="example"/>
+        <strength value="required"/>
         <description value="The chromosome containing the sequence."/>
         <valueSet value="http://loinc.org/LL2938-0/"/>
       </binding>
     </element>
-    <element id="MolecularSequence.relative.reference.genomeBuild">
-      <path value="MolecularSequence.relative.reference.genomeBuild"/>
-      <short value="The Genome Build used for reference, following GRCh build versions e.g. &#39;GRCh 37&#39;"/>
-      <definition value="The Genome Build used for reference, following GRCh build versions e.g. &#39;GRCh 37&#39;.  Version number must be included if a versioned release of a primary build was used."/>
+    <element id="MolecularSequence.relative.startingSequence.sequence[x]">
+      <path value="MolecularSequence.relative.startingSequence.sequence[x]"/>
+      <short value="The reference sequence that represents the starting sequence"/>
+      <definition value="The reference sequence that represents the starting sequence."/>
+      <comment value="A starting sequence may be represented in one of three ways:&#xA;  1.  CodeableConcept, using NCBI, LRG or other appropriate code systems&#xA;  1.  a simple string of IUPAC codes&#xA;  1.  a reference to another MolecularSequence resource."/>
       <min value="0"/>
       <max value="1"/>
       <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
         <code value="string"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Multiple bindings acceptable (NCBI or LRG)"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Multiple bindings acceptable (NCBI or LRG)"/>
+      </binding>
+    </element>
+    <element id="MolecularSequence.relative.startingSequence.windowStart">
+      <path value="MolecularSequence.relative.startingSequence.windowStart"/>
+      <short value="Start position of the window on the starting sequence"/>
+      <definition value="Start position of the window on the starting sequence. This value should honor the rules of the coordinateSystem."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.relative.reference.orientation">
-      <path value="MolecularSequence.relative.reference.orientation"/>
+    <element id="MolecularSequence.relative.startingSequence.windowEnd">
+      <path value="MolecularSequence.relative.startingSequence.windowEnd"/>
+      <short value="End position of the window on the starting sequence"/>
+      <definition value="End position of the window on the starting sequence. This value should honor the rules of the  coordinateSystem."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularSequence.relative.startingSequence.orientation">
+      <path value="MolecularSequence.relative.startingSequence.orientation"/>
       <short value="sense | antisense"/>
       <definition value="A relative reference to a DNA strand based on gene orientation. The strand that contains the open reading frame of the gene is the &quot;sense&quot; strand, and the opposite complementary strand is the &quot;antisense&quot; strand."/>
       <min value="0"/>
@@ -296,60 +354,13 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="orientationType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Type for orientation."/>
-        </extension>
         <strength value="required"/>
         <description value="Type for orientation"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/orientation-type"/>
       </binding>
     </element>
-    <element id="MolecularSequence.relative.reference.referenceSeqId">
-      <path value="MolecularSequence.relative.reference.referenceSeqId"/>
-      <short value="Reference identifier"/>
-      <definition value="This field carries the ID for the reference sequence. For this ID use either the NCBI genomic nucleotide RefSeq IDs with their version number (see: NCBI.NLM.NIH.Gov/RefSeq) or use the LRG identifiers when they become available. (See- Report sponsored by GEN2PHEN at the European Bioinformatics Institute at Hinxton UK April 24-25, 2008)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Multiple bindings acceptable (NCBI or LRG)"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Reference identifier."/>
-        </extension>
-        <strength value="example"/>
-        <description value="Multiple bindings acceptable (NCBI or LRG)"/>
-      </binding>
-    </element>
-    <element id="MolecularSequence.relative.reference.referenceSeqPointer">
-      <path value="MolecularSequence.relative.reference.referenceSeqPointer"/>
-      <short value="A pointer to another MolecularSequence entity as reference sequence"/>
-      <definition value="A pointer to another MolecularSequence entity as reference sequence."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.relative.reference.referenceSeqString">
-      <path value="MolecularSequence.relative.reference.referenceSeqString"/>
-      <short value="A string to represent reference sequence"/>
-      <definition value="A string like &quot;ACGT&quot;."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.relative.reference.strand">
-      <path value="MolecularSequence.relative.reference.strand"/>
+    <element id="MolecularSequence.relative.startingSequence.strand">
+      <path value="MolecularSequence.relative.startingSequence.strand"/>
       <short value="watson | crick"/>
       <definition value="An absolute reference to a strand. The Watson strand is the strand whose 5&#39;-end is on the short arm of the chromosome, and the Crick strand as the one whose 5&#39;-end is on the long arm."/>
       <min value="0"/>
@@ -362,43 +373,15 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="strandType"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Type for strand."/>
-        </extension>
         <strength value="required"/>
         <description value="Type for strand"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/strand-type"/>
       </binding>
     </element>
-    <element id="MolecularSequence.relative.reference.windowStart">
-      <path value="MolecularSequence.relative.reference.windowStart"/>
-      <short value="Start position of the window on the  reference sequence"/>
-      <definition value="Start position of the window on the reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.relative.reference.windowEnd">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="right"/>
-      </extension>
-      <path value="MolecularSequence.relative.reference.windowEnd"/>
-      <short value="End position of the window on the reference sequence"/>
-      <definition value="End position of the window on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
     <element id="MolecularSequence.relative.edit">
       <path value="MolecularSequence.relative.edit"/>
-      <short value="Changes in sequence from the reference"/>
-      <definition value="Changes in sequence from the reference."/>
+      <short value="Changes in sequence from the starting sequence"/>
+      <definition value="Changes in sequence from the starting sequence."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -408,8 +391,8 @@
     </element>
     <element id="MolecularSequence.relative.edit.start">
       <path value="MolecularSequence.relative.edit.start"/>
-      <short value="Start position of the edit on the reference sequence"/>
-      <definition value="Start position of the edit on the reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive."/>
+      <short value="Start position of the edit on the starting sequence"/>
+      <definition value="Start position of the edit on the starting sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -419,8 +402,8 @@
     </element>
     <element id="MolecularSequence.relative.edit.end">
       <path value="MolecularSequence.relative.edit.end"/>
-      <short value="End position of the edit on the reference sequence"/>
-      <definition value="End position of the edit on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position."/>
+      <short value="End position of the edit on the starting sequence"/>
+      <definition value="End position of the edit on the starting sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -428,10 +411,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.relative.edit.observedAllele">
-      <path value="MolecularSequence.relative.edit.observedAllele"/>
+    <element id="MolecularSequence.relative.edit.replacementSequence">
+      <path value="MolecularSequence.relative.edit.replacementSequence"/>
       <short value="Allele that was observed"/>
-      <definition value="Allele that was observed. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed  sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end."/>
+      <definition value="Allele that was observed. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -439,37 +422,14 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularSequence.relative.edit.referenceAllele">
-      <path value="MolecularSequence.relative.edit.referenceAllele"/>
-      <short value="Allele in the reference sequence"/>
-      <definition value="Allele in the reference sequence. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end."/>
+    <element id="MolecularSequence.relative.edit.replacedSequence">
+      <path value="MolecularSequence.relative.edit.replacedSequence"/>
+      <short value="Allele in the starting sequence"/>
+      <definition value="Allele in the starting sequence. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the starting sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.relative.edit.cigar">
-      <path value="MolecularSequence.relative.edit.cigar"/>
-      <short value="Extended CIGAR string for aligning the sequence with reference bases"/>
-      <definition value="Extended CIGAR string for aligning the sequence with reference bases. See documentation [here](https://samtools.github.io/hts-specs/SAMv1.pdf) and search for CIGAR."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="MolecularSequence.pointer">
-      <path value="MolecularSequence.pointer"/>
-      <short value="Pointer to next atomic sequence"/>
-      <definition value="Pointer to next atomic sequence which at most contains one variant."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </type>
       <isSummary value="true"/>
     </element>

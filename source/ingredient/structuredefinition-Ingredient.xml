@@ -23,7 +23,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Ingredient"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
@@ -41,7 +41,7 @@
     </telecom>
   </contact>
   <description value="An ingredient of a manufactured item or pharmaceutical product."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
@@ -103,6 +103,10 @@
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
     </element>
     <element id="Ingredient.status">
       <path value="Ingredient.status"/>
@@ -126,7 +130,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
       </binding>
       <mapping>
         <identity value="idmp"/>
@@ -230,7 +234,7 @@
     </element>
     <element id="Ingredient.manufacturer">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="160,280"/>
+        <valueCode value="160,300"/>
       </extension>
       <path value="Ingredient.manufacturer"/>
       <short value="An organization that manufactures this ingredient"/>

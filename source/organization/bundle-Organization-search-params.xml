@@ -30,14 +30,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Organization.address"/>
+          <valueString value="Organization.contact.address"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Organization-address"/>
         <description value="A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"/>
         <code value="address"/>
         <type value="string"/>
-        <expression value="Organization.address"/>
-        <xpath value="f:Organization/f:address"/>
+        <expression value="Organization.contact.address"/>
+        <xpath value="f:Organization/f:contact/f:address"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -50,14 +50,14 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Organization.address.city"/>
+          <valueString value="Organization.contact.address.city"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Organization-address-city"/>
         <description value="A city specified in an address"/>
         <code value="address-city"/>
         <type value="string"/>
-        <expression value="Organization.address.city"/>
-        <xpath value="f:Organization/f:address/f:city"/>
+        <expression value="Organization.contact.address.city"/>
+        <xpath value="f:Organization/f:contact/f:address/f:city"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -70,14 +70,14 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Organization.address.country"/>
+          <valueString value="Organization.contact.address.country"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Organization-address-country"/>
         <description value="A country specified in an address"/>
         <code value="address-country"/>
         <type value="string"/>
-        <expression value="Organization.address.country"/>
-        <xpath value="f:Organization/f:address/f:country"/>
+        <expression value="Organization.contact.address.country"/>
+        <xpath value="f:Organization/f:contact/f:address/f:country"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -90,14 +90,14 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Organization.address.postalCode"/>
+          <valueString value="Organization.contact.address.postalCode"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Organization-address-postalcode"/>
         <description value="A postal code specified in an address"/>
         <code value="address-postalcode"/>
         <type value="string"/>
-        <expression value="Organization.address.postalCode"/>
-        <xpath value="f:Organization/f:address/f:postalCode"/>
+        <expression value="Organization.contact.address.postalCode"/>
+        <xpath value="f:Organization/f:contact/f:address/f:postalCode"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -110,14 +110,14 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Organization.address.state"/>
+          <valueString value="Organization.contact.address.state"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Organization-address-state"/>
         <description value="A state specified in an address"/>
         <code value="address-state"/>
         <type value="string"/>
-        <expression value="Organization.address.state"/>
-        <xpath value="f:Organization/f:address/f:state"/>
+        <expression value="Organization.contact.address.state"/>
+        <xpath value="f:Organization/f:contact/f:address/f:state"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -130,14 +130,14 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Organization.address.use"/>
+          <valueString value="Organization.contact.address.use"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Organization-address-use"/>
         <description value="A use code specified in an address"/>
         <code value="address-use"/>
         <type value="token"/>
-        <expression value="Organization.address.use"/>
-        <xpath value="f:Organization/f:address/f:use"/>
+        <expression value="Organization.contact.address.use"/>
+        <xpath value="f:Organization/f:contact/f:address/f:use"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -170,14 +170,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Organization.identifier"/>
+          <valueString value="Organization.identifier | Organization.qualification.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Organization-identifier"/>
         <description value="Any identifier for the organization (not the accreditation issuer&#39;s identifier)"/>
         <code value="identifier"/>
         <type value="token"/>
-        <expression value="Organization.identifier"/>
-        <xpath value="f:Organization/f:identifier"/>
+        <expression value="Organization.identifier | Organization.qualification.identifier"/>
+        <xpath value="f:Organization/f:identifier | f:Organization/f:qualification/f:identifier"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

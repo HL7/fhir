@@ -4,8 +4,12 @@
 
 	<id value="example-udi1"/>
 	<identifier>
-		<system value="http://acme.com/devices/pacemakers/octane/serial"/>
-		<value value="1234-5678-90AB-CDEF"/>
+	   <type>
+	    <coding>
+           <system value="http://acme.com/devices/pacemakers/octane/serial"/>
+		</coding>
+	   </type>
+	   <value value="1234-5678-90AB-CDEF"/>
 	</identifier>
 	<identifier>
 		<type>
@@ -16,23 +20,22 @@
 		</type>
 		<value value="10987654d321"/>
 	</identifier>
-	<udi>
-	 <!--  The Device Identifier (DI) here so you can look up - in this case using the GUDID database -->
+	<udiCarrier>
 		<deviceIdentifier value="00844588003288"/>
-		<!-- Brand name as listed in the GUDID database and supposedly on the label for this device -->
-		<name value="FHIR® Hip System"/>
-		<!-- This is  US FDA example -->
-		<jurisdiction value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
-		<!--  The Human readable form here  which is FDA GS-1 format of the udi  -->
-		<carrierHRF value="{01}00844588003288{17}141120{10}7654321D{21}10987654d321"/>
-		<!--  based on the AIDC which has group separator control codes that can't be reproduced in xml so we use the base64 version. -->
-		<carrierAIDC value="XWQyMDExMDg1NzY3NDAwMjAxNzE3MTQxMTIwMTBOWUZVTDAx4oaUMjExOTI4MzfihpQ3MTNBMUIyQzNENEU1RjZH"/>
-		<!--Orgnanizations accredited by the FDA to operate a system to issue UDIS for device  currently the FDA has accredited three issuing agencies.  GS1, HIBCC, and ICCBBA -->
 		<issuer value="http://hl7.org/fhir/NamingSystem/gs1"/>
-		<!-- YOu may want to know how the data was entered for data integrity reasons.  This has overlap with Provenance which could identify the enterer-->
+		<jurisdiction value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
+		<carrierAIDC value="XWQyMDExMDg1NzY3NDAwMjAxNzE3MTQxMTIwMTBOWUZVTDAx4oaUMjExOTI4MzfihpQ3MTNBMUIyQzNENEU1RjZH"/>
+		<carrierHRF value="{01}00844588003288{17}141120{10}7654321D{21}10987654d321"/>
 		<entryType value = "barcode"/>
-	</udi>
+	</udiCarrier>
 	<status value="active"/>
+	<manufacturer value="Acme Devices, Inc"/>
+	<expirationDate value="2014-11-20"/>
+	<lotNumber value="7654321D"/>
+	<deviceName>
+      <name value="PM/Octane 2014" />
+      <type value="user-friendly-name"/>
+    </deviceName>
 	<type>
 		<coding>
 			<system value="http://snomed.info/sct"/>
@@ -42,14 +45,18 @@
 		<text value="Coated femoral stem prosthesis, modular"/>
 		<!-- note: optional text value added here for a prettier generated narrative -->
 	</type>
-	<lotNumber value="7654321D"/>
-	<manufacturer value="Acme Devices, Inc"/>
-	<expirationDate value="2014-11-20"/>
-	<model value="PM/Octane 2014"/>
-	<patient>
+	<association>
+	  <status> 
+	     <coding>
+		   <system value="http://terminology.hl7.org/CodeSystem/device-association-status" />
+           <code value="attached"/>
+		 </coding>
+	  </status>
+      <humanSubject>
 		<reference value="Patient/example"/>
-	</patient>
-		<safety>
+	  </humanSubject>
+	</association>
+	<safety>
 		<coding>
 			<system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
 			<code value="mr-unsafe"/>

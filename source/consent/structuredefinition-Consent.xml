@@ -695,9 +695,9 @@
                 <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
                     <valueBoolean value="true" />
                 </extension>
-                <strength value="preferred" />
-                <description value="Security Labels from the Healthcare Privacy and Security Classification System." />
-                <valueSet value="http://hl7.org/fhir/ValueSet/security-labels" />
+                <strength value="example" />
+                <description value="Example Security Labels from the Healthcare Privacy and Security Classification System." />
+                <valueSet value="http://hl7.org/fhir/ValueSet/security-label-examples" />
             </binding>
         </element>
         <element id="Consent.provision.purpose">
