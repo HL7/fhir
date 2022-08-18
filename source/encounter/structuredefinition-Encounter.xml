@@ -450,7 +450,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubjectStatus"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="Current status of the subject  within the encounter."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-subject-status"/>
       </binding>
