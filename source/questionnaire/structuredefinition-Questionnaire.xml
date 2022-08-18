@@ -756,8 +756,8 @@
 			</constraint>
 			<constraint>
 				<key value="que-14"/>
-				<severity value="error"/>
-				<human value="Can only have answerConstraint if answerOption or answerValueset are present"/>
+				<severity value="warning"/>
+				<human value="Can only have answerConstraint if answerOption or answerValueset are present.  (This is a warning because extensions may serve the same purpose)"/>
 				<expression value="answerConstraint.exists() implies answerOption.exists() or answerValueset.exists()"/>
 				<xpath value="not(exists(f:answerConstraint)) or exists(f:answerOption) or exists(f:answerValueSet)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
