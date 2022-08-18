@@ -62,4 +62,44 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ManufacturedItemDefinition-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="draft"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ManufacturedItemDefinition.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ManufacturedItemDefinition-name"/>
+        <description value="A descriptive name applied to this item"/>
+        <code value="string"/>
+        <type value="token"/>
+        <expression value="ManufacturedItemDefinition.name"/>
+        <xpath value="f:ManufacturedItemDefinition/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ManufacturedItemDefinition-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ManufacturedItemDefinition.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ManufacturedItemDefinition-status"/>
+        <description value="The status of this item. Enables tracking the life-cycle of the content."/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="ManufacturedItemDefinition.status"/>
+        <xpath value="f:ManufacturedItemDefinition/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

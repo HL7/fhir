@@ -22,6 +22,10 @@ For example, when processing bulk orders, etc. However, when the medication, bio
 (e.g. in a <a href="medicationrequest.html">MedicationRequest</a> or when identifying a device as a performer), the more detailed resource must be used.
 </p>
 
+<p>
+To determine the purchase date, a search of DeviceRequest, SupplyRequest, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done , as the context of the use case actually determines which date of either resource is considered the purchase date.
+</p>
+
 
 </div>
 

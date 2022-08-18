@@ -1,1 +1,1 @@
-﻿Resource Examples failed instance validation
+Errors executing build. Details logged.
