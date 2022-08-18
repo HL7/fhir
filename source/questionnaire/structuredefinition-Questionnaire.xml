@@ -781,7 +781,7 @@
 			<condition value="que-2"/>	
 			<constraint>
 				<key value="que-15"/>
-				<severity>
+				<severity value="warning">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
             <valueBoolean value="true"/>
           </extension>
