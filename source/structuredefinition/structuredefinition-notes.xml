@@ -21,6 +21,27 @@ When profiling a resource and only one type is specified, the name of the elemen
 <li>The condition element is used to assert that a constraint defined on another element affects the allowed cardinality of this element.</li>
 </ul>
 
+<a name="root"></a>
+<h3>StructureDefinition Root Elements</h3>
+
+<p>
+The very first element in a snapshot (the one with an element id of just the type name) 
+defines characteristics that apply to the type as a whole.  Some of these characteristics
+affect the constraints that can hold on an element that references the type.  For example, 
+if the root element cardinality is <code>0..1</code>, then an element declared to be of that type 
+cannot have a maximum cardinality greater than 1.  (This is often used when defining 
+extensions to indicate that multiple extension repetitions of that type are not allowed 
+within a single element.)
+</p>
+<p>
+In some cases, there can be redundancy between content defined on the root element and 
+that defined on the StructureDefinition itself.  For example, ElementDefinition has
+'definition' while StructureDefinition has 'description'.  These may have the same 
+content put both places, though technically the 'definition' is text that describes 
+what the type 'means', while 'description' is broader and may talk a bit about what 
+the resource/data type/profile is for, in addition to its meaning.
+</p>
+
 <a name="uses"></a>
 <h3>Different Uses for StructureDefinition</h3>
 <p>
