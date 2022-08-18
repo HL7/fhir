@@ -132,7 +132,7 @@
 		<concept>
 			<code value="drop-down"/>
 			<display value="Drop down"/>
-			<definition value="A control where an item (or multiple items) can be selected from a list that is only displayed when the user is editing the field."/>
+			<definition value="A control where an item (or multiple items) can be selected from a list that is only displayed when the user is editing the field.  This control is best used for small-to-medium sized lists of options that can reasonably be scanned and selected in a drop-down control.  If the list of options is managed by ValueSet, the designer should be confident that the set of codes will both be fully available and appropriately sized.  For larger lists, the autocomplete control is more appropriate."/>
 		</concept>
 		<concept>
 			<code value="check-box"/>
