@@ -850,7 +850,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="markdown"/>
+				<code value="string"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>
