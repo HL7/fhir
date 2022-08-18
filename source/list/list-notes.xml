@@ -207,4 +207,19 @@ Note that there are also many kinds of lists that can be empty with no need for 
 empty reason (<a href="list-example-simple-empty.html">example</a>)
 </p>
 
+
+<a name="deleted"></a>
+<h2>Using the Deleted Flag</h2>
+<p>
+The <code>deleted</code> flag must be used when using a list with 
+<code>mode</code> = <code>change</code> to reflect changes.  For 
+working and snapshot lists, deleted items can either be flagged as deleted 
+or outright removed from the list. An item MAY transition from the former 
+to the latter after a particular period of time has passed).  
+The choice of flagging vs. outright removal is determined by the list author.
+</p>
+<p>
+Applications processsing list SHOULD always check the deleted flag.
+</p>
+
 </div>
