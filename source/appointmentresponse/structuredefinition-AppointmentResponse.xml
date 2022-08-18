@@ -382,7 +382,7 @@
     <element id="AppointmentResponse.recurrenceId">
       <path value="AppointmentResponse.recurrenceId"/>
       <short value="The recurrence ID of the specific recurring request"/>
-      <definition value="The recurrence ID (sequence number) of the specific appointment when responding to a recurring request"/>
+      <definition value="The recurrence ID (sequence number) of the specific appointment when responding to a recurring request."/>
       <comment value="If the recurrence template was defined using the list of occurrenceDates then this property might not be used."/>
       <min value="0"/>
       <max value="1"/>
