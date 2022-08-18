@@ -24,7 +24,7 @@ jobs:
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
       jdkFile: "$(Build.ArtifactStagingDirectory)/java11.tar.gz"
-      jdkDestinationDirectory: ""
+      jdkDestinationDirectory: "$(Build.ArtifactStagingDirectory)/jdk"
   - task: Bash@3
     inputs:
       targetType: 'inline'
