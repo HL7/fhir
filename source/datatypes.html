@@ -569,7 +569,7 @@ The display is a human display for the text defined by the system - it is not in
 for computation.
 </p>
 <p>
-The <code>system</code> is a URI that identifies the code system that defines the <code>code</code>.
+The <code>system</code> is an absolute URI that identifies the code system that defines the <code>code</code>.
 Choosing the correct system is important; for more information about the code system
 URI, read <a href="terminologies.html#system">Managing Terminology System URIs</a>.
 If the code is taken from a CodeSystem resource, <code>CodeSystem.url</code> is the
@@ -1181,7 +1181,7 @@ to be treated as case sensitive unless knowledge of the <code>Identifier.system<
 that non-case-sensitive processing is safe.
 </p>
 <p>
-The <code>system</code> is a URI that defines a set of identifiers (i.e. how the <code>value</code> is made unique).
+The <code>system</code> is an absolute URI that defines a set of identifiers (i.e. how the <code>value</code> is made unique).
 It might be a specific application or a recognized standard/specification for a set of identifiers
 or a way of making identifiers unique.
 FHIR defines <a href="identifier-registry.html">some useful or important system URIs directly</a>. Here are some
