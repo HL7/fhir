@@ -162,4 +162,24 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AdministrableProductDefinition-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AdministrableProductDefinition.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-status"/>
+        <description value="The status of this administrable product. Enables tracking the life-cycle of the content."/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="AdministrableProductDefinition.status"/>
+        <xpath value="f:AdministrableProductDefinition/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
