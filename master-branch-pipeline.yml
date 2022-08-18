@@ -9,8 +9,11 @@ variables:
 - group: SSH_UPLOAD
 
 jobs:
-- job: setupEnvironment
+
+- job: buildAndPublishSpecification
+  dependsOn: setupEnvironment
   steps:
+  # Download Java, install, and set JAVA_HOME env variables
   - task: Bash@3
     displayName: 'Download java sdk'
     inputs:
@@ -32,10 +35,7 @@ jobs:
         echo which java returns
         which java
 
-- job: buildAndPublishSpecification
-  dependsOn: setupEnvironment
-  steps:
-  # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
+    # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Gradle@2
     inputs:
       gradleWrapperFile: 'gradlew'
