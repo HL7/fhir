@@ -9,7 +9,7 @@ variables:
 - group: ZULIP_VAR_GROUP
 - group: SSH_UPLOAD
 
-
+jobs:
 - job: buildAndPublishSpecification
   steps:
   # Download Java, install, and set JAVA_HOME env variables
