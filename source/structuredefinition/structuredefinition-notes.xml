@@ -21,7 +21,7 @@ When profiling a resource and only one type is specified, the name of the elemen
 <li>The condition element is used to assert that a constraint defined on another element affects the allowed cardinality of this element.</li>
 </ul>
 
-<a name="root"></a>
+<a name="root"> </a>
 <h3>StructureDefinition Root Elements</h3>
 
 <p>
@@ -29,7 +29,7 @@ The very first element in a snapshot (the one with an element id of just the typ
 defines characteristics that apply to the type as a whole.  Some of these characteristics
 affect the constraints that can hold on an element that references the type.  For example, 
 if the root element cardinality is <code>0..1</code>, then an element declared to be of that type 
-cannot have a maximum cardinality greater than 1.  (This is often used when defining 
+cannot have a maximum cardinality greater than 1. (This is often used when defining 
 extensions to indicate that multiple extension repetitions of that type are not allowed 
 within a single element.)
 </p>
