@@ -45,12 +45,8 @@ here, the correct URI may be determined by working through the following list, i
 <b>Don't see what you're looking for here?</b> See <a href="https://confluence.hl7.org/display/TA/Request+Content+in+External+Terminologies">Registering Code Systems</a> for further advice.
 </p>
 
-<div id="tabs">
-  <ul>
-    <li><a href="#tabs-ext">Defined Externally</a></li>
-    <li><a href="#tabs-fhir">Defined as part of FHIR</a></li>
-  </ul>
-  <div id="tabs-ext">
+<a name="external"> </a>
+<h3>External Code systems</h3>
 
 <table class="grid">
  <tr>
@@ -58,9 +54,6 @@ here, the correct URI may be determined by working through the following list, i
    <th width="80">Source</th>
    <th width="80">Use with HL7 Standards</th>
    <th width="80">OID (for non-FHIR systems)</th>
- </tr>
- <tr>
-   <td colspan="4" style="background: #EFEFEF"><b>Externally Published code systems</b> <a name="external"></a></td>
  </tr>
 
  <tr>
@@ -130,10 +123,10 @@ here, the correct URI may be determined by working through the following list, i
    <td style="color : DarkGrey">2.16.840.1.113883.12.292</td>
  </tr>
  <tr>
-   <td>urn:iso:std:iso:3166 <a name="urn:iso:std:iso:3166"></a></td>
+   <td>urn:iso:std:iso:3166<br/>urn:iso:std:iso:3166:-2<br/>urn:iso:std:iso:3166:-3<a name="urn:iso:std:iso:3166"></a></td>
    <td><a href="http://www.iso.org/iso/country_codes.htm">ISO Country &amp; Regional Codes</a></td>
    <td><a href="https://terminology.hl7.org/ISO3166.html">Using ISO 3166 Codes with HL7 Standards</a></td>
-   <td>1.0.3166.1.2.2</td>
+   <td>n/a</td>
  </tr>
  <tr>
    <td>
@@ -153,8 +146,22 @@ here, the correct URI may be determined by working through the following list, i
  </tr>
 </table>
 
-  </div>
-  <div id="tabs-fhir">
+<p>
+This is a subset of a much larger list of known code systems, and only 
+details code systems for which FHIR specific usage documentation is provided.
+For other code systems, see <a href="https://terminology.hl7.org/external_terminologies.html">terminology.hl7.org</a>.
+</p>
+
+
+<a name="external"> </a>
+<h3>Internal Code systems</h3>
+
+<p>
+These code systems are tightly bound to the resource 
+definitions, and a defined by and considered part of
+FHIR itself.
+</p>
+
 
 <table class="grid">
  <tr>
@@ -163,11 +170,8 @@ here, the correct URI may be determined by working through the following list, i
    <th width="80">Description</th>
  </tr>
 <%internalsystemlist%>
-
 </table>
 
-  </div>
-</div>
 [%file newfooter%]
 
 
