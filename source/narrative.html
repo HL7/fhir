@@ -345,13 +345,16 @@ and the composition that represents it:
     &lt;fullUrl value="http://example.org/fhir/Composition/abcdefghij"/&gt;
     &lt;Composition&gt;
       &lt;id value="c1"/&gt;
-      &lt;text&gt;
-        &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
-          ...
-          &lt;p&gt;There is a history of &lt;span id="a1"&gt;Asthma&lt;/span&gt;&lt;/p&gt;
-          ...
-        &lt;/div&gt;
-      &lt;/text&gt;
+      &lt;section&gt;
+        ...
+        &lt;text&gt;
+          &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
+            ...
+            &lt;p&gt;There is a history of &lt;span id="a1"&gt;Asthma&lt;/span&gt;&lt;/p&gt;
+            ...
+          &lt;/div&gt;
+        &lt;/text&gt;
+      &lt;/section&gt;
     &lt;/Composition&gt;
   &lt;/entry&gt;
   &lt;entry&gt;
