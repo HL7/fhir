@@ -779,6 +779,18 @@
 				<code value="string"/>
 			</type>
 			<condition value="que-2"/>	
+			<constraint>
+				<key value="que-15"/>
+				<severity>
+          <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+            <valueBoolean value="true"/>
+          </extension>
+				</severity>
+				<human value="Link ids should be 255 characters or less"/>
+				<expression value="$this.length &lt;= 255"/>
+				<xpath value="string-length(@value) &lt;= 255"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+			</constraint>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".id"/>
