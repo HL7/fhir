@@ -306,7 +306,12 @@ because the impact of the modifier element is expected to be known by applicatio
 Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 Is-modifier elements not defined as part of an extension's definition cannot be conveyed.
 </p>
-
+<p>
+When defining a new modifier extension, it is designated as being a 'modifier' rather than a 
+'regular' extension by setting the <a href="elementdefinition-definitions.html#ElementDefinition.isModifier">isModifier</a> element on the root 'element' for the 
+<code>StructureDefinition</code> to 'true'. Only extensions that are defined as being 
+modifiers can appear in modifierExtension. A regular extension cannot be 'constrained' to be a modifier.
+</p>
 <p>
 In XML, these modifier elements are represented using an element named <code>modifierExtension</code>, which has same content as the
 <code>extension</code> element documented above:
