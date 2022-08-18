@@ -64,6 +64,7 @@ Notes:
 </p>
 <ul>
  <li>The <code>url</code> is a mandatory attribute / property and identifies a retrievable <a href="defining-extensions.html">extension definition</a> that defines the content and meaning of the extension</li>
+ <li>Extensions are not allowed on <code>Extension.url</code> or on <code>Element.id</code>; see <a href="elementdefinition-definitions.html#ElementDefinition.representation">ElementDefinition.representation</a> for background</li>
  <li>The <code>url</code> SHALL be a URL, not a URN (e.g. not an OID or a UUID), and it SHALL be the canonical URL of a StructureDefinition that defines the extension. Except for child extensions defined within complex extensions, the URL SHALL be an absolute URL. </li>
  <li>The structure definitions for the extension SHOULD be available to consumers of an instance.  The preferred mechanisms for achieving this availability are the direct resolvability of the extension's canonical URL and/or the publishing of the extension definition on a registry that is available and known to those systems that will be consuming the instances containing the extension</li>
  <li>An extension SHALL have either a value (i.e. a value[x] element) or sub-extensions, but not both. If present, the value[x] element SHALL have content (value attribute or other elements)</li>
