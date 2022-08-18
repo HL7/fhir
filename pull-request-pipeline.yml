@@ -11,7 +11,6 @@ variables:
 
 
 - job: buildAndPublishSpecification
-  dependsOn: setupEnvironment
   steps:
   # Download Java, install, and set JAVA_HOME env variables
   - task: Bash@3
