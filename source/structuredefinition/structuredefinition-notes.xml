@@ -165,6 +165,19 @@ This list shows a number of examples, with links to real examples for each:
 }
 </pre>
  </li>
+<li>A logical model (see e.g. <a href="definition.html">Definition</a>): <br/>
+<pre class="json" fragment="StructureDefinition">
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://hl7.org/fhir/StructureDefinition/Definition",
+  "name": "Definition",
+  "kind": "logical",
+  "type": "Definition",
+  "abstract" : false,
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/Base"
+}
+</pre>
+ </li> 
 </ol>
 
 <p>
