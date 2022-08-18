@@ -167,9 +167,23 @@ Note: Users/Clients may be identified and authenticated in any way desired. For 
  <li title="use-rbac"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-rbac"> </a>My system applies appropriate access control to every request, using a combination of requester’s clearance (ABAC) and/or roles (RBAC)</li>
  <li title="use-labels"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-labels"> </a>My system considers <a href="security-labels.html">security labels</a> on the affected resources when making access control decisions </li>
 </ol>
-<p>Integrity:</p>
+
+
+<a name="narrative"> </a>
+<h3>Narrative / Presentation Related Safety Checks</h3>
 <ol start="35">
- <li title="render-narratives"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#render-narratives"> </a>My system can <a href="narrative.html#css">render narratives properly</a> and <a href="security.html#narrative">securely</a>(where they are used)</li>
+  <li title="render-narratives"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#render-narratives"> </a>My system can <a href="narrative.html#css">render narratives properly</a> and <a href="security.html#narrative">securely</a>(where they are used)</li>
+  <li title="sending-narratives"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#render-narratives"> </a>When creating resources, careful consideration has been given for when the system should generate resource narrative to serve as a safe failback for other systems that do not recognised all elements and extensions in them (either because of lack of community agreement or because of non-simultaneous evolution of discrete data interfaces among community participants))</li>
+  <li title="generating-narratives"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#render-narratives"> </a>When generating narrative, careful consideration has been given to the human readability of the narrative, trying to appropriately highlight 'important' information to make it likely that human readers unfamiliar with the narrative organization will still find such information</li>
+  <li title="showing-narratives"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#render-narratives"> </a>When consuming resources, my system checks the Narrative.status element to inform whether the narrative should be made available in the user interface</li>
+ </ol>
+ 
+<p>
+With regard to #38, Systems SHOULD check the narrative status. Specifically, if the status is 'additional', then narrative SHOULD always be available for human consumption, if 'extensions' and the system does not render all human-relevant received extensions the narrative SHOULD be available and if 'generated' and the system does not render all human-relevant received core elements, the narrative SHOULD be available.  
+</p>
+
+<p>Integrity:</p>
+<ol start="39">
  <li title="check=validation"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#check=validation"> </a>My system <a href="validation.html">validates all input received</a> (whether in resource format or other) from other actors so that it data is well-formed and does not contain content that would cause unwanted system behavior</li>
  <li title="use-provenance"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-provenance"> </a>My system makes the right <a href="provenance.html">Provenance</a> statements and <a href="auditevent.html">AuditEvent</a> logs, and uses the right <a href="security-labels.html#core">security labels</a> where appropriate</li>
 </ol>
@@ -183,7 +197,7 @@ Obviously, this list is only a small part of the overall safety check list for a
 <p>
 In addition, server developers should check these specific additional checks for client convenience:
 </p>
-<ol start="38">
+<ol start="41">
  <li title="enable-cors"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#enable-cors"> </a>Server: CORS (<a href="http://enable-cors.org/">cross-origin resource sharing</a>) is appropriately enabled (many clients are Javascript apps running in a browser)</li>
  <li title="use-json"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-json"> </a>JSON is supported (many clients are Javascript apps running in a browser; XML is inconvenient at best)</li>
  <li title="json-for-errors"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#json-for-errors"> </a>JSON is returned correctly when errors happen (clients often don't handle HTML errors well)</li>
