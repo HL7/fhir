@@ -73,12 +73,12 @@
 		<concept>
 			<code value="decimal"/>
 			<display value="Decimal"/>
-			<definition value="Question with is a real number answer (valueDecimal)."/>
+			<definition value="Question with is a real number answer (valueDecimal).  There is an extension 'http://hl7.org/fhir/StructureDefinition/questionnaire-unit' that can be used to computably convey the unit of measure associated with the answer for use when performing data extraction to an element of type Quantity."/>
 		</concept>
 		<concept>
 			<code value="integer"/>
 			<display value="Integer"/>
-			<definition value="Question with an integer answer (valueInteger)."/>
+			<definition value="Question with an integer answer (valueInteger).  There is an extension 'http://hl7.org/fhir/StructureDefinition/questionnaire-unit' that can be used to computably convey the unit of measure associated with the answer for use when performing data extraction to an element of type Quantity."/>
 		</concept>
 		<concept>
 			<code value="date"/>
@@ -128,7 +128,7 @@
 		<concept>
 			<code value="quantity"/>
 			<display value="Quantity"/>
-			<definition value="Question with a combination of a numeric value and unit as an answer. (valueSimpleQuantity)  There are two extensions ('http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption' and 'http://hl7.org/fhir/StructureDefinition/questionnaire-unitValueSet')  that can be used to define what unit should be captured (or the unit that has a ucum conversion from the provided unit)."/>
+			<definition value="Question with a combination of a numeric value and unit as an answer. (valueSimpleQuantity)  There are two extensions ('http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption' and 'http://hl7.org/fhir/StructureDefinition/questionnaire-unitValueSet')  that can be used to define what unit should be selected for the Quantity.code and Quantity.system."/>
 		</concept>
 	</concept>
 </CodeSystem>
