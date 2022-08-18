@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QuestionnaireResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaireresponse.xsd">
  <id value="f201"/>
+   <questionnaire value="urn:uuid:ac65e9c6-0710-4a2a-ae82-1f2fd0aeaf88"/>
    <status value="completed"/>
   <!--Fictive, only the below answers are non-fictive-->
   <subject>

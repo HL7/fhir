@@ -12,6 +12,11 @@
       </pre>
     </div>
   </text>
+  <questionnaire>
+    <extension url="http://hl7.org/fhir/StructureDefinition/display">
+      <valueString value="Blue Book"/>
+    </extension>
+  </questionnaire>
   <status value="completed"/>
   <subject>
     <reference value="http://hl7.org/fhir/Patient/1"/>
