@@ -130,8 +130,10 @@ FHIR elements with primitive data types are represented in two parts:
  <li>a JSON property with <code>_</code> prepended to the name of the element, which, if present, contains the value's id and/or extensions</li>
 </ul>
 <p>
-The FHIR types <a href="datatypes.html#integer">integer</a> and <a href="datatypes.html#decimal">decimal</a> are represented as a JSON number, the FHIR type <a href="datatypes.html#boolean">boolean</a>
-as a JSON boolean, and all other types are represented as a JSON string which has the same content as that specified for the relevant data type. Whitespace is always significant
+The FHIR types <a href="datatypes.html#integer">integer</a>, <a href="datatypes.html#unsignedInt">unsignedInt</a>, 
+<a href="datatypes.html#positiveInt">positiveInt</a> and <a href="datatypes.html#decimal">decimal</a> are represented 
+as a JSON number, the FHIR type <a href="datatypes.html#boolean">boolean</a>
+as a JSON boolean, and all other types (including <a href="datatypes.html#integer64">integer64</a>) are represented as a JSON string which has the same content as that specified for the relevant data type. Whitespace is always significant
 (i.e. no leading and trailing spaces for non-strings).</p>
 <pre class="xml">
  &lt;<b>code</b> value="abc"/&gt; &lt;!-- code --&gt;
