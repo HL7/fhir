@@ -72,37 +72,12 @@ in order to foster forwards compatibility in this regard, but may also choose no
 <!-- Applications declare their behavior with regard to unknown elements using
 <a href="capabilitystatement-definitions.html#CapabilityStatement.acceptUnknown">CapabilityStatement.acceptUnknown</a>. -->
 </p>
-
 <a name="xml"></a>
-
-<h3>Comparison with XML</h3>
 <p>
-The JSON format is similar to the XML format:
+This page contains some XML examples for the purposes of 
+comparison between the two formats. The formats page has 
+a <a href="formats.html#comparison">comparison between the JSON and XML formats</a>.
 </p>
-<ul>
- <li>The names for the JSON object members are the same as the names of the elements and attributes in XML, including elements that may repeat. Property names are case sensitive</li>
- <li>Just as in XML, JSON objects and arrays are never empty, and properties never have null values (except for a special case documented below). Omit a property if it is empty</li>
- <li>JSON whitespace is not part of the contents of a resource. Applications MAY preserve the whitespace when handling resources, but are not required to do so. Note that digital signatures may depend on the whitespace</li>
-</ul>
-
-<p>There are differences from XML:</p>
-<ul>
- <li>There are no namespaces in the JSON representation</li>
- <li>The type of the resource is represented differently in JSON - instead of being the name of the base object (there is none in JSON), it is carried as the property <code>resourceType</code></li>
- <li>The order of properties of an object is not significant in the JSON representation, though order within an array SHALL be maintained</li>
- <li>JSON does not have a notion of attributes versus elements, so attributes (e.g. <code>id</code>, <code>value</code>) are handled differently (see below)</li>
- <li>JSON has the array notation, which is used to represent repeating elements. Note that arrays are used when the item might repeat, even if it does not repeat in a specific instance</li>
- <li>The XHTML <code>&lt;div&gt;</code> element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML SHALL still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
-</ul>
-
-<p>
-The JSON format for the resources follows the standard XML format closely to make interconversion
-easy, and so that XPath queries can easily be mapped to query the JSON structures. However,
-the differences - particularly the repeating element one, which cannot be avoided - mean
-that generic XML --&gt; JSON converters are not able to perform correctly. The <a href="downloads.html#refimpl">reference platforms</a>
-provide XML &lt;--&gt; JSON conversion functionality that accommodates these FHIR-specific characteristics.
-</p>
-
 
 <a name="repeat"></a>
 <h3>JSON Representation for repeating elements</h3>
@@ -116,6 +91,7 @@ done by using an array type. Note that:
  <li>The name of the array is singular - the same as the XML element</li>
  <li>An item that may repeat is represented as an array even in the case that it doesn't repeat so that the process of parsing the resource is the same either way</li>
  </ul>
+
 <pre class="xml" fragment="CodeableConcept">
  &lt;code&gt;
    &lt;coding&gt;
