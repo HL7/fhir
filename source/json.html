@@ -162,6 +162,7 @@ This can cause loss of precision for FHIR numbers. In particular, trailing 0s af
 The FHIR decimal data type is defined such that precision, including trailing zeros, is preserved for presentation purposes, and this
 is widely regarded as critical for correct presentation of clinical measurements. Implementations should consider using a custom parser and big number library
 (e.g. <a href="https://github.com/jtobey/javascript-bignum">https://github.com/jtobey/javascript-bignum</a>) to meet these requirements.
+See also <a href="extension-quantity-precision.html">the precision extension</a>.
 </p>
 
 [%dragons-end%]

@@ -184,8 +184,9 @@ With regard to #38, Systems SHOULD check the narrative status. Specifically, if 
 
 <p>Integrity:</p>
 <ol start="39">
- <li title="check=validation"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#check=validation"> </a>My system <a href="validation.html">validates all input received</a> (whether in resource format or other) from other actors so that it data is well-formed and does not contain content that would cause unwanted system behavior</li>
+ <li title="check-validation"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#check=validation"> </a>My system <a href="validation.html">validates all input received</a> (whether in resource format or other) from other actors so that it data is well-formed and does not contain content that would cause unwanted system behavior</li>
  <li title="use-provenance"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-provenance"> </a>My system makes the right <a href="provenance.html">Provenance</a> statements and <a href="auditevent.html">AuditEvent</a> logs, and uses the right <a href="security-labels.html#core">security labels</a> where appropriate</li>
+ <li title="decimal"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-provenance"> </a>My system manages decimal precision correctly when using JSON (see <a href="json.html#decimal">JSON representation of primitive elements</a>)</li>
 </ol>
 
  
