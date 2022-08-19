@@ -350,6 +350,7 @@
       <short value="The absolute geographic location"/>
       <definition value="The absolute geographic location of the Location, expressed using the WGS84 datum (This is the same co-ordinate system used in KML)."/>
       <requirements value="For mobile applications and automated route-finding knowing the exact location of the Location is required."/>
+      <comment value="To define a boundary shape for this location use the standard extension [`location-boundary-geojson`](extension-location-boundary-geojson.html), and search using the `contains` special search parameter."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -439,6 +440,29 @@
         <map value=".inboundLink[typeCode=PART].source[classCode=SDLOC]"/>
       </mapping>
     </element>
+    <element id="Location.characteristic">
+      <path value="Location.characteristic"/>
+      <short value="Collection of characteristics (attributes)"/>
+      <definition value="Collection of characteristics (attributes)."/>
+      <comment value="These could be such things as is wheelchair accessible."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LocationCharacteristic"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A custom attribute that could be provided at a service (e.g. Wheelchair accessibiliy)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/location-characteristic"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".actrelationship[typeCode=PERT].observation"/>
+      </mapping>
+    </element>
     <element id="Location.hoursOfOperation">
       <path value="Location.hoursOfOperation"/>
       <short value="What days/times during a week is this location usually open (including exceptions)"/>
@@ -456,8 +480,9 @@
     </element>
     <element id="Location.virtualService">
       <path value="Location.virtualService"/>
-      <short value="Connection details of a virtual service"/>
-      <comment value="There are two types of virtual meetings that often exist:  a persistent, virtual meeting room that can only be used for a single purpose at a time, and a dynamic virtual meeting room that is generated on demand for a specific purpose.  Implementers may consider using Appointment.virtualService for virtual meeting rooms that are generated on-demand."/>
+      <short value="Connection details of a virtual service (e.g. conference call)"/>
+      <definition value="Connection details of a virtual service (e.g. shared conference call facility with dedicated number/details)."/>
+      <comment value="There are two types of virtual meetings that often exist:&#xD;&#xD;* a persistent, virtual meeting room that can only be used for a single purpose at a time,&#xD; * and a dynamic virtual meeting room that is generated on demand for a specific purpose.&#xD;&#xD; Implementers may consider using Appointment.virtualService for virtual meeting rooms that are generated on-demand."/>
       <min value="0"/>
       <max value="*"/>
       <type>

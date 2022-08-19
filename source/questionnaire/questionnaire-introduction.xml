@@ -51,7 +51,7 @@ that support additional capabilities and allow the definition of more sophistica
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-<b>Questionnaires</b> are intrinsically bound to <a href="questionnaireresponses.html">QuestionnaireResponses</a> in that a Questionnaire defines the questions and rules
+<b>Questionnaires</b> are intrinsically bound to <a href="questionnaireresponse.html">QuestionnaireResponses</a> in that a Questionnaire defines the questions and rules
 for answering them that are used in completing the QuestionnaireResponse.  The main difference between them is that Questionnaires define 'permitted' answers and are
 subject and time-independent, while QuestionnaireResponses define a specific users's answers to a Questionnaire at a particular time-point and are focused on a specific
 subject.  As well, the QuestionnaireResponse doesn't convey any of the rules or 'potential' answers the way Questionnaire does.  It only conveys the answers selected by

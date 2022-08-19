@@ -31,6 +31,14 @@ that are gathered for the purpose of analysis or acting upon, but are not expect
 		and observations are associated. The Organization property on these resources might not be the location where the service took place.
 	</p>
 	<p>
+		OrganizationAffiliation allows you to specify details about organization affiliations that are more complex than simple partOf
+		relationships, such as organizations that are separate legal entities, or have other non-hierarchical relationships.  No ownership
+		is implied via OrganizationAffiliation.  A single OrganizationAffiliation represents the details of a single relationship between
+		a single pair of Organizations, including the period during which the relationship is active.  Current network members can be
+		discovered by searching for OrganizationAffiliations, and historic data can be retained without overhead and still be accessible
+		when searching.
+	</p>
+	<p>
 		As noted in the Event pattern, a Location represents where a service is performed.  An Organization can represent who performed the service.
 	</p>
 </div>

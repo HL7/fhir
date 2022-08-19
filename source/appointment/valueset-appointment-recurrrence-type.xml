@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="appointment-recurrrence-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/appointment-recurrrence-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="AppointmentRecurrenceType"/>
+  <title value="AppointmentRecurrenceType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2022-03-01"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The recurrence type of a recurring appointment."/>
+  <immutable value="true"/>
+  <copyright value="The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved."/>
+  <compose>
+    <include>
+      <system value="http://unitsofmeasure.org"/>
+      <concept>
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="day"/>
+        </extension>
+        <code value="d"/>
+        <display value="day"/>
+        <designation>
+          <language value="zh"/>
+          <value value="天"/>
+        </designation>
+      </concept>
+      <concept>
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="week"/>
+        </extension>
+        <code value="wk"/>
+        <display value="week"/>
+        <designation>
+          <language value="zh"/>
+          <value value="星期"/>
+        </designation>
+      </concept>
+      <concept>
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="month - Normal practice is to use the 'mo' code as a calendar month when calculating the            next occurrence."/>
+        </extension>
+        <code value="mo"/>
+        <display value="month"/>
+        <designation>
+          <language value="zh"/>
+          <value value="月"/>
+        </designation>
+      </concept>
+      <concept>
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="year"/>
+        </extension>
+        <code value="a"/>
+        <display value="year"/>
+        <designation>
+          <language value="zh"/>
+          <value value="年"/>
+        </designation>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
