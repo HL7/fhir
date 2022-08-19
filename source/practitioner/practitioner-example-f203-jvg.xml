@@ -23,6 +23,8 @@
         <value value="+31715269111"/>
         <use value="work"/>
     </telecom>
+    <gender value="male" /><!--The practitioner's administrative gender-->
+    <birthDate value="1983-04-20"/>
     <address><!--Work address for the individual-->
         <use value="work"/>
         <line value="Walvisbaai 3"/>    
@@ -30,9 +32,6 @@
         <postalCode value="2333ZA"/>
         <country value="NLD"/><!--ISO 3166 3 letter code-->
     </address>   
-    
-    <gender value="male" /><!--The practitioner's administrative gender-->
-    <birthDate value="1983-04-20"/>
 <!--    <photo>    
         <reference value="Media/JvG-203.bmp"/>
         <display value="Picture_Juri_van_Gelder"/>

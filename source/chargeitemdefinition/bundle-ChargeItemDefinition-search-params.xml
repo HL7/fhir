@@ -158,14 +158,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="{{name}}.effectivePeriod"/>
+          <valueString value="ChargeItemDefinition.applicability.effectivePeriod"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItemDefinition-effective"/>
         <description value="The time during which the charge item definition is intended to be in use"/>
         <code value="effective"/>
         <type value="date"/>
-        <expression value="ChargeItemDefinition.effectivePeriod"/>
-        <xpath value="f:ChargeItemDefinition/f:effectivePeriod"/>
+        <expression value="ChargeItemDefinition.applicability.effectivePeriod"/>
+        <xpath value="f:ChargeItemDefinition/f:applicability/f:effectivePeriod"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="explicit-type-name"/>
   <status value="draft"/>
   <date value="2014-01-31"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="A name to use for the type, in implementations. This is a suggestion; it&#39;s not a normative part of the FHIR specification, but it does appear in the UML diagrams, and is used in generated code, schemas, etc.to identify the type."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

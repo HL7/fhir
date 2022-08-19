@@ -1,7 +1,7 @@
 <ConceptMap xmlns="http://hl7.org/fhir">
   <id value="cm-detectedissue-severity-v3"/> 
   <url value="http://hl7.org/fhir/ConceptMap/cm-detectedissue-severity-v3"/> 
-  <version value="4.6.0"/> 
+  <version value="5.0.0"/> 
   <name value="v3.DetectedIssueSeverity"/> 
   <title value="v3 map for DetectedIssueSeverity"/> 
   <status value="draft"/> 

@@ -30,7 +30,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="CapabilityStatement"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -48,7 +48,7 @@
     </telecom>
   </contact>
   <description value="A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -626,6 +626,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version"/>
       </binding>
     </element>
+
+
     <element id="CapabilityStatement.format">
       <path value="CapabilityStatement.format"/>
       <short value="formats supported (xml | json | ttl | mime type)"/>
@@ -644,14 +646,19 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+          <valueCanonical value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
           <valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
         </extension>
-        <strength value="required"/>
-        <description value="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+        <strength value="extensible"/>
+        <description value="Common format types for FHIR."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
       </binding>
     </element>
+
+
     <element id="CapabilityStatement.patchFormat">
       <path value="CapabilityStatement.patchFormat"/>
       <short value="Patch formats supported"/>

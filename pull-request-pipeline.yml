@@ -34,6 +34,7 @@ jobs:
         which java
 
 - job: buildAndPublishSpecification
+  dependsOn: setupEnvironment
   steps:
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Gradle@2
@@ -61,14 +62,10 @@ jobs:
         echo "Publishing to target $TARGET_DIRECTORY"
         tar czf - * | ssh -o "StrictHostKeyChecking=no" -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish $TARGET_DIRECTORY || true
 
-# In the case of a successful build and subsequent publish, we trigger a message to the committers/notifications channel
-# on Zulip (chat.fhir.org) to let users know that the build is available.
-- job: successNotification
-  dependsOn: buildAndPublishSpecification
-  condition: succeeded()
-  timeoutInMinutes: 5
-  steps:
+  # In the case of a successful build and subsequent publish, we trigger a message to the committers/notifications channel
+  # on Zulip (chat.fhir.org) to let users know that the build is available.
   - task: Bash@3
+    condition: succeeded()
     inputs:
       targetType: 'inline'
       script: |
@@ -78,16 +75,11 @@ jobs:
             -d "type=stream" \
             -d "to=$(ZULIP_STREAM_ID_COMMITTERS)" \
             -d "subject=FHIR Build Status" \
-            -d $"content=PR Build success for branch $TARGET_DIRECTORY :thumbs_up:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildNumber)&_a=summary&view=logs)
+            -d $"content=PR Build success for branch $TARGET_DIRECTORY :thumbs_up:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildId)&view=results)
             Published webpage can be viewed [here](https://build.fhir.org/branches/$TARGET_DIRECTORY)
             "
-
-- job: failureNotification
-  dependsOn: buildAndPublishSpecification
-  condition: failed()
-  timeoutInMinutes: 5
-  steps:
   - task: Bash@3
+    condition: failed()
     inputs:
       targetType: 'inline'
       script: |
@@ -97,5 +89,5 @@ jobs:
             -d "type=stream" \
             -d "to=$(ZULIP_STREAM_ID_COMMITTERS)" \
             -d "subject=FHIR Build Status" \
-            -d $"content=Build failed for branch $TARGET_DIRECTORY :thumbs_down:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildNumber)&_a=summary&view=logs)
+            -d $"content=Build failed for branch $TARGET_DIRECTORY :thumbs_down:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildId)&view=results)
             "

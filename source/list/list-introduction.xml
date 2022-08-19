@@ -10,7 +10,7 @@ support patient-specific clinical lists as well as lists that manage workflows s
 teaching cases, etc. Resources supported by the List resource can be homogeneous – consisting of only one type of 
 resource (e.g. allergy lists) as well as heterogeneous – containing a variety of resources (e.g. a problem list 
 including <a href="condition.html">Conditions</a>, <a href="allergyintolerance.html">AllergyIntolerances</a>, 
-recent <a href="procedure.html">Procedures</a>, etc.).
+recent <a href="procedure.html">Procedures</a>, etc.). A list cannot be the subject of an intervention or a direct action.
 </p>
 <p>
 Lists will typically include references to the resources that make up the list, however in some cases the details 

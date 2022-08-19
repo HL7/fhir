@@ -5,11 +5,13 @@
 	<status value="active"/>
 	<intent value="plan"/>
 	<code>
+	   <concept>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="229115003"/>
 			<display value="Bench Press (regime/therapy) "/>
 		</coding>
+	  </concept>
 	</code>
 	<subject>
 		<reference value="Patient/example"/>

@@ -30,7 +30,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ValueSet"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -48,7 +48,7 @@
     </telecom>
   </contact>
   <description value="A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html)."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -223,7 +223,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -908,7 +908,7 @@
         </extension>
         <strength value="required"/>
         <description value="The kind of operation to perform as a part of a property based filter."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/filter-operator|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/filter-operator|5.0.0"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1168,7 +1168,7 @@
       <constraint>
         <key value="vsd-9"/>
         <severity value="error"/>
-        <human value="Must have a code if not abstract"/>
+        <human value="SHALL have a code if not abstract"/>
         <expression value="code.exists() or abstract = true"/>
         <xpath value="exists(f:code) or (f:abstract/@value = true())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
@@ -1176,7 +1176,7 @@
       <constraint>
         <key value="vsd-10"/>
         <severity value="error"/>
-        <human value="Must have a system if a code is present"/>
+        <human value="SHALL have a system if a code is present"/>
         <expression value="code.empty() or system.exists()"/>
         <xpath value="exists(f:system) or not(exists(f:code))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>

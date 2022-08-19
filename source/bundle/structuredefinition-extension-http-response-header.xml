@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/http-response-header"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="http-response-header"/>
   <title value="HTTP Response header"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="In a transaction, every single interaction can have multiple HTTP response headers returned as a result of the interaction."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

@@ -20,7 +20,7 @@
 		<type>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
-				<version value="4.6.0"/>
+				<version value="5.0.0"/>
 				<code value="RiskOfBias"/>
 				<display value="Risk of bias"/>
 				<userSelected value="true"/>
@@ -29,7 +29,7 @@
 		<classifier>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-				<version value="4.6.0"/>
+				<version value="5.0.0"/>
 				<code value="extremely-serious-concern"/>
 				<display value="extremely serious concern"/>
 				<userSelected value="true"/>
@@ -47,7 +47,7 @@
 			<classifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<version value="4.6.0"/>
+					<version value="5.0.0"/>
 					<code value="no-concern"/>
 					<display value="no serious concern"/>
 					<userSelected value="true"/>
@@ -68,7 +68,7 @@
 			<classifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<version value="4.6.0"/>
+					<version value="5.0.0"/>
 					<code value="serious-concern"/>
 					<display value="serious concern"/>
 					<userSelected value="true"/>
@@ -112,7 +112,7 @@
 				<classifier>
 					<coding>
 						<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-						<version value="4.6.0"/>
+						<version value="5.0.0"/>
 						<code value="serious-concern"/>
 						<display value="serious concern"/>
 						<userSelected value="true"/>
@@ -140,7 +140,7 @@
 			<classifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<version value="4.6.0"/>
+					<version value="5.0.0"/>
 					<code value="very-serious-concern"/>
 					<display value="very serious concern"/>
 					<userSelected value="true"/>
@@ -160,7 +160,7 @@
 				<classifier>
 					<coding>
 						<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-						<version value="4.6.0"/>
+						<version value="5.0.0"/>
 						<code value="very-serious-concern"/>
 						<display value="very serious concern"/>
 						<userSelected value="true"/>
@@ -227,7 +227,7 @@
 			<classifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<version value="4.6.0"/>
+					<version value="5.0.0"/>
 					<code value="no-concern"/>
 					<display value="no serious concern"/>
 					<userSelected value="true"/>
@@ -248,7 +248,7 @@
 			<classifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<version value="4.6.0"/>
+					<version value="5.0.0"/>
 					<code value="no-concern"/>
 					<display value="no serious concern"/>
 					<userSelected value="true"/>
@@ -269,7 +269,7 @@
 			<classifier>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<version value="4.6.0"/>
+					<version value="5.0.0"/>
 					<code value="very-serious-concern"/>
 					<display value="very serious concern"/>
 					<userSelected value="true"/>
@@ -289,7 +289,7 @@
 				<classifier>
 					<coding>
 						<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-						<version value="4.6.0"/>
+						<version value="5.0.0"/>
 						<code value="very-serious-concern"/>
 						<display value="very serious concern"/>
 						<userSelected value="true"/>
@@ -316,7 +316,7 @@
 				<classifier>
 					<coding>
 						<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-						<version value="4.6.0"/>
+						<version value="5.0.0"/>
 						<code value="very-serious-concern"/>
 						<display value="very serious concern"/>
 						<userSelected value="true"/>
@@ -337,7 +337,7 @@
 		<type>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
-				<version value="4.6.0"/>
+				<version value="5.0.0"/>
 				<code value="Inconsistency"/>
 				<display value="Inconsistency"/>
 				<userSelected value="true"/>

@@ -263,7 +263,7 @@
 		<url>http://www.pharmacists.ca/</url>
 		<link>http://www.pharmacists.ca/</link>
 		<columnName>CPhA3 (Pharmacy) Mapping</columnName>
-		<title>Canadian Pharmacy Associaiton eclaims standard</title>
+		<title>Canadian Pharmacy Association eclaims standard</title>
 		<id>cpha3pharm</id>
 		<sort>21</sort>
 		<publish>true</publish>

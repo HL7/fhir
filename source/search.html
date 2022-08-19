@@ -110,10 +110,10 @@ Search operations can also be implemented in <a href="messaging.html#search">the
 </p>
 <p>
 In the absence of any search filters, e.g. <code>GET [base]/Patient</code> or <code>POST [base]/Patient/_search</code> with empty body, server SHOULD return
-all records. NOTE: Sever MAY impose expectations prohibiting queries without or with insufficient parameters. 
+all records. NOTE: Sever MAY impose expectations prohibiting queries without or with insufficient parameters.
 </p>
 <p>
-Order of operations is not driven by order in the URL - with the exception of sort. First all filters are applied, 
+Order of operations is not driven by order in the URL - with the exception of sort. First all filters are applied,
 then the result set is sorted, then paging is applied, and includes/revincludes are returned for each page.
 </p>
 <p>
@@ -1610,9 +1610,9 @@ or processed by the client.
 <p>
 The parameter <code>_count</code> is defined as an instruction to the server
 regarding how many resources should be returned in a
-single page. Servers SHALL NOT return more resources in a single page than requested, 
-even if they don't support paging, but may return less than the client requested. 
-NOTE: This means that all servers that support search or history SHALL support 
+single page. Servers SHALL NOT return more resources in a single page than requested,
+even if they don't support paging, but may return less than the client requested.
+NOTE: This means that all servers that support search or history SHALL support
 checking the _count parameter. The server should repeat
 the original <code>_count</code> parameter in its returned page links so that
 subsequent paging requests honor the original <code>_count</code>.  Note:
@@ -1921,12 +1921,12 @@ Servers are not obliged to return just a summary as requested. There are only
 a limited number of summary forms defined for resources in order to allow servers
 to store the summarized form(s) in advance. Servers SHOULD mark the resources with the
 tag <a href="v3/ObservationValue/cs.html#v3-ObservationValue-SUBSETTED"><code>SUBSETTED</code></a>
-to ensure that the incomplete resource is not accidentally used to overwrite
+code to ensure that the incomplete resource is not accidentally used to overwrite
 a complete resource.
 </p>
 <p>
-The self link in the search result Bundle is important for the interpretation of the result 
-and should always be returned, regardless of the type of _summary.  
+The self link in the search result Bundle is important for the interpretation of the result
+and should always be returned, regardless of the type of _summary.
 </p>
 <p>
 Note that the <code>_include</code> and <code>_revinclude</code> parameters cannot be mixed with <code>_summary=text</code>.
@@ -1960,7 +1960,7 @@ Servers are not obliged to return just the requested elements.
 Servers SHOULD always return mandatory elements whether they are
 requested or not. Servers SHOULD mark the resources with the
 tag <a href="v3/ObservationValue/cs.html#v3-ObservationValue-SUBSETTED"><code>SUBSETTED</code></a>
-to ensure that the incomplete resource is not actually used to overwrite
+code to ensure that the incomplete resource is not actually used to overwrite
 a complete resource.
 </p>
 

@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/OrganizationAffiliation"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="OrganizationAffiliation"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -43,7 +43,7 @@
   </contact>
   <description value="Defines an affiliation/assotiation/relationship between 2 distinct organizations, that is not a part-of relationship/sub-division relationship."/>
   <purpose value="Need to define relationships between organizations that are not sub-divisions of the same organization (part-of relationships)."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -177,8 +177,9 @@
     </element>
     <element id="OrganizationAffiliation.network">
       <path value="OrganizationAffiliation.network"/>
-      <short value="Health insurance provider network in which the participatingOrganization provides the role&#39;s services (if defined) at the indicated locations (if defined)"/>
-      <definition value="Health insurance provider network in which the participatingOrganization provides the role&#39;s services (if defined) at the indicated locations (if defined)."/>
+      <short value="The network in which the participatingOrganization provides the role&#39;s services (if defined) at the indicated locations (if defined)"/>
+      <definition value="The network in which the participatingOrganization provides the role&#39;s services (if defined) at the indicated locations (if defined)."/>
+      <comment value="e.g. Commonly used for Health Insurance provider networks."/>
       <min value="0"/>
       <max value="*"/>
       <type>

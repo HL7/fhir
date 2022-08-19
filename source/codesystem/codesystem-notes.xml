@@ -198,8 +198,6 @@ basic property URIs are defined:
       <li>deprecated - planned to be removed from use</li>
       <li>retired - still present for historical reasons, but no longer allowed to be used</li>
      </ul>
-     The HL7 defined code systems (whether defined by the FHIR project, the V3 framework, or the V2 standard) 
-     all use this property to define their status. HL7 uses "active" (and considers this the default status), and deprecated and retired (= inactive)
    </td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#retirementDate : date</td><td>Date Concept was retired</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#deprecationDate : date</td><td>Date Concept was deprecated</td></tr>

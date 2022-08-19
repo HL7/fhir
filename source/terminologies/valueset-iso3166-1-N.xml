@@ -5,7 +5,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-	<version value="4.6.0"/>
+	<version value="5.0.0"/>
   <name value="Iso3166-1-N"/>
   <title value="Iso 3166 Part 1: Numeric Codes"/>
   <status value="active"/>
