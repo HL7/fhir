@@ -74,7 +74,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ManufacturedItemDefinition-name"/>
         <description value="A descriptive name applied to this item"/>
-        <code value="string"/>
+        <code value="name"/>
         <type value="token"/>
         <expression value="ManufacturedItemDefinition.name"/>
         <xpath value="f:ManufacturedItemDefinition/f:name"/>

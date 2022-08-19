@@ -57,7 +57,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Religion"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ReligiousAffiliation"/>
       </binding>
     </element>

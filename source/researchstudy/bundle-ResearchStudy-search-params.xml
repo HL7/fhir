@@ -167,26 +167,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ResearchStudy-principalinvestigator"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ResearchStudy.principalInvestigator"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-principalinvestigator"/>
-        <description value="Researcher who oversees multiple aspects of the study"/>
-        <code value="principalinvestigator"/>
-        <type value="reference"/>
-        <expression value="ResearchStudy.principalInvestigator"/>
-        <xpath value="f:ResearchStudy/f:principalInvestigator"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="ResearchStudy-protocol"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -263,26 +243,6 @@
         <type value="reference"/>
         <expression value="ResearchStudy.site"/>
         <xpath value="f:ResearchStudy/f:site"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="ResearchStudy-sponsor"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ResearchStudy.sponsor"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-sponsor"/>
-        <description value="Organization that initiates and is legally responsible for the study"/>
-        <code value="sponsor"/>
-        <type value="reference"/>
-        <expression value="ResearchStudy.sponsor"/>
-        <xpath value="f:ResearchStudy/f:sponsor"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
