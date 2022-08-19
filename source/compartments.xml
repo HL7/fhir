@@ -13,10 +13,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  
-  
-  
-  
+
+
+
+
   <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -598,7 +598,6 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ResearchStudy</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">principalinvestigator</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ResearchSubject</Data></Cell>
@@ -832,7 +831,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>13</TopRowBottomPane>
    <ActivePane>2</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
