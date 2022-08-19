@@ -37,6 +37,12 @@ jobs:
   dependsOn: setupEnvironment
   steps:
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
+  - task: Cache@2
+    inputs:
+      key: tx-cache
+      path: ~/.fhir/tx-cache/HL7/fhir/$(Build.SourceBranchName)
+    displayName: Cache terminology cache directory
+
   - task: Gradle@2
     inputs:
       gradleWrapperFile: 'gradlew'
