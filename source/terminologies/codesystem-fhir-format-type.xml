@@ -1,69 +1,60 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="fhir-format-type"/>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
-  </extension>
-  <url value="http://hl7.org/fhir/fhir-format-type"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.693"/>
-  </identifier>
-  <name value="FHIRFormatType"/>
-  <title value="FHIR Format Type"/>
-  <status value="draft"/>
-  <experimental value="false"/>
-  <date value="2022-08-17"/>
-  <publisher value="HL7"/>
-  <description value="FHIR Format types"/>
-  <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/fhir-content-type"/>
-  <content value="complete"/>
-  <concept>
-    <code value="xml"/>
-    <display value="XML"/>
-    <definition value="XML content-type corresponding to the application/fhir+xml mime-type."/>
-  </concept>
-  <concept>
-    <code value="json"/>
-    <display value="JSON"/>
-    <definition value="JSON content-type corresponding to the application/fhir+json mime-type."/>
-  </concept>
-
-  <!-- <concept>
+<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="fhir-format-type"/>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="0"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="fhir"/>
+	</extension>
+	<url value="http://hl7.org/fhir/fhir-format-type"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.1.693"/>
+	</identifier>
+	<name value="FHIRFormatType"/>
+	<title value="FHIR Format Type"/>
+	<status value="draft"/>
+	<experimental value="false"/>
+	<date value="2022-08-17"/>
+	<publisher value="HL7"/>
+	<description value="FHIR Format types"/>
+	<caseSensitive value="true"/>
+	<valueSet value="http://hl7.org/fhir/ValueSet/fhir-content-type"/>
+	<content value="complete"/>
+	<concept>
+		<code value="xml"/>
+		<display value="XML"/>
+		<definition value="XML content-type corresponding to the application/fhir+xml mime-type."/>
+	</concept>
+	<concept>
+		<code value="json"/>
+		<display value="JSON"/>
+		<definition value="JSON content-type corresponding to the application/fhir+json mime-type."/>
+	</concept>
+	<!-- <concept>
     <code value="yaml"/>
     <display value="YAML"/>
     <definition value="JSON content-type corresponding to the application/fhir+json mime-type."/>
   </concept>-->
-
-  <!-- <concept>
+	<!-- <concept>
     <code value="fsh"/>
     <display value="FSH"/>
     <definition value="FHIR Shorthand (FSH) is a domain-specific language for defining FHIR artifacts"/>
   </concept> -->
-
-  <concept>
-    <code value="ttl"/>
-    <display value="TTL"/>
-    <definition value="RDF content-type corresponding to the text/turtle mime-type."/>
-  </concept>
-
-  <!-- <concept>
+	<concept>
+		<code value="ttl"/>
+		<display value="TTL"/>
+		<definition value="RDF content-type corresponding to the text/turtle mime-type."/>
+	</concept>
+	<!-- <concept>
     <code value="none"/>
     <display value="None"/>
     <definition value="Prevent the use of the corresponding http header."/>
   </concept> -->
-
-  <!-- <concept>
+	<!-- <concept>
     <code value="other"/>
     <display value="Other"/>
     <definition value="Other content-type"/>
   </concept> -->
-
-
 </CodeSystem>
