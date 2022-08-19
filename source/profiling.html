@@ -503,14 +503,14 @@ Further notes about the use of the different discriminator types:
 </p>
 <table class="codes">
  <tr><td>value</td><td>
-   This is the most commonly used discriminator type: to decide based on the value of an element. 
-   Elements used like this are mostly primitive types- <code>code</code>, <code>uri</code>. 
-   Typical example: slice on the value of <code>Patient.telecom.system</code>, for values phone, email etc.
+   This is the most commonly used discriminator type: to decide based on the value of an element as 
+   specified by a fixed value, a pattern value, or a required value set binding. 
+   Typical example: slice on the value of <code>Patient.telecom.system</code>, for values phone, email,
+   or slice on the value of <code>Observation.code</code>, for values LOINC codes 1234-5, 4235-8 etc.
+   There are <a href="elementdefinition-examples.html#pattern-examples">some examples of slicing</a> based on discriminator-type <code>value</code> with patterns.
  </td></tr>
  <tr><td>pattern</td><td>
-  This is mostly used with elements of type <code>CodeableConcept</code> where the elements are distinguished by the presence of a particular code
-  but other codes are expected to be present, and are irrelevant for the slice matching process. 
-  Typical example: slice on the value of <code>Observation.code</code>, for values LOINC codes 1234-5, 4235-8 etc
+  This code means the same as value, and is retained for backwards compatibility reasons
  </td></tr>
  <tr><td>exists</td><td>
    This is not used commonly - it only has 2 values, so not much discrimination power. It's mainly used as an adjunct slicing criteria along with other discriminators.
@@ -689,7 +689,7 @@ a profile author would first define a profile on Composition section:
         &lt;path value=&quot;Composition.section&quot;/&gt;
         &lt;slicing&gt;  
           &lt;discriminator&gt; 
-            &lt;type value=&quot;pattern&quot;/&gt;
+            &lt;type value=&quot;value&quot;/&gt;
             &lt;path value=&quot;code&quot;/&gt;
           &lt;/discriminator&gt;
           &lt;description value=&quot;Slice by .section.code when using this section library&quot;/&gt;
