@@ -574,7 +574,7 @@ can retrieve the current tags using the <a href="resource-operation-meta.html">$
   <li><a href="resourcelist.html">Resource Definitions</a></li>
   <li><a href="references.html">References between Resources</a></li>
   <li><a href="narrative.html">Narratives</a></li>
-  <li><a href="formats.html">Formats:</a> <a href="xml.html">XML</a>, <a href="json.html">JSON</a> </li>
+  <li><a href="resource-formats.html">Formats:</a> <a href="xml.html">XML</a>, <a href="json.html">JSON</a> </li>
   <li><a href="extensibility.html">Extensibility</a> (<a href="extensibility-examples.html">Examples</a>)</li>
   <li><a href="resource-definitions.html">Detailed Descriptions</a></li>
   <li><a href="versions.html">Inter-version Compatibility</a></li>

@@ -251,7 +251,7 @@ though this object model can only be used with a sub-set of the possible resourc
 </p>
 <p>
 The tooling is also able to generate bi-directional transforms between the
-<a href="formats.html">normal XML format</a> and an XML representation of this
+<a href="xml.html">normal XML format</a> and an XML representation of this
 profiled object model and schema for this profiled XML representation.
 This XML form has extensions promoted into the primary XML form by using the
 extension code as the XML name and sliced lists are renamed to use the

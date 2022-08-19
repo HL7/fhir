@@ -57,6 +57,7 @@ signatures.html
         <page title="Detailed Description" filename="extensibility-definitions.html"/>
       </page>
       <page title="Resource Definitions" filename="formats.html">
+        <page title="Resource Formats" filename="resource-formats.html"/>
         <page title="XML format" filename="xml.html"/>
         <page title="JSON format" filename="json.html"/>
         <page title="ND-JSON format" filename="nd-json.html"/>

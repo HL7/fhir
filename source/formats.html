@@ -2,7 +2,7 @@
 
 
 
-[%settitle Formats%]
+[%settitle Resource Definitions%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -193,6 +193,7 @@ this specification, but is a super type of all the data types.
 </p>
 
 <a name="choice"></a>
+<a name="choice"></a>
 <h3>Choice of Data Types</h3>
 <p>
 A few elements have a choice of more than one data type for their content. All such elements have a name that
@@ -211,90 +212,6 @@ of the language. In XML schema, these become an xs:choice of element. To help wi
 of choice elements</a> is published.
 </p>
 
-<a name="wire"></a>
-<h3>Serialization Format Representations</h3>
-
-<p>
-This specification defines the following ways to represent resources when they are exchanged:
-</p>
-<ul>
- <li><a href="json.html">JSON</a></li>
- <li><a href="xml.html">XML</a></li>
- <li><a href="rdf.html">RDF (Turtle)</a></li>
-</ul>
-
-<p>
-Systems SHALL declare which format(s) they support in their <a href="capabilitystatement.html">Capability Statement</a>.
-If a server receives a request for its Capability Statement in
-a format it does not otherwise support, it SHALL return a <code>406 Not Acceptable</code>. Note: 
-<code>406</code> is the appropriate response when the <code>Accept</code> header requests a format that the server
-does not support, and <code>415 Unsupported Media Type</code> when the client posts a format that is not supported 
-to the server.
-</p>
-<p>
-Clients and servers can choose what syntax(s) to implement. In the interests of interoperability, 
-servers SHOULD support both the XML and JSON formats, which have the same functionality, for 
-different technical stacks. The RDF format has quite different benefits - primarily around data
-analysis rather than exchange.  
-</p>
-
-
-<a name="comparison"></a>
-
-<h3>Comparison between JSON and XML</h3>
-<p>
-
-</p>
-<p>
-The JSON format is similar to the XML format:
-</p>
-<ul>
- <li>The names for the JSON object members are the same as the names of the elements and attributes in XML, including elements that may repeat. Property names are case sensitive</li>
- <li>Just as in XML, JSON objects and arrays are never empty, and properties never have null values (except for a special case documented below). Omit a property if it is empty</li>
- <li>JSON whitespace is not part of the contents of a resource. Applications MAY preserve the whitespace when handling resources, but are not required to do so. Note that digital signatures may depend on the whitespace</li>
-</ul>
-
-<p>There are differences from XML:</p>
-<ul>
- <li>There are no namespaces in the JSON representation</li>
- <li>The type of the resource is represented differently in JSON - instead of being the name of the base object (there is none in JSON), it is carried as the property <code>resourceType</code></li>
- <li>The order of properties of an object is not significant in the JSON representation, though order within an array SHALL be maintained</li>
- <li>JSON does not have a notion of attributes versus elements, so attributes (e.g. <code>id</code>, <code>value</code>) are handled differently (see below)</li>
- <li>JSON has the array notation, which is used to represent repeating elements. Note that arrays are used when the item might repeat, even if it does not repeat in a specific instance</li>
- <li>The XHTML <code>&lt;div&gt;</code> element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML SHALL still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
-</ul>
-
-<p>
-The XML format for the resources follows the JSON format closely to make interconversion
-easy, and so that XPath queries can easily be mapped to query the JSON structures. However,
-the differences - particularly the repeating element one, which cannot be avoided - mean
-that generic XML --&gt; JSON converters are not able to perform correctly. The <a href="downloads.html#refimpl">reference platforms</a>
-provide XML &lt;--&gt; JSON conversion functionality that accommodates these FHIR-specific characteristics.
-</p>
-
-
-<div class="draft-content">
-
-<a name="bulk"></a>
-<h4>Bulk Data Formats</h4>
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Unlike this rest of this page, the bulk use formats are draft until 
-further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
-</p>
-<p>
-The XML and JSON formats are designed to support typical system process-based
-data exchange uses. FHIR is also used to exchange large amounts 
-of data- 1000s of records, or more (up to billions). The formats above
-can be used for this, but more suitable formats exist. This specification
-documents (or is exploring documenting) the following formats:
-</p>
-<ul>
- <li><a href="nd-json.html">ND-Json</a> (New line delimited JSON)</li>
- <li>Google Protobuf (under consideration)</li>
- <li>Apache Parquet/Avro (bulk data formats under consideration)</li>
-</ul> 
-
-</div>
 [%file newfooter%]
 </body>
 </html>
