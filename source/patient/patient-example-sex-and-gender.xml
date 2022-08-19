@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="patient-example-sex-and-gender"/>
-	
-	
+		
 	<extension url="http://hl7.org/fhir/StructureDefinition/individual-genderIdentity">
 		<extension url="value">
 			<valueCodeableConcept>
-			  <coding>
-				<system value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.106"/>
-				<code value="female"/>
-				<display value="Female"/>
-			  </coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="446141000124107"/>
+					<display value="Identifies as female gender (finding)"/>
+				</coding>
 			</valueCodeableConcept>
 		</extension>
 		<extension url="period">
@@ -22,15 +21,14 @@
 			<valueString value="Patient transitioned from male to female in 2001."/>				
 		</extension>
 	</extension>
-	
-	
+		
 	<extension url="http://hl7.org/fhir/StructureDefinition/individual-pronouns">
 		<extension url="value">
 			<valueCodeableConcept>
 			  <coding>
 				<system value="http://loinc.org"/>
 				<code value="LA29519-8"/>
-				<display value="She, Her, Hers, Herself"/>
+				<display value="she/her/her/hers/herself"/>
 			  </coding>
 			</valueCodeableConcept>
 		</extension>
@@ -43,8 +41,7 @@
 			<valueString value="Patient transitioned from male to female in 2001."/>				
 		</extension>
 	</extension>
-	
-	
+		
 	<extension url="http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender">
 		<extension url="value">
 			<valueCodeableConcept>
@@ -103,8 +100,7 @@
 			<valueString value="Patient transitioned from male to female in 2001, but their birth certificate still indicates male."/>				
 		</extension>
 	</extension>
-	
-	
+		
 	<extension url="http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender">
 		<extension url="value">
 			<valueCodeableConcept>
@@ -163,8 +159,7 @@
 			<valueString value="Patient transitioned from male to female in 2001, but their insurance card still indicates male."/>				
 		</extension>
 	</extension>
-	
-	
+		
 	<extension url="http://hl7.org/fhir/StructureDefinition/patient-sexForClinicalUse">
 		<extension url="value">
 			<valueCodeableConcept>
@@ -196,8 +191,7 @@
 			</valueReference>
 		</extension>
 	</extension>
-	
-	
+		
 	<identifier>
 		<use value="usual"/>
 		<type>
