@@ -143,8 +143,8 @@
     </element>
     <element id="ResearchStudy.version">
       <path value="ResearchStudy.version"/>
-      <short value="Business identifier for the study record"/>
-      <definition value="Business identifier for the study record."/>
+      <short value="The business version for the study record"/>
+      <definition value="The business version for the study record."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -622,82 +622,6 @@
         <map value=".effectiveTime"/>
       </mapping>
     </element>
-
-    <!-- Contact -->
-    <element id="ResearchStudy.contact">
-      <path value="ResearchStudy.contact"/>
-      <short value="Contact details for the study"/>
-      <definition value="Contact details to assist a user in learning more about or engaging with the study."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="clinicaltrials-gov"/>
-        <map value="Central Contact; Central Contact Backup; Overall Study Officials; Facility Contact &amp; Backup (if Study tied to only one location); Investigators"/>
-      </mapping>
-      <mapping>
-        <identity value="BRIDG5.1"/>
-        <map value="PointOfContact &gt; Project &gt; Research Project &gt; Study &gt; StudyProtocol &gt; StudyProtocolVersion"/>
-      </mapping>
-    </element>
-
-    <!-- Sponsor -->
-    <element id="ResearchStudy.sponsor">
-      <path value="ResearchStudy.sponsor"/>
-      <short value="Organization that initiates and is legally responsible for the study"/>
-      <definition value="An organization that initiates the investigation and is legally responsible for the study."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="clinicaltrials-gov"/>
-        <map value="Sponsor"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="BRIDG5.1"/>
-        <map value="RegulatoryApplicationSponsor; StudyLegalSponsor; StudyProtocolVersion.responsiblePartyCode"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
-      </mapping>
-    </element>
-    <element id="ResearchStudy.principalInvestigator">
-      <path value="ResearchStudy.principalInvestigator"/>
-      <short value="Researcher who oversees multiple aspects of the study"/>
-      <definition value="A researcher in a study who oversees multiple aspects of the study, such as concept development, protocol writing, protocol submission for IRB approval, participant recruitment, informed consent, data collection, analysis, interpretation and presentation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="clinicaltrials-gov"/>
-        <map value="Principal Investigator"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="BRIDG5.1"/>
-        <map value="StudyInvestigator"/>
-      </mapping>
-    </element>
     <element id="ResearchStudy.site">
       <path value="ResearchStudy.site"/>
       <short value="Facility where study activities are conducted"/>
@@ -822,7 +746,7 @@
     </element>
     <element id="ResearchStudy.associatedParty.role">
       <path value="ResearchStudy.associatedParty.role"/>
-      <short value="sponsor | lead-sponsor | sponsor-investigator | primary-investigator | collaborator | funding-source | recruitment-contact | sub-investigator | study-director | study-chair"/>
+      <short value="sponsor | lead-sponsor | sponsor-investigator | primary-investigator | collaborator | funding-source | recruitment-contact | general-contact | sub-investigator | study-director | study-chair"/>
       <definition value="Type of association."/>
       <min value="1"/>
       <max value="1"/>

@@ -77,6 +77,11 @@
     <definition value="recruitment-contact"/>
   </concept>
   <concept>
+    <code value="general-contact"/>
+    <display value="general-contact"/>
+    <definition value="general-contact"/>
+  </concept>
+  <concept>
     <code value="sub-investigator"/>
     <display value="sub-investigator"/>
     <definition value="sub-investigator"/>
