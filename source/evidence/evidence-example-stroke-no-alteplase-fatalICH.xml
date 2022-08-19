@@ -86,13 +86,13 @@
 			<display value="individual patient data meta-analysis"/>
 		</coding>
 	</synthesisType>
-	<studyType>
+	<studyDesign>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/study-type"/>
 			<code value="RCT"/>
 			<display value="randomized trial"/>
 		</coding>
-	</studyType>
+	</studyDesign>
 	<statistic>
 		<statisticType>
 			<coding>
