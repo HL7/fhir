@@ -211,7 +211,11 @@ the first array, as demonstrated in this example:
   ]
 </pre>
 <p>Note: when one of the repeating elements has no value, it is represented in the first array using a null. When
-an element has a value but no extension/id, the second array will have a null at the position of that element.</p>
+an element has a value but no extension/id, the second array will have a null at the position of that element.
+If the length of a JSON "element" array is different from the length of its JSON "_element" array, 
+implementations SHALL infer null values in the suffix of the shorter array. If an array has only null elements,
+implementations SHOULD omit it entirely.
+</p>
 
 [%impl-note%]
 The representation of primitive data types has been
