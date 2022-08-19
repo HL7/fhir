@@ -855,9 +855,9 @@
     </element>
     <element id="CapabilityStatement.rest.resource.profile">
       <path value="CapabilityStatement.rest.resource.profile"/>
-      <short value="Base System profile for all uses of resource"/>
-      <definition value="A specification of the profile that describes the solution&#39;s overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
-      <comment value="The profile applies to all  resources of this type - i.e. it is the superset of what is supported by the system."/>
+      <short value="System-wide profile"/>
+      <definition value="A system-wide profile that is applied across *all* instances of the resource supported by the system. For example, if declared on Observation, this profile is the *lowest common denominator* of capabilities for laboratory *and* vitals *and* other domains. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
+      <comment value="All other profiles for this type that are listed in `.rest.resource.supportedProfile` must conform to this profile."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -871,10 +871,10 @@
         <valueCode value="trial-use"/>
       </extension>
       <path value="CapabilityStatement.rest.resource.supportedProfile"/>
-      <short value="Profiles for use cases supported"/>
-      <definition value="A list of profiles that represent different use cases supported by the system. For a server, &quot;supported by the system&quot; means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
-      <comment value="Supported profiles are different than the profile that applies to a particular resource in .rest.resource.profile. The resource profile is a general statement of what features of the resource are supported overall by the system - the sum total of the facilities it supports. A supported profile is a deeper statement about the functionality of the data and services provided by the server (or used by the client). A typical case is a laboratory system that produces a set of different reports - this is the list of types of data that it publishes. A key aspect of declaring profiles here is the question of how the client converts knowledge that the server publishes this data into working with the data; the client can inspect individual resources to determine whether they conform to a particular profile, but how does it find the ones that do? It does so by searching using the _profile parameter, so any resources listed here must be valid values for the _profile resource (using the identifier in the target profile)."/>
-      <min value="0"/>
+      <short value="Use-case specific profiles"/>
+      <definition value="A list of profiles representing different use cases the system hosts/produces. A supported profile is a statement about the functionality of the data and services provided by the server (or the client) for supported use cases. For example, a system can define and declare multiple Observation profiles for laboratory observations, vital sign observations, etc. By declaring supported profiles, systems provide a way to determine whether individual resources are conformant. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
+      <comment value="Supported profiles must conform to the resource profile in the `.rest.resource.profile` element if it is present. The resource profile is a system-wide profile applied across *all* instances of the resource supported by the system. A supported profile is a statement about the functionality of the data and services provided by the server (or used by the client) for a particular set of use cases."/>
+         <min value="0"/>
       <max value="*"/>
       <type>
         <code value="canonical"/>
