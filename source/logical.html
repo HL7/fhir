@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+
+
+      
+[%settitle Logical Models%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+
+
+<h2>Logical Models</h2>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+<p>
+A Logical Data Model or Logical Model is a representation of data structures, that is independent of a physical implementation.
+Logical Models contain data elements (entities and attributes) and their constraints and relationships. They allows data requirements to be described from a functional perspective, without attaching to a specific implementation or technology. 
+</p>
+<p>A FHIR logical data model - or simply logical model - is an expression of a data structure captured using FHIR. 
+(There are other formats for representing logical models: visual models (such as UML diagrams), and proprietary formats, such as Sparx Enterprise Architect or others.)
+</p>
+<p>Although FHIR logical models use FHIR for their representation, this does not imply that the logical models represent or are attached to FHIR resources. 
+Logical models are abstract data structures, normally defined for a given purpose, which can be instantiated into one or more "physical" FHIR resources (or profiles) to be implemented in data exchange. But they can also be implemented in other standards.
+</p>
+
+    <h2 id="defining-logical-models">Defining logical models</h2>
+    <p>A logical model is defined in FHIR as a StructureDefinition which is a <a href="https://hl7.org/fhir/structuredefinition-definitions.html#StructureDefinition.derivation">specialization</a> of a base type (<a href="https://hl7.org/fhir/types.html#Base">Element</a> or <a href="https://build.fhir.org/types.html#Element">Base</a>) where <a href="https://hl7.org/fhir/structuredefinition-definitions.html#StructureDefinition.kind">StructureDefinition.kind</a> = logical.</p>
+    <p>For example,</p>
+    <pre><code>  &quot;kind&quot;: &quot;logical&quot;,
+  &quot;abstract&quot;: false,
+  &quot;baseDefinition&quot;: &quot;http://hl7.org/fhir/StructureDefinition/Element&quot;,
+  &quot;derivation&quot;: &quot;specialization&quot;,</code></pre>
+    <ul>
+    <li>A base type of Element contains <code>id</code> and
+    <code>extension</code> and the <code>ele-1</code> constraint (<code>All FHIR elements must have a <span class="citation">@value</span> or children</code>).</li> Authors can decide which is best.
+    <li>The baseDefinition type can also be another absolute URL (another logical model). This allows reusing logical models for example to support variations.</li>
+    <li>For logical models, setting <code>abstract</code> to true or false has no predefined impact - authors can define it based on their goals for the model.</li>
+    </ul>
+    <h2 id="content-of-logical-models">Content of logical models</h2>
+    <p>Logical models are expressed in FHIR with <a href="https://hl7.org/fhir/StructureDefinition.html">StructureDefinition</a> with <a href="https://hl7.org/fhir/ElementDefinition.html">ElementDefinitions</a>.</p>
+    <p>The StructureDefinition defines:</p>
+        <ul>
+            <li> metadata - title, status, authorship, purpose, etc. </li>
+            <li> Base of the structure (Base, Element, or another logical model)</li>
+        </ul>
+    <p>ElementDefinition capture the actual data elements that constitute the structure. ElementDefinitions in a logical model typycally contain</p> 
+        <ul>
+            <li> Name and definition: These are context-specific definitions of the element, regardless of whether they correspond to a given FHIR element</li>
+            <li> Cardinality - the functional, intended cardinality of the element within the logical model</li>
+            <li> Type - if the logical model intends to define types</li>
+            <li> Binding - for coded elements, it is possible - but not mandatory - to define some terminology binding</li>
+            <li> Example content (for illustrative purposes)</li>
+        </ul>
+        
+    <h3 id="data-types-in-logical-models">Data types in logical models</h3>
+    <p>Elements in a logical model are expected to have a type because how FHIR structures are defined. It is posible to use the FHIR <a href="https://hl7.org/fhir/datatypes">data types</a>, although this brings "physical" constraints, formats, etc. into abstract logical data models which might not be intended. For example, a logical model may need to define a date, regardless of the "physical" format of the date being
+    <code>DDMMYY</code>, <code>DDMMYYYY</code> or <code>MM-DD-YYYY</code>. It is possible to define data types for use in logical models, by profiling the existing types in FHIR.</p>
+    <h3 id="terminology-bindings">Terminology bindings</h3>
+<p>Logical models may contain bindings for coded elements, and the corresponding binding strength. This can be used to capture the "intended" or "business / functional" requirements on data elements, independently of any actual coding system. It may also be used to impose terminology constraints on a functional level, if they are meaningful at that level.
+For example, on a functional level, it is possible to impose code systems like state codes, or country codes (ISO 3166-2), or to legal codes for marital status - as these are no longer technically relevant for a given system, they are imposed (typically by norms or regulations).</p>
+
+<h3>Using logical models</h3>
+<h4>Functional data modeling</h4>
+<p>
+FHIR Logical Models are typically used to capture the functional data requirements for an implementation.
+For example, analysts can use logical models to determine and agree upon the functional data needs as above - attributes, structure, data types, cardinalities, relationships, terminologies, etc. 
+Projects and organizations can use and publish logical models to define their "data dictionaries" - a compilation of data elements - as the semantic definitions and expectations for a given purpose.
+
+Logical models are normally intended to be designed (and validated) on a functional level, independently of technical implementation.
+As business/functional analysts design the data needs, technical implementers can implement Logical Models by projecting them onto a physical implementation - typically as one or several FHIR resources (including extensions). 
+The implementation can also be in other standards such as HL7 v2, CDA, SPL, or GS1 XML, etc. 
+</p>
+
+
+
+<h4>Crosswalk / Mapping between FHIR versions or different standards</h4>
+<p>
+Logical models can be used as a common abstraction that serves as a pivot point between different technical specifications.
+This can be used to map between different specifications - like FHIR versions.  
+</p>
+    
+<h4>Mappings to defined terminologies and models</h4>
+<p>
+Logical models can map to conceptual terminologies such as SNOMED CT - 
+</p>
+
+
+<h3>Related standards and implementations</h3>
+<h4>Art Decor</h4>
+To do
+<h4>Standard terminologies</h4>
+<p>
+Logical models can map to conceptual terminologies such as SNOMED CT, in different ways
+
+<ul>
+    <li> in some cases, the concept represented by the model can correspond to a standard concept
+    <ul>
+        <li> e.g. "Patient" --> SCT#116154003;</li>
+    </ul></li>
+    <li> some elements in the model may correspond to standard concepts
+    <ul>
+        <li> e.g. "Gender identity" = SCT#33821000087103;</li>
+    </ul></li>
+    <li> or the actual values allowed for the data element may correspond to standard concepts;
+    <ul>
+        <li> e.g. "Identifies as male gender (finding)" = SCT#446151000124109 ;</li>
+    </ul></li>
+</ul>
+
+</p>
+
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>
