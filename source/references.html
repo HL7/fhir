@@ -319,14 +319,17 @@ resource is being referred to. To do this, append the version to the reference w
 &lt;valueSet value=&quot;http://hl7.org/fhir/ValueSet/my-valueset|0.8&quot;/&gt;
 </pre>
 <p>
-This is a version specific reference to a value set. Note that this refers to the <code>ValueSet.version</code>
-not the <code>ValueSet.meta.versionId</code>. Searching for this on a FHIR server would look like this:
+Resolving this pipe ('|') syntax is equivalent to using a GET with the version parameter:
 </p>
 <pre>
-GET fhir/ValueSet?url=http://hl7.org/fhir/ValueSet/my-valueset&amp;version=0.8
+  GET fhir/ValueSet?url=http://hl7.org/fhir/ValueSet/my-valueset&amp;version=0.8
 </pre>
 <p>
-Note that if a References to a canonical URL does not have a version, and the server finds multiple
+Both of these examples specify version <code>0.8</code> of the value set, by <code>ValueSet.version</code>.
+Note that these examples do not specify by <code>ValueSet.meta.versionId</code>.
+</p>
+<p>
+Note that if a Reference to a canonical URL does not have a version, and the server finds multiple
 versions for the value set, the system using the reference should pick the latest version
 of the target resource and use that. Servers SHOULD support version specific searching for canonical
 URLs by automatically detecting the presence of a |[version] and performing the appropriate

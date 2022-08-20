@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="cqm-ValidityPeriod"/>
+  <id value="list-category"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="sd"/>
+    <valueCode value="fhir"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/cqm-ValidityPeriod"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/list-category"/>
   <version value="5.0.0"/>
-  <name value="ValidityPeriod"/>
+  <name value="category"/>
   <status value="draft"/>
-  <date value="2014-01-31"/>
-  <publisher value="Health Level Seven, Inc. - Clinical Quality Information WG"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/cqi/index.cfm"/>
-    </telecom>
-  </contact>
-  <description value="The period in which the catalog is valid."/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="A categorization for the type of the list - helps for indexing and searching"/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -31,7 +25,7 @@
   <abstract value="false"/>
   <context>
     <type value="element"/>
-    <expression value="Composition"/>
+    <expression value="List"/>
   </context>
   <type value="Extension"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
@@ -39,8 +33,8 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="Validity Period"/>
-      <definition value="The period in which the catalog is valid."/>
+      <short value="Base List for changes"/>
+      <definition value="A categorization for the type of the list - helps for indexing and searching"/>
       <min value="0"/>
       <max value="1"/>
     </element>
@@ -50,13 +44,14 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url"/>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/cqm-ValidityPeriod"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/list-category"/>
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>
       <min value="1"/>
       <type>
-        <code value="dateTime"/>
+        <code value="CodeableConcept"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/List"/>
       </type>
     </element>
   </differential>
