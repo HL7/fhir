@@ -664,9 +664,32 @@
       <path value="OperationDefinition.parameter.type"/>
       <short value="What type this parameter has"/>
       <definition value="The type for this parameter."/>
-      <comment value="if there is no stated parameter, then the parameter is a multi-part parameter; type and must have at least one part defined."/>
+      <comment value="if there is no stated parameter, then the parameter is a multi-part parameter type and must have at least one part defined."/>
       <min value="0"/>
       <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <condition value="opd-1"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FHIRAllTypes"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="A list of all the concrete types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-types"/>
+      </binding>
+    </element>
+    <element id="OperationDefinition.parameter.allowedType">
+      <path value="OperationDefinition.parameter.allowedType"/>
+      <short value="Allowed sub-type this parameter can have (if type is abstract)"/>
+      <definition value="Support for polymorphic types. If the parameter type is abstract, this element lists allowed sub-types for the parameter"/>
+      <comment value="In previous versions of FHIR, there was an extension for this: http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type"/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="code"/>
       </type>
