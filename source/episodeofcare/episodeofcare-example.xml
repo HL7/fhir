@@ -78,10 +78,10 @@
     <reference value="Practitioner/14"/>
     <display value="Amanda Assigned" />
   </careManager>
-  <team>
+  <careTeam>
     <reference value="CareTeam/example"/>
     <display value="example care team"/>
-  </team>
+  </careTeam>
   <account>
     <reference value="Account/example"/>
     <display value="example account"/>

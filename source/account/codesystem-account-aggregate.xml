@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="account-aggregate"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/account-aggregate"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="AccountAggregate"/>
+  <title value="Account Aggregate"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <description value="Indicates who is expected to pay a part of the account balance."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/account-aggregate"/>
+  <content value="complete"/>
+  <concept>
+    <code value="patient"/>
+    <display value="Patient"/>
+    <definition value="This (aggregated) balance is expected to be paid by the Patient"/>
+  </concept>
+  <concept>
+    <code value="insurance"/>
+    <display value="Insurance"/>
+    <definition value="This (aggregated) balance is expected to be paid by Insurance coverage(s)"/>
+  </concept>
+  <concept>
+    <code value="total"/>
+    <display value="Total"/>
+    <definition value="There is no aggregation on this balance"/>
+  </concept>
+</CodeSystem>

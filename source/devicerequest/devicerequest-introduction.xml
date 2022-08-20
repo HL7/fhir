@@ -29,6 +29,9 @@ The device use request may represent an order or a prescription entered by a pra
 		<p>
 This resource deals with the allocation of a device to a patient and while it may contain instructions on how to use the device, the data about getting the device to the patient is addressed in other resources. For example, when requesting an oxygen pump for home use instructions on how to use it may be included.  For devices that must be implanted via a surgical or other procedure the implantation is represented in the Procedure resource.
 </p>
+<p>
+To determine the purchase date, a search of DeviceRequest, SupplyRequest, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done , as the context of the use case actually determines which date of either resource is considered the purchase date.
+</p>	
 	</div>
 	<!-- (optional):
 <div>

@@ -95,7 +95,7 @@
       <path value="SupplyDelivery.identifier"/>
       <short value="External identifier"/>
       <definition value="Identifier for the supply delivery event that is used to identify it across multiple disparate systems."/>
-      <comment value="This identifier is typically assigned by the dispenser, and may be used to reference the delivery when exchanging information about it with other systems."/>
+      <comment value="This identifier is typically assigned by the supplier, and may be used to reference the delivery when exchanging information about it with other systems."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -213,8 +213,8 @@
     </element>
     <element id="SupplyDelivery.type">
       <path value="SupplyDelivery.type"/>
-      <short value="Category of dispense event"/>
-      <definition value="Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc."/>
+      <short value="Category of supply event"/>
+      <definition value="Indicates the type of supply being provided.  Examples include: Medication, Device, Biologically Derived Product."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -222,11 +222,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SupplyDeliveryType"/>
+          <valueString value="SupplyDeliverySupplyItemType"/>
         </extension>
         <strength value="required"/>
         <description value="The type of supply dispense."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -245,19 +245,19 @@
       <short value="The item that is delivered or supplied"/>
       <definition value="The item that is being delivered or has been supplied."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=PRD].role"/>
+        <map value=".participation[typeCode=PRD].role"/> 
       </mapping>
     </element>
     <element id="SupplyDelivery.suppliedItem.quantity">
       <path value="SupplyDelivery.suppliedItem.quantity"/>
-      <short value="Amount dispensed"/>
-      <definition value="The amount of supply that has been dispensed. Includes unit of measure."/>
+      <short value="Amount supplied"/>
+      <definition value="The amount of the item that has been supplied.  Unit of measure may be included."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -271,8 +271,8 @@
     </element>
     <element id="SupplyDelivery.suppliedItem.item[x]">
       <path value="SupplyDelivery.suppliedItem.item[x]"/>
-      <short value="Medication, Substance, or Device supplied"/>
-      <definition value="Identifies the medication, substance or device being dispensed. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list."/>
+      <short value="Medication, Substance, Device or Biologically Derived Product supplied"/>
+      <definition value="Identifies the medication, substance, device or biologically derived product being supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -283,14 +283,15 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SupplyDeliveryItem"/>
+          <valueString value="SupplyDeliverySupplyItem"/>
         </extension>
         <strength value="example"/>
         <description value="The item that was delivered."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/supply-item"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype"/> 
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -333,8 +334,8 @@
     </element>
     <element id="SupplyDelivery.supplier">
       <path value="SupplyDelivery.supplier"/>
-      <short value="Dispenser"/>
-      <definition value="The individual responsible for dispensing the medication, supplier or device."/>
+      <short value="The item supplier"/>
+      <definition value="The individual or organization responsible for supplying the delivery."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -357,8 +358,8 @@
         <valueString value="[#3415]."/>
       </extension>
       <path value="SupplyDelivery.destination"/>
-      <short value="Where the Supply was sent"/>
-      <definition value="Identification of the facility/location where the Supply was shipped to, as part of the dispense event."/>
+      <short value="Where the delivery was sent"/>
+      <definition value="Identification of the facility/location where the delivery was shipped to."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -372,8 +373,8 @@
     </element>
     <element id="SupplyDelivery.receiver">
       <path value="SupplyDelivery.receiver"/>
-      <short value="Who collected the Supply"/>
-      <definition value="Identifies the person who picked up the Supply."/>
+      <short value="Who received the delivery"/>
+      <definition value="Identifies the person or organization that received the delivery."/>
       <min value="0"/>
       <max value="*"/>
       <type>

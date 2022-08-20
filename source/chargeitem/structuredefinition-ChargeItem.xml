@@ -564,31 +564,31 @@
         <map value=".targetBodySiteCode"/>
       </mapping>
     </element>
-    <element id="ChargeItem.factorOverride">
-      <path value="ChargeItem.factorOverride"/>
-      <short value="Factor overriding the associated rules"/>
-      <definition value="Factor overriding the factor determined by the rules associated with the code."/>
-      <comment value="There is no reason to carry the factor in the instance of a ChargeItem unless special circumstances require a manual override. The factors are usually defined by a set of rules in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overridden."/>
+    <element id="ChargeItem.unitPriceComponent">
+      <path value="ChargeItem.unitPriceComponent"/>
+      <short value="Unit price overriding the associated rules"/>
+      <definition value="The unit price of the chargable item."/>
+      <comment value="This could be communicated in ChargeItemDefinition. But if ChargeItemDefinition is not supported or not available, the unit price can be communicated in this property."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="decimal"/>
+        <code value="MonetaryComponent"/>
       </type>
       <isSummary value="false"/>
       <mapping>
         <identity value="v2"/>
-        <map value="FT1.26"/>
+        <map value="FT1.22"/>
       </mapping>
     </element>
-    <element id="ChargeItem.priceOverride">
-      <path value="ChargeItem.priceOverride"/>
-      <short value="Price overriding the associated rules"/>
-      <definition value="Total price of the charge overriding the list price associated with the code."/>
-      <comment value="There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overridden."/>
+    <element id="ChargeItem.totalPriceComponent">
+      <path value="ChargeItem.totalPriceComponent"/>
+      <short value="Total price overriding the associated rules"/>
+      <definition value="The total price for the chargable item, accounting for the quantity."/>
+      <comment value=" Often, the total price may be be calculated and recorded on the Invoice, but if a calculated total price must be exchanged prior to Invoice creation, it can be communicated in this property."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Money"/>
+        <code value="MonetaryComponent"/>
       </type>
       <isSummary value="false"/>
       <mapping>
@@ -600,11 +600,10 @@
       <path value="ChargeItem.overrideReason"/>
       <short value="Reason for overriding the list price/factor"/>
       <definition value="If the list price or the rule-based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action."/>
-      <comment value="Derived Profiles may choose to add invariants requiring this field to be populated if either priceOverride or factorOverride have been filled."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="false"/>
     </element>

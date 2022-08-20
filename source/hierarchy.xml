@@ -73,6 +73,7 @@ signatures.html
       <page title="Version History" filename="history.html"/>
       <page title="Differences from Release 3" filename="diff.html"/>
       <page title="Release 2/3 Transforms" filename="r3maps.html"/>
+      <page title="Logical models" filename="logical.html"/>
 
       <page title="Introduction" filename="overview.html"/>
       <page title="Developer Introduction" filename="overview-dev.html"/>

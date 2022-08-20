@@ -1,0 +1,55 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="instantiation"> </a>
+<h2>Instantiation extensions</h2>
+<p>
+Prior versions of FHIR had standard elements and extensions named 'instantiatesCanonical' and 'instantiatesUri'.  These were intended to link Request and
+Event resources to the Definition resources they were based on.
+</p>
+<p>
+These elements have now been replaced by a number of distinct elements that are more specific about the exact nature of the relationship between Request/Event
+and Definition.  This section provides additional guidance about how to decide which relationship to use - and what to do if the level of granularity conveyed
+by these extensions isn't known in the data source.
+</p>
+<ul>
+  <li>
+    'generatedFrom' is the most straight-forward.  It is *only* used when a Request resource is algorithmically generated (by human or software) from the
+    base Definition resource.  In most cases a resource 'generatedFrom' a definition will also have a 'compliesWith' relationship (as it's unusual to generate
+    from a definition and not end up compliant with it).  However, because of modifications, it's possible to start out compliant and not end that way.  It's
+    also possible to comply with a definition without having been algorithmically generated from it.
+  </li>
+  <li>
+    'compliesWith' and 'adheresTo' are similar.  However, they apply to different types of resources.  'compliesWith' is for Request resources and means that the 
+    event(s) resulting from the Request (if executed as requested) will align with the expectations of the Definition.  On the other hand, 'adheresTo' is for
+    Events and is a direct assertion that the event aligns with the expectations of the Definition.  In both cases, the data elements within the request/event
+    have alignment with the definition.
+  </li>
+  <li>
+    'triggeredBy', on the other hand, doesn't indicate anything about the data elements in the Request or Event.  It merely indicates that the Request or Event 
+    resource came into existence because the Definition said the action was necessary.  It's possible for protocols to define that certain events need to exist
+    without describing exactly what they need to look like.  It's also possible to describe the details of resources without defining when they need to be
+    created.
+  </li>
+  <li>
+    'shallComplyWith' only occurs for Request resources and is a shortcut for defining the data elements in the Request.  Instead of providing details about the
+    code, product, timing, dose, etc., the Request simply includes a reference to the Definition and says "do what it says".  The obligation is placed on the
+    system fulfilling the Request to determine how to follow the protocol.
+  </li>
+</ul>
+<p>
+  If the specific type of instantiation isn't explicit in a mapped element from a previous release or external specification, the meaning(s) can often be
+  determined by looking at the data, the type of resource, and business conventions.  'compliesWith' and 'adheresTo' can in principle be validated.  
+  'shallComplyWith' will appear on requests that have minimal detail about execution.  If it's not possible to determine which extension, the
+  <a href="versions.html#extensions">inter-version extensions</a> mechanism can be used to propoagate the old-style extension into a newer FHIR release or a 
+  custom extension can be used.
+</p>
+
+<h3>Additional guidance on these extensions</h3>
+<p>
+  External references might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier. The <a href="extension-display.html">display extension</a>) 
+  on canonical can be used to convey the title of the referenced artifact in addition to (or in place of) the discrete elements referencing it.
+</p>
+</div>
+
+</div>

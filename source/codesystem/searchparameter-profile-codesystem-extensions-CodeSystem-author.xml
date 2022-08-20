@@ -9,7 +9,9 @@
   <experimental value="true"/>
   <description value="Optional Extensions Element"/>
   <code value="author"/>
+  <base value="CodeSystem"/>
   <type value="string"/>
-  <xpath value="f:CodeSystem/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/codesystem-author&#39;] | /f:#author"/>
+  <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/codesystem-author')"/>
+  <xpath value="f:CodeSystem/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/codesystem-author&#39;]"/>
   <xpathUsage value="normal"/>
 </SearchParameter>

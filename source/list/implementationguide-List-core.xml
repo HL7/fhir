@@ -20,5 +20,10 @@
         <reference value="StructureDefinition/list-category"/>
       </reference>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/list-for"/>
+      </reference>
+    </resource>
   </definition>
 </ImplementationGuide>

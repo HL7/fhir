@@ -12,12 +12,14 @@
 	<status value="completed"/>
 	<intent value="order"/>
 	<code>
+	  <concept>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="62013009"/>
 			<display value="Ambulating patient (procedure)"/>
 		</coding>
 		<text value="Ambulation"/>
+	  </concept>
 	</code>
 	<subject>
 		<reference value="Patient/example"/>

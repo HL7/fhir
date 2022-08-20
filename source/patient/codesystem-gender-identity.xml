@@ -42,6 +42,6 @@
   <concept>
     <code value="non-disclose"/>
     <display value="Does not wish to disclose"/>
-    <definition value="the individual does not wish to disclose his gender identity"/>
+    <definition value="the individual does not wish to disclose their gender identity"/>
   </concept>
 </CodeSystem>

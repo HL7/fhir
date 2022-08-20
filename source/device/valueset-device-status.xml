@@ -49,7 +49,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The availability status of the device."/>
+  <description value="The status of the Device record."/>
   <immutable value="true"/>
   <compose>
     <include>

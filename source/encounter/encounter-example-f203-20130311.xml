@@ -22,13 +22,6 @@
 			<display value="inpatient encounter"/>
 		</coding>
     </class>
-    <type>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="183807002"/>
-            <display value="Inpatient stay for nine days"/>
-        </coding>
-    </type>
     <priority>
         <!--High priority-->
         <coding>
@@ -37,6 +30,13 @@
             <display value="High priority"/>
         </coding>
     </priority>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="183807002"/>
+            <display value="Inpatient stay for nine days"/>
+        </coding>
+    </type>
     <subject>
         <reference value="Patient/f201"/>
         <display value="Roel"/>

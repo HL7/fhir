@@ -11,6 +11,7 @@
   <code value="birthOrderBoolean"/>
   <base value="Patient"/>
   <type value="token"/>
+  <expression value="Patient.multipleBirthBoolean | Patient.multipleBirthInteger"/>
   <xpath value="f:Patient/f:multipleBirthBoolean | f:Patient/f:multipleBirthInteger"/>
   <xpathUsage value="normal"/>
 </SearchParameter>

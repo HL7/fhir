@@ -34,6 +34,10 @@
 		<type value="element"/>
 		<expression value="Questionnaire.item"/>
 	</context>
+	<context>
+		<type value="element"/>
+		<expression value="ElementDefinition"/>
+	</context>
 	<contextInvariant value="type=&#39;integer&#39; or type=&#39;decimal&#39;"/>
 	<type value="Extension"/>
 	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
