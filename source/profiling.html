@@ -157,16 +157,15 @@ a resource conforms to a particular profile or not is a straight
 forward operation (one option is to use the <a href="downloads.html">provided tools for this</a>),
 but this is a very inefficient way - the decision support system has to receive
 and process 100 times as many resources as it uses. To help a consumer
-find the correct set of reports for a use-case, a producer of
-resources also SHALL, for any profile declared in <code>CapabilityStatement.rest.resource.supportedProfile</code>:
+find the correct set of reports for a use case, a producer of
+resources may:
 </p>
 <ol>
- <li><a href="resource.html#meta">Mark resources</a> with profile assertions documenting the profile(s) they conform to (this enables indexing by the profile)</li>
- <li>(if a server) support searching by the <a href="search.html#profile">_profile parameter</a> for the declared profiles</li>
+ <li><a href="resource.html#meta">declare</a> with profile assertions documenting the profile(s) they conform to (this enables indexing by the profile)</li>
+ <li> search for the declared profiles by the <a href="search.html#profile">_profile</a> search parameter, if the search parameter is supported.</li>
 </ol>
 <p>
-Beyond these requirements, a producer of resources SHOULD ensure that any resource instance that would reasonably be expected
-to conform to the declared profiles SHOULD be published in this form.
+To communicate which profiles will be declared, the producer SHOULD use the standard <a href="extension-capabilitystatement-declared-profile.html">Declared Profile</a> extension on the CapabilityStatement.
 </p>
 
 [%stu-note%]
