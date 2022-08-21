@@ -838,7 +838,7 @@
         <xpath value="count(f:alternative/f:title/@value) = count(distinct-values(f:alternative/f:title/@value))"/>
       </constraint>
       <constraint>
-        <key value="exs-16"/>
+        <key value="exs-22"/>
         <severity value="error"/>
         <human value="Can have a process, a workflow, one or more operations or none of these, but cannot have a combination"/>
         <expression value="(process.exists() implies workflow.empty() and operation.empty()) and (workflow.exists() implies operation.empty())"/>

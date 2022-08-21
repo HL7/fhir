@@ -941,7 +941,7 @@
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
-        <key value="sdf-24"/>
+        <key value="sdf-28"/>
         <severity value="error" />
         <human value="If there are no discriminators, there must be a definition"/>
         <expression value="slicing.exists().not() or (slicing.discriminator.exists() or slicing.description.exists())"/>
