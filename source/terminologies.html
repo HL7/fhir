@@ -476,6 +476,8 @@ will work together to choose actual working value sets.
 </p>
 <p>
 If the binding strength is required, the data element SHALL contain one of the values in the bound value set.
+The use of an extension (e.g. [data-absent-reason]) cannot be used to bypass required binding requirements.  
+The binding must be satisfied regardless of what extensions are present.
 </p>
 <p>
 Required binding strength is used for elements where the value needs to be strictly controlled so the element can be interpreted with confidence. Required binding strength SHALL be used for elements with type code.

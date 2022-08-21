@@ -263,6 +263,31 @@ by a fake organization, and not appropriate for re-use by implementers.
 </p>
 </div>
 
+<a name="primitives"></a>
+<h3>Extensions on Primitive Data Types</h3>
+
+<p>
+Primitive data types can carry extensions. The extensions may appear in place of the value of the primitive data type. 
+The <a href="xml.html#primitive">XML</a> and <a href="json.html#primitive">JSON</a> pages describe how this 
+looks like in those respective formats.
+Implementers should be aware that a mandatory primitive data type (i.e. mininum cardinality=1) may
+be present with extensions but no value. Type use case are extensions such as 
+<a href="extension-data-absent-reason.html">DataAbsentReason</a>,
+<a href="extension-iso21090-nullflavor.html">nullFlavor</a> and
+<a href="extension-cqf-expression.html">expression</a>.
+</p>
+<p>
+However, the use of an extension such as <a href="extension-data-absent-reason.html">DataAbsentReason</a> 
+cannot be used to bypass a required binding requirements.
+</p>
+<p>
+Note that this restriction also applies to extensible bindings on Coding and CodeableConcept data types.
+The use of an extension such as <a href="extension-data-absent-reason.html">DataAbsentReason</a> 
+cannot be used to bypass a required or extensible binding requirements.  For example, if a value set includes
+the concept of "unknown", then a <a href="extension-data-absent-reason.html">DataAbsentReason</a>  of "unknown" 
+cannot be sent without sending a Coding with the "unknown" concept.  
+(In which case also sending an 'unknown' code would be inappropriate and unnecessary.)
+</p>
 <a name="mustUnderstand"></a>
 <a name="isModifier"></a>
 <a name="modifierExtension"></a>
