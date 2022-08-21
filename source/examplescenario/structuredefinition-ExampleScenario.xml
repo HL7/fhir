@@ -473,7 +473,7 @@
         <xpath value="exists(parent::f:ExampleScenario/f:process//f:operation[f:initiator/@value=current()/f:key/@value or f:receiver/@value=current()/f:key/@value])"/>
       </constraint>
       <constraint>
-        <key value="exs-22"/>
+        <key value="exs-23"/>
         <severity value="error"/>
         <human value="actor.key canot be 'OTHER'"/>
         <expression value="key != 'OTHER'"/>
