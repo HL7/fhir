@@ -47,7 +47,7 @@ Logical models are abstract data structures, normally defined for a given purpos
             <li> metadata - title, status, authorship, purpose, etc. </li>
             <li> Base of the structure (Base, Element, or another logical model)</li>
         </ul>
-    <p>ElementDefinition capture the actual data elements that constitute the structure. ElementDefinitions in a logical model typycally contain</p> 
+    <p>ElementDefinition capture the actual data elements that constitute the structure. ElementDefinitions in a logical model typically contain:</p> 
         <ul>
             <li> Name and definition: These are context-specific definitions of the element, regardless of whether they correspond to a given FHIR element</li>
             <li> Cardinality - the functional, intended cardinality of the element within the logical model</li>
@@ -57,11 +57,13 @@ Logical models are abstract data structures, normally defined for a given purpos
         </ul>
         
     <h3 id="data-types-in-logical-models">Data types in logical models</h3>
-    <p>Elements in a logical model are expected to have a type because how FHIR structures are defined. It is posible to use the FHIR <a href="https://hl7.org/fhir/datatypes">data types</a>, although this brings "physical" constraints, formats, etc. into abstract logical data models which might not be intended. For example, a logical model may need to define a date, regardless of the "physical" format of the date being
-    <code>DDMMYY</code>, <code>DDMMYYYY</code> or <code>MM-DD-YYYY</code>. It is possible to define data types for use in logical models, by profiling the existing types in FHIR.</p>
+    <p>Elements in a logical model are expected to have a type because of how FHIR structures are defined. It is posible to use the FHIR <a href="https://hl7.org/fhir/datatypes">data types</a>, although this brings "physical" constraints, formats, etc. into abstract logical data models which might not be intended. For example, a logical model may need to define a date, regardless of the "physical" format of the date being
+    <code>DDMMYY</code>, <code>DDMMYYYY</code> or <code>MM-DD-YYYY</code>.</p> <p>It is possible to define data types for use in logical models, by profiling the existing types in FHIR.</p>
+
     <h3 id="terminology-bindings">Terminology bindings</h3>
 <p>Logical models may contain bindings for coded elements, and the corresponding binding strength. This can be used to capture the "intended" or "business / functional" requirements on data elements, independently of any actual coding system. It may also be used to impose terminology constraints on a functional level, if they are meaningful at that level.
-For example, on a functional level, it is possible to impose code systems like state codes, or country codes (ISO 3166-2), or to legal codes for marital status - as these are no longer technically relevant for a given system, they are imposed (typically by norms or regulations).</p>
+For example, on a functional level, it is possible to impose code systems like state codes, or country codes (ISO 3166-2), or to legal codes for marital status - as these are not only technically relevant for a given system, they are imposed (typically by norms or regulations) at a business level.
+Such specifications can be persisted in logical models, and thic can be used to impose that any technology implementation that follows the logical model shall consider the terminology binding.</p>
 
 <h3>Using logical models</h3>
 <h4>Functional data modeling</h4>
