@@ -391,9 +391,8 @@ things:
  <li>carry a warning concerning the data along with any action or output that results from processing the data to inform users that it has not fully understood the source information</li>
 </ol>
 <a name="processing"> </a>
-
 <p>
-Processing the data of a resource typically means
+For the purpose of this page, processing the data of a resource is taken to mean
 copying or filtering data out of a resource for use in another
 context (display to a human, decision support, exchange in another
 format where not all information is included, or storing it for this kind of use).
@@ -485,7 +484,7 @@ of modifier extensions within instances that comply with the implementation guid
  <li>A Modifier Extension SHALL only modify the element which contains it and/or that element's children</li>
  <li>It SHALL always be safe to show the narrative to humans; any modifier extension SHALL be represented in the narrative</li>
  <li>Applications SHALL always ensure unrecognized modifier extensions are not present when processing the data from any element that might have carry modifier extensions</li>
- <li>If a Modifier Extension that an application does not understand is present, the application SHALL refuse to process the resource or affected element, or SHALL provide an appropriate warning to its users</li>
+ <li>If a Modifier Extension that an application does not understand is present at the root of a resource or on an element, the application SHALL refuse to <a href="#processing">process the data of</a> the resource/affected element, or SHALL provide an appropriate warning to its users</li>
 </ul>
 
 <a name="Special-Case"></a>
