@@ -9,7 +9,11 @@
     <valueCode value="fhir"/>
   </extension>
   <url value="http://hl7.org/fhir/inheritance-control-code"/>
-  <version value="5.0.0"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
   <name value="TemplateStatusCode"/>
   <status value="active"/>
   <caseSensitive value="true"/>

@@ -70,6 +70,8 @@ Notes:
  <li>An extension SHALL have either a value (i.e. a value[x] element) or sub-extensions, but not both. If present, the value[x] element SHALL have content (value attribute or other elements)</li>
  <li>If it is not safe for an application processing the content of the resource to ignore the extension it SHALL be represented using a <a href="#isModifier">Modifier Extension</a> rather than an <code>extension</code> element. 'Not safe' means that the extension causes information in other elements within the resource to be interpretted in a way that is not consistent with their base definition. See examples <a href="#modifierExtension">below</a>.</li>
  <li>There are a few resources (ones that do not specialize <a href="domainresource.html">DomainResource</a>) where extensions are not allowed on the root element, but extensions can appear elsewhere through the resource</li>
+ <li>If the meaning of an extension is clearly defined by a code, that code SHOULD be declared on the extension's root code 
+  (<code>StructureDefinition.differential.element[0].code</code>)</li>
  <li>The <i>value[x]</i> element has an actual name of "value" and then the TitleCased name of one of these defined types, and its contents are those as defined for that type: <a name="list"> </a>
   <ul class="dense">
    [%extension-type-list%]
