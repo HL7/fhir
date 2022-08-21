@@ -55,11 +55,11 @@
       <exampleCanonical value="http://hl7.org/fhir/us/core/StructureDefinition/patient"/>
     </resource>
     <page>
-      <nameUrl value="patient-example.html"/>
+      <name value="patient-example.html"/>
       <title value="Example Patient Page"/>
       <generation value="html"/>
       <page>
-        <nameUrl value="list.html"/>
+        <name value="list.html"/>
         <title value="Value Set Page"/>
         <generation value="html"/>
       </page>
