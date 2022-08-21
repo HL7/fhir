@@ -119,5 +119,10 @@
         <reference value="StructureDefinition/structuredefinition-interface"/>
       </reference>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/structuredefinition-inheritance-type"/>
+      </reference>
+    </resource>    
   </definition>
 </ImplementationGuide>
