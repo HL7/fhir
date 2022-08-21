@@ -240,6 +240,13 @@
         <xpath value="(f:abstract/@value=true()) or exists(f:baseDefinition)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
+      <constraint>
+        <key value="sdf-27"/>
+        <severity value="error"/>
+        <human value="If there's a base definition, there must be a derivation "/>
+        <expression value="baseDefinition.exists() implies derivation.exists()"/>
+        <xpath value="not(exists(f:baseDefinition)) or exists(f:derivation)"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>

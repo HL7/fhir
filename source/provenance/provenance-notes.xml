@@ -61,7 +61,7 @@ Notes:
 
 <p>
 The Provenance resource includes a <i>signature</i> element (digital signature) which can be used for 
-standards based integrity verification and non-repudiation purposes. The <a href="dataypes.html#Signature">Signature</a>  datatype
+standards based integrity verification and non-repudiation purposes. The <a href="datatypes.html#Signature">Signature</a>  datatype
 provides details on use of the <i>signature</i> element. The Signature.type coded value of "Source" should be used
 when the signature is for simply proving that the resource content is the same as it was when the resource
 was updated or created.
