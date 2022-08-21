@@ -686,7 +686,7 @@
     <element id="OperationDefinition.parameter.allowedType">
       <path value="OperationDefinition.parameter.allowedType"/>
       <short value="Allowed sub-type this parameter can have (if type is abstract)"/>
-      <definition value="Support for polymorphic types. If the parameter type is abstract, this element lists allowed sub-types for the parameter"/>
+      <definition value="Support for polymorphic types. If the parameter type is abstract, this element lists allowed sub-types for the parameter."/>
       <comment value="In previous versions of FHIR, there was an extension for this: http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type"/>
       <min value="0"/>
       <max value="*"/>
