@@ -556,7 +556,7 @@ of these situations easier, but it cannot resolve them.
 modified element and its descendants, because it cannot know whether the modifications it has made
 might invalidate the value of the unknown extension</li>
  <li>Systems that drop existing elements are considered to be "<a href="#processing">processing the containing element</a>"</li>
- <li>A system SHALL NOT modify a resource or element that contains "modifier" extensions it doesn't understand</li>
+ <li>A system SHALL NOT modify a resource or element if the resource as a whole or the element being modified within the resource has child "modifier" extensions it doesn't understand or is a descendant of an element that contains such modifier extensions</li>
  <li>Applications SHOULD ignore extensions that they do not recognize if they are not "modifier" extensions</li>
 </ul>
 <p>
