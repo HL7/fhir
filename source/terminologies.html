@@ -290,6 +290,11 @@ When an element is bound to a value set, the binding has these properties:
 <p>
 A binding is always represented using an <a href="elementdefinition-definitions.html#ElementDefinition.binding">ElementDefinition.binding</a>.
 </p>
+<p>
+If a binding is present on an element with multiple types, the binding applies to all types 
+that are bindable (i.e. CodeableConcept, Quantity, etc.).  If there is a need to define 
+type-specific bindings, then the <a href="https://build.fhir.org/ig/FHIR/fhir-tools-ig/StructureDefinition-additional-binding.html">alternate-bindings</a> extension can be used.
+</p>
 
 <a name="references"></a>
 
