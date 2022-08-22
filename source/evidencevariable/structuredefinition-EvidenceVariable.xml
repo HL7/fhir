@@ -536,8 +536,8 @@
         <valueString value="This was called &quot;inclusiveness&quot; with a code list of &quot;presence, absence&quot;. Changed to &quot;exclude&quot; boolean to simplify representation and to align with Group characteristic expression."/>
       </extension>
       <path value="EvidenceVariable.characteristic.exclude"/>
-      <short value="Whether the characteristic includes or excludes members"/>
-      <definition value="When true, members with this characteristic are excluded from the element."/>
+      <short value="Whether the characteristic is an inclusion criterion or exclusion criterion"/>
+      <definition value="When true, this characteristic is an exclusion criterion. In other words, not matching this characteristic definition is equivalent to meeting this criterion."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -614,7 +614,7 @@
     <element id="EvidenceVariable.characteristic.definitionByTypeAndValue">
       <path value="EvidenceVariable.characteristic.definitionByTypeAndValue"/>
       <short value="Defines the characteristic using type and value"/>
-      <definition value="Defines the characteristic using both a type[x] and value[x] elements."/>
+      <definition value="Defines the characteristic using both a type and value[x] elements."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -672,8 +672,8 @@
     </element>
     <element id="EvidenceVariable.characteristic.definitionByTypeAndValue.value[x]">
       <path value="EvidenceVariable.characteristic.definitionByTypeAndValue.value[x]"/>
-      <short value="Defines the characteristic when coupled with characteristic.type[x]"/>
-      <definition value="Defines the characteristic when paired with characteristic.type[x]."/>
+      <short value="Defines the characteristic when coupled with characteristic.type"/>
+      <definition value="Defines the characteristic when paired with characteristic.type."/>
       <min value="1"/>
       <max value="1"/>
       <type>

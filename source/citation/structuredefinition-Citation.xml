@@ -1101,17 +1101,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease"/>
-      <short value="The specific issue in which the cited article resides"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.citedMedium">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.citedMedium"/>
+    <element id="Citation.citedArtifact.publicationForm.citedMedium">
+      <path value="Citation.citedArtifact.publicationForm.citedMedium"/>
       <short value="Internet or Print"/>
       <definition value="Describes the form of the medium cited. Common codes are &quot;Internet&quot; or &quot;Print&quot;."/>
       <comment value="National Library of Medicine uses the codes &quot;Internet&quot; or &quot;Print&quot;."/>
@@ -1128,8 +1119,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/cited-medium"/>
       </binding>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.volume">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.volume"/>
+    <element id="Citation.citedArtifact.publicationForm.volume">
+      <path value="Citation.citedArtifact.publicationForm.volume"/>
       <short value="Volume number of journal in which the article is published"/>
       <min value="0"/>
       <max value="1"/>
@@ -1137,8 +1128,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.issue">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.issue"/>
+    <element id="Citation.citedArtifact.publicationForm.issue">
+      <path value="Citation.citedArtifact.publicationForm.issue"/>
       <short value="Issue, part or supplement of journal in which the article is published"/>
       <min value="0"/>
       <max value="1"/>
@@ -1146,26 +1137,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication"/>
-      <short value="Defining the date on which the issue of the journal was published"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.date">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.date"/>
-      <short value="Date on which the issue of the journal was published"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="date"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.year">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.year"/>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateYear">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateYear"/>
       <short value="Year on which the issue of the journal was published"/>
       <min value="0"/>
       <max value="1"/>
@@ -1173,8 +1146,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.month">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.month"/>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateMonth">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateMonth"/>
       <short value="Month on which the issue of the journal was published"/>
       <min value="0"/>
       <max value="1"/>
@@ -1182,8 +1155,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.day">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.day"/>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateDay">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateDay"/>
       <short value="Day on which the issue of the journal was published"/>
       <min value="0"/>
       <max value="1"/>
@@ -1191,8 +1164,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.season">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.season"/>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateSeason">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateSeason"/>
       <short value="Season on which the issue of the journal was published"/>
       <definition value="Spring, Summer, Fall/Autumn, Winter."/>
       <min value="0"/>
@@ -1201,8 +1174,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.text">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.text"/>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateText">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateText"/>
       <short value="Text representation of the date of which the issue of the journal was published"/>
       <min value="0"/>
       <max value="1"/>

@@ -1,5 +1,6 @@
 INFORMATION: CodeSystem.concept.property.value[x]: An element of type CodeableConcept or Coding must have a binding
 INFORMATION: ValueSet.expansion.contains.property.value[x]: An element of type CodeableConcept or Coding must have a binding
+INFORMATION: ValueSet.expansion.contains.property.subProperty.value[x]: An element of type CodeableConcept or Coding must have a binding
 INFORMATION: DataElement.element: Name of child (element) overlaps with name of parent (DataElement)
 INFORMATION: ElementDefinition.definition: Name of child (definition) overlaps with name of parent (ElementDefinition)
 INFORMATION: EpisodeOfCare.careManager: Name of child (careManager) overlaps with name of parent (EpisodeOfCare)

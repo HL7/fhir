@@ -80,9 +80,11 @@
 		</extension>
 		<extension url="sourceDocument">
 			<!-- Reference to a scan of the birth certificate -->
-			<valueReference>
-				<reference value="DocumentReference/1"/>
-			</valueReference>
+			<valueCodeableReference>
+			  <reference>
+  				<reference value="DocumentReference/1"/>
+			  </reference>
+			</valueCodeableReference>
 		</extension>
 		<extension url="sourceField">
 			<valueString value="SEX"/>
@@ -139,9 +141,11 @@
 		</extension>
 		<extension url="sourceDocument">
 			<!-- Reference to a scan of the insurance card-->
-			<valueReference>
-				<reference value="DocumentReference/2"/>
-			</valueReference>
+			<valueCodeableReference>
+			  <reference>
+  				<reference value="DocumentReference/2"/>
+			  </reference>
+			</valueCodeableReference>
 		</extension>
 		<extension url="sourceField">
 			<valueString value="SEX"/>
@@ -180,15 +184,19 @@
 		</extension>
 		<extension url="supportingInfo">
 			<!-- Observation about an organ inventory (prostate) -->
-			<valueReference>
-				<reference value="Observation/1"/>
-			</valueReference>
+			<valueCodeableReference>
+			  <reference>
+  				<reference value="Observation/1"/>
+			  </reference>
+			</valueCodeableReference>
 		</extension>
 		<extension url="supportingInfo">
 			<!-- MedicationUsage indicating patient underwent hormone therapy -->
-			<valueReference>
-				<reference value="MedicationUsage/2"/>
-			</valueReference>
+			<valueCodeableReference>
+			  <reference>
+				  <reference value="MedicationUsage/2"/>
+			  </reference>
+			</valueCodeableReference>
 		</extension>
 	</extension>
 		

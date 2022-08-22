@@ -157,16 +157,15 @@ a resource conforms to a particular profile or not is a straight
 forward operation (one option is to use the <a href="downloads.html">provided tools for this</a>),
 but this is a very inefficient way - the decision support system has to receive
 and process 100 times as many resources as it uses. To help a consumer
-find the correct set of reports for a use-case, a producer of
-resources also SHALL, for any profile declared in <code>CapabilityStatement.rest.resource.supportedProfile</code>:
+find the correct set of reports for a use case, a producer of
+resources may:
 </p>
 <ol>
- <li><a href="resource.html#meta">Mark resources</a> with profile assertions documenting the profile(s) they conform to (this enables indexing by the profile)</li>
- <li>(if a server) support searching by the <a href="search.html#profile">_profile parameter</a> for the declared profiles</li>
+ <li><a href="resource.html#meta">declare</a> with profile assertions documenting the profile(s) they conform to (this enables indexing by the profile)</li>
+ <li> search for the declared profiles by the <a href="search.html#profile">_profile</a> search parameter, if the search parameter is supported.</li>
 </ol>
 <p>
-Beyond these requirements, a producer of resources SHOULD ensure that any resource instance that would reasonably be expected
-to conform to the declared profiles SHOULD be published in this form.
+To communicate which profiles will be declared, the producer SHOULD use the standard <a href="extension-capabilitystatement-declared-profile.html">Declared Profile</a> extension on the CapabilityStatement.
 </p>
 
 [%stu-note%]
@@ -503,18 +502,24 @@ Further notes about the use of the different discriminator types:
 </p>
 <table class="codes">
  <tr><td>value</td><td>
-   This is the most commonly used discriminator type: to decide based on the value of an element. 
-   Elements used like this are mostly primitive types- <code>code</code>, <code>uri</code>. 
-   Typical example: slice on the value of <code>Patient.telecom.system</code>, for values phone, email etc.
+   This is the most commonly used discriminator type: to decide based on the value of an element as 
+   specified by a fixed value, a pattern value, or a required value set binding. 
+   Typical example: slice on the value of <code>Patient.telecom.system</code>, for values phone, email,
+   or slice on the value of <code>Observation.code</code>, for values LOINC codes 1234-5, 4235-8 etc.
+   There are <a href="elementdefinition-examples.html#pattern-examples">some examples of slicing</a> based on discriminator-type <code>value</code> with patterns.
  </td></tr>
  <tr><td>pattern</td><td>
-  This is mostly used with elements of type <code>CodeableConcept</code> where the elements are distinguished by the presence of a particular code
-  but other codes are expected to be present, and are irrelevant for the slice matching process. 
-  Typical example: slice on the value of <code>Observation.code</code>, for values LOINC codes 1234-5, 4235-8 etc
+  This code means the same as value, and is retained for backwards compatibility reasons
  </td></tr>
  <tr><td>exists</td><td>
-   This is not used commonly - it only has 2 values, so not much discrimination power. It's mainly used as an adjunct slicing criteria along with other discriminators.
+   This is not used commonly - it only has 2 values, so not much discrimination power. 
+   It's mainly used as an adjunct slicing criteria along with other discriminators.
    Elements used like this are mostly complex backbone elements. 
+   The slices are differentiated by the presence or absence of the nominated element. 
+   There SHALL be no more than two slices. The slices are differentiated by the fact 
+   that one must have a max of 0 and the other must have a min of 1 (or more).  The 
+   order in which the slices are declared doesn't matter. 
+
    Typical example: slice on the pattern of Observation.code and the presence of Observation.component.   
  </td></tr>
  <tr><td>type</td><td>
@@ -599,9 +604,10 @@ Some examples of discriminators:
  <tr>  <td>List.entry</td> <td>profile</td> <td>item.resolve()</td> <td>Entries are differentiated by a profile tag on the target of the reference, as specified by a structure definition in the profile</td> </tr>
  <tr>  <td>List.entry</td> <td>value</td> <td>item.extension('http://acme.org/extensions/test').value</td> <td>Entries are differentiated by the value of the code element in the extension with the designated URL</td> </tr>
  <tr>  <td>List.entry.extension</td> <td>value</td> <td>url</td> <td>Extensions are differentiated by the value of their url property (usually how extensions are sliced)</td> </tr>
- <tr>  <td>List.entry</td> <td>type, value</td> <td>item.resolve(), item.resolve().value</td> <td>Extensions are differentiated by the combination of the type of the referenced resource, and, if it has one, the code element of that resource. This would be
+ <tr>  <td>List.entry</td> <td>type, value</td> <td>item.resolve(), item.resolve().value</td> <td>Entries are differentiated by the combination of the type of the referenced resource, and, if it has one, the code element of that resource. This would be
    appropriate for where a List might be composed of a Condition, and set of observations, each differentiated by its name - the condition has no name, so that is evaluated as a null in the discriminator set</td> </tr>
- <tr>  <td>Observation.value[x]</td> <td>type</td> <td>$this</td> <td>Different constraints (e.g. "must support", usage notes, vocabulary bindings, etc.) are asserted for different supported types for the multi-typed element Observation.value[x]</td> </tr>
+ <tr>  <td>EndPoint.header</td> <td>value</td> <td>value</td> <td>Slicing a primitive field by value, e.g. to specify a set list of headers in a profile</td> </tr>
+  <tr>  <td>Observation.value[x]</td> <td>type</td> <td>$this</td> <td>Different constraints (e.g. "must support", usage notes, vocabulary bindings, etc.) are asserted for different supported types for the multi-typed element Observation.value[x]</td> </tr>
 </table>
 <p>
 Note that discriminator types of type and profile can also be used where a repeating element contains a resource directly (e.g.
@@ -688,7 +694,7 @@ a profile author would first define a profile on Composition section:
         &lt;path value=&quot;Composition.section&quot;/&gt;
         &lt;slicing&gt;  
           &lt;discriminator&gt; 
-            &lt;type value=&quot;pattern&quot;/&gt;
+            &lt;type value=&quot;value&quot;/&gt;
             &lt;path value=&quot;code&quot;/&gt;
           &lt;/discriminator&gt;
           &lt;description value=&quot;Slice by .section.code when using this section library&quot;/&gt;
@@ -1027,11 +1033,7 @@ Each profile can be thought of in terms of the set of instances that conform to 
  <li>Identical sets: the set of resources that conform to A is the same as the set of resource that conform to B and the set of resources that don't conform to A is the same as the set of resources that don't conform to B</li>
 </ol>
 <p>
-Profiles can be compared to determine their compatibility.
-One such comparison can be found (Todo: bring this into the build)
-between <a href="http://hl7.org/fhir/us/daf">DAF</a> and <a href="http://hl7.org/fhir/us/qicore">QICore</a>.
-Note that this comparison is generated by tooling under ongoing development, and is purely draft
-content to demonstrate the idea of profile comparison.
+Profiles can be compared to determine their compatibility. See <a href="https://confluence.hl7.org/display/FHIR/Comparing+Profiles">Comparing Profiles</a> on the HL7 Confluence page.
 </p>
 
 [%file newfooter%]

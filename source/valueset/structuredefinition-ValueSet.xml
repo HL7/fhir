@@ -1323,6 +1323,63 @@
         <code value="decimal"/>
       </type>
     </element>
+    <element id="ValueSet.expansion.contains.property.subProperty">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="ConceptSubProperty"/>
+      </extension>
+      <path value="ValueSet.expansion.contains.property.subProperty"/>
+      <short value="SubProperty value for the concept"/>
+      <definition value="A subproperty value for this concept."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ValueSet.expansion.contains.property.subProperty.code">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="ValueSet.expansion.contains.property.subProperty.code"/>
+      <short value="Reference to ValueSet.expansion.property.code"/>
+      <definition value="A code that is a reference to ValueSet.expansion.property.code."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element id="ValueSet.expansion.contains.property.subProperty.value[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="ValueSet.expansion.contains.property.subProperty.value[x]"/>
+      <short value="Value of the subproperty for this concept"/>
+      <definition value="The value of this subproperty."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="decimal"/>
+      </type>
+    </element>
     <element id="ValueSet.expansion.contains.contains">
       <path value="ValueSet.expansion.contains.contains"/>
       <short value="Codes contained under this entry"/>

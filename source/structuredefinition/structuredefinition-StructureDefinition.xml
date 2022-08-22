@@ -240,6 +240,13 @@
         <xpath value="(f:abstract/@value=true()) or exists(f:baseDefinition)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
+      <constraint>
+        <key value="sdf-27"/>
+        <severity value="error"/>
+        <human value="If there's a base definition, there must be a derivation "/>
+        <expression value="baseDefinition.exists() implies derivation.exists()"/>
+        <xpath value="not(exists(f:baseDefinition)) or exists(f:derivation)"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
@@ -900,6 +907,19 @@
         <expression value="element.where(type.code='CodeableConcept' and id.endsWith('.concept') and binding.exists() and id.substring(0,$this.length()-8) in %context.element.where(type.code='CodeableReference').id).exists().not()"/>
         <xpath value="not(exists(for $cr in f:element[f:type/f:code/@value='CodeableReference'] return $cr/following-sibling::f:element[@id=concat($cr/@id, '.concept') and f:type/f:code/@value='CodeableConcept' and exists(f:binding)]))"/>
       </constraint>
+      <constraint>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+          <valueBoolean value="true"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
+          <valueMarkdown value="It is bad practice to set the root element of a profile to 'mustSupport' as mustSupport should always be determined by the element referencing a type.  The designer of a StructureDefinition cannot know all circumstances in which a type or profile might be used"/>
+        </extension>
+        <key value="sdf-26"/>
+        <severity value="error"/>
+        <human value="The root element of a profile should not have mustSupport = true"/>
+        <expression value="snapshot.where(element[0].mustSupport='true').exists().not()"/>
+        <xpath value="not(exists(f:snapshot/f:element[1][f:mustSupport/@value='true']))"/>
+      </constraint>
     </element>
     <element id="StructureDefinition.snapshot.element">
       <path value="StructureDefinition.snapshot.element"/>
@@ -921,7 +941,7 @@
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
-        <key value="sdf-24"/>
+        <key value="sdf-28"/>
         <severity value="error" />
         <human value="If there are no discriminators, there must be a definition"/>
         <expression value="slicing.exists().not() or (slicing.discriminator.exists() or slicing.description.exists())"/>
