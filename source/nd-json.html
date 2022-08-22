@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-[%settitle ND-JSON Format%]
+[%settitle NDJSON Format%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -13,31 +13,34 @@
 <%fmtheader ndjson%>
 
 <a name="json"></a>
-<h2>ND-JSON Representation of Resources</h2>
+<h2>NDJSON Representation of Resources</h2>
 <table class="colsd"><tr><td id="wg"><a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Draft</a></td></tr></table>
 
 <p>
-nd-json (New line delimited JSON) is a variant of the JSON format that is supported for 
-bulk data transfer. In principle, nd-json is a simple variation on <a href="json.html">the
+NDJSON (<a href="https://github.com/ndjson/ndjson-spec">New line delimited JSON</a>) 
+is a variant of the NDJSON format that is supported for bulk data transfer. 
+In principle, NDJSON is a simple variation on <a href="json.html">the
 JSON format</a>, but where resources are serialized with no whitespace, and separated
 by a newline pair (characters 13 and 10). 
 </p>
 
-<pre class="spec">{
-  { "resourceType" : "[type]", .... }
-  { "resourceType" : "[type]", .... }
-}
+<p>
+Example:
+</p>
+<pre class="spec">
+{ "resourceType" : "[type]", .... }
+{ "resourceType" : "[type]", .... }
 </pre>
 <p>
 The MIME-type for this format is <code>application/fhir+ndjson</code>.
 </p>
 
 <p>
-In order to simplify nd-json processing, each nd-json document contains only resources of a single type - every line contains a resource of a particular type.
+In order to simplify NDJSON processing, each NDJSON document SHALL  only contain resources of a single type - every line contains a resource of a particular type.
 (though note that resources may still contain <a href="domainresource-definitions.html#DomainResource.contained">contained resources</a> of various types).
 </p>
 <p>
-On the <a href="http.html">RESTful API</a>, the nd-json format can only be retrieved using the <a href="async.html">Asynchronous Pattern</a>.
+On the <a href="http.html">RESTful API</a>, the NDJSON format can only be retrieved using the <a href="async.html">Asynchronous Pattern</a>.
 </p>
 
 [%file newfooter%]

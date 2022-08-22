@@ -68,6 +68,139 @@ Using this format:
   Applications MAY preserve processing instructions when handling resources, but are not required to do so</li>
  <li>The MIME-type for this format is <code>application/fhir+xml</code>.</li>
 </ul>
+<p>
+  This page contains some JSON examples for the purposes of 
+  comparison between the two formats. The formats page has a <a href="resource-formats.html#comparison">comparison between the XML and JSON formats</a>.
+</p>
+  
+
+<a name="repeat"></a>
+<h3>XML Representation for repeating elements</h3>
+
+<p>
+An element that has a maximum cardinality of >1 (e.g. <code>x..*</code> in the definitions) may occur more than once in the instance.
+In XML, this is simply done by repeating the XML element multiple times. 
+</p>
+
+<p>So a <a href="datatypes.html#CodeableConcept">CodeableConcept</a> is represented in XML like this:</p>
+
+<pre class="xml" fragment="CodeableConcept">
+ &lt;code&gt;
+   &lt;coding&gt;
+     &lt;system value="http://snomed.info/sct"/&gt;
+     &lt;code value="104934005"/&gt;
+   &lt;/coding&gt;
+   &lt;coding&gt;
+     &lt;system value="http://loinc.org"/&gt;
+     &lt;code value="2947-0"/&gt;
+   &lt;/coding&gt;
+ &lt;/code&gt;
+</pre>
+<p>
+For comparison, In JSON, this is done by using an array type, also 
+using the singular name:
+</p>
+<pre class="json" fragment="CodeableConcept">
+{
+ "coding": [
+   {
+     "system" : "http://snomed.info/sct",
+     "code" : "104934005"
+   },
+   {
+     "system" : "http://loinc.org",
+     "code" : "2947-0"
+   }
+ ]
+}
+</pre>
+
+
+<a name="primitive"></a>
+<h3>XML representation of primitive elements</h3>
+<p>
+FHIR elements with primitive data types are represented in by an XML element 
+with a value attribute.
+</p>
+<pre class="xml">
+ &lt;<b>code</b> value="abc"/&gt; &lt;!-- code --&gt;
+ &lt;<b>date</b> value="1972-11-30"/&gt; &lt;!-- dateTime --&gt;
+ &lt;<b>deceased</b> value="false" /&gt; &lt;!-- boolean --&gt;
+ &lt;<b>count</b> value="23" /&gt;  &lt;!-- integer --&gt;
+</pre>
+<p>For comparison, this is represented in JSON as</p>
+<pre class="json">
+ "code" : "abc",
+ "date" : "1972-11-30",
+ "deceased" : false,
+ "count" : 23
+</pre>
+
+<p>
+  If the value has an id attribute, or extensions, then these are represented as follows:
+</p>
+<pre class="xml">
+&lt;<b>birthDate</b> id="314159" value="1970-03-30" &gt;
+  &lt;extension url="http://example.org/fhir/StructureDefinition/text"&gt;
+    &lt;valueString value="Easter 1970"/&gt;
+  &lt;/extension&gt;
+&lt;/<b>birthDate</b>&gt;
+</pre>
+<p>The JSON representation is more complex:</p>
+<pre class="json">
+  "birthDate": "1970-03-30",
+  "_birthDate": {
+    "id": "314159",
+    "extension" : [ {
+      "url" : "http://example.org/fhir/StructureDefinition/text",
+      "valueString" : "Easter 1970"
+    }]
+  }
+</pre>
+   
+<h3>XML representation of Complex Data types and XHTML</h3>
+
+<p>
+Complex <a href="datatypes.html">datatypes</a> (types that contain named elements of other types) are represented using
+an element that containing an element for each element in the datatype. Complex data types can have ids, which are
+represented as id attributes, in the same manner as described for primitives. For example:
+</p>
+<pre class="xml" fragment="Patient">
+&lt;Patient xmlns="http://hl7.org/fhir"&gt;
+  &lt;text&gt;
+    &lt;status value="generated" /&gt;
+    &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;
+  &lt;/text&gt;
+  &lt;name id="f2"&gt;
+    &lt;use value="official" /&gt;
+    &lt;given value="Karen" /&gt;
+    &lt;family id="a2" value="Van" /&gt;
+  &lt;/name&gt;
+&lt;/Patient&gt;
+</pre>
+<p>For comparison, this is represented in JSON as:</p>
+<pre class="json" fragment="Patient">
+{
+  "resourceType" : "Patient",
+  "name" : [{
+    "id" : "f2",
+    "use" : "official" ,
+    "given" : [ "Karen" ],
+    "family" :  "Van",
+    "_family" : {"id" : "a2"}
+  }],
+  "text" : {
+    "status" : "generated" ,
+    "div" : "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;"
+  }
+}
+</pre>
+<p>Things to note here are:</p>
+<ul>
+<li>All elements are in the <code>http://hl7.org/fhir</code> namespace, except for the XHTML content</li>
+<li>The XHTML content in the <code>div</code> element which is in the Narrative element <code>text</code> is represented
+  directly as xhtml, with a root &lt;div&gt; element in the xhtml namespace</li>
+</ul>
 
 <a name="schema"></a>
 <h3>XML Schema and Schematron</h3>
@@ -160,14 +293,14 @@ Note that most code generation frameworks ignore the pattern restriction.
 
 <h3>Canonical XML</h3>
 <p>
-Resources and/or Bundles may be digitally signed (see <a href="bundle.html">Bundle</a> and <a href="provenance.html">Provenance</a>). 
+Resources and/or Bundles may be digitally signed (see <a href="bundle.html">Bundle</a> and <a href="provenance.html#signature">Provenance</a>). 
 </p>
 <p>
 This specification defines the following method for canonicalizing FHIR resources, when represented as 
-XML:
+XML. Each XML instance or fragment that is part of the collection being signed SHALL:
 </p>
 <ul>
- <li>No whitespace other than single spaces in attribute values and in the XHTML in the <a href="narrative.html">Narrative</a></li>
+ <li>Contain no whitespace other than single spaces in attribute values and in the XHTML in the <a href="narrative.html">Narrative</a></li>
  <li>Use default namespaces for the FHIR and XHTML namespaces</li>
  <li>Omit all comments</li>
  <li>Always use the Unicode character representation for any XML entities (e.g. <code>&amp;#39;</code> instead of <code>&amp;quot;</code>)</li>

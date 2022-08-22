@@ -10,8 +10,10 @@
 		
 	<status value="active" />
 	<connectionType>
-		<system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type" />
-		<code value="ihe-iid" />
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type" />
+			<code value="ihe-iid" />
+		</coding>
 	</connectionType>
 	<name value="PACS Hospital Invoke Image Display endpoint" />
 	<payloadType>

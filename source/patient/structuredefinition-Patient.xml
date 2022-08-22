@@ -856,7 +856,7 @@
     <element id="Patient.link.other">
       <path value="Patient.link.other"/>
       <short value="The other patient or related person resource that the link refers to"/>
-      <definition value="The other patient resource that the link refers to."/>
+      <definition value="Link to a Patient or RelatedPerson resource that concerns the same actual individual."/>
       <comment value="Referencing a RelatedPerson here removes the need to use a Person record to associate a Patient and RelatedPerson as the same individual."/>
       <min value="1"/>
       <max value="1"/>

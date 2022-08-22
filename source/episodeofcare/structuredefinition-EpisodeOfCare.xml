@@ -372,11 +372,11 @@
         <map value="Event.performer.actor"/>
       </mapping>
     </element>
-    <element id="EpisodeOfCare.team">
+    <element id="EpisodeOfCare.careTeam">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
       </extension>
-      <path value="EpisodeOfCare.team"/>
+      <path value="EpisodeOfCare.careTeam"/>
       <short value="Other practitioners facilitating this episode of care"/>
       <definition value="The list of practitioners that may be facilitating this episode of care for specific purposes."/>
       <alias value="CareTeam"/>

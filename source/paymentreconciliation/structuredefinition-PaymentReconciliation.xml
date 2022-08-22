@@ -247,6 +247,9 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Person"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -434,7 +437,17 @@
     <element id="PaymentReconciliation.tenderedAmount">
       <path value="PaymentReconciliation.tenderedAmount"/>
       <short value="Amount offered by the issuer"/>
-      <definition value="The amount offered by the the issuer, typically applies to cash when the issuer provides an amount in bank note denominations equal to or excess of the amount actually being paid."/>
+      <definition value="The amount offered by the issuer, typically applies to cash when the issuer provides an amount in bank note denominations equal to or excess of the amount actually being paid."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
+    <element id="PaymentReconciliation.returnedAmount">
+      <path value="PaymentReconciliation.returnedAmount"/>
+      <short value="Amount returned by the receiver"/>
+      <definition value="The amount returned by the receiver which is excess to the amount payable, often referred to as 'change'."/>
       <min value="0"/>
       <max value="1"/>
       <type>

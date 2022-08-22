@@ -20,6 +20,18 @@
 <p>URL for this extension: </p>
 <pre><b><%extensionurl%></b></pre>
 
+<p><b>Summary</b></p>
+<table class="grid">
+ <tr><td>Defining URL:</td><td><span class="copy-text"><code><%extensionurl%></code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="<%extensionurl%>" data-original-title="Click to copy URL"></button></span></td></tr>
+ <tr><td>Version:</td><td><%ext-ver%></td></tr>
+ <tr><td>Name:</td><td><%ext-name%></td></tr>
+ <tr><td>Title:</td><td><%ext-title%></td></tr>
+ <tr><td>Status:</td><td><%ext-status%></td></tr>
+ <tr><td>Definition:</td><td><%ext-def%></td></tr>
+ <tr><td>Committee:</td><td><%ext-committee%></td></tr>
+</table>
+
+
 <p>Status: <%status%>. <%pubdetails%></p>
 
 <p>
@@ -138,9 +150,11 @@ Extension Content
 
 </div>
 
+<script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+<script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+    
 
 <%file newfooter%>
-
 
 
 <script src="<%level%>external/jquery/jquery.js"> </script>

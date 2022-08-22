@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="capability-format-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="CapabilityFormatType"/>
+  <title value="Capability Format Type"/>
+  <experimental value="false"/>
+  <description value="Common format types for FHIR."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/fhir-format-type"/>
+    </include>
+    <include>
+      <system value="urn:ietf:bcp:13"/>
+      <concept>
+        <code value="application/fhir+json"/>
+      </concept>
+      <concept>
+        <code value="application/fhir+xml"/>
+      </concept>
+      <concept>
+        <code value="application/fhir+ttl"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
