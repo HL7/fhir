@@ -129,5 +129,10 @@
         <reference value="StructureDefinition/structuredefinition-extension-meaning"/>
       </reference>
     </resource>    
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/structuredefinition-type-characteristics"/>
+      </reference>
+    </resource>  
   </definition>
 </ImplementationGuide>

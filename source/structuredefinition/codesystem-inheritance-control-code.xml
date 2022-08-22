@@ -14,7 +14,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
-  <name value="TemplateStatusCode"/>
+  <name value="InheritanceControlCodes"/>
+  <title value="Inheritance Control Codes"/>
   <status value="active"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
