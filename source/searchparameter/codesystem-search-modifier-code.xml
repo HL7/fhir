@@ -116,7 +116,7 @@
           
           <td>In</td>
           
-          <td>The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified value set. Or the search parameter is a reference that identifies a Group or List, and the search parameter tests whether a reference is satisfied by a member.</td>
+          <td>The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified value set.</td>
         
         </tr>
         
@@ -130,7 +130,7 @@
           
           <td>Not In</td>
           
-          <td>The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set. Or the search parameter is a reference that identifies a Group or List, and the search parameter tests whether a reference is not satisfied by a member.</td>
+          <td>The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set.</td>
         
         </tr>
         
@@ -287,12 +287,12 @@
   <concept>
     <code value="in"/>
     <display value="In"/>
-    <definition value="The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified value set. Or the search parameter is a reference that identifies a Group or List, and the search parameter tests whether a reference is satisfied by a member."/>
+    <definition value="The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified value set."/>
   </concept>
   <concept>
     <code value="not-in"/>
     <display value="Not In"/>
-    <definition value="The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set. Or the search parameter is a reference that identifies a Group or List, and the search parameter tests whether a reference is not satisfied by a member."/>
+    <definition value="The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set."/>
   </concept>
   <concept>
     <code value="below"/>

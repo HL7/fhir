@@ -10,4 +10,25 @@ there might be other candidate members who meet the characteristic and aren't (y
 All members SHALL have the listed characteristics.
 </p>
 
+<a name="membership"> </a>
+<h3>Membership</h3>
+<p>
+Membership testing is used to test for <b>active</b> members of a Group.  At a minimum,
+servers supporting membership testing on Group resources SHALL be able to correctly
+identify active enumerated entities.  Active enumerated entities in a group are entities:
+<ul>
+  <li>listed in <code>Group.member.entity</code>,</li>
+  <li>that do not have <code>Group.member.inactive</code> with a value of <code>true</code>, and</li>
+  <li>do not have an expired <code>Group.member.period</code> (e.g., either the element is not present or has a period covering 'now').</li>
+</ul>
+</p>
+<p>
+Membership testing MAY also be applied to characteristic-defined Groups.  If supported,
+membership testing is based on the characteristic testing of the Group.  Any entity meeting
+the required characteristics is considered to be <code>active</code>.
+</p>
+<p>
+Servers SHOULD declare whether they support only the enumerated or characteristic group filters.  
+Servers MAY impose additional membership constraints (e.g. based on modifier extensions).
+</p>
 </div>

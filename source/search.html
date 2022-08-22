@@ -840,9 +840,9 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
   </tr>
   <tr>
     <td><code><a href="#modifierin">in</a></code></td>
-    <td><a href="#reference">reference</a> <span class="stu">TU</span> , <a href="#token">token</a></td>
+    <td><a href="#token">token</a></td>
     <td>
-      Tests whether the value in a resource is a member of the supplied parameter ValueSet, List, or Group.
+      Tests whether the value in a resource is a member of the supplied parameter ValueSet.
     </td>
   </tr>
   <tr>
@@ -869,7 +869,7 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
     <td><code><a href="#modifiernotin">not-in</a></code></td>
     <td><a href="#reference">reference</a> <span class="stu">TU</span> , <a href="#token">token</a></td>
     <td>
-      Tests whether the value in a resource is not a member of the supplied parameter ValueSet, List, or Group.
+      Tests whether the value in a resource is not a member of the supplied parameter ValueSet.
     </td>
    </tr>
    <tr>
@@ -1321,41 +1321,9 @@ subject:identifier=http://example.org/fhir/mrn|12345</span>
   <a name="modifierin"></a>
   <h5>in</h5>
   <p>
-    The <code>in</code> modifier is used to filter based on value membership, either for codes in Value Sets or for
-    references based on List or Group resources.  The <code>in</code> modifier is only allowed on search parameters of type 
-    <a href="#reference">reference</a> and <a href="#token">token</a>.  The exact semantics for use vary depending 
-    on the type of search parameter:
+    The <code>in</code> modifier is used to filter based on value membership of codes in Value Sets.  The <code>in</code> 
+    modifier is only allowed on <a href="#token">token</a> type search parameters.
   </p>
-
-  <h6>in with <em>reference</em> type search parameters <span class="stu">TU</span></h6>
-  <p>
-    When the <code>in</code> modifier is used with a <a href="#reference">reference</a> search parameter, the search
-    is based on the contents of a List or Group instead of a reference to those resources directly.  The parameter is intended
-    to be used with explicit references (e.g., <code>List.entry.item</code> and <code>Group.member.entity</code>).  If a Group
-    used in a search has both characteristics and enumerated members, the expectation is that the test will be against the
-    enumeration, not the characteristics.  If a group has <em>only</em> characteristics, the server may either: determine
-    the candidates that meet the criteria and match (provided it can match all criteria), or treat the parameter as a 
-    non-supported parameter (remove the parameter or raise an error, as is appropriate).
-  </p>
-  <p>
-    When using the <code>in</code> modifier on a reference, only references to <a href="list.html">List</a> and 
-    <a href="group.html">Group</a> resources are allowed.
-  </p>
-  <p>
-    For example, the search:
-    <span class="http-search-example">
-      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
-      <span class="http-verb-display">
-        <span class="http-verb-display-get">GET [base]/Encounter?patient:in=Group/123</span>
-        <span class="http-verb-display-post">POST [base]/Encounter/_search
-Content-Type: application/x-www-form-urlencoded
-patient:in=Group/123</span>
-      </span>
-    </span>
-    for encounters of patients in group '123' match any Encounters with Patients enumerated by Group '123'.
-  </p>
-
-  <h6>in with <em>token</em> type search parameters</h6>
   <p>
     When the <code>in</code> modifier is used with a <a href="#token">token</a> search parameter, the input is
     a <a href="#uri">uri</a>  (relative or absolute) that identifies a value set, and the search parameter 
@@ -1502,41 +1470,9 @@ Composition?section:not=48765-2</span>
   <a name="modifiernotin"></a>
   <h5>not-in</h5>
   <p>
-    The <code>not-in</code> modifier is used to filter based on value exclusions, either for codes of Value Sets or for
-    references based on List or Group resources.  The <code>not-in</code> modifier is only allowed on search parameters of type 
-    <a href="#reference">reference</a> and <a href="#token">token</a>.  The exact semantics for use vary depending 
-    on the type of search parameter:
+    The <code>not-in</code> modifier is used to filter based on a value exclusion test for codes of Value Sets.  
+    The <code>not-in</code> modifier is only allowed on <a href="#token">token</a> type search parameters.
   </p>
-
-  <h6>not-in with <em>reference</em> type search parameters <span class="stu">TU</span></h6>
-  <p>
-    When the <code>not-in</code> modifier is used with a <a href="#reference">reference</a> search parameter, the search
-    is based on exclusion of the contents of a List or Group.  The parameter is intended
-    to be used with explicit references (e.g., <code>List.entry.item</code> and <code>Group.member.entity</code>).  If a Group
-    used in a search has both characteristics and enumerated members, the expectation is that the test will be against the
-    enumeration, not the characteristics.  If a group has <em>only</em> characteristics, the server may either: determine
-    the candidates that meet the criteria and match (provided it can match all criteria), or treat the parameter as a 
-    non-supported parameter (remove the parameter or raise an error, as is appropriate).
-  </p>
-  <p>
-    When using the <code>not-in</code> modifier on a reference, only references to <a href="list.html">List</a> and 
-    <a href="group.html">Group</a> resources are allowed.
-  </p>
-  <p>
-    For example, the search:
-    <span class="http-search-example">
-      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
-      <span class="http-verb-display">
-        <span class="http-verb-display-get">GET [base]/Encounter?patient:not-in=Group/123</span>
-        <span class="http-verb-display-post">POST [base]/Encounter/_search
-Content-Type: application/x-www-form-urlencoded
-patient:not-in=Group/123</span>
-      </span>
-    </span>
-    would match any Encounters with Patients not enumerated by Group '123'.
-  </p>
-
-  <h6>not-in with <em>token</em> type search parameters</h6>
   <p>
     When the <code>not-in</code> modifier is used with a <a href="#token">token</a> search parameter, the input is
     a <a href="#uri">uri</a> (relative or absolute) that identifies a value set, and the search parameter 
@@ -3469,24 +3405,97 @@ An alternative approach is to use the <a href="#filter"><code>_filter</code></a>
 for servers that support this parameter.
 </p>
 
-
-<a name="list"></a>
 <a name="membership"></a>
 <h4>Searching by membership</h4>
 <p>
   The resources <a href="group.html">Group</a>, <a href="list.html">List</a>, and <a href="careteam.html">CareTeam</a> 
   are used to manage collections of other resources.  For example, a Group of Patients representing a cohort or a 
-  List of Medications representing all medications a patient has ever been prescribed.
+  List of Medications representing all medications a patient has ever been prescribed.  This parameter allows for 
+  searching references based on the appropriate membership test of the collection resource.  Each type of resource
+  defines the exact qualifications for their membership test, but in general terms, the test is against <i>active</i>
+  members of the collection - for example, Group members that have not been flagged as inactive.  For more information,
+  see:
+  <ul>
+    <li><a href="group.html#membership">Group Membership</a></li>
+    <li><a href="list.html#membership">List Membership</a></li>
+  </ul>
 </p>
 <p>
-  The <code>_in</code> parameter allows for searching references based on the appropriate membership test for the
-  List or Group.  Details can be found.
+  The <code>_in</code> search parameter is a <a href="#reference">reference</a> type search parameter, allowed to target
+  only <code>CareTeam</code>, <code>Group</code>, and <code>List</code> resources.
 </p>
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <table>
+    <tr><td width="50%"><b>Description</b></td><td><b>Search</b></td></tr>
+    <tr>
+      <td>Any resource in a CareTeam, List, or Group with id "101"</td>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/?_in=101</span>
+          <span class="http-verb-display-post">POST [base]/_search
+Content-Type: application/x-www-form-urlencoded
+_in=101</span>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>Conditions in List "102"</td>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/Condition?_in=List/102</span>
+          <span class="http-verb-display-post">POST [base]/Condition/_search
+Content-Type: application/x-www-form-urlencoded
+_in=List/102</span>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>Patients which are participants of CareTeam "103"</td>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/Patient?_in=CareTeam/103</span>
+          <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+_in=CareTeam/103</span>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>Encounters for Patients in Group "104"</td>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/Encounter?patient._in=Group/104</span>
+          <span class="http-verb-display-post">POST [base]/Encounter/_search
+Content-Type: application/x-www-form-urlencoded
+patient._in=Group/104</span>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>Smooth muscle relaxant medications that are not in the allergy list "105"</td>
+      <td>
+        <span class="http-verb-display">
+          <span class="http-verb-display-get">GET [base]/Medication?code:below=http://snomed.info/sct|90000002&amp;ingredient._in:not=List/105</span>
+          <span class="http-verb-display-post">POST [base]/Medication/_search
+Content-Type: application/x-www-form-urlencoded
+code:below=http://snomed.info/sct|90000002&amp;ingredient._in:not=List/105</span>
+        </span>
+      </td>
+    </tr>
+  </table>
+ </span>
+ <p>
+  Note that inactive/excluded members are not considered 'in' the membership.  If a full reference is required,
+  <a href="#chaining">chaining</a> can be used to search all references.
+ </p>
 
+<a name="list"></a>
 <h4>Searching by list</h4>
 <p>
 The <code>_list</code> parameter allows for the retrieval of resources that are referenced by a <a href="list.html">List</a>
-resource.
+resource.  Note that this search parameter is scoped to only the List resource, while the <a href="#membership">_in</a> 
+parameter works across several collection-type resources.  Use of <code>_in</code> is encouraged, if available.
 </p>
 <p>
 <span class="http-search-example">
