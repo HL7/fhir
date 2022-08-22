@@ -692,7 +692,18 @@ Implementers should be aware of the following issues when using these extensions
  <li>Where complex data types have no equivalent in an earlier version, use a complex extension, 
   where the name of the child properties is the name of the complex extension components, and each of these subextensions
   are extensions that also follow this pattern.</li>
- <li>Follow the same pattern for any elements not found in data types in earlier versions </li>
+ <li>This same pattern applies for any new elements not found in data types in earlier versions,
+  and for additional children where there is a cardinality increase in the referenced (subsequent) version</li>
+ <li>If the change between versions is that the subsequent version allows a type that is not alloewd in the 
+  previous version, then whenever the type is allowed, it should be found in the element, but if it is not,
+  then it should be in an extension with the URL of the subsequent version e.g. 
+  <code>http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.value</code> for types
+  allowed in Observation.value in R5 that were not allowed in an earlier version
+ </li>
+ <li>It is always an error to use a cross version extension in the same version e.g.
+  the extension <code>http://hl7.org/fhir/5.0/StructureDefinition/extension-...</code> could
+  never appear in an R5 instance.
+ </li>
  <li>This table shows the data type mapping across versions. The mapping table SHALL be used.</li>
 </ul>
 <p>
