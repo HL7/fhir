@@ -14,13 +14,6 @@
 			<display value="ambulatory"/>
 		</coding>
     </class>
-    <type>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="270427003"/>
-            <display value="Patient-initiated encounter"/>
-        </coding>
-    </type>
     <priority>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -28,6 +21,13 @@
             <display value="Non-urgent cardiological admission"/>
         </coding>
     </priority>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="270427003"/>
+            <display value="Patient-initiated encounter"/>
+        </coding>
+    </type>
 	<subject>
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>

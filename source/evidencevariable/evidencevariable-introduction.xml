@@ -16,6 +16,7 @@
 <p>PICO (and its variants like PECO or PICOT) is a universal acronym used in evidence-based medicine communities to clearly express research questions and evidence findings.</p>
 
 <p>The EvidenceVariable Resource allows expression of the components of a PICO question in codeable and reusable formats.  As an exception, the Population specification will NOT use the EvidenceVariable Resource. The Population specification will use the <a href="group.html">Group</a> Resource to facilitate interoperability in matching <a href="evidence.html">Evidence</a> Resources to actual groups.</p>
+<p><strong>Ballot question:</strong> The EvidenceVariable Resource has been modified to support expressions of complex eligibility criteria for implementer communities seeking alternatives to Group Resource for eligibility criteria for clinical trials. With these changes, the current EvidenceVariable Resource has greater flexibility than the Group Resource for Population specification. Please submit a ballot comment to note if you support a proposed change to the EvidenceVariable Scope and Usage to delete "As an exception, the Population specification will NOT use the EvidenceVariable Resource" and "The Population specification will use the Group Resource to facilitate interoperability in matching Evidence Resources to actual groups."</p>
 
 </div>
 

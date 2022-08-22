@@ -689,7 +689,7 @@
     <element id="MedicationRequest.performer">
       <path value="MedicationRequest.performer"/>
       <short value="Intended performer of administration"/>
-      <definition value="The specified desired performer of the medication treatment (e.g. the performer of the medication administration)."/>
+      <definition value="The specified desired performer of the medication treatment (e.g. the performer of the medication administration).  For devices, this is the device that is intended to perform the administration of the medication.  An IV Pump would be an example of a device that is performing the administration.  Both the IV Pump and the practitioner that set the rate or bolus on the pump can be listed as performers."/>
       <min value="0"/>
       <max value="*"/>
       <type>

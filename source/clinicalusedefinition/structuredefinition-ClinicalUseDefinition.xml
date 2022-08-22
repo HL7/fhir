@@ -347,8 +347,8 @@
         <map value="Other Therapy Specifics.Therapy Relationship Type"/>
       </mapping>
     </element>
-    <element id="ClinicalUseDefinition.contraindication.otherTherapy.therapy">
-      <path value="ClinicalUseDefinition.contraindication.otherTherapy.therapy"/>
+    <element id="ClinicalUseDefinition.contraindication.otherTherapy.treatment">
+      <path value="ClinicalUseDefinition.contraindication.otherTherapy.treatment"/>
       <short value="Reference to a specific medication as part of an indication or contraindication"/>
       <definition value="Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication."/>
       <min value="1"/>

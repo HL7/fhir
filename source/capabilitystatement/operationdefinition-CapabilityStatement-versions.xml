@@ -98,5 +98,9 @@
     <max value="1"/>
     <documentation value="The default version for the server. Use the major.minor version like 3.0"/>
     <type value="code"/>
+    <binding>
+      <strength value="required"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version"/>
+    </binding>
   </parameter>
 </OperationDefinition>

@@ -567,12 +567,12 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/synthesis-type"/>
       </binding>
     </element>
-    <element id="Evidence.studyType">
-      <path value="Evidence.studyType"/>
+    <element id="Evidence.studyDesign">
+      <path value="Evidence.studyDesign"/>
       <short value="The type of study that produced this evidence"/>
       <definition value="The type of study that produced this evidence."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>

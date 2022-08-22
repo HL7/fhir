@@ -43,7 +43,7 @@
 			<value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
 		</telecom>
 	</contact>
-	<description value="Example of workflow instance."/>
+	<description value="A walkthrough of a workflow showing the interaction between systems and the instances shared, possibly including the evolution of instances over time."/>
 	<fhirVersion value="5.0.0"/>
 	<mapping>
 		<identity value="w5"/>
@@ -472,6 +472,13 @@
         <expression value="%resource.process.descendants().select(operation).where(initiator=%context.key or receiver=%context.key).exists()"/>
         <xpath value="exists(parent::f:ExampleScenario/f:process//f:operation[f:initiator/@value=current()/f:key/@value or f:receiver/@value=current()/f:key/@value])"/>
       </constraint>
+      <constraint>
+        <key value="exs-23"/>
+        <severity value="error"/>
+        <human value="actor.key canot be 'OTHER'"/>
+        <expression value="key != 'OTHER'"/>
+        <xpath value="f:key/@value != 'OTHER'"/>
+      </constraint>
 		</element>
 		<element id="ExampleScenario.actor.key">
 			<path value="ExampleScenario.actor.key"/>
@@ -610,6 +617,7 @@
 			<type>
 				<code value="string"/>
 			</type>
+			<meaningWhenMissing value="If the structureType is a FHIR resource, then the version is the same FHIR version this ExampleScenario is expressed in."/>
 			<condition value="exs-1"/>
 		</element>
 		<element id="ExampleScenario.instance.structureProfile[x]">
@@ -830,7 +838,7 @@
         <xpath value="count(f:alternative/f:title/@value) = count(distinct-values(f:alternative/f:title/@value))"/>
       </constraint>
       <constraint>
-        <key value="exs-16"/>
+        <key value="exs-22"/>
         <severity value="error"/>
         <human value="Can have a process, a workflow, one or more operations or none of these, but cannot have a combination"/>
         <expression value="(process.exists() implies workflow.empty() and operation.empty()) and (workflow.exists() implies operation.empty())"/>
@@ -880,15 +888,15 @@
         <key value="exs-17"/>
         <severity value="error"/>
         <human value="If specified, initiator must be a key of an actor within the ExampleScenario"/>
-        <expression value="initiator.exists() implies %resource.actor.where(key=%context.initiator).exists()"/>
-        <xpath value="not(exists(f:initiator)) or exists(ancestor::f:ExampleScenario/f:actor[f:key/@value=current()/f:initiator/@value])"/>
+        <expression value="initiator.exists() implies initator = 'OTHER' or %resource.actor.where(key=%context.initiator).exists()"/>
+        <xpath value="not(exists(f:initiator)) or f:initiator/@value='OTHER' or exists(ancestor::f:ExampleScenario/f:actor[f:key/@value=current()/f:initiator/@value])"/>
       </constraint>
       <constraint>
         <key value="exs-18"/>
         <severity value="error"/>
         <human value="If specified, receiver must be a key of an actor within the ExampleScenario"/>
-        <expression value="receiver.exists() implies %resource.actor.where(key=%context.receiver).exists()"/>
-        <xpath value="not(exists(f:receiver)) or exists(ancestor::f:ExampleScenario/f:actor[f:key/@value=current()/f:receiver/@value])"/>
+        <expression value="receiver.exists() implies receiver = 'OTHER' or %resource.actor.where(key=%context.receiver).exists()"/>
+        <xpath value="not(exists(f:receiver)) or f:/receiver/@value='OTHER' or exists(ancestor::f:ExampleScenario/f:actor[f:key/@value=current()/f:receiver/@value])"/>
       </constraint>
 		</element>
 		<element id="ExampleScenario.process.step.operation.type">
@@ -919,6 +927,7 @@
 			<path value="ExampleScenario.process.step.operation.initiator"/>
 			<short value="Who starts the operation"/>
 			<definition value="The system that invokes the action/transmits the data."/>
+			<comment value="This must either be the 'key' of one of the actors defined in this scenario or the special keyword 'OTHER' if the initiator is not one of the actors defined for the scenario.  (Multiple references to 'OTHER' don't necessarily indicate the same actor.)"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -929,7 +938,7 @@
 			<path value="ExampleScenario.process.step.operation.receiver"/>
 			<short value="Who receives the operation"/>
 			<definition value="The system on which the action is invoked/receives the data."/>
-			<comment value="In some cases, receiver could be same as sender if representing a local operation"/>
+			<comment value="This must either be the 'key' of one of the actors defined in this scenario or the special keyword 'OTHER' if the receiver is not one of the actors defined for the scenario.  (Multiple references to 'OTHER' don't necessarily indicate the same actor.)  In some cases, receiver could be same as sender if representing a local operation"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

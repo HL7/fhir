@@ -162,4 +162,25 @@
       </SearchParameter>
     </resource>
   </entry>
+    <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Ingredient.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-status"/>
+        <description value="The status of this ingredient. Enables tracking the life-cycle of the content"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Ingredient.status"/>
+        <xpath value="f:Ingredient/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
 </Bundle>

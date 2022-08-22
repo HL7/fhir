@@ -631,7 +631,7 @@
     <element id="Transport.location">
       <path value="Transport.location"/>
       <short value="Where transport occurs"/>
-      <definition value="Principal physical location where the this transport is performed."/>
+      <definition value="Principal physical location where this transport is performed."/>
       <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
       <min value="0"/>
       <max value="1"/>
