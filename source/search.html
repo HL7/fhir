@@ -176,7 +176,8 @@ complexity that they require for their implementations.
 </p>
 <p>
   Order of operations is not driven by order in the URL - with the exception of sort. First all filters are applied, 
-  then the result set is sorted, then paging is applied, and includes/revincludes are returned for each page.
+  then the result set is sorted, then paging is applied, and then included resources (<code>_include</code>, 
+  <code>_revinclude</code>) are added for each page.
 </p>
 <p>
   The server determines which of their resources meet the criteria
@@ -3470,6 +3471,18 @@ for servers that support this parameter.
 
 
 <a name="list"></a>
+<a name="membership"></a>
+<h4>Searching by membership</h4>
+<p>
+  The resources <a href="group.html">Group</a>, <a href="list.html">List</a>, and <a href="careteam.html">CareTeam</a> 
+  are used to manage collections of other resources.  For example, a Group of Patients representing a cohort or a 
+  List of Medications representing all medications a patient has ever been prescribed.
+</p>
+<p>
+  The <code>_in</code> parameter allows for searching references based on the appropriate membership test for the
+  List or Group.  Details can be found.
+</p>
+
 <h4>Searching by list</h4>
 <p>
 The <code>_list</code> parameter allows for the retrieval of resources that are referenced by a <a href="list.html">List</a>
