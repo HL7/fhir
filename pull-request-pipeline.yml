@@ -39,7 +39,7 @@ jobs:
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Cache@2
     inputs:
-      key: tx-cache
+      key: tx-cache | $(System.PullRequest.SourceBranch)
       path: $(HOME)/.fhir/tx-cache/HL7/fhir/$(System.PullRequest.SourceBranch)
     displayName: Cache terminology cache directory
 
