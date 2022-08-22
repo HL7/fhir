@@ -1317,6 +1317,40 @@ postal union</a> examples.
 </pre>
 </div>
 
+<p>
+Some of the extensions that provide further analysis 
+of the parts of the address require duplication of 
+address content. 
+</p>
+<pre class="xml" fragment="Address">
+&lt;address&gt;
+  &lt;line value=&quot;Care of: Dr Smith&quot;&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-careOf&quot;&gt;
+      &lt;valueString value=&quot;Dr. Smith&quot;/&gt;
+    &lt;/extension&gt;
+  &lt;/line&gt;
+  &lt;line value=&quot;123 Somewhere Street NW&quot;&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber&quot;&gt;
+      &lt;valueString value=&quot;123&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase&quot;&gt;
+      &lt;valueString value=&quot;Somewhere&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase&quot;&gt;
+      &lt;valueString value=&quot;Street&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase&quot;&gt;
+      &lt;valueString value=&quot;NW&quot;/&gt;
+    &lt;/extension&gt;
+  &lt;/line&gt;
+&lt;/address&gt;
+</pre>
+<p>
+In some case, this may mean that the extension repeats the full value of the address line. 
+However, this is not a given for all lines of the specified type in all jurisdictions, and 
+thus the convention of repeating the 'part' of the line that applies in the extension, 
+even if it might be the whole line.
+</p>
 
 <a name="ContactPoint"></a>
 <a name="contactpoint"></a>

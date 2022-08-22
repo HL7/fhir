@@ -51,19 +51,19 @@ analysis rather than exchange.
 <a name="comparison"></a>
 
 <h3>Comparison between JSON and XML</h3>
-<p>
 
-</p>
 <p>
 The JSON format is similar to the XML format:
 </p>
 <ul>
  <li>The names for the JSON object members are the same as the names of the elements and attributes in XML, including elements that may repeat. Property names are case sensitive</li>
  <li>Just as in XML, JSON objects and arrays are never empty, and properties never have null values (except for a special case documented below). Omit a property if it is empty</li>
- <li>JSON whitespace is not part of the contents of a resource. Applications MAY preserve the whitespace when handling resources, but are not required to do so. Note that digital signatures may depend on the whitespace</li>
+ <li>JSON and XML whitespace (whitespace introduced for rendering purposes - aka "pretty printing") is 
+  not part of the contents of a resource. Applications MAY preserve the whitespace when handling 
+  resources, but are not required to do so. Note that digital signatures following <a href="datatypes.html#signature">HL7's signature guidance</a> and using the defined canonicalization mechanisms will ignore formatting whitespace</li>
 </ul>
 
-<p>There are differences from XML:</p>
+<p>There are differences between XML and JSON:</p>
 <ul>
  <li>There are no namespaces in the JSON representation</li>
  <li>The type of the resource is represented differently in JSON - instead of being the name of the base object (there is none in JSON), it is carried as the property <code>resourceType</code></li>
@@ -71,14 +71,27 @@ The JSON format is similar to the XML format:
  <li>JSON does not have a notion of attributes versus elements, so attributes (e.g. <code>id</code>, <code>value</code>) are handled differently (see below)</li>
  <li>JSON has the array notation, which is used to represent repeating elements. Note that arrays are used when the item might repeat, even if it does not repeat in a specific instance</li>
  <li>The XHTML <code>&lt;div&gt;</code> element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML SHALL still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
+ <li>For strings, leading and trailing whitespace is expected to be preserved in JSON. This difference is driven by XML Schema behavior</li>
+ <li>Leading zeros are allowed for numbers in JSON but not XML</li>
+ <li>Comments are possible in XML but not possible in JSON (the format is not JSON with comments)</li>
 </ul>
 
 <p>
+Implementers should be aware of the difference in this serialization behavior when 
+converting between the syntaxes, including its ramifications on digital signature canonicalizations.
 The XML format for the resources follows the JSON format closely to make interconversion
 easy, and so that XPath queries can easily be mapped to query the JSON structures. However,
 the differences - particularly the repeating element one, which cannot be avoided - mean
 that generic XML --&gt; JSON converters are not able to perform correctly. The <a href="downloads.html#refimpl">reference platforms</a>
 provide XML &lt;--&gt; JSON conversion functionality that accommodates these FHIR-specific characteristics.
+</p>
+
+
+<a name="strings"></a>
+
+<h4>String handling</h4>
+<p>
+String handling is slightly different between XML and JSON
 </p>
 
 

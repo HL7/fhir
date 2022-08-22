@@ -93,6 +93,20 @@
         <source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </constraint>
       <constraint>
+        <key value="csd-2"/>
+        <severity value="warning"/>
+        <human value="If there is a explicit hierarchy, a hierarchyMeaning should be provided"/>
+        <expression value="concept.concept.exists() implies hierarchyMeaning.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
+      </constraint>
+      <constraint>
+        <key value="csd-3"/>
+        <severity value="warning"/>
+        <human value="If there is a implicit hierarchy, a hierarchyMeaning should be provided"/>
+        <expression value="concept.where(property.code = 'parent' or property.code = 'child').exists() implies hierarchyMeaning.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
+      </constraint>
+      <constraint>
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>

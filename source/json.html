@@ -325,11 +325,12 @@ Resources and/or Bundles may be digitally signed (see <a href="bundle.html">Bund
 </p>
 <p>
 This specification defines the following method for canonicalizing FHIR resources, when represented as
-JSON:
+JSON. The signed set of fragments SHALL be transformed such that:
 </p>
 <ul>
  <li>No whitespace other than single spaces in property values and in the xhtml in the <a href="narrative.html">Narrative</a></li>
- <li>Order properties alphabetically</li>
+ <li>Properties are ordered alphabetically within each object</li>
+ <li>Multiple fragments are concatenated with no intervening white-space in the order defined by the element with the <a href="datatypes.html#Signature">Signature</a> data type</li>
 </ul>
 <p>
 This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/json</code>. The
