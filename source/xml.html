@@ -293,14 +293,14 @@ Note that most code generation frameworks ignore the pattern restriction.
 
 <h3>Canonical XML</h3>
 <p>
-Resources and/or Bundles may be digitally signed (see <a href="bundle.html">Bundle</a> and <a href="provenance.html">Provenance</a>). 
+Resources and/or Bundles may be digitally signed (see <a href="bundle.html">Bundle</a> and <a href="provenance.html#signature">Provenance</a>). 
 </p>
 <p>
 This specification defines the following method for canonicalizing FHIR resources, when represented as 
-XML:
+XML. Each XML instance or fragment that is part of the collection being signed SHALL:
 </p>
 <ul>
- <li>No whitespace other than single spaces in attribute values and in the XHTML in the <a href="narrative.html">Narrative</a></li>
+ <li>Contain no whitespace other than single spaces in attribute values and in the XHTML in the <a href="narrative.html">Narrative</a></li>
  <li>Use default namespaces for the FHIR and XHTML namespaces</li>
  <li>Omit all comments</li>
  <li>Always use the Unicode character representation for any XML entities (e.g. <code>&amp;#39;</code> instead of <code>&amp;quot;</code>)</li>

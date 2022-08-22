@@ -512,8 +512,14 @@ Further notes about the use of the different discriminator types:
   This code means the same as value, and is retained for backwards compatibility reasons
  </td></tr>
  <tr><td>exists</td><td>
-   This is not used commonly - it only has 2 values, so not much discrimination power. It's mainly used as an adjunct slicing criteria along with other discriminators.
+   This is not used commonly - it only has 2 values, so not much discrimination power. 
+   It's mainly used as an adjunct slicing criteria along with other discriminators.
    Elements used like this are mostly complex backbone elements. 
+   The slices are differentiated by the presence or absence of the nominated element. 
+   There SHALL be no more than two slices. The slices are differentiated by the fact 
+   that one must have a max of 0 and the other must have a min of 1 (or more).  The 
+   order in which the slices are declared doesn't matter. 
+
    Typical example: slice on the pattern of Observation.code and the presence of Observation.component.   
  </td></tr>
  <tr><td>type</td><td>

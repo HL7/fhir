@@ -290,6 +290,11 @@ When an element is bound to a value set, the binding has these properties:
 <p>
 A binding is always represented using an <a href="elementdefinition-definitions.html#ElementDefinition.binding">ElementDefinition.binding</a>.
 </p>
+<p>
+If a binding is present on an element with multiple types, the binding applies to all types 
+that are bindable (i.e. CodeableConcept, Quantity, etc.).  If there is a need to define 
+type-specific bindings, then the <a href="https://build.fhir.org/ig/FHIR/fhir-tools-ig/StructureDefinition-additional-binding.html">alternate-bindings</a> extension can be used.
+</p>
 
 <a name="references"></a>
 
@@ -476,6 +481,8 @@ will work together to choose actual working value sets.
 </p>
 <p>
 If the binding strength is required, the data element SHALL contain one of the values in the bound value set.
+The use of an extension (e.g. [data-absent-reason]) cannot be used to bypass required binding requirements.  
+The binding must be satisfied regardless of what extensions are present.
 </p>
 <p>
 Required binding strength is used for elements where the value needs to be strictly controlled so the element can be interpreted with confidence. Required binding strength SHALL be used for elements with type code.
