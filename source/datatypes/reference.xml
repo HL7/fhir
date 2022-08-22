@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2022-08-21T10:30:41Z</LastSaved>
+  <LastSaved>2022-08-21T13:08:57Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -3479,7 +3479,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Minimum requirements</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Reference</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">At least one of reference, Identifier and display SHALL be present (unless an extension is provided).</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">At least one of reference, identifier and display SHALL be present (unless an extension is provided).</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">reference.exists() or identifier.exists() or display.exists()</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">exists(f:reference) or exists(f:identifier) or exists(f:display)</Data></Cell>

@@ -336,9 +336,11 @@ URLs by automatically detecting the presence of a |[version] and performing the 
 search. Additional notes about searching on versioned references to canonical URLs:
 </p>
 <ul>
- <li>Search only regards the latest version for each different logical id</li>
- <li>If there is no match (either because .version is empty or is different), the instance will not be matched, and will not appear in the result bundle</li>
+ <li>Search only regards the latest version for each different logical resource id</li>
  <li>This search only works for specific data elements of type of uri that act as canonical URL's (see list below)</li>
+ <li>If there is no match (either because .version is empty or is different), the instance will not be matched, and will not appear in the result bundle</li>
+ <li>If there are multiple matches (because the version is missing, or incomplete) then it is a matter of policy to decide how to resolve this (see below)</li>
+ <li></li>
 </ul>
 <p>
 Systems resolving references to canonical URLs SHOULD first try to resolve the reference using
@@ -357,6 +359,42 @@ The following resources have canonical URLs and are allowed to be the target of 
 <p>
 A few elements that have references to canonical URLs have a <a href="elementdefinition-definitions.html#ElementDefinition.type.targetProfile">targetProfile</a> of <code>http://hl7.org/fhir/StructureDefinition/Resource</code>,
 which is shown as canonical(Any) in this specification. Such references SHALL only reference one of these types of resources.
+</p>
+
+<a name="canonical-matching"></a>
+<h3>Choosing the right Canonical Reference</h3>
+<p>
+When evaluating a canonical reference, a server may find that it has multiple 
+matching resources. This may arise because:
+</p>
+<ul>
+  <li>No version was specified e.g. <code>http://example.org/CodeSystem/abc</code></li>
+  <li>A partial verion was specified e.g. <code>http://example.org/CodeSystem/abc|1.2</code> matches both versions <code>1.2.1</code> and <code>1.2.3-draft</code></li>
+  <li>A full version was specified e.g. <code>http://example.org/CodeSystem/abc|1.2.2</code> and the server had two different resources for version <code>1.2.2</code> </li>
+</ul>
+<p>
+The last case is generally regarded as an error - if the content of the resource changes, the version should too. 
+But in this case the error is likely with the editorial process, not the server handling the content (this specific
+situation has happened by mistake several times in the FHIR Implementation Guide publishing ecosystem in spite of 
+process safeguards intended to prevent it). But the other two cases are not considered errors; they are how
+the system is intended to work, and the client is purposefully delegating to the server the task of determining
+the correct version to use. In general, the correct version to use is the latest version approved for 
+production use. This specification does not define the algorithm for servers to use to determine 
+the latest version. In principle, the server chooses based on the following information from the 
+resources:
+</p>
+<ul>
+  <li>Version e.g. Based on <a href="http://semver.org">Semver</a> Version practices</li>
+  <li>Publication Date</li>
+  <li>Status</li>
+</ul>
+<p>
+Canonical resources are not required to use <code>Semver</code>, though HL7 recommends using 
+it, and follows SemVer for it's own content. However, other publishers of canonical resources 
+follow other practices, and some kind of date based versioning schemes are not unsual.
+Servers may have access to additional information or policy guidance that determines which 
+resource to choose as the default, and additional knowledge about how to reason with 
+the versioning scheme in use.
 </p>
 
 <a name="canonical-fragments"></a>
