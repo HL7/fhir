@@ -25,6 +25,7 @@ is handled is a bit different from an application API. This page describes:
  <li><a href="#versions">How FHIR versions work</a></li>
  <li><a href="#change">The rules for inter-version change once an artifact is Normative</a></li>
  <li><a href="#stu">Managing Change during the development process</a></li>
+ <li><a href="#extensions">Extensions for converting between versions</a></li>
  <li><a href="#plans">Plans for future releases</a></li>
 </ul>
 <p>
@@ -688,7 +689,10 @@ Implementers should be aware of the following issues when using these extensions
 <ul>
  <li>Implementations should always use the correct element for data when one exists. The version <a href="diff.html">differences</a> and <a href="r3maps.html">maps</a> (and their equivalent for other versions) can help</li>
  <li>There is no way to represent the few special elements that have the type "Resource" in extensions, so these are not defined (e.g. <code>Bundle.entry.resource</code>, <code>DomainResource.contained</code>, etc)</li>
- <li>Where complex data types have no equivalent in an earlier version, use a complex extension, containing extensions also following this pattern. Follow the same pattern for any elements not found in data types in earlier versions </li>
+ <li>Where complex data types have no equivalent in an earlier version, use a complex extension, 
+  where the name of the child properties is the name of the complex extension components, and each of these subextensions
+  are extensions that also follow this pattern.</li>
+ <li>Follow the same pattern for any elements not found in data types in earlier versions </li>
  <li>This table shows the data type mapping across versions. The mapping table SHALL be used.</li>
 </ul>
 <p>
@@ -696,26 +700,27 @@ This table shows the mapping between primitive data types across versions:
 </p>
 
 <table class="grid">
- <tr>    <td>R4</td>  <td>R3</td>  <td>DSTU2</td> </tr>
- <tr>    <td>base64Binary</td>  <td>base64Binary</td>  <td>base64Binary</td> </tr>
- <tr>    <td>boolean</td>  <td>boolean</td>  <td>boolean</td> </tr>
- <tr>    <td>canonical</td>  <td><i>(uri)</i></td>  <td><i>(uri)</i></td> </tr>
- <tr>    <td>code</td>  <td>code</td>  <td>code</td> </tr>
- <tr>    <td>date</td>  <td>date</td>  <td>date</td> </tr>
- <tr>    <td>dateTime</td>  <td>dateTime</td>  <td>dateTime</td> </tr>
- <tr>    <td>decimal</td>  <td>decimal</td>  <td>decimal</td> </tr>
- <tr>    <td>id</td>  <td>id</td>  <td>id</td> </tr>
- <tr>    <td>instant</td>  <td>instant</td>  <td>instant</td> </tr>
- <tr>    <td>integer</td>  <td>integer</td>  <td>integer</td> </tr>
- <tr>    <td>markdown</td>  <td>markdown</td>  <td>markdown</td> </tr>
- <tr>    <td>oid</td>  <td>oid</td>  <td>oid</td> </tr>
- <tr>    <td>positiveInt</td>  <td>positiveInt</td>  <td>positiveInt</td> </tr>
- <tr>    <td>string</td>  <td>string</td>  <td>string</td> </tr>
- <tr>    <td>time</td>  <td>time</td>  <td>time</td> </tr>
- <tr>    <td>unsignedInt</td>  <td>unsignedInt</td>  <td>unsignedInt</td> </tr>
- <tr>    <td>uri</td>  <td>uri</td>  <td>uri</td> </tr>
- <tr>    <td>url</td>  <td><i>(uri)</i></td>  <td><i>(uri)</i></td> </tr>
- <tr>    <td>uuid</td>  <td>uuid</td>  <td><i>(id)</i></td> </tr>
+ <tr> <td>R5</td>           <td>R4</td>             <td>R3</td>            <td>DSTU2</td> </tr>
+ <tr> <td>base64Binary</td> <td>base64Binary</td>   <td>base64Binary</td>  <td>base64Binary</td> </tr>
+ <tr> <td>boolean</td>      <td>boolean</td>        <td>boolean</td>       <td>boolean</td> </tr>
+ <tr> <td>canonical</td>    <td>canonical</td>      <td><i>(uri)</i></td>  <td><i>(uri)</i></td> </tr>
+ <tr> <td>code</td>         <td>code</td>           <td>code</td>          <td>code</td> </tr>
+ <tr> <td>date</td>         <td>date</td>           <td>date</td>          <td>date</td> </tr>
+ <tr> <td>dateTime</td>     <td>dateTime</td>       <td>dateTime</td>      <td>dateTime</td> </tr>
+ <tr> <td>decimal</td>      <td>decimal</td>        <td>decimal</td>       <td>decimal</td> </tr>
+ <tr> <td>id</td>           <td>id</td>             <td>id</td>            <td>id</td> </tr>
+ <tr> <td>instant</td>      <td>instant</td>        <td>instant</td>       <td>instant</td> </tr>
+ <tr> <td>integer</td>      <td>integer</td>        <td>integer</td>       <td>integer</td> </tr>
+ <tr> <td>markdown</td>     <td>markdown</td>       <td>markdown</td>      <td>markdown</td> </tr>
+ <tr> <td>oid</td>          <td>oid</td>            <td>oid</td>           <td>oid</td> </tr>
+ <tr> <td>positiveInt</td>  <td>positiveInt</td>    <td>positiveInt</td>   <td>positiveInt</td> </tr>
+ <tr> <td>string</td>       <td>string</td>         <td>string</td>        <td>string</td> </tr>
+ <tr> <td>time</td>         <td>time</td>           <td>time</td>          <td><i>string</i></td>  </tr>
+ <tr> <td>time</td>         <td>unsignedInt</td>    <td>unsignedInt</td>   <td>unsignedInt</td> </tr>
+ <tr> <td>uri</td>          <td>uri</td>            <td>uri</td>           <td>uri</td> </tr>
+ <tr> <td>url</td>          <td>url</td>            <td><i>(uri)</i></td>  <td><i>(uri)</i></td> </tr>
+ <tr> <td>uuid</td>         <td>uuid</td>           <td>uuid</td>          <td><i>(uri)</i></td> </tr>
+ <tr> <td>integer64</td>    <td><i>string</i></td>  <td><i>string</i></td> <td><i>string</i></td> </tr>
 </table>
 
 <p>
@@ -733,23 +738,33 @@ Formal Definitions for extensions:
 		<td style="background-color: #EEEEEE">n/a</td>
 		<td>hl7.fhir.extensions.r2:3.0.1 <a href="http://hl7.org/fhir/1.0/extensions/3.0/package.tgz"><img src="npm16.png"/></a></td>
 		<td>hl7.fhir.extensions.r2:4.0.1 <a href="http://hl7.org/fhir/1.0/extensions/4.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td>hl7.fhir.extensions.r2:5.0.0 <a href="http://hl7.org/fhir/1.0/extensions/5.0/package.tgz"><img src="npm16.png"/></a></td>
 	</tr>
   <tr>
 	  <td>R3 Extensions:</td>
 		<td>hl7.fhir.extensions.r3:1.0.2 <a href="http://hl7.org/fhir/3.0/extensions/1.0/package.tgz"><img src="npm16.png"/></a></td>
-		<td style="background-color: #EEEEEE">n/a`</td>
+		<td style="background-color: #EEEEEE">n/a</td>
 		<td>hl7.fhir.extensions.r3:4.0.1 <a href="http://hl7.org/fhir/3.0/extensions/4.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td>hl7.fhir.extensions.r3:5.0.0 <a href="http://hl7.org/fhir/3.0/extensions/5.0/package.tgz"><img src="npm16.png"/></a></td>
 	</tr>
   <tr>
 	  <td>R4 Extensions:</td>
 		<td>hl7.fhir.extensions.r4:1.0.2 <a href="http://hl7.org/fhir/4.0/extensions/1.0/package.tgz"><img src="npm16.png"/></a></td>
 		<td>hl7.fhir.extensions.r4:3.0.1 <a href="http://hl7.org/fhir/4.0/extensions/3.0/package.tgz"><img src="npm16.png"/></a></td>
 		<td style="background-color: #EEEEEE">n/a</td>
+		<td>hl7.fhir.extensions.r4:5.0.0 <a href="http://hl7.org/fhir/4.0/extensions/5.0/package.tgz"><img src="npm16.png"/></a></td>
+	</tr>
+  <tr>
+	  <td>R5 Extensions:</td>
+		<td>hl7.fhir.extensions.r4:1.0.2 <a href="http://hl7.org/fhir/4.0/extensions/1.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td>hl7.fhir.extensions.r4:3.0.1 <a href="http://hl7.org/fhir/4.0/extensions/3.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td>hl7.fhir.extensions.r4:4.0.1 <a href="http://hl7.org/fhir/4.0/extensions/4.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td style="background-color: #EEEEEE">n/a</td>
 	</tr>
 </table>
 
 <p>
-Note for balloters: these packages will be created when R4 is finalized. Until then, these are broken links.
+Note for balloters: the R5 packages will be created when R5 is finalized. Until then, these are broken links.
 </p>
 
 <a name="plans"></a>
