@@ -704,7 +704,13 @@ Implementers should be aware of the following issues when using these extensions
   the extension <code>http://hl7.org/fhir/5.0/StructureDefinition/extension-...</code> could
   never appear in an R5 instance.
  </li>
- <li>This table shows the data type mapping across versions. The mapping table SHALL be used.</li>
+ <li>
+  The vocabulary bindings can be to a specific value set version, but the expansions of those value sets 
+  will be based on the context of the version of FHIR being used, NOT the version of core the extension 
+  definition is taken from
+ </li>
+ <li>If the referenced type includes target resources that are not supported in the adopting version, those resources will be removed.  If the result is that NO target resources are allowed, then the inter-version extension is not permitted</li>
+ <li>Where mapping simple types, the type conversions are shown in the table below. The mapping table SHALL be used</li>
 </ul>
 <p>
 This table shows the mapping between primitive data types across versions:
