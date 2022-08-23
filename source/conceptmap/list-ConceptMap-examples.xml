@@ -88,4 +88,16 @@
       <display value="Metadata v2"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Concept Map with priorities"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="conceptmap-example-priority"/>
+    </extension>
+    <item>
+      <reference value="ConceptMap/example-priority"/>
+      <display value="Map with priorities"/>
+    </item>
+  </entry>
 </List>

@@ -4,6 +4,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
+<style type="text/css">
+    <!--
+    .tab {
+        margin-left: 40px;
+    }
+    -->
+</style>
 </head>
 <body>
 [%file newnavbar%]
@@ -15,13 +22,1657 @@
 
 <table class="colsi"><tbody><tr><td id="wg"><a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure </a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></tbody></table>
 
-<p>
-This page will be the FHIR Glossary, but it has not, as yet, been created. 
-</p>
 
-<p>
-Looking for volunteers to take this on...
-</p>
+<!-- 
+The source Word (docx) files for this page is here: images/source/FHIR Glossary.docx
+This html page is generated using Pandoc (https://pandoc.org/index.html)
+Comment out h1 header
+-->
+
+    <h3>A</h3>
+    <dl class="tab">
+        <dt>ABAC</dt>
+        <dd>(Attribute-Based Access Control), also known as
+            policy-based access control, defines an access control paradigm whereby
+            access rights are granted to users through the use of policies which
+            combine attributes together. (See RBAC)
+        </dd>
+        <dt>Absolute URL</dt>
+        <dd>is an URL specifies the location of a
+            target stored on a local or networked computer. An absolute URL contains
+            all the information necessary to locate a resource and typically uses
+            the following format: scheme://server/path/resource (See Relative
+            URL)
+        </dd>
+        <dt>Account</dt>
+        <dd>is a financial tool for tracking value
+            accrued for a particular purpose. In the healthcare field, used to track
+            charges for a patient, cost centers. A Billing Account is an accumulator
+            of financial and administrative information for the main purpose of
+            supporting claims and reimbursement. In context of FHIR, Account is a
+            resource that acts as a central record against which charges, payments,
+            and adjustments are applied.
+        </dd>
+        <dt>Accounts Receivable</dt>
+        <dd>is the way of processing patient
+            and insurance company payments.
+        </dd>
+        <dt>Adjudicator</dt>
+        <dd>is someone who presides, judges, and
+            arbitrates during a formal dispute or competition. Adjudicator has
+            numerous purposes, including preliminary legal judgments, to determine
+            applicant eligibility, or to assess contenders' performance in
+            competitions.
+        </dd>
+        <dt>Adjudication</dt>
+        <dd>is a process by which an an insurer of
+            a claim, preauthorization or predetermination to determine under the
+            insurance plan what if any benefits are or would be payable.
+        </dd>
+        <dt>Advance Directives</dt>
+        <dd>is a living Will written by the
+            patient to the physician in case of incapacitation to give further
+            instructions.
+        </dd>
+        <dt>Agency</dt>
+        <dd>is a permanent or semi-permanent organization
+            responsible for the provision of emergency medical services within a
+            given jurisdictional area
+        </dd>
+        <dt>Alerts</dt>
+        <dd>are brief online notices that are issued to
+            users as they complete a cycle through the menu system. Alerts are
+            designed to provide interactive notification of pending computing
+            activities, such as the need to reorder supplies or review a patient's
+            clinical test results.
+        </dd>
+        <dt>Animal</dt>
+        <dd>is a subtype of Living Subject representing any
+            animal-of-interest. An instance of an animal is uniquely identifiable
+            and, as a result, able to be certified, licensed, or otherwise
+            credentialed by an appropriate Credentialing Authority for the purpose
+            of involvement in one or more healthcare processes.
+        </dd>
+        <dt>ANSI </dt>
+        <dd>American National Standards Institute
+            (www.ansi.org)
+        </dd>
+        <dt>API</dt>
+        <dd>is a collection of well-defined interfaces for
+            interoperating between two applications.
+        </dd>
+        <dt>Application</dt>
+        <dd>is all submissions that are grouped
+            together for regulatory purposes.
+        </dd>
+        <dt>Application</dt>
+        <dd>is a software program or set of related
+            programs that provide some useful healthcare capability or
+            functionality.
+        </dd>
+        <dt>Application Role</dt>
+        <dd>is an abstraction that expresses a
+            portion of the messaging behavior of an information system.
+        </dd>
+        <dt>Appointment</dt>
+        <dd>is a booking of a healthcare event among
+            patient(s), practitioner(s), related person(s) and/or device(s) for a
+            specific date/time in the future or past.
+        </dd>
+        <dt>Argonaut Project</dt>
+        <dd>is a private sector initiative to
+            advance industry adoption of modern, open interoperability standards.
+            The purpose of the Argonaut Project is to rapidly develop a
+            first-generation FHIR-based API and Core Data Services specification to
+            enable expanded information sharing for electronic health records and
+            other health information technology based on Internet standards and
+            architectural patterns and styles.
+        </dd>
+        <dt>Artifact</dt>
+        <dd>is any deliverable resulting from the
+            discovery, analysis, and design activities leading to the creation of
+            message specifications.
+        </dd>
+        <dt>ASCII</dt>
+        <dd>(American Standard Code for Information
+            Interchange), a common 8-bit character encoding set.
+        </dd>
+        <dt>ATNA</dt>
+        <dd>(Audit Trail and Node Authentication) is an IHE
+            Integration Profile to establishe security measures which, together with
+            the Security Policy and Procedures, provide patient information
+            confidentiality, data integrity and user accountability. (See IHE)
+        </dd>
+        <dt>Attachment</dt>
+        <dd>is a collection of information objects
+            sent to a party to support their understanding or processing of another
+            resource such as a claim.
+        </dd>
+        <dt>Attachment, Solicited</dt>
+        <dd>See Solicited Attachment</dd>
+        <dt>Attachment, Unsolicited</dt>
+        <dd>See Unsolicited
+            Attachment
+        </dd>
+        <dt>Attachment</dt>
+        <dd>is an additional data content defined in
+            other formats. FHIR specification defines an Attachment data type for
+            including content inline encoded in Base64 or referencing to content
+            found elsewhere.
+        </dd>
+        <dt>Authentication</dt>
+        <dd>is a process of recognizing a user’s
+            identity. It is the mechanism of associating an incoming request with a
+            set of identifying credentials. (See OAuth)
+        </dd>
+        <dt>Authorization</dt>
+        <dd>is a security mechanism to determine
+            access levels or user/client privileges related to resources. This is
+            the process of granting or denying access to resources which allows the
+            user access to various resources based on the user's identity.
+        </dd>
+    </dl>
+    <h3 id="b">B</h3>
+    <dl class="tab">
+        <dt>BackboneElement</dt>
+        <dd>is the base definition for complex
+            elements defined as part of a resource definition - that is, elements
+            that have children that are defined in the resource.
+        </dd>
+        <dt>Base64</dt>
+        <dd>is a group of binary-to-text encoding schemes
+            that represent binary data in an ASCII string format designed to carry
+            data stored in binary formats across channels that only reliably support
+            text content. (See ASCII)
+        </dd>
+        <dt>Batch</dt>
+        <dd>is a FHIR RESTful API interaction sent to the
+            FHIR Server to perform a set of actions on resources in a single HTTP
+            request/response. In case of Batch interaction actions are performed
+            independently. (See Transaction)
+        </dd>
+        <dt>Battery</dt>
+        <dd>is a battery is a set of closely related
+            observations. The components of a battery should have a generally
+            accepted clinical, functional or logical relationship to one
+            another.
+        </dd>
+        <dt>Beneficiary</dt>
+        <dd>is a party whose health care expenses
+            may be covered by a policy issued by an Insurer.
+        </dd>
+        <dt>Benefit Amount</dt>
+        <dd>is an amount payable under an
+            insurance policy for a given expense incurred by a patient.
+        </dd>
+        <dt>Benefit Coverage</dt>
+        <dd>is a description of the benefits
+            provided by an individual's benefit plan.
+        </dd>
+        <dt>Billing</dt>
+        <dd>is the way of processing patient and insurance
+            company bills.
+        </dd>
+        <dt>Binding</dt>
+        <dd>is the way to link a coded element to a
+            definition of the set of possible codes that the element may contain.
+            The set of possible codes is either a formal reference to a ValueSet
+            resource or a general reference to some web content that defines a set
+            of codes.
+        </dd>
+        <dt>Binding Strength</dt>
+        <dd>is a property of Binding that
+            defines the degree of flexibility associated with the use of the codes
+            in the value set. (See Binding)
+        </dd>
+        <dt>Bundle</dt>
+        <dd>a container for a collection of resources.
+            (See Contained Resource)
+        </dd>
+    </dl>
+    <h3 id="c">C</h3>
+    <dl class="tab">
+        <dt>Canonical URL</dt>
+        <dd>is a stable and preferred logical
+            identifier for the resource that always identifies the resource across
+            all contexts of use. This typically applies to terminology, conformance
+            or knowledge resources.
+        </dd>
+        <dt>Canonical Reference</dt>
+        <dd>is the references to resources
+            by their canonical URL (See Canonical URL)
+        </dd>
+        <dt>Capabilities</dt>
+        <dd>is a FHIR RESTful API interaction to
+            retrieve the information about a server's capabilities - which portions
+            of the FHIR specification it supports. (See CapabilityStatement)
+        </dd>
+        <dt>CapabilityStatement</dt>
+        <dd>is a resource that describes a
+            statement of the kinds of resources and operations provided and/or
+            consumed by an application.
+        </dd>
+        <dt>Cardinality</dt>
+        <dd>is the property of a data element, the
+            lower and upper bounds on how many times this element is allowed to
+            appear in the resource.
+        </dd>
+        <dt>Care plan</dt>
+        <dd>is an ordered assembly of expected or
+            planned activities including observations, services, appointments,
+            procedures and setting of goals, usually organized in phases or
+            sessions, which have the objective of organizing and managing health
+            care activity. Care plans are often focused upon on or more health care
+            problems, with the expectation of one or more favourable outcomes. Care
+            plans may include orders sets as actionable elements, usually supporting
+            a single session or phase. In context of FHIR, CarePlan is a resource to
+            describe the intention of how one or more practitioners intend to
+            deliver care for a particular patient, group or community for a period
+            of time, possibly limited to care for a specific condition or set of
+            conditions.
+        </dd>
+        <dt>Carrier</dt>
+        <dd>is an organization that establishes
+            insurance policies, determines eligibility and benefits under those
+            insurance policies, and underwrites payments for products and/or
+            services provided to a beneficiary (person or organization).
+        </dd>
+        <dt>CDA</dt>
+        <dd>(Clinical Document Architecture) is a document
+            markup standard that specifies the structure and semantics of "clinical
+            documents" for the purpose of exchange between healthcare providers and
+            patients.
+        </dd>
+        <dt>CDS</dt>
+        <dd>(Clinical Decision Support) is a term to
+            describe a variety of tools to enhance decision-making in the clinical
+            workflow to provide clinicians, staff, patients or other individuals
+            with knowledge and person-specific information, intelligently filtered
+            or presented at appropriate times, to enhance health and health
+            care.
+        </dd>
+        <dt>CDS Hook</dt>
+        <dd>is a specification that
+            describes a "hook"-based pattern for invoking decision support from
+            within a clinician's workflow. (See CDS)
+        </dd>
+        <dt>Chief Complaint</dt>
+        <dd>is the primary reason a patient
+            requires attention; typically the only complaint treated.
+        </dd>
+        <dt>Circular Reference</dt>
+        <dd>is the type of resource reference
+            when the reference points to another resource of the same type used when
+            the resources describe a complex hierarchy or resources may add
+            additional content to another resource by deriving from it e.g.
+            extending type declarations.
+        </dd>
+        <dt>Claim</dt>
+        <dd>is used by providers and payors, insurers, to
+            exchange the financial information and supporting clinical information,
+            regarding the provision of health care services with payors and for
+            reporting to regulatory bodies and firms which provide data analytics.
+            In context of FHIR, Claim is a resource to request a provider issued
+            list of professional services and products which have been provided, or
+            are to be provided, to a patient which is sent to an insurer for
+            reimbursement.
+        </dd>
+        <dt>Client</dt>
+        <dd>is a person receiving the immunizations or
+            having recommendations made. (See Patient)
+        </dd>
+        <dt>Clinical Decision Support</dt>
+        <dd>is the ability to use data to
+            discover/justify the proper activities planned for a patient.
+        </dd>
+        <dt>Clinical Reasoning</dt>
+        <dd>is the ability to represent and
+            encode clinical knowledge in a very broad sense so that it can be
+            integrated into clinical systems. This encoding may be as simple as
+            controlling whether or not a particular section of an order set appears
+            based on the conditions that a patient has, or it may be as complex as
+            representing the care pathway for a patient with multiple
+            conditions.
+        </dd>
+        <dt>Clinical Statement</dt>
+        <dd>is an expression of a discrete
+            item of clinical, clinically-related or public health information that
+            is recorded because of its relevance to the care of patients (persons,
+            animals and other entities).
+        </dd>
+        <dt>code</dt>
+        <dd>is a type of FHIR data types where a resource
+            instance element represents the code only. The system is implicit- it is
+            defined as part of the definition of the element, and not carried in the
+            instance.
+        </dd>
+        <dt>Coding</dt>
+        <dd>is a type of FHIR data types where a resource
+            instance element has a code and a system element that identifies where
+            the definition of the code comes from.
+        </dd>
+        <dt>Coding</dt>
+        <dd>is a process where medical records produced
+            by the health care provider are translated into a code that identifies
+            each diagnoses and procedure utilized in treating the patient.
+        </dd>
+        <dt>CodeableConcept</dt>
+        <dd> A type of FHIR data types that
+            represents a concept by plain text and/or one or more Coding
+            elements.
+        </dd>
+        <dt>Complex data type</dt>
+        <dd>is usually a structure with
+            components that represent other data types or structures required to
+            build a sophisticated concept. (See Primitive data type)
+        </dd>
+        <dt>Condition</dt>
+        <dd>is a term to define patient's medical,
+            problem, diagnosis, situation, issue, other event, or clinical concept
+            that has risen to a level of concern.
+        </dd>
+        <dt>Conditional Reference</dt>
+        <dd>is a search URI that describes
+            how to find the correct reference when the logical id of a resource is
+            not known. Conditional Reference can be used only in Transaction. (See
+            Transaction)
+        </dd>
+        <dt>Code System</dt>
+        <dd>define concepts and give them meaning
+            through formal definitions, and assign codes that represent the
+            concepts. Example: LOINC, ICD, UCUM, HL7 code lists
+        </dd>
+        <dt>Coding System</dt>
+        <dd>see Code System.</dd>
+        <dt>Conformance Verb</dt>
+        <dd>is a set verb form for indicating a
+            requirement. HL7 FHIR specification uses the conformance verbs SHALL,
+            SHOULD, and MAY as defined in RFC 2119. The correct verb for indicating
+            an absolute requirement is “SHALL”. Universally accepted standardization
+            terminology does not recognize "MUST". Use "SHALL" to indicate a
+            mandatory aspect or an aspect on which there is no option. The correct
+            verb form for indicating a recommendation is "SHOULD." The correct verb
+            form for an option is "MAY." The negatives are SHALL NOT, SHOULD
+            NOT.
+        </dd>
+        <dt>Conditional Update</dt>
+        <dd>is the FHIR RESTful API
+            interaction that allows a client to update an existing resource based on
+            some identification criteria, rather than by logical id.
+        </dd>
+        <dt>Contained Resource</dt>
+        <dd>is a resource within another
+            resource when the content referred to in the resource reference does not
+            have an independent existence apart from the resource that contains it.
+            (See Bundle)
+        </dd>
+        <dt>COB (Coordination of Benefit)</dt>
+        <dd>are the rules, usually
+            regionally defined, which govern the order of application of multiple
+            Insurance coverages or Self-Pay to a given suite of health care
+            expenses.
+        </dd>
+        <dt>CORS</dt>
+        <dd>(Cross-Origin Resource Sharing) is a
+            specification that enables open access across domain-boundaries and
+            introduces a standard mechanism for implementing cross-domain
+            requests.
+        </dd>
+        <dt>Coupling</dt>
+        <dd>is an interaction between systems or
+            between properties of a system.
+        </dd>
+        <dt>Coupling, Loosely</dt>
+        <dd>See Loosely Coupled</dd>
+        <dt>Coupling, Tightly</dt>
+        <dd>See Tightly Coupled</dd>
+        <dt>Coverage</dt>
+        <dd>is a financial instrument which may be used
+            to reimburse or pay for health care products and services. Includes both
+            insurance and self-payment. In context of FHIR, Coverage is a resource
+            intended to provide the high-level identifiers and descriptors of an
+            insurance plan, typically the information which would appear on an
+            insurance card, which may be used to pay, in part or in whole, for the
+            provision of health care products and services.
+        </dd>
+        <dt>Coverage Extension</dt>
+        <dd>is a form of Authorization where
+            the Provider requests payment approval for extension of a Person's
+            benefit coverage. Coverage Extensions require manual or human
+            intervention and decision by the Adjudicator.
+        </dd>
+        <dt>CQF</dt>
+        <dd>(Clinical Quality Framework) is an initiative
+            focused on the specifications used to represent knowledge artifacts
+            within the Clinical Quality Measurement and Clinical Decision Support
+            communities.
+        </dd>
+        <dt>CQL</dt>
+        <dd>(Clinical Quality Language) is a high-level,
+            domain-specific language focused on clinical quality and targeted at
+            measure and decision support artifact authors.
+        </dd>
+        <dt>CRUD</dt>
+        <dd>(Create, Read, Update, Delete) is an acronym to
+            define a set of basic operations to be done in a data repository. CRUD
+            operations map to HTTP action verbs and can be a part of RESTful API.
+            (See RESTful)
+        </dd>
+        <dt>CSS</dt>
+        <dd>(Cascading Style Sheets) is HTML styling rules
+            to describe how HTML elements are to be displayed on screen, paper, or
+            in other media.
+        </dd>
+    </dl>
+    <h3 id="d">D</h3>
+    <dl class="tab">
+        <dt>Data Type</dt>
+        <dd>is the structural format of the data
+            carried in a resource element. FHIR provides a special set of data types
+            that includes primitive, general-purpose, metadata and special-purpose
+            data types.
+        </dd>
+        <dt>Data Type, Primitive</dt>
+        <dd>See Primitive data type</dd>
+        <dt>Data Type, Complex</dt>
+        <dd>See Complex data type</dd>
+        <dt>Deductible</dt>
+        <dd>is the dollar amount for which the plan
+            beneficiary must pay before any remaining eligible expenses are
+            reimbursed under the plan. This is usually calculated on an annual
+            basis.
+        </dd>
+        <dt>Default Slice</dt>
+        <dd>is a special slice that allows a
+            profile to describe a set of specific slices, and then make a set of
+            rules that apply to all of the remaining content that is not in one of
+            the defined slices. (See Slicing)
+        </dd>
+        <dt>Default value</dt>
+        <dd>is the value for an element that is to
+            be used by a FHIR resource instance receiver if no value is given.
+        </dd>
+        <dt>De-identification</dt>
+        <dd>is the process used to prevent
+            someone's personal identity from being revealed.
+        </dd>
+        <dt>Demographic Information</dt>
+        <dd>relates to the patient's
+            name, address, date of birth, etc.
+        </dd>
+        <dt>Dependent</dt>
+        <dd>is a person who receives their coverage
+            via a policy which is own or subscribed to by another. Typically, these
+            include spouses, partners and minor children but may also include
+            students, parents and disabled persons.
+        </dd>
+        <dt>Deprecated</dt>
+        <dd>is an indication that systems should
+            continue to support the artifact/feature/concept, but are discouraged
+            from making use of it.
+        </dd>
+        <dt>Diagnosis</dt>
+        <dd>is an identification of disease or
+            condition by a practitioner by means of a Persons symptoms, diagnostic
+            tests, etc.
+        </dd>
+        <dt>Diagnosis Code</dt>
+        <dd>is a coding scheme (e.g., ICD-10CA/CCI)
+            used to indicate diagnosis.
+        </dd>
+        <dt>DICOM</dt>
+        <dd>(Digital Imaging and Communications in Medicine)
+            is a standard focusing on storing, managing and sharing of medical
+            images as well as integration of imaging devices in the medical
+            context.
+        </dd>
+        <dt>DICOM, SR </dt>
+        <dd>DICOM Structured Reporting</dd>
+        <dt>Digital Signature:</dt>
+        <dd>A legally useful electronic
+            equivalent to facsimile signature, including signatures generated for a
+            variety of entities including human and machine sources. Based on
+            digital certificates attributable to well-known healthcare oriented
+            certificate authorities; incorporating cryptographically secure
+            techniques for signature generation and validation
+        </dd>
+        <dt>Differential Statement</dt>
+        <dd>is a StructureDefinitions
+            that describe only the differences relative to the structure definition
+            it constrains (which is most often the base FHIR resource or data type).
+            (See StructureDefinition)
+        </dd>
+        <dt>DIN</dt>
+        <dd>Drug Identification Number) assigned to a
+            specific medication by Health Canada.
+        </dd>
+        <dt>Discharge Summary</dt>
+        <dd>is a concise summary of
+            hospitalization to the Primary Care Provider (PCP) who will follow the
+            patient in clinic after his/her stay or the admitting doctor at next
+            hospitalization.
+        </dd>
+        <dt>Discriminator Slice</dt>
+        <dd>is a field or set of fields that
+            act as a "discriminator" used to provide a better way to distinguish
+            slices. (See Slicing)
+        </dd>
+        <dt>Document</dt>
+        <dd>is a coherent set of information that is a
+            statement of healthcare information, including clinical observations and
+            services. A document is an immutable set of resources with a fixed
+            presentation that is authored and/or attested by humans, organizations
+            and devices. FHIR resources can be used to build documents that
+            represent a composition.
+        </dd>
+        <dt>DomainResource</dt>
+        <dd>is an abstract resource that extends
+            a base Resource. The DomainResource is never created directly, instead,
+            one of its descendant resources is created. (See Resource)
+        </dd>
+        <dt>DSTU</dt>
+        <dd>(Draft Standard for Trial Use) is an ANSI
+            standards development process stage.
+        </dd>
+    </dl>
+    <h3 id="e">E</h3>
+    <dl class="tab">
+        <dt>e-Claim</dt>
+        <dd>is an invoice for health related good(s)
+            and/or service(s) transmitted for payment in an electronic format. (See
+            Claim)
+        </dd>
+        <dt>Electronic Health Record (EHR)</dt>
+        <dd>An electronic
+            representation of an individual's health record, either in a single data
+            repository or in separate linked repositories.
+        </dd>
+        <dt>Eligibility (for benefits coverage)</dt>
+        <dd>is when a Person
+            meets the criteria for benefits coverage. Benefits coverage is
+            determined by the Insurance Carrier and may be delegated to an
+            Adjudicator.
+        </dd>
+        <dt>EMS</dt>
+        <dd>(Emergency Medical Services) is a branch of
+            emergency services dedicated to providing out-of-hospital acute medical
+            care and/or transport to definitive care, to patients with illnesses and
+            injuries which the patient, or the medical practitioner, believes
+            constitutes a medical emergency.
+        </dd>
+        <dt>eMPI</dt>
+        <dd>Enterprise Master Patient Index</dd>
+        <dt>Encounter</dt>
+        <dd>is an interaction between a patient and
+            healthcare participant(s) for the purpose of providing patient
+            service(s) or assessing the health status of a patient. For example,
+            outpatient visit to multiple departments, home health support (including
+            physical therapy), inpatient hospital stay, emergency room visit, field
+            visit (e.g., traffic accident), office visit, occupational therapy,
+            telephone call.
+        </dd>
+        <dt>Enrolment</dt>
+        <dd>is a process of registering with an insurer
+            to obtain benefits coverage.
+        </dd>
+        <dt>Episode of Care</dt>
+        <dd>is a collection of one or more
+            encounters that address the same target of care and that include a
+            relationship to the same Episode of Illness or Condition. (See
+            Encounter)
+        </dd>
+        <dt>ETag</dt>
+        <dd>is a HTTP response header served as an
+            identifier for a specific version of a resource. (See HTTP)
+        </dd>
+        <dt>Extensible Markup Language</dt>
+        <dd>(XML) – is a markup
+            language with the aim to represent data in a hierarchical structure in a
+            text file. Based on SGML (Standard Generalized Markup Language), it
+            consists of a set of rules for defining semantic tags used to mark up
+            the content of documents.
+        </dd>
+        <dt>Extension</dt>
+        <dd>is child elements to represent additional
+            information that is not part of the basic definition of the resource. A
+            resource can be profiled to specify where particular extensions are
+            required or expected. (See Profile)
+        </dd>
+    </dl>
+    <h3 id="f">F </h3>
+    <dl class="tab">
+        <dt>Fair Use</dt>
+        <dd> in the United States, trademark law
+            includes a fair use defense, sometimes called "trademark fair use" to
+            distinguish it from the better-known fair use doctrine in copyright.
+            Fair use of trademarks is more limited than that which exists in the
+            context of copyright.
+        </dd>
+        <dt>Findings</dt>
+        <dd>is a term to define the results of an
+            investigation (e.g., an observation, a condition discovered)
+        </dd>
+        <dt>Five Ws</dt>
+        <dd>(Who What When Where Why) is a common
+            pattern for all resources that deals with attribution.
+        </dd>
+        <dt>FHIR</dt>
+        <dd>(Fast Healthcare Interoperability Resources) is
+            a next generation standards framework created by HL7. FHIR combines the
+            best features of HL7's v2 , HL7v3 and CDA product lines while leveraging
+            the latest web standards and applying a tight focus on
+            implementability.
+        </dd>
+        <dt>FHIRPath</dt>
+        <dd>is a path based navigation and extraction
+            language. Operations are expressed in terms of the logical content of
+            hierarchical data models, and support traversal, selection and filtering
+            of data. (See XPath)
+        </dd>
+        <dt>Forge</dt>
+        <dd>(Furore Forge) is the official Windows desktop
+            application for authoring FHIR profiles and managing conformance
+            resources (See Profiles).
+        </dd>
+    </dl>
+    <h3 id="g">G</h3>
+    <dl class="tab">
+        <dt>GraphQL</dt>
+        <dd>is a query language for APIs and a runtime
+            for fulfilling those queries with your existing data. The GraphQL
+            interface may be implemented by any server, and may be provided as a
+            facade service in front of a conformant RESTful API.(See
+            http://graphql.org)
+        </dd>
+    </dl>
+    <h3 id="h">H</h3>
+    <dl class="tab">
+        <dt>HAPI</dt>
+        <dd>(HL7 application programming interface) is an
+            open-source, object-oriented HL7 2.x parser for Java.
+        </dd>
+        <dt>HAPI-FHIR</dt>
+        <dd>is an open-source, object-oriented
+            implementation of the FHIR specification in Java.
+        </dd>
+        <dt>Health Service</dt>
+        <dd>is a health care service such as
+            diagnosis, treatment or intervention performed for a person.
+        </dd>
+        <dt>Healthcare Claim</dt>
+        <dd>is an invoice for health related
+            good(s) and/or service(s) transmitted for payment. (See Invoice)
+        </dd>
+        <dt>HIPAA</dt>
+        <dd>(Health Insurance Portability and Accountability
+            Act of 1996) is United States legislation that provides data privacy and
+            security provisions for safeguarding medical information.
+        </dd>
+        <dt>History</dt>
+        <dd>is the FHIR RESTful API interaction to
+            retrieve the history of either a particular resource, all resources of a
+            given type, or all resources supported by the system.
+        </dd>
+        <dt>HITSP</dt>
+        <dd>Health Information Technology Standards Panel
+            (www.hitsp.org)
+        </dd>
+        <dt>HL7</dt>
+        <dd>(Health Level Seven) is an ANSI-recognized
+            standards development organization in the healthcare interoperability
+            space (www.hl7.org)
+        </dd>
+        <dt>HL7v2</dt>
+        <dd>is one of the most widely implemented
+            standards for healthcare information in the world. The Version 2
+            Messaging Standard was first released in October 1987 as an Application
+            Protocol for Electronic Data Exchange in Healthcare Environments.
+        </dd>
+        <dt>HL7v3</dt>
+        <dd>represents a new approach to clinical
+            information exchange based on a model driven methodology that produces
+            messages and electronic documents expressed in XML syntax. The V3
+            specification is built around subject domains that provide storyboard
+            descriptions, trigger events, interaction designs, domain object models
+            derived from the RIM, hierarchical message descriptors (HMDs) and a
+            prose description of each element.
+        </dd>
+        <dt>HQMF</dt>
+        <dd>(Health Quality Measure Format) is a standard
+            for representing a health quality measure as an electronic document. A
+            quality measure is a quantitative tool that provides an indication of an
+            individual or organization’s performance in relation to a specified
+            process or outcome via the measurement of an action, process or outcome
+            of clinical care.
+        </dd>
+        <dt>HTML</dt>
+        <dd>(Hypertext Markup Language) is a specification
+            of the W3C that provides markup of documents for display in a web
+            browser.
+        </dd>
+        <dt>HTTP</dt>
+        <dd>(Hypertext Transfer Protocol) is a state-less
+            protocol for the exchange of data in the application layer of the
+            OSI-model. It is used in the World Wide Web (WWW) for representation of
+            web-sites, but also for machine-to-machine communication.
+        </dd>
+        <dt>HTTPS</dt>
+        <dd>(HTTP over SSL or HTTP Secure) is an extension
+            of the HTTP used for secure communication over a computer network and is
+            widely used on the Internet. HTTPS uses Secure Socket Layer (SSL) or
+            Transport Layer Security (TLS) as a sublayer under regular HTTP
+            application layering. (See HTTP, SSL, TLS)
+        </dd>
+    </dl>
+    <h3 id="i">I</h3>
+    <dl class="tab">
+        <dt>ICD</dt>
+        <dd>(International Classification of Diseases): is a
+            global standard for health information and published by the WHO.
+            (https://icd.who.int)
+        </dd>
+        <dt>IHE</dt>
+        <dd>(Integrating the Healthcare Enterprise): is an
+            organisation of volunteers, who cooperate to integrate IT systems in the
+            healthcare enterprise.
+        </dd>
+        <dt>Implicit Rule</dt>
+        <dd>is a reference to a custom agreement
+            that describes how the resource is being used that was followed when the
+            resource was constructed, where the implementation guide must be known
+            and understood in order to safely processing the content.
+        </dd>
+        <dt>Immunization</dt>
+        <dd>is a treatment given to a patient to
+            confer immunity for a specific disease. In context of FHIR, Immunization
+            is a resource to describe the event of a patient being administered a
+            vaccine or a record of an immunization as reported by a patient, a
+            clinician or another party, and intended to cover the recording of
+            current and historical administration of vaccines to patients across all
+            healthcare disciplines in all care settings and all regions.
+        </dd>
+        <dt>Immunization History</dt>
+        <dd>is a collection of
+            immunizations received by the client/patient.
+        </dd>
+        <dt>Immunization Status</dt>
+        <dd>describes a person's progress
+            towards meeting the goals for a particular vaccine.
+        </dd>
+        <dt>Insurer</dt>
+        <dd>is a public or private insurer which will
+            adjudicate Claims for health care goods and services to determine if the
+            there is any benefit payable, amount due, under the policy which covers
+            the patient. (See Claim)
+        </dd>
+        <dt>Interaction</dt>
+        <dd>is an operation on resources provided by
+            FHIR RESTful API where individual resource instances are managed in
+            collections by their type. FHIR defined resource instance level, type
+            level and whole system level interactions.
+        </dd>
+        <dt>Interoperability </dt>
+        <dd>in HL7 context, is the ability of
+            two or more computer systems to exchange information.
+        </dd>
+        <dt>Invariants</dt>
+        <dd>are constrain attached to an element in a
+            resource. Many constraints are defined in the base specification.
+            Additional constraints may be defined in profiles that apply to
+            resources.
+        </dd>
+        <dt>Invoice</dt>
+        <dd>is a request initiated by a Provider, on
+            behalf of a plan member (insured), for payment for services rendered
+            and/or goods provided. Stated another way, an Invoice is a request by a
+            plan member to a plan administrator (Adjudicator) for payment of a
+            benefit covered by the benefit plan.
+        </dd>
+        <dt>Is-Modifier</dt>
+        <dd>is a boolean property that is assigned
+            when a resource element is defined, either as part of the base resource
+            contents in this specification, or when profiles declare extensions.
+        </dd>
+        <dt>Is-Summary</dt>
+        <dd>is a boolean property that indicates how
+            the element behaves when a client can request the server to return only
+            a portion of the resources by using the parameter. (See Summary
+            Searches)
+        </dd>
+    </dl>
+    <h3 id="j">J</h3>
+    <dl class="tab">
+        <dt>JSON</dt>
+        <dd>(JavaScript Object Notation) is a compact,
+            text-based data format for the platform independent exchange of data
+            between IT systems.
+        </dd>
+        <dt>Jurisdiction</dt>
+        <dd>is the authority to license agencies
+            and professionals to provide EMS services in a geographic area.
+        </dd>
+        <dt>JWT</dt>
+        <dd>(JSON Web Token) is a compact URL-safe means of
+            representing claims to be transferred between two parties.
+        </dd>
+    </dl>
+    <h3 id="l">L</h3>
+    <dl class="tab">
+        <dt>Label , Security</dt>
+        <dd>is a concept attached to a resource
+            or bundle that provides specific security metadata about the information
+            it is fixed to. Security Labels enable more data to flow as they enable
+            policy fragments to accompany the resource data.
+        </dd>
+        <dt>Laboratory Order</dt>
+        <dd>is a request for clinical
+            laboratory services for a specified patient.
+        </dd>
+        <dt>Literal Reference</dt>
+        <dd>is a reference to a location at
+            which the other resource is found. The reference may be a relative
+            reference, in which case it is relative to the service base URL, or an
+            absolute URL that resolves to the location where the resource is found.
+            (See URL)
+        </dd>
+        <dt>Living Subject</dt>
+        <dd>is an abstract term to define Person
+            or Animal.
+        </dd>
+        <dt>Location</dt>
+        <dd>is a details and position information for a
+            physical place where services are provided and resources and
+            participants may be stored, found, contained, or accommodated.
+        </dd>
+        <dt>Logical Reference</dt>
+        <dd>is an identifier to the entity
+            from the target element that cannot be converted to a literal reference
+            to directly reference an actual resource. (See Literal Reference)
+        </dd>
+        <dt>Logical Identifier</dt>
+        <dd>is an id element of the resource
+            assigned by the server responsible for storing it. The logical id is
+            unique within the space of all resources of the same type on the same
+            server.
+        </dd>
+        <dt>LOINC</dt>
+        <dd>(Logical Observation Identifiers Names and
+            Codes): is an international Code System for the identification of
+            laboratory and clinical studies and tests. (https://loinc.org)
+        </dd>
+        <dt>Loosely Coupled</dt>
+        <dd>in context of application roles do
+            not assume that common information about the subject classes
+            participating in a message is available to system components outside of
+            the specific message. (See Tightly Coupled)
+        </dd>
+    </dl>
+    <h3 id="m">M</h3>
+    <dl class="tab">
+        <dt>Markup</dt>
+        <dd>is a term for computer-processable
+            annotations within a document. Markup encodes a description of a
+            document’s storage layout and logical structure.
+        </dd>
+        <dt>Master Patient Index</dt>
+        <dd>is a computer-based system that
+            facilitates the tracking of patient information by assigning each
+            patient an identifying series of characters.
+        </dd>
+        <dt>Maturity Level</dt>
+        <dd> See Maturity Model</dd>
+        <dt>Maturity Model</dt>
+        <dd>(FHIR Maturity Model) relates to the
+            degree of formality and stability of a resource and can be used to judge
+            how advanced and therefore stable an artifact is.
+        </dd>
+        <dt>MAY</dt>
+        <dd>is the conformance verb MAY is used to indicate
+            a possibility. (See Conformance Verb)
+        </dd>
+        <dt>Media</dt>
+        <dd>is a photo, video, or audio recording acquired
+            or used in healthcare. The actual content may be inline or provided by
+            direct reference.
+        </dd>
+        <dt>Medication</dt>
+        <dd>is a drug used to diagnose, cure, treat,
+            or prevent disease. In context of FHIR, Medication is a resource used
+            for the identification and definition of a medication for the purposes
+            of prescribing, dispensing, and administering a medication as well as
+            for making statements about medication use.
+        </dd>
+        <dt>Medication Administration</dt>
+        <dd>is an description of the
+            event of a patient consuming or otherwise being administered a
+            medication. This may be as simple as swallowing a tablet or it may be a
+            long running infusion. Related resources tie this event to the
+            authorizing prescription, and the specific encounter between patient and
+            health care practitioner.
+        </dd>
+        <dt>Medication Dispense</dt>
+        <dd>is an indication that a
+            medication product is to be or has been dispensed for a named
+            person/patient. This includes a description of the medication product
+            (supply) provided and the instructions for administering the medication.
+            The medication dispense is the result of a pharmacy system responding to
+            a medication order.
+        </dd>
+        <dt>Medication Statement</dt>
+        <dd>is a record of a medication
+            that is being consumed by a patient that may indicate that the patient
+            may be taking the medication now or has taken the medication in the past
+            or will be taking the medication in the future.
+        </dd>
+        <dt>Message</dt>
+        <dd>is a package of information communicated
+            from one application to another. FHIR Resources can be used in a
+            traditional messaging context, much like HL7v2.
+        </dd>
+        <dt>Meta</dt>
+        <dd>is an element "meta" of type "Meta" which is a set
+            of metadata that provides technical and workflow context to the
+            resource.
+        </dd>
+        <dt>Methodology</dt>
+        <dd>is a set of methods or rules followed in
+            a particular discipline.
+        </dd>
+        <dt>MIME</dt>
+        <dd>(Multipurpose Internet Mail Extensions) is an
+            Internet standard that helps extend the limited capabilities of email by
+            allowing insertion of images, sounds and text in a message. Defined by
+            RFC 2046.
+        </dd>
+        <dt>MLLP</dt>
+        <dd>(Minimum Lower Layer Protocol) is a
+            minimalistic Open Systems Interconnection (OSI)-session layer framing
+            protocol as well as a minimalistic reliable transport protocol typically
+            used to transmit HL7v2 messages.
+        </dd>
+        <dt>Modifier Extension</dt>
+        <dd>is a child element to represent
+            additional information that is not part of the basic definition of the
+            resource that modifies the meaning of the element that contains it. (See
+            Extension)
+        </dd>
+        <dt>Must-Support</dt>
+        <dd>is a resource element label meaning
+            that implementations that produce or consume resources shall provide
+            "support" for the element in some meaningful way.
+        </dd>
+    </dl>
+    <h3 id="n">N</h3>
+    <dl class="tab">
+        <dt>Namespace </dt>
+        <dd>A qualifier added to an XML tag to
+            ensure uniqueness among XML elements. (See XML)
+        </dd>
+        <dt>Narrative</dt>
+        <dd>is the human-readable content or summary
+            of the resource that an applications can display to users without having
+            to fully and correctly process the data in the resource. The Narrative
+            is defined in XHTML format. (See XHTML)
+        </dd>
+        <dt>NullFlavor</dt>
+        <dd>is the code system defined as a part of
+            HL7 version 3. It contains values for a data element which indicates the
+            absence and reason for absence of data.
+        </dd>
+    </dl>
+    <h3 id="o">O</h3>
+    <dl class="tab">
+        <dt>OAuth</dt>
+        <dd>(Open Authorization) is an open standard for
+            token-based authentication and authorization on the Internet.
+        </dd>
+        <dt>Object Identifier</dt>
+        <dd>is a scheme to provide globally
+            unique identifiers. (See OID)
+        </dd>
+        <dt>OID</dt>
+        <dd>(ISO Object Identifier): A globally unique
+            identifier created using the rules established in the ISO 9834 series of
+            standards
+        </dd>
+        <dt>Observation</dt>
+        <dd>is a measurement or simple assertion
+            made about a patient, device or other subject. Observations are a
+            central element in healthcare, used to support diagnosis, monitor
+            progress, determine baselines and patterns and even capture demographic
+            characteristics. Most observations are simple name/value pair assertions
+            with some metadata, but some observations group other observations
+            together logically, or even are multi-component observations.
+        </dd>
+        <dt>OpenID</dt>
+        <dd>is an open standard and decentralized
+            authentication protocol that allows users to be authenticated by
+            co-operating sites using a third-party service, eliminating the need for
+            webmasters to provide their own ad hoc login systems, and allowing users
+            to log into multiple unrelated websites without having to have a
+            separate identity and password for each. (See Authentication)
+        </dd>
+        <dt>OperationOutcome</dt>
+        <dd>is a FHIR resource to represent a
+            collection of error, warning or information messages that result from a
+            system action and provided as a direct system response or component of
+            one.
+        </dd>
+        <dt>Organization</dt>
+        <dd>is a formally or informally recognized
+            grouping of people or organizations formed for the purpose of achieving
+            some form of collective action. Includes companies, institutions,
+            corporations, departments, community groups, healthcare practice groups,
+            payer/insurer. An Organization is recognized as an entity from the
+            perspective of one or more authorities and/or other organizations
+            external to the Organization-of-Interest including legal, social,
+            etc.
+        </dd>
+        <dt>Outcome</dt>
+        <dd>is an observation on the subject made
+            following a specific intervention or collection of interventions on the
+            subject or related subjects.
+        </dd>
+    </dl>
+    <h3 id="p">P</h3>
+    <dl class="tab">
+        <dt>Paging</dt>
+        <dd>is the way to break up a large amount of
+            results of a search or history interaction by sending continuation links
+            to the client when returning a Bundle. This mechanism is adapted from
+            RFC 5005.
+        </dd>
+        <dt>PATCH</dt>
+        <dd>is a FHIR RESTful API interaction used as an
+            alternative to updating an entire resource, which can be useful when a
+            client is seeking to minimize its bandwidth utilization, or in scenarios
+            where a client has only partial access or support for a resource.
+        </dd>
+        <dt>Patient</dt>
+        <dd>is a Person, in the role of patient for a
+            particular situation. For example, this person is a patient at the
+            hospital, but this person is not a patient at this time. (See also
+            Person)
+        </dd>
+        <dt>Patient Education </dt>
+        <dd>The teaching or training of
+            patients concerning their own health needs.
+        </dd>
+        <dt>Patient Encounter</dt>
+        <dd> See Encounter.</dd>
+        <dt>Payee</dt>
+        <dd>is a person or organization that receives
+            payment for Goods provided and/or Services rendered or receives payment
+            on behalf of one or more Providers. As well, a Payee may be a Person who
+            has directly paid the Provider for the Goods provided and/or Services
+            rendered and is being reimbursed by the Adjudicator.
+        </dd>
+        <dt>Payer</dt>
+        <dd>is a person or organization responsible for
+            paying medical bills.
+        </dd>
+        <dt>Payment Advice</dt>
+        <dd>is a payment details for adjudicated
+            Invoices and non-Invoice adjustments which correspond to an actual
+            payment either by cheque or electronic funds transfer.
+        </dd>
+        <dt>Payment Reconciliation</dt>
+        <dd>is the process of comparing what
+            has been paid versus what was expected to be paid.
+        </dd>
+        <dt>Payor</dt>
+        <dd>is an organization who is responsible for the
+            payment.
+        </dd>
+        <dt>Person</dt>
+        <dd>is an individual person, who can assume
+            multiple roles over time. For example, a person may be a patient for a
+            period of time at a hospital or a provider on a different occasion.
+        </dd>
+        <dt>Person</dt>
+        <dd>is a subtype of Living Subject representing
+            single human being who must also be uniquely identifiable through one or
+            more legal documents (e.g. Driver's License, Birth Certificate,
+            etc.)
+        </dd>
+        <dt>Practitioner</dt>
+        <dd>is a person who is engaged in the
+            healthcare process and healthcare-related services as part of his/her
+            formal responsibilities.
+        </dd>
+        <dt>Pre-Determination</dt>
+        <dd>is the submission of a 'mock'
+            Healthcare Invoice to a Payor to determine the extent to which an
+            Adjudicator will reimburse for the goods or services. A Provider may use
+            this to compare alternate treatments to determine least cost alternative
+            for the patient.
+        </dd>
+        <dt>Prescription</dt>
+        <dd>is an order from a recognized prescriber
+            for a health care good or service.
+        </dd>
+        <dt>Primitive data type</dt>
+        <dd>is a data type that defined as a
+            single entity, and whose full semantic is contained in its
+            definition.
+        </dd>
+        <dt>Problem List</dt>
+        <dd>is a series of brief statements that
+            catalog a patient’s medical, nursing, dental, social, preventative and
+            psychiatric events and issues that are relevant to that patient’s health
+            care (e.g. signs, symptoms, and defined conditions).
+        </dd>
+        <dt>Procedure</dt>
+        <dd>in the context of a Health Care procedure
+            is the details identifying the service or procedure that was actually
+            provided to a Person such as the procedure code, duration of procedure,
+            time procedure took place and Provider who performed the
+            procedure.
+        </dd>
+        <dt>Profile</dt>
+        <dd>is a set of constraints on a resource that
+            define rules about which resource elements are or are not used, what
+            additional elements are added that are not part of the base FHIR
+            specification, what terminologies are used in particular elements.
+            Profiles are represented as structure definitions.
+        </dd>
+        <dt>Profile, Resource</dt>
+        <dd>see Resource Profile.</dd>
+        <dt>Profile, Supported</dt>
+        <dd>see Supported Profile</dd>
+        <dt>Progress Note</dt>
+        <dd>is a textual description of the health
+            care provider’s observations, their interpretations and conclusions
+            about the clinical course of the patient or the steps taken, or to be
+            taken, in the care of the patient.
+        </dd>
+        <dt>Protocol</dt>
+        <dd>in the context of a Health Care is a set of
+            medical instructions to be followed under a specified set of
+            circumstances
+        </dd>
+        <dt>Provider</dt>
+        <dd>is an individual who delivers a health service
+            to a person or animal e.g., doctor, nurse, pharmacist, technician,
+            etc.
+        </dd>
+        <dt>Provenance</dt>
+        <dd>is a name of FHIR resource that tracks
+            information about the activity that created, revised, deleted, or signed
+            a version of a resource, describing the entities and agents
+            involved.
+        </dd>
+    </dl>
+    <h3 id="q">Q</h3>
+    <dl class="tab">
+        <dt>QDM</dt>
+        <dd>(Quality Data Model) is an information model
+            that defines relationships between patients and clinical concepts in a
+            standardized format to enable electronic quality performance
+            measurement. The model is the structure for electronically representing
+            quality measure concepts for stakeholders involved in electronic quality
+            measurement development and reporting.
+        </dd>
+        <dt>Query</dt>
+        <dd>is a primary mechanism for retrieving
+            information from computer systems.
+        </dd>
+    </dl>
+    <h3 id="r">R</h3>
+    <dl class="tab">
+        <dt>RBAC</dt>
+        <dd>(Role-based Access Control) is a policy-neutral
+            access-control mechanism to restrict system access to authorized users
+            defined around roles and privileges. (See ABAC)
+        </dd>
+        <dt>RDF</dt>
+        <dd>(Resource Description Framework) is a family of
+            World Wide Web Consortium (W3C) specifications originally designed as a
+            metadata data model. FHIR resources can be represented in the textual
+            syntax for RDF called Turtle that allows an RDF graph to be completely
+            written in a compact and natural text form, with abbreviations for
+            common usage patterns and datatypes.
+        </dd>
+        <dt>Re-Adjudication (of an invoice)</dt>
+        <dd>is a process whereby
+            a Provider can request a re-adjudication of an invoice that has been
+            partially paid by a Payor.
+        </dd>
+        <dt>Relative URL</dt>
+        <dd>specifies the location of a target stored
+            on a local or networked computer and typically consists only of the path
+            relative to the Service Base URL. (See Absolute URL)
+        </dd>
+        <dt>Resource</dt>
+        <dd> a modular component FHIR solutions are
+            built from. FHIR resources by themselves all specialize the base type
+            Resource. Resources can be thought as a collection of information models
+            that define the data elements, constraints and relationships for the
+            “business objects” most relevant to healthcare. (See DomainResource)
+        </dd>
+        <dt>Resource Profile</dt>
+        <dd> describe the general features
+            that are supported by a system for each kind of resource. Typically,
+            this is the superset of all the different use-cases implemented by the
+            system. This is a resource-level perspective of a system's
+            functionality. (See Profile)
+        </dd>
+        <dt>Resource Reference</dt>
+        <dd>is a general references between
+            resources. (See Canonical Reference)
+        </dd>
+        <dt>Resource, Contained</dt>
+        <dd>See Contained Resource</dd>
+        <dt>REST</dt>
+        <dd>(Representational State Transfer) - is a
+            paradigm for distributed systems especially for web services. REST
+            defines principles on using communication protocols (mainly HTTP and
+            HTTPS) in the application layer level of the OSI-model.
+        </dd>
+        <dt>RESTful</dt>
+        <dd> Web Services or API (application program
+            interface) that conform to the REST architectural style. (See REST)
+        </dd>
+        <dt>RFH</dt>
+        <dd>(Resources For Healthcare) is the initial draft
+            of the FHIR standard.
+        </dd>
+        <dt>RIM</dt>
+        <dd>(Reference Information Model) is the HL7 version
+            3 information model from which all other information models (e.g.,
+            RMIMs) and messages are derived.
+        </dd>
+        <dt>RMIM</dt>
+        <dd>(Refined Message Information Model) is an
+            information structure in HL7 version 3 that represents the requirements
+            for a set of messages. A constrained subset of the Reference Information
+            Model (RIM) which MAY contain additional classes that are cloned from
+            RIM classes.
+        </dd>
+    </dl>
+    <h3 id="s">S</h3>
+    <dl class="tab">
+        <dt>SAIF</dt>
+        <dd>(HL7 Service-Aware Interoperability Framework)
+            is the framework to rationalize interoperability of standards, provide
+            consistency between all artifacts, enable a standardized approach to
+            Enterprise Architecture development and implementation, and a way to
+            measure the consistency.
+        </dd>
+        <dt>Security Labels</dt>
+        <dd>is a concept attached to a resource
+            or bundle that provides specific security metadata about the information
+            it is fixed to. Security Labels enable more data to flow as they enable
+            policy fragments to accompany the resource data.
+        </dd>
+        <dt>Scenario</dt>
+        <dd>is a statement of relevant events from the
+            problem domain, defined as a sequence of interactions. The scenario
+            provides one set of interactions that the modeling committee expects
+            will typically occur in the domain. Usually, a sequence diagram is
+            constructed to show a group of interactions for a single scenario.
+        </dd>
+        <dt>Schedule</dt>
+        <dd>is a container for slots of time that may
+            be available for booking appointments. (See Appointment)
+        </dd>
+        <dt>Schema</dt>
+        <dd>1. A diagrammatic presentation, a structured framework, or a
+            plan. 2. A set of requirements that need to be met in order for a document
+            or set of data to be a valid expression within the context of a
+            particular grammar. For example, XML Schema is a specification of the
+            structure of a document or set of data.
+        </dd>
+        <dt>Schematron</dt>
+        <dd>is a rule-based validation language for
+            making assertions about the presence or absence of patterns in XML
+            trees.
+        </dd>
+        <dt>SDO </dt>
+        <dd>Standards Development Organization</dd>
+        <dt>Secondary Payor</dt>
+        <dd>is a Payor that is responsible for
+            payment of a Healthcare Invoice if the Primary Payor does not pay.
+        </dd>
+        <dt>Semantic</dt>
+        <dd>in the context of a technical specification,
+            semantic refers to the meaning of something as distinct from its
+            exchange representation. Syntax can change without affecting
+            semantics.
+        </dd>
+        <dt>Service</dt>
+        <dd>is a cohesive set of functions that maintain
+            responsibility for both data and "state" for the scope of their
+            responsibility. Services have a unity of function, such as Terminology
+            Management, Identity Management working with other services in
+            collaboration as part of an orchestrated workflow.
+        </dd>
+        <dt>SHALL</dt>
+        <dd>is the conformance verb SHALL is used to
+            indicate a requirement. (See Conformance Verb)
+        </dd>
+        <dt>SHOULD</dt>
+        <dd>is the conformance verb SHOULD is used to
+            indicate a recommendation. (See Conformance Verb)
+        </dd>
+        <dt>Simplifier</dt>
+        <dd>is the FHIR platform for profiles and
+            implementation guides, used by FHIR implementers around the world
+            (simplifier.net)
+        </dd>
+        <dt>Slicing</dt>
+        <dd>is the way to constrain an element in
+            StructureDefintion that may occur more than once (e.g. in a list), and
+            then split the list into a series of sub-lists, each with different
+            restrictions on the elements in the sub-list with associated additional
+            meaning.
+        </dd>
+        <dt>Slicing, Discriminator</dt>
+        <dd>See Discriminator Slice</dd>
+        <dt>Slicing, Default</dt>
+        <dd>see Default Slice</dd>
+        <dt>SMART</dt>
+        <dd>(Substitutable Medical Applications, Reusable
+            Technologies) is the way to standardize the processes on how EHR systems
+            and their applications authenticate and integrate.
+        </dd>
+        <dt>SMART on FHIR</dt>
+        <dd>See SMART.</dd>
+        <dt>Snapshot Statement</dt>
+        <dd>is a StructureDefinitions that
+            carry a "snapshot" - a fully calculated form of the structure that is
+            not dependent on any other structure. (See StructureDefinition)
+        </dd>
+        <dt>SNOMED CT</dt>
+        <dd>(Systematized Nomenclature of Medicine –
+            Codes and Terms): is the most comprehensive, multilingual clinical
+            healthcare terminology in the world and enables consistent
+            representation of clinical content in EHRs. (http://www.snomed.org)
+        </dd>
+        <dt>SOA</dt>
+        <dd>(Service-Oriented Architecture) is a style of
+            software design where services are provided to the other components by
+            application components, through a communication protocol over a
+            network.
+        </dd>
+        <dt>SOAP</dt>
+        <dd>(Simple Object Access Protocol) - is a network
+            protocol for the exchange of data between IT systems and is defined by
+            the World Wide Web Consortium (W3C). SOAP uses XML for the
+            representation of the data transported and Internet-protocols of the
+            transport- and application-layer level of the OSI-model, mainly by
+            HTTP(s) and TCP.
+        </dd>
+        <dt>Solicited Attachment</dt>
+        <dd>is an attachment sent to
+            provide supporting information in response to having received a request
+            for additional information. (See Attachment)
+        </dd>
+        <dt>Specification</dt>
+        <dd>is a detailed description of the
+            required characteristics of a product.
+        </dd>
+        <dt>Specimen</dt>
+        <dd>is a sample obtained from a subject on which
+            observations are performed. A specimen is a type of partitive role in
+            which, the player is a material taken as a sample from a source scoping
+            entity. For example, a specimen of venous blood taken from a patient for
+            a laboratory investigation.
+        </dd>
+        <dt>SSL</dt>
+        <dd>(Secure Sockets Layer) is a cryptographic protocol
+            that provides end-to-end communications security over networks and was
+            widely used for internet communications and online transactions.
+            Replaced by an updated version called TLS. (See TLS)
+        </dd>
+        <dt>Statement, Differential</dt>
+        <dd>See Differential
+            Statement
+        </dd>
+        <dt>Statement, Snapshot</dt>
+        <dd>See Snapshot Statement</dd>
+        <dt>StructureDefinition</dt>
+        <dd>is a resource that makes rules
+            about how other resource (or type) and its data elements are used in a
+            particular context, including defining how extensions are used.
+        </dd>
+        <dt>STU</dt>
+        <dd>(Standard for Trial Use) is an ANSI standards
+            development process stage.
+        </dd>
+        <dt>Stylesheet</dt>
+        <dd>is a file that describes how to display
+            an XML document of a given type. (See CSS)
+        </dd>
+        <dt>Summary Searches</dt>
+        <dd>is the way a client can request the
+            FHIR server to return only a portion of the resources by using the
+            parameter _summary. The intent is to reduce the total processing load on
+            server, client, and resources between them such as the network.
+        </dd>
+        <dt>Supported Profile</dt>
+        <dd> describe the information
+            handled/produced by the system on a per use case basis. (See
+            Profile)
+        </dd>
+        <dt>Supply Order</dt>
+        <dd>is a quantity of manufactured material
+            to be specified either by name, id, or optionally, the manufacturer.
+        </dd>
+    </dl>
+    <h3 id="t">T</h3>
+    <dl class="tab">
+        <dt>Tag</dt>
+        <dd>is a used to associate additional operational
+            information with the Resources, such as workflow management. (See
+            Meta)
+        </dd>
+        <dt>Terminology</dt>
+        <dd> A structured, human and
+            machine-readable representation of clinical concepts required directly
+            or indirectly to describe health conditions and healthcare activities
+            and allow their subsequent retrieval or analysis.
+        </dd>
+        <dt>Tightly Coupled</dt>
+        <dd>in context of application roles
+            assume that common information about the subject classes participating
+            in a message is available to system components outside of the specific
+            message. (See Loosely Coupled)
+        </dd>
+        <dt>TLS</dt>
+        <dd>(Transport Layer Security) is a cryptographic
+            protocol that provides end-to-end communications security over networks
+            and is widely used for internet communications and online transactions.
+            (See SSL)
+        </dd>
+        <dt>TOGAF</dt>
+        <dd>is an Enterprise Architecture standard of The
+            Open Group, is an Enterprise Architecture methodology and framework used
+            to improve business efficiency.
+        </dd>
+        <dt>Transaction</dt>
+        <dd>is a FHIR RESTful API interaction sent
+            to the FHIR Server to perform a set of actions on resources in a single
+            HTTP request/response. In case of Transaction actions are performed as
+            single atomic action where the entire set of resource changes succeed or
+            fail as a single entity. (See Batch)
+        </dd>
+        <dt>Trigger Event</dt>
+        <dd>An event
+            which, when recorded or recognized by an application, initiates another action to occur.
+        </dd>
+        <dt>Turtle</dt>
+        <dd>is the textual syntax for RDF that allows an
+            RDF graph to be completely written in a compact and natural text form,
+            with abbreviations for common usage patterns and datatypes. (See
+            RDF)
+        </dd>
+    </dl>
+    <h3 id="u">U</h3>
+    <dl class="tab">
+        <dt>UCUM</dt>
+        <dd>(Unified Code for Units of Measure) is a code
+            system intended to include all units of measures being contemporarily
+            used in international science, engineering, and business. The purpose is
+            to facilitate unambiguous electronic communication of quantities
+            together with their units.
+        </dd>
+        <dt>UML</dt>
+        <dd>(Unified Modelling Language) is a specification
+            created to unify several well-known object-oriented modeling
+            methodologies, including those of Booch, Rumbaugh, Jacobson, and
+            others.
+        </dd>
+        <dt>Unsolicited Attachment</dt>
+        <dd>is an attachment sent to
+            provide supporting information without first having received a request
+            for additional information. (See Attachment)
+        </dd>
+        <dt>URI</dt>
+        <dd>(Uniform Resource Identifier Reference) is a
+            compact case sensitive sequence of characters that identifies an
+            abstract or physical resource defined by RFC 3986.
+        </dd>
+        <dt>URL</dt>
+        <dd>(Uniform Resource Locator) is the syntax and
+            semantics of formalized information for location and access of resources
+            via the Internet defined by RFC 1738.
+        </dd>
+        <dt>URL, Absolute</dt>
+        <dd>See Absolute URL</dd>
+        <dt>URL, Canonical</dt>
+        <dd> See Canonical URL</dd>
+        <dt>URL, Relative</dt>
+        <dd> See Relative URL</dd>
+        <dt>URN</dt>
+        <dd>(Uniform Resource Name) is a Uniform Resource
+            Identifier (URI) that is assigned under the "urn" URI scheme and a
+            particular URN namespace, with the intent that the URN will be a
+            persistent, location-independent resource identifier defined by RFC
+            8141.
+        </dd>
+    </dl>
+    <h3 id="v">V</h3>
+    <dl class="tab">
+        <dt>Vaccine</dt>
+        <dd>is a product that composes an
+            immunization.
+        </dd>
+        <dt>value[x]</dt>
+        <dd>represents the choice of Data Types. In the
+            real instance of a resource the "value" part of the name is constant,
+            and the "[x]" is replaced with the title-cased name of the type that is
+            actually used. (See Data Types)
+        </dd>
+        <dt>Value Set</dt>
+        <dd> specifies a set of codes defined by code
+            systems that can be used in a specific context. Value Set can be a
+            versioned excerpt of codes from one or multiple terminologies used to
+            describe health conditions and healthcare activities. (See Code
+            System)
+        </dd>
+        <dt>Version, FHIR</dt>
+        <dd>is the version of the FHIR
+            specification. FHIR Servers may support multiple versions of FHIR.
+        </dd>
+        <dt>Version, Record</dt>
+        <dd>is a version of a resource supported
+            by FHIR Server to allow to retrieve old instances of a resource. FHIR
+            Servers do not have to support versioning, though they are strongly
+            encouraged to do so.
+        </dd>
+        <dt>Version, Business</dt>
+        <dd>is a version of the content that
+            goes through a formal publishing cycle. This is changed explicitly by a
+            human, or by some automated process in accordance with applicable
+            business rules. The version can be appended to the URL in a reference to
+            allow a reference to a particular business version of the resource.
+        </dd>
+        <dt>Vital Signs</dt>
+        <dd>are physical signs or measurements that
+            indicate an individual is alive, such as heart beat, breathing rate,
+            temperature, and blood pressure.
+        </dd>
+        <dt>Vocabulary</dt>
+        <dd>is a set of valid values for a coded
+            attribute or field.
+        </dd>
+        <dt>Vocabulary Domain</dt>
+        <dd>is a set of all concepts that can
+            be taken as valid values in an instance of a coded attribute or field; a
+            constraint applicable to code values.
+        </dd>
+    </dl>
+    <h3 id="w">W</h3>
+    <dl class="tab">
+        <dt>WADO-RS</dt>
+        <dd>(Web Access to DICOM Objects by RESTful
+            Services) is a specification that allows enables a user agent to
+            retrieve DICOM Instances using HTTP (See DICOM)
+        </dd>
+        <dt>Well-formed document</dt>
+        <dd>is an XML document which meets
+            all of the well-formedness constraints in the XML Specification. (See
+            XML)
+        </dd>
+        <dt>Withdrawn</dt>
+        <dd>is an indication that an artifact is
+            documented for historical purposes, but no longer supported.
+        </dd>
+        <dt>Workflow</dt>
+        <dd>is a sequence of activities by an
+            individual that is required to complete a specific business process.
+        </dd>
+    </dl>
+    <h3 id="x">X</h3>
+    <dl class="tab">
+        <dt>XDS</dt>
+        <dd>(Cross-Enterprise Document Sharing) - IHE
+            Integration Profile that facilitates the registration, distribution and
+            access across health enterprises of patient electronic health records.
+            (See IHE)
+        </dd>
+        <dt>XHTML</dt>
+        <dd>is a reformulation of HTML 4 in XML 1.0 format
+            defined by W3C organization in the “XHTML™ 1.0 The Extensible HyperText
+            Markup Language” standard. (See HTML)
+        </dd>
+        <dt>XML</dt>
+        <dd>(Extensible Markup Language) - is a markup
+            language with the aim to represent data in a hierarchical structure in a
+            text file. Based on SGML (Standard Generalized Markup Language), it
+            consists of a set of rules for defining semantic tags used to mark up
+            the content of documents.
+        </dd>
+        <dt>XPath</dt>
+        <dd>(XML Path Language) is a query language for
+            selecting nodes from an XML document.
+        </dd>
+        <dt>XML Prolog</dt>
+        <dd>is an optional component added in the
+            beginning of an XML document, typically &lt;?xml version="1.0"
+            encoding="UTF-8"?&gt;. The XML Prolog is not a part of the XML document
+            and does not have a closing tag.
+        </dd>
+        <dt>XSL</dt>
+        <dd>(Extensible Style Language) is a specification
+            of the W3C specifies the presentation of a class of XML documents by
+            describing how an instance of the class is transformed into an XML
+            document that uses the formatting vocabulary.
+        </dd>
+        <dt>XSLT</dt>
+        <dd>(XSL Transformation language) is a specification
+            of the W3C for transforming XML documents into other XML documents.
+        </dd>
+    </dl>
+    <h3 id="z">Z</h3>
+    <dl class="tab">
+        <dt>Zachman Framework</dt>
+        <dd>is an enterprise ontology and is a
+            fundamental structure for Enterprise Architecture which provides a
+            formal and structured way of viewing and defining an enterprise.
+        </dd>
+    </dl>
 
 [%file newfooter%]
     
