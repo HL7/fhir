@@ -4,7 +4,7 @@
    <version value="20220809"/>
    <title value="Example map with priorities"/>
    <status value="draft"/>
-   <description value="Example inspire by UK extended complex map (999002271000000101)"/>
+   <description value="Example inspired by UK extended complex map (999002271000000101)"/>
    <copyright value="Creative Commons 0"/>
    <sourceScopeUri value="http://snomed.info/sct?fhir_vs"/>
    <group>
