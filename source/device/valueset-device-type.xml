@@ -28,6 +28,124 @@
   <copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
+      <system value="urn:iso:std:iso:11073:10101"/>
+      <concept>
+        <code value="528391"/>
+        <display value="Blood Pressure Cuff"/>
+      </concept>
+      <concept>
+        <code value="528404"/>
+        <display value="Body Composition Analyzer"/>
+      </concept>
+      <concept>
+        <code value="528425"/>
+        <display value="Cardiovascular Device"/>
+      </concept>
+      <concept>
+        <code value="528402"/>
+        <display value="Coagulation meter"/>
+      </concept>
+      <concept>
+        <code value="528409"/>
+        <display value="Continuous Glucose Monitor"/>
+      </concept>
+      <concept>
+        <code value="528390"/>
+        <display value="Electro cardiograph"/>
+      </concept>
+      <concept>
+        <code value="528457"/>
+        <display value="Generic 20601 Device"/>
+      </concept>
+      <concept>
+        <code value="528401"/>
+        <display value="Glucose Monitor"/>
+      </concept>
+      <concept>
+        <code value="528455"/>
+        <display value="Independent Activity/Living Hub"/>
+      </concept>
+      <concept>
+        <code value="528403"/>
+        <display value="Insulin Pump"/>
+      </concept>
+      <concept>
+        <code value="528405"/>
+        <display value="Peak Flow meter"/>
+      </concept>
+      <concept>
+        <code value="528388"/>
+        <display value="Pulse Oximeter"/>
+      </concept>
+      <concept>
+        <code value="528397"/>
+        <display value="Respiration rate"/>
+      </concept>
+      <concept>
+        <code value="528408"/>
+        <display value="Sleep Apnea Breathing Equipment"/>
+      </concept>
+      <concept>
+        <code value="528426"/>
+        <display value="Strength Equipment"/>
+      </concept>
+      <concept>
+        <code value="528392"/>
+        <display value="Thermometer"/>
+      </concept>
+      <concept>
+        <code value="528399"/>
+        <display value="Weight Scale"/>
+      </concept>
+    </include>
+    <include>
+      <system value="urn:iso:std:iso:11073:10101"/>
+      <concept>
+        <code value="38017"/>
+        <display value="Dry salt inhalation therapy device"/>
+      </concept>
+      <concept>
+        <code value="38663"/>
+        <display value="Flexible video nephroscope"/>
+      </concept>
+      <concept>
+        <code value="42347"/>
+        <display value="Dental implant, endosseous, partially-embedded"/>
+      </concept>
+      <concept>
+        <code value="46352"/>
+        <display value="Bare-metal intracranial vascular stent"/>
+      </concept>
+      <concept>
+        <code value="47264"/>
+        <display value="Dual-chamber implantable pacemaker, demand"/>
+      </concept>
+      <concept>
+        <code value="62163"/>
+        <display value="Intrauterine cannula, reusable"/>
+      </concept>
+      <concept>
+        <code value="62260"/>
+        <display value="Air-conduction hearing aid acoustic tube"/>
+      </concept>
+      <concept>
+        <code value="62423"/>
+        <display value="Spinal cord/peripheral nerve implantable analgesic electrical stimulation system lead, wired connection"/>
+      </concept>
+      <concept>
+        <code value="62414"/>
+        <display value="Blue-light phototherapy lamp, home-use"/>
+      </concept>
+      <concept>
+        <code value="64587"/>
+        <display value="Uncoated knee femur prosthesis, ceramic"/>
+      </concept>
+      <concept>
+        <code value="64992"/>
+        <display value="ADAMTS13 activity IVD, kit, chemiluminescent immunoassay"/>
+      </concept>
+    </include>
+    <include>
       <system value="http://snomed.info/sct"/>
       <filter>
         <property value="concept"/>
