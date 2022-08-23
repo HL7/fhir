@@ -1033,6 +1033,18 @@ Each profile can be thought of in terms of the set of instances that conform to 
  <li>Identical sets: the set of resources that conform to A is the same as the set of resource that conform to B and the set of resources that don't conform to A is the same as the set of resources that don't conform to B</li>
 </ol>
 <p>
+The following guidance for designing profiles will maintain broader compatibility of resource instances across diverse
+profiles and minimize non-overlapping profiles of a given resource type:
+</p>
+<ul>
+  <li>Omit elements from the profile if they are not required for a specific use case. Profile authors are discouraged
+    from prohibiting the element (min= 0).</li>
+  <li>When profiling coded values, profile authors are encouraged to allow additional Codings in an instance, and use <a
+      href="terminologies.html#extensible">extensible</a> and <a href="terminologies.html#preferred">preferred</a>
+        bindings instead of <a href="terminologies.html#required">required</a> bindings when possible.</li>
+</ul>
+
+<p>
 Profiles can be compared to determine their compatibility. See <a href="https://confluence.hl7.org/display/FHIR/Comparing+Profiles">Comparing Profiles</a> on the HL7 Confluence page.
 </p>
 
