@@ -212,6 +212,7 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
+        </input>
         <output>  <!-- 0..* Outputs for the analysis event -->
             <file>
                 <reference value="DocumentReference/genomicVCFfile"/>
