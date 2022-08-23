@@ -6,13 +6,15 @@
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
+  <!-- <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
       
       
-      <p>This code system http://hl7.org/fhir/biologicallyderived-product-codes is a subset of the codes defined in http://terminology.hl7.org/CodeSystem/ib</p>
+      
+      <p>This code system http://hl7.org/fhir/biologicallyderived-product-codes is a subset of the codes defined Example includes codes from https://www.iccbba.org and https://www.isbt128.org.</p>
+      
       
       
       
@@ -20,7 +22,9 @@
         
         
         
+        
         <tr>
+          
           
           
           
@@ -28,7 +32,9 @@
             
             
             
+            
             <b>Code</b>
+          
           
           
           
@@ -36,7 +42,9 @@
           
           
           
+          
           <td>
+            
             
             
             
@@ -44,7 +52,9 @@
           
           
           
+          
           </td>
+          
           
           
           
@@ -52,7 +62,9 @@
             
             
             
+            
             <b>Definition</b>
+          
           
           
           
@@ -60,11 +72,14 @@
         
         
         
+        
         </tr>
         
         
         
+        
         <tr>
+          
           
           
           
@@ -72,7 +87,9 @@
             
             
             
+            
             <a name="product-code-hpc-apheresis-citrate-refrig-mob"> </a>
+          
           
           
           
@@ -80,11 +97,14 @@
           
           
           
-          <td>HPC, APHERESIS/Citrate/XX/refg/Mobilized</td>
-          
-          
           
           <td>HPC, APHERESIS/Citrate/XX/refg/Mobilized</td>
+          
+          
+          
+          
+          <td>HPC, APHERESIS/Citrate/XX/refg/Mobilized</td>
+        
         
         
         
@@ -92,7 +112,9 @@
 
 
         
+        
         <tr>
+          
           
           
           
@@ -100,11 +122,14 @@
             
             
             
+            
             <a name="product-code-hpc-apheresis-10-percent"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -112,7 +137,9 @@
           
           
           
+          
           <td>HPC, Apheresis product, 10% DMSO, mobilized, cryopreserved at &lt;=-120C</td>
+        
         
         
         
@@ -120,7 +147,9 @@
         
         
         
+        
         <tr>
+          
           
           
           
@@ -128,11 +157,14 @@
             
             
             
+            
             <a name="product-code-hpc-apheresis-5-percent"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -140,7 +172,9 @@
           
           
           
+          
           <td>HPC, Apheresis product, 5% DMSO, mobilized, cryopreserved at &lt;=-120C</td>
+        
         
         
         
@@ -148,7 +182,9 @@
         
         
         
+        
         <tr>
+          
           
           
           
@@ -156,11 +192,14 @@
             
             
             
+            
             <a name="product-code-hpc-apheresis-cd34"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -168,7 +207,9 @@
           
           
           
+          
           <td>HPC, Apheresis product, third party components added, other additives added, mobilized, CD34 enriched, stored at refrigeration temperatures</td>
+        
         
         
         
@@ -176,7 +217,9 @@
         
         
         
+        
         <tr>
+          
           
           
           
@@ -184,11 +227,14 @@
             
             
             
+            
             <a name="product-code-HPC-marrow-plasma-reduced"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -196,7 +242,9 @@
           
           
           
+          
           <td>HPC, Marrow, plasma reduced, stored at room temperature</td>
+        
         
         
         
@@ -204,7 +252,9 @@
         
         
         
+        
         <tr>
+          
           
           
           
@@ -212,11 +262,14 @@
             
             
             
+            
             <a name="product-code-hpc-apheresis-10-percent-RBC-reduced"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -224,7 +277,9 @@
           
           
           
+          
           <td>HPC, Marrow, 10% DMSO, third party components added, RBC reduced, cryopreserved at &lt;=-150C</td>
+        
         
         
         
@@ -232,7 +287,9 @@
 
 
          
+        
         <tr>
+          
           
           
           
@@ -240,11 +297,14 @@
             
             
             
+            
             <a name="product-code-hpc-apheresis-red-cells-cpd"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -252,14 +312,18 @@
           
           
           
+          
           <td>RRED BLOOD CELLS|CPD&gt;AS5/450mL/refg|Irr|ResLeu</td>
+        
         
         
         
         </tr>
 
         
+        
         <tr>
+          
           
           
           
@@ -267,11 +331,14 @@
             
             
             
+            
             <a name="product-code-hpc-apheresis-red-cells-acd"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -279,14 +346,18 @@
           
           
           
+          
           <td>RED BLOOD CELLS Apheresis product, ACD-A, Irradiated,1st container, stored at refrigeration temperatures</td>
+        
         
         
         
         </tr>
 
         
+        
         <tr>
+          
           
           
           
@@ -294,7 +365,9 @@
             
             
             
+            
             <a name="product-code-bone-femur-right-radiation-frozen"> </a>
+          
           
           
           
@@ -302,7 +375,9 @@
           
           
           
+          
           <td>BONE, FEMUR|Frozen|Right|Radiation sterilization</td>
+          
           
           
           
@@ -310,7 +385,9 @@
         
         
         
+        
         </tr>
+      
       
       
       
@@ -318,8 +395,9 @@
     
     
     
+    
     </div>
-  </text>
+  </text> -->
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -336,7 +414,7 @@
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="BiologicallyDerivedProductCodes"/>
-  <title value="Biologically Derived Product Codes"/>
+  <title value="BiologicallyDerivedProductCodes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -356,42 +434,42 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-codes"/>
   <content value="example"/>
   <concept>
-    <code value="E0398"/>
+    <code value="e0398"/>
     <display value="RED BLOOD CELLS|CPD&gt;AS5/450mL/refg|Irr|ResLeu"/>
     <definition value="RED BLOOD CELLS|CPD&gt;AS5/450mL/refg|Irr|ResLeu"/>
   </concept>
   <concept>
-    <code value="S1128"/>
+    <code value="s1128"/>
     <display value="HPC, APHERESIS/Citrate/XX/refg/Mobilized"/>
     <definition value="HPC, APHERESIS/Citrate/XX/refg/Mobilized"/>
   </concept>
   <concept>
-    <code value="S1194"/>
+    <code value="s1194"/>
     <display value="HPC, APHERESIS|NS/XX/&lt;=-120C|10% DMSO|Cryopreserved|Mobilized"/>
     <definition value="HPC, Apheresis product, 10% DMSO, mobilized, cryopreserved at &lt;=-120C"/>
   </concept>
   <concept>
-    <code value="S1195"/>
+    <code value="s1195"/>
     <display value="HPC, APHERESIS|NS/XX/&lt;=-120C|5% DMSO|Cryopreserved|Mobilized"/>
     <definition value="HPC, Apheresis product, 5% DMSO, mobilized, cryopreserved at &lt;=-120C"/>
   </concept>
   <concept>
-    <code value="S1310"/>
+    <code value="s1310"/>
     <display value="HPC, APHERESIS|None/XX/refg|3rd Party Comp:Yes|Other Additives:Yes|Mobilized|CD34 enriched"/>
     <definition value="HPC, Apheresis product, third party components added, other additives added, mobilized, CD34 enriched, stored at refrigeration temperatures"/>
   </concept>
   <concept>
-    <code value="S1398"/>
+    <code value="s1398"/>
     <display value="HPC, MARROW|NS/XX/rt|Plasma reduced"/>
     <definition value="HPC, Marrow, plasma reduced, stored at room temperature"/>
   </concept>
   <concept>
-    <code value="S2598"/>
+    <code value="s2598"/>
     <display value="HPC, MARROW|NS/XX/&lt;=-150C|10% DMSO|3rd Party Comp:Yes|Cryopreserved|RBC reduced"/>
     <definition value="HPC, MARROW|NS/XX/&lt;=-150C|10% DMSO|3rd Party Comp:Yes|Cryopreserved|RBC reduced"/>
   </concept>
   <concept>
-    <code value="E4377"/>
+    <code value="e4377"/>
     <display value="Apheresis RED BLOOD CELLS|ACD-A/XX/refg|Irradiated|1st container"/>
     <definition value="RED BLOOD CELLS Apheresis product, ACD-A, Irradiated,1st container, stored at refrigeration temperatures"/>
   </concept>
