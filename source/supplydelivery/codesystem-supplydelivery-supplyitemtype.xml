@@ -11,108 +11,252 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       
       
+      
+      
+      
+      
       <p>This code system http://hl7.org/fhir/supplydelivery-supplyitemtype defines the following codes:</p>
+      
+      
+      
+      
       
       
       <table class="codes">
         
         
+        
+        
+        
+        
         <tr>
+          
+          
+          
+          
           
           
           <td style="white-space:nowrap">
             
             
+            
+            
+            
+            
             <b>Code</b>
+          
+          
+          
+          
           
           
           </td>
           
           
+          
+          
+          
+          
           <td>
+            
+            
+            
+            
             
             
             <b>Display</b>
           
           
+          
+          
+          
+          
           </td>
+          
+          
+          
+          
           
           
           <td>
             
             
+            
+            
+            
+            
             <b>Definition</b>
+          
+          
+          
+          
           
           
           </td>
         
         
+        
+        
+        
+        
         </tr>
         
         
+        
+        
+        
+        
         <tr>
+          
+          
+          
+          
           
           
           <td style="white-space:nowrap">medication
             
             
-            <a name="supplydelivery-supplyitemtype"> </a>
+            
+            
+            
+            
+            <a name="supplydelivery-supplyitemtype-medication"> </a>
+          
+          
+          
+          
           
           
           </td>
+          
+          
+          
+          
           
           
           <td>Medication</td>
           
           
+          
+          
+          
+          
           <td>Supply is a kind of medication.</td>
+        
+        
+        
+        
         
         
         </tr>
         
         
+        
+        
+        
+        
         <tr>
+          
+          
+          
+          
           
           
           <td style="white-space:nowrap">device
             
             
-            <a name="supplydelivery-supplyitemtype"> </a>
+            
+            
+            
+            
+            <a name="supplydelivery-supplyitemtype-device"> </a>
+          
+          
+          
+          
           
           
           </td>
+          
+          
+          
+          
           
           
           <td>Device</td>
           
           
+          
+          
+          
+          
           <td>What is supplied (or requested) is a device.</td>
+        
+        
+        
+        
         
         
         </tr>
         
         
+        
+        
+        
+        
         <tr>
+          
+          
+          
+          
           
           
           <td style="white-space:nowrap">biologicallyderivedproduct
             
             
-            <a name="supplydelivery-supplyitemtype"> </a>
+            
+            
+            
+            
+            <a name="supplydelivery-supplyitemtype-biologicallyderivedproduct"> </a>
+          
+          
+          
+          
           
           
           </td>
           
           
+          
+          
+          
+          
           <td>Biologically Derived Product</td>
+          
+          
+          
+          
           
           
           <td>Supply is a kind of biologically derived product.</td>
         
         
+        
+        
+        
+        
         </tr>  
       
+      
+      
+      
+      
       </table>
+    
+    
+    
+    
     
     
     </div>
@@ -127,6 +271,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/supplydelivery-supplyitemtype"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="SupplyDeliverySupplyItemType"/>
   <title value="SupplyDeliverySupplyItemType"/>
