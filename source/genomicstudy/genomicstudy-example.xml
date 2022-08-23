@@ -86,10 +86,6 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoChild"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
