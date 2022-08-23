@@ -247,6 +247,13 @@
         <expression value="baseDefinition.exists() implies derivation.exists()"/>
         <xpath value="not(exists(f:baseDefinition)) or exists(f:derivation)"/>
       </constraint>
+      <constraint>
+        <key value="sdf-29"/>
+        <severity value="warning"/>
+        <human value="Elements in Resources must have a min cardinality or 0 or 1 and a max cardinality of 1 or *"/>
+        <expression value="(kind in 'resource' | 'complex-type' and specialization = 'derivation') implies differential.element.where((min != 0 and min != 1) or (max != '1' and max != '*')).empty()"/>
+        <xpath value="not(exists(f:baseDefinition)) or exists(f:derivation)"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
