@@ -650,15 +650,14 @@ If no MIN value set is specified, then there is no guidance for implementers reg
 
 
 <a name="max"></a>
-<h3>Max Value Set</h3>
+<h3>Maximum Value Set</h3>
 <p>
-When binding a ValueSet to an element, values may be limited by declaring a maximum value set with the extension:
-maxValueSet http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet
+When binding a ValueSet to an element, values may be limited by declaring a maximum value set with the <a href="extension-elementdefinition-maxvalueset.html">maxiumumValueSet extension</a>.
 </p>
-<ul>
- <li>When the binding strength is extensible or preferred, and a maximum ValueSet is defined,
- any codes provided beyond the bound value set must be in the expansion of the maxValueSet.</li>
-</ul>
+<p>
+A binding may be further constrained to declare a value set for use when the binding strength is 'extensible' or 'preferred'. This value set is the value set from which additional codes can be taken from. This defines a 'required' binding over the top of the 'extensible' binding.
+</p>
+
 
 <a name="other"></a>
 <h2>Other notes</h2>
@@ -671,6 +670,7 @@ may be sealed by defining a simple list of enumerated codes, or it may include
 codes by their properties, along with a non-version specific reference to an
 underlying code system, in which case the list of valid concepts may change over time.
 </li>
+<li><a href="extension-elementdefinition-minvalueset.html">Extension minValueSet</a> may be used to define the minimum value set that is required for conformance. </li>
 </ul>
 <a name="strings"></a>
 <h3>Binding String Values</h3>

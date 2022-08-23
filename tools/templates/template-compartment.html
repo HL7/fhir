@@ -13,7 +13,8 @@
 <div class="col-12">
 
 <%pageheader%>
-<h1>Compartment <%comp-title%></h1>
+
+<h2>Compartment <%comp-title%></h2>
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 <table class="grid">
@@ -24,12 +25,18 @@
  <tr><td>Formal Definition</td><td><a href="compartmentdefinition.html">CompartmentDefinition</a>resource: <a href="compartmentdefinition-<%comp-name%>.xml.html">XML</a> or <a href="compartmentdefinition-<%comp-name%>.json.html">JSON</a></td></tr>
 </table>
 
-<p>
-Resource based membership rules:
-</p>
+<h3>
+Resource based membership rules.
+</h3>
 
 <%comp-resources%>
-
+<p>
+All resources not explicitly listed above are not defined
+as part of the compartment because they do not have a relevant
+element, or an appropriate specified search parameter.  
+Some non-listed resources may still be relevant for certain 
+compartment uses, such as access control - e.g. Binary.
+</p>
 <p>
 See <a href="compartmentdefinition.html"> information about compartments</a>.  
 </p>

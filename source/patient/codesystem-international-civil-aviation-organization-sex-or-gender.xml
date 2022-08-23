@@ -11,7 +11,7 @@
   <url value="http://hl7.org/fhir/international-civil-aviation-organization-sex-or-gender"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+    <value value="urn:oid:2.16.840.1.113883.6.348"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="International Civil Aviation Organization Sex or Gender"/>

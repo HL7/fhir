@@ -190,6 +190,7 @@
       </type>
       <isModifier value="true"/>
       <isModifierReason value="Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them"/>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A"/>
