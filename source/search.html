@@ -1814,46 +1814,51 @@ the following prefixes are used:
  </tr>
  <tr>
 	<td><code>ne</code></td>
-	<td>the value for the parameter in the resource is not equal to the provided value</td>
+	<td>the value for the parameter in the resource exists and is not equal to the provided value</td>
   <td>the range of the search value does not fully contain the range of the target value</td>
  </tr>
  <tr>
 	<td><code>gt</code></td>
-	<td>the value for the parameter in the resource is greater than the provided value</td>
+	<td>the value for the parameter in the resource exists and is greater than the provided value</td>
   <td>the range above the search value intersects (i.e. overlaps) with the range of the target value</td>
  </tr>
  <tr>
 	<td><code>lt</code></td>
-	<td>the value for the parameter in the resource is less than the provided value</td>
+	<td>the value for the parameter in the resource exists and is less than the provided value</td>
   <td>the range below the search value intersects (i.e. overlaps) with the range of the target value</td>
  </tr>
  <tr>
 	<td><code>ge</code></td>
-	<td>the value for the parameter in the resource is greater or equal to the provided value</td>
+	<td>the value for the parameter in the resource exists and is greater or equal to the provided value</td>
   <td>the range above the search value intersects (i.e. overlaps) with the range of the target value, or the range of the search value fully contains the range of the target value</td>
  </tr>
  <tr>
 	<td><code>le</code></td>
-	<td>the value for the parameter in the resource is less or equal to the provided value</td>
+	<td>the value for the parameter in the resource exists and is less or equal to the provided value</td>
   <td>the range below the search value intersects (i.e. overlaps) with the range of the target value or the range of the search value fully contains the range of the target value</td>
  </tr>
  <tr>
 	<td><code>sa</code></td>
-	<td>the value for the parameter in the resource starts after the provided value</td>
+	<td>the value for the parameter in the resource exists and starts after the provided value</td>
   <td>the range of the search value does not overlap with the range of the target value, and the range above the search value contains the range of the target value</td>
  </tr>
  <tr>
 	<td><code>eb</code></td>
-	<td>the value for the parameter in the resource ends before the provided value</td>
+	<td>the value for the parameter in the resource exists and ends before the provided value</td>
   <td>the range of the search value does not overlap with the range of the target value, and the range below the search value contains the range of the target value</td>
  </tr>
  <tr>
 	<td><code>ap</code></td>
-	<td>the value for the parameter in the resource is approximately the same to the provided value.<br/>
+	<td>the value for the parameter in the resource exists and is approximately the same to the provided value.<br/>
 	Note that the recommended value for the approximation is 10% of the stated value (or for a date, 10% of the gap between now and the date), but systems may choose other values where appropriate</td>
   <td>the range of the search value overlaps with the range of the target value</td>
  </tr>
 </table>
+<p>
+  Note that prefixes always test against values present in elements.  In all cases, a prefix-based test against an
+  element that does not exist will fail the test.  To search for elements missing values, the use of search modifiers
+  is required - either <a href="#modifiermissing"><code>missing</code></a> or <a href="#modifiernot"><code>not</code></a>.
+</p>
 <p>
 If no prefix is present, the prefix <code>eq</code> is assumed. Note that the way search parameters operate
 is not the same as the way the operations on two numbers work in a mathematical sense. <code>sa</code> (<code>starts-after</code>) and
