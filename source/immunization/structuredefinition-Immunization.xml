@@ -920,96 +920,6 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Immunization.education">
-      <path value="Immunization.education"/>
-      <short value="Educational material presented to patient"/>
-      <definition value="Educational material presented to the patient (or guardian) at the time of vaccine administration."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <constraint>
-        <key value="imm-1"/>
-        <severity value="error"/>
-        <human value="One of documentType or reference SHALL be present"/>
-        <expression value="documentType.exists() or reference.exists()"/>
-        <xpath value="exists(f:documentType) or exists(f:reference)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
-      </constraint>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="Immunization.education.documentType">
-      <path value="Immunization.education.documentType"/>
-      <short value="Educational material document identifier"/>
-      <definition value="Identifier of the material presented to the patient."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-5 : OBX-3 = 69764-9"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="Immunization.education.reference">
-      <path value="Immunization.education.reference"/>
-      <short value="Educational material reference pointer"/>
-      <definition value="Reference pointer to the educational material given to the patient if the information was on line."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="Immunization.education.publicationDate">
-      <path value="Immunization.education.publicationDate"/>
-      <short value="Educational material publication date"/>
-      <definition value="Date the educational material was published."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-5 : OBX-3 = 29768-9"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="Immunization.education.presentationDate">
-      <path value="Immunization.education.presentationDate"/>
-      <short value="Educational material presentation date"/>
-      <definition value="Date the educational material was given to the patient."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-5 : OBX-3 = 29769-7"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
     <element id="Immunization.programEligibility">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="#5758; #32397."/>
@@ -1243,7 +1153,7 @@
         <valueString value="#19487 (cardinality changed), #15972 (changes to the value set)."/>
       </extension>
       <path value="Immunization.protocolApplied.targetDisease"/>
-      <short value="Vaccine preventatable disease being targetted"/>
+      <short value="Vaccine preventatable disease being targeted"/>
       <definition value="The vaccine preventable disease the dose is being administered against."/>
       <min value="0"/>
       <max value="*"/>
