@@ -716,7 +716,7 @@
       <path value="NamingSystem.uniqueId.period"/>
       <short value="When is identifier valid?"/>
       <definition value="Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic."/>
-      <comment value="Within a registry, a given identifier should only be &quot;active&quot; for a single namespace at a time.  (Ideally, an identifier should only ever be associated with a single namespace across all time)."/>
+      <comment value="Within a registry, a given identifier should only be &quot;active&quot; for a single namespace at a time.  (Ideally, an identifier should only ever be associated with a single namespace across all time).&#xA;&#xA;The nuance of identifier deprecation is not represented with a separate element. When a determination is made that an identifier should not be used, the validity period end date is updated with the date the identifier is deemed to be deprecated. The identifier should no longer be used once the period end date is reached."/>
       <min value="0"/>
       <max value="1"/>
       <type>

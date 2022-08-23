@@ -41,7 +41,7 @@
       <path value="Extension"/>
       <short value="Validity Period"/>
       <definition value="The period in which the catalog is valid."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
     </element>
     <element id="Extension.extension">

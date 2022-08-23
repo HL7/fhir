@@ -424,10 +424,18 @@ SHALL be interpreted to mean the <a href="xml.html">XML format</a>, the codes <c
 <code>html</code> and <code>text/html</code> are allowed.
 </p>
 <p>
-Note: the <code>_format</code> parameter does not override the <code>Content-Type</code> header for the
-type of the body of a POST request. If neither the accept header nor the _format parameter are specified, the MIME-type
-of the content returned by the server is undefined and may vary.
+  Implementation Notes:
 </p>
+<ul>
+  <li>If a client provides a generic mime type in the Accept header (application/xml, text/json, or application/json),
+    the server SHOULD respond with the requested mime type, using the <a href="xml.html">XML</a> or <a href="json.html">JSON</a>
+    formats described in this specification as the best representation for the named mime type 
+    (though see the note on the <a href="binary.html#rest">Binary resource</a>).</li>
+<li>the <code>_format</code> parameter does not override the <code>Content-Type</code> header for the
+type of the body of a POST request. If neither the accept header nor the _format parameter are specified, the MIME-type
+of the content returned by the server is undefined and may vary</li>
+</ul>
+
 <p><b>_pretty</b></p>
 <p>
 Clients that wish to request for pretty-printed resources (either in JSON or XML) can

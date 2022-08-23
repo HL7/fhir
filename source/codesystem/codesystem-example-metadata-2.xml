@@ -4,7 +4,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <url value="http://hl7.org/fhir/CodeSystem/example-metadata"/>
+  <url value="http://hl7.org/fhir/CodeSystem/example-metadata-2"/>
   <version value="20220721"/>
 
   <name value="ExampleMetadata"/>

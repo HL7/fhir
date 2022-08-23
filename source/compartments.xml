@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Jose Costa Teixeira</LastAuthor>
+  <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
-  <LastSaved>2020-04-30T20:54:29Z</LastSaved>
+  <LastSaved>2022-08-17T12:02:53Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -13,11 +13,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  
-  
-  
-  
+
+
+
+
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -528,7 +529,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Patient</Data></Cell>
-    <Cell><Data ss:Type="String">link</Data></Cell>
+    <Cell><Data ss:Type="String">{def} | link</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">link</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">general-practitioner</Data></Cell>
    </Row>
@@ -598,7 +599,6 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ResearchStudy</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">principalinvestigator</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ResearchSubject</Data></Cell>
@@ -830,9 +830,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>63</TopRowBottomPane>
    <ActivePane>2</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>

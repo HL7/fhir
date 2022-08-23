@@ -39,5 +39,10 @@
         <reference value="StructureDefinition/capabilitystatement-websocket"/>
       </reference>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/capabilitystatement-declared-profile"/>
+      </reference>
+    </resource>
   </definition>
 </ImplementationGuide>

@@ -111,62 +111,6 @@ If an element has no children, then it is always omitted from the resource,
 as opposed to optionally present without any content.
 </p>
 
-<a name="its"></a>
-<a name="xml"></a>
-<a name="json"></a>
-<h3>XML and JSON Representation of Elements</h3>
-
-<table class="grid">
-<tr>
-<td style="width:50%">
-<p>
-<b>XML</b>
-</p>
-<p>
-Elements are represented by an XML element. The name of the element comes from
-the context in which it is used, not from the type. The internal <code>id</code>
-is represented as an attribute (similar to xml:id, but see below about scope).
-Extensions are represented as XML elements. E.g., for example, where the element
-is named <code>use</code>:
-</p>
-<pre name="xml">
-  &lt;use id=&quot;[internal id]&quot;&gt;
-    &lt;extension url=&quot;...&quot;/&gt;
-      ... if there are any extensions
-    &lt;extension&gt;
-    .. elements for sub-type...
-  &lt;/use&gt;
-</pre>
-</td><td style="width:50%>
-<p>
-<b>JSON</b>
-</p>
-<p>
-Elements (except for primitive types, see below) are represented by a JSON
-object property. The name of the property comes from
-the context in which it is used, not from the type. The internal <code>id</code>
-is represented as a JSON string property named "id". Extensions are represented
-in a JSON array of objects named "extension". E.g., for example, where the element
-is named <code>use</code>:
-</p>
-<pre class="json">
-  {
-    "use" : {
-      "id" : "[internal id]",
-      "extension" : [
-        ..extensions, if present...
-      ],
-      .. properties for sub-type...
-    }
-  }
-</pre>
-</td></tr></table>
-<p>
-Note that there are special rules for representation of Primitive types - see below.
-</p>
-
-
-
 <a name="id"></a>
 <h3>Internal Id Scope</h3>
 
@@ -277,56 +221,6 @@ defined primitives types.
 [%adt PrimitiveType 1%]
 <p>&nbsp;</p>
 
-<a name="itsprim"></a>
-<a name="xmlprim"></a>
-<a name="jsonprim"></a>
-<h3>XML and JSON Representation of Primitive Types</h3>
-
-<table class="grid">
-<tr>
-<td  style="width:50%>
-<p>
-<b>XML</b>
-</p>
-<p>
-The actual primitive value appears as an XML attribute named <code>value</code>.
-For example, a property of type <a href="datatypes.html#code">code</a> named
-<code>status</code> will be represented like this:
-</p>
-<pre name="xml">
-  &lt;status id=&quot;[internal id]&quot; value="[value of code]"&quot;&gt;
-    &lt;extension url=&quot;...&quot;/&gt;
-      <!-- if there are any extensions -->
-    &lt;extension&gt;
-  &lt;/status&gt;
-</pre>
-</td><td  style="width:50%>
-<p>
-<b>JSON</b>
-</p>
-<p>
-The actual primitive value appears as a JSON string or number property with
-the name of the element. If an internal id or extensions are present,
-they appear as a JSON object with the name of the primitive value property with
-"_" prepended. For example, a property of type <a href="datatypes.html#code">code</a> named
-<code>status</code> will be represented like this:
-</p>
-<pre class="json">
-  {
-    "status" : "[value of code]",
-    "_status" : {
-      "id" : "[internal id]",
-      "extension" : [
-        ... extensions, if present ...
-      ]
-    }
-  }
-</pre>
-<p>
-The exact use of this pattern is <a href="json.html#primitive">described here</a>.
-</p>
-
-</td></tr></table>
 
 [%file newfooter%]
 

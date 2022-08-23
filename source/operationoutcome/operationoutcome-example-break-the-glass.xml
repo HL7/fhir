@@ -22,8 +22,8 @@ protocol. The correct use of this is discussed on the [security labels](security
         todo: get a more correct concept defined -->
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
-        <code value="ETREAT"/>
-        <display value="Emergency Treatment"/>
+        <code value="BTG"/>
+        <display value="Break the glass"/>
       </coding>
       <text value="Additional information may be available using the Break-The-Glass Protocol"/>    
     </details> 

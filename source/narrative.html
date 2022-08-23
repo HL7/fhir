@@ -16,7 +16,6 @@
 <a name="root"></a>
 <a name="Narrative"></a>
 <a name="narrative"></a>
-<a name="xhtml"></a>
 <h2>Narrative</h2>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 [%normative page infrastructure%]
@@ -26,6 +25,10 @@ Any resource that is a <a href="domainresource.html">DomainResource</a> (all res
 may include a human-readable narrative that contains a summary of the resource
 and may be used to represent the content of the resource to a human.
 </p>
+<p>
+The narrative is an XHTML fragment with a flag to indicate its relationship to the data:
+</p>
+  [%dt Narrative 1%]
 <p>
 If narrative is present with a status other than 'empty', it SHALL reflect all content
 needed for a human to understand the essential clinical and business information for
@@ -81,11 +84,31 @@ A resource MAY only have text with little or no additional discrete data
 legacy systems where information is captured as a "text blob" or where text is additionally
 entered raw or narrated and encoded information is added later.
 </p>
-<p>
-The narrative is an XHTML fragment with a flag to indicate its relationship to the data:
-</p>
-[%dt Narrative 1%]
+
 <a name="security"></a><a name="rules"></a>
+<a name="xhtml"></a>
+<h3>XHTML Content</h3>
+
+<table class="list">
+  <tr>
+    <th>FHIR Name</th>
+    <th>Value Domain</th>
+    <th>XML Representation</th>
+    <th>JSON representation</th>
+  </tr>
+  <tr>
+    <td>xhtml</td>
+    <td>XHTML with rules as defined below. No extensions are possible, and the id property becomes and xml:id on the root div</td>
+    <td>xhtml:div - XHTML is included directly</td>
+    <td>JSON string encoding the XHTML</td>
+  </tr>
+  <tr>
+    <td style="border-top: 0px silver solid"></td>
+    <td style="border-top: 0px silver solid">There is no intrinsic length limit</td>
+    <td style="border-top: 0px silver solid"><a style="color: grey" href="xhtml.profile.xml.html">XML Definition</a></td>
+    <td style="border-top: 0px silver solid"><a style="color: grey" href="xhtml.profile.json.html">JSON Definition</a></td>
+  </tr>
+</table>  
 <p>
 The contents of the <i>div</i> element are an XHTML fragment that SHALL contain only the basic HTML formatting elements described in
 chapters 7-11 (except section 4 of chapter 9) and 15 of the HTML 4.0 standard, &lt;a&gt; elements (either name or href),
@@ -345,13 +368,16 @@ and the composition that represents it:
     &lt;fullUrl value="http://example.org/fhir/Composition/abcdefghij"/&gt;
     &lt;Composition&gt;
       &lt;id value="c1"/&gt;
-      &lt;text&gt;
-        &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
-          ...
-          &lt;p&gt;There is a history of &lt;span id="a1"&gt;Asthma&lt;/span&gt;&lt;/p&gt;
-          ...
-        &lt;/div&gt;
-      &lt;/text&gt;
+      &lt;section&gt;
+        ...
+        &lt;text&gt;
+          &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
+            ...
+            &lt;p&gt;There is a history of &lt;span id="a1"&gt;Asthma&lt;/span&gt;&lt;/p&gt;
+            ...
+          &lt;/div&gt;
+        &lt;/text&gt;
+      &lt;/section&gt;
     &lt;/Composition&gt;
   &lt;/entry&gt;
   &lt;entry&gt;

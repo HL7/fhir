@@ -238,6 +238,41 @@
     </resource>
   </entry>
   <entry>
+    <fullUrl value="http://hl7.org/fhir/NamingSystem/clia-lab"/>
+    <resource>
+      <NamingSystem>
+        <id value="clia-lab"/>
+        <url value="http://hl7.org/fhir/NamingSystem/clia-lab"/>
+        <name value="CLIA Lab identifier"/>
+        <status value="active"/>
+        <kind value="identifier"/>
+        <date value="2022-08-18"/>
+        <publisher value="HL7"/>
+        <contact>  
+          <telecom>
+            <system value="url"/>
+            <value value="https://www.cdc.gov/clia/index.html"/>
+          </telecom>
+        </contact>
+        <description value="CLIA Laboratory Identifier"/>
+        <jurisdiction>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+          </coding>
+        </jurisdiction>
+        <uniqueId>
+          <type value="oid"/>
+          <value value="2.16.840.1.113883.4.7"/>
+        </uniqueId>
+        <uniqueId>
+          <type value="uri"/>
+          <value value="urn:oid:2.16.840.1.113883.4.7"/>
+        </uniqueId>
+      </NamingSystem>
+    </resource>
+  </entry>  
+  <entry>
     <fullUrl value="http://hl7.org/fhir/NamingSystem/4.3.2"/>
     <resource>
       <NamingSystem>

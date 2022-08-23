@@ -41,7 +41,8 @@ by these extensions isn't known in the data source.
   If the specific type of instantiation isn't explicit in a mapped element from a previous release or external specification, the meaning(s) can often be
   determined by looking at the data, the type of resource, and business conventions.  'compliesWith' and 'adheresTo' can in principle be validated.  
   'shallComplyWith' will appear on requests that have minimal detail about execution.  If it's not possible to determine which extension, the
-  <a href="">inter-version extensions</a> mechanism can be used to propoagate the old-style extension into a newer FHIR release or a custom extension can be used.
+  <a href="versions.html#extensions">inter-version extensions</a> mechanism can be used to propoagate the old-style extension into a newer FHIR release or a 
+  custom extension can be used.
 </p>
 
 <h3>Additional guidance on these extensions</h3>

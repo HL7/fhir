@@ -135,6 +135,7 @@
       <path value="OperationOutcome.issue.code"/>
       <short value="Error or warning code"/>
       <definition value="Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide its own code for the error in the details element."/>
+      <comment value="Code values should align with the severity.  For example, a code of ```forbidden``` generally wouldn't make sense with a severity of ```information``` or ```warning```.  Similarly, a code of ```informational``` would generally not make sense with a severity of ```fatal``` or ```error```.  However, there are no strict rules about what severities must be used with which codes.  For example, ```code-invalid``` might be a ```warning``` or ```error```, depending on the context"/>
       <requirements value="Expresses the issue in a human and computer-friendly way, allowing the requesting system to behave differently based on the type of issue.&#xA;&#xA;The required element provides a base level of computable interoperability across all systems for processing an outcome, allowing systems to respond appropriately regardless of the internal system error codes returned."/>
       <min value="1"/>
       <max value="1"/>

@@ -626,6 +626,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version"/>
       </binding>
     </element>
+
+
     <element id="CapabilityStatement.format">
       <path value="CapabilityStatement.format"/>
       <short value="formats supported (xml | json | ttl | mime type)"/>
@@ -644,14 +646,19 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+          <valueCanonical value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
           <valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
         </extension>
-        <strength value="required"/>
-        <description value="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+        <strength value="extensible"/>
+        <description value="Common format types for FHIR."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
       </binding>
     </element>
+
+
     <element id="CapabilityStatement.patchFormat">
       <path value="CapabilityStatement.patchFormat"/>
       <short value="Patch formats supported"/>
@@ -848,9 +855,9 @@
     </element>
     <element id="CapabilityStatement.rest.resource.profile">
       <path value="CapabilityStatement.rest.resource.profile"/>
-      <short value="Base System profile for all uses of resource"/>
-      <definition value="A specification of the profile that describes the solution&#39;s overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
-      <comment value="The profile applies to all  resources of this type - i.e. it is the superset of what is supported by the system."/>
+      <short value="System-wide profile"/>
+      <definition value="A system-wide profile that is applied across *all* instances of the resource supported by the system. For example, if declared on Observation, this profile is the *lowest common denominator* of capabilities for laboratory *and* vitals *and* other domains. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
+      <comment value="All other profiles for this type that are listed in `.rest.resource.supportedProfile` must conform to this profile."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -864,10 +871,10 @@
         <valueCode value="trial-use"/>
       </extension>
       <path value="CapabilityStatement.rest.resource.supportedProfile"/>
-      <short value="Profiles for use cases supported"/>
-      <definition value="A list of profiles that represent different use cases supported by the system. For a server, &quot;supported by the system&quot; means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
-      <comment value="Supported profiles are different than the profile that applies to a particular resource in .rest.resource.profile. The resource profile is a general statement of what features of the resource are supported overall by the system - the sum total of the facilities it supports. A supported profile is a deeper statement about the functionality of the data and services provided by the server (or used by the client). A typical case is a laboratory system that produces a set of different reports - this is the list of types of data that it publishes. A key aspect of declaring profiles here is the question of how the client converts knowledge that the server publishes this data into working with the data; the client can inspect individual resources to determine whether they conform to a particular profile, but how does it find the ones that do? It does so by searching using the _profile parameter, so any resources listed here must be valid values for the _profile resource (using the identifier in the target profile)."/>
-      <min value="0"/>
+      <short value="Use-case specific profiles"/>
+      <definition value="A list of profiles representing different use cases the system hosts/produces. A supported profile is a statement about the functionality of the data and services provided by the server (or the client) for supported use cases. For example, a system can define and declare multiple Observation profiles for laboratory observations, vital sign observations, etc. By declaring supported profiles, systems provide a way to determine whether individual resources are conformant. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
+      <comment value="Supported profiles must conform to the resource profile in the `.rest.resource.profile` element if it is present. The resource profile is a system-wide profile applied across *all* instances of the resource supported by the system. A supported profile is a statement about the functionality of the data and services provided by the server (or used by the client) for a particular set of use cases and will not necessarily apply to all data consumed or exposed by the server."/>
+         <min value="0"/>
       <max value="*"/>
       <type>
         <code value="canonical"/>
@@ -1081,7 +1088,7 @@
       <path value="CapabilityStatement.rest.resource.searchInclude"/>
       <short value="_include values supported by the server"/>
       <definition value="A list of _include values supported by the server."/>
-      <comment value="If this list is empty, the server does not support includes."/>
+    <comment value="Documenting [`_include`](http://hl7.org/fhir/R4/search.html#revinclude) support helps set conformance expectations for the desired system. Still, it is a level of detail that might not be exposed by production servers or clients when using CapabilityStatement to describe an actual implementation. If this list is empty, the server does not support includes. Support for *recursive* `_include` is communicated by listing the recursive includes values supported by the server in the `searchInclude` element of the &quot;root&quot; resource type. For example, to support the following search:&#xA;&#xA;`GET [base]/CarePlan?_include=CarePlan:activity-reference:DeviceRequest&amp;_include:recurse=DeviceRequest:device`&#xA;&#xA;These values would be listed as part of capabilities for &quot;CarePlan&quot;:&#xA;&#xA;&quot;searchInclude&quot; : [&quot;CarePlan:activity-reference:DeviceRequest&quot;,&quot;DeviceRequest:device&quot;],&#xA;"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1095,7 +1102,7 @@
       <path value="CapabilityStatement.rest.resource.searchRevInclude"/>
       <short value="_revinclude values supported by the server"/>
       <definition value="A list of _revinclude (reverse include) values supported by the server."/>
-      <comment value="If this list is empty, the server does not support reverse includes."/>
+      <comment value="See `CapabilityStatement.rest.resource.searchInclude` comments."/>
       <min value="0"/>
       <max value="*"/>
       <type>

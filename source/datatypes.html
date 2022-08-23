@@ -85,7 +85,9 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>true|false</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>true|false</code></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="boolean.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="boolean.profile.json.html">JSON Definition</a></td>
  </tr>
  <!-- leading 0s -->
  <tr>
@@ -93,6 +95,12 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
    <td>A signed integer in the range −2,147,483,648..2,147,483,647 (32-bit; for larger values, use decimal)</td>
    <td>xs:int, except that <b>leading 0 digits are not allowed</b></td>
    <td>JSON number (with no decimal point)</td>
+ </tr>
+ <tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Regex: <code>-?([0]|([1-9][0-9]*))</code><a style="color: grey" href="integer.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="integer.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td>integer64<a name="integer64"></a></td>
@@ -103,7 +111,9 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>[0]|[-+]?[1-9][0-9]*</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>[0]|[-+]?[1-9][0-9]*</code></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="integer64.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="integer64.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td>string<a name="string"></a></td>
@@ -113,17 +123,19 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Note that strings SHALL NOT exceed 1MB (1024*1024 characters) in size. Strings SHOULD not contain Unicode character points below 32, except for u0009 (horizontal tab), u0010 (carriage return) and u0013 (line feed).
+   <td style="border-top: 0px silver solid">Note that strings SHALL NOT exceed 1MB (1024*1024 characters) in size. Strings SHOULD not contain Unicode character points below 32, except for u0009 (horizontal tab), u0010 (carriage return) and u0013 (line feed).
 	   Leading and Trailing whitespace is allowed, but SHOULD be <a href="xml.html#whitespace">removed when using the XML format</a>.
      Note: This means that a string that consists only of whitespace could be trimmed to nothing, which would be treated as an invalid element value.  Therefore strings SHOULD always contain non-whitespace content</td>
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">This data type can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
+   <td style="border-top: 0px silver solid">This data type can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>[ \r\n\t\S]+</code> (see notes below)</td>
+   <td style="border-top: 0px silver solid">Regex: <code>[ \r\n\t\S]+</code> (see notes below)</td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="string.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="string.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td>decimal<a name="decimal"></a></td>
@@ -133,7 +145,9 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?</code></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="decimal.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="decimal.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td>uri<a name="uri"></a></td>
@@ -143,11 +157,13 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>\S*</code> (This regex is very permissive, but URIs must be valid. Implementers are welcome to use more specific regex statements for a URI in specific contexts)</td>
+   <td style="border-top: 0px silver solid">Regex: <code>\S*</code> (This regex is very permissive, but URIs must be valid. Implementers are welcome to use more specific regex statements for a URI in specific contexts)</td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="uri.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="uri.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">URIs can be absolute or relative, and may have an optional fragment identifier<br/>
+   <td style="border-top: 0px silver solid">URIs can be absolute or relative, and may have an optional fragment identifier<br/>
    This data type can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
  </tr>
  <tr>
@@ -155,6 +171,12 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
    <td>A Uniform Resource Locator (<a href="http://tools.ietf.org/html/rfc1738">RFC 1738</a>). Note URLs are accessed directly using the specified protocol. Common URL protocols are <code>http{s}:</code>, <code>ftp:</code>, <code>mailto:</code> and <code>mllp:</code>, though many others are defined</td>
     <td>xs:anyURI</td>
    <td>A JSON string - a URL</td>
+ </tr>
+ <tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Regex: <code>\S*</code></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="url.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="url.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td>canonical<a name="canonical"></a></td>
@@ -165,6 +187,12 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
    <td>A JSON string - a canonical URL</td>
  </tr>
  <tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Regex: <code>\S*</code></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="canonical.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="canonical.profile.json.html">JSON Definition</a></td>
+ </tr>
+ <tr>
    <td>base64Binary<a name="base64Binary"></a><a name="base64binary"></a></td>
    <td>A stream of bytes, base64 encoded (<a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>)</td>
    <td>xs:base64Binary</td>
@@ -172,11 +200,13 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>(\s*([0-9a-zA-Z\+\=]){4}\s*)+</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>(\s*([0-9a-zA-Z\+\=]){4}\s*)+</code></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="base64binary.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="base64binary.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">There is no specified upper limit to the size of a binary, but systems will have to impose some implementation based limit to the size they support. This should be clearly documented, though there is no computable for this at this time</td>
+   <td style="border-top: 0px silver solid">There is no specified upper limit to the size of a binary, but systems will have to impose some implementation based limit to the size they support. This should be clearly documented, though there is no computable for this at this time</td>
  </tr>
  <tr>
    <td>instant<a name="instant"></a></td>
@@ -187,11 +217,13 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Note: This type is for system times, not human times (see date and dateTime below).</td>
+   <td style="border-top: 0px silver solid">Note: This type is for system times, not human times (see date and dateTime below).</td>
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])<br/>T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))</code></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="instant.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="instant.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td>date<a name="date"></a></td>
@@ -201,7 +233,9 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
   </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?</code></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="date.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="date.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td>dateTime<a name="dateTime"></a><a name="datetime"></a></td>
@@ -212,7 +246,9 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
   </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])<br/>(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?</code></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="datetime.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="datetime.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td>time<a name="time"></a></td>
@@ -223,7 +259,9 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
   </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,3})?</code></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="time.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="time.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td>code<a name="code"></a></td>
@@ -235,9 +273,11 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
   </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>[^\s]+(\s[^\s]+)*</code><br/>
+   <td style="border-top: 0px silver solid">Regex: <code>[^\s]+(\s[^\s]+)*</code><br/>
        This data type can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
- </tr>
+    <td style="border-top: 0px silver solid"><a style="color: grey" href="code.profile.xml.html">XML Definition</a></td>
+    <td style="border-top: 0px silver solid"><a style="color: grey" href="code.profile.json.html">JSON Definition</a></td>
+  </tr>
  <tr>
    <td>oid<a name="oid"></a></td>
    <td>An OID represented as a URI (<a href="http://www.ietf.org/rfc/rfc3001.txt">RFC 3001</a>); e.g. urn:oid:1.2.3.4.5</td>
@@ -246,7 +286,9 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
   </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>urn:oid:[0-2](\.(0|[1-9][0-9]*))+</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>urn:oid:[0-2](\.(0|[1-9][0-9]*))+</code></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="oid.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="oid.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td>id<a name="id"></a></td>
@@ -256,7 +298,9 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>[%id_regex%]</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>[%id_regex%]</code></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="id.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="id.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td>markdown<a name="markdown"></a></td>
@@ -266,7 +310,9 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>\s*(\S|\s)*</code>  (can't put size limit in the regex - too large)</td>
+   <td style="border-top: 0px silver solid">Regex: <code>\s*(\S|\s)*</code>  (can't put size limit in the regex - too large)</td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="markdown.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="markdown.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td>unsignedInt<a name="unsignedInt"></a></td>
@@ -276,7 +322,9 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>[0]|([1-9][0-9]*)</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>[0]|([1-9][0-9]*)</code></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="unsignedint.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="unsignedint.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td>positiveInt<a name="positiveInt"></a></td>
@@ -286,7 +334,9 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>+?[1-9][0-9]*</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>[1-9][0-9]*</code></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="positiveint.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="positiveint.profile.json.html">JSON Definition</a></td>
  </tr>
  <tr>
    <td>uuid<a name="uuid"></a></td>
@@ -296,7 +346,9 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
   </tr>
   <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: <code>urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}</code></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="uuid.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="uuid.profile.json.html">JSON Definition</a></td>
  </tr>
 </table>
 
@@ -305,6 +357,7 @@ Notes:
 </p>
 <ul>
  <li>For all the types, the XML, JSON and Turtle representations of the primitive values are the same except for different escaping in XML and JSON</li>
+ <li>For string content,  parsers and serializers MAY retain, escape or strip unescaped non-supported UNICODE characters. If the characters are retained, a subsequent application-layer process can then determine appropriate handling based on context</li>
  <li>For decimal values, the XML special values <code>INF</code>, <code>-INF</code> and <code>NaN</code> are not allowed, and JSON is restricted to the <a href="https://www.w3.org/TR/xmlschema-2/">precision limits documented in XML schema for xs:double and xs:decimal</a></li>
  <li>The precision of the decimal value has significance:<a name="precision"></a>
     <ul>
@@ -569,7 +622,7 @@ The display is a human display for the text defined by the system - it is not in
 for computation.
 </p>
 <p>
-The <code>system</code> is a URI that identifies the code system that defines the <code>code</code>.
+The <code>system</code> is an absolute URI that identifies the code system that defines the <code>code</code>.
 Choosing the correct system is important; for more information about the code system
 URI, read <a href="terminologies.html#system">Managing Terminology System URIs</a>.
 If the code is taken from a CodeSystem resource, <code>CodeSystem.url</code> is the
@@ -1181,7 +1234,7 @@ to be treated as case sensitive unless knowledge of the <code>Identifier.system<
 that non-case-sensitive processing is safe.
 </p>
 <p>
-The <code>system</code> is a URI that defines a set of identifiers (i.e. how the <code>value</code> is made unique).
+The <code>system</code> is an absolute URI that defines a set of identifiers (i.e. how the <code>value</code> is made unique).
 It might be a specific application or a recognized standard/specification for a set of identifiers
 or a way of making identifiers unique.
 FHIR defines <a href="identifier-registry.html">some useful or important system URIs directly</a>. Here are some
