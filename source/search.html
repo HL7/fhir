@@ -19,8 +19,8 @@ Searching for resources is fundamental to the mechanics of FHIR.
 Search operations traverse through an existing set of resources filtering by
 parameters supplied to the search operation. The text below describes
 the FHIR search framework, starting with simple cases moving to the more complex.
-Implementers need only implement the amount of
-complexity that they require for their implementations.
+Implementers need only implement the amount of complexity that they require for 
+their implementations.
 </p>
 
 <a name="Contents"></a>
@@ -303,13 +303,13 @@ parameter(s)</span>
 </p>
 <p>
   Self links SHALL be expressed as an HTTP GET-based search with the relevant parameters included as query
-  parameters, because of the semantics around the link types<span class="stu">TU</span>.  This means that the same self link is a 
-  valid respons for any equivalent search, regardless of how a search is performed (e.g., HTTP GET, HTTP POST, 
-  Messsaging, etc.).
+  parameters, because of the semantics around the link types <span class="stu">TU</span>.  This means that the same self link is a 
+  valid response for any equivalent search, regardless of how a search is performed (e.g., HTTP GET, HTTP POST, 
+  Messaging, etc.).
 </p>
 <p>
   Self links MAY be returned as absolute URIs or URIs relative to the base URL of a server, and 
-  MAY or MAY NOT be resolvable<span class="stu">TU</span>.  A server that does not support search via GET will return links
+  MAY or MAY NOT be resolvable <span class="stu">TU</span>.  A server that does not support search via GET will return links
   in the same style as a server that does not support search via POST.  Note that this makes the 
   <code>self</code> link special in the context of bundle links, as all other links are intended
   to be resolvable by a client.
@@ -317,7 +317,7 @@ parameter(s)</span>
 <p>
   Clients SHALL review the returned parameters in the self link to ensure proper processing of results.
   Generally, ignored parameters will result in clients receiving more results than intended.  In those
-  situations, clients SHOULD filter received records to account for additional data<span class="stu">TU</span>.
+  situations, clients SHOULD filter received records to account for additional data <span class="stu">TU</span>.
 </p>
 
 <a name="paginglinks"></a>
@@ -328,8 +328,8 @@ parameter(s)</span>
   <code>next</code>, and <code>prev</code>.
 </p>
 <p>
-  As with the self link, all relevant paging links SHALL be expressed as GET requests<span class="stu">TU</span>.  
-  Servers SHOULD NOT include content that is considered sensitive in the URLs<span class="stu">TU</span>.
+  As with the self link, all relevant paging links SHALL be expressed as GET requests <span class="stu">TU</span>.  
+  Servers SHOULD NOT include content that is considered sensitive in the URLs <span class="stu">TU</span>.
 </p>
 
 <a name="entries"></a>
@@ -362,14 +362,14 @@ parameter(s)</span>
 <p>
   Entries marked with <code>outcome</code> in search results are <a href="operationoutcome.html">OperationOutcome</a>
   resources with information related to the processing of a search.  For example, a server MAY use an outcome record
-  to report to a client that a search was unacceptable<span class="stu">TU</span>.
+  to report to a client that a search was unacceptable <span class="stu">TU</span>.
 </p>
 
 <a name="errors"></a>
 <h4>Handling Errors</h4>
 <p>
 If a server is unable to execute a search request, it MAY either return an error for the request or return success
-with an <code>outcome</code> containing details of the error<span class="stu">TU</span>. A HTTP status code of 
+with an <code>outcome</code> containing details of the error <span class="stu">TU</span>. A HTTP status code of 
 <code>403</code> signifies that the server refused to perform the search,
 while other <code>4xx</code> and <code>5xx</code> codes signify that some sort of error has occurred. When
 the search fails, a server SHOULD return an <a href="operationoutcome.html">OperationOutcome</a>
@@ -517,9 +517,9 @@ Servers SHOULD honor the client's request, but are not required to do so.
 <h3>Transport Protocols</h3>
 <p>
   This specification defines FHIR Search operations in both HTTP <code>POST</code> and <code>GET</code>.
-  Servers that support Search via HTTP SHALL support both modes of operation, though MAY return a 
+  Servers supporting Search via HTTP SHALL support both modes of operation, though MAY return a 
   <code>HTTP 405</code> (Method Not Allowed) for <b>either</b> <code>POST</code> or <code>GET</code>, 
-  but not both<span class="stu">TU</span>.
+  but not both <span class="stu">TU</span>.
 </p>
 
 <a name="basicspost"></a>
@@ -3829,7 +3829,7 @@ resource. It can contain one of the following values:
     (these mandatory elements are included to ensure that the payload is valid FHIR; servers MAY omit elements 
     within these sub-trees as long as they ensure that the payload is valid).  Servers MAY return extensions,
     but clients SHOULD NOT rely on extensions being present and SHOULD use another search mode if data contained
-    in extensions is required.<span class="stu">TU</span>
+    in extensions is required. <span class="stu">TU</span>
   </td>
  </tr>
  <tr>
