@@ -530,8 +530,8 @@
         <valueString value="gForge #15696 and #20327."/>
       </extension>
       <path value="Immunization.primarySource"/>
-      <short value="Indicates context the data was recorded in"/>
-      <definition value="Indicates whether this record was captured as an original primary source-of-truth record rather than a secondary 'reported' record. A value &quot;true&quot; means this is a primary record of the immunization."/>
+      <short value="Indicates context the data was captured in"/>
+      <definition value="Indicates whether the data contained in the resource was captured by the individual/organization which was responsible for the administration of the vaccine rather than as 'secondary reported' data documented by a third party. A value of 'true' means this data originated with the individual/organization which was responsible for the administration of the vaccine."/>
       <comment value="Reflects the &#x201C;reliability&#x201D; of the content."/>
       <min value="0"/>
       <max value="1"/>
