@@ -55,6 +55,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Resource-_language"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Resource.language"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_language"/>
+        <description value="Language of the resource content"/>
+        <code value="_language"/>
+        <type value="token"/>
+        <expression value="Resource.language"/>
+        <xpath value="f:Resource/f:language"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Resource-_lastUpdated"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>

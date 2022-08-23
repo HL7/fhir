@@ -4370,6 +4370,29 @@ no system for the _id parameter. Note that matches on <code>_id</code>
 are always case sensitive.
 </p>
 
+<a name="parameterlanguage"></a>
+<h5>_language</h5>
+<p>
+The search parameter <code>_language</code> is a <a href="#token">token</a> type search parameter That 
+can be used to match resources based on the language of the resource used.  Note that this search is performed
+against the element <code>Resource.language</code> and does not match against the actual language used in 
+elements.
+</p>
+<p>
+  For example, the search:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Questionnaire?_language=es</span>
+    <span class="http-verb-display-post">POST [base]/Questionnaire/_search
+Content-Type: application/x-www-form-urlencoded
+_language=es</span>
+  </span>
+</span>
+will will match Questionnaire resources with a <code>Resource.language</code> of <code>es</code>.
+</p>
+
+
 <a name="lastUpdated"></a>
 <h5>_lastUpdated</h5>
 <p>
