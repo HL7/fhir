@@ -109,7 +109,7 @@
   <concept>
     <code value="specialization"/>
     <display value="Specialization"/>
-    <definition value="This definition defines a new type that adds additional elements to the base type."/>
+    <definition value="This definition defines a new type that adds additional elements and optionally additional rules to the base type."/>
   </concept>
   <concept>
     <code value="constraint"/>
