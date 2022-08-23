@@ -7,10 +7,10 @@ edited by Eric Haas Health eData Inc-->
 		<value value="123"/>
 	</identifier>
 	<status value="active"/><intent value="order"/>
-	<patient>
+	<subject>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>
-	</patient>
+	</subject>
 	<encounter>
 		<reference value="Encounter/example"/>
 		<display value="Inpatient"/>
@@ -55,6 +55,7 @@ edited by Eric Haas Health eData Inc-->
 		</type>
 		<!-- EH example of three times a day starting on 2/10 using schedule -->
 		<schedule>
+			<timing>
 			<repeat>
         <boundsPeriod>
           <start value="2015-02-10"/>
@@ -63,6 +64,7 @@ edited by Eric Haas Health eData Inc-->
 				<period value="1"/>
 				<periodUnit value="d"/>
 			</repeat>
+		</timing>
 		</schedule>
 		<!-- list nutrients and amounts here -->
 		<nutrient>

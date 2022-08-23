@@ -125,19 +125,39 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="NutritionOrder-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionOrder.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-subject"/>
+        <description value="The identity of the individual or set of individuals who requires the diet, formula or nutritional supplement"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="NutritionOrder.subject"/>
+        <xpath value="f:NutritionOrder/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="NutritionOrder-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="NutritionOrder.patient"/>
+          <valueString value="NutritionOrder.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-patient"/>
-        <description value="The identity of the person who requires the diet, formula or nutritional supplement"/>
+        <description value="The identity of the individual or set of individuals who requires the diet, formula or nutritional supplement"/>
         <code value="patient"/>
         <type value="reference"/>
-        <expression value="NutritionOrder.patient"/>
-        <xpath value="f:NutritionOrder/f:patient"/>
+        <expression value="NutritionOrder.subject.where(resolve() is Patient)"/>
+        <xpath value="f:NutritionOrder/f:subject"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
