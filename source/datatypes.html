@@ -77,7 +77,25 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
    <th>XML Representation</th>
    <th>JSON representation</th>
  </tr>
+
  <tr>
+  <td>base64Binary<a name="base64Binary"></a><a name="base64binary"></a></td>
+  <td>A stream of bytes, base64 encoded (<a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>)</td>
+  <td>xs:base64Binary</td>
+  <td>A JSON string - base64 content</td>
+</tr>
+<tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Regex: <code>(\s*([0-9a-zA-Z\+\=]){4}\s*)+</code></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="base64binary.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="base64binary.profile.json.html">JSON Definition</a></td>
+</tr>
+<tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">There is no specified upper limit to the size of a binary, but systems will have to impose some implementation based limit to the size they support. This should be clearly documented, though there is no computable for this at this time</td>
+</tr>
+
+<tr>
    <td>boolean<a name="boolean"></a></td>
    <td>true | false</td>
    <td>xs:boolean, except that <b>0 and 1 are not valid values</b></td>
@@ -89,7 +107,114 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
    <td style="border-top: 0px silver solid"><a style="color: grey" href="boolean.profile.xml.html">XML Definition</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="boolean.profile.json.html">JSON Definition</a></td>
  </tr>
- <!-- leading 0s -->
+
+<tr>
+  <td>canonical<a name="canonical"></a></td>
+  <td>A URI that refers to a <a href="references.html#canonical">resource by its canonical URL</a> 
+    (<a href="references.html#canonical-list">resources with a <code>url</code> property</a>). 
+    The <code>canonical</code> type differs from a <code>uri</code> in that it has special meaning in this specification,
+   and in that it may have a version appended, separated by a vertical bar (|). 
+   Note that the type <code>canonical</code> is not used for the actual canonical URLs that are the target
+   of these references, but for the URIs that refer to them, and may have the version suffix in them.
+    Like other URIs, elements of type <code>canonical</code> may also have #fragment references. Unlike 
+  other URIs, canonical URLs are never relative - they are either absolute URIs, or fragment identifiers</td>
+   <td>xs:anyURI</td>
+  <td>A JSON string - a canonical URL</td>
+</tr>
+<tr>
+ <td style="border-top: 0px silver solid"></td>
+ <td style="border-top: 0px silver solid">Regex: <code>\S*</code></td>
+ <td style="border-top: 0px silver solid"><a style="color: grey" href="canonical.profile.xml.html">XML Definition</a></td>
+ <td style="border-top: 0px silver solid"><a style="color: grey" href="canonical.profile.json.html">JSON Definition</a></td>
+</tr>
+
+<tr>
+  <td>code<a name="code"></a></td>
+  <td>Indicates that the value is taken from a set of controlled strings defined elsewhere (see <a href="terminologies.html">Using codes</a>
+      for further discussion). Technically, a code is restricted to a string which has at least one character and no leading or trailing
+      whitespace, and where there is no whitespace other than single spaces in the contents</td>
+  <td>xs:token</td>
+  <td>JSON string</td>
+ </tr>
+<tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[^\s]+(\s[^\s]+)*</code><br/>
+      This data type can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="code.profile.xml.html">XML Definition</a></td>
+   <td style="border-top: 0px silver solid"><a style="color: grey" href="code.profile.json.html">JSON Definition</a></td>
+ </tr>
+
+ <tr>
+  <td>date<a name="date"></a></td>
+  <td>A date, or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, or YYYY-MM-DD, e.g. 2018, 1973-06, or 1905-08-23. <b>There SHALL be no time zone</b>. Dates SHALL be valid dates</td>
+  <td>union of xs:date, xs:gYearMonth, xs:gYear</td>
+  <td>A JSON string - a union of xs:date, xs:gYearMonth, xs:gYear</td>
+ </tr>
+<tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?</code></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="date.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="date.profile.json.html">JSON Definition</a></td>
+</tr>
+<tr>
+  <td>dateTime<a name="dateTime"></a><a name="datetime"></a></td>
+  <td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+zz:zz, e.g. 2018, 1973-06, 1905-08-23, 2015-02-07T13:28:17-05:00 or 2017-01-01T00:00:00.000Z.
+   If hours and minutes are specified, a time zone SHALL be populated. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored at receiver discretion. Milliseconds are optionally allowed. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b>. Leap Seconds are allowed - see below</td>
+  <td>union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
+  <td>A JSON string - a union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
+ </tr>
+<tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])<br/>(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?</code></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="datetime.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="datetime.profile.json.html">JSON Definition</a></td>
+</tr>
+
+<tr>
+  <td>decimal<a name="decimal"></a></td>
+  <td>Rational numbers that have a decimal representation. Decimals in FHIR can not have more than 18 digits and a decimal point. See below about the precision of the number</td>
+  <td>union of xs:decimal and xs:double (see below for limitations)</td>
+  <td>A JSON number (see below for limitations)</td>
+</tr>
+<tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Regex: <code>-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?</code></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="decimal.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="decimal.profile.json.html">JSON Definition</a></td>
+</tr>
+
+<tr>
+  <td>id<a name="id"></a></td>
+  <td>Any combination of upper- or lower-case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)</td>
+  <td>xs:string</td>
+  <td>JSON string</td>
+</tr>
+<tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%id_regex%]</code></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="id.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="id.profile.json.html">JSON Definition</a></td>
+</tr>
+
+<tr>
+  <td>instant<a name="instant"></a></td>
+  <td>An instant in time in the format YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL specified at least to the second and SHALL include a time zone.
+    Note: This is intended for when precisely observed times are required (typically system logs etc.), and not human-reported times - for those, use date or dateTime (which can be as precise as <code>instant</code>, but is not required to be). <code>instant</code> is a more constrained dateTime</td>
+  <td>xs:dateTime</td>
+  <td>A JSON string - an xs:dateTime</td>
+</tr>
+<tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Note: This type is for system times, not human times (see date and dateTime below).</td>
+</tr>
+<tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])<br/>T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))</code></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="instant.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="instant.profile.json.html">JSON Definition</a></td>
+</tr>
+
+<!-- leading 0s -->
  <tr>
    <td>integer<a name="integer"></a></td>
    <td>A signed integer in the range −2,147,483,648..2,147,483,647 (32-bit; for larger values, use decimal)</td>
@@ -98,10 +223,11 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>-?([0]|([1-9][0-9]*))</code><a style="color: grey" href="integer.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid">Regex: <code>-?([0]|([1-9][0-9]*))</code></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="integer.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="integer.profile.json.html">JSON Definition</a></td>
  </tr>
+
  <tr>
    <td>integer64<a name="integer64"></a></td>
    <td>A signed integer in the range  -9,223,372,036,854,775,808 to +9,223,372,036,854,775,807 (64-bit). <br/>This type is defined
@@ -115,7 +241,34 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
    <td style="border-top: 0px silver solid"><a style="color: grey" href="integer64.profile.xml.html">XML Definition</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="integer64.profile.json.html">JSON Definition</a></td>
  </tr>
+
  <tr>
+  <td>markdown<a name="markdown"></a></td>
+  <td>A FHIR <code>string</code> (see above) that may contain markdown syntax for optional processing by a markdown presentation engine, in the GFM extension of CommonMark format (see below)</td>
+  <td>xs:string</td>
+  <td>JSON string</td>
+</tr>
+<tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Regex: <code>\s*(\S|\s)*</code>  (can't put size limit in the regex - too large)</td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="markdown.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="markdown.profile.json.html">JSON Definition</a></td>
+</tr>
+
+<tr>
+  <td>oid<a name="oid"></a></td>
+  <td>An OID represented as a URI (<a href="http://www.ietf.org/rfc/rfc3001.txt">RFC 3001</a>); e.g. urn:oid:1.2.3.4.5</td>
+  <td>xs:anyURI</td>
+  <td>JSON string - uri</td>
+ </tr>
+<tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Regex: <code>urn:oid:[0-2](\.(0|[1-9][0-9]*))+</code></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="oid.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="oid.profile.json.html">JSON Definition</a></td>
+</tr>
+
+<tr>
    <td>string<a name="string"></a></td>
    <td>A sequence of Unicode characters</td>
    <td>xs:string</td>
@@ -137,19 +290,48 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
    <td style="border-top: 0px silver solid"><a style="color: grey" href="string.profile.xml.html">XML Definition</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="string.profile.json.html">JSON Definition</a></td>
  </tr>
+
  <tr>
-   <td>decimal<a name="decimal"></a></td>
-   <td>Rational numbers that have a decimal representation. Decimals in FHIR can not have more than 18 digits and a decimal point. See below about the precision of the number</td>
-   <td>union of xs:decimal and xs:double (see below for limitations)</td>
-   <td>A JSON number (see below for limitations)</td>
+  <td>positiveInt<a name="positiveInt"></a></td>
+  <td>Any positive <code>integer</code> in the range 1..2,147,483,647</td>
+  <td>xs:positiveInteger</td>
+  <td>JSON number</td>
+</tr>
+<tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[1-9][0-9]*</code></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="positiveint.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="positiveint.profile.json.html">JSON Definition</a></td>
+</tr>
+
+<tr>
+  <td>time<a name="time"></a></td>
+  <td>A time during the day, in the format hh:mm:ss. There is no date specified. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored at receiver discretion.
+  <b>The time "24:00" SHALL NOT be used. A time zone SHALL NOT be present</b>. Times can be converted to a <a href="#Duration">Duration</a> since midnight.</td>
+  <td>xs:time</td>
+  <td>A JSON string - an xs:time</td>
  </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?</code></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="decimal.profile.xml.html">XML Definition</a></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="decimal.profile.json.html">JSON Definition</a></td>
- </tr>
- <tr>
+<tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Regex: <code>([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,3})?</code></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="time.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="time.profile.json.html">JSON Definition</a></td>
+</tr>
+
+<tr>
+  <td>unsignedInt<a name="unsignedInt"></a></td>
+  <td>Any non-negative <code>integer</code> in the range 0..2,147,483,647 </td>
+  <td>xs:nonNegativeInteger </td>
+  <td>JSON number</td>
+</tr>
+<tr>
+  <td style="border-top: 0px silver solid"></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[0]|([1-9][0-9]*)</code></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="unsignedint.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="unsignedint.profile.json.html">JSON Definition</a></td>
+</tr>
+
+<tr>
    <td>uri<a name="uri"></a></td>
    <td>A Uniform Resource Identifier Reference (<a href="http://tools.ietf.org/html/rfc3986">RFC 3986</a>). Note: URIs are case sensitive. For UUID (urn:uuid:53fefa32-fcbb-4ff8-8a92-55ee120877b7) use all lowercase</td>
     <td>xs:anyURI</td>
@@ -166,6 +348,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
    <td style="border-top: 0px silver solid">URIs can be absolute or relative, and may have an optional fragment identifier<br/>
    This data type can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
  </tr>
+
  <tr>
    <td>url<a name="url"></a></td>
    <td>A Uniform Resource Locator (<a href="http://tools.ietf.org/html/rfc1738">RFC 1738</a>). Note URLs are accessed directly using the specified protocol. Common URL protocols are <code>http{s}:</code>, <code>ftp:</code>, <code>mailto:</code> and <code>mllp:</code>, though many others are defined</td>
@@ -178,178 +361,20 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
   <td style="border-top: 0px silver solid"><a style="color: grey" href="url.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="url.profile.json.html">JSON Definition</a></td>
  </tr>
+
  <tr>
-   <td>canonical<a name="canonical"></a></td>
-   <td>A URI that refers to a <a href="references.html#canonical">resource by its canonical URL</a> (<a href="references.html#canonical-list">resources with a <code>url</code> property</a>). The <code>canonical</code> type differs from a <code>uri</code> in that it has special meaning in this specification,
-    and in that it may have a version appended, separated by a vertical bar (|). Note that the type <code>canonical</code> is not used for the actual canonical URLs that are the target
-    of these references, but for the URIs that refer to them, and may have the version suffix in them. Like other URIs, elements of type <code>canonical</code> may also have #fragment references</td>
-    <td>xs:anyURI</td>
-   <td>A JSON string - a canonical URL</td>
+  <td>uuid<a name="uuid"></a></td>
+  <td>A UUID (aka GUID) represented as a URI (<a href="http://www.ietf.org/rfc/rfc4122.txt">RFC 4122</a>); e.g. urn:uuid:c757873d-ec9a-4326-a141-556f43239520</td>
+  <td>xs:anyURI</td>
+  <td>JSON string - uri</td>
  </tr>
  <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>\S*</code></td>
-  <td style="border-top: 0px silver solid"><a style="color: grey" href="canonical.profile.xml.html">XML Definition</a></td>
-  <td style="border-top: 0px silver solid"><a style="color: grey" href="canonical.profile.json.html">JSON Definition</a></td>
- </tr>
- <tr>
-   <td>base64Binary<a name="base64Binary"></a><a name="base64binary"></a></td>
-   <td>A stream of bytes, base64 encoded (<a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>)</td>
-   <td>xs:base64Binary</td>
-   <td>A JSON string - base64 content</td>
- </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>(\s*([0-9a-zA-Z\+\=]){4}\s*)+</code></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="base64binary.profile.xml.html">XML Definition</a></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="base64binary.profile.json.html">JSON Definition</a></td>
- </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">There is no specified upper limit to the size of a binary, but systems will have to impose some implementation based limit to the size they support. This should be clearly documented, though there is no computable for this at this time</td>
- </tr>
- <tr>
-   <td>instant<a name="instant"></a></td>
-   <td>An instant in time in the format YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL specified at least to the second and SHALL include a time zone.
-	   Note: This is intended for when precisely observed times are required (typically system logs etc.), and not human-reported times - for those, use date or dateTime (which can be as precise as <code>instant</code>, but is not required to be). <code>instant</code> is a more constrained dateTime</td>
-   <td>xs:dateTime</td>
-   <td>A JSON string - an xs:dateTime</td>
- </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Note: This type is for system times, not human times (see date and dateTime below).</td>
- </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])<br/>T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))</code></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="instant.profile.xml.html">XML Definition</a></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="instant.profile.json.html">JSON Definition</a></td>
- </tr>
- <tr>
-   <td>date<a name="date"></a></td>
-   <td>A date, or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, or YYYY-MM-DD, e.g. 2018, 1973-06, or 1905-08-23. <b>There SHALL be no time zone</b>. Dates SHALL be valid dates</td>
-   <td>union of xs:date, xs:gYearMonth, xs:gYear</td>
-   <td>A JSON string - a union of xs:date, xs:gYearMonth, xs:gYear</td>
-  </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?</code></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="date.profile.xml.html">XML Definition</a></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="date.profile.json.html">JSON Definition</a></td>
- </tr>
- <tr>
-   <td>dateTime<a name="dateTime"></a><a name="datetime"></a></td>
-   <td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+zz:zz, e.g. 2018, 1973-06, 1905-08-23, 2015-02-07T13:28:17-05:00 or 2017-01-01T00:00:00.000Z.
-    If hours and minutes are specified, a time zone SHALL be populated. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored at receiver discretion. Milliseconds are optionally allowed. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b>. Leap Seconds are allowed - see below</td>
-   <td>union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
-   <td>A JSON string - a union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
-  </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])<br/>(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?</code></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="datetime.profile.xml.html">XML Definition</a></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="datetime.profile.json.html">JSON Definition</a></td>
- </tr>
- <tr>
-   <td>time<a name="time"></a></td>
-   <td>A time during the day, in the format hh:mm:ss. There is no date specified. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored at receiver discretion.
-   <b>The time "24:00" SHALL NOT be used. A time zone SHALL NOT be present</b>. Times can be converted to a <a href="#Duration">Duration</a> since midnight.</td>
-   <td>xs:time</td>
-   <td>A JSON string - an xs:time</td>
-  </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,3})?</code></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="time.profile.xml.html">XML Definition</a></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="time.profile.json.html">JSON Definition</a></td>
- </tr>
- <tr>
-   <td>code<a name="code"></a></td>
-   <td>Indicates that the value is taken from a set of controlled strings defined elsewhere (see <a href="terminologies.html">Using codes</a>
-       for further discussion). Technically, a code is restricted to a string which has at least one character and no leading or trailing
-       whitespace, and where there is no whitespace other than single spaces in the contents</td>
-   <td>xs:token</td>
-   <td>JSON string</td>
-  </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>[^\s]+(\s[^\s]+)*</code><br/>
-       This data type can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
-    <td style="border-top: 0px silver solid"><a style="color: grey" href="code.profile.xml.html">XML Definition</a></td>
-    <td style="border-top: 0px silver solid"><a style="color: grey" href="code.profile.json.html">JSON Definition</a></td>
-  </tr>
- <tr>
-   <td>oid<a name="oid"></a></td>
-   <td>An OID represented as a URI (<a href="http://www.ietf.org/rfc/rfc3001.txt">RFC 3001</a>); e.g. urn:oid:1.2.3.4.5</td>
-   <td>xs:anyURI</td>
-   <td>JSON string - uri</td>
-  </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>urn:oid:[0-2](\.(0|[1-9][0-9]*))+</code></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="oid.profile.xml.html">XML Definition</a></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="oid.profile.json.html">JSON Definition</a></td>
- </tr>
- <tr>
-   <td>id<a name="id"></a></td>
-   <td>Any combination of upper- or lower-case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)</td>
-   <td>xs:string</td>
-   <td>JSON string</td>
- </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>[%id_regex%]</code></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="id.profile.xml.html">XML Definition</a></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="id.profile.json.html">JSON Definition</a></td>
- </tr>
- <tr>
-   <td>markdown<a name="markdown"></a></td>
-   <td>A FHIR <code>string</code> (see above) that may contain markdown syntax for optional processing by a markdown presentation engine, in the GFM extension of CommonMark format (see below)</td>
-   <td>xs:string</td>
-   <td>JSON string</td>
- </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>\s*(\S|\s)*</code>  (can't put size limit in the regex - too large)</td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="markdown.profile.xml.html">XML Definition</a></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="markdown.profile.json.html">JSON Definition</a></td>
- </tr>
- <tr>
-   <td>unsignedInt<a name="unsignedInt"></a></td>
-   <td>Any non-negative <code>integer</code> in the range 0..2,147,483,647 </td>
-   <td>xs:nonNegativeInteger </td>
-   <td>JSON number</td>
- </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>[0]|([1-9][0-9]*)</code></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="unsignedint.profile.xml.html">XML Definition</a></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="unsignedint.profile.json.html">JSON Definition</a></td>
- </tr>
- <tr>
-   <td>positiveInt<a name="positiveInt"></a></td>
-   <td>Any positive <code>integer</code> in the range 1..2,147,483,647</td>
-   <td>xs:positiveInteger</td>
-   <td>JSON number</td>
- </tr>
- <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>[1-9][0-9]*</code></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="positiveint.profile.xml.html">XML Definition</a></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="positiveint.profile.json.html">JSON Definition</a></td>
- </tr>
- <tr>
-   <td>uuid<a name="uuid"></a></td>
-   <td>A UUID (aka GUID) represented as a URI (<a href="http://www.ietf.org/rfc/rfc4122.txt">RFC 4122</a>); e.g. urn:uuid:c757873d-ec9a-4326-a141-556f43239520</td>
-   <td>xs:anyURI</td>
-   <td>JSON string - uri</td>
-  </tr>
-  <tr>
-   <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}</code></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="uuid.profile.xml.html">XML Definition</a></td>
-   <td style="border-top: 0px silver solid"><a style="color: grey" href="uuid.profile.json.html">JSON Definition</a></td>
- </tr>
+  <td style="border-top: 0px silver solid">Regex: <code>urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}</code></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="uuid.profile.xml.html">XML Definition</a></td>
+  <td style="border-top: 0px silver solid"><a style="color: grey" href="uuid.profile.json.html">JSON Definition</a></td>
+</tr>
+
 </table>
 
 <p>
