@@ -502,7 +502,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
       </type>
     </element>
-    <element id="GenomicStudy.analysis.input.subject">
+<!--     <element id="GenomicStudy.analysis.input.subject">
       <path value="GenomicStudy.analysis.input.subject"/>
       <short value="The subject of the input data"/>
       <definition value="The subject of the input data."/>
@@ -522,7 +522,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-    </element>
+    </element> -->
     <element id="GenomicStudy.analysis.output">
       <path value="GenomicStudy.analysis.output"/>
       <short value="Outputs for the analysis event"/>
