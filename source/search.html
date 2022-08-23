@@ -105,6 +105,8 @@ their implementations.
 		  <ul>
         <li>_content</li>
         <li>_id</li>
+        <li>_in</li>
+        <li>_language</li>
         <li>_lastUpdated</li>
         <li>_list</li>
         <li>_profile</li>
@@ -1526,8 +1528,10 @@ code:not-in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
   <p>
     The <code>of-type</code> modifier allows clients to filter for resource <a href="datatypes.html#Identifier">Identifier</a>, based on the 
     <code>Identifier.type.coding.system</code>, <code>Identifier.type.coding.code</code> and <code>Identifier.value</code>.  This allows searches
-    for specific values only within a specific identifier code system.  The format when using 'of-type' is <code>[system]|[code]|[value]</code>.
-    All three parts must be present.
+    for specific values only within a specific identifier code system.  The format when using 'of-type' is <code>[system]|[code]|[value]</code>,
+    where <code>[system]</code> and <code>[code]</code> refer to the code and system in <code>Identifier.type.coding</code>; the system and code
+    portion is considered a match if the the <code>system|code</code> token would match a given <code>Identifier.type.coding</code>. The 
+    <code>[value]</code> test is a string match against <code>Identifier.value</code>. All three parts must be present.
   </p>
   <p>
     <code>of-type</code> is only allowed on search parameters of type <a href="#token">token</a>, and further restricted to parameters
