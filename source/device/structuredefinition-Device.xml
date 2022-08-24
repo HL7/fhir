@@ -770,6 +770,9 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+
+
+
     </element>
     <element id="Device.property.value[x]">
       <path value="Device.property.value[x]"/>

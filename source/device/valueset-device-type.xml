@@ -98,8 +98,8 @@
         <display value="Weight Scale"/>
       </concept>
     </include>
-    <include>
-      <system value="urn:iso:std:iso:11073:10101"/>
+    <!-- <include>
+      <system value="http://gmdnagency.org"/>
       <concept>
         <code value="38017"/>
         <display value="Dry salt inhalation therapy device"/>
@@ -152,6 +152,6 @@
         <op value="is-a"/>
         <value value="49062001"/>
       </filter>
-    </include>
+    </include> -->
   </compose>
 </ValueSet>
