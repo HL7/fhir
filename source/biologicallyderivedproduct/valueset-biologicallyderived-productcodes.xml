@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="biologicallyderived-product-codes"/>
+  <id value="biologicallyderived-productcodes"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -15,7 +15,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-codes"/>
+  <url value="http://hl7.org/fhir/ValueSet/biologicallyderived-productcodes"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
@@ -37,11 +37,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="BiologicallyDerived Product Codes"/>
+  <description value="Biologically Derived Product Codes."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/biologicallyderived-product-codes"/>
+      <system value="http://hl7.org/fhir/biologicallyderived-productcodes"/>
     </include>
   </compose>
 </ValueSet>
