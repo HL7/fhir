@@ -1,0 +1,41 @@
+<RelatedPerson xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+  <identifier>
+    <use value="temp"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+        <code value="MR"/>
+        <display value="Medical record number"/>
+      </coding>
+    </type>
+    <system value="http://www.somesystemabc.net/identifiers/persons"/>
+    <value value="11113"/>
+    <period>
+      <start value="2021-01-01"/>
+    </period>
+    <assigner>
+      <display value="Child Hospital"/>
+    </assigner>
+  </identifier>
+ <active value="true"/><!-- 0..1 Whether this related person's record is in active use -->
+ <patient>
+   <reference value="Patient/denovoChild"/>
+ </patient>
+ <relationship> 
+    <coding> 
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/> 
+      <code value="FTH"/>
+      <display value="Father"/>
+    </coding>     
+ </relationship> 
+ <name>
+  <use value="official"/>
+  <family value="Doe"/>
+  <given value="John"/>
+  <given value="Father"/>
+ </name>
+ <gender value="male"/>
+ <birthDate value="2000-01-01"/>
+</RelatedPerson>
