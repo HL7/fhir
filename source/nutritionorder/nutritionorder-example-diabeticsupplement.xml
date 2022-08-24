@@ -8,10 +8,10 @@ edited by Eric Haas Health eData Inc
 		<value value="123"/>
 	</identifier>
 	<status value="active"/><intent value="order"/>
-	<patient>
+	<subject>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>
-	</patient>
+	</subject>
 	<encounter>
 		<reference value="Encounter/example"/>
 		<display value="Inpatient"/>
@@ -41,6 +41,7 @@ edited by Eric Haas Health eData Inc
 	</excludeFoodModifier>
 	<supplement>
 		<type>
+			<concept>
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="443051000124104"/>
@@ -52,10 +53,12 @@ edited by Eric Haas Health eData Inc
 				<display value="Adult diabetic formula"/>
 			</coding>
 			<text value="Adult diabetic formula"/>
+		</concept>
 		</type>
 		<productName value="Glucerna"/>
 		<!--EH:Glucerna Shake at 3pm and HS-->
 		<schedule>
+			<timing>
 			<repeat>
 				<boundsPeriod>
 					<start value="2015-02-10T15:00:00Z"/>
@@ -64,13 +67,14 @@ edited by Eric Haas Health eData Inc
 				<period value="24"/>
 				<periodUnit value="h"/>
 			</repeat>
-		</schedule>
-		<schedule>
+		</timing>
+			<timing>
 			<repeat>
 				<duration value="1"/>
 				<durationUnit value="h"/>
 				<when value="HS"/>
 			</repeat>
+		</timing>
 		</schedule>
 		<quantity>
 			<value value="1"/>

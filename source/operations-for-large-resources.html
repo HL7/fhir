@@ -1,125 +1,26 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 
 
-
+[%settitle Operations for Large Resources%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <title>Operations-for-large-resources - FHIR v5.0.0-cibuild</title>
-
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="author" content="http://hl7.org/fhir"/>
-
-  <link href="fhir.css" rel="stylesheet"/>
-  <link href="fhir-pub.css" rel="stylesheet"/>
-  <link rel="Prev" href="http://hl7.org/fhir/operations-for-large-resources.html"/>
-
-  <!-- Bootstrap core CSS -->
-  <link href="./dist/css/bootstrap.css" rel="stylesheet"/>
-  <link href="./assets/css/bootstrap-fhir.css" rel="stylesheet"/>
-
-  <!-- Project extras -->
-  <link href="./assets/css/project.css" rel="stylesheet"/>
-  <link href="./assets/css/pygments-manni.css" rel="stylesheet"/>
-	<link href="jquery-ui.css" rel="stylesheet"/>
-
-  <script src="./assets/js/fhir-table-scripts.js"></script>
-
-  <!-- Favicons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./assets/ico/apple-touch-icon-144-precomposed.png"/>
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./assets/ico/apple-touch-icon-114-precomposed.png"/>
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./assets/ico/apple-touch-icon-72-precomposed.png"/>
-  <link rel="apple-touch-icon-precomposed" href="./assets/ico/apple-touch-icon-57-precomposed.png"/>
-  <link rel="shortcut icon" href="./assets/ico/favicon.png"/>
-
+  [%file newheader%]
 </head>
 
 <body>
-  	<div id="segment-header" class="segment"><!-- segment-header -->	
-		<div class="container">  <!-- container -->
-			<a no-external="true" id="logo" href="http://hl7.org/fhir"><img src="./assets/images/fhir-logo-www.png" alt="logo fhir" width="249" height="60"/> </a>
-			<div id="hl7-status">
-				<b>Release 5 Draft Ballot</b>
-			</div>       	
-			
-			<div id="hl7-nav">
-				 <a no-external="true" id="hl7-logo" href="http://www.hl7.org">
-					<img src="./assets/images/hl7-logo.png" width="42" alt="visit the hl7 website" height="50"/>
-				</a> 
-			</div>       	
-			<div id="hl7-nav"><a no-external="true" id="hl7-logo" href="http://build.fhir.org/search-build.html"><img src="./assets/images/search.png" alt="Search CI-Build FHIR"/></a></div> 
-		</div>
-		<div class="container">  <!-- container -->
-	</div></div><!-- /segment-header -->	
-
-
-	<div id="segment-navbar" class="segment"><!-- segment-navbar -->
-		<div id="stripe"> </div>
-		<div class="container"><!-- container -->
- <!-- HEADER CONTENT -->
- 	      		 	      		      		
-			<nav class="navbar navbar-inverse">
-				<div class="container">
-					<button data-target=".navbar-inverse-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
-						<span class="icon-bar"> </span>
-						<span class="icon-bar"> </span>
-						<span class="icon-bar"> </span>
-					</button>
-					<a href="index.html" class="navbar-brand hidden">FHIR</a>
-					<div class="nav-collapse collapse navbar-inverse-collapse">
-						<ul class="nav navbar-nav">
-              <li><a href="./index.html">Home</a></li>
-              <li><a href="./modules.html">Getting Started</a></li>
-              <li><a href="./documentation.html">Documentation</a></li>
-              <li><a href="./patterns.html">Patterns</a></li>
-              <li><a href="./resourcelist.html"><span style="color: yellow">Resource Types</span></a></li>
-              <li><a href="./profilelist.html">Profiles</a></li>
-              <li><a href="./extensibility-registry.html">Extensions</a></li>
-              <li><a href="./operationslist.html">Operations</a></li>
-              <li><a href="./terminologies-systems.html">Terminologies</a></li>
-						</ul>
-					</div><!-- /.nav-collapse -->
-				</div><!-- /.container -->
-			</nav><!-- /.navbar -->
-      		
-<!-- /HEADER CONTENT -->				
-		</div><!-- /container -->
-	</div><!-- /segment-navbar -->
-	
-
-	<div id="segment-breadcrumb" class="segment"><!-- segment-breadcrumb -->
-		<div class="container"><!-- container -->	
-			<ul class="breadcrumb">
-        <li><a href="toc.html"><img src="index.png"/> Table of Contents</a></li>
-        <li><a href="operationslist.html">Operations</a></li>
-        <li><b>Operations for Large Resources</b></li>        <!-- operations-for-large-resources.html / page / -->
-
-			</ul>	
-		</div><!-- /container -->
-	</div><!-- /segment-breadcrumb -->
-	
-
-	<div id="segment-content" class="segment"><!-- segment-content -->
-	<div class="container"><!-- container -->
-            <div class="row">
-            	<div class="inner-wrapper">
-<!-- CONTENT CONTENT -->
-
-<div class="col-12">
-
-<p style="background-color: #ffefef; border:1px solid maroon; padding: 5px; max-width: 790px;">This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). <br/>See the <a href="http://hl7.org/fhir/directory.html">Directory of published versions</a></p>
-
-
+  [%file newnavbar%]
 
   <h1>Operations for Large Resources (e.g., Groups/Lists)</h1>
 
+<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Draft</a></td></tr></table>
+
 <a name="large-operations-stu-note"></a>
-<blockquote class="stu-note"><p><b>Trial-Use Note:</b>
+[%stu-note%]
 These operations have been drafted based on a long-articulated need, but we do not yet have implementation
 experience working with them. If inclusion of these operations is not supported by ballot feedback, we may
 remove these operations from the specification before FHIR R5 is published.
-</p></blockquote>
+[%end-note%]
 
   <h2><code>$add</code> operation</h2>
   <div>
@@ -343,7 +244,7 @@ Content-Type: application/fhir+json
     <li>The server SHALL return a resource that includes all matching array entries</li>
     <li>The returned resource SHALL include a <code>SUBSETTED</code> Coding in <code>.meta.tag</code></li>
   </ul>
-  <hr>
+  <hr />  
   <div>
     <h3>Matching Algorithm</h3>
     <p>Applies to: <code>$add</code>, <code>$remove</code>, and <code>$filter</code>.</p>
@@ -365,7 +266,7 @@ Content-Type: application/fhir+json
         </ul>
       </li>
     </ul>
-    <hr>
+    <hr />
     <h5>Example 1: a single probe</h5>
     <p>Entry in input resource:</p>
     <pre class="hljs language-json"><code>{
@@ -381,7 +282,7 @@ Content-Type: application/fhir+json
     <p>Result: this is a <strong>match</strong>, because the target entry contains a matching element for the input
       entry’s elements (<code>item</code> and <code>item.reference</code>). The presence of an additional
       <code>date</code> element in the target resource does not affect the result.</p>
-    <hr>
+    <hr />
     <h5>Example 2: asymmetry</h5>
     <p>Now consider the same inputs from Example (1), but swap their roles (input / target) as follows.</p>
     <p>Entry in input resource:</p>
@@ -399,60 +300,9 @@ Content-Type: application/fhir+json
       <code>date</code> element, and also no match for the input entry’s version-specific <code>item.reference</code>
       element. This example shows that the comparision operation is not symmetric; inputs match more-specific targets,
       not less-specific targets.</p>
-
   </div>
 
-
-  </div> <!-- col-12 -->
-				</div><!-- /inner-wrapper -->
-            </div><!-- /row -->
-        </div><!-- /container -->
-        
-    </div><!-- /segment-content -->
-
-
-	<div id="segment-footer" class="segment"><!-- segment-footer -->
-		<div class="container"><!-- container -->
-			<div class="inner-wrapper">
-				<p>
-        FHIR &reg;© HL7.org 2011+. FHIR R5 Draft Ballot hl7.fhir.core#5.0.0-cibuild generated on Tue, Aug 23, 2022 16:38-0400. 
-        <br/>
-        <span style="color: #FFFF77">
-        Links: <a style="color: #b8dcf9" href="http://hl7.org/fhir/search.cfm">Search</a> | 
-               <a style="color: #b8dcf9" href="history.html">Version History</a> | 
-               <a style="color: #b8dcf9" href="toc.html">Table of Contents</a> | 
-               <a style="color: #ffffff" href="qa.html">QA Page</a> |
-<!--                <a style="color: #b8dcf9" href="credits.html">Credits</a> | -->
-               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FR4%2Foperations-for-large-resources.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Foperations-for-large-resources.html">Compare to R4</a> |                
-               <a style="color: #b8dcf9" rel="license" href="license.html"><img src="cc0.png" style="border-style: none;" alt="CC0"/></a> | 
-               <a style="color: #b8dcf9" target="_blank" href="http://hl7.org/fhir-issues">Propose a change</a>   
-        </span>
-        </p>
-			</div><!-- /inner-wrapper -->
-		</div><!-- /container -->
-	</div><!-- /segment-footer -->
-<!-- disqus thread -->
-<!--disqus-->
-<!-- end disqus -->        
-	
-	<div id="segment-post-footer" class="segment hidden"><!-- segment-post-footer -->
-		<div class="container"><!-- container -->
-		</div><!-- /container -->
-	</div><!-- /segment-post-footer -->
-    
-    <!-- JS and analytics only. -->
-    <!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="./assets/js/jquery.js"> </script>   <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
-<script src="./dist/js/bootstrap.min.js"> </script>
-<script src="./assets/js/respond.min.js"> </script>
-
-<script src="./assets/js/fhir.js"> </script>
-
-<!-- Analytics Below
-================================================== -->
-
+  [%file newfooter%]
 
 </body>
 

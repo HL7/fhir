@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="supplydelivery-supplyitemtype"/>
+  <id value="specimen-combined"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,7 +11,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       
       
-      <p>This code system http://hl7.org/fhir/supplydelivery-supplyitemtype defines the following codes:</p>
+      <p>This code system http://hl7.org/fhir/specimen-combined defines the following codes:</p>
       
       
       <table class="codes">
@@ -53,19 +53,19 @@
         <tr>
           
           
-          <td style="white-space:nowrap">medication
+          <td style="white-space:nowrap">grouped
             
             
-            <a name="supplydelivery-supplyitemtype"> </a>
+            <a name="specimen-combined-grouped"> </a>
           
           
           </td>
           
           
-          <td>Medication</td>
+          <td>Grouped</td>
           
           
-          <td>Supply is a kind of medication.</td>
+          <td>The specimen is in a group.</td>
         
         
         </tr>
@@ -74,43 +74,23 @@
         <tr>
           
           
-          <td style="white-space:nowrap">device
+          <td style="white-space:nowrap">pooled
             
             
-            <a name="supplydelivery-supplyitemtype"> </a>
+            <a name="specimen-combined-pooled"> </a>
           
           
           </td>
           
           
-          <td>Device</td>
+          <td>Pooled</td>
           
           
-          <td>What is supplied (or requested) is a device.</td>
+          <td>The specimen is pooled.</td>
         
         
         </tr>
         
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">biologicallyderivedproduct
-            
-            
-            <a name="supplydelivery-supplyitemtype"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Biologically Derived Product</td>
-          
-          
-          <td>Supply is a kind of biologically derived product.</td>
-        
-        
-        </tr>  
       
       </table>
     
@@ -124,12 +104,16 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
+    <valueInteger value="2"/>
   </extension>
-  <url value="http://hl7.org/fhir/supplydelivery-supplyitemtype"/>
+  <url value="http://hl7.org/fhir/specimen-combined"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
   <version value="5.0.0-cibuild"/>
-  <name value="SupplyDeliverySupplyItemType"/>
-  <title value="SupplyDeliverySupplyItemType"/>
+  <name value="SpecimenCombined"/>
+  <title value="SpecimenCombined"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -144,23 +128,18 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Status of the supply delivery."/>
+  <description value="Codes providing the combined status of the specimen."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/specimen-combined"/>
   <content value="complete"/>
   <concept>
-    <code value="medication"/>
-    <display value="Medication"/>
-    <definition value="Supply is a kind of medication."/>
+    <code value="grouped"/>
+    <display value="Grouped"/>
+    <definition value="The specimen is in a group."/>
   </concept>
   <concept>
-    <code value="device"/>
-    <display value="Device"/>
-    <definition value="What is supplied (or requested) is a device."/>
-  </concept>
-  <concept>
-    <code value="biologicallyderivedproduct"/>
-    <display value="Biologically Derived Product"/>
-    <definition value="Supply is a kind of biologically derived product."/>
+    <code value="pooled"/>
+    <display value="Pooled"/>
+    <definition value="The specimen is pooled."/>
   </concept>
 </CodeSystem>
