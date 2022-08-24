@@ -225,4 +225,13 @@
     <documentation value="A codeableConcept containing codings for all the validated codes"/>
     <type value="CodeableConcept"/>
   </parameter>
+  <parameter>
+   <name value="issues"/>
+   <use value="out"/>
+   <min value="0"/>
+   <max value="1"/>
+   <documentation value="List of itemised issues with paths constrained to simple FHIRPath. Examples are CodeableConcept, CodeableConcept.coding[0], CodeableConcept.coding[1].display, or Coding.display"/>
+   <type value="OperationOutcome"/>
+  </parameter>
+
 </OperationDefinition>
