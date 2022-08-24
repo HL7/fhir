@@ -1240,8 +1240,8 @@
     <element id="CapabilityStatement.rest.resource.operation.name">
       <path value="CapabilityStatement.rest.resource.operation.name"/>
       <short value="Name by which the operation/query is invoked"/>
-      <definition value="The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called."/>
-      <comment value="The name here SHOULD be the same as the OperationDefinition.code in the referenced OperationDefinition, unless there is a name clash and the OperationDefinition.code cannot be used. The name does not include the &quot;$&quot; portion that is always included in the URL."/>
+      <definition value="The name of the operation or query. For an operation, this name is prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called. This SHOULD be the same as the OperationDefinition.code of the defining OperationDefinition.  However, it can sometimes differ if necessary to disambiguate when a server supports multiple OperationDefinition that happen to share the same code."/>
+      <comment value="The name here SHOULD be the same as the OperationDefinition.code in the referenced OperationDefinition, unless there is a name clash and the OperationDefinition.code cannot be used. The name does not include the &quot;$&quot; portion that is always included in the URL. There is no correspondence whatsoever between CapabilityStatement's operation.name and OperationDefinition.name - the latter is used as a class name when generating code for the operation. HL7 will never define operations that have conflicting names."/>
       <min value="1"/>
       <max value="1"/>
       <type>
