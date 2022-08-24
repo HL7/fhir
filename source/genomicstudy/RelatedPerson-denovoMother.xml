@@ -23,19 +23,19 @@
  <patient>
    <reference value="Patient/denovoChild"/>
  </patient>
-  <relationship> 
+ <relationship> 
     <coding> 
       <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/> 
       <code value="MTH"/>
       <display value="Mother"/>
     </coding>     
-  </relationship> 
-  <name>
+ </relationship> 
+ <name>
     <use value="official"/>
     <family value="Doe"/>
     <given value="Jane"/>
     <given value="Mother"/>
-  </name>
+ </name>
  <gender value="female"/>
  <birthDate value="2000-01-01"/>
 </RelatedPerson>
