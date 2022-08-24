@@ -566,7 +566,7 @@
         <valueCode value="down"/>
       </extension>
       <path value="NutritionOrder.oralDiet.schedule"/>
-      <short value="Oral diet Schedule"/>
+      <short value="Scheduling information for oral diets"/>
       <definition value="Schedule information for an oral diet."/>
       <min value="0"/>
       <max value="1"/>
@@ -926,7 +926,7 @@
         <valueCode value="down"/>
       </extension>
       <path value="NutritionOrder.supplement.schedule"/>
-      <short value="Supplement Schedule"/>
+      <short value="Scheduling information for supplements"/>
       <definition value="Schedule information for a supplement."/>
       <min value="0"/>
       <max value="1"/>
@@ -1269,7 +1269,7 @@
         <valueCode value="down"/>
       </extension>
       <path value="NutritionOrder.enteralFormula.administration.schedule"/>
-      <short value="Enteral Formula Schedule"/>
+      <short value="Scheduling information for enteral formula products"/>
       <definition value="Schedule information for an enteral formula."/>
       <min value="0"/>
       <max value="1"/>

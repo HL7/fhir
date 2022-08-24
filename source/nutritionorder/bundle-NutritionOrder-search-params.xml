@@ -70,14 +70,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="NutritionOrder.enteralFormula.baseFormulaType"/>
+          <valueString value="NutritionOrder.enteralFormula.baseFormulaType.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-formula"/>
         <description value="Type of enteral or infant formula"/>
         <code value="formula"/>
         <type value="token"/>
-        <expression value="NutritionOrder.enteralFormula.baseFormulaType"/>
-        <xpath value="f:NutritionOrder/f:enteralFormula/f:baseFormulaType"/>
+        <expression value="NutritionOrder.enteralFormula.baseFormulaType.concept"/>
+        <xpath value="f:NutritionOrder/f:enteralFormula/f:baseFormulaType/f:concept"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -210,14 +210,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="NutritionOrder.supplement.type"/>
+          <valueString value="NutritionOrder.supplement.type.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-supplement"/>
         <description value="Type of supplement product requested"/>
         <code value="supplement"/>
         <type value="token"/>
-        <expression value="NutritionOrder.supplement.type"/>
-        <xpath value="f:NutritionOrder/f:supplement/f:type"/>
+        <expression value="NutritionOrder.supplement.type.concept"/>
+        <xpath value="f:NutritionOrder/f:supplement/f:type/f:concept"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
