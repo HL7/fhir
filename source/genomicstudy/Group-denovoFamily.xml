@@ -23,6 +23,29 @@
  <!-- <code></code> -->
  <name value="Denovo Mutation Example Group"/><!-- 0..1 Label for Group -->
  <description value="[markdown]"/><!-- 0..1 Natural language description of the group -->
- <quantity value="3"/><!-- 0..1 Number of members -->
+ <quantity value="3"/>
+ <managingEntity>
+    <reference value="Practitioner/practitioner02"/>
+ </managingEntity>
 
+ <member>
+  <entity>
+    <reference value="Patient/denovoChild"/>
+  </entity>
+  <inactive value="false"/>
+ </member>
+
+  <member>
+  <entity>
+    <reference value="RelatedPerson/relatedPersonDenovoMother"/>
+  </entity>
+  <inactive value="false"/>
+ </member>
+
+  <member>
+  <entity>
+    <reference value="RelatedPerson/relatedPersonDenovoFather"/>
+  </entity>
+  <inactive value="false"/>
+ </member>
 </Group>
