@@ -163,6 +163,64 @@
 			<valueString value="Patient transitioned from male to female in 2001, but their insurance card still indicates male."/>				
 		</extension>
 	</extension>
+	
+	<extension url="http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender">
+		<extension url="value">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://ohio.example.gov/drivers-license-sex"/>
+				<code value="M"/>
+				<display value="Male"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="internationalEquivalent">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://terminology.hl7.org/CodeSystem/icaosex"/>
+				<code value="M"/>
+				<display value="Male"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="type">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://jurisdiction-specific.example.com/document-type-code-system"/>
+				<code value="drivers-license"/>
+				<display value="Driver's License"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="effectivePeriod">
+			<valuePeriod>
+				<start value="1974-12-25"/>
+			</valuePeriod>
+		</extension>
+		<extension url="acquisitionDate">
+			<valueDateTime value="2005-12-06"/>
+		</extension>
+		<extension url="sourceDocument">
+			<!-- Reference to a scan of the driver's license -->
+			<valueCodeableReference>
+			  <reference>
+  				<reference value="DocumentReference/1"/>
+			  </reference>
+			</valueCodeableReference>
+		</extension>
+		<extension url="jurisdiction">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="https://www.usps.com/"/>
+				<code value="OH"/>
+				<display value="Ohio"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="comment">
+			<valueString value="Patient transitioned from male to female in 2001, but their driver's license still indicates male."/>				
+		</extension>
+	</extension>
 		
 	<extension url="http://hl7.org/fhir/StructureDefinition/patient-sexForClinicalUse">
 		<extension url="value">
