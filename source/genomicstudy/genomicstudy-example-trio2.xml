@@ -179,12 +179,12 @@
         </note>
         <input>  <!-- 0..* Inputs for the analysis event of Child-->
             <file>
-                <reference value="DocumentReference/genomicFile1"/>
+                <reference value="DocumentReference/genomicFile5"/>
             </file>
             <type>
                 <coding>
-                    <code value="bed"/>
-                    <display value="BED"/>
+                    <code value="vcf"/>
+                    <display value="VCF"/>
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
