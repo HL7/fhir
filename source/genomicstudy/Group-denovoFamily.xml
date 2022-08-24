@@ -1,4 +1,16 @@
 <Group xmlns="http://hl7.org/fhir">
+  <id value="groupDenovoFamily"/> 
+  <text> 
+    <status value="additional"/> 
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p> Denovo mutation study members</p> 
+      <ul> 
+        <li> Patient: Child Junior Doe</li> 
+        <li> Mother: Jane Mother Doe</li> 
+        <li> Father: John Father Doe</li> 
+      </ul> 
+    </div> 
+  </text> 
   <identifier>
     <use value="temp"/>
     <type>
