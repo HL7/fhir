@@ -107,7 +107,7 @@
     </element>
     <element id="MolecularSequence.subject">
       <path value="MolecularSequence.subject"/>
-      <short value="Subjectatient this sequence is associated too"/>
+      <short value="Subject this sequence is associated too"/>
       <definition value="Indicates the subject this sequence is associated too."/>
       <min value="0"/>
       <max value="1"/>
