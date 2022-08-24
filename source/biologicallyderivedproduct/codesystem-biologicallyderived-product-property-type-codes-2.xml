@@ -218,22 +218,22 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-property-type-codes"/>
   <content value="example"/>
   <concept>
-    <code value="CollectionType"/>
-    <display value="CollectionType"/>
+    <code value="collectiontype"/>
+    <display value="Collection Type"/>
     <definition value="See https://www.isbt128.org/uri/CollectionType"/>
   </concept>
   <concept>
-    <code value="ABORhD"/>
+    <code value="aborhd"/>
     <display value="ABORhD"/>
     <definition value="See https://www.isbt128.org/uri/ABORhD"/>
   </concept>
   <concept>
-    <code value="SingleEuropeanCode"/>
-    <display value="SingleEuropeanCode"/>
+    <code value="singleeuropeancode"/>
+    <display value="Single European Code"/>
     <definition value="See https://www.isbt128.org/uri/SingleEuropeanCode"/>
   </concept>
   <concept>
-    <code value="RedCellAntigen"/>
+    <code value="redcellantigen"/>
     <display value="Red Cell Antigen"/>
     <definition value="See https://www.isbt128.org/uri/RedCellAntigen"/>
   </concept>
