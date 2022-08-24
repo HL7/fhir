@@ -1,2 +1,28 @@
 <Group xmlns="http://hl7.org/fhir">
+  <identifier>
+    <use value="temp"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+        <code value="MR"/>
+        <display value="Medical record number"/>
+      </coding>
+    </type>
+    <system value="http://www.somesystemabc.net/identifiers/groups"/>
+    <value value="11111"/>
+    <period>
+      <start value="2021-01-01"/>
+    </period>
+    <assigner>
+      <display value="Child Hospital"/>
+    </assigner>
+  </identifier>
+ <active value="true"/>
+ <type value="person"/>
+ <membership value="enumerated"/><!-- 1..1 definitional | enumerated -->
+ <!-- <code></code> -->
+ <name value="Denovo Mutation Example Group"/><!-- 0..1 Label for Group -->
+ <description value="[markdown]"/><!-- 0..1 Natural language description of the group -->
+ <quantity value="3"/><!-- 0..1 Number of members -->
+
 </Group>
