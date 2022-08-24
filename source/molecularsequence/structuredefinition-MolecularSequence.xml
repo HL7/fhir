@@ -105,10 +105,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/sequence-type"/>
       </binding>
     </element>
-    <element id="MolecularSequence.patient">
-      <path value="MolecularSequence.patient"/>
-      <short value="Patient this sequence is associated too"/>
-      <definition value="Indicates the patient this sequence is associated too."/>
+    <element id="MolecularSequence.subject">
+      <path value="MolecularSequence.subject"/>
+      <short value="Subjectatient this sequence is associated too"/>
+      <definition value="Indicates the subject this sequence is associated too."/>
       <min value="0"/>
       <max value="1"/>
       <type>
