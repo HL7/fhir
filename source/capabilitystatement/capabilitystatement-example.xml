@@ -146,8 +146,8 @@
 			<conditionalUpdate value="false"/>
 			<!-- 0..1 If allows/uses conditional update -->
 			<conditionalDelete value="not-supported"/>
-			<searchInclude value="Organization"/>
-			<searchRevInclude value="Person"/>
+			<searchInclude value="Patient:organization"/>
+			<searchRevInclude value="Person:patient"/>
 			<searchParam>
 				<name value="identifier"/>
 				<definition value="http://hl7.org/fhir/SearchParameter/Patient-identifier"/>

@@ -38,8 +38,8 @@ HTTP/1.1 200 OK
       <conditionalCreate value="true"/> 
       <conditionalUpdate value="false"/>
       <conditionalDelete value="not-supported"/>
-      <searchInclude value="Organization"/>
-      <searchRevInclude value="Person"/>
+			<searchInclude value="Patient:organization"/>
+			<searchRevInclude value="Person:patient"/>
       <searchParam>  
         <name value="identifier"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Patient-identifier"/>
