@@ -177,7 +177,7 @@
         <note>
             <text value="This is a next generation sequencing analysis of the comparison analysis of proband and parents sequences."/>
         </note>
-        <input>  <!-- 0..* Inputs for the analysis event of Child-->
+        <input>  <!-- 0..* Inputs for the analysis event, a combined vcf file-->
             <file>
                 <reference value="DocumentReference/genomicFile5"/>
             </file>
@@ -189,30 +189,7 @@
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
         </input>
-        <input>  <!-- 0..* Inputs for the analysis event of Mother-->
-            <file>
-                <reference value="DocumentReference/genomicFile2"/>
-            </file>
-            <type>
-                <coding>
-                    <code value="vcf"/>
-                    <display value="VCF"/>
-                 </coding>
-            </type>
-            <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-        </input>
-        <input>  <!-- 0..* Inputs for the analysis event of Father -->
-            <file>
-                <reference value="DocumentReference/genomicFile3"/>
-            </file>
-            <type>
-                <coding>
-                    <code value="vcf"/>
-                    <display value="VCF"/>
-                 </coding>
-            </type>
-            <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-        </input>
+        
         <output>  <!-- 0..* Outputs for the analysis event -->
             <file>
                 <reference value="DocumentReference/genomicVCFfile"/>
