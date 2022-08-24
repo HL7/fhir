@@ -32,6 +32,9 @@
   <entity>
     <reference value="Patient/denovoChild"/>
   </entity>
+  <period> 
+      <start value="2021-01-01T01:01:10-06:00"/> 
+  </period>
   <inactive value="false"/>
  </member>
 
@@ -39,6 +42,9 @@
   <entity>
     <reference value="RelatedPerson/relatedPersonDenovoMother"/>
   </entity>
+  <period> 
+      <start value="2021-01-01T01:01:10-06:00"/> 
+  </period>
   <inactive value="false"/>
  </member>
 
@@ -46,6 +52,9 @@
   <entity>
     <reference value="RelatedPerson/relatedPersonDenovoFather"/>
   </entity>
+  <period> 
+      <start value="2021-01-01T01:01:10-06:00"/> 
+  </period>
   <inactive value="false"/>
  </member>
 </Group>
