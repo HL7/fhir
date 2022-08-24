@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <OperationDefinition xmlns="http://hl7.org/fhir">
-  <id value="large-resource-remove"/>
+  <id value="Resource-large-resource-remove"/>
   <meta>
     <lastUpdated value="2022-08-23T10:01:24.148+11:00"/>
   </meta>
@@ -11,7 +11,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
-  <url value="http://hl7.org/fhir/build/OperationDefinition/large-resource-remove"/>
+  <url value="http://hl7.org/fhir/OperationDefinition/Resource-large-resource-remove"/>
   <version value="5.0.0"/>
   <name value="remove"/>
   <title value="Remove from an array in a large resource"/>

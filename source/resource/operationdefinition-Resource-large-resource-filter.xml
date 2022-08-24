@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <OperationDefinition xmlns="http://hl7.org/fhir">
-  <id value="large-resource-filter"/>
+  <id value="Resource-large-resource-filter"/>
   <meta>
     <lastUpdated value="2022-08-23T10:01:24.148+11:00"/>
   </meta>
@@ -11,7 +11,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
-  <url value="http://hl7.org/fhir/build/OperationDefinition/large-resource-filter"/>
+  <url value="http://hl7.org/fhir/OperationDefinition/Resource-large-resource-filter"/>
   <version value="5.0.0"/>
   <name value="filter"/>
   <title value="Filter an array in a large resource"/>
