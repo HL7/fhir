@@ -10,14 +10,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="NutritionOrder.enteralFormula.additive.type"/>
+          <valueString value="NutritionOrder.enteralFormula.additive.type.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-additive"/>
         <description value="Type of module component to add to the feeding"/>
         <code value="additive"/>
         <type value="token"/>
-        <expression value="NutritionOrder.enteralFormula.additive.type"/>
-        <xpath value="f:NutritionOrder/f:enteralFormula/f:additive/f:type"/>
+        <expression value="NutritionOrder.enteralFormula.additive.type.concept"/>
+        <xpath value="f:NutritionOrder/f:enteralFormula/f:additive/f:type/f:concept"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
