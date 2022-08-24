@@ -530,7 +530,7 @@
     <element id="PaymentReconciliation.allocation.targetItem[x]">
       <path value="PaymentReconciliation.allocation.targetItem[x]"/>
       <short value="Sub-element of the subject"/>
-      <definition value=" Identifies the claim line item, encounter or other sub-elemnt being paid. Note payment may be partial, that is not match the then outstanding balance or amount incurred."/>
+      <definition value=" Identifies the claim line item, encounter or other sub-element being paid. Note payment may be partial, that is not match the then outstanding balance or amount incurred."/>
       <min value="0"/>
       <max value="1"/>
       <type>

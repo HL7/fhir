@@ -13,7 +13,7 @@ Notes:
    <li>RESTful servers are required to provide <a href="http.html#capabilities">this resource on demand</a>.
    Servers SHALL specify what resource types and operations are supported, and SHOULD also
    specify profiles for each resource type.</li>
-   <li>The CapabilityStatement returned on demand may represent the specific capabilities granted to a specific user if retrieved with that specific user's credentials, if one is in context. Servers that require authentication SHOULD still return a CapabilityStatemnt before authentication/authorization is performed</li>
+   <li>The CapabilityStatement returned in the capabilities interaction may represent the specific capabilities granted to a specific user if retrieved with that specific user's credentials, if one is in context. Servers that require authentication SHOULD still return a CapabilityStatement before authentication/authorization is performed</li>
    <li>RESTful clients SHOULD publish a capability statement</li>
    <li>The search parameters that a server supports (or a client makes use of) are specified in the resource profile that the capability statement references</li>
    <li>Resource Types or operations that are not listed are not supported</li>
