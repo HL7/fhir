@@ -211,7 +211,7 @@
         <map value=".participation[typeCode=SBJ].role"/>
       </mapping>
     </element>
-    <element id="SupplyDelivery.type">
+    <element id="SupplyDelivery.type"> 
       <path value="SupplyDelivery.type"/>
       <short value="Category of supply event"/>
       <definition value="Indicates the type of supply being provided.  Examples include: Medication, Device, Biologically Derived Product."/>
@@ -287,7 +287,7 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SupplyDeliverySupplyItem"/>
+          <valueString value="SupplyDeliverySupplyItemType"/>
         </extension>
         <strength value="example"/>
         <description value="The item that was delivered."/>
