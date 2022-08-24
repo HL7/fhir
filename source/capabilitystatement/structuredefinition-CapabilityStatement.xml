@@ -120,7 +120,7 @@
       <constraint>
         <key value="cpb-3"/>
         <severity value="error"/>
-        <human value="Messaging end-point is required (and is only permitted) when a statement is for an implementation."/>
+        <human value="Messaging end-point is only permitted when a capability statement is for an implementation."/>
         <expression value="messaging.endpoint.empty() or kind = &#39;instance&#39;"/>
         <xpath value="not(exists(f:messaging/f:endpoint)) or f:kind/@value = &#39;instance&#39;"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
