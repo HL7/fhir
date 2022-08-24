@@ -1092,7 +1092,8 @@ The search:
 GET {base]/Observation?definition:below=http:http://acme.com/some-profile|1
 </pre>
 <p>
-matches the first two element values.
+matches the first two element values. For further information about searching, 
+see <a href="references.html#canonical-matching">Choosing the right Canonical Reference</a>.
 </p>
 
 <a name="recursive"></a>
@@ -2300,6 +2301,10 @@ Cross-map between search parameter types and Data types:
   <td><%xcm CodeableConcept:uri%></td> <!-- uri -->
   <td><%xcm CodeableConcept:string%></td> <!-- string -->
   <td><%xcm CodeableConcept:token%></td> <!-- token -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#CodeableReference">CodeableReference</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk CodeableReference%>Not used in search (searches either refer to .concept or .reference)</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#Coding">Coding</a></td>

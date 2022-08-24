@@ -123,7 +123,7 @@ This list shows a number of examples, with links to real examples for each:
   "resourceType": "StructureDefinition",
   "url": "http://hl7.org/fhir/StructureDefinition/Extension",
   "name": "Extension",
-  "kind": "datatype",
+  "kind": "complex-type",
   "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element"
 }

@@ -1,37 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="biologicallyderived-product-codes"/>
+  <id value="supplydelivery-supplyitemtype"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      
       <ul>
-        
-        
         <li>Include all codes defined in 
-          
-          
-          <a href="codesystem-biologicallyderived-product-codes.html">
-            
-            
-            <code>http://hl7.org/fhir/biologicallyderived-product-codes</code>
-          
-          
+          <a href="codesystem-supplydelivery-supplyitemtype.html">
+            <code>http://hl7.org/fhir/supplydelivery-supplyitemtype</code>
           </a>
-        
-        
         </li>
-      
-      
       </ul>
-    
-    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -41,35 +24,29 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-codes"/>
+  <url value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
-  <name value="BiologicallyDerivedProductCodes"/>
-  <title value="BiologicallyDerivedProductCodes"/>
+  <name value="SupplyDeliverySupplyItemType"/>
+  <title value="SupplyDeliverySupplyItemType"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
-  <publisher value="HL7 (FHIR Project)"/>
+  <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="fhir@lists.hl7.org"/>
-    </telecom>
   </contact>
-  <description value="BiologicallyDerived Product Codes"/>
-  <immutable value="true"/>
+  <description value="This value sets refers to a specific supply item."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/biologicallyderived-product-codes"/>
+      <system value="http://hl7.org/fhir/supplydelivery-supplyitemtype"/> 
     </include>
   </compose>
 </ValueSet>

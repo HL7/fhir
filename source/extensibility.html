@@ -55,9 +55,9 @@ that must be met as part of their use and definition.
 <a name="extension"></a>
 <h2>Extension Element</h2>
 <p>
-Every element in a resource or data type includes an optional "extension" child element that may
-be present any number of times. This is the content model of the extension as it appears in each resource:
+Every resource or data type element may includes one or more "extension" child elements. The extension is either <i>simple</i> or <i>complex</i>. Simple extensions have only a value and no nested extensions. Complex extensions contain one or more nested extensions and no value. An extension can not have both a value and nested extensions.
 </p>
+<p>The Extension definition is shown below:</p>
 <%dt Extension 1%>
 <p>
 Notes:
