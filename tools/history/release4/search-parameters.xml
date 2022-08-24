@@ -49420,7 +49420,7 @@
         <code value="patient"/>
         <base value="MolecularSequence"/>
         <type value="reference"/>
-        <expression value="MolecularSequence.patient"/>
+        <expression value="MolecularSequence.subject"/>
         <xpath value="f:MolecularSequence/f:patient"/>
         <xpathUsage value="normal"/>
         <target value="Patient"/>
