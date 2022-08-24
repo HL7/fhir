@@ -7,10 +7,10 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 		<value value="123"/>
 	</identifier>
 	<status value="active"/><intent value="order"/>
-	<patient>
+	<subject>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>
-	</patient>
+	</subject>
 	<encounter>
 		<reference value="Encounter/example"/>
 		<display value="Inpatient"/>
@@ -41,23 +41,29 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 	<enteralFormula>
 
 		<baseFormulaType>
+			<concept>
 			<coding>
 				<!--EH:  bolus tube feeding instruction in text-->
 				<system value="http://snomed.info/sct"/>
 				<code value="442991000124104"/>
 				<display value="Adult high protein formula"/>
 			</coding>
+		</concept>
 		</baseFormulaType>
 		<baseFormulaProductName value="Acme High Protein Formula"/>
 
-		<additiveType>
+		<additive>
+		<type>
+			<concept>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/entformula-additive"/>
 				<code value="lipid"/>
 				<display value="Lipid"/>
 			</coding>
-		</additiveType>
-		<additiveProductName value="Acme Lipid Additive"/>
+		</concept>
+		</type>
+		<productName value="Acme Lipid Additive"/>
+	</additive>
 		<caloricDensity>
 			<value value="1.5"/>
 			<unit value="calories per milliliter"/>
@@ -73,6 +79,7 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 		</routeofAdministration>
 		<administration>
 			<schedule>
+				<timing>
 				<repeat>
 				<boundsPeriod>
 				  <start value="2014-09-17T16:00:00Z"/>
@@ -81,6 +88,7 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 					<period value="4"/>
 					<periodUnit value="h"/>
 				</repeat>
+			</timing>
 			</schedule>
 			<quantity>
 				<value value="240"/>
