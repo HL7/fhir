@@ -1712,16 +1712,19 @@ See also <a href="datatypes-examples.html#Annotation">Examples</a>, <a href="dat
 A  text note which also  contains information about who made the statement and when.
 </p>
 [%dt Annotation 15%]
+
 <p>
-Systems that do not have structured annotations simply communicate a single annotation with no author or time.
+  Notes:
 </p>
-<p>
-This element may need to be included in narrative because of the potential for modifying information.
-</p>
-<p>
-Annotations <b>SHOULD NOT</b> be used to communicate "modifying" information that could be computable
-(this is a SHOULD because enforcing user behavior is nearly impossible).
-</p>
+<ul>
+<li>Systems that do not have structured annotations communicate a single annotation with no author or time.</li>
+<li>Annotations <b>SHOULD NOT</b> be used to communicate "modifying" information that could be computable
+  (this is a SHOULD because enforcing user behavior is nearly impossible).</li>
+<li>For communicating the author as a string value, implementers <b>SHOULD</b> use use <code>Annotation.authorReference.display</code> instead of the the anti-pattern <code>Annotation.authorString</code> (<code>authorString</code> cannot be removed because this datatype is Normative).</li>
+<li>This element may need to be included in the Resource human-readable narrative because of the potential for modifying
+  information.</li>
+</ul>
+
 <!--<div class="use">
 <p><b>Constraints</b></p>
 [%dt.constraints Annotation%]
