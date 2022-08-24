@@ -37,6 +37,7 @@ HTTP/1.1 200 OK
       <updateCreate value="false"/>
       <conditionalCreate value="true"/> 
       <conditionalUpdate value="false"/>
+      <conditionalPatch value="false"/>
       <conditionalDelete value="not-supported"/>
 			<searchInclude value="Patient:organization"/>
 			<searchRevInclude value="Person:patient"/>

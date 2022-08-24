@@ -144,6 +144,7 @@
 			<conditionalCreate value="true"/>
 			<conditionalRead value="full-support"/>
 			<conditionalUpdate value="false"/>
+			<conditionalPatch value="false"/>
 			<!-- 0..1 If allows/uses conditional update -->
 			<conditionalDelete value="not-supported"/>
 			<searchInclude value="Patient:organization"/>

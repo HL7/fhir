@@ -1082,6 +1082,20 @@
         <code value="boolean"/>
       </type>
     </element>
+    <element id="CapabilityStatement.rest.resource.conditionalPatch">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="CapabilityStatement.rest.resource.conditionalPatch"/>
+      <short value="If allows/uses conditional patch"/>
+      <definition value="A flag that indicates that the server supports conditional patch."/>
+      <comment value="Conditional Patch is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
     <element id="CapabilityStatement.rest.resource.conditionalDelete">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
