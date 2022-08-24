@@ -1,0 +1,46 @@
+<RelatedPerson xmlns="http://hl7.org/fhir">
+ <!-- from Resource: id, meta, implicitRules, and language -->
+ <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+  <identifier>
+    <use value="temp"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+        <code value="MR"/>
+        <display value="Medical record number"/>
+      </coding>
+    </type>
+    <system value="http://www.somesystemabc.net/identifiers/persons"/>
+    <value value="11112"/>
+    <period>
+      <start value="2021-01-01"/>
+    </period>
+    <assigner>
+      <display value="Child Hospital"/>
+    </assigner>
+  </identifier>
+ <active value="true"/><!-- 0..1 Whether this related person's record is in active use -->
+ <patient><!-- 1..1 Reference(Patient) The patient this person is related to --></patient>
+  <relationship> 
+    <coding> 
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/> 
+      <code value="MTH"/>
+      <display value="Mother"/>
+    </coding>     
+  </relationship> 
+  <name>
+    <use value="official"/>
+    <family value="Doe"/>
+    <given value="Jane"/>
+    <given value="Mother"/>
+  </name>
+ <gender value="female"/>
+ <birthDate value="2000-01-01"/>
+ <address><!-- 0..* Address Address where the related person can be contacted or visited --></address>
+ <photo><!-- 0..* Attachment Image of the person --></photo>
+ <period><!-- 0..1 Period Period of time that this relationship is considered valid --></period>
+ <communication>  <!-- 0..* A language which may be used to communicate with the related person about the patient's health -->
+  <language><!-- 1..1 CodeableConcept The language which can be used to communicate with the related person about the patient's health --></language>
+  <preferred value="[boolean]"/><!-- 0..1 Language preference indicator -->
+ </communication>
+</RelatedPerson>
