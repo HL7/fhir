@@ -1,5 +1,5 @@
 <RelatedPerson xmlns="http://hl7.org/fhir">
- <id value="relatedPersonDenovoMather"/>
+ <id value="relatedPersonDenovoMother"/>
   <identifier>
     <use value="temp"/>
     <type>
