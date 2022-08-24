@@ -311,7 +311,7 @@
 		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 			<valueString value="Jurisdiction ValueSet"/>
 		  </extension>
-		  <strength value="example"/>
+		  <strength value="extensible"/>
 		  <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
 	  </binding>
     </element>
