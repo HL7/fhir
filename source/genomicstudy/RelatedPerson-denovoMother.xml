@@ -25,8 +25,8 @@
  <relationship> 
     <coding> 
       <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/> 
-      <code value="MTH"/>
-      <display value="Mother"/>
+      <code value="NMTH"/>
+      <display value="natural mother"/>
     </coding>     
  </relationship> 
  <name>

@@ -25,8 +25,8 @@
  <relationship> 
     <coding> 
       <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/> 
-      <code value="FTH"/>
-      <display value="Father"/>
+      <code value="NFTH"/>
+      <display value="natural Father"/>
     </coding>     
  </relationship> 
  <name>
