@@ -1,6 +1,5 @@
 <RelatedPerson xmlns="http://hl7.org/fhir">
- <!-- from Resource: id, meta, implicitRules, and language -->
- <!-- from DomainResource: text, contained, extension, and modifierExtension -->
+  <id value="relatedPersonDenovoFather"/>
   <identifier>
     <use value="temp"/>
     <type>
