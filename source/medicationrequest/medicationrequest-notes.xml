@@ -5,16 +5,16 @@
     <h4>Grouping Medication Requests</h4>
     <p>In general, each prescribed drug will be a separate Medication Request.</p>
     <p>When drug orders are grouped together at the time of order entry,  but each of the drugs can be manipulated independently e.g. changing the status of one order to "completed" or "cancelled", changing another order status to "on-hold", the method to "group" all of the medication requests together is to use  MedicationRequest.groupIdentifier element.  All of the orders grouped together in this manner will have the same groupIdentifier, and separately, each order in the group may have a unique identifier.  </p>
-    <p>There are cases that require grouping of Medication orders together when it is necessary to specify optionality e.g. order two drugs at one time, but stating either of these drugs may be used to treat the patient.  The use of a RequestGroup should be used as a parent for the Medication orders that require this type of grouping. An example when it may be necessary to group medication orders together is when you specify:</p>
+    <p>There are cases that require grouping of Medication orders together when it is necessary to specify optionality e.g. order two drugs at one time, but stating either of these drugs may be used to treat the patient.  The use of a RequestOrchestration should be used as a parent for the Medication orders that require this type of grouping. An example when it may be necessary to group medication orders together is when you specify:</p>
     <ul>
         <li>timing relationships e.g. order drug "xyz" with dose 123, then taper the same drug to a different dose after some interval of time
             precedence. For example:
             <ul>
-                <li>give drug "abc" followed by drug "def"</li> 
+                <li>give drug "abc" followed by drug "def"</li>
                 <li>give drug 30 minutes before some procedure was performed.</li>
             </ul>
         </li>
-        
+
         <li>more generically this supports - hierarchical groups of actions, where each specific action references the action to be performed (in terms of a Request resource), and each group describes additional behavior, relationships, and applicable conditions between the actions in the overall group.</li>
     </ul>
     <p>Note that one should NOT use the List or Composition resource to accomplish the above requirements.  You may use List or Composition for other business requirements, but not to address the specific requirements of grouping medication orders. </p>

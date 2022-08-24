@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="cdshooksrequestgroup"/>
+  <id value="cdshooksrequestorchestration"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
@@ -15,14 +15,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/cdshooksrequestgroup"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/cdshooksrequestorchestration"/>
   <version value="5.0.0"/>
-  <name value="CDS Hooks RequestGroup"/>
+  <name value="CDS Hooks RequestOrchestration"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="Defines a RequestGroup that can represent a CDS Hooks response"/>
+  <description value="Defines a RequestOrchestration that can represent a CDS Hooks response"/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -41,82 +41,82 @@
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
-  <type value="RequestGroup"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/RequestGroup"/>
+  <type value="RequestOrchestration"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
   <derivation value="constraint"/>
   <differential>
-    <element id="RequestGroup">
-      <path value="RequestGroup"/>
+    <element id="RequestOrchestration">
+      <path value="RequestOrchestration"/>
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="RequestGroup.identifier">
-      <path value="RequestGroup.identifier"/>
+    <element id="RequestOrchestration.identifier">
+      <path value="RequestOrchestration.identifier"/>
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="RequestGroup.instantiatesUri">
-      <path value="RequestGroup.instantiatesUri"/>
+    <element id="RequestOrchestration.instantiatesUri">
+      <path value="RequestOrchestration.instantiatesUri"/>
       <min value="1"/>
       <max value="1"/>
     </element>
-    <element id="RequestGroup.priority">
-      <path value="RequestGroup.priority"/>
+    <element id="RequestOrchestration.priority">
+      <path value="RequestOrchestration.priority"/>
       <mustSupport value="true"/>
     </element>
-    <element id="RequestGroup.subject">
-      <path value="RequestGroup.subject"/>
+    <element id="RequestOrchestration.subject">
+      <path value="RequestOrchestration.subject"/>
       <mustSupport value="true"/>
     </element>
-    <element id="RequestGroup.authoredOn">
-      <path value="RequestGroup.authoredOn"/>
+    <element id="RequestOrchestration.authoredOn">
+      <path value="RequestOrchestration.authoredOn"/>
       <mustSupport value="true"/>
     </element>
-    <element id="RequestGroup.author">
-      <path value="RequestGroup.author"/>
+    <element id="RequestOrchestration.author">
+      <path value="RequestOrchestration.author"/>
       <mustSupport value="true"/>
     </element>
-    <element id="RequestGroup.action">
-      <path value="RequestGroup.action"/>
+    <element id="RequestOrchestration.action">
+      <path value="RequestOrchestration.action"/>
     </element>
-    <element id="RequestGroup.action.title">
-      <path value="RequestGroup.action.title"/>
+    <element id="RequestOrchestration.action.title">
+      <path value="RequestOrchestration.action.title"/>
       <mustSupport value="true"/>
     </element>
-    <element id="RequestGroup.action.description">
-      <path value="RequestGroup.action.description"/>
+    <element id="RequestOrchestration.action.description">
+      <path value="RequestOrchestration.action.description"/>
       <mustSupport value="true"/>
     </element>
-    <element id="RequestGroup.action.priority">
-      <path value="RequestGroup.action.priority"/>
+    <element id="RequestOrchestration.action.priority">
+      <path value="RequestOrchestration.action.priority"/>
       <mustSupport value="true"/>
     </element>
-    <element id="RequestGroup.action.documentation">
-      <path value="RequestGroup.action.documentation"/>
+    <element id="RequestOrchestration.action.documentation">
+      <path value="RequestOrchestration.action.documentation"/>
       <mustSupport value="true"/>
     </element>
-    <element id="RequestGroup.action.condition">
-      <path value="RequestGroup.action.condition"/>
+    <element id="RequestOrchestration.action.condition">
+      <path value="RequestOrchestration.action.condition"/>
       <mustSupport value="true"/>
     </element>
-    <element id="RequestGroup.action.timing[x]">
-      <path value="RequestGroup.action.timing[x]"/>
+    <element id="RequestOrchestration.action.timing[x]">
+      <path value="RequestOrchestration.action.timing[x]"/>
       <mustSupport value="true"/>
     </element>
-    <element id="RequestGroup.action.participant">
-      <path value="RequestGroup.action.participant"/>
+    <element id="RequestOrchestration.action.participant">
+      <path value="RequestOrchestration.action.participant"/>
       <mustSupport value="true"/>
     </element>
-    <element id="RequestGroup.action.type">
-      <path value="RequestGroup.action.type"/>
+    <element id="RequestOrchestration.action.type">
+      <path value="RequestOrchestration.action.type"/>
       <mustSupport value="true"/>
     </element>
-    <element id="RequestGroup.action.selectionBehavior">
-      <path value="RequestGroup.action.selectionBehavior"/>
+    <element id="RequestOrchestration.action.selectionBehavior">
+      <path value="RequestOrchestration.action.selectionBehavior"/>
       <mustSupport value="true"/>
     </element>
-    <element id="RequestGroup.action.resource">
-      <path value="RequestGroup.action.resource"/>
+    <element id="RequestOrchestration.action.resource">
+      <path value="RequestOrchestration.action.resource"/>
       <mustSupport value="true"/>
     </element>
   </differential>

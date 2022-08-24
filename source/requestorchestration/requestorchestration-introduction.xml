@@ -5,13 +5,13 @@
 <h2>Scope and Usage</h2>
 <p><strong>This resource is a <em>request</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#request">Request</a>.</p>
 
-<p>The RequestGroup resource is used to represent a group of optional activities that may be performed for a specific patient or context. This resource is often, but not always, the result of applying a specific <a href="plandefinition.html">PlanDefinition</a> to a particular patient. Other than differences that tie the RequestGroup to a particular subject and setting, the <code>actionDefinition</code> element of PlanDefinition is identical to the <code>action</code> element of the RequestGroup, allowing the same features and functionality to be used in both places to describe optionality of and relationships between activities in a workflow.</p>
+<p>The RequestOrchestration resource is used to represent a set of optional and related activities that may be performed for a specific patient or context. This resource is often, but not always, the result of applying a specific <a href="plandefinition.html">PlanDefinition</a> to a particular patient. Other than differences that tie the RequestOrchestration to a particular subject and setting, the <code>actionDefinition</code> element of PlanDefinition is identical to the <code>action</code> element of the RequestOrchestration, allowing the same features and functionality to be used in both places to describe optionality of and relationships between activities in a workflow.</p>
 
-<p>RequestGroups can contain hierarchical groups of actions, where each specific action references the action to be performed (in terms of a <a href="workflow.html#request">Request</a> resource), and each group describes additional behavior, relationships, and applicable conditions between the actions in the overall group.</p>
+<p>RequestOrchestrations can contain hierarchical groups of actions, where each specific action references the action to be performed (in terms of a <a href="workflow.html#request">Request</a> resource), and each group describes additional behavior, relationships, and applicable conditions between the actions in the overall group.</p>
 
 </div>
 
-<!-- (recommended): 
+<!-- (recommended):
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>

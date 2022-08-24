@@ -10,10 +10,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  
-  
-  
-  
+
+
+
+
   <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1017,7 +1017,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -3670,7 +3670,7 @@
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -4159,7 +4159,7 @@
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -4223,7 +4223,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="330">
     <Cell ss:StyleID="s129"><Data ss:Type="String">generatedFrom</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">CarePlan;CarePlan.activity.plannedActivityDetail;CommunicationRequest;DeviceRequest;ImmunizationRecommendation;NutritionOrder;RequestGroup;SupplyRequest;ServiceRequest;Task</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">CarePlan;CarePlan.activity.plannedActivityDetail;CommunicationRequest;DeviceRequest;ImmunizationRecommendation;NutritionOrder;RequestOrchestration;SupplyRequest;ServiceRequest;Task</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">Generated from</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">Instantiates</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4248,7 +4248,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="315">
     <Cell ss:StyleID="s106"><Data ss:Type="String">compliesWith</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">CarePlan;CarePlan.activity.plannedActivityDetail;CommunicationRequest;DeviceRequest;ImmunizationRecommendation;NutritionOrder;RequestGroup;SupplyRequest;ServiceRequest;Task</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">CarePlan;CarePlan.activity.plannedActivityDetail;CommunicationRequest;DeviceRequest;ImmunizationRecommendation;NutritionOrder;RequestOrchestration;SupplyRequest;ServiceRequest;Task</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Complies with</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">Instantiates</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4298,7 +4298,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell ss:StyleID="s106"><Data ss:Type="String">triggeredBy</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">CarePlan;CarePlan.activity.plannedActivityDetail;CommunicationRequest;DeviceRequest;Encounter;ImmunizationRecommendation;NutritionOrder;RequestGroup;SupplyRequest;ServiceRequest;Task;Condition;Communication;DiagnosticReport;DocumentReference;FamilyMemberHistory;Immunization;Observation;SupplyDelivery</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"><Data ss:Type="String">CarePlan;CarePlan.activity.plannedActivityDetail;CommunicationRequest;DeviceRequest;Encounter;ImmunizationRecommendation;NutritionOrder;RequestOrchestration;SupplyRequest;ServiceRequest;Task;Condition;Communication;DiagnosticReport;DocumentReference;FamilyMemberHistory;Immunization;Observation;SupplyDelivery</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Triggered by</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">Instantiates</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4448,7 +4448,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="240">
     <Cell ss:StyleID="s136"><Data ss:Type="String">episodeOfCare</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">AdverseEvent;Appointment;Basic;CarePlan;ClinicalImpression;Communication;CommunicationRequest;Composition;Condition;Consent;DetectedIssue;DeviceRequest;DeviceUsage;DiagnosticReport;DocumentReference;Encounter;EnrollmentRequest;EnrollmentResponse;FamilyMemberHistory;Flag;Goal;ImagingStudy;Immunization;ImmunizationEvaluation;ImmunizationRecommendation;Invoice;List;MeasureReport;MedicationAdministration;MedicationDispense;MedicationRequest;MedicationUsage;MolecularSequence;NutritionIntake;NutritionOrder;Observation;Procedure;QuestionnaireResponse;RequestGroup;ResearchSubject;RiskAssessment;SupplyDelivery;SupplyRequest;VisionPrescription;ServiceRequest;ChargeItem&#10;</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">AdverseEvent;Appointment;Basic;CarePlan;ClinicalImpression;Communication;CommunicationRequest;Composition;Condition;Consent;DetectedIssue;DeviceRequest;DeviceUsage;DiagnosticReport;DocumentReference;Encounter;EnrollmentRequest;EnrollmentResponse;FamilyMemberHistory;Flag;Goal;ImagingStudy;Immunization;ImmunizationEvaluation;ImmunizationRecommendation;Invoice;List;MeasureReport;MedicationAdministration;MedicationDispense;MedicationRequest;MedicationUsage;MolecularSequence;NutritionIntake;NutritionOrder;Observation;Procedure;QuestionnaireResponse;RequestOrchestration;ResearchSubject;RiskAssessment;SupplyDelivery;SupplyRequest;VisionPrescription;ServiceRequest;ChargeItem&#10;</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Episode of Care</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">context</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5090,7 +5090,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -5345,7 +5345,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -5935,7 +5935,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -6436,7 +6436,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -7032,7 +7032,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>

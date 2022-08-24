@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="CanonicalResource"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -74,16 +74,16 @@
         <valueCode value="230,160"/>
       </extension>
       <path value="CanonicalResource"/>
-      <short value="Common Interface declaration for definitional resources"/>
-      <definition value="Common Interface declaration for conformance and knowledge artifact resources."/>
+      <short value="Common Ancestor declaration for definitional resources"/>
+      <definition value="Common Ancestor declaration for conformance and knowledge artifact resources."/>
       <min value="1"/>
       <max value="1"/>
       <constraint>
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.matches('[A-Z]([A-Za-z0-9_]){0,254}')"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){0,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <mapping>
@@ -97,7 +97,7 @@
     </element>
     <element id="CanonicalResource.url">
       <path value="CanonicalResource.url"/>
-      <short value="Canonical identifier for this {{title}}, represented as an absolute URI (globally unique)"/>
+      <short value="Canonical identifier for this {{title}}, represented as a URI (globally unique)"/>
       <definition value="An absolute URI that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this {{title}} is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the {{title}} is stored on different servers."/>
       <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the {{title}} to be referenced by a single globally unique identifier."/>
@@ -306,8 +306,8 @@
     <element id="CanonicalResource.description">
       <path value="CanonicalResource.description"/>
       <short value="Natural language description of the {{title}}"/>
-      <definition value="A free text natural language description of the {{title}} from a consumer&#39;s perspective."/>
-      <comment value="This description can be used to capture details such as why the {{title}} was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the {{title}} as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the {{title}} is presumed to be the predominant language in the place the {{title}} was created)."/>
+      <definition value="A free text natural language description of the {{title}} from a consumer's perspective."/>
+      <comment value="This description can be used to capture details such as why the {{title}} was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the {{title}} as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the {{title}} is presumed to be the predominant language in the place the {{title}} was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -366,7 +366,7 @@
       <path value="CanonicalResource.purpose"/>
       <short value="Why this {{title}} is defined"/>
       <definition value="Explanation of why this {{title}} is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the {{title}}. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}."/>
+      <comment value="This element does not describe the usage of the {{title}}. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}."/>
       <min value="0"/>
       <max value="1"/>
       <type>
