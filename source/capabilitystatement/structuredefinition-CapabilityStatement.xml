@@ -1144,9 +1144,9 @@
     </element>
     <element id="CapabilityStatement.rest.resource.searchParam.name">
       <path value="CapabilityStatement.rest.resource.searchParam.name"/>
-      <short value="Name of search parameter"/>
-      <definition value="The name of the search parameter used in the interface."/>
-      <comment value="Parameter names cannot overlap with standard parameter names, and standard parameters cannot be redefined."/>
+      <short value="Name for parameter in search url"/>
+      <definition value="The label used for the search parameter in this particular system's API - i.e. the 'name' portion of the name-value pair that will appear as part of the search URL.  This SHOULD be the same as the SearchParameter.code of the defining SearchParameter.  However, it can sometimes differ if necessary to disambiguate when a server supports multiple SearchParameters that happen to share the same code."/>
+      <comment value="Parameter names cannot overlap with standard parameter names, and standard parameters cannot be redefined. There is no correspondence whatsoever between CapabilityStatement's searchParam.name and SearchParameter.name - the latter is used as a class name when generating code for the search parameter."/>
       <min value="1"/>
       <max value="1"/>
       <type>

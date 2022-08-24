@@ -433,9 +433,9 @@
         <valueBoolean value="true"/>
       </extension>
       <path value="SearchParameter.code"/>
-      <short value="Code used in URL"/>
-      <definition value="The code used in the URL or the parameter name in a parameters resource for this search parameter."/>
-      <comment value="For maximum compatibility, use only lowercase ASCII characters."/>
+      <short value="Recommended name for parameter in search url"/>
+      <definition value="The label that is recommended to be used in the URL or the parameter name in a parameters resource for this search parameter.  In some cases, servers may need to use a different CapabilityStatement searchParam.name to differentiate between multiple SearchParameters that happen to have the same code"/>
+      <comment value="For maximum compatibility, use only lowercase ASCII characters. Note that HL7 will never define multiple search parameters with the same code."/>
       <min value="1"/>
       <max value="1"/>
       <type>
