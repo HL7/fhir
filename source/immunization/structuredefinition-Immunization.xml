@@ -808,6 +808,24 @@
         <map value=".player"/>
       </mapping>
     </element>
+    <element id="Immunization.supportingInformation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#36060"/>
+      </extension>
+      <path value="Immunization.supportingInformation"/>
+      <short value="Additional information in support of the immunization"/>
+      <definition value="Additional information that is relevant to the immunization (e.g. for a vaccine recipient who is pregnant, the gestational age of the fetus). The reason why a vaccine was given (e.g. occupation, underlying medical condition) should be conveyed in Immunization.reason, not as supporting information. The reason why a vaccine was not given (e.g. contraindication) should be conveyed in Immunization.statusReason, not as supporting information."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+    </element>
     <element id="Immunization.note">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="#7866."/>
