@@ -94,6 +94,14 @@
         <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
       </constraint>
       <constraint>
+        <key value="cpb-4"/>
+        <severity value="error"/>
+        <human value="There should only be one CapabilityStatement.rest per mode."/>
+        <expression value="rest.mode.isDistinct()"/>
+        <xpath value="count(f:rest/f:mode/@value)=count(distinct-values(f:rest/f:mode/@value))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+      </constraint>
+      <constraint>
         <key value="cpb-7"/>
         <severity value="error"/>
         <human value="The set of documents must be unique by the combination of profile and mode."/>
