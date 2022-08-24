@@ -223,4 +223,13 @@ The choice of flagging vs. outright removal is determined by the list author.
 Applications processsing list SHOULD always check the deleted flag.
 </p>
 
+<a name="large-resources"> </a>
+<h3>Managing large Lists</h3>
+
+<p>
+For operations to assist in adding to, removing from, or filtering contents of large Lists, see
+<a href="operations-for-large-resources.html">Operations for Large Resources</a>.
+</p>
+
+
 </div>
