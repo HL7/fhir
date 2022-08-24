@@ -72,7 +72,12 @@ two ways:
  <li>FHIR-like solutions (based on FHIR, but not conformant) may set expectations by trading partners which are not met due to the non-conformance of the system and these un-met expectations may also result in risk</li>
 </ul>
 <p>
-Systems can only claim FHIR Conformance for functionality described in the applicable <a href="capabilitystatement.html">CapabilityStatement</a>.
+Systems can only claim FHIR Conformance for functionality described in the applicable
+<a href="capabilitystatement.html">CapabilityStatement</a>. RESTful Servers are required 
+to provide a <code>CapabilityStatement</code> on request. Other systems or applications
+that wish to assert formal conformance to FHIR MAY choose to publish a CapabilityStatement 
+defining how they conform. Assertions of conformance to FHIR in the absense of a 
+CapabilityStatement have little meaning because they cannot be tested/verified.
 </p>
 
 <a name="conflang"></a>
