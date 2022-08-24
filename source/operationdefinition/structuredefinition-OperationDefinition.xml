@@ -727,7 +727,7 @@
     </element>
     <element id="OperationDefinition.parameter.targetProfile">
       <path value="OperationDefinition.parameter.targetProfile"/>
-      <short value="If type is Reference | canonical, allowed targets"/>
+      <short value="If type is Reference | canonical, allowed targets. If type is 'Resource', then this constrains the allowed reosurce types"/>
       <definition value="Used when the type is &quot;Reference&quot; or &quot;canonical&quot;, and identifies a profile structure or implementation Guide that applies to the target of the reference this parameter refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide."/>
       <comment value="Often, these profiles are the base definitions from the spec (e.g. http://hl7.org/fhir/StructureDefinition/Patient)."/>
       <min value="0"/>
