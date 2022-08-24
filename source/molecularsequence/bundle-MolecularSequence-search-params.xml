@@ -25,7 +25,7 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="MolecularSequence-patient"/>
+        <id value="MolecularSequence-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
@@ -34,7 +34,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-subject"/>
         <description value="The subject that the sequence is about"/>
-        <code value="patient"/>
+        <code value="subject"/>
         <type value="reference"/>
         <expression value="MolecularSequence.subject"/>
         <xpath value="f:MolecularSequence/f:subject"/>
