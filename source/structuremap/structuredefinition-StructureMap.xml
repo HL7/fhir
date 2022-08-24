@@ -170,6 +170,25 @@
         <map value="FiveWs.version"/>
       </mapping>
     </element>
+    <element id="StructureMap.versionAlgorithm[x]">
+      <path value="StructureMap.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+      <isSummary value="true"/>
+    </element>    
     <element id="StructureMap.name">
       <path value="StructureMap.name"/>
       <short value="Name for this structure map (computer friendly)"/>
