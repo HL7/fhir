@@ -645,8 +645,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version"/>
       </binding>
     </element>
-
-
     <element id="CapabilityStatement.format">
       <path value="CapabilityStatement.format"/>
       <short value="formats supported (xml | json | ttl | mime type)"/>
@@ -676,8 +674,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
       </binding>
     </element>
-
-
     <element id="CapabilityStatement.patchFormat">
       <path value="CapabilityStatement.patchFormat"/>
       <short value="Patch formats supported"/>
@@ -702,6 +698,35 @@
         <strength value="required"/>
         <description value="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+      </binding>
+    </element>
+    <element id="CapabilityStatement.acceptLanguage">
+      <path value="CapabilityStatement.acceptLanguage"/>
+      <short value="Languages supported"/>
+      <definition value="A list of the languages supported by this implementation that are usefully supported in the ```Accept-Language``` header."/>
+      <comment value="In general, if a server gets a request with an Accept-Language that it doesn't support, it should still reutrn the resource, just in it's default language for the resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+     <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Language"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+          <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A human language."/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="IETF language tag"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
       </binding>
     </element>
     <element id="CapabilityStatement.implementationGuide">
