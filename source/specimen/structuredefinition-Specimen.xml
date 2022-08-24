@@ -318,7 +318,7 @@
 		</element>
     <element id="Specimen.role">
       <path value="Specimen.role"/>
-      <short value="Specimen role"/>
+      <short value="Role of the specimen"/>
       <definition value="The role or reason for the specimen."/>
       <min value="0"/>
       <max value="*"/>
