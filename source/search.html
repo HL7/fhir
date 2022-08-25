@@ -3147,14 +3147,20 @@ When searching on versioned references, the following rules apply:
 </p>
 <ul>
  <li>
-  If a resource has a reference that is versioned, and chaining is performed, the criteria should ideally be evaluated against the version 
+  If a resource has a reference that is versioned and chaining is performed, the criteria should ideally be evaluated against the version 
   referenced, but most systems will not be capable of this because search is only defined to function against the current version of a resource
  </li>
  <li>
-  Where a search does not act on the referenced version, search results SHOULD contain a OperationOutcome with a warning that indicates the discrepancy
+  Where a search does not act on the referenced version, search results SHOULD contain a <a href="operationoutcome.html">OperationOutcome</a> 
+  with a warning that indicates the discrepancy
  </li>
  <li>
-  If a resource has a reference that is versioned and the resource is included (e.g., <code>_include</code>, <code>_revinclude</code>), the specified version SHOULD be provided.
+  If a resource has a reference that is versioned and the resource is included (e.g., <code>_include</code>, <code>_revinclude</code>), 
+  the specified version SHOULD be provided.
+ </li>
+ <li>
+  If a reference-type search parameter does not contain a version (i.e., no <code>/_history/[version]</code> in the URL),
+  the search will match against resources containing both versioned and un-versioned references.
  </li>
 </ul>
 
