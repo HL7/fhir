@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RequestGroup xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/requestgroup.xsd">
+<RequestOrchestration xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/requestorchestration.xsd">
   <id value="example"/>
   <text>
     <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">Example RequestGroup illustrating related actions to administer medications in sequence with time delay.</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">Example RequestOrchestration illustrating related actions to administer medications in sequence with time delay.</div>
   </text>
   <contained>
     <MedicationRequest>
@@ -36,7 +36,7 @@
     </MedicationRequest>
   </contained>
   <identifier>
-    <value value="requestgroup-1"/>
+    <value value="requestorchestration-1"/>
   </identifier>
   <groupIdentifier>
     <system value="http://example.org/treatment-group"/>
@@ -106,4 +106,4 @@
       </resource>
     </action>
   </action>
-</RequestGroup>
+</RequestOrchestration>
