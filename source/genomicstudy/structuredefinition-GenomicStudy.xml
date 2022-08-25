@@ -395,7 +395,7 @@
       <short value="The specimen used in the analysis event"/>
       <definition value="The specimen used in the analysis event."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
