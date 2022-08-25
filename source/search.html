@@ -3365,6 +3365,11 @@ there are either <a href="#composite">Composite</a> search parameters, or the <a
 parameter.
 </p>
 <p>
+  Note that chained search parameters are not intended to work with <a href="#modifiers">search modifiers</a>.
+  While their use is not prohibited, searches requiring advanced matching across resources are encouraged
+  to use <a href="#advanced">Named Queries</a> or <a href="#_filter">Advanced filtering</a>.
+</p>
+<p>
 Advanced Search Note:
 Where a chained parameter searches a resource reference that may have more than one
 type of resource as its target, the parameter chain may end up referring
@@ -3416,6 +3421,13 @@ _has:Observation:patient:_has:AuditEvent:entity:agent=MyUserId</span>
 <p>
 This search will fetch all Patient records that have an Observation where the observation has an audit event from a specific user.
 </p>
+<p>
+  Note that reverse-chained search parameters are not intended to work with <a href="#modifiers">search modifiers</a>.
+  While their use is not prohibited, the syntax of <code>_has</code> makes construction and parsing error-prone.
+  Searches requiring advanced matching across resources are encouraged
+  to use <a href="#advanced">Named Queries</a> or <a href="#_filter">Advanced filtering</a>.
+</p>
+
 
 <h5>Composite Search Parameters... (all data is in types right now)?? TODO(ginoc): add or remove?</h5>
 
