@@ -3,6 +3,11 @@
 <!-- insert xhtml content here -->
 <a name="notes"></a>
 <h3>Implementation Notes</h3>
+<p>
+</p>
+
+<a name="use-case"></a>
+<h3>Use Case</h3>
 <p>GenomicStudy.subject and GenomicStudy.analysis.subject can reference a lot of resource types besides Patient such as Group, BiologicallyDerivedProduct, or Substance. In addition, it can provide more details about involved genomic files as inputs or outputs. These various options allow the GenomicStudy resource to cover many use cases besides direct patient care, e.g., research studies that involve multiple patients or environmental samples. Through the following subsections, some of these use cases are described.
 </p>
 <h4>Trio studies</h4>
@@ -15,8 +20,6 @@
 <p>Somatic mutation studies may use multiple samples from the patient to support mutation detection, e.g., tumor-normal sample pair. GenomicStudy.analysis may describe conducted analyses per each sample, where GenomicStudy.analysis.specimen elements may provide more details about each individual element. In addition GenomicStudy.analysis.input can list relevant input files, where the DocumentReference provide by GenomicStudy.analysis.input.file can list the specific specimen this input file is related to using DocumentReference.subject as a Specimen resource instance.
 </p>
 
-<a name="use-case"></a>
-<h3>Use Case</h3>
 <a name="ehr-usecase"></a>
 <h4>EHR access to genomic studies</h4>
 <p>
