@@ -78,6 +78,7 @@ their implementations.
       <li><a href="#membership">Searching by Membership</a></li>
       <li><a href="#filter">Advanced Filtering</a></li>
       <li><a href="#type">Searching Multiple Resource Types</a></li>
+      <li><a href="#implicitresources">Implicit Resources</a></li>
     </ul>
   </li>
   <li><a href="#modifyingresults">Modifying Search Results</a>
@@ -3596,7 +3597,17 @@ types that the search applies to. This can be done by using the standard search 
   If multiple types are specified, any search parameters shared across the entire set of
   specified resources may be used (see <a href="searchparameter-registry.html#common">search parameter registry</a>).
 </p>
-  
+
+<a name="implicitresources"></a>
+<h4>Implicit Resources</h4>
+<p>
+  Some resources are defined <i>implicitly</i> rather than as explicit instances 
+  (e.g. <a href="codesystem.html#detailed-metadata">Implicit Code Systems</a>).  When searching 
+  resources where implicit instances might exist, it is up to the server whether they will include 
+  implicit resources as part of the search set.  Implementation Guides MAY set specific expectations 
+  about search behavior around implicit resources. <span class="stu">TU</span>
+</p>
+
 <a name="modifyingresults"></a>
 <h3>Modifying Search Results</h3>
 <p>
