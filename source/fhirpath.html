@@ -249,12 +249,17 @@ then %rootResource is the same as %resource.
 <p>The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved. 
   If the input is empty, the output will be empty.</p>
 
+<p><b>as(type : identifier) : collection</b></p>
+<p>An alias for ofType() maintained purely for backwards compatibility.</p>
+
+  
 <p><b>ofType(type : identifier) : collection</b></p>
 <p>Returns a collection that contains all items in the input collection that are of the given type or a subclass thereof.
   This works the same as in the base FHIRPath specification, but implementers should be aware that in FHIR, 
   only concrete core types are allowed as an argument. All primitives are considered to be independent 
   types (so <code>markdown</code> is <strong>not</strong> a subclass of <code>string</code>). Profiled types are 
   not allowed, so to select <code>SimpleQuantity</code> one would pass <code>Quantity</code> as an argument.</p>
+
 
 <p><b>elementDefinition() : collection</b></p>
 <p>Returns the FHIR element definition information for each element in the input collection. If the 

@@ -141,7 +141,7 @@
         </component>
         <component>
           <definition value="context-quantity"/>
-          <expression value="value.as(Quantity) | value.as(Range)"/>
+          <expression value="value.ofType(Quantity) | value.ofType(Range)"/>
         </component>
       </SearchParameter>
     </resource>
@@ -165,7 +165,7 @@
         </component>
         <component>
           <definition value="context"/>
-          <expression value="value.as(CodeableConcept)"/>
+          <expression value="value.ofType(CodeableConcept)"/>
         </component>
       </SearchParameter>
     </resource>
@@ -263,9 +263,51 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-ext-context"/>
         <description value="The system is the URL for the context-type: e.g. http://hl7.org/fhir/extension-context-type#element|CodeableConcept.text"/>
         <code value="ext-context"/>
-        <type value="token"/>
+        <type value="composite"/>
         <expression value="StructureDefinition.context"/>
         <xpath value="f:StructureDefinition/f:context"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="ext-context-type"/>
+          <expression value="type"/>
+        </component>
+        <component>
+          <definition value="ext-context-expression"/>
+          <expression value="expression"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-ext-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-ext-context-type"/>
+        <description value="A type of extension context assigned to the structure definition"/>
+        <code value="ext-context-type"/>
+        <type value="token"/>
+        <expression value="StructureDefinition.context.type"/>
+        <xpath value="f:StructureDefinition/f:context/f:type"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureDefinition-ext-context-expression"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-ext-context-expression"/>
+        <description value="An expression of extension context assigned to the structure definition"/>
+        <code value="ext-context-expression"/>
+        <type value="token"/>
+        <expression value="StructureDefinition.context.expression"/>
+        <xpath value="f:StructureDefinition/f:context/f:expression"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
