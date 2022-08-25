@@ -257,14 +257,11 @@
       <path value="GuidanceResponse.reason"/>
       <short value="Why guidance is needed"/>
       <definition value="Describes the reason for the guidance response in coded or textual form, or Indicates the reason the request was initiated. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response."/>
+      <comment value="Although this reference can be used to point to any resource, it is typically expected to refer to subject-specific data appropriate to the subject of the guidance. For example, patient-based decision support would be expected to reference patient-level data. In addition, implementations should provide as much detail as possible by using the [targetElement](extension-targetelement.html) and [targetPath](extension-targetpath.html) extensions to indicate the specific elements relevant to providing the reason for the guidance."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
       <mapping>
         <identity value="workflow"/>
