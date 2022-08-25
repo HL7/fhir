@@ -42,9 +42,28 @@ Notes:
    does not attempt to describe service-based use of resources. The various service specifications will need to describe this usage in their own way.</li>
 </ul>
 
-[%dragons-start%]
+
+<a name="search-decl"></a>
+<h3>Supporting Search</h3>
+
 <p>
-It is useful to support discovery of which reverse chaining values a server supports. Clients should not assume that servers support reverse chaining everywhere they support forward chaining. This will require a new field somewhere (e.g., in CapabilityStatement or in SearchParameter). Will review with Grahame, re: the best place to put this.
+One of the most important parts of the CapabilityStatement is indicating what search functionality 
+a server supports or a client uses. The search can specify the following things:
+<ul>
+ <li>What resource types search is supported on, or used on</li>
+ <li>What search parameters are supported, and what their names are on this server (the server can use <a href="searchparameter-definitions.html#SearchParameter.code">alternative names</a>).
+   Note that clients can also choose to use alternative names for search parameters, but there is no expectation that servers will adapt for the client in this regard</li>
+ <li>Servers can define their own search parameters that are not sourced from elsewhere, and often to define 
+    searches on extensions (see <a href="searchparameter-example-extension.html">example</a>)</li>  
+ <li>What include and reverse includes a server supports, or a client uses</li>
+ <li>The Capability Statement does not support saying anything about modifiers or chaining directly, but these 
+ kind of statements can be made in the referenced <a href="searchparameter.html">search parameter</a> resources (using 
+ <a href="searchparameter-definitions.html#SearchParameter.derivedFrom">SearchParameter.derivedFrom</a> to establish traceability 
+ to the original definition of the search parameter)</li>
+ <li>Systems can also make statements about their use or support for system wide search (not associated with a particular resource type)</li>
+</ul>
+[%stu-note%]
+It is useful to support discovery of which reverse chaining values a server supports. Clients should not assume that servers support reverse chaining everywhere they support forward chaining. This will require a new field somewhere (e.g., in CapabilityStatement or in SearchParameter). Will review with FHIR-I, re: the best place to put this.
 </p>
 <p>
 The most important use of support for reverse (or forward!) chaining might be in establishing conformance requirements for a server, rather than in supporting "live" discovery of a server's capabilities. (The latter could simply be tested by a client, rather than relying on possibly-incomplete or possibly-incorrect discovery data.)
@@ -63,8 +82,13 @@ GET [base]/Group?_has:Observation:subject:code=1234-5
 </pre>
 <p>
 Open question #2: concern is that the possibility space is so broad that it might not be worth capturing all of this in such detail. Where to draw the line?
-</p>
-[%dragons-end%]
+[%end-note%]
+
+
+[%stu-note%]
+There is no way for a server to communicate how it supports search at this time. 
+FHIR-I plans to address this and other search issues for R6.
+[%end-note%]
 
 <a name="profiles"></a>
 <h3>Supporting Profiles</h3>

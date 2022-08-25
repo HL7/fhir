@@ -21,7 +21,9 @@ Search operations traverse through an existing set of resources filtering by
 parameters supplied to the search operation. The text below describes
 the FHIR search framework, starting with simple cases moving to the more complex.
 Implementers need only implement the amount of
-complexity that they require for their implementations.
+complexity that they require for their implementations. Servers SHALL declare 
+what features of search they require through their <a href="capabilitystatement.html#search-decl">CapabilityStatement</a>
+search declarations</a>, and clients are encouraged to do this too.
 </p>
 
 <a name="Summary"></a>
