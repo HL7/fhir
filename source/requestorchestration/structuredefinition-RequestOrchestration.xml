@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="RequestGroup"/>
+  <id value="RequestOrchestration"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
   </meta>
@@ -23,9 +23,9 @@
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".status = entered-in-error"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/RequestGroup"/>
+  <url value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
   <version value="5.0.0"/>
-  <name value="RequestGroup"/>
+  <name value="RequestOrchestration"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Clinical Decision Support)"/>
@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A group of related requests that can be used to capture intended activities that have inter-dependencies such as &quot;give this medication after that one&quot;."/>
+  <description value="A set of related requests that can be used to capture intended activities that have inter-dependencies such as &quot;give this medication after that one&quot;."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -60,17 +60,17 @@
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
-  <type value="RequestGroup"/>
+  <type value="RequestOrchestration"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
   <derivation value="specialization"/>
   <differential>
-    <element id="RequestGroup">
+    <element id="RequestOrchestration">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,0"/>
       </extension>
-      <path value="RequestGroup"/>
-      <short value="A group of related requests"/>
-      <definition value="A group of related requests that can be used to capture intended activities that have inter-dependencies such as &quot;give this medication after that one&quot;."/>
+      <path value="RequestOrchestration"/>
+      <short value="A set of related requests"/>
+      <definition value="A set of related requests that can be used to capture intended activities that have inter-dependencies such as &quot;give this medication after that one&quot;."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -82,8 +82,8 @@
         <map value="clinical.general"/>
       </mapping>
     </element>
-    <element id="RequestGroup.identifier">
-      <path value="RequestGroup.identifier"/>
+    <element id="RequestOrchestration.identifier">
+      <path value="RequestOrchestration.identifier"/>
       <short value="Business identifier"/>
       <definition value="Allows a service to provide a unique, business identifier for the request."/>
       <requirements value="Allows identification of the request as it is known by various participating systems and in a way that remains consistent across servers."/>
@@ -102,8 +102,8 @@
         <map value="FiveWs.identifier"/>
       </mapping>
     </element>
-    <element id="RequestGroup.instantiatesCanonical">
-      <path value="RequestGroup.instantiatesCanonical"/>
+    <element id="RequestOrchestration.instantiatesCanonical">
+      <path value="RequestOrchestration.instantiatesCanonical"/>
       <short value="Instantiates FHIR protocol or definition"/>
       <definition value="A canonical URL referencing a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request."/>
       <min value="0"/>
@@ -117,8 +117,8 @@
         <map value="Request.instantiatesCanonical"/>
       </mapping>
     </element>
-    <element id="RequestGroup.instantiatesUri">
-      <path value="RequestGroup.instantiatesUri"/>
+    <element id="RequestOrchestration.instantiatesUri">
+      <path value="RequestOrchestration.instantiatesUri"/>
       <short value="Instantiates external protocol or definition"/>
       <definition value="A URL referencing an externally defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request."/>
       <min value="0"/>
@@ -132,8 +132,8 @@
         <map value="Request.instantiatesUri"/>
       </mapping>
     </element>
-    <element id="RequestGroup.basedOn">
-      <path value="RequestGroup.basedOn"/>
+    <element id="RequestOrchestration.basedOn">
+      <path value="RequestOrchestration.basedOn"/>
       <short value="Fulfills plan, proposal, or order"/>
       <definition value="A plan, proposal or order that is fulfilled in whole or in part by this request."/>
       <requirements value="Allows tracing of authorization for the request and tracking whether proposals/recommendations were acted upon."/>
@@ -149,8 +149,8 @@
         <map value="Request.basedOn"/>
       </mapping>
     </element>
-    <element id="RequestGroup.replaces">
-      <path value="RequestGroup.replaces"/>
+    <element id="RequestOrchestration.replaces">
+      <path value="RequestOrchestration.replaces"/>
       <short value="Request(s) replaced by this request"/>
       <definition value="Completed or terminated request(s) whose function is taken by this new request."/>
       <comment value="The replacement could be because the initial request was immediately rejected (due to an issue) or because the previous request was completed, but the need for the action described by the request remains ongoing."/>
@@ -169,8 +169,8 @@
         <map value="Request.replaces"/>
       </mapping>
     </element>
-    <element id="RequestGroup.groupIdentifier">
-      <path value="RequestGroup.groupIdentifier"/>
+    <element id="RequestOrchestration.groupIdentifier">
+      <path value="RequestOrchestration.groupIdentifier"/>
       <short value="Composite request this is part of"/>
       <definition value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form."/>
       <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
@@ -188,10 +188,10 @@
         <map value="Request.groupIdentifier"/>
       </mapping>
     </element>
-    <element id="RequestGroup.status">
-      <path value="RequestGroup.status"/>
+    <element id="RequestOrchestration.status">
+      <path value="RequestOrchestration.status"/>
       <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
-      <definition value="The current state of the request. For request groups, the status reflects the status of all the requests in the group."/>
+      <definition value="The current state of the request. For request orchestrations, the status reflects the status of all the requests in the orchestration."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -217,8 +217,8 @@
         <map value="FiveWs.status"/>
       </mapping>
     </element>
-    <element id="RequestGroup.intent">
-      <path value="RequestGroup.intent"/>
+    <element id="RequestOrchestration.intent">
+      <path value="RequestOrchestration.intent"/>
       <short value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
       <definition value="Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain."/>
       <requirements value="Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain."/>
@@ -248,8 +248,8 @@
         <map value="FiveWs.class"/>
       </mapping>
     </element>
-    <element id="RequestGroup.priority">
-      <path value="RequestGroup.priority"/>
+    <element id="RequestOrchestration.priority">
+      <path value="RequestOrchestration.priority"/>
       <short value="routine | urgent | asap | stat"/>
       <definition value="Indicates how quickly the request should be addressed with respect to other requests."/>
       <min value="0"/>
@@ -276,11 +276,11 @@
         <map value="FiveWs.grade"/>
       </mapping>
     </element>
-    <element id="RequestGroup.code">
-      <path value="RequestGroup.code"/>
+    <element id="RequestOrchestration.code">
+      <path value="RequestOrchestration.code"/>
       <short value="What&#39;s being requested/ordered"/>
-      <definition value="A code that identifies what the overall request group is."/>
-      <comment value="This element can be used to provide a code that captures the meaning of the request group as a whole, as opposed to the code of the action element, which captures the meaning of the individual actions within the request group."/>
+      <definition value="A code that identifies what the overall request orchestration is."/>
+      <comment value="This element can be used to provide a code that captures the meaning of the request orchestration as a whole, as opposed to the code of the action element, which captures the meaning of the individual actions within the request orchestration."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -303,10 +303,10 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
-    <element id="RequestGroup.subject">
-      <path value="RequestGroup.subject"/>
-      <short value="Who the request group is about"/>
-      <definition value="The subject for which the request group was created."/>
+    <element id="RequestOrchestration.subject">
+      <path value="RequestOrchestration.subject"/>
+      <short value="Who the request orchestration is about"/>
+      <definition value="The subject for which the request orchestration was created."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -327,10 +327,10 @@
         <map value="FiveWs.subject"/>
       </mapping>
     </element>
-    <element id="RequestGroup.encounter">
-      <path value="RequestGroup.encounter"/>
+    <element id="RequestOrchestration.encounter">
+      <path value="RequestOrchestration.encounter"/>
       <short value="Created as part of"/>
-      <definition value="Describes the context of the request group, if any."/>
+      <definition value="Describes the context of the request orchestration, if any."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -346,10 +346,10 @@
         <map value="FiveWs.context"/>
       </mapping>
     </element>
-    <element id="RequestGroup.authoredOn">
-      <path value="RequestGroup.authoredOn"/>
-      <short value="When the request group was authored"/>
-      <definition value="Indicates when the request group was created."/>
+    <element id="RequestOrchestration.authoredOn">
+      <path value="RequestOrchestration.authoredOn"/>
+      <short value="When the request orchestration was authored"/>
+      <definition value="Indicates when the request orchestration was created."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -364,10 +364,10 @@
         <map value="FiveWs.recorded"/>
       </mapping>
     </element>
-    <element id="RequestGroup.author">
-      <path value="RequestGroup.author"/>
-      <short value="Device or practitioner that authored the request group"/>
-      <definition value="Provides a reference to the author of the request group."/>
+    <element id="RequestOrchestration.author">
+      <path value="RequestOrchestration.author"/>
+      <short value="Device or practitioner that authored the request orchestration"/>
+      <definition value="Provides a reference to the author of the request orchestration."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -385,10 +385,10 @@
         <map value="FiveWs.author"/>
       </mapping>
     </element>
-    <element id="RequestGroup.reason">
-      <path value="RequestGroup.reason"/>
-      <short value="Why the request group is needed"/>
-      <definition value="Describes the reason for the request group in coded or textual form."/>
+    <element id="RequestOrchestration.reason">
+      <path value="RequestOrchestration.reason"/>
+      <short value="Why the request orchestration is needed"/>
+      <definition value="Describes the reason for the request orchestration in coded or textual form."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -414,10 +414,10 @@
         <map value="FiveWs.why[x]"/>
       </mapping>
     </element>
-    <element id="RequestGroup.goal">
-      <path value="RequestGroup.goal"/>
+    <element id="RequestOrchestration.goal">
+      <path value="RequestOrchestration.goal"/>
       <short value="What goals"/>
-      <definition value="Goals that are intended to be achieved by following the requests in this RequestGroup."/>
+      <definition value="Goals that are intended to be achieved by following the requests in this RequestOrchestration."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -433,8 +433,8 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="RequestGroup.note">
-      <path value="RequestGroup.note"/>
+    <element id="RequestOrchestration.note">
+      <path value="RequestOrchestration.note"/>
       <short value="Additional notes about the response"/>
       <definition value="Provides a mechanism to communicate additional information about the response."/>
       <min value="0"/>
@@ -447,11 +447,11 @@
         <map value="Request.note"/>
       </mapping>
     </element>
-    <element id="RequestGroup.action">
+    <element id="RequestOrchestration.action">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="350,0"/>
       </extension>
-      <path value="RequestGroup.action"/>
+      <path value="RequestOrchestration.action"/>
       <short value="Proposed actions, if any"/>
       <definition value="The actions, if any, produced by the evaluation of the artifact."/>
       <min value="0"/>
@@ -465,13 +465,13 @@
         <human value="Must have resource or action but not both"/>
         <expression value="resource.exists() != action.exists()"/>
         <xpath value="exists(f:resource) != exists(f:action)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/RequestGroup"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
       </constraint>
     </element>
-    <element id="RequestGroup.action.linkId">
-      <path value="RequestGroup.action.linkId"/>
+    <element id="RequestOrchestration.action.linkId">
+      <path value="RequestOrchestration.action.linkId"/>
       <short value="Pointer to specific item from the PlanDefinition"/>
-      <definition value="The linkId of the action from the PlanDefinition that corresponds to this action in the RequestGroup resource."/>
+      <definition value="The linkId of the action from the PlanDefinition that corresponds to this action in the RequestOrchestration resource."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -482,8 +482,8 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="RequestGroup.action.prefix">
-      <path value="RequestGroup.action.prefix"/>
+    <element id="RequestOrchestration.action.prefix">
+      <path value="RequestOrchestration.action.prefix"/>
       <short value="User-visible prefix for the action (e.g. 1. or A.)"/>
       <definition value="A user-visible prefix for the action. For example a section or item numbering such as 1. or A."/>
       <min value="0"/>
@@ -492,8 +492,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="RequestGroup.action.title">
-      <path value="RequestGroup.action.title"/>
+    <element id="RequestOrchestration.action.title">
+      <path value="RequestOrchestration.action.title"/>
       <short value="User-visible title"/>
       <definition value="The title of the action displayed to a user."/>
       <min value="0"/>
@@ -502,8 +502,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="RequestGroup.action.description">
-      <path value="RequestGroup.action.description"/>
+    <element id="RequestOrchestration.action.description">
+      <path value="RequestOrchestration.action.description"/>
       <short value="Short description of the action"/>
       <definition value="A short description of the action used to provide a summary to display to the user."/>
       <min value="0"/>
@@ -513,8 +513,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="RequestGroup.action.textEquivalent">
-      <path value="RequestGroup.action.textEquivalent"/>
+    <element id="RequestOrchestration.action.textEquivalent">
+      <path value="RequestOrchestration.action.textEquivalent"/>
       <short value="Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system"/>
       <definition value="A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically."/>
       <min value="0"/>
@@ -524,8 +524,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="RequestGroup.action.priority">
-      <path value="RequestGroup.action.priority"/>
+    <element id="RequestOrchestration.action.priority">
+      <path value="RequestOrchestration.action.priority"/>
       <short value="routine | urgent | asap | stat"/>
       <definition value="Indicates how quickly the action should be addressed with respect to other actions."/>
       <min value="0"/>
@@ -546,8 +546,8 @@
         <map value="Request.priority"/>
       </mapping>
     </element>
-    <element id="RequestGroup.action.code">
-      <path value="RequestGroup.action.code"/>
+    <element id="RequestOrchestration.action.code">
+      <path value="RequestOrchestration.action.code"/>
       <short value="Code representing the meaning of the action or sub-actions"/>
       <definition value="A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a section of a documentation template."/>
       <min value="0"/>
@@ -567,8 +567,8 @@
         <map value="Request.code"/>
       </mapping>
     </element>
-    <element id="RequestGroup.action.documentation">
-      <path value="RequestGroup.action.documentation"/>
+    <element id="RequestOrchestration.action.documentation">
+      <path value="RequestOrchestration.action.documentation"/>
       <short value="Supporting documentation for the intended performer of the action"/>
       <definition value="Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources."/>
       <min value="0"/>
@@ -581,8 +581,8 @@
         <map value="Request.supportingInfo"/>
       </mapping>
     </element>
-    <element id="RequestGroup.action.goal">
-      <path value="RequestGroup.action.goal"/>
+    <element id="RequestOrchestration.action.goal">
+      <path value="RequestOrchestration.action.goal"/>
       <short value="What goals"/>
       <definition value="Goals that are intended to be achieved by following the requests in this action."/>
       <min value="0"/>
@@ -600,11 +600,11 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="RequestGroup.action.condition">
+    <element id="RequestOrchestration.action.condition">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,320"/>
       </extension>
-      <path value="RequestGroup.action.condition"/>
+      <path value="RequestOrchestration.action.condition"/>
       <short value="Whether or not the action is applicable"/>
       <definition value="An expression that describes applicability criteria, or start/stop conditions for the action."/>
       <comment value="When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all of the conditions are true."/>
@@ -614,8 +614,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="RequestGroup.action.condition.kind">
-      <path value="RequestGroup.action.condition.kind"/>
+    <element id="RequestOrchestration.action.condition.kind">
+      <path value="RequestOrchestration.action.condition.kind"/>
       <short value="applicability | start | stop"/>
       <definition value="The kind of condition."/>
       <comment value="Applicability criteria are used to determine immediate applicability when a plan definition is applied to a given context. Start and stop criteria are carried through application and used to describe enter/exit criteria for an action."/>
@@ -633,8 +633,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/action-condition-kind"/>
       </binding>
     </element>
-    <element id="RequestGroup.action.condition.expression">
-      <path value="RequestGroup.action.condition.expression"/>
+    <element id="RequestOrchestration.action.condition.expression">
+      <path value="RequestOrchestration.action.condition.expression"/>
       <short value="Boolean-valued expression"/>
       <definition value="An expression that returns true or false, indicating whether or not the condition is satisfied."/>
       <comment value="The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element."/>
@@ -644,11 +644,11 @@
         <code value="Expression"/>
       </type>
     </element>
-    <element id="RequestGroup.action.relatedAction">
+    <element id="RequestOrchestration.action.relatedAction">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="20,370"/>
       </extension>
-      <path value="RequestGroup.action.relatedAction"/>
+      <path value="RequestOrchestration.action.relatedAction"/>
       <short value="Relationship to another action"/>
       <definition value="A relationship to another action such as &quot;before&quot; or &quot;30-60 minutes after start of&quot;."/>
       <min value="0"/>
@@ -657,8 +657,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="RequestGroup.action.relatedAction.targetId">
-      <path value="RequestGroup.action.relatedAction.targetId"/>
+    <element id="RequestOrchestration.action.relatedAction.targetId">
+      <path value="RequestOrchestration.action.relatedAction.targetId"/>
       <short value="What action this is related to"/>
       <definition value="The element id of the target related action."/>
       <min value="1"/>
@@ -667,8 +667,8 @@
         <code value="id"/>
       </type>
     </element>
-    <element id="RequestGroup.action.relatedAction.relationship">
-      <path value="RequestGroup.action.relatedAction.relationship"/>
+    <element id="RequestOrchestration.action.relatedAction.relationship">
+      <path value="RequestOrchestration.action.relatedAction.relationship"/>
       <short value="before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end"/>
       <definition value="The relationship of this action to the related action."/>
       <min value="1"/>
@@ -685,8 +685,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type"/>
       </binding>
     </element>
-    <element id="RequestGroup.action.relatedAction.offset[x]">
-      <path value="RequestGroup.action.relatedAction.offset[x]"/>
+    <element id="RequestOrchestration.action.relatedAction.offset[x]">
+      <path value="RequestOrchestration.action.relatedAction.offset[x]"/>
       <short value="Time offset for the relationship"/>
       <definition value="A duration or range of durations to apply to the relationship. For example, 30-60 minutes before."/>
       <min value="0"/>
@@ -698,8 +698,8 @@
         <code value="Range"/>
       </type>
     </element>
-    <element id="RequestGroup.action.timing[x]">
-      <path value="RequestGroup.action.timing[x]"/>
+    <element id="RequestOrchestration.action.timing[x]">
+      <path value="RequestOrchestration.action.timing[x]"/>
       <short value="When the action should take place"/>
       <definition value="An optional value describing when the action should be performed."/>
       <comment value="The intent of the timing element is to provide timing for when the action should be performed. The timing may be absolute (specified as a dateTime or Period) or relative (specified as an Age, Duration, or Range), or it may be a more complex, potentially repeating timing specified using Timing."/>
@@ -729,8 +729,8 @@
         <map value="Request.occurrence[x]"/>
       </mapping>
     </element>
-    <element id="RequestGroup.action.location">
-      <path value="RequestGroup.action.location"/>
+    <element id="RequestOrchestration.action.location">
+      <path value="RequestOrchestration.action.location"/>
       <short value="Where it should happen"/>
       <definition value="Identifies the facility where the action will occur; e.g. home, hospital, specific clinic, etc."/>
       <comment value="May reference a specific clinical location or may just identify a type of location."/>
@@ -747,11 +747,11 @@
         <map value=".participation[typeCode=LOC].role"/>
       </mapping>
     </element>
-    <element id="RequestGroup.action.participant">
-      <path value="RequestGroup.action.participant"/>
+    <element id="RequestOrchestration.action.participant">
+      <path value="RequestOrchestration.action.participant"/>
       <short value="Who should perform the action"/>
       <definition value="The participant that should perform or be responsible for this action."/>
-      <comment value="Because request groups represent potential options for performing activities, some specific participants may still be unknown, so this element allows for both definitional participants (in the same way they are specified in ActivityDefinition and PlanDefinition resources) as well as identifying specific participants when they are known."/>
+      <comment value="Because request orchestrations represent potential options for performing activities, some specific participants may still be unknown, so this element allows for both definitional participants (in the same way they are specified in ActivityDefinition and PlanDefinition resources) as well as identifying specific participants when they are known."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -766,8 +766,8 @@
         <map value="FiveWs.actor"/>
       </mapping>
     </element>
-    <element id="RequestGroup.action.participant.type">
-      <path value="RequestGroup.action.participant.type"/>
+    <element id="RequestOrchestration.action.participant.type">
+      <path value="RequestOrchestration.action.participant.type"/>
       <short value="careteam | device | group | healthcareservice | location | organization | patient | practitioner | practitionerrole | relatedperson"/>
       <definition value="The type of participant in the action."/>
       <min value="0"/>
@@ -788,8 +788,8 @@
         <map value=".role.classCode"/>
       </mapping>
     </element>
-    <element id="RequestGroup.action.participant.typeReference">
-      <path value="RequestGroup.action.participant.typeReference"/>
+    <element id="RequestOrchestration.action.participant.typeReference">
+      <path value="RequestOrchestration.action.participant.typeReference"/>
       <short value="Who or what can participate"/>
       <definition value="The type of participant in the action."/>
       <comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
@@ -813,8 +813,8 @@
         <map value=".role.classCode"/>
       </mapping>
     </element>
-    <element id="RequestGroup.action.participant.role">
-      <path value="RequestGroup.action.participant.role"/>
+    <element id="RequestOrchestration.action.participant.role">
+      <path value="RequestOrchestration.action.participant.role"/>
       <short value="E.g. Nurse, Surgeon, Parent, etc."/>
       <definition value="The role the participant should play in performing the described action."/>
       <min value="0"/>
@@ -835,8 +835,8 @@
         <map value=".role.code"/>
       </mapping>
     </element>
-    <element id="RequestGroup.action.participant.function">
-      <path value="RequestGroup.action.participant.function"/>
+    <element id="RequestOrchestration.action.participant.function">
+      <path value="RequestOrchestration.action.participant.function"/>
       <short value="E.g. Author, Reviewer, Witness, etc."/>
       <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
       <min value="0"/>
@@ -856,8 +856,8 @@
         <map value=".role.code"/>
       </mapping>
     </element>
-    <element id="RequestGroup.action.participant.actor">
-      <path value="RequestGroup.action.participant.actor"/>
+    <element id="RequestOrchestration.action.participant.actor">
+      <path value="RequestOrchestration.action.participant.actor"/>
       <short value="Who/what is participating?"/>
       <definition value="A reference to the actual participant."/>
       <min value="0"/>
@@ -880,8 +880,8 @@
         <map value=".role.code"/>
       </mapping>
     </element>
-    <element id="RequestGroup.action.type">
-      <path value="RequestGroup.action.type"/>
+    <element id="RequestOrchestration.action.type">
+      <path value="RequestOrchestration.action.type"/>
       <short value="create | update | remove | fire-event"/>
       <definition value="The type of action to perform (create, update, remove)."/>
       <min value="0"/>
@@ -898,8 +898,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/action-type"/>
       </binding>
     </element>
-    <element id="RequestGroup.action.groupingBehavior">
-      <path value="RequestGroup.action.groupingBehavior"/>
+    <element id="RequestOrchestration.action.groupingBehavior">
+      <path value="RequestOrchestration.action.groupingBehavior"/>
       <short value="visual-group | logical-group | sentence-group"/>
       <definition value="Defines the grouping behavior for the action and its children."/>
       <min value="0"/>
@@ -916,8 +916,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/action-grouping-behavior"/>
       </binding>
     </element>
-    <element id="RequestGroup.action.selectionBehavior">
-      <path value="RequestGroup.action.selectionBehavior"/>
+    <element id="RequestOrchestration.action.selectionBehavior">
+      <path value="RequestOrchestration.action.selectionBehavior"/>
       <short value="any | all | all-or-none | exactly-one | at-most-one | one-or-more"/>
       <definition value="Defines the selection behavior for the action and its children."/>
       <min value="0"/>
@@ -934,8 +934,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/action-selection-behavior"/>
       </binding>
     </element>
-    <element id="RequestGroup.action.requiredBehavior">
-      <path value="RequestGroup.action.requiredBehavior"/>
+    <element id="RequestOrchestration.action.requiredBehavior">
+      <path value="RequestOrchestration.action.requiredBehavior"/>
       <short value="must | could | must-unless-documented"/>
       <definition value="Defines expectations around whether an action is required."/>
       <min value="0"/>
@@ -952,8 +952,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/action-required-behavior"/>
       </binding>
     </element>
-    <element id="RequestGroup.action.precheckBehavior">
-      <path value="RequestGroup.action.precheckBehavior"/>
+    <element id="RequestOrchestration.action.precheckBehavior">
+      <path value="RequestOrchestration.action.precheckBehavior"/>
       <short value="yes | no"/>
       <definition value="Defines whether the action should usually be preselected."/>
       <min value="0"/>
@@ -970,8 +970,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/action-precheck-behavior"/>
       </binding>
     </element>
-    <element id="RequestGroup.action.cardinalityBehavior">
-      <path value="RequestGroup.action.cardinalityBehavior"/>
+    <element id="RequestOrchestration.action.cardinalityBehavior">
+      <path value="RequestOrchestration.action.cardinalityBehavior"/>
       <short value="single | multiple"/>
       <definition value="Defines whether the action can be selected multiple times."/>
       <min value="0"/>
@@ -988,8 +988,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/action-cardinality-behavior"/>
       </binding>
     </element>
-    <element id="RequestGroup.action.resource">
-      <path value="RequestGroup.action.resource"/>
+    <element id="RequestOrchestration.action.resource">
+      <path value="RequestOrchestration.action.resource"/>
       <short value="The target of the action"/>
       <definition value="The resource that is the target of the action (e.g. CommunicationRequest)."/>
       <comment value="The target resource SHALL be a [Request](request.html) resource with a Request.intent set to &quot;option&quot;."/>
@@ -1001,13 +1001,13 @@
       </type>
       <condition value="rqg-1"/>
     </element>
-    <element id="RequestGroup.action.action">
-      <path value="RequestGroup.action.action"/>
+    <element id="RequestOrchestration.action.action">
+      <path value="RequestOrchestration.action.action"/>
       <short value="Sub action"/>
       <definition value="Sub actions."/>
       <min value="0"/>
       <max value="*"/>
-      <contentReference value="#RequestGroup.action"/>
+      <contentReference value="#RequestOrchestration.action"/>
       <condition value="rqg-1"/>
     </element>
   </differential>

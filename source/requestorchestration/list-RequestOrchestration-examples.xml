@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <List xmlns="http://hl7.org/fhir">
-  <id value="RequestGroup-examples"/>
+  <id value="RequestOrchestration-examples"/>
   <status value="current"/>
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Simple example request group illustrating related actions with offsets"/>
+      <valueString value="Simple example request orchestration illustrating related actions with offsets"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="requestgroup-example"/>
+      <valueString value="requestorchestration-example"/>
     </extension>
     <item>
-      <reference value="RequestGroup/example"/>
+      <reference value="RequestOrchestration/example"/>
       <display value="Offset Actions Example"/>
     </item>
   </entry>
@@ -21,10 +21,10 @@
       <valueString value="Example realization of the KDN5 PlanDefinition example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="requestgroup-kdn5-example"/>
+      <valueString value="requestorchestration-kdn5-example"/>
     </extension>
     <item>
-      <reference value="RequestGroup/kdn5-example"/>
+      <reference value="RequestOrchestration/kdn5-example"/>
       <display value="KDN5 Example"/>
     </item>
   </entry>

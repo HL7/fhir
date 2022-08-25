@@ -189,7 +189,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="dateTime"/>
+        <code value="date"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -213,7 +213,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="dateTime"/>
+        <code value="date"/>
       </type>
       <isSummary value="true"/>
       <mapping>

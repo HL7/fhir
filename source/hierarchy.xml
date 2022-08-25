@@ -418,7 +418,7 @@ signatures.html
       <page type="resource" resource="EvidenceVariable"/>
       <page type="resource" resource="Library"/>
       <page type="resource" resource="GuidanceResponse"/>
-      <page type="resource" resource="RequestGroup"/>
+      <page type="resource" resource="RequestOrchestration"/>
       <page type="resource" resource="Measure"/>
       <page type="resource" resource="MeasureReport"/>
     </page>

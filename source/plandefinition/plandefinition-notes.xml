@@ -2,7 +2,7 @@
 
 <h3>Applying a PlanDefinition</h3>
 
-<p>The following diagram illustrates the relationship between the PlanDefinition and ActivityDefinition resources, as well as a typical application to CarePlan, RequestGroup, and Request resources. The resources depicted on the left side of the arrow are <i>definition</i> resources, while the ones on the right side of the arrow are <i>request</i> resources, with the arrow representing the <code>$apply</code> operation:</p>
+<p>The following diagram illustrates the relationship between the PlanDefinition and ActivityDefinition resources, as well as a typical application to CarePlan, RequestOrchestration, and Request resources. The resources depicted on the left side of the arrow are <i>definition</i> resources, while the ones on the right side of the arrow are <i>request</i> resources, with the arrow representing the <code>$apply</code> operation:</p>
 
 <img src="action-and-activity-definition.png" alt="relationship-between-action-and-activity-definition"/>
 
@@ -11,8 +11,8 @@
 <ol>
 	<li>Create a CarePlan resource focused on the Patient in context and linked to the PlanDefinition using the <code>instantiates</code> element</li>
 	<li>Create <code>goal</code> elements in the CarePlan based on the <code>goal</code> definitions in the plan</li>
-	<li>Create a RequestGroup resource focused on the Patient in context and linked to the PlanDefinition using the <code>instantiatesCanonical</code> element</li>
-	<li>Create an <code>activity</code> in the CarePlan to <code>reference</code> the RequestGroup</li>
+	<li>Create a RequestOrchestration resource focused on the Patient in context and linked to the PlanDefinition using the <code>instantiatesCanonical</code> element</li>
+	<li>Create an <code>activity</code> in the CarePlan to <code>reference</code> the RequestOrchestration</li>
 	<li>Process each <code>action</code> element of the PlanDefinition</li>
 </ol>
 
@@ -23,24 +23,24 @@
 	<li>If the action is applicable, determine whether the action is a group or a single, atomic activity (does the action have child actions?)</li>
 	<li>If the action is atomic, process according to the following steps:
 	    <ul>
-			<li>Create an <code>action</code> element in the RequestGroup with the same <code>id</code> as the action being processed</li>
-			<li>Apply the elements of the <code>action</code> to the corresponding elements of the newly created <code>action</code> in the RequestGroup such as <code>title</code>, <code>description</code>, <code>textEquivalent</code>, <code>timing</code>, and so on</li>
+			<li>Create an <code>action</code> element in the RequestOrchestration with the same <code>id</code> as the action being processed</li>
+			<li>Apply the elements of the <code>action</code> to the corresponding elements of the newly created <code>action</code> in the RequestOrchestration such as <code>title</code>, <code>description</code>, <code>textEquivalent</code>, <code>timing</code>, and so on</li>
 			<li>Carry any <i>start</i> and <i>stop</i> conditions defined in the plan action forward to the request group action.</li>
 			<li>There are three possibilities for the <code>definition</code> element:
 				<ul>
 					<li>ActivityDefinition:
 						<ol>
 							<li>Create the target resource as described in the Applying an ActivityDefinition topic</li>
-							<li>Reference the resulting resource in the <code>resource</code> element of the action. Note that the target resource can be set as a <code>contained</code> resource in the RequestGroup, or it can be persisted independently, as appropriate for the environment</li>
-							<li>Set the <code>status</code> of the target resource to <i>option</i> so that it is clearly indicated as part of a RequestGroup. Note that the ActivityDefinition/$apply operation will not necessarily produce resource with this status, so this is an important step.</li>
+							<li>Reference the resulting resource in the <code>resource</code> element of the action. Note that the target resource can be set as a <code>contained</code> resource in the RequestOrchestration, or it can be persisted independently, as appropriate for the environment</li>
+							<li>Set the <code>status</code> of the target resource to <i>option</i> so that it is clearly indicated as part of a RequestOrchestration. Note that the ActivityDefinition/$apply operation will not necessarily produce resource with this status, so this is an important step.</li>
 							<li>Apply any overrides based on the elements of the <code>action</code> (see the section on Overlap below for details)</li>
 						</ol>
 					</li>
 					<li>PlanDefinition:
 						<ol>
 							<li>Create a CarePlan by applying the target PlanDefinition</li>
-							<li>Reference the resulting resource in the <code>resource</code> element of the action. Note that the resulting CarePlan can be set as a <code>contained</code> resource in the RequestGroup, but doing so would require expanding any potentially contained resources.</li>
-							<li>Set the <code>status</code> of the CarePlan to <i>option</i> so that it is clearly indicated as part of a RequestGroup.</li>
+							<li>Reference the resulting resource in the <code>resource</code> element of the action. Note that the resulting CarePlan can be set as a <code>contained</code> resource in the RequestOrchestration, but doing so would require expanding any potentially contained resources.</li>
+							<li>Set the <code>status</code> of the CarePlan to <i>option</i> so that it is clearly indicated as part of a RequestOrchestration.</li>
 							<li>Apply any overrides based on the elements of the <code>action</code> such as <code>title</code>, <code>description</code>, and <code>dynamicValue</code>.</li>
 						</ol>
 					</li>
