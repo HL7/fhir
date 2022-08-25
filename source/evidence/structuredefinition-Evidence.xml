@@ -569,8 +569,8 @@
     </element>
     <element id="Evidence.studyDesign">
       <path value="Evidence.studyDesign"/>
-      <short value="The type of study that produced this evidence"/>
-      <definition value="The type of study that produced this evidence."/>
+      <short value="The design of the study that produced this evidence"/>
+      <definition value="The design of the study that produced this evidence. The design is described with any number of study design characteristics."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -578,11 +578,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="StudyType"/>
+          <valueString value="StudyDesign"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The type of study the evidence was derived from."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/study-type"/>
+        <description value="This is a set of terms for study design characteristics."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/study-design"/>
       </binding>
     </element>
     <element id="Evidence.statistic">
