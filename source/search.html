@@ -3908,9 +3908,9 @@ is searching on a clinical resource, but for every such resource returned, the c
 the subject (patient) resource that the clinical resource refers to. The client can use the
 <code>_include</code> parameter to indicate that the subject resources be included in the results.
 An alternative scenario is where the client wishes to fetch a particular resource, and any resources
-that refer to it. For example, the client may wish to fetch a MedicationRequest, and any provenance
-resources that refer to the prescription. This is known as a reverse include, and is specified by
-providing a <code>_revinclude</code> parameter.
+that refer to it. For example, the client may wish to fetch a <a href="medicationrequest.html">MedicationRequest</a> 
+and any <a href="provenance.html">Provenance</a> resources that refer to the prescription. This is 
+known as a reverse include, and is specified by providing a <code>_revinclude</code> parameter.
 </p>
 <p>
 Both <code>_include</code> and <code>_revinclude</code> are based on search parameters, rather than
@@ -3984,13 +3984,19 @@ cannot be retrieved (e.g. on a different server), then the resource is omitted, 
 error is returned.
 </p>
 <p>
-Servers SHOULD resolve _include requests for version-specific references by resolving the version named in the reference.
+Servers SHOULD resolve <code>_include</code> and <code>_revinclude</code> requests for version-specific 
+references by resolving the version named in the reference.
 </p>
 <p>
-The inclusion process can be iterative, if (and only if) the modifier <a href="modifieriterate"><code>iterate</code></a> is included.
-For example, this search returns all <a href="medicationrequest.html">MedicationRequest</a> resources and their 
-<a href="practitioner.html">prescribing Practitioner</a> Resources
-for the matching <a href="medicationdispense.html">MedicationDispense</a> resources:
+  <code>_include</code> and <code>_revinclude</code> are, by default, invoked only on the initial results
+  of the search set, not on any 'included' resources.  To repeatedly perform the <code>_include</code> and 
+  <code>_revinclude</code> instructions on included resources, use the 
+  <a href="modifieriterate"><code>iterate</code></a> modifier.
+</p>
+<p>
+  For example, this search returns all <a href="medicationrequest.html">MedicationRequest</a> resources and their 
+  <a href="practitioner.html">prescribing Practitioner</a> Resources
+  for the matching <a href="medicationdispense.html">MedicationDispense</a> resources:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
