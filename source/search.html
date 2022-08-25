@@ -4727,7 +4727,6 @@ will match Observation resources that contain the a tag value matching the syste
 that an observation has been tagged as potentially life-threatening or with the potential cause permanent injury.
 </p>
 
-
 <a name="_type"></a>
 <h5>_type</h5>
 <p>
@@ -4758,7 +4757,6 @@ _type=Observation,Condition&amp;patient=Patient/123</span>
 <p>
   More information can be found in the section <a href="#types">Searching Multiple Resource Types</a>.
 </p>
-
 
 <a name="parameters"></a>
 <h4>Parameters for each resource</h4>
@@ -4883,6 +4881,14 @@ describes a specific query operation. The named query
 may define additional named parameters that are used with that
 particular named query. Servers can define their own additional
 named queries to meet their own uses using an <a href="operationdefinition.html">OperationDefinition</a>.
+</p>
+<p>
+  Query operations are only allowed in the <code>base</code> and <code>type</code> 
+  <a href="#searchcontexts">search contexts</a>.  Named queries cannot be defined
+  at the <code>instance</code> level.  Query operations SHOULD NOT be invoked via
+  any method other than search with the <code>_query</code> parameter (e.g., 
+  servers SHOULD NOT execute query operations via <code>[base]/$[operation code]</code>, etc.).
+  <span class="stu">TU</span>
 </p>
 <p>
   For named queries, all the <a href="#standard">standard search parameters</a> (parameters for 
