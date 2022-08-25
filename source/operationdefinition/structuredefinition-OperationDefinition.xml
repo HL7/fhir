@@ -460,7 +460,7 @@
       <path value="OperationDefinition.code"/>
       <short value="Recommended name for operation in search url"/>
       <definition value="The label that is recommended to be used in the URL for this operation. In some cases, servers may need to use a different CapabilityStatement operation.name to differentiate between multiple SearchParameters that happen to have the same code."/>
-      <comment value="For maximum compatibility, use only lowercase ASCII characters. Note that HL7 will never define multiple operations with the same code. See [Naming Rules & Guidelines](https://confluence.hl7.org/display/FHIR/Guide+to+Designing+Resources#GuidetoDesigningResources-NamingRules&Guidelines) for the internal HL7 rules around codes, which are useful additional advice for all implementers"/>
+      <comment value="For maximum compatibility, use only lowercase ASCII characters. Note that HL7 will never define multiple operations with the same code. See [Naming Rules &amp; Guidelines](https://confluence.hl7.org/display/FHIR/Guide+to+Designing+Resources#GuidetoDesigningResources-NamingRules&amp;Guidelines) for the internal HL7 rules around codes, which are useful additional advice for all implementers"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -648,6 +648,24 @@
         <strength value="required"/>
         <description value="Whether an operation parameter is an input or an output parameter."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/operation-parameter-use"/>
+      </binding>
+    </element>
+    <element id="OperationDefinition.parameter.scope">
+      <path value="OperationDefinition.parameter.scope"/>
+      <short value="instance | type | system"/>
+      <definition value="If present, indicates that the parameter applies when the operation is being invoked at the specified level."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <meaningIfMissing value="If no scope is indicated, it is assumed that the parameter is relevant whenever the operation is invoked."/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="OperationParameterScope"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/operation-parameter-scope"/>
       </binding>
     </element>
     <element id="OperationDefinition.parameter.min">

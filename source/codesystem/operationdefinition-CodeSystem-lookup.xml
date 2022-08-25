@@ -64,7 +64,7 @@
   <resource value="CodeSystem"/>
   <system value="false"/>
   <type value="true"/>
-  <instance value="false"/>
+  <instance value="true"/>
   <parameter>
     <name value="code"/>
     <use value="in"/>
