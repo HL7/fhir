@@ -4617,8 +4617,15 @@ will match Observation resources that contain a <code>Resource.meta.profile</cod
 </p>
 <p>
   The <code>_query</code> search parameter is defined as a <a href="#special">special</a> type parameter.  Input to the
-  parameter is treated as a token-based search <span class="stu">TU</span>, requiring an exact match to the query name.
+  parameter is treated as a token-based search <span class="stu">TU</span>, requiring an exact match to the query name,
+  as defined by the <code>OperationDefinition.code</code> element.
 </p>
+<p>
+  There can only ever be one <code>_query</code> parameter in a set of search
+  parameters. Servers processing search requests SHALL
+  refuse to process a search request if they do not recognize
+  the <code>_query</code> parameter value.
+</p>  
 <p>
   For example, the search:
 <span class="http-search-example">
@@ -4898,15 +4905,11 @@ named queries to meet their own uses using an <a href="operationdefinition.html"
   or by defining a constrained operation based on the original that explicitly enumerates all supported parameters. <span class="stu">TU</span>
 </p>
 <p>
+  In order to ensure consistent behavior, authors SHOULD include relevant search parameters
+  in the named query definition (<code>OperationDefinition</code>). <span class="stu">TU</span>
+</p>
+<p>
   For example, the operation definition:
-</p>
-<p>
-There can only ever be one <code>_query</code> parameter in a set of search
-parameters. Servers processing search requests SHALL
-refuse to process a search request if they do not recognize
-the <code>_query</code> parameter value.
-</p>
-<p>
   <span class="fhir-example">
     <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
     <span class="example-format-display">
@@ -4977,6 +4980,10 @@ the <code>_query</code> parameter value.
 &lt;/OperationDefinition&gt;</span>
     </span>
   </span>
+</p>
+<p>
+  Note that operations defined as named queries (using a <code>OperationDefinition.kind</code> of <code>query</code>)
+  SHOULD NOT be invoked via the 
 </p>
 
 <a name="currency"></a>
