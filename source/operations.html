@@ -169,10 +169,9 @@ For each parameter, the following information is needed:
  <li>Name - the name of the parameter. For implementer convenience, the name should be a valid token in common implementation languages</li>
  <li>Use - In | Out | Both</li>
  <li>Type - a data type or a Resource type</li>
- <li>Search Type - for string search parameters, what kind of search parameter they are (and what kind of modifiers they have)</li>
+ <li>Search Type - for simple primitive parameters, if they are acting as search parameters, what kind of search parameter they are (and what kind of modifiers they have)</li>
  <li>Profile - a <a href="structuredefinition.html">StructureDefinition</a>  that describes additional restrictions about the parameter - only used if the parameter type is a resource or data type</li>
  <li>Documentation - a description of the parameter's use</li>
- <li>(Optional) Search Type - if the type is a string, and the parameter is being used like a search parameter, which kind of search type applies</li>
 </ul>
 <p>
 Parameters may be nested into multi-part parameters. Each part has the same information as a parameter, except for use, which is taken from

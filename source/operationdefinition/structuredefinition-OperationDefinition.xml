@@ -616,6 +616,14 @@
         <xpath value="not(exists(f:targetProfile)) or ((f:type/@value = &#39;Reference&#39;) or (f:type/@value = &#39;canonical&#39;))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </constraint>
+      <constraint>
+        <key value="opd-4"/>
+        <severity value="error"/>
+        <human value="SearchParamType can only be specified on in parameters"/>
+        <expression value="(use = 'out') implies searchType.empty()"/>
+        <xpath value="not(exists(f:searchType)) or ((f:use/@value = &#39;in&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+      </constraint>
     </element>
     <element id="OperationDefinition.parameter.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
@@ -654,8 +662,8 @@
       <path value="OperationDefinition.parameter.scope"/>
       <short value="instance | type | system"/>
       <definition value="If present, indicates that the parameter applies when the operation is being invoked at the specified level."/>
-      <min value="1"/>
-      <max value="1"/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="code"/>
       </type>
@@ -759,7 +767,8 @@
     <element id="OperationDefinition.parameter.searchType">
       <path value="OperationDefinition.parameter.searchType"/>
       <short value="number | date | string | token | reference | composite | quantity | uri | special"/>
-      <definition value="How the parameter is understood as a search parameter. This is only used if the parameter type is &#39;string&#39;."/>
+      <definition value="How the parameter is understood if/when it used as search parameter. This is only used if the parameter has a primitive type."/>
+      <comment value="Parameters that are search parameter usually - but not always - are also defined for use with general searches, and function in the operation to filter the set of resources in scope for the operation just like the do when searching. The searchType describes how the server processes the value. For an example, see the [Evaluate Measure Operation](measure-operation-evaluate-measure.html)"/>
       <min value="0"/>
       <max value="1"/>
       <type>

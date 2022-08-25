@@ -94,6 +94,7 @@
     <max value="1"/>
     <documentation value="The type of measure report: subject, subject-list, or population. If not specified, a default value of subject will be used if the subject parameter is supplied, otherwise, population will be used"/>
     <type value="code"/>
+    <searchType value="token"/>
   </parameter>
   <parameter>
     <name value="subject"/>
