@@ -49,6 +49,7 @@ Notes:
 <p>
 One of the most important parts of the CapabilityStatement is indicating what search functionality 
 a server supports or a client uses. The search can specify the following things:
+</p>
 <ul>
  <li>What resource types search is supported on, or used on</li>
  <li>What search parameters are supported, and what their names are on this server (the server can use <a href="searchparameter-definitions.html#SearchParameter.code">alternative names</a>).

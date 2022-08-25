@@ -19,10 +19,27 @@ Applications asserting conformance to this framework claim to be conformant to "
 <p>
 In FHIR messaging, a "message" is sent from a source application to a destination
 application when an event happens. Events mostly correspond to things that happen in the
-real world. The request message consists of a <a href="bundle.html">Bundle</a> identified
-by the <a href="bundle-definitions.html#Bundle.type">type</a> "message",
-with the first resource in the bundle being a <a href="messageheader.html">MessageHeader</a>
-resource. The MessageHeader resource has a code - the message event - that identifies the
+real world.
+</p>
+<p>
+Messages are <a href="bundle.html">Bundle</a> resources, with the following rules:
+</p>
+<ul>
+  <li>The Bundle <a href="bundle-definitions.html#Bundle.type">type</a> SHALL be <code>message</code></li>
+  <li>The first resource in the bundle SHALL be a <a href="messageheader.html">MessageHeader</a> resource</li>
+  <li>If the <a href="messageheader-definitions.html#MessageHeader.focus">MessageHeader.focus</a> and
+     <a href="messageheader-definitions.html#MessageHeader.response.details">MessageHeader.response.details</a> refer to
+     any resources, they SHALL be included in the Bundle entries</li>
+  <li>The bundle MAY also contain additional resource that these other resources refer to. It SHOULD include all resources needed
+     for the receiver to be able to process the message as expected by the MessageHeader.event 
+     (this can be defined by a <a href="graphdefinition.html">GraphDefinition</a> resource)</li>
+  <li>The bundle SHALL NOT include resources that do have references 
+    (by <a href="references.html#Reference">Reference</a> or <a href="references.html#canonical">canonical</a> links) 
+    to the <code>MessageHeader</code>
+  </li>
+</ul>  
+<p>
+The MessageHeader resource has a code - the message event - that identifies the
 nature of the request message, and it also carries additional request metadata.
 The other resources in the bundle depend on the type of the request.
 </p>
