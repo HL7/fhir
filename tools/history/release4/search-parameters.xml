@@ -49420,13 +49420,10 @@
         <code value="patient"/>
         <base value="MolecularSequence"/>
         <type value="reference"/>
-        <expression value="MolecularSequence.subject"/>
-        <xpath value="f:MolecularSequence/f:subject"/>
+        <expression value="MolecularSequence.patient"/>
+        <xpath value="f:MolecularSequence/f:patient"/>
         <xpathUsage value="normal"/>
         <target value="Patient"/>
-        <target value="Group"/>
-        <target value="Device"/>
-        <target value="Location"/>
         <multipleOr value="true"/>
         <multipleAnd value="true"/>
         <modifier value="missing"/>
