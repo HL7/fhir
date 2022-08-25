@@ -329,5 +329,10 @@
     <display value="Text Advanced"/>
     <definition value="Tests whether the value in a resource matches the supplied parameter value using advanced text handling that searches text associated with the code/value - e.g., CodeableConcept.text, Coding.display, or Identifier.type.text."/>
   </concept>
+  <concept>
+    <code value="iterate"/>
+    <display value="Iterate"/>
+    <definition value="The search parameter indicates an inclusion directive (_include, _revinclude) that is applied to an included resource instead of the matching resource."/>
+  </concept>
 
 </CodeSystem>

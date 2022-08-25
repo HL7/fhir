@@ -37,11 +37,7 @@ their implementations.
         <li><a href="#selflink">Self Link - Understanding a Performed Search</a></li>
         <li><a href="#paginglinks">Other Links - Paging</a></li>
         <li><a href="#entries">Matches, Inclusions, and Outcomes - Bundle Entries</a></li>
-        <li><a href="#errors">Handling Errors</a>
-        <ul>
-          <li>Unknown and Unsupported Parameters</li>
-        </ul>
-        </li>
+        <li><a href="#errors">Handling Errors</a></li>
       </ul>
     </li>
 	</ul>
@@ -79,9 +75,9 @@ their implementations.
       <li><a href="#has">Reverse Chaining</a></li>
       <li>Composite Search Parameters ****(all data is in type right now...)</li>
       <li><a href="#missing">Handling Missing Data</a></li>
-      <li><a href="#list">Searching By List</a></li>
+      <li><a href="#membership">Searching by Membership</a></li>
       <li><a href="#filter">Advanced Filtering</a></li>
-      <li><a href="#type">Specifying the type of Resource</a></li>
+      <li><a href="#type">Searching Multiple Resource Types</a></li>
     </ul>
   </li>
   <li><a href="#modifyingresults">Modifying Search Results</a>
@@ -101,27 +97,13 @@ their implementations.
   </li>
   <li><a href="#standard">Standard Parameters</a>
     <ul>
-      <li><a href="#all">Parameters for All Resources</a>
-		  <ul>
-        <li>_content</li>
-        <li>_id</li>
-        <li>_in</li>
-        <li>_language</li>
-        <li>_lastUpdated</li>
-        <li>_list</li>
-        <li>_profile</li>
-        <li>_query</li>
-        <li>_security</li>
-        <li>_source</li>
-        <li>_tag</li>
-      </ul>
-    </li>
-    <li><a href="#parameters">Parameters for Each Resource</a></li>
-    <li><a href="#text">Text Search Parameters</a></li>
-  </ul>
+      <li><a href="#all">Parameters for All Resources</a></li>
+      <li><a href="#parameters">Parameters for Each Resource</a></li>
+      <li><a href="#text">Text Search Parameters</a></li>
+    </ul>
   </li>
   <li><a href="#conformance">Server Conformance</a></li>
-  <li><a href="#advanced">Advanced Search</a></li>
+  <li><a href="#advanced">Named Queries</a></li>
   <li><a href="#currency">Search Result Currency</a></li>
   <li><a href="#conformancesummary">Conformance Summary</a></li>
   <li><a href="#summary">Summary Tables</a></li>
@@ -848,6 +830,13 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
     </td>
   </tr>
   <tr>
+    <td><code><a href="#modifieriterate">iterate</a></code></td>
+    <td>n/a (not allowed anywhere by default)</td>
+    <td>
+      The search parameter indicates an inclusion directive (_include, _revinclude) that is applied to an included resource instead of the matching resource.
+    </td>
+  </tr>
+  <tr>
     <td><code><a href="#modifiermissing">missing</a></code></td>
     <td>
       <a href="#date">date</a>, <a href="#number">number</a>, <a href="#quantity">quantity</a>, 
@@ -1371,6 +1360,40 @@ code:in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F235862008</span>
       <li>SNOMED <code>95897009</code> - Amebic hepatitis (is-a 235862008)</li>
       <li>Etc.</li>
     </ul>
+  </p>
+
+  <a name="modifieriterate"></a>
+  <h5>iterate</h5>
+  <p>
+    The <code>iterate</code> modifier is used to indicate that an inclusion directive 
+    should be applied to an included resource instead of the matching resource.  Note
+    that this modifier is not defined for any search parameter types.  This modifier
+    can only be applied to the search result parameters of <code>_include</code> and
+    <code>_revinclude</code>.
+  </p>
+  <p>
+    When the <code>iterate</code> modifier is used, the input provided is the same as
+    the input for the inclusion directive (see <a href="#include">Including other resources</a>).
+  </p>
+  <p>
+    For example, the search:
+    <span class="http-search-example">
+      <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+      <span class="http-verb-display">
+        <span class="http-verb-display-get">GET [base]/Observation?code=http://snomed.info/sct|3738000&amp;_include=Observation:patient&amp;_include:iterate=Patient:link</span>
+        <span class="http-verb-display-post">POST [base]/Observation/_search
+Content-Type: application/x-www-form-urlencoded
+code=http://snomed.info/sct|3738000&amp;_include=Observation:patient&amp;_include:iterate=Patient:link</span>
+      </span>
+    </span>
+    would match any observations with the SNOMED code <code>3738000</code> (Viral hepatitis (disorder)).  
+    The results would include resources from following the search reference <code>Observation.patient</code>,
+    which are <code>Patient</code> resources linked via <code>Observation.subject</code>. Additionally, the 
+    server would <i>iterate</i> through the included patient records and follow the <code>Patient.link</code> 
+    references, including linked <code>Patient</code> or <code>RelatedPerson</code> resources.
+  </p>
+  <p>
+    More information can be found in the section <a href="#include">Including other resources</a>
   </p>
 
   <a name="modifiermissing"></a>
@@ -2609,7 +2632,7 @@ then just the form [parameter]=[code] is used.</li>
 <p>
 Token search parameters are used for the following data types:
 </p>
-<table class="lines">
+<table class="grid">
  <tr>
   <td><b>Data Type</b></td>
   <td><b>URI</b></td>
@@ -3036,8 +3059,58 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
 <a name="specialidentifiers"></a>
 <h4>Searching Identifiers</h4>
 <p>
+  ...
+</p>
+<p>
   <span class="todo">Need to discuss the nuances of :identifier vs. chained searches, etc.  See <a href="https://jira.hl7.org/browse/FHIR-37424">FHIR-37424</a>
   and <a href="https://jira.hl7.org/browse/FHIR-29410">FHIR-29410</a>.</span>
+</p>
+
+<a name="identifierslogical"></a>
+<h5>Logical Identifier</h5>
+<p>
+  The <a href="resource.html#id">Logical Identifier</a> of a resource represents a unique key for an instance within
+  a specific context (e.g., a single resource type in a server collection, a resource in a bundle, etc.).  Searching
+  by the logical id of an instance is done via the <a href="#_id"><code>_id</code></a> search parameter.
+</p>
+<p>
+  Given that a logical id is unique in the context, searching by id will always result in either zero or one records.
+  In many ways, the search is functionally equivalent to an equivalent <a href="http.html#read">simple read operation</a>.
+  However, there are some differences in using search instead of read:
+  <ul>
+    <li>
+      Search operations always return bundles.
+      <ul>
+        <li>
+          If the id exists (and can be returned), the result will be a bundle containing the resource (search) 
+          instead of the resource itself (read).
+        </li>
+        <li>
+          If the id does not exist (or cannot be returned), the result of a valid search will still be a bundle.
+          The bundle MAY include further information in the form of an <a href="operationoutcome.html">OperationOutcome</a>.
+          See <a href="#errors">Handling Errors</a> for more information.
+        </li>
+      </ul>
+    </li>
+    <li>
+      Additional resources can be requested and/or returned in the same request - see <a href="#include">Including Other Resources</a>
+      for more information.
+    </li>
+    <li>
+      Additional search functionality is available. For example, asking for a Patient resource by id, but also setting the 
+      search criteria of <code>deceased</code> to <code>true</code> would only return the Patient if they are deceased.
+    </li>
+  </ul>
+</p>
+<p>
+  Since <code>_id</code> requires a resource type 
+  context, and there can only be zero or one resources of a type with a given id, the search is functionally 
+  equivalent to the <a href="http.html#read">simple read operation</a> of <code>GET [base]/Patient/23</code>.
+  <ul>
+    <li>
+      
+    </li>
+  </ul>
 </p>
 
 <a name="versions"></a>
@@ -3422,147 +3495,23 @@ for servers that support this parameter.
 </p>
 
 <a name="membership"></a>
-<h4>Searching by membership</h4>
+<h4>Searching by Membership</h4>
 <p>
-  The resources <a href="group.html">Group</a>, <a href="list.html">List</a>, and <a href="careteam.html">CareTeam</a> 
-  are used to manage collections of other resources.  For example, a Group of Patients representing a cohort or a 
-  List of Medications representing all medications a patient has ever been prescribed.  This parameter allows for 
-  searching references based on the appropriate membership test of the collection resource.  Each type of resource
-  defines the exact qualifications for their membership test, but in general terms, the test is against <i>active</i>
-  members of the collection - for example, Group members that have not been flagged as inactive.  For more information,
-  see:
+  Some resources (e.g., <a href="group.html">Group</a>, <a href="list.html">List</a>, 
+  and <a href="careteam.html">CareTeam</a>) are used to maintain collections of other resources.
+  For example, a Group of Patients representing a cohort or a List of patient allergies.
+  While it is possible to retrieve the collection resource, iterate over the entries, and fetch each
+  referenced resource, using search criterion allows for fewer round-trips and additional search criteria 
+  to be specified in-line.
+</p>
+<p>
+  There are two standard search parameters defined by this specification to support searching against
+  collection resources:
   <ul>
-    <li><a href="group.html#membership">Group Membership</a></li>
-    <li><a href="list.html#membership">List Membership</a></li>
+    <li><a href="#_in"><code>_in</code></a> to test against active membership, and</li>
+    <li><a href="#_list"><code>_list</code></a> to test against advanced <code>List</code> functionality
+    (e.g., functional list definitions).</li>
   </ul>
-</p>
-<p>
-  The <code>_in</code> search parameter is a <a href="#reference">reference</a> type search parameter, allowed to target
-  only <code>CareTeam</code>, <code>Group</code>, and <code>List</code> resources.
-</p>
-<span class="http-search-example">
-  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
-  <table>
-    <tr><td width="50%"><b>Description</b></td><td><b>Search</b></td></tr>
-    <tr>
-      <td>Any resource in a CareTeam, List, or Group with id "101"</td>
-      <td>
-        <span class="http-verb-display">
-          <span class="http-verb-display-get">GET [base]/?_in=101</span>
-          <span class="http-verb-display-post">POST [base]/_search
-Content-Type: application/x-www-form-urlencoded
-_in=101</span>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td>Conditions in List "102"</td>
-      <td>
-        <span class="http-verb-display">
-          <span class="http-verb-display-get">GET [base]/Condition?_in=List/102</span>
-          <span class="http-verb-display-post">POST [base]/Condition/_search
-Content-Type: application/x-www-form-urlencoded
-_in=List/102</span>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td>Patients which are participants of CareTeam "103"</td>
-      <td>
-        <span class="http-verb-display">
-          <span class="http-verb-display-get">GET [base]/Patient?_in=CareTeam/103</span>
-          <span class="http-verb-display-post">POST [base]/Patient/_search
-Content-Type: application/x-www-form-urlencoded
-_in=CareTeam/103</span>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td>Encounters for Patients in Group "104"</td>
-      <td>
-        <span class="http-verb-display">
-          <span class="http-verb-display-get">GET [base]/Encounter?patient._in=Group/104</span>
-          <span class="http-verb-display-post">POST [base]/Encounter/_search
-Content-Type: application/x-www-form-urlencoded
-patient._in=Group/104</span>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td>Smooth muscle relaxant medications that are not in the allergy list "105"</td>
-      <td>
-        <span class="http-verb-display">
-          <span class="http-verb-display-get">GET [base]/Medication?code:below=http://snomed.info/sct|90000002&amp;ingredient._in:not=List/105</span>
-          <span class="http-verb-display-post">POST [base]/Medication/_search
-Content-Type: application/x-www-form-urlencoded
-code:below=http://snomed.info/sct|90000002&amp;ingredient._in:not=List/105</span>
-        </span>
-      </td>
-    </tr>
-  </table>
- </span>
- <p>
-  Note that inactive/excluded members are not considered 'in' the membership.  If a full reference is required,
-  <a href="#chaining">chaining</a> can be used to search all references.
- </p>
-
-<a name="list"></a>
-<h4>Searching by list</h4>
-<p>
-The <code>_list</code> parameter allows for the retrieval of resources that are referenced by a <a href="list.html">List</a>
-resource.  Note that this search parameter is scoped to only the List resource, while the <a href="#membership">_in</a> 
-parameter works across several collection-type resources.  Use of <code>_in</code> is encouraged, if available.
-</p>
-<p>
-<span class="http-search-example">
-  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
-  <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]?_list=42</span>
-    <span class="http-verb-display-post">POST [base]/_search
-Content-Type: application/x-www-form-urlencoded
-_list=42</span>
-  </span>
-  <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/Patient?_list=42</span>
-    <span class="http-verb-display-post">POST [base]/Patient/_search
-Content-Type: application/x-www-form-urlencoded
-_list=42</span>
-  </span>
-</span>
-</p>
-<p>
-The first request returns all resources that are referenced from the list found at <code>[base]/List/42</code>) in List.entry.item.
-The second request returns all Patient resources that are referenced from the list found at <code>[base]/List/42</code>) in List.entry.item.
-While it is possible to retrieve the list, and then iterate the entries in the list fetching each
-patient, using a list as a search criterion allows for additional search criteria to be specified. For
-instance:
-<span class="http-search-example">
-  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
-  <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/Patient?_list=42&amp;gender=female</span>
-    <span class="http-verb-display-post">POST [base]/Patient/_search
-Content-Type: application/x-www-form-urlencoded
-_list=42&amp;gender=female</span>
-  </span>
-</span>
-This request will return all female patients in the list. The server can return the list referred
-to in the search parameter as an included resource, but is not required to do so.
-In addition, a system can support searching by lists by their logical function. For example:
-<span class="http-search-example">
-  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
-  <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/AllergyIntolerance?patient=42&amp;_list=$current-allergies</span>
-    <span class="http-verb-display-post">POST [base]/AllergyIntolerance/_search
-Content-Type: application/x-www-form-urlencoded
-patient=42&amp;_list=$current-allergies</span>
-  </span>
-</span>
-This request will return all allergies in patient 42's "Current Allergy List".
-The server returns all relevant AllergyIntolerance resources, and can also choose
-to return the list. For further information, refer to the <a href="lifecycle.html#current">definition of "$current-allergies"</a>,
-and the <a href="list-operations.html#find">List Operation "Find"</a>.
-Note: Servers are not required to make these lists available to the clients as list resources,
-but may choose to do so.
 </p>
 
 <a name="filter"></a>
@@ -3604,8 +3553,7 @@ The <code>_filter</code> parameter is described in detail on the <a href="search
 </p>
 
 <a name="type"></a>
-<a name="_type"></a>
-<h4>Specifying the type of Resource</h4>
+<h4>Searching Multiple Resource Types</h4>
 <p>
 Normally, a search is initiated against a known type of resource, e.g.:
 <span class="http-search-example">
@@ -3618,7 +3566,7 @@ params...</span>
   </span>
 </span>
 However, in some circumstances, a search is executed where there is no fixed
-type of resource:
+type of resource, for example:
 </p>
 <ul>
  <li>Using search across all resource types (<code>[base]?params...</code>)</li>
@@ -3626,30 +3574,17 @@ type of resource:
  <li>Some search specifications inside other services e.g. decision support usage</li>
 </ul>
 <p>
-In these circumstances, the search criteria may need to specify one or more
-resource types that the search applies to. This can be done by using the
-<code>_type</code> parameter:
-<span class="http-search-example">
-  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
-  <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/_type=Observation,Condition&amp;other params...</span>
-    <span class="http-verb-display-post">POST [base]/_search
-Content-Type: application/x-www-form-urlencoded
-_type=Observation,Condition&amp;other params...</span>
-  </span>
-</span>
+In these circumstances, the search criteria may need to specify one or more resource
+types that the search applies to. This can be done by using the standard search parameter
+<a href="#_type"><code>_type</code></a>.
 </p>
 <p>
-If no type is specified, the only search parameters that can be used in global search like
-this are the base parameters that apply to all resources.
-If multiple types are specified, any search parameters shared across the entire set of
-specified resources may be used (see <a href="searchparameter-registry.html#common">search parameter registry</a>).
+  If no type is specified, the only search parameters that can be used in global search like
+  this are the base parameters that apply to all resources.
+  If multiple types are specified, any search parameters shared across the entire set of
+  specified resources may be used (see <a href="searchparameter-registry.html#common">search parameter registry</a>).
 </p>
-<p>
-Technically, the <code>_type</code> parameter is a token parameter on the
-<a href="valueset-resource-types.html">Resource Types</a> Value Set.
-</p>
-
+  
 <a name="modifyingresults"></a>
 <h3>Modifying Search Results</h3>
 <p>
@@ -3987,10 +3922,10 @@ Each <code>_include</code> parameter specifies a search parameter to join on:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/MedicationRequest?_include=MedicationRequest:patient</span>
+    <span class="http-verb-display-get">GET [base]/MedicationRequest?_include=MedicationRequest:requester</span>
     <span class="http-verb-display-post">POST [base]/MedicationRequest/_search
 Content-Type: application/x-www-form-urlencoded
-_include=MedicationRequest:patient</span>
+_include=MedicationRequest:requester</span>
   </span>
   <span class="http-verb-display">
     <span class="http-verb-display-get">GET [base]/MedicationRequest?_revinclude=Provenance:target</span>
@@ -4001,10 +3936,10 @@ _revinclude=Provenance:target</span>
 </span>
 </p>
 <p>
-The first search requests all matching MedicationRequests, to include
-any patient that the medication prescriptions in the result set refer to.
-The second search requests all matching prescriptions, return all
-the provenance resources that refer to them.
+The first search requests all matching MedicationRequests, and asks the server to follow
+the references to any "requester" for each medication returned and include them in the 
+returned result set.  The second search requests all prescriptions, and that any
+Provenance resources referring to those prescriptions be included in the result set.
 </p>
 
 <p>
@@ -4052,21 +3987,24 @@ error is returned.
 Servers SHOULD resolve _include requests for version-specific references by resolving the version named in the reference.
 </p>
 <p>
-The inclusion process can be iterative, if (and only if) the modifier <code>:iterate</code> is included.
-For example, this search returns all <a href="medicationrequest.html">Medication
-Request</a> resources and their <a href="practitioner.html">prescribing Practitioner</a> Resources
-for the matching <a href="medicationdispense.html">Medication Dispense</a> resources:
-
+The inclusion process can be iterative, if (and only if) the modifier <a href="modifieriterate"><code>iterate</code></a> is included.
+For example, this search returns all <a href="medicationrequest.html">MedicationRequest</a> resources and their 
+<a href="practitioner.html">prescribing Practitioner</a> Resources
+for the matching <a href="medicationdispense.html">MedicationDispense</a> resources:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/MedicationDispense?_include=MedicationDispense:prescription
-      &amp;_include:iterate=MedicationRequest:performer&amp;criteria...</span>
+    <span class="http-verb-display-get">GET [base]/MedicationDispense?_include=Medication:prescription
+      &amp;_include:iterate=MedicationRequest:requester&amp;criteria...</span>
     <span class="http-verb-display-post">POST [base]/MedicationDispense/_search
 Content-Type: application/x-www-form-urlencoded
-_include=MedicationDispense:prescription&amp;_include:iterate=MedicationRequest:performer&amp;criteria...</span>
+_include=MedicationDispense:prescription&amp;_include:iterate=MedicationRequest:requester&amp;criteria...</span>
   </span>
 </span>
+</p>
+<p>
+  Details about the <code>iterate</code> modifier can be found in the section 
+  <a href="modifieriterate">Modifier: iterate</a>.
 </p>
 <p>
 This technique applies to circular relationships as well. For example,
@@ -4339,48 +4277,176 @@ The following parameters apply <a href="resource.html#search">to all resources</
 parameter <a href="#text"><code>_text</code></a> and <a href="#filter"><code>_filter</code></a>, (documented below) also applies to all resources (as do the search result parameters).
 </p>
 
-<a name="contentBlah"></a>
+<a name="_content"></a>
 <h5>_content</h5>
-<p>TODO(gino): content is currently mixed into 'text search' type information</p>
-
-<a name="id"></a>
-<h5>_id</h5>
 <p>
-The search parameter <code>_id</code> refers to the logical id of the resource, and can be used when the search context specifies a resource type:
+  The standard search parameter <code>_content</code> is used to allow searching all textual content of
+  a resource.
+</p>
+<p>
+  The <code>_content</code> search parameter is defined as a <a href="#special">special</a> type parameter.
+  While the actual format used by the parameter is implementation-dependant, the search is some form of string
+  which can be used for advanced searching (similar to <a href="#_text"><code>_text</code></a>).
+</p>
+<p>
+  For example, the following search:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/Patient?_id=23</span>
-    <span class="http-verb-display-post">POST [base]/Patient/_search
+    <span class="http-verb-display-get">GET [base]/Observation?_content=cancer OR metastases OR tumor</span>
+    <span class="http-verb-display-post">POST [base]/Observation/_search
 Content-Type: application/x-www-form-urlencoded
-_id=23</span>
+_content=cancer OR metastases OR tumor</span>
   </span>
 </span>
+  is a search for Observations that contain any of the phrases "cancer", "metastases", and "tumor" anywhere in 
+  the resource.  For example, the key words may appear in:
+  <ul>
+    <li><code>Observation.text</code> - Text summary of the resource, for human interpretation</li>
+    <li><code>Observation.code.text</code> - Type of observation, Plain text representation of the concept</li>
+    <li><code>Observation.note</code> - Comments about the observation</li>
+    <li>etc.</li>
+  </ul>
 </p>
 <p>
-This search finds the patient resource with the given id (there can only be one
-resource for a given id). Functionally, this is equivalent to a <a href="http.html#read">simple
-read operation</a>:
+  The server MAY choose to search for related terms (e.g., "carcinoma", etc.), but is not required to do so.
 </p>
-<pre>
- GET [base]/Patient/23
-</pre>
 <p>
-However, the search with parameter <code>_id</code> returns a bundle with the requested resource, instead of just the
-resource itself. Additional parameters can be added which may provide
-additional functionality on top of this base read equivalence (e.g. <a href="#include"><code>_include</code></a>).
-Note that although the _id parameter has a type of token, because servers SHALL use exact match with it, there is
-no system for the _id parameter. Note that matches on <code>_id</code>
-are always case sensitive.
+  More information can be found in the section <a href="#text">Text Search Parameters</a>.
 </p>
 
-<a name="parameterlanguage"></a>
+<a name="id"></a>
+<a name="_id"></a>
+<h5>_id</h5>
+<p>
+  The standard search parameter <code>_id</code> is used to allow searching based on the logical identifier
+  of resources (<code>Resource.id</code>). The parameter requires a resource type specified in the 
+  <a href="#searchcontexts">search context</a> - it can only be used in searches that contain a <code>[type]</code> 
+  component in the search request.
+</p>
+<p>
+  The <code>_id</code> search parameter is defined as a <a href="#token">token</a> type parameter, with the
+  restriction that only the <code>code</code> segment is allowed (e.g., no vertical pipes).  This means that
+  the literal provided as search input is matched as a code instead of a string - e.g., exact match instead
+  of case-insensitive starts-with.
+</p>
+<p>
+  For example, the following search:
+  <span class="http-search-example">
+    <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+    <span class="http-verb-display">
+      <span class="http-verb-display-get">GET [base]/Patient?_id=23</span>
+      <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+_id=23</span>
+    </span>
+  </span>
+  is a search for Patient records with a logical id of "23".
+</p>
+<p>
+  For information about the difference between performing a read operation and searching by identifier, see
+  <a href="#specialidentifiers">Searching Identifiers</a>.
+</p>
+
+<a name="_in"></a>
+<h5>_in</h5>
+<p>
+  The standard search parameter <code>_in</code> is used to match resources against <b>active</b> membership in collection
+  resources.  Matching is performed against the <code>Resource.id</code> of the resource against the membership
+  test of a collection resource (e.g., CareTeam, Group, List). Details about how each resource applies the
+  active membership test can be found on the relevant resource pages:
+  <ul>
+    <li><a href="group.html#membership">Group Membership</a></li>
+    <li><a href="list.html#membership">List Membership</a></li>
+  </ul>
+</p>
+<p>
+  The <code>_in</code> search parameter is defined as a <a href="#reference">reference</a> type parameter.  The
+  target of the reference must be one of: <code>CareTeam</code>, <code>Group</code>, or <code>List</code>.
+</p>
+<p>
+  For example:
+  <span class="http-search-example">
+    <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+    <table>
+      <tr><td width="50%"><b>Description</b></td><td><b>Search</b></td></tr>
+      <tr>
+        <td>Any resource in a CareTeam, List, or Group with id "101"</td>
+        <td>
+          <span class="http-verb-display">
+            <span class="http-verb-display-get">GET [base]/?_in=101</span>
+            <span class="http-verb-display-post">POST [base]/_search
+Content-Type: application/x-www-form-urlencoded
+_in=101</span>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>Conditions in List "102"</td>
+        <td>
+          <span class="http-verb-display">
+            <span class="http-verb-display-get">GET [base]/Condition?_in=List/102</span>
+            <span class="http-verb-display-post">POST [base]/Condition/_search
+Content-Type: application/x-www-form-urlencoded
+_in=List/102</span>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>Patients which are participants of CareTeam "103"</td>
+        <td>
+          <span class="http-verb-display">
+            <span class="http-verb-display-get">GET [base]/Patient?_in=CareTeam/103</span>
+            <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+_in=CareTeam/103</span>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>Encounters for Patients in Group "104"</td>
+        <td>
+          <span class="http-verb-display">
+            <span class="http-verb-display-get">GET [base]/Encounter?patient._in=Group/104</span>
+            <span class="http-verb-display-post">POST [base]/Encounter/_search
+Content-Type: application/x-www-form-urlencoded
+patient._in=Group/104</span>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>Smooth muscle relaxant medications that are not in the allergy list "105"</td>
+        <td>
+          <span class="http-verb-display">
+            <span class="http-verb-display-get">GET [base]/Medication?code:below=http://snomed.info/sct|90000002&amp;ingredient._in:not=List/105</span>
+            <span class="http-verb-display-post">POST [base]/Medication/_search
+Content-Type: application/x-www-form-urlencoded
+code:below=http://snomed.info/sct|90000002&amp;ingredient._in:not=List/105</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+   </span>  
+</p>
+<p>
+  Note that inactive/excluded members are not considered 'in' the membership.  If a full reference is required,
+  <a href="#chaining">chaining</a> can be used to search all references.
+</p>
+<p>
+  For more information about membership testing, see <a href="#membership">Searching by Membership</a>.
+</p>
+
+<a name="_language"></a>
 <h5>_language</h5>
 <p>
-The search parameter <code>_language</code> is a <a href="#token">token</a> type search parameter That 
-can be used to match resources based on the language of the resource used.  Note that this search is performed
-against the element <code>Resource.language</code> and does not match against the actual language used in 
-elements.
+  The standard search parameter <code>_language</code> is used to match resources based on the language of 
+  the resource used.  Note that match testing is performed against the element <code>Resource.language</code> 
+  and does not match against the actual language used in elements. 
+</p>
+<p>
+  The <code>_language</code> search parameter is defined as a <a href="#token">token</a> type parameter. 
+  <a href="resource-definitions.html#Resource.language">Resource.language</a> is restricted to 
+  <a href="valueset-languages.html">Common Languages</a> and <a href="valueset-all-languages.html">All Languages</a>.
 </p>
 <p>
   For example, the search:
@@ -4393,15 +4459,23 @@ Content-Type: application/x-www-form-urlencoded
 _language=es</span>
   </span>
 </span>
-will will match Questionnaire resources with a <code>Resource.language</code> of <code>es</code>.
+will match Questionnaire resources with a <code>Resource.language</code> of <code>es</code> (Spanish).
 </p>
 
-
 <a name="lastUpdated"></a>
+<a name="_lastUpdated"></a>
 <h5>_lastUpdated</h5>
 <p>
-The search parameter <code>_lastUpdated</code> can be used to select resources based
-on the last time they were changed:
+  The standard search parameter <code>_lastUpdated</code> is used to match resources based on when
+  the most recent change has been made.
+</p>
+<p>
+  The <code>_lastUpdated</code> search parameter is defined as a <a href="#date">date</a> type parameter.
+  Matching is performed against the element <a href="resource-definitions.html#Meta.lastUpdated">Resource.meta.lastUpdated</a>,
+  or an implementation's internal equivalent.
+</p>
+<p>
+For example, the following search:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
@@ -4413,105 +4487,276 @@ _lastUpdated=gt2010-10-01</span>
 </span>
 </p>
 <p>
-This search finds any observations changed since 1-Oct 2010. When
-this search parameter is used, applications should consider
-synchronization approaches (<a href="http.html#history">RESTful history</a>
-or the <a href="subscriptions.html">Subscription framework</a>).
+is a search for Observations changed since October 1, 2010. 
+Applications considering using this parameter should also consider defined synchronization approaches - 
+<a href="http.html#history">RESTful history</a> and <a href="subscriptions.html">Subscriptions framework</a>.
 </p>
 
-<a name="listBlah"></a>
+<a name="list"></a>
+<a name="_list"></a>
 <h5>_list</h5>
-<p>TODO(gino): content is currently mixed into 'searching by list' information</p>
+<p>
+  The standard search parameter <code>_list</code> is used to test resources against references in a
+  <code>List</code> resource.
+</p>
+<p>
+  The <code>_list</code> search parameter is defined as a <a href="#special">special</a> type parameter.
+  Input values are treated as <a href="#token">token</a> values - either the logical identifier (id) of
+  a <code>List</code> or a literal for a functional list, as defined in
+  <a href="lifecycle.html#current">Current Resource Lists</a>.  Note that when using functional lists,
+  servers are not required to make the lists available to the clients as <code>List</code> resources,
+  but may choose to do so.
+</p>
+<p>
+  For example:
+  <span class="http-search-example">
+    <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+    <table>
+      <tr><td width="50%"><b>Description</b></td><td><b>Search</b></td></tr>
+      <tr>
+        <td>Any resource referenced by List "101"</td>
+        <td>
+          <span class="http-verb-display">
+            <span class="http-verb-display-get">GET [base]/?_list=101</span>
+            <span class="http-verb-display-post">POST [base]/_search
+Content-Type: application/x-www-form-urlencoded
+_list=101</span>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>Conditions referenced by List "102"</td>
+        <td>
+          <span class="http-verb-display">
+            <span class="http-verb-display-get">GET [base]/Condition?_list=102</span>
+            <span class="http-verb-display-post">POST [base]/Condition/_search
+Content-Type: application/x-www-form-urlencoded
+_list=102</span>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>Female Patients referenced by List "103"</td>
+        <td>
+          <span class="http-verb-display">
+            <span class="http-verb-display-get">GET [base]/Patient?_list=013&amp;gender=female</span>
+            <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+_list=013&amp;gender=female</span>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>Encounters for Patients in Group "104"</td>
+        <td>
+          <span class="http-verb-display">
+            <span class="http-verb-display-get">GET [base]/Encounter?patient._in=Group/104</span>
+            <span class="http-verb-display-post">POST [base]/Encounter/_search
+  Content-Type: application/x-www-form-urlencoded
+  patient._in=Group/104</span>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>Current allergy list for patient "42"</td>
+        <td>
+          <span class="http-verb-display">
+            <span class="http-verb-display-get">GET [base]/AllergyIntolerance?patient=42&amp;_list=\$current-allergies</span>
+            <span class="http-verb-display-post">POST [base]/AllergyIntolerance/_search
+Content-Type: application/x-www-form-urlencoded
+patient=42&amp;_list=\$current-allergies</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+   </span>  
+</p>
+<p>
+  For more information about membership testing, see <a href="#membership">Searching by Membership</a>.
+</p>
 
 <a name="profile"></a>
+<a name="_profile"></a>
 <h5>_profile</h5>
-<p>TODO(gino): content in 'metaBlah' section below...</p>
+<p>
+  The standard search parameter <code>_profile</code> is used to match resources based on values in the
+  <a href="resource-definitions.html#Meta.profile">Resource.meta.profile</a> element.  Note that the
+  profile search does not test conformance of a resource against any profile, just the values of that
+  element.
+</p>
+<p>
+  The <code>_profile</code> search parameter is defined as a <a href="#reference">reference</a> type parameter.
+</p>
+<p>
+  For example, the search:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Observation?_profile=http://hl7.org/fhir/StructureDefinition/bp</span>
+    <span class="http-verb-display-post">POST [base]/Observation/_search
+Content-Type: application/x-www-form-urlencoded
+_profile=http://hl7.org/fhir/StructureDefinition/bp</span>
+  </span>
+</span>
+will match Observation resources that contain a <code>Resource.meta.profile</code> of <code>http://hl7.org/fhir/StructureDefinition/bp</code>.
+</p>
 
-<a name="queryBlah"></a>
+<a name="query"></a>
+<a name="_query"></a>
 <h5>_query</h5>
-<p>TODO(gino): content in 'advanced search' right now...</p>
+<p>
+  The standard search parameter <code>_query</code> is used to execute a pre-defined and named query operation.
+  Note that there can only ever be one <code>_query</code> parameter in a set of search parameters. Servers processing
+  search requests SHALL refuse to process a search request if they do not recognize the <code>_query</code> parameter value.
+</p>
+<p>
+  The <code>_query</code> search parameter is defined as a <a href="#special">special</a> type parameter.  Input to the
+  parameter is treated as a token-based search <span class="stu">TU</span>, requiring an exact match to the query name.
+</p>
+<p>
+  For example, the search:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Patient?_query=current-high-risk&amp;ward=1A</span>
+    <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+_query=current-high-risk&amp;ward=1A</span>
+  </span>
+</span>
+is a request to run the named query <code>current-high-risk</code> against Patient resources, with a parameter
+named <code>ward</code> set to the value <code>1A</code>.  If a server does not have a definition for 
+<code>current-high-risk</code>, it would reject the request.
+</p>
+<p>
+  More information about named queries can be found in the section <a href="#advanced">Named Queries</a>.
+</p>
 
 <a name="security"></a>
+<a name="_security"></a>
 <h5>_security</h5>
-<p>TODO(gino): content in 'meta' section below...</p>
+<p>
+  The standard search parameter <code>_security</code> is used to match resources based on security labels in the
+  <a href="resource-definitions.html#Meta.security">Resource.meta.security</a> element.
+</p>
+<p>
+  The <code>_security</code> search parameter is defined as a <a href="#token">token</a> type parameter.
+</p>
+<p>
+  For example, the search:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Observation?_security=http://terminology.hl7.org/CodeSystem/v3-Confidentiality|R</span>
+    <span class="http-verb-display-post">POST [base]/Observation/_search
+Content-Type: application/x-www-form-urlencoded
+_security=http://terminology.hl7.org/CodeSystem/v3-Confidentiality|R</span>
+  </span>
+</span>
+will match Observation resources that contain a <code>Resource.meta.security</code> value matching the
+system <code>http://terminology.hl7.org/CodeSystem/v3-Confidentiality</code> and code of <code>R</code>.
+</p>
+<p>
+  For more information about security labels, please see the <a href="security-labels.html">Security Labels</a> page.
+</p>
 
 <a name="source"></a>
+<a name="_source"></a>
 <h5>_source</h5>
-<p>TODO(gino): content does not appear in search page right now, need to find content</p>
+<p>
+  The standard search parameter <code>_source</code> is used to match resources based on source information in the
+  <a href="resource-definitions.html#Meta.source">Resource.meta.source</a> element.  <code>Meta.source</code> is
+  a lightweight way of providing minimal provenance for resources.  If more functionality is required, use of
+  <a href="provenance.html">Provenance</a> is recommended.
+</p>
+<p>
+  The <code>_source</code> search parameter is defined as a <a href="#uri">uri</a> type parameter.
+</p>
+<p>
+  For example, the search:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Patient?_source=http://example.com/Organization/123</span>
+    <span class="http-verb-display-post">POST [base]/Patient/_search
+Content-Type: application/x-www-form-urlencoded
+_source=http://example.com/Organization/123</span>
+  </span>
+</span>
+will match Patient resources that contain the <code>Resource.meta.source</code> value of
+<code>http://example.com/Organization/123</code>.
+</p>
 
 <a name="tag"></a>
 <a name="tags"></a>
+<a name="_tag"></a>
 <h5>_tag</h5>
-<p>TODO(gino): content in 'metaBlah' section below...</p>
+<p>
+  The standard search parameter <code>_tag</code> is used to match resources based on tag information in the
+  <a href="resource-definitions.html#Meta.tag">Resource.meta.tag</a> element.  Tags are intended to be used 
+  to identify and relate resources to process and workflow.
+</p>
+<p>
+  The <code>_tag</code> search parameter is defined as a <a href="#token">token</a> type parameter.
+</p>
+<p>
+  For example, the search:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Observation?_tag=http://terminology.hl7.org/ValueSet/v3-SeverityObservation|H</span>
+    <span class="http-verb-display-post">POST [base]/Observation/_search
+Content-Type: application/x-www-form-urlencoded
+_tag=http://terminology.hl7.org/ValueSet/v3-SeverityObservation|H</span>
+  </span>
+</span>
+will match Observation resources that contain the a tag value matching the system 
+<code>http://terminology.hl7.org/ValueSet/v3-SeverityObservation</code> and code <code>H</code>, indicating
+that an observation has been tagged as potentially life-threatening or with the potential cause permanent injury.
+</p>
 
-<a name="metaBlah"></a>
-<h5>TODO(gino): Split this appropriately</h5>
+
+<a name="_type"></a>
+<h5>_type</h5>
 <p>
-The search parameters <a href="resource.html#simple-tags">_tag</a>, <a href="resource.html#profile-tags">_profile</a> and <a href="resource.html#security-labels">_security</a> parameters search
-on the equivalent elements in the <a href="resource.html#meta"><code>meta</code> element</a>.
-For example:
+  The standard search parameter <code>_type</code> is used to allow filtering of types in searches
+  that are performed across multiple resource types (e.g., searches across the server root).
+</p>
+<p>
+  The <code>_type</code> search parameter is defined as a <a href="#special">special</a> type parameter,
+  because there is no standard path expression for searching the types of resources.  However, the parameter is
+  a token parameter restricted to the <a href="valueset-resource-types.html">Resource Types</a> Value Set.
+</p>
+<p>
+  For example, the following search:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/Condition?_tag=http://acme.org/codes|needs-review</span>
-    <span class="http-verb-display-post">POST [base]/Condition/_search
+    <span class="http-verb-display-get">GET [base]/?_type=Observation,Condition&amp;patient=Patient/123</span>
+    <span class="http-verb-display-post">POST [base]/_search
 Content-Type: application/x-www-form-urlencoded
-_tag=http://acme.org/codes|needs-review</span>
+_type=Observation,Condition&amp;patient=Patient/123</span>
   </span>
 </span>
-searches for all Condition resources with the tag:
-<span class="fhir-example">
-  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
-  <span class="example-format-display">
-    <span class="example-format-display-json">
-{
-  "system" : "http://acme.org/codes",
-  "code" : "needs-review"
-}
-    </span>
-    <span class="example-format-display-xml">
-&lt;coding&gt;
-  &lt;system value="http://acme.org/codes"/&gt;
-  &lt;code value="needs-review"/&gt;
-&lt;/coding&gt;
-    </span>
-  </span>
-</span>
+  is a search for Observations and Conditions that are about the patient <code>Patient/123</code>. Since
+  the <code>patient</code> search parameter is valid on both the Observation and Condition resources, the
+  search is valid.  The same search <b>would not</b> be valid if the <code>_type</code> parameter was
+  excluded, since <code>patient</code> is not a search parameter that works across all resources.
 </p>
 <p>
-In the same manner:
-<span class="http-search-example">
-  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
-  <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/DiagnosticReport?_profile=http://hl7.org/fhir/StructureDefinition/lipid</span>
-    <span class="http-verb-display-post">POST [base]/DiagnosticReport/_search
-Content-Type: application/x-www-form-urlencoded
-_profile=http://hl7.org/fhir/StructureDefinition/lipid</span>
-  </span>
-  <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/DiagnosticReport?_profile=StructureDefinition/lipid</span>
-    <span class="http-verb-display-post">POST [base]/DiagnosticReport/_search
-Content-Type: application/x-www-form-urlencoded
-_profile=StructureDefinition/lipid</span>
-  </span>
-</span>
-restricts the search to only DiagnosticReport resources that are tagged as conforming to a particular profile.
-The second reference is relative and refers a local profile on the same server.
-</p>
-<p>
-<a href="resource.html#simple-tags">_tag</a>, and <a href="resource.html#security-labels">_security</a> parameters are token types (see <a href="#token">below</a>),
-and <a href="resource.html#profile-tags">_profile</a> is a <a href="#uri">uri</a> search parameter.
+  More information can be found in the section <a href="#types">Searching Multiple Resource Types</a>.
 </p>
 
 
 <a name="parameters"></a>
 <h4>Parameters for each resource</h4>
 <p>
-In addition to the <code>_id</code> parameter which exists for all resources, each
+In addition to the common parameters defined for all resources, each
 FHIR resource type defines its own set of search parameters with
 their names, types, and meanings. These search parameters are on the
 same page as the resource definitions, and are also published as part
-of the standard Capability statement (<a href="capabilitystatement-base.xml.html">XML</a> or <a href="capabilitystatement-base.json.html">JSON</a>).
+of the standard Capability statement (<a href="capabilitystatement-base.xml.html">XML</a> 
+or <a href="capabilitystatement-base.json.html">JSON</a>).
 </p>
 <p>
 In general, the defined search parameters correspond to a
@@ -4611,40 +4856,121 @@ In other respects, servers have considerable discretion with regards to supporti
 </ul>
 
 <a name="advanced"></a>
-<a name="query"></a>
-<h3>Advanced Search</h3>
+<h3>Named Queries</h3>
 <p>
 The search framework described above is a useful framework
 for providing a simple search based on indexed criteria,
 but more sophisticated query capability is needed to handle precise
 queries, complex decision support-based requests, and
-direct queries that have human resolution.
+direct queries that have human resolution.  To support more advanced functionality,
+this specification defines a method for creating and using <i>named</i>.
 </p>
 <p>
-More advanced search operations are specified by the
-<code>_query</code> parameter:
-<span class="http-search-example">
-  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
-  <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/Patient?_query=name&amp;parameters...</span>
-    <span class="http-verb-display-post">POST [base]/Patient/_search
-Content-Type: application/x-www-form-urlencoded
-_query=name&amp;parameters...</span>
-  </span>
-</span>
-</p>
-<p>
-The <code>_query</code> parameter names a custom search profile that
+The <a href="#_query"><code>_query</code></a> parameter names a custom search profile that
 describes a specific query operation. The named query
 may define additional named parameters that are used with that
 particular named query. Servers can define their own additional
 named queries to meet their own uses using an <a href="operationdefinition.html">OperationDefinition</a>.
 </p>
 <p>
+  For named queries, all the <a href="#standard">standard search parameters</a> (parameters for 
+  <a href="#all">all resources</a> and <a href="#modifyingresults">search result</a> parameters) are potentially 
+  available for use in addition to any parameters defined by the query operation. In addition, if the query 
+  operation is defined in the scope of a specific resource, the search parameters for that resource are also 
+  potentially available. For example, a named query with a scope of <code>Patient</code> could include the 
+  <a href="#_lastUpdated"><code>_lastUpdated</code></a>, <a href="#_sort"><code>_sort</code></a>, and/or 
+  <a href="patient.html#search">Patient.gender</a> search parameters, even if those aren't explicitly listed 
+  as parameters on the query operation.
+</p>
+<p>
+  Servers do not need to support ANY such 'inherited' parameters unless explicitly documented in the operation's 
+  description. Clients should not assume the availability of any search parameter that is not supported for 
+  general queries (i.e. listed in the server's <a href="capabilitystatement.html">CapabilityStatement</a>, either in 
+  <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam">CapabilityStatement.rest.searchParam</a> or 
+  <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchParam">CapabilityStatement.rest.resource.searchParam</a>). 
+  Servers MAY further document the search parameters they support for a specific <code>query</code> operation - either in text 
+  or by defining a constrained operation based on the original that explicitly enumerates all supported parameters. <span class="stu">TU</span>
+</p>
+<p>
+  For example, the operation definition:
+</p>
+<p>
 There can only ever be one <code>_query</code> parameter in a set of search
 parameters. Servers processing search requests SHALL
 refuse to process a search request if they do not recognize
 the <code>_query</code> parameter value.
+</p>
+<p>
+  <span class="fhir-example">
+    <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
+    <span class="example-format-display">
+      <span class="example-format-display-json">{
+  "resourceType": "OperationDefinition",
+  "id": "current-high-risk",
+  "url": "http://example.org/OperationDefinition/current-high-risk",
+  "version": "0.0.1",
+  "name": "Current High-Risk Patients",
+  "status": "draft",
+  "kind": "query",
+  "description": "Filter Patients based on risk assessments",
+  "code": "current-high-risk",
+  "resource": [ "Patient" ],
+  "system": false,
+  "type": true,
+  "instance": false,
+  "parameter": [
+    {
+      "name": "ward",
+      "use": "in",
+      "min": 0,
+      "max": "*",
+      "documentation": "Ward filters to apply to patient locations",
+      "type": "string",
+      "searchType": "reference"
+    },
+    {
+      "name": "return",
+      "use": "out",
+      "min": 1,
+      "max": "1",
+      "documentation": "Searchset bundle",
+      "type": "Bundle"
+    }
+  ]
+}</span>
+      <span class="example-format-display-xml">&lt;OperationDefinition xmlns="http://hl7.org/fhir"&gt;
+  &lt;id value="current-high-risk" /&gt;
+  &lt;url value="http://example.org/OperationDefinition/current-high-risk" /&gt;
+  &lt;version value="0.0.1" /&gt;
+  &lt;name value="Current High-Risk Patients" /&gt;
+  &lt;status value="draft" /&gt;
+  &lt;kind value="query" /&gt;
+  &lt;description value="Filter Patients based on risk assessments" /&gt;
+  &lt;code value="current-high-risk" /&gt;
+  &lt;resource value="Patient" /&gt;
+  &lt;system value="false" /&gt;
+  &lt;type value="true" /&gt;
+  &lt;instance value="false" /&gt;
+  &lt;parameter&gt;
+    &lt;name value="ward" /&gt;
+    &lt;use value="in" /&gt;
+    &lt;min value="0" /&gt;
+    &lt;max value="*" /&gt;
+    &lt;documentation value="Ward filters to apply to patient locations" /&gt;
+    &lt;type value="string" /&gt;
+    &lt;searchType value="reference" /&gt;
+  &lt;/parameter&gt;
+  &lt;parameter&gt;
+    &lt;name value="return" /&gt;
+    &lt;use value="out" /&gt;
+    &lt;min value="1" /&gt;
+    &lt;max value="1" /&gt;
+    &lt;documentation value="Searchset bundle" /&gt;
+    &lt;type value="Bundle" /&gt;
+  &lt;/parameter&gt;
+&lt;/OperationDefinition&gt;</span>
+    </span>
+  </span>
 </p>
 
 <a name="currency"></a>

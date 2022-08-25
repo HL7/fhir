@@ -44,10 +44,15 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Resource.id"/>
+        </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_in"/>
         <description value="Allows for the retrieval of resources that are active members of a CareTeam, Group, or List"/>
         <code value="_in"/>
-        <type value="special"/>
+        <type value="reference"/>
+        <expression value="Resource.id"/>
+        <xpath value="f:Resource/f:id"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -202,4 +207,20 @@
       </SearchParameter>
     </resource>
   </entry>
+    <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Resource-_type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_type"/>
+        <description value="A resource type filter"/>
+        <code value="_type"/>
+        <type value="special"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
 </Bundle>
