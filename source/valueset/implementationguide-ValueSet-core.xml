@@ -30,11 +30,6 @@
         <reference value="StructureDefinition/executablevalueset"/>
       </reference>
     </resource>
-		<resource>
-	      <reference>
-	        <reference value="StructureDefinition/vsd-alignedvalueset"/>
-	      </reference>
-	    </resource>
     <resource>
       <reference>
         <reference value="StructureDefinition/valueset-concept-definition"/>

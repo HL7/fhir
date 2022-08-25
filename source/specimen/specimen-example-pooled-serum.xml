@@ -23,6 +23,8 @@
 		<reference value="Group/herd1"/>
 	</subject>
 
+	<combined value = "pooled" />
+	     
 	<collection>
 		<collector>
 			<display value="James Herriot, FRCVS"></display>

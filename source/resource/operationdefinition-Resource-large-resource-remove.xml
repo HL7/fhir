@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
+  <id value="Resource-large-resource-remove"/>
+  <meta>
+    <lastUpdated value="2022-08-23T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/OperationDefinition/Resource-large-resource-remove"/>
+  <version value="5.0.0"/>
+  <name value="remove"/>
+  <title value="Remove from an array in a large resource"/>
+  <status value="draft"/>
+  <kind value="operation"/>
+  <date value="2022-08-23T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Remove content from an array in a large resource such as List or Group. See [Operations for Large Resources](operations-for-large-resources.html)."/>
+  <affectsState value="true"/>
+  <code value="remove"/>
+  <resource value="Group"/>
+  <resource value="List"/>
+  <system value="false"/>
+  <type value="false"/>
+  <instance value="true"/>
+  <parameter>
+    <name value="removals"/>
+    <use value="in"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="Resource containing content to remove. See [Operations for Large Resources](operations-for-large-resources.html)."/>
+    <type value="Resource"/>
+  </parameter>
+  <parameter>
+    <name value="return"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Resource containing content removed. See [Operations for Large Resources](operations-for-large-resources.html)."/>
+    <type value="Resource"/>
+  </parameter>
+</OperationDefinition>

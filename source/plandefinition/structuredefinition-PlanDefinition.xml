@@ -336,14 +336,14 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-      </type>
-      <type>
-        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
+      </type>
+      <type>
+        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </type>
       <meaningWhenMissing value="Patient"/>
@@ -1163,7 +1163,7 @@
     <element id="PlanDefinition.action.linkId">
       <path value="PlanDefinition.action.linkId"/>
       <short value="Unique id for the action in the PlanDefinition"/>
-      <definition value="An identifier that is unique within the PlanDefinition to allow linkage within the realized CarePlan and/or RequestGroup."/>
+      <definition value="An identifier that is unique within the PlanDefinition to allow linkage within the realized CarePlan and/or RequestOrchestration."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1646,7 +1646,7 @@
       <path value="PlanDefinition.action.timing[x]"/>
       <short value="When the action should take place"/>
       <definition value="An optional value describing when the action should be performed."/>
-      <comment value="The intent of the timing element is to provide timing when the action should be performed. As a definitional resource, this timing is interpreted as part of an apply operation so that the timing of the result actions in a CarePlan or RequestGroup, for example, would be specified by evaluating the timing definition in the context of the apply and setting the resulting timing on the appropriate elements of the target resource. If the timing is an Age, the activity is expected to be performed when the subject is the given Age. When the timing is a Duration, the activity is expected to be performed within the specified duration from the apply. When the timing is a Range, it may be a range of Ages or Durations, providing a range for the expected timing of the resulting activity. When the timing is a Timing, it is establishing a schedule for the timing of the resulting activity."/>
+      <comment value="The intent of the timing element is to provide timing when the action should be performed. As a definitional resource, this timing is interpreted as part of an apply operation so that the timing of the result actions in a CarePlan or RequestOrchestration, for example, would be specified by evaluating the timing definition in the context of the apply and setting the resulting timing on the appropriate elements of the target resource. If the timing is an Age, the activity is expected to be performed when the subject is the given Age. When the timing is a Duration, the activity is expected to be performed within the specified duration from the apply. When the timing is a Range, it may be a range of Ages or Durations, providing a range for the expected timing of the resulting activity. When the timing is a Timing, it is establishing a schedule for the timing of the resulting activity."/>
       <requirements value="Allows prompting for activities and detection of missed planned activities."/>
       <min value="0"/>
       <max value="1"/>

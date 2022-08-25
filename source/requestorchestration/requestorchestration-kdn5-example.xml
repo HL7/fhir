@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<RequestGroup xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/requestgroup.xsd">
+<RequestOrchestration xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/requestorchestration.xsd">
   <id value="kdn5-example"/>
   <text>
     <status value="generated" />
@@ -107,7 +107,7 @@
     </MedicationRequest>
   </contained>
   <identifier>
-    <value value="requestgroup-kdn5"/>
+    <value value="requestorchestration-kdn5"/>
   </identifier>
   <instantiatesCanonical value="http://example.org/fhir/PlanDefinition/KDN5"/>
   <status value="draft"/>
@@ -181,4 +181,4 @@
       </action> <!-- end of regimen parts -->
     </action> <!-- end of regimen options -->
   </action>
-</RequestGroup>
+</RequestOrchestration>

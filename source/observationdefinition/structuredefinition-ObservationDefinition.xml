@@ -65,7 +65,7 @@
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="ObservationDefinition"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
   <derivation value="specialization"/>
   <differential>
     <element id="ObservationDefinition">

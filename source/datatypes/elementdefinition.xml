@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2022-08-21T00:13:52Z</LastSaved>
+  <LastSaved>2022-08-23T12:38:49Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -15,7 +15,7 @@
   
   
   <TabRatio>694</TabRatio>
-  <ActiveSheet>9</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -2459,7 +2459,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Include when _summary = true?</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Whether the element should be included if a client requests a search with the parameter _summary=true</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Allow clients to search through large resources quickly</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Some resources include a set of simple metadata, and some very large data. This element is used to reduce the quantity of data returned in searches. Note that servers may pre-cache summarized resources for optimal performance, so servers might not support per-profile use of the isSummary flag. When a request is made with _summary=true, serializers only include elements marked as 'isSummary = true'. Other than Attachment.data, all data type properties are included in the summary form. In resource and data type definitions, if an element is at the root or has a parent that is 'mustSupport' and the minimum cardinality is 1 or the element is a modifier, it must be marked as isSummary=true</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Some resources include a set of simple metadata, and some very large data. This element is used to reduce the quantity of data returned in searches. Note that servers may pre-cache summarized resources for optimal performance. When a request is made with _summary=true, serializers only include elements marked as 'isSummary = true'. Other than Attachment.data, all data type properties are included in the summary form. In resource and data type definitions, if an element is at the root or has a parent that is 'mustSupport' and the minimum cardinality is 1 or the element is a modifier, it must be marked as isSummary=true</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">N/A (MIF territory)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4501,14 +4501,14 @@
     <Cell><Data ss:Type="String">pattern[x] is generally preferred over fixed[x] because it doesn't preclude the use of id and additional extensions, though there are corner cases when it's appropriate to exclude those</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="Number">25</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">warning</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Order has no meaning (and cannot be asserted to have meaning), so enforcing rules on order is improper</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">orderMeaning.empty() implies slicing.where(rules='openAtEnd' or ordered).exists().not()</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">exists(f:orderMeaning) or not(exists(f:slicing[f:rules/@value='openAtEnd' or f:ordered/@value='true']))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4743,6 +4743,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7026,8 +7027,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

@@ -231,6 +231,10 @@
 			<code value="funding-source"/>
 			<display value="Funding Source"/>
 		</concept>
+	    <concept>
+			<code value="general-contact"/>
+			<display value="General Contact"/>
+	    </concept>
 		<concept>
 			<code value="recruitment-contact"/>
 			<display value="Recruitment Contact"/>

@@ -22,7 +22,9 @@ signatures.html
       <page title="Patterns" filename="patterns.html"/>
       <page title="Profiles" filename="profilelist.html"/>
       <page title="Extensions" filename="extensibility-registry.html"/>
-      <page title="Operations" filename="operationslist.html"/>
+      <page title="Operations" filename="operationslist.html">
+        <page title="Operations for Large Resources" filename="operations-for-large-resources.html"/>
+      </page>
       <page title="Services" filename="servicelist.html"/>
       <page title="Namespace List" filename="ns.html"/>
       <page title="Workgroup List" filename="wglist.html"/>
@@ -416,7 +418,7 @@ signatures.html
       <page type="resource" resource="EvidenceVariable"/>
       <page type="resource" resource="Library"/>
       <page type="resource" resource="GuidanceResponse"/>
-      <page type="resource" resource="RequestGroup"/>
+      <page type="resource" resource="RequestOrchestration"/>
       <page type="resource" resource="Measure"/>
       <page type="resource" resource="MeasureReport"/>
     </page>

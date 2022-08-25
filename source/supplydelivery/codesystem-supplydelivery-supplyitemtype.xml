@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="biologicallyderived-product-property-type-codes"/>
+  <id value="supplydelivery-supplyitemtype"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -12,15 +12,27 @@
       
       
       
-      <p>This code system http://hl7.org/fhir/biologicallyderived-product-property-type-codes is a subset of the codes defined in http://terminology.hl7.org/CodeSystem/ib</p>
       
-  
+      
+      
+      <p>This code system http://hl7.org/fhir/supplydelivery-supplyitemtype defines the following codes:</p>
+      
+      
+      
+      
+      
       
       <table class="codes">
         
         
         
+        
+        
+        
         <tr>
+          
+          
+          
           
           
           
@@ -28,7 +40,13 @@
             
             
             
+            
+            
+            
             <b>Code</b>
+          
+          
+          
           
           
           
@@ -36,7 +54,13 @@
           
           
           
+          
+          
+          
           <td>
+            
+            
+            
             
             
             
@@ -44,7 +68,13 @@
           
           
           
+          
+          
+          
           </td>
+          
+          
+          
           
           
           
@@ -52,15 +82,27 @@
             
             
             
+            
+            
+            
             <b>Definition</b>
           
           
           
+          
+          
+          
           </td>
         
         
         
+        
+        
+        
         </tr>
+        
+        
+        
         
         
         
@@ -68,11 +110,20 @@
           
           
           
-          <td style="white-space:nowrap">CollectionType
+          
+          
+          
+          <td style="white-space:nowrap">medication
             
             
             
-            <a name="product-property-type-code-collection-type"> </a>
+            
+            
+            
+            <a name="supplydelivery-supplyitemtype-medication"> </a>
+          
+          
+          
           
           
           
@@ -80,15 +131,27 @@
           
           
           
-          <td>Collection Type</td>
           
           
           
-          <td>See https://www.isbt128.org/uri/CollectionType</td>
+          <td>Medication</td>
+          
+          
+          
+          
+          
+          
+          <td>Supply is a kind of medication.</td>
+        
+        
+        
         
         
         
         </tr>
+        
+        
+        
         
         
         
@@ -96,11 +159,20 @@
           
           
           
-          <td style="white-space:nowrap">ABORhD
+          
+          
+          
+          <td style="white-space:nowrap">device
             
             
             
-            <a name="product-property-type-code-aborh"> </a>
+            
+            
+            
+            <a name="supplydelivery-supplyitemtype-device"> </a>
+          
+          
+          
           
           
           
@@ -108,15 +180,27 @@
           
           
           
-          <td>ABO RhD	</td>
           
           
           
-          <td>See https://www.isbt128.org/uri/ABORhD</td>
+          <td>Device</td>
+          
+          
+          
+          
+          
+          
+          <td>What is supplied (or requested) is a device.</td>
+        
+        
+        
         
         
         
         </tr>
+        
+        
+        
         
         
         
@@ -124,11 +208,20 @@
           
           
           
-          <td style="white-space:nowrap">SingleEuropeanCode
+          
+          
+          
+          <td style="white-space:nowrap">biologicallyderivedproduct
             
             
             
-            <a name="product-property-type-code-single-european-code"> </a>
+            
+            
+            
+            <a name="supplydelivery-supplyitemtype-biologicallyderivedproduct"> </a>
+          
+          
+          
           
           
           
@@ -136,47 +229,33 @@
           
           
           
-          <td>Single European Code</td>
           
           
           
-          <td>See https://www.isbt128.org/uri/SingleEuropeanCode</td>
+          <td>Biologically Derived Product</td>
+          
+          
+          
+          
+          
+          
+          <td>Supply is a kind of biologically derived product.</td>
         
         
         
-        </tr>
         
         
         
-        <tr>
-          
-          
-          
-          <td style="white-space:nowrap">RedCellAntigen
-            
-            
-            
-            <a name="product-property-type-code-red-cell-antigen"> </a>
-          
-          
-          
-          </td>
-          
-          
-          
-          <td>Red Cell Antigen</td>
-          
-          
-          
-          <td>See https://www.isbt128.org/uri/RedCellAntigen</td>
-        
-        
-        
-        </tr>
-   
-  
+        </tr>  
+      
+      
+      
+      
       
       </table>
+    
+    
+    
     
     
     
@@ -189,16 +268,16 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/biologicallyderived-product-property-type-codes"/>
+  <url value="http://hl7.org/fhir/supplydelivery-supplyitemtype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="5.0.0"/>
-  <name value="BiologicallyDerivedProductPropertyTypeCodes"/>
-  <title value="BiologicallyDerivedProductPropertyTypeCodes"/>
+  <version value="5.0.0-cibuild"/>
+  <name value="SupplyDeliverySupplyItemType"/>
+  <title value="SupplyDeliverySupplyItemType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -213,28 +292,23 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Biologically Derived Product Property Type Code."/>
+  <description value="Status of the supply delivery."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-property-type-codes"/>
-  <content value="example"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype"/>
+  <content value="complete"/>
   <concept>
-    <code value="CollectionType"/>
-    <display value="CollectionType"/>
-    <definition value="See https://www.isbt128.org/uri/CollectionType"/>
+    <code value="medication"/>
+    <display value="Medication"/>
+    <definition value="Supply is a kind of medication."/>
   </concept>
   <concept>
-    <code value="ABORhD"/>
-    <display value="ABORhD"/>
-    <definition value="See https://www.isbt128.org/uri/ABORhD"/>
+    <code value="device"/>
+    <display value="Device"/>
+    <definition value="What is supplied (or requested) is a device."/>
   </concept>
   <concept>
-    <code value="SingleEuropeanCode"/>
-    <display value="SingleEuropeanCode"/>
-    <definition value="See https://www.isbt128.org/uri/SingleEuropeanCode"/>
-  </concept>
-  <concept>
-    <code value="RedCellAntigen"/>
-    <display value="Red Cell Antigen"/>
-    <definition value="See https://www.isbt128.org/uri/RedCellAntigen"/>
+    <code value="biologicallyderivedproduct"/>
+    <display value="Biologically Derived Product"/>
+    <definition value="Supply is a kind of biologically derived product."/>
   </concept>
 </CodeSystem>

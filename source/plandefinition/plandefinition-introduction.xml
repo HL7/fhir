@@ -12,7 +12,7 @@
 
 <p>In addition to describing what should take place, each action in a plan definition can specify <i>when</i> and <i>whether</i> the action should take place. For when the action should be taken, the <code>trigger</code> element specifies the action should be taken in response to some trigger occurring (such as a particular point in a workflow being reached, or as the result of a prescription being ordered). For whether the action should be taken, the <code>condition</code> element can be used to provide an expression that evaluates to true or false to indicate the applicability of the action to the specific context.</p>
 
-<p>The process of applying a PlanDefinition to a particular context typically produces request resources representing the actions that should be performed, typically grouped within a <a href="careplan.html">CarePlan</a> and/or <a href="requestgroup.html">RequestGroup</a> to capture relationships between the resulting request resources.</p>
+<p>The process of applying a PlanDefinition to a particular context typically produces request resources representing the actions that should be performed, typically grouped within a <a href="careplan.html">CarePlan</a> and/or <a href="requestorchestration.html">RequestOrchestration</a> to capture relationships between the resulting request resources.</p>
 
 <p>Each ActivityDefinition is used to construct a specific resource, based on the definition of the activity and combined with contextual information for the particular patient that the plan definition is being applied to.</p>
 
