@@ -27,8 +27,10 @@ where named operations are performed with inputs and outputs (<b>E</b>xecute).
 Operations are appropriately used where:
 </p>
 <ul>
- <li>the server needs to play an active role in formulating the content of the response, not merely return existing information</li>
- <li>the intended purpose is to cause side effects such as the modification of existing resources or creation of new resources, or other changes out of scope of the RESTful interface (e.g. merging patient records)</li>
+ <li>The server needs to play an active role in formulating the content of the response, not merely return existing information</li>
+ <li>The intended purpose is to cause <a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">side effects</a> such as 
+     the modification or creation of resources not transmitted as part of the RESTful call (e.g. triggering the generation of an invoice), 
+     or other changes out of scope of the RESTful interface (e.g. merging patient records)</li>
  <li>The task involves business rules to be enforced across multiple different resources and/or</li>
  <li>the task involves updating several resources in a coordinated manner (note: this can also be done by a <a href="http.html#transaction">Transaction</a>, but an operation can be more focused on the task</li>
 </ul>
