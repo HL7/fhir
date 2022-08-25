@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
-    <valueMarkdown value="Servers handle this request by finding the provided identifier in their known naming systems, and returning the requested identifier type ([NamingSystem.uniqueId.type](namingsystem-definitions.html#NamingSystem.uniqueId.type)). If there are multiple possible identifiers of the specified type (e.g. multiple OIDs) the server returns an error.    &#xA;&#xA;If the server wishes, it can also look through all code systems and value sets it knows about when attempting to find the requested identifier"/>
+    <valueMarkdown value="Servers handle this request by finding the provided identifier in their known naming systems, and returning the requested identifier type ([NamingSystem.uniqueId.type](namingsystem-definitions.html#NamingSystem.uniqueId.type)). If there are multiple possible identifiers of the specified type (e.g. multiple OIDs) the server returns an error.    &#xA;&#xA;If the server wishes, it can also look through all code systems and value sets it knows about when attempting to find the requested identifier. If the server identifies multiple preferred identifiers, it MAY either return them all or return an error"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/NamingSystem-preferred-id"/>
   <version value="5.0.0"/>
@@ -86,6 +86,14 @@
       <strength value="required"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/namingsystem-identifier-type|5.0.0"/>
     </binding>
+  </parameter>
+  <parameter>
+    <name value="date"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value=" If specified, the operation will indicate what the preferred identifier was on the specified date.  If not specified, the operation will provide the preferred identifier as of 'now'"/>
+    <type value="dateTime"/>
   </parameter>
   <parameter>
     <name value="result"/>
