@@ -36,7 +36,7 @@
         <description value="The subject that the sequence is about"/>
         <code value="subject"/>
         <type value="reference"/>
-        <expression value="MolecularSequence.subject"/>
+        <expression value="MolecularSequence.patient"/>
         <xpath value="f:MolecularSequence/f:patient"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
