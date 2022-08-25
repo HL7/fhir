@@ -166,11 +166,11 @@ Patient.name.given.getValue().is(System.string);
 <p>
 As shown, all FHIR primitives have the operation <code>getValue()</code> defined (see below)
 for the few edge cases where the automatic conversion isn't appropriate. Note
-that as() does not have such restrictions - both of the following are valid:
+that ofType() does not have such restrictions - both of the following are valid:
 </p>
 <pre class="fhirpath">
-Patient.name.given.as(FHIR.string);
-Patient.name.given.as(System.string);
+Patient.name.given.ofType(FHIR.string);
+Patient.name.given.ofType(System.string);
 </pre>
 
 

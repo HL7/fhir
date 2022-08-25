@@ -261,7 +261,7 @@
           <valueString value="StructureDefinition.context"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/StructureDefinition-ext-context"/>
-        <description value="The system is the URL for the context-type: e.g. http://hl7.org/fhir/extension-context-type#element|CodeableConcept.text"/>
+        <description value="An extension context assigned to the structure definition"/>
         <code value="ext-context"/>
         <type value="composite"/>
         <expression value="StructureDefinition.context"/>
