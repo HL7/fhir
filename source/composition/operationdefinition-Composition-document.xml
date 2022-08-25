@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
-    <valueMarkdown value="Note: this operation definition does not resolve the question how document signatures are created. This is an open issue during the period of trial use, and feedback is requested regarding this question"/>
+    <valueMarkdown value="Notes:&#10;&#10;* The server implementing the operation SHOULD determine a 'high-level water-mark' for the document security tags ([Bundle.meta.security](resource.html#Meta))) as a whole, based on an analysis of the resources contained within the document&#10;* this operation definition does not resolve the question how document signatures are created. This is an open issue during the period of trial use, and feedback is requested regarding this question"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Composition-document"/>
   <version value="5.0.0"/>
@@ -57,7 +57,7 @@
   <description value="A client can ask a server to generate a fully bundled document from a composition resource. The server takes the composition resource, locates all the referenced resources and other additional resources as configured or requested and either returns a full document bundle, or returns an error. Note that since this is a search operation, the document bundle is  wrapped inside the search bundle.  If some of the resources are located on other servers, it is at the discretion of the  server whether to retrieve them or return an error. If the correct version of the document  that would be generated already exists, then the server can return the existing one."/>
   <affectsState value="false"/>
   <code value="document"/>
-  <comment value="Notes:&#10;&#10;the server implementing the operation SHOULD determine a 'high-level water-mark' for the document security tags ([Bundle.meta.security](resource.html#Meta))) as a whole, based on an analysis of the resources contained within the document* &#10;*this operation definition does not resolve the question how document signatures are created. This is an open issue during the period of trial use, and feedback is requested regarding this question"/>
+  <comment value="Notes:&#10;&#10;* The server implementing the operation SHOULD determine a 'high-level water-mark' for the document security tags ([Bundle.meta.security](resource.html#Meta))) as a whole, based on an analysis of the resources contained within the document&#10;* this operation definition does not resolve the question how document signatures are created. This is an open issue during the period of trial use, and feedback is requested regarding this question"/>
   <resource value="Composition"/>
   <system value="false"/>
   <type value="true"/>

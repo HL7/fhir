@@ -624,6 +624,13 @@ Note: Servers MAY choose to preserve XML comments, instructions, and formatting 
 <p>
 Note: It is possible that a client may attempt to update a resource that was obtained using search and that was marked with the <code>SUBSETTED</code> tag. It is at the server's discretion whether to accept requests that are tagged as <code>SUBSETTED</code> and, if so, how to handle them.
 </p>
+<div class="draft-content">
+<p>
+Servers that determine that a POST would result in a duplicate MAY return a 303 pointing to the existing (unchanged) record 
+and indicating that the record was not created because the specified resource already exists at the specified location.
+</p>
+</div>
+
 <a name="upsert"></a>
 <h4>Update as Create</h4>
 <p>
@@ -647,6 +654,11 @@ where clashes do not arise. Note that this use of <code>update</code> has <a hre
 Servers can choose whether or not to support client defined ids, and indicate such to the clients
 using <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.updateCreate">CapabilityStatement.rest.resource.updateCreate</a>.
 </p>
+<p>
+A server SHALL not return a <code>201</code> response if it did not create a new resource.
+If a new resource is created, a location header SHALL be returned (though it SHALL be the 
+same as the location in the URL of the PUT request).
+</p>
 
 <a name="rejecting-updates"> </a>
 <h4>Rejecting Updates</h4>
@@ -663,7 +675,8 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
  <li><b><code>404</code> Not Found</b> - resource type not supported, or not a FHIR end-point</li>
  <li><b><code>405</code> Method Not allowed</b> - the resource did not exist prior to the update, and the server does not allow client defined ids</li>
  <li><b><code>409</code>/<code>412</code></b> - version conflict management - see <a href="#concurrency">below</a></li>
- <li><b><code>422</code> Unprocessable Entity</b> - the proposed resource violated applicable FHIR profiles or server business rules</li>
+ <li><b><code>422</code> Unprocessable Entity</b> - the proposed resource violated applicable FHIR profiles or server business rules.
+  If the reason for failure is a conflict that would violate a unique index constraint, the 422 response MAY include a location header that SHALL indicate the resource for the existing record that would have that same index value</li>
 </ul>
 <p>
 Any of these errors SHOULD be accompanied by an <a href="operationoutcome.html">OperationOutcome</a> resource providing additional detail concerning the issue.
@@ -1360,7 +1373,8 @@ entry of other than 2xx (200, 202 etc) indicates that processing the request in 
 <a name="trules"> </a>
 <h4>Transaction Processing Rules</h4>
 <p>
-For a <code>transaction</code>, servers SHALL either accept all actions and return a <code>200</code> OK, along with a
+For a <code>transaction</code>, servers SHALL either accept all actions (i.e. process each entry resulting in a 2xx or 3xx response code) 
+and return an overall <code>200</code> OK, along with a
 response bundle (see below), or reject all resources and return an HTTP <code>400</code> or <code>500</code> type
 response. It is not an error if the submitted bundle has no resources in it.
 The outcome of processing the transaction SHALL NOT depend on the order
