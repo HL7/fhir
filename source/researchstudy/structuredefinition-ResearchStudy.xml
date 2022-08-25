@@ -395,6 +395,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="This is a set of terms for study design characteristics."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/study-design"/>
       </binding>
       <mapping>
         <identity value="clinicaltrials-gov"/>
