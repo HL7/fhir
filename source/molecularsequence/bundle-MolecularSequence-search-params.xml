@@ -36,8 +36,28 @@
         <description value="The subject that the sequence is about"/>
         <code value="subject"/>
         <type value="reference"/>
-        <expression value="MolecularSequence.patient"/>
+        <expression value="MolecularSequence.subject"/>
         <xpath value="f:MolecularSequence/f:patient"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MolecularSequence-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MolecularSequence.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MolecularSequence-patient"/>
+        <description value="The subject that the sequence is about"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="MolecularSequence.subject"/>
+        <xpath value="f:MolecularSequence/f:subject"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
