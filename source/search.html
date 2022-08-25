@@ -3267,7 +3267,7 @@ Search Parameter definition.
 <h4>Searching MIME Types</h4>
 <p>
 The <code>:below</code> modifier is also very useful with searching <a href="https://datatracker.ietf.org/doc/html/rfc6838">MIME type</a>, 
-such as the search parameter <a href="documentreference.html">DocumentReference.contenttype</a>,
+such as the search parameter <a href="documentreference.html#search">DocumentReference.contenttype</a>,
 which refers to <a href="datatypes.html#Attachment">Attachment.contentType</a>. A simple search such as:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
@@ -3295,7 +3295,20 @@ For ease of processing on the server, servers are only required to support <code
 base part of the MIME type; servers are not required to sort between different parameters and do
 formal subsumption logic.
 </p>
-
+<p>
+  Additionally, the <code>below</code> modifier can be applied to the first segment only:
+  <span class="http-search-example">
+    <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+    <span class="http-verb-display">
+      <span class="http-verb-display-get">GET [base]/DocumentReference?contenttype:below=image</span>
+      <span class="http-verb-display-post">POST [base]/DocumentReference/_search
+Content-Type: application/x-www-form-urlencoded
+contenttype:below=image</span>
+    </span>
+  </span>
+  will match all <code>image/</code> content types, e.g., "image/png", "image/jpeg", etc.
+</p>
+  
 
 <a name="chaining"></a>
 <h4>Chaining (chained parameters)</h4>
