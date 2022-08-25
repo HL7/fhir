@@ -248,8 +248,10 @@ are repeated by repeating the named parameter. E.g. Observation $stats statistic
 GET [base]/Observation/$stats?subject=Patient/123&amp;code=55284-4&amp;system=http://loinc.org&amp;duration=1&amp;statistic=average&amp;statistic=min&amp;statistic=max&amp;statistic=count
 </pre>
 <p>
-If, when invoking the operation, there is exactly one input parameter of type Resource (irrespective of whether other possible parameters are defined),
-that the operation can also be executed by a POST with that resource as the body of the request (and no parameters on the url).
+If an operation has exactly one input parameter whose type is a FHIR Resource and all other parameters 
+a client intends to submit are <a href="#executing">simple parameters</a>, then the client MAY invoke 
+the operation via POST with the input resource as the request body and additional parameters as query parameters.
+Servers SHALL support this means of invocation of the operation.
 </p>
 
 <p>
