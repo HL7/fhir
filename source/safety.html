@@ -91,16 +91,18 @@ appropriate, or much more seriously, missing resources out in search results tha
 <ol start="14">
  <li title="cross-resource"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#cross-resource"> </a>My system takes care to ensure that clients can (for servers) or will (for clients) find the information they need when content that might reasonably be exposed using more than one FHIR resource. Possible patterns: Support a single search across the applicable resources, or expose data through each applicable resource. See discussion on <a href="https://confluence.hl7.org/display/FHIR/Managing+Overlap+Between+Resources">Wiki Page</a> for further information</li>
  <li title="search-param-names"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#search-param-names">My client checks the names of search parameters and operation definitions in the server's <a href="capabilitystatement.html">CapabilityStatement</a> to see if they have been renamed on the local system</a></li>
+ <li title="search-pages-client"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#search-pages-client">My client application checks for the existence of pages in search results (<code>Bundle.link</code> of type <code>next</code>) in the response to a search. Note: failure to page through the data will cause an application or it's human user to be missing the full clinical picture for the patient</a></li>
+ <li title="search-pages-server"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#search-pages-server">My server clearly documents how sorting works when performing searches, and how concurrency works when clients move between pages (e.g. if data in a page can change/duplicate across pages)</a></li>
 </ol>
 
 <p><b>For clients</b></p>
 
-<ol start="16">
+<ol start="18">
  <li title="display-warnings"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#display-warnings"> </a>My system will display warnings returned by the server to the user</li>
  <li title="search-parameters"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#search-parameters"> </a>My system checks whether the server processed all the requested search parameter, and is safe if servers ignore parameters (typically, either filters locally or warns the user)</li>
 </ol>
 <p><b>For Servers</b></p> 
-<ol start="18">
+<ol start="20">
 <li title="missing-values"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#missing-values"> </a>My system caters for <a href="search.html#missing">parameters that have missing values</a> when doing search operations, and responds correctly to the client with regard to <a href="search.html#errors">erroneous search parameters</a></li>
 <li title="default-filters"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#default-filters"> </a>My system includes appropriate default filters when searching based on patient context - e.g. filtering out entered-in-error records, filtering to only include active, living patients if appropriate, and clearly documents these 
  (preferably including them in the self-link for a search)</li>
@@ -115,7 +117,7 @@ source of safety issues in all applications. This specification allows for
 resources to be deleted, but does not require systems to behave in any 
 particular fashion.
 </p>
-<ol start="21">
+<ol start="23">
   <li title="deletion-check"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#deletion-check"> </a>For each resource, I have checked whether resources can be deleted, and/or how records are marked as incorrect/no longer relevant</li>
   <li title="deletion-replication"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#deletion-replication"> </a>Deletion of records (or equivalent updates in status) flow through the system so any replicated copies are deleted/updated</li>
   <li title="deletion-support"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#deletion-support"> </a>(If a server) my documentation about deleted resources is clear, and my test sandbox (if exists) has deleted/error record cases in the test data</li>   
@@ -130,7 +132,7 @@ legal for use in some combinations of context and jurisdiction (e.g. HIPAA for e
 responsibility of implementers to ensure that relevant regulations and other requirements are met.
 </p>
 
-<ol start="24">
+<ol start="26">
  <li title="check-consent"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#check-consent"> </a>My system checks that the right <a href="consent.html">Patient consent</a> has been granted (where applicable)</li>
  <li title="distribute-aod"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#distribute-aod"> </a>My system sends an <a href="secpriv-module.html#AoD">Accounting of Disclosure</a> to the consenter as requested when permitted actions on resources are performed using an <a href="auditevent.html">AuditEvent</a> Resource</li>
 </ol>
@@ -144,7 +146,7 @@ responsibility of implementers to ensure that relevant regulations and other req
 </ol>
 
 <p>Communications:</p>
-<ol start="28">
+<ol start="30">
  <li title="use-encryption"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-encryption"> </a>Production exchange of patient or other sensitive data will always use some form of <a href="security.html#http">encryption on the wire</a></li>
  <li title="use-tls"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-tls"> </a>Where resources are exchanged using <a href="security.html#http">HTTP</a>, <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security">TLS</a> should be utilized to protect the communications channel</li>
  <li title="use-smime"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-smime"> </a>Where resources are exchanged using email, <a href="https://en.wikipedia.org/wiki/S/MIME">S/MIME</a> should be used to protect the end-to-end communication</li>
@@ -154,12 +156,12 @@ responsibility of implementers to ensure that relevant regulations and other req
 <p>
 Note: Users/Clients may be identified and authenticated in any way desired. For web-centric use, OAuth is recommended.
 </p>
-<ol start="32">
+<ol start="34">
  <li title="use-ouath"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-ouath"> </a>My system utilizes a risk and use case <a href="security.html#oauth">appropriate OAuth profile</a> (preferably <a href="http://hl7.org/fhir/smart-app-launch">Smart App Launch</a>), with a <a href="security.html#authentication">clear policy on authentication strength</a></li>
  <li title="use-openidconnect"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-openidconnect"> </a>My system uses <a href="https://openid.net/connect/">OpenID Connect</a> (or other suitable authentication protocol) to verify identity of end user, where it is necessary that end-users be identified to the client application, and has a clear policy on <a href="secpriv-module.html#user">identity proofing</a></li>
 </ol>
 <p>Access Control:</p>
-<ol start="34">
+<ol start="36">
  <li title="use-rbac"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-rbac"> </a>My system applies appropriate access control to every request, using a combination of requester’s clearance (ABAC) and/or roles (RBAC)</li>
  <li title="use-labels"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-labels"> </a>My system considers <a href="security-labels.html">security labels</a> on the affected resources when making access control decisions </li>
 </ol>
@@ -167,7 +169,7 @@ Note: Users/Clients may be identified and authenticated in any way desired. For 
 
 <a name="narrative"> </a>
 <h3>Narrative / Presentation Related Safety Checks</h3>
-<ol start="36">
+<ol start="38">
   <li title="render-narratives"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#render-narratives"> </a>My system can <a href="narrative.html#css">render narratives properly</a> and <a href="security.html#narrative">securely</a>(where they are used)</li>
   <li title="sending-narratives"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#render-narratives"> </a>When creating resources, careful consideration has been given for when the system should generate resource narrative to serve as a safe failback for other systems that do not recognised all elements and extensions in them (either because of lack of community agreement or because of non-simultaneous evolution of discrete data interfaces among community participants))</li>
   <li title="generating-narratives"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#render-narratives"> </a>When generating narrative, careful consideration has been given to the human readability of the narrative, trying to appropriately highlight 'important' information to make it likely that human readers unfamiliar with the narrative organization will still find such information</li>
@@ -179,7 +181,7 @@ With regard to #38, Systems SHOULD check the narrative status. Specifically, if 
 </p>
 
 <p>Integrity:</p>
-<ol start="40">
+<ol start="42">
  <li title="check-validation"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#check=validation"> </a>My system <a href="validation.html">validates all input received</a> (whether in resource format or other) from other actors so that it data is well-formed and does not contain content that would cause unwanted system behavior</li>
  <li title="use-provenance"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-provenance"> </a>My system makes the right <a href="provenance.html">Provenance</a> statements and <a href="auditevent.html">AuditEvent</a> logs, and uses the right <a href="security-labels.html#core">security labels</a> where appropriate</li>
  <li title="decimal"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-provenance"> </a>My system manages decimal precision correctly when using JSON (see <a href="json.html#decimal">JSON representation of primitive elements</a>)</li>
@@ -194,7 +196,7 @@ Obviously, this list is only a small part of the overall safety check list for a
 <p>
 In addition, server developers should check these specific additional checks for client convenience:
 </p>
-<ol start="42">
+<ol start="44">
  <li title="enable-cors"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#enable-cors"> </a>Server: CORS (<a href="http://enable-cors.org/">cross-origin resource sharing</a>) is appropriately enabled (many clients are Javascript apps running in a browser)</li>
  <li title="use-json"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#use-json"> </a>JSON is supported (many clients are Javascript apps running in a browser; XML is inconvenient at best)</li>
  <li title="json-for-errors"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#json-for-errors"> </a>JSON is returned correctly when errors happen (clients often don't handle HTML errors well)</li>
