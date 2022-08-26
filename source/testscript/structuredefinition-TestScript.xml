@@ -1485,7 +1485,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="uri"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1494,7 +1494,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="A list of all the concrete types defined in this version of the FHIR specification - Data Types and Resource Types."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/concrete-fhir-types"/>
       </binding>
