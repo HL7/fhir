@@ -241,7 +241,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -483,7 +483,7 @@
         </extension>
         <strength value="required"/>
         <description value="How the referenced structure is used in this mapping."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-model-mode|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-model-mode"/>
       </binding>
     </element>
     <element id="StructureMap.structure.alias">
@@ -573,7 +573,7 @@
         </extension>
         <strength value="required"/>
         <description value="If this is the default rule set to apply for the source type, or this combination of types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-group-type-mode|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-group-type-mode"/>
       </binding>
     </element>
     <element id="StructureMap.group.documentation">
@@ -640,7 +640,7 @@
         </extension>
         <strength value="required"/>
         <description value="Mode for this instance of data."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-input-mode|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-input-mode"/>
       </binding>
     </element>
     <element id="StructureMap.group.input.documentation">
@@ -775,7 +775,7 @@
         </extension>
         <strength value="required"/>
         <description value="If field is a list, how to manage the source."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-source-list-mode|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-source-list-mode"/>
       </binding>
     </element>
     <element id="StructureMap.group.rule.source.variable">
@@ -894,7 +894,7 @@
         </extension>
         <strength value="required"/>
         <description value="If field is a list, how to manage the production."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-target-list-mode|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-target-list-mode"/>
       </binding>
     </element>
     <element id="StructureMap.group.rule.target.listRuleId">
@@ -924,7 +924,7 @@
         </extension>
         <strength value="required"/>
         <description value="How data is copied/created."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/map-transform|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/map-transform"/>
       </binding>
     </element>
     <element id="StructureMap.group.rule.target.parameter">

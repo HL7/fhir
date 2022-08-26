@@ -340,7 +340,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The possible types of subjects for a library (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
       </binding>
       <mapping>
         <identity value="rim"/>

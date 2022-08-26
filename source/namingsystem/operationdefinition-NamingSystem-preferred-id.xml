@@ -85,7 +85,7 @@
         <valueString value="Identifies the style of unique identifier used to identify a namespace."/>
       </extension>
       <strength value="required"/>
-      <valueSet value="http://hl7.org/fhir/ValueSet/namingsystem-identifier-type|5.0.0"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/namingsystem-identifier-type"/>
     </binding>
   </parameter>
   <parameter>

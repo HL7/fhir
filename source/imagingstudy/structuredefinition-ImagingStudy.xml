@@ -21,7 +21,7 @@
     <valueCode value="ii"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value="Imaging Study state is managed in PACS."/>
+    <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
   <version value="5.0.0"/>

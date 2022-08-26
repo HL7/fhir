@@ -316,7 +316,7 @@
         </extension>
         <strength value="required"/>
         <description value="The outcome of the processing."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/payment-outcome|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/payment-outcome"/>
       </binding>
     </element>
     <element id="PaymentReconciliation.disposition">

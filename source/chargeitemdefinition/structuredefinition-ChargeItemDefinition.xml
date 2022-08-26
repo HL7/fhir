@@ -287,7 +287,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -738,7 +738,7 @@
         </extension>
         <strength value="required"/>
         <description value="Codes indicating the kind of the price component."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/invoice-priceComponentType|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/invoice-priceComponentType"/>
       </binding>
       <mapping>
         <identity value="rim"/>

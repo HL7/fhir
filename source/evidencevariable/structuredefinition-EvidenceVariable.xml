@@ -21,7 +21,7 @@
     <valueCode value="cds"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value="Delete the report if it is"/>
+    <valueCode value="Delete the instance if it is in error"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
     <valueString value="MetadataResource"/>

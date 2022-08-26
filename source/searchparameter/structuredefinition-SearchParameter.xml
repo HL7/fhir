@@ -456,14 +456,14 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResourceType"/>
+          <valueString value="AllResourceType"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
         <strength value="required"/>
         <description value="One of the resource types defined as part of this version of FHIR."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
       </binding>
     </element>
     <element id="SearchParameter.type">

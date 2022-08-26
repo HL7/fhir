@@ -280,7 +280,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -353,7 +353,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -1082,7 +1082,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1257,7 +1257,7 @@
         </extension>
         <strength value="required"/>
         <description value="Identifies the level of importance to be assigned to actioning the request."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1362,7 +1362,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -1421,7 +1421,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines the kinds of conditions that can appear on actions."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-condition-kind|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-condition-kind"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1618,7 +1618,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines the types of relationships between actions."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1731,7 +1731,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1843,7 +1843,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines organization behavior of a group."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-grouping-behavior|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-grouping-behavior"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1865,7 +1865,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines selection behavior of a group."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-selection-behavior|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-selection-behavior"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1887,7 +1887,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines expectations around whether an action or action group is required."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-required-behavior|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-required-behavior"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1909,7 +1909,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines selection frequency behavior for an action or group."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-precheck-behavior|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-precheck-behavior"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1931,7 +1931,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines behavior for an action or a group for how many times that item may be repeated."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-cardinality-behavior|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-cardinality-behavior"/>
       </binding>
       <mapping>
         <identity value="rim"/>

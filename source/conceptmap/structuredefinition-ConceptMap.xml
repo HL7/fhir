@@ -216,7 +216,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -793,7 +793,7 @@
         </extension>
         <strength value="required"/>
         <description value="The relationship between concepts."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/concept-map-relationship|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/concept-map-relationship"/>
       </binding>
     </element>
     <element id="ConceptMap.group.element.target.comment">
@@ -963,7 +963,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines which action to take if there is no match in the group."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode"/>
       </binding>
     </element>
     <element id="ConceptMap.group.unmapped.code">
@@ -1022,7 +1022,7 @@
         </extension>
         <strength value="required"/>
         <description value="The default relationship value to apply between the source and target concepts when no concept mapping is specified."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/concept-map-relationship|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/concept-map-relationship"/>
       </binding>
     </element>
     <element id="ConceptMap.group.unmapped.otherMap">

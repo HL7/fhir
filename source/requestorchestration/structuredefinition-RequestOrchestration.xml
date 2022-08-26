@@ -781,7 +781,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>

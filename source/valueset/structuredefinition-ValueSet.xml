@@ -223,7 +223,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -908,7 +908,7 @@
         </extension>
         <strength value="required"/>
         <description value="The kind of operation to perform as a part of a property based filter."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/filter-operator|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/filter-operator"/>
       </binding>
       <mapping>
         <identity value="rim"/>

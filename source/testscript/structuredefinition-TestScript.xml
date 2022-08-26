@@ -985,14 +985,14 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRDefinedType"/>
+          <valueString value="FHIRConcreteTypes"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
         <strength value="extensible"/>
         <description value="A list of all the concrete types defined in this version of the FHIR specification - Data Types and Resource Types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/concrete-fhir-types"/>
       </binding>
     </element>
     <element id="TestScript.setup.action.operation.label">
@@ -1489,14 +1489,14 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRDefinedType"/>
+          <valueString value="FHIRConcreteType"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
         <strength value="required"/>
         <description value="A list of all the concrete types defined in this version of the FHIR specification - Data Types and Resource Types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/concrete-fhir-types"/>
       </binding>
     </element>
     <element id="TestScript.setup.action.assert.response">

@@ -725,8 +725,8 @@
           <valueBoolean value="true"/>
         </extension>
         <strength value="required"/>
-        <description value="A list of all the concrete types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-types"/>
+        <description value="A list of all the types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
       </binding>
     </element>
     <element id="OperationDefinition.parameter.allowedType">
@@ -748,8 +748,8 @@
           <valueBoolean value="true"/>
         </extension>
         <strength value="required"/>
-        <description value="A list of all the concrete types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-types"/>
+        <description value="A list of all the types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
       </binding>
     </element>
     <element id="OperationDefinition.parameter.targetProfile">
@@ -767,7 +767,7 @@
     <element id="OperationDefinition.parameter.searchType">
       <path value="OperationDefinition.parameter.searchType"/>
       <short value="number | date | string | token | reference | composite | quantity | uri | special"/>
-      <definition value="How the parameter is understood if/when it used as search parameter. This is only used if the parameter has a primitive type."/>
+      <definition value="How the parameter is understood if/when it used as search parameter. This is only used if the parameter is a string."/>
       <comment value="Parameters that are search parameter usually - but not always - are also defined for use with general searches, and function in the operation to filter the set of resources in scope for the operation just like the do when searching. The searchType describes how the server processes the value. For an example, see the [Evaluate Measure Operation](measure-operation-evaluate-measure.html)"/>
       <min value="0"/>
       <max value="1"/>

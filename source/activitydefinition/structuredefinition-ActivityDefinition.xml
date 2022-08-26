@@ -257,7 +257,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -330,7 +330,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The possible types of subjects for an activity (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -769,7 +769,7 @@
         </extension>
         <strength value="required"/>
         <description value="The kind of activity the definition is describing."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-resource-types|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-resource-types"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -832,7 +832,7 @@
         </extension>
         <strength value="required"/>
         <description value="Codes indicating the degree of authority/intentionality associated with a request."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-intent|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-intent"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -854,7 +854,7 @@
         </extension>
         <strength value="required"/>
         <description value="Identifies the level of importance to be assigned to actioning the request."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -951,7 +951,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
