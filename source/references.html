@@ -145,10 +145,11 @@ Notes:
    Whether or not the reference is to a FHIR RESTful server, the reference SHALL point to a Resource as defined by this specification.
    <br/>Note that This regex is true if the reference to a resource is consistent with a FHIR API:
    <pre>
-   ((http|https):\/\/([A-Za-z0-9\-\\\.\:\%\$]*\/)+)?([%piperesources%])\/[%id_regex%](\/_history\/[%id_regex%])?
+   ((http|https):\/\/([A-Za-z0-9\-\\\.\:\%\$]*\/)+)?([%piperesources%])\/[%id_regex%](\/_history\/[%id_regex%])?(#[A-Za-z0-9\-\.]{1,64})?
    </pre>
    <br/>
-   However, conformance with this regex is no guarantee that the end-point is a FHIR server
+   Note however, conformance with this regex is no guarantee that the end-point is a FHIR server, and lack 
+   of conformance to this regex does not make a reference non-compliant
    </li>
  <li>URLs are always considered to be case-sensitive</li>
  <li>The URL may contain a reference to a canonical URL (see below) and applications can use the canonical URL resolution methods they support when resolving references, though the <code>|[version]</code> syntax part of the canonical reference is not supported</li>
