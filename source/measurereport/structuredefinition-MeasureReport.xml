@@ -558,7 +558,7 @@
       <short value="What stratifier of the group"/>
       <definition value="The meaning of this stratifier, as defined in the measure definition."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
