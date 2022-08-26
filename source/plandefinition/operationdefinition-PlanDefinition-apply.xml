@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
-    <valueMarkdown value="The result of this operation is a CarePlan or RequestOrchestration resource. The RequestOrchestration will have actions for each of the applicable actions in the plan based on evaluating the applicability condition in context. For each applicable action, the definition is applied as described in the $apply operation of the ActivityDefinition resource, and the resulting resource is added as an activity to the CarePlan. If the ActivityDefinition includes library references, those libraries will be available to the evaluated expressions. If those libraries have parameters, those parameters will be bound by name to the parameters given to the operation. In addition, parameters to the $apply operation are available within dynamicValue expressions as context variables, accessible by the name of the parameter, prefixed with a percent (%) symbol. For a more detailed description, refer to the PlanDefinition and ActivityDefinition resource documentation. Note that result of this operation is transient (i.e. none of the resources created by the operation are persisted in the server, they are all returned as contained resources in the result). The result effectively represents a proposed set of activities, and it is up to the caller to determine whether and how those activities are actually carried out."/>
+    <valueMarkdown value="The result of this operation is a Bundle for each subject, where the Bundle contains as its first entry a RequestOrchestration that is the direct result of applying the PlanDefinition to that subject, and any subsequent entries in the Bundle are resources that were created or updated as part of that process. The RequestOrchestration will have actions for each of the applicable actions in the plan based on evaluating the applicability condition in context. For each applicable action, the definition is applied as described in the $apply operation of the ActivityDefinition resource, and the resulting resource is added as an entry to the Bundle. If the ActivityDefinition includes library references, those libraries will be available to the evaluated expressions. If those libraries have parameters, those parameters will be bound by name to the parameters given to the operation. In addition, parameters to the $apply operation are available within dynamicValue expressions as context variables, accessible by the name of the parameter, prefixed with a percent (%) symbol. For a more detailed description, refer to the PlanDefinition and ActivityDefinition resource documentation. Note that result of this operation is transient (i.e. none of the resources created by the operation are persisted in the server, they are all returned as entries in the result Bundle(s)). The result effectively represents a proposed set of activities, and it is up to the caller to determine whether and how those activities are actually carried out and/or persisted."/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/PlanDefinition-apply"/>
   <version value="5.0.0"/>
@@ -54,10 +54,10 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The apply operation applies a PlanDefinition to a given context"/>
+  <description value="The apply operation applies a PlanDefinition to a given subject"/>
   <affectsState value="false"/>
   <code value="apply"/>
-  <comment value="The result of this operation is a CarePlan or RequestOrchestration resource, as determined by the useCarePlan parameter. The RequestOrchestration will have actions for each of the applicable actions in the plan based on evaluating the applicability condition in context. For each applicable action, the definition is applied as described in the $apply operation of the ActivityDefinition resource, and the resulting resource is added as an activity to the CarePlan. If the ActivityDefinition includes library references, those libraries will be available to the evaluated expressions. If those libraries have parameters, those parameters will be bound by name to the parameters given to the operation. In addition, parameters to the $apply operation are available within dynamicValue expressions as context variables, accessible by the name of the parameter, prefixed with a percent (%) symbol. For a more detailed description, refer to the PlanDefinition and ActivityDefinition resource documentation. Note that result of this operation is transient (i.e. none of the resources created by the operation are persisted in the server, they are all returned as contained resources in the result). The result effectively represents a proposed set of activities, and it is up to the caller to determine whether and how those activities are actually carried out."/>
+  <comment value="The result of this operation is a Bundle for each input subject where the first entry of the Bundle is a RequestOrchestration that is the result of applying the PlanDefinition to that subject. The RequestOrchestration will have actions for each of the applicable actions in the plan based on evaluating the applicability condition in context. For each applicable action, the definition is applied as described in the $apply operation of the ActivityDefinition resource, and the resulting resource is added as an entry to the Bundle. If the ActivityDefinition includes library references, those libraries will be available to the evaluated expressions. If those libraries have parameters, those parameters will be bound by name to the parameters given to the operation. In addition, parameters to the $apply operation are available within dynamicValue expressions as context variables, accessible by the name of the parameter, prefixed with a percent (%) symbol. For a more detailed description, refer to the PlanDefinition and ActivityDefinition resource documentation. Note that result of this operation is transient (i.e. none of the resources created by the operation are persisted in the server, they are all returned as entries in the result Bundle(s)). The result effectively represents a proposed set of activities, and it is up to the caller to determine whether and how those activities are actually carried out and/or persisted."/>
   <resource value="PlanDefinition"/>
   <system value="false"/>
   <type value="true"/>
@@ -67,8 +67,26 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The plan definition to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter is required"/>
+    <documentation value="The plan definition to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter is required, or a url (and optionally version) must be supplied"/>
     <type value="PlanDefinition"/>
+  </parameter>
+  <parameter>
+    <name value="url"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The url of the plan definition to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter (and optionally the version), or the planDefinition parameter must be supplied"/>
+    <type value="canonical"/>
+    <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+    <searchType value="reference"/>
+  </parameter>
+  <parameter>
+    <name value="version"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The version of the plan definition to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter may only be used if the url parameter is supplied."/>
+    <type value="string"/>
   </parameter>
   <parameter>
     <name value="subject"/>
@@ -147,19 +165,11 @@
     <type value="CodeableConcept"/>
   </parameter>
   <parameter>
-    <name value="useCarePlan"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="Determines whether the apply should produce a CarePlan with a RequestOrchestration as an Activity (the default), or just a RequestOrchestration"/>
-    <type value="boolean"/>
-  </parameter>
-  <parameter>
     <name value="return"/>
     <use value="out"/>
-    <min value="1"/>
-    <max value="1"/>
-    <documentation value="The Resource (CarePlan or RequestOrchestration) that is the result of applying the plan definition"/>
-    <type value="Resource"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="A Bundle for each input subject that is the result of applying the plan definition to that subject"/>
+    <type value="Bundle"/>
   </parameter>
 </OperationDefinition>
