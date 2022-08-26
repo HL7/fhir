@@ -949,6 +949,24 @@ location:above=A101</span>
     </ul>
   </p>
 
+  <h6>above with <em>canonical references</em></h6>
+  <p>
+    When the <code>above</code> modifier is used with a <a href="#reference">reference</a> against a <a href="datatypes.html#canonical">canonical</a>
+    reference, the search is interpreted as a version search against the canonical resource.  The format of the parameter is either 
+    <b><code>[url]</code></b> or <b><code>[url]|[version]</code></b>.  This search is only allowed if the version scheme for the
+    resource is known (e.g., a known version-scheme extension or element).  Version-related search criteria against 
+    resources with unknown versioning schemes SHALL be either ignored or rejected <span class="stu">TU</span>.  The <code>above</code>
+    modifier comparison is performed as a 'greater than' against the version-scheme defined by the resource.
+  </p>
+  <p>
+    When using the <code>above</code> modifier on a canonical reference, all typically-valid search parameter token inputs are allowed.  Note that any
+    vertical pipe (<code>|</code>) characters that are part of the URL must be escaped (<code>%7C</code>) - the character is used as the separator between
+    the URL and version components of the parameter.
+  </p>
+  <p>
+    More information can be found in the section <a href="#versions">References and Versions</a>.
+  </p>
+
   <h6>above with <em>token</em> type search parameters</h6>
   <p>
     When the <code>above</code> modifier is used with a <a href="#token">token</a> type search parameter, the supplied token is a concept with the
@@ -1055,16 +1073,14 @@ location:below=BuildingA</span>
     </ul>
   </p>
 
-  <h6>below with <em>reference</em> type search parameters - canonical versions searches</h6>
+  <h6>below with <em>canonical references</em></h6>
   <p>
     When the <code>below</code> modifier is used with a <a href="#reference">reference</a> against a <a href="datatypes.html#canonical">canonical</a>
     reference, the search is interpreted as a version search against the canonical resource.  The format of the parameter is either 
-    <b><code>[url]</code></b> or <b><code>[url]|[version]</code></b>.
-    <br/>
-    Description of behavior pending resolution of <a href="https://jira.hl7.org/browse/FHIR-37679">FHIR-37679</a> ...
-    <br/>
-    Further discussion about the requirements and uses for this type of search can
-    be found in the section <a href="#versions">References and Versions</a>.
+    <b><code>[url]</code></b> or <b><code>[url]|[version]</code></b>.  This search is only allowed if the version scheme for the
+    resource is known (e.g., a known version-scheme extension or element).  Version-related search criteria against 
+    resources with unknown versioning schemes SHALL be either ignored or rejected <span class="stu">TU</span>.  The <code>below</code>
+    modifier comparison is performed as a 'less than' against the version-scheme defined by the resource.
   </p>
   <p>
     When using the <code>below</code> modifier on a canonical reference, all typically-valid search parameter token inputs are allowed.  Note that any
@@ -1072,7 +1088,7 @@ location:below=BuildingA</span>
     the URL and version components of the parameter.
   </p>
   <p>
-    Example pending resolution of <a href="https://jira.hl7.org/browse/FHIR-37679">FHIR-37679</a> ...
+    More information can be found in the section <a href="#versions">References and Versions</a>.
   </p>
 
   <h6>below with <em>token</em> type search parameters</h6>
@@ -3641,7 +3657,6 @@ types that the search applies to. This can be done by using the standard search 
   implicit resources as part of the search set.  Implementation Guides MAY set specific expectations 
   about search behavior around implicit resources. <span class="stu">TU</span>
 </p>
-
 
 <a name="advanced"></a>
 <h4>Named Queries</h4>
