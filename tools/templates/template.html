@@ -30,6 +30,12 @@ Resource Content
 <a name="def"></a>
 <a name="<%name%>"></a>
 <a name="<%title%>"></a>
+<a name="<%tt-tree%>"></a>
+<a name="<%tt-uml%>"></a>
+<a name="<%tt-xml%>"></a>
+<a name="<%tt-json%>"></a>
+<a name="<%tt-ttl%>"></a>
+<a name="<%tt-all%>"></a>
 
 <div id="tabs">
   <ul>
@@ -188,9 +194,23 @@ Resource Content
 <script src="jquery-ui.min.js"> </script>
 <script>
 try {
-  var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
-}
-catch(exception){
+  var currentTabIndex = null;
+  if (window.location.hash == '#tt-tree') {
+    currentTabIndex = 0;
+  } else if (window.location.hash == '#tt-uml') {
+    currentTabIndex = 1;
+  } else if (window.location.hash == '#tt-xml') {
+    currentTabIndex = 2;
+  } else if (window.location.hash == '#tt-json') {
+    currentTabIndex = 3;
+  } else if (window.location.hash == '#tt-ttl') {
+    currentTabIndex = 4;
+  } else if (window.location.hash == '#tt-all') {
+    currentTabIndex = 5;
+  } else {
+    currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+  }
+} catch(exception) {
 }
 
 if (!currentTabIndex)
