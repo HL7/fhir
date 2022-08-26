@@ -146,6 +146,14 @@
     <type value="string"/>
   </parameter>
   <parameter>
+    <name value="definition"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="A statement of the meaning of the concept from the code system"/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
     <name value="designation"/>
     <use value="out"/>
     <min value="0"/>
