@@ -88,7 +88,7 @@ their implementations.
     <li><a href="#summary">Summary (_summary)</a></li>
     <li><a href="#elements">Elements (_elements)</a></li>
     <li><a href="#score">Relevance</a></li>
-    <li><a href="#include">Including Other Resources (_include, _revinclude)</a>
+    <li><a href="#include">Including Referenced Resources (_include, _revinclude)</a>
 		<ul>
 			<li><a href="#external">External References</a></li>
 			<li><a href="#contained">Contained Resources (_contained)</a></li>
@@ -3408,12 +3408,12 @@ referred to by at least one Observation where the observation has a code of 1234
 where the Observation refers to the patient resource in the patient search parameter.
 </p>
 <p>
-"Or" searches are allowed (e.g. <code>_has:Observation:patient:code=123,456</code>), and multiple _has
+"Or" searches are allowed (e.g. <code>_has:Observation:patient:code=123,456</code>), and multiple <code>_has</code>
 parameters are allowed (e.g. <code>_has:Observation:patient:code=123&amp;_has:Observation:patient:code=456</code>).
-Note that each _has parameter is processed independently of other _has parameters.
+Note that each <code>_has</code> parameter is processed independently of other <code>_has</code> parameters.
 </p>
 <p>
-The _has parameter can be chained, like this:
+The <code>_has</code> parameter can be nested, like this:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
@@ -3423,9 +3423,21 @@ Content-Type: application/x-www-form-urlencoded
 _has:Observation:patient:_has:AuditEvent:entity:agent=MyUserId</span>
   </span>
 </span>
-</p>
-<p>
 This search will fetch all Patient records that have an Observation where the observation has an audit event from a specific user.
+</p>
+
+<p>
+  The <code>_has</code> parameter can also be used in chained-searches, for example:
+  <span class="http-search-example">
+    <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+    <span class="http-verb-display">
+      <span class="http-verb-display-get">GET [base]/Encounter?patient._has:Group:member:_id=102</span>
+      <span class="http-verb-display-post">POST [base]/Encounter/_search
+Content-Type: application/x-www-form-urlencoded
+patient._has:Group:member:_id=102</span>
+    </span>
+  </span>
+  to search for the Encounters of patients that are members of the Group "102".
 </p>
 <p>
   Note that reverse-chained search parameters are not intended to work with <a href="#modifiers">search modifiers</a>.
@@ -3433,6 +3445,7 @@ This search will fetch all Patient records that have an Observation where the ob
   Searches requiring advanced matching across resources are encouraged
   to use <a href="#advanced">Named Queries</a> or <a href="#_filter">Advanced filtering</a>.
 </p>
+
 
 
 <h5>Composite Search Parameters... (all data is in types right now)?? TODO(ginoc): add or remove?</h5>
@@ -3943,7 +3956,7 @@ The score is a decimal number with a value between (and including) 0 and 1, wher
 
 <a name="include"></a>
 <a name="revinclude"></a>
-<h4>Including other resources in result (<code>_include</code> and <code>_revinclude</code>)</h4>
+<h4>Including Referenced Resources (<code>_include</code> and <code>_revinclude</code>)</h4>
 <p>
 Clients may request that the engine return resources related to the search results, in order to reduce
 the overall network delay of repeated retrievals of related resources. This is useful when the client
