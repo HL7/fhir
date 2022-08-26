@@ -817,7 +817,7 @@
       </extension>
       <path value="MeasureReport.evaluatedResource"/>
       <short value="What data was used to calculate the measure score"/>
-      <definition value="A reference to a Bundle containing the Resources that were used in the calculation of this measure."/>
+      <definition value="A reference to a Resource that was used in the calculation of this measure."/>
       <min value="0"/>
       <max value="*"/>
       <type>
