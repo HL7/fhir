@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="FHIRRelatedArtifactType"/>
+  <title value="FHIR Related Artifact Type"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines a subset of the Related Artifact Type value set that identifies the codes that SHALL be used for the related artifact type when both sides of the relationship are FHIR resources, ensuring that the methodology of 'old points to new' and 'many points to one' is followed to avoid creating bi-directional references between FHIR resources"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/related-artifact-type"/>
+      <concept>
+        <code value="predecessor"/>
+        <display value="Predecessor"/>
+      </concept>
+      <concept>
+        <code value="derived-from"/>
+        <display value="Derived From"/>
+      </concept>
+      <concept>
+        <code value="depends-on"/>
+        <display value="Depends On"/>
+      </concept>
+      <concept>
+        <code value="composed-of"/>
+        <display value="Composed Of"/>
+      </concept>
+      <concept>
+        <code value="part-of"/>
+        <display value="Part Of"/>
+      </concept>
+      <concept>
+        <code value="amends"/>
+        <display value="Amends"/>
+      </concept>
+      <concept>
+        <code value="appends"/>
+        <display value="Appends"/>
+      </concept>
+      <concept>
+        <code value="cites"/>
+        <display value="Cites"/>
+      </concept>
+      <concept>
+        <code value="comments-on"/>
+        <display value="Is Comment On"/>
+      </concept>
+      <concept>
+        <code value="contained-in"/>
+        <display value="Contained In"/>
+      </concept>
+      <concept>
+        <code value="corrects"/>
+        <display value="Corrects"/>
+      </concept>
+      <concept>
+        <code value="replaces"/>
+        <display value="Replaces"/>
+      </concept>
+      <concept>
+        <code value="retracts"/>
+        <display value="Retracts"/>
+      </concept>
+      <concept>
+        <code value="signs"/>
+        <display value="Signs"/>
+      </concept>
+      <concept>
+        <code value="similar-to"/>
+        <display value="Similar To"/>
+      </concept>
+      <concept>
+        <code value="supports"/>
+        <display value="Supports"/>
+      </concept>
+      <concept>
+        <code value="transforms"/>
+        <display value="Transforms"/>
+      </concept>
+      <concept>
+        <code value="documents"/>
+        <display value="Documents"/>
+      </concept>
+      <concept>
+        <code value="specification-of"/>
+        <display value="Specification Of"/>
+      </concept>
+      <concept>
+        <code value="cites"/>
+        <display value="Cites"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
