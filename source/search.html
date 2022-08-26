@@ -79,22 +79,27 @@ their implementations.
       <li><a href="#filter">Advanced Filtering</a></li>
       <li><a href="#type">Searching Multiple Resource Types</a></li>
       <li><a href="#implicitresources">Implicit Resources</a></li>
+      <li><a href="#advanced">Named Queries</a></li>
     </ul>
   </li>
   <li><a href="#modifyingresults">Modifying Search Results</a>
-    <li><a href="#sort">Sorting (_sort)</a></li>
-	  <li><a href="#total">Total number of matching resources (_total)</a></li>
-    <li><a href="#count">Page Count (_count)</a></li>
-    <li><a href="#summary">Summary (_summary)</a></li>
-    <li><a href="#elements">Elements (_elements)</a></li>
-    <li><a href="#score">Relevance</a></li>
-    <li><a href="#include">Including Referenced Resources (_include, _revinclude)</a>
-		<ul>
-			<li><a href="#external">External References</a></li>
-			<li><a href="#contained">Contained Resources (_contained)</a></li>
-			<li><a href="#paging">Paging and Other Resources</a></li>
-		</ul>
-  </li>
+    <ul>
+      <li><a href="#sort">Sorting (_sort)</a></li>
+      <li><a href="#total">Total number of matching resources (_total)</a></li>
+      <li><a href="#count">Page Count (_count)</a></li>
+      <li><a href="#summary">Summary (_summary)</a></li>
+      <li><a href="#elements">Selecting Elements (_elements)</a></li>
+      <li><a href="#score">Relevance (_score)</a></li>
+      <li><a href="#include">Including Referenced Resources</a>
+        <ul>
+          <li><a href="#_include">Inline Requests (_include, _revinclude)</a></li>
+          <li><a href="#external">External References</a></li>
+          <li><a href="#_graph">Graph Definitions (_graph)</a> <span class="stu">TU</span></li>
+          <li><a href="#contained">Contained Resources (_contained)</a></li>
+          <li><a href="#paging">Paging and Other Resources</a></li>
+        </ul>
+      </li>
+    </ul>
   </li>
   <li><a href="#standard">Standard Parameters</a>
     <ul>
@@ -104,7 +109,6 @@ their implementations.
     </ul>
   </li>
   <li><a href="#conformance">Server Conformance</a></li>
-  <li><a href="#advanced">Named Queries</a></li>
   <li><a href="#currency">Search Result Currency</a></li>
   <li><a href="#conformancesummary">Conformance Summary</a></li>
   <li><a href="#summary">Summary Tables</a></li>
@@ -3638,6 +3642,135 @@ types that the search applies to. This can be done by using the standard search 
   about search behavior around implicit resources. <span class="stu">TU</span>
 </p>
 
+
+<a name="advanced"></a>
+<h4>Named Queries</h4>
+<p>
+The search framework described above is a useful framework
+for providing a simple search based on indexed criteria,
+but more sophisticated query capability is needed to handle precise
+queries, complex decision support-based requests, and
+direct queries that have human resolution.  To support more advanced functionality,
+this specification defines a method for creating and using <i>named</i>.
+</p>
+<p>
+The <a href="#_query"><code>_query</code></a> parameter names a custom search profile that
+describes a specific query operation. The named query
+may define additional named parameters that are used with that
+particular named query. Servers can define their own additional
+named queries to meet their own uses using an <a href="operationdefinition.html">OperationDefinition</a>.
+</p>
+<p>
+  Query operations are only allowed in the <code>base</code> and <code>type</code> 
+  <a href="#searchcontexts">search contexts</a>.  Named queries cannot be defined
+  at the <code>instance</code> level.  Query operations SHOULD NOT be invoked via
+  any method other than search with the <code>_query</code> parameter (e.g., 
+  servers SHOULD NOT execute query operations via <code>[base]/$[operation code]</code>, etc.).
+  <span class="stu">TU</span>
+</p>
+<p>
+  For named queries, all the <a href="#standard">standard search parameters</a> (parameters for 
+  <a href="#all">all resources</a> and <a href="#modifyingresults">search result</a> parameters) are potentially 
+  available for use in addition to any parameters defined by the query operation. In addition, if the query 
+  operation is defined in the scope of a specific resource, the search parameters for that resource are also 
+  potentially available. For example, a named query with a scope of <code>Patient</code> could include the 
+  <a href="#_lastUpdated"><code>_lastUpdated</code></a>, <a href="#_sort"><code>_sort</code></a>, and/or 
+  <a href="patient.html#search">Patient.gender</a> search parameters, even if those aren't explicitly listed 
+  as parameters on the query operation.
+</p>
+<p>
+  Servers do not need to support ANY such 'inherited' parameters unless explicitly documented in the operation's 
+  description. Clients should not assume the availability of any search parameter that is not supported for 
+  general queries (i.e. listed in the server's <a href="capabilitystatement.html">CapabilityStatement</a>, either in 
+  <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam">CapabilityStatement.rest.searchParam</a> or 
+  <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchParam">CapabilityStatement.rest.resource.searchParam</a>). 
+  Servers MAY further document the search parameters they support for a specific <code>query</code> operation - either in text 
+  or by defining a constrained operation based on the original that explicitly enumerates all supported parameters. <span class="stu">TU</span>
+</p>
+<p>
+  In order to ensure consistent behavior, authors SHOULD include relevant search parameters
+  in the named query definition (<code>OperationDefinition</code>). <span class="stu">TU</span>
+</p>
+<p>
+  For example, the operation definition:
+  <span class="fhir-example">
+    <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
+    <span class="example-format-display">
+      <span class="example-format-display-json">{
+  "resourceType": "OperationDefinition",
+  "id": "current-high-risk",
+  "url": "http://example.org/OperationDefinition/current-high-risk",
+  "version": "0.0.1",
+  "name": "Current High-Risk Patients",
+  "status": "draft",
+  "kind": "query",
+  "description": "Filter Patients based on risk assessments",
+  "code": "current-high-risk",
+  "resource": [ "Patient" ],
+  "system": false,
+  "type": true,
+  "instance": false,
+  "parameter": [
+    {
+      "name": "ward",
+      "use": "in",
+      "min": 0,
+      "max": "*",
+      "documentation": "Ward filters to apply to patient locations",
+      "type": "string",
+      "searchType": "reference"
+    },
+    {
+      "name": "return",
+      "use": "out",
+      "min": 1,
+      "max": "1",
+      "documentation": "Searchset bundle",
+      "type": "Bundle"
+    }
+  ]
+}</span>
+      <span class="example-format-display-xml">&lt;OperationDefinition xmlns="http://hl7.org/fhir"&gt;
+  &lt;id value="current-high-risk" /&gt;
+  &lt;url value="http://example.org/OperationDefinition/current-high-risk" /&gt;
+  &lt;version value="0.0.1" /&gt;
+  &lt;name value="Current High-Risk Patients" /&gt;
+  &lt;status value="draft" /&gt;
+  &lt;kind value="query" /&gt;
+  &lt;description value="Filter Patients based on risk assessments" /&gt;
+  &lt;code value="current-high-risk" /&gt;
+  &lt;resource value="Patient" /&gt;
+  &lt;system value="false" /&gt;
+  &lt;type value="true" /&gt;
+  &lt;instance value="false" /&gt;
+  &lt;parameter&gt;
+    &lt;name value="ward" /&gt;
+    &lt;use value="in" /&gt;
+    &lt;min value="0" /&gt;
+    &lt;max value="*" /&gt;
+    &lt;documentation value="Ward filters to apply to patient locations" /&gt;
+    &lt;type value="string" /&gt;
+    &lt;searchType value="reference" /&gt;
+  &lt;/parameter&gt;
+  &lt;parameter&gt;
+    &lt;name value="return" /&gt;
+    &lt;use value="out" /&gt;
+    &lt;min value="1" /&gt;
+    &lt;max value="1" /&gt;
+    &lt;documentation value="Searchset bundle" /&gt;
+    &lt;type value="Bundle" /&gt;
+  &lt;/parameter&gt;
+&lt;/OperationDefinition&gt;</span>
+    </span>
+  </span>
+</p>
+<p>
+  Note that operations defined as named queries (using a <code>OperationDefinition.kind</code> of <code>query</code>)
+  SHOULD NOT be invoked via any mechanism other than search (i.e., do not expose <code>[base]/[type]/$[operation code]</code>)
+  <span class="stu">TU</span>.
+</p>
+
+
 <a name="modifyingresults"></a>
 <h3>Modifying Search Results</h3>
 <p>
@@ -3649,10 +3782,75 @@ types that the search applies to. This can be done by using the standard search 
   <a href="searchparameter-registry.html#common">search parameter registry</a>.
 </p>
 <p>
-  Note that with the exception of _include and _revinclude, Search result parameters SHOULD only appear once in a 
+  Note that with the exception of <code>_include</code> and <code>_revinclude</code>, search result parameters SHOULD only appear once in a 
   search.  If such a parameter appears more than once, the behavior is undefined and a server MAY treat the situation 
   as an error <span class="stu">TU</span>.
 </p>
+<p>
+  The search result parameters defined by this specification are:
+</p>
+<table class="grid">
+  <tr>
+    <td><code><a href="#_contained">_contained</a></code></td>
+    <td>
+      Request different types of handling for contained resources.
+    </td>
+  </tr>
+  <tr>
+    <td><code><a href="#_count">_count</a></code></td>
+    <td>
+      Limit the number of <code>match</code> results per page of response.
+    </td>
+  </tr>
+  <tr>
+    <td><code><a href="#_elements">_elements</a></code></td>
+    <td>
+      Request that only a specific set of elements be returned for resources.
+    </td>
+  </tr>
+  <tr>
+    <td><code><a href="#_graph">_graph</a></code> <span class="stu">TU</span></td>
+    <td>
+      Include additional resources according to a <code>GraphDefinition</code>.
+    </td>
+  </tr>
+  <tr>
+    <td><code><a href="#_include">_include</a></code></td>
+    <td>
+      Include additional resources, based on following links forward across references.
+    </td>
+  </tr>
+  <tr>
+    <td><code><a href="#_revinclude">_revinclude</a></code></td>
+    <td>
+      Include additional resources, based on following reverse links across references.
+    </td>
+  </tr>
+  <tr>
+    <td><code><a href="#_score">_score</a></code></td>
+    <td>
+      Request match relevance in results.
+    </td>
+  </tr>
+  <tr>
+    <td><code><a href="#_sort">_sort</a></code></td>
+    <td>
+      Request which order results should be returned in.
+    </td>
+  </tr>
+  <tr>
+    <td><code><a href="#_summary">_summary</a></code></td>
+    <td>
+      Return only portions of resources, based on pre-defined levels.
+    </td>
+  </tr>
+  <tr>
+    <td><code><a href="#_total">_total</a></code> <span class="stu">TU</span></td>
+    <td>
+      Request a precision of the total number of results for a request.
+    </td>
+  </tr>
+</table>
 
 <a name="sort"></a>
 <a name="_sort"></a>
@@ -3705,6 +3903,7 @@ Notes:
 </ul>
 
 <a name="total"></a>
+<a name="_total"></a>
 <h4>Total number of matching resources (_total)</h4>
 <p>
 The return <a href="bundle.html">Bundle</a> has an element <code>total</code>
@@ -3739,6 +3938,7 @@ parameter: it is just an optimization hint, that might possibly save the server 
 </div>
 
 <a name="count"></a>
+<a name="_count"></a>
 <h4>Page Count (_count)</h4>
 <p>
 In order to keep the load on clients, servers and the network
@@ -3789,6 +3989,7 @@ number of matches, not how many are returned in a single Bundle response.
 
 
 <a name="summary"></a>
+<a name="_summary"></a>
 <h4>Summary (_summary)</h4>
 <p>
 The client can request the server to return only a portion of the resources
@@ -3872,6 +4073,7 @@ around this in the future.
 [%end-note%]
 
 <a name="elements"></a>
+<a name="_elements"></a>
 <h4>Elements (_elements)</h4>
 <p>
 If one of the summary views defined above is not appropriate, a client can
@@ -3917,7 +4119,8 @@ restrictions should be applied to bundle entries with any search.mode).
 </p>
 
 <a name="score"></a>
-<h4>Relevance</h4>
+<a name="_score"></a>
+<h4>Relevance (_score)</h4>
 <p>
 Where a search specifies a non-deterministic sort, the search algorithm
 may generate a ranking score to indicate which resources meet
@@ -3954,49 +4157,42 @@ The score is a decimal number with a value between (and including) 0 and 1, wher
 
 
 <a name="include"></a>
-<a name="revinclude"></a>
-<h4>Including Referenced Resources (<code>_include</code> and <code>_revinclude</code>)</h4>
+<h4>Including Referenced Resources</h4>
 <p>
-Clients may request that the engine return resources related to the search results, in order to reduce
-the overall network delay of repeated retrievals of related resources. This is useful when the client
-is searching on a clinical resource, but for every such resource returned, the client will also need
-the subject (patient) resource that the clinical resource refers to. The client can use the
-<code>_include</code> parameter to indicate that the subject resources be included in the results.
-An alternative scenario is where the client wishes to fetch a particular resource, and any resources
-that refer to it. For example, the client may wish to fetch a <a href="medicationrequest.html">MedicationRequest</a> 
-and any <a href="provenance.html">Provenance</a> resources that refer to the prescription. This is 
-known as a reverse include, and is specified by providing a <code>_revinclude</code> parameter.
+  Along with resources matching search criteria, clients may request that related resources
+  are included with results (i.e., to reduce the overall network delay of repeated retrievals).
+  For example, when searching for clinical resources (e.g., <a href="condition.html">Condition</a>,
+  <a href="observation.html">Observation</a>, etc.), the client will also generally need the subject
+  (<a href="patient.html">Patient</a>) resource that the clinical resource refers to.  This section
+  describes several mechanisms for requesting additional data within FHIR search.
 </p>
 <p>
-Both <code>_include</code> and <code>_revinclude</code> are based on search parameters, rather than
-paths in the resource, since joins such as <a href="#chaining">chaining</a> are already done by
-search parameters.
-</p>
-<p>
-Each <code>_include</code> parameter specifies a search parameter to join on:
-<span class="http-search-example">
-  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
-  <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/MedicationRequest?_include=MedicationRequest:requester</span>
-    <span class="http-verb-display-post">POST [base]/MedicationRequest/_search
-Content-Type: application/x-www-form-urlencoded
-_include=MedicationRequest:requester</span>
-  </span>
-  <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/MedicationRequest?_revinclude=Provenance:target</span>
-    <span class="http-verb-display-post">POST [base]/MedicationRequest/_search
-Content-Type: application/x-www-form-urlencoded
-_revinclude=Provenance:target</span>
-  </span>
-</span>
-</p>
-<p>
-The first search requests all matching MedicationRequests, and asks the server to follow
-the references to any "requester" for each medication returned and include them in the 
-returned result set.  The second search requests all prescriptions, and that any
-Provenance resources referring to those prescriptions be included in the result set.
+  Note that implementers should also consider whether using <a href="graphql.html">GraphQL</a> is
+  an appropriate approach, but outside the scope of FHIR Search and thus not described here.
 </p>
 
+<a name="_include"></a>
+<a name="revinclude"></a>
+<a name="_revinclude"></a>
+<h5>Inline Requests (<code>_include</code> and <code>_revinclude</code>)</h5>
+<p>
+  The most common method for requesting additional resources is inline, via the search result 
+  parameters <code>_include</code> and <code>_revinclude</code>.  The parameters are similar to
+  <a href="#chaining">chaining</a> search parameters, in that they follow links between resources
+  based on search parameters.
+</p>
+<p>
+  The parameter <code>_include</code> is used to follow links 'forward'.  For example, to include 
+  relevant <code>Patient</code> resources for requested <code>Encounter</code> matches, based on the
+  <code>Encounter.subject</code> element, using either the <code>subject</code> or 
+  <code>patient</code> search parameters.
+</p>
+<p>
+  The parameter <code>_revinclude</code> is used to follow reverse links.  For example, to include 
+  relevant <code>Observation</code> resources for requested <code>Patient</code> matches, based on the
+  <code>Observation.subject</code> element, using either the <code>subject</code> or
+  <code>patient</code> search parameters.
+</p>
 <p>
   Both <code>_include</code> and <code>_revinclude</code> share the same syntax - up to three components, separated
   by colon characters (<code>:</code>).  The details of the syntax are:
@@ -4029,6 +4225,32 @@ Provenance resources referring to those prescriptions be included in the result 
 <code>_include</code> and <code>_revinclude</code> parameters do not include multiple values. Instead, the
 parameters are repeated for each different include criteria.
 </p>
+
+<p>
+Each <code>_include</code> parameter specifies a search parameter to join on:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/MedicationRequest?_include=MedicationRequest:requester</span>
+    <span class="http-verb-display-post">POST [base]/MedicationRequest/_search
+Content-Type: application/x-www-form-urlencoded
+_include=MedicationRequest:requester</span>
+  </span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/MedicationRequest?_revinclude=Provenance:target</span>
+    <span class="http-verb-display-post">POST [base]/MedicationRequest/_search
+Content-Type: application/x-www-form-urlencoded
+_revinclude=Provenance:target</span>
+  </span>
+</span>
+</p>
+<p>
+The first search requests all matching MedicationRequests, and asks the server to follow
+the references to any "requester" for each medication returned and include them in the 
+returned result set.  The second search requests all prescriptions, and that any
+Provenance resources referring to those prescriptions be included in the result set.
+</p>
+
 <p>
 For each returned resource, the server identifies the resources that meet
 the criteria expressed in the join, and adds to the results,
@@ -4111,12 +4333,6 @@ When search results are paged, each page of search results should include
 the matching includes for the resources in each page, so that each page stands
 alone as a coherent package.
 </p>
-<p>
-Note: when considering using _include and _revinclude, implementers
-should also consider whether using <a href="graphql.html">GraphQL</a> and/or
-<a href="graphdefinition.html">GraphDefinition</a> are more appropriate
-approaches in their context.
-</p>
 
 <a name="external"></a>
 <h5>External References</h5>
@@ -4153,7 +4369,21 @@ The server can retrieve the target of this reference, and add it to the
 results for the convenience of the client.
 </p>
 
+<a name="_graph"></a>
+<h5>Graph Definitions (_graph) <span class="stu">TU</span></h5>
+<p>
+  While inline requests for additional resources are flexible, there are times when a more
+  structured approach is desired (e.g., optimizing frequent requests, etc.).  To facilitate
+  a structured approach, the <code>_graph</code> result parameter is defined.
+</p>
+<p>
+  The <code>_graph</code> result parameter functions as a <a href="#reference">reference</a>
+  type search parameter.  The input is a reference to a <a href="graphdefinition.html">GraphDefinition</a>
+  resource, which is used to define the graph of desired resources for inclusion.
+</p>
+
 <a name="contained"></a>
+<a name="_contained"></a>
 <a name="containedType"></a>
 <h5>Contained Resources (_contained)</h5>
 <p>
@@ -4932,132 +5162,6 @@ In other respects, servers have considerable discretion with regards to supporti
  <li>Servers may choose how many results to return, though the client can use <code>_count</code> as above</li>
  <li>Servers can choose how to sort the return results, though they SHOULD honor the <code>_sort</code> parameter.</li>
 </ul>
-
-<a name="advanced"></a>
-<h3>Named Queries</h3>
-<p>
-The search framework described above is a useful framework
-for providing a simple search based on indexed criteria,
-but more sophisticated query capability is needed to handle precise
-queries, complex decision support-based requests, and
-direct queries that have human resolution.  To support more advanced functionality,
-this specification defines a method for creating and using <i>named</i>.
-</p>
-<p>
-The <a href="#_query"><code>_query</code></a> parameter names a custom search profile that
-describes a specific query operation. The named query
-may define additional named parameters that are used with that
-particular named query. Servers can define their own additional
-named queries to meet their own uses using an <a href="operationdefinition.html">OperationDefinition</a>.
-</p>
-<p>
-  Query operations are only allowed in the <code>base</code> and <code>type</code> 
-  <a href="#searchcontexts">search contexts</a>.  Named queries cannot be defined
-  at the <code>instance</code> level.  Query operations SHOULD NOT be invoked via
-  any method other than search with the <code>_query</code> parameter (e.g., 
-  servers SHOULD NOT execute query operations via <code>[base]/$[operation code]</code>, etc.).
-  <span class="stu">TU</span>
-</p>
-<p>
-  For named queries, all the <a href="#standard">standard search parameters</a> (parameters for 
-  <a href="#all">all resources</a> and <a href="#modifyingresults">search result</a> parameters) are potentially 
-  available for use in addition to any parameters defined by the query operation. In addition, if the query 
-  operation is defined in the scope of a specific resource, the search parameters for that resource are also 
-  potentially available. For example, a named query with a scope of <code>Patient</code> could include the 
-  <a href="#_lastUpdated"><code>_lastUpdated</code></a>, <a href="#_sort"><code>_sort</code></a>, and/or 
-  <a href="patient.html#search">Patient.gender</a> search parameters, even if those aren't explicitly listed 
-  as parameters on the query operation.
-</p>
-<p>
-  Servers do not need to support ANY such 'inherited' parameters unless explicitly documented in the operation's 
-  description. Clients should not assume the availability of any search parameter that is not supported for 
-  general queries (i.e. listed in the server's <a href="capabilitystatement.html">CapabilityStatement</a>, either in 
-  <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam">CapabilityStatement.rest.searchParam</a> or 
-  <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchParam">CapabilityStatement.rest.resource.searchParam</a>). 
-  Servers MAY further document the search parameters they support for a specific <code>query</code> operation - either in text 
-  or by defining a constrained operation based on the original that explicitly enumerates all supported parameters. <span class="stu">TU</span>
-</p>
-<p>
-  In order to ensure consistent behavior, authors SHOULD include relevant search parameters
-  in the named query definition (<code>OperationDefinition</code>). <span class="stu">TU</span>
-</p>
-<p>
-  For example, the operation definition:
-  <span class="fhir-example">
-    <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
-    <span class="example-format-display">
-      <span class="example-format-display-json">{
-  "resourceType": "OperationDefinition",
-  "id": "current-high-risk",
-  "url": "http://example.org/OperationDefinition/current-high-risk",
-  "version": "0.0.1",
-  "name": "Current High-Risk Patients",
-  "status": "draft",
-  "kind": "query",
-  "description": "Filter Patients based on risk assessments",
-  "code": "current-high-risk",
-  "resource": [ "Patient" ],
-  "system": false,
-  "type": true,
-  "instance": false,
-  "parameter": [
-    {
-      "name": "ward",
-      "use": "in",
-      "min": 0,
-      "max": "*",
-      "documentation": "Ward filters to apply to patient locations",
-      "type": "string",
-      "searchType": "reference"
-    },
-    {
-      "name": "return",
-      "use": "out",
-      "min": 1,
-      "max": "1",
-      "documentation": "Searchset bundle",
-      "type": "Bundle"
-    }
-  ]
-}</span>
-      <span class="example-format-display-xml">&lt;OperationDefinition xmlns="http://hl7.org/fhir"&gt;
-  &lt;id value="current-high-risk" /&gt;
-  &lt;url value="http://example.org/OperationDefinition/current-high-risk" /&gt;
-  &lt;version value="0.0.1" /&gt;
-  &lt;name value="Current High-Risk Patients" /&gt;
-  &lt;status value="draft" /&gt;
-  &lt;kind value="query" /&gt;
-  &lt;description value="Filter Patients based on risk assessments" /&gt;
-  &lt;code value="current-high-risk" /&gt;
-  &lt;resource value="Patient" /&gt;
-  &lt;system value="false" /&gt;
-  &lt;type value="true" /&gt;
-  &lt;instance value="false" /&gt;
-  &lt;parameter&gt;
-    &lt;name value="ward" /&gt;
-    &lt;use value="in" /&gt;
-    &lt;min value="0" /&gt;
-    &lt;max value="*" /&gt;
-    &lt;documentation value="Ward filters to apply to patient locations" /&gt;
-    &lt;type value="string" /&gt;
-    &lt;searchType value="reference" /&gt;
-  &lt;/parameter&gt;
-  &lt;parameter&gt;
-    &lt;name value="return" /&gt;
-    &lt;use value="out" /&gt;
-    &lt;min value="1" /&gt;
-    &lt;max value="1" /&gt;
-    &lt;documentation value="Searchset bundle" /&gt;
-    &lt;type value="Bundle" /&gt;
-  &lt;/parameter&gt;
-&lt;/OperationDefinition&gt;</span>
-    </span>
-  </span>
-</p>
-<p>
-  Note that operations defined as named queries (using a <code>OperationDefinition.kind</code> of <code>query</code>)
-  SHOULD NOT be invoked via the 
-</p>
 
 <a name="currency"></a>
 <h3>Search Result Currency</h3>
