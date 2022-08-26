@@ -50,9 +50,9 @@ Notes:
     elements in the <code>SearchParameter.base</code> array
   </li>
   <li>
-    An expression like <code>Resource.descendents.extension('extension-url').value is possible, but this 
+    An expression like <code>Resource.descendents.extension('extension-url').value</code> is possible, but this 
     is a low performance option for a server to evaluate, and search parameter expressions are performance 
-    sensitive</code>
+    sensitive
   </li>
 </ul>
 
