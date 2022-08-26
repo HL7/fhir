@@ -76,15 +76,15 @@
         <severity value="error"/>
         <human value="Stratifiers SHALL be either a single criteria or a set of criteria components"/>
         <expression value="group.stratifier.stratum.all(value.exists() xor component.exists())"/>
-        <xpath value="not(f:kind/@value=&#39;data-collection&#39;) or not(exists(f:group))"/>
+        <xpath value="not(f:kind/@value=&#39;data-exchange&#39;) or not(exists(f:group))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
       </constraint>
       <constraint>
         <key value="mrp-1"/>
         <severity value="error"/>
         <human value="Measure Reports used for data collection SHALL NOT communicate group and score information"/>
-        <expression value="(type != &#39;data-collection&#39;) or group.exists().not()"/>
-        <xpath value="not(f:kind/@value=&#39;data-collection&#39;) or not(exists(f:group))"/>
+        <expression value="(type != &#39;data-exchange&#39;) or group.exists().not()"/>
+        <xpath value="not(f:kind/@value=&#39;data-exchange&#39;) or not(exists(f:group))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
       </constraint>
       <mapping>
@@ -155,9 +155,9 @@
         <valueString value="individual is QRDA category I, summary is QRDA category III."/>
       </extension>
       <path value="MeasureReport.type"/>
-      <short value="individual | subject-list | summary | data-collection"/>
+      <short value="individual | subject-list | summary | data-exchange"/>
       <definition value="The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; a summary report, which returns a population count for each of the criteria in the measure; or a data-collection, which enables the MeasureReport to be used to exchange the data-of-interest for a quality measure."/>
-      <comment value="Data-collection reports are used only to communicate data-of-interest for a measure. They do not necessarily include all the data for a particular subject or population, but they may."/>
+      <comment value="Data-exchange reports are used only to communicate data-of-interest for a measure. They do not necessarily include all the data for a particular subject or population, but they may."/>
       <min value="1"/>
       <max value="1"/>
       <type>
