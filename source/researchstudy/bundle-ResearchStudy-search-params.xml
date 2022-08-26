@@ -2,26 +2,6 @@
 
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="ResearchStudy-search-params"/>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="ResearchStudy-category"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ResearchStudy.category"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-category"/>
-        <description value="Classifications for the study"/>
-        <code value="category"/>
-        <type value="token"/>
-        <expression value="ResearchStudy.category"/>
-        <xpath value="f:ResearchStudy/f:category"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
 
   <entry>
     <resource>
