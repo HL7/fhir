@@ -623,7 +623,7 @@
       <path value="SearchParameter.chain"/>
       <short value="Chained names supported"/>
       <definition value="Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from SearchParameter.code for a parameter on the target resource type."/>
-      <comment value="Systems are not required to list all the chain names they support, but if they don&#39;t list them, clients might not know to use them."/>
+      <comment value="Notes:&#10;&#10;* Not all systems will declare chain values.  If no chain values are specified at all, then no presumptions can be made about the degree of chaining support available&#10;* A server may use a single chain value of '*' to mean that all reference search types supported can be chained rather than enumerating all chain values&#10;*  If a particular reference search parameter is supported, but not subsequent chaining, then just list that search parameter name - e.g. for Patient.practitioner, the chain value would be ```practitioner```&#10;* If a particular reference search parameter is supported with unlimited chaining beneath it, then follow the search parameter name with '.'.  E.g. ```practitioner.```&#10;* If there are specific (not unlimited) chaining paths allowed they can be explicitly enumerated.  E.g. ```practitioner.organization```"/>
       <min value="0"/>
       <max value="*"/>
       <type>
