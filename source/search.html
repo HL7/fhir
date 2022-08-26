@@ -1997,7 +1997,6 @@ to all parameter values after they have been 'unescaped' on the server while bei
 HTTP headers.
 </p>
 
-
 <a name="date"></a>
 <h4>date</h4>
 <p>
@@ -4329,7 +4328,19 @@ pages.  This approach allows both sender and receiver to avoid caching results o
 <a name="standard"></a>
 <h3>Standard Parameters</h3>
 <p>
-  ...
+  ....
+</p>
+<p>
+  Note that if a 'base' <a href="searchparameter.html">SearchParameter</a> defined by HL7 or an implementation guide 
+  (i.e., one that does not inherit from another <code>SearchParameter</code> definition) is referenced and the 
+  <code>SearchParameter</code> does not otherwise enumerate the modifiers and comparators, then all 
+  <a href="#modifiers">modifiers</a> and <a href="#prefix">prefixes</a> that are permitted for that parameter's
+  <a href="#ptypes">search type</a> are expected to be supported.  If an implementation wishes to restrict which 
+  modifiers they support, the implementation must define their own <code>SearchParameter</code> instance, which
+  SHOULD inherit from the original definition <span class="stu">TU</span>.  The definition of any locally-defined  
+  search parameters SHALL be available to clients, either as resources at the <code>[base]/SearchParameter</code>
+  endpoint or as <a href="references.html#contained">contained</a> resources in the 
+  <a href="capabilitystatement.html">CapabilityStatement</a> <span class="stu">TU</span>.
 </p>
 
 <a name="all"></a>
