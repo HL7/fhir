@@ -289,14 +289,13 @@
       </extension>
       <path value="MeasureReport.reporter"/>
       <short value="Who is reporting the data"/>
-      <definition value="The individual, location, or organization that is reporting the data."/>
+      <definition value="The individual or organization that is reporting the data."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
@@ -319,6 +318,21 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=PRF]"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.location">
+      <path value="MeasureReport.location"/>
+      <short value="Where the reported data is from"/>
+      <definition value="A reference to the location for which the data is being reported."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
       <mapping>
         <identity value="rim"/>
