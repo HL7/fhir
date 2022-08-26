@@ -977,17 +977,44 @@
         <map value=".interpretationCode"/>
       </mapping>
     </element>
-    <element id="Measure.definition">
-      <path value="Measure.definition"/>
+    <element id="Measure.term">
+      <path value="Measure.term"/>
       <short value="Defined terms used in the measure documentation"/>
       <definition value="Provides a description of an individual term used within the measure."/>
       <requirements value="Measure developers must be able to provide precise definitions of terms used within measure descriptions and guidance to help communicate the intent of the measure."/>
       <min value="0"/>
       <max value="*"/>
       <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Measure.term.code">
+      <path value="Measure.term.code"/>
+      <short value="What term?"/>
+      <definition value="A codeable representation of the defined term"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Measure.term.definition">
+      <path value="Measure.term.definition"/>
+      <short value="Meaning of the term"/>
+      <definition value="Provides a definition for the term as used within the measure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
         <code value="markdown"/>
       </type>
-      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
