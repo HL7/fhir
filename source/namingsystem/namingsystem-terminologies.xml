@@ -931,4 +931,21 @@
       </NamingSystem>
     </resource>
   </entry>
+  <!-- <entry>
+    <resource>
+      <NamingSystem> 
+        <id value="tx-gmdn"/>
+        <url value="http://hl7.org/fhir/NamingSystem/gmdn"/>
+        <name value="GMDN Codes"/>
+        <status value="draft"/>
+        <kind value="codesystem"/>
+        <publisher value="HL7, Inc"/>
+        <date value="2022-08-21"/>
+        <uniqueId>
+          <type value="uri"/>
+          <value value="http://gmdnagency.org"/>
+        </uniqueId>
+      </NamingSystem>
+    </resource>
+  </entry>   -->
 </Bundle>    
