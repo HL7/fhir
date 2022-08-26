@@ -76,10 +76,12 @@ In addition, it may contain a target <code>type</code>.
 <div class="use">
 <p><b>Constraints</b></p>
 <p>
-At least one of <code>reference</code>, <code>identifier</code> and <code>display</code> SHALL be present (unless an extension is provided).
+[%dt.constraints Reference%]
 </p>
 <p>
-[%dt.constraints Reference%]
+  Also note that in resources, a <code>Reference</code> SHALL point to another resource,
+  and Reference.type, if it is present, SHALL be a <a href="valueset-resource-types.html">valid non-abstract resource</a>
+  (references and reference.type MAY refer to non-resource content in logical models).
 </p>
 </div>
 
@@ -87,7 +89,7 @@ At least one of <code>reference</code>, <code>identifier</code> and <code>displa
 <h3>Target Type</h3>
 
 <p>
-In resources, a <code>Reference</code> always point to another resource, which has
+In resources, a <code>Reference</code> always points to another resource, which has
 a fixed and known type. If appropriate, this type can be specified in the reference
 itself. In principle, the type of the target reference can be determined by resolving
 the reference (using the approaches described below), and examining the content
