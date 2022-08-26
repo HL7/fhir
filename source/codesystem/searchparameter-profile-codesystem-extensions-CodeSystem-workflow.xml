@@ -11,7 +11,7 @@
   <code value="workflow"/>
   <base value="CodeSystem"/>
   <type value="token"/>
-  <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/codesystem-workflowStatus')"/>
-  <xpath value="f:CodeSystem/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/codesystem-workflowStatus&#39;]"/>
+  <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/codesystem-workflowStatus').value"/>
+  <xpath value="f:CodeSystem/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/codesystem-workflowStatus&#39;]/f:valueString"/>
   <xpathUsage value="normal"/>
 </SearchParameter>

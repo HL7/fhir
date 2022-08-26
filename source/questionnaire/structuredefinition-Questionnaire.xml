@@ -176,7 +176,7 @@
 			<path value="Questionnaire.version"/>
 			<short value="Business version of the questionnaire"/>
 			<definition value="The identifier that is used to identify this version of the questionnaire when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the questionnaire author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-			<comment value="There may be different questionnaire instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the questionnaire with the format [url]|[version]."/>
+			<comment value="There may be different questionnaire instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the questionnaire with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -196,6 +196,25 @@
 				<map value="N/A (to add?)"/>
 			</mapping>
 		</element>
+		<element id="Questionnaire.versionAlgorithm[x]">
+      <path value="Questionnaire.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+      <isSummary value="true"/>
+    </element>
 		<element id="Questionnaire.name">
 			<path value="Questionnaire.name"/>
 			<short value="Name for this questionnaire (computer friendly)"/>

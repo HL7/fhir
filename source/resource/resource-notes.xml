@@ -454,6 +454,14 @@ There is no single best practice here; the correct choice depends on many factor
 scope of this specification. 
 </p>
 
+<a name="bv-format"></a>
+<p>
+For business versions in canonical resources, the busines version SHOULD NOT contain a <code>#</code>
+character, since the version appears in the URL, and the <code>#</code> has special meaning in a URL.
+If the version does contain a <code>#</code>, then it SHALL be escaped properly when used in a URL 
+as specified by <a href="references.html#canonical">Canonical References</a>.
+</p>
+
 <p><b>FHIR Version</b></p>
 <p>
 All resources always have a FHIR version against which they were written. Note, however, that resources may be valid 

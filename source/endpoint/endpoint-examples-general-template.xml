@@ -34,7 +34,7 @@
         </method>-->
         <payloadType>
           <coding>
-              <!--<system value="http://hl7.org/fhir/resource-types" />-->
+              <!--<system value="http://hl7.org/fhir/fhir-types" />-->
             <code value="[%payloadType%]" />
           </coding>
         </payloadType>

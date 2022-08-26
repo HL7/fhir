@@ -1,7 +1,5 @@
 <!DOCTYPE HTML>
 
-
-
 [%settitle Updates%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -9,8 +7,6 @@
 </head>
 <body>
 [%file newnavbar%]
-
-
 
 <h2>Variations between Submitted data and Retrieved data</h2>
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
@@ -27,6 +23,7 @@ considerations around system behavior, including differences in expectations for
 REST, messaging, documents and services.
 </p>
 
+<a name="element"> </a>
 <h3>Data element support</h3>
 <p>
 The most common reason for differences between what data is submitted to a system and what data can be extracted
@@ -65,6 +62,7 @@ However, with <a href="documents.html">documents</a>, a consuming system is expe
 contents of the document without losing any information or altering it in any way.
 </p>
 
+<a name="system"> </a>
 <h3>System behavior</h3>
 <p>
 Even if a system supports all of the data elements provided, not all systems will actually persist the data
@@ -75,6 +73,7 @@ given system should be unsurprising given its context, but it is still important
 systems will persist the data they receive.
 </p>
 
+<a name="access"> </a>
 <h3>Access permissions</h3>
 <p>
 Even if a system stores a given data element, that does not mean it will always include that element when responding
@@ -84,6 +83,7 @@ suppress records or may adjust the content of resource instances to exclude data
 is not permitted to see.
 </p>
 
+<a name="generated"> </a>
 <h3>Generated and inferred data</h3>
 <p>
 Some servers may add additional data elements (or more commonly, extensions) based on information they
@@ -92,6 +92,7 @@ which the server is aware.  i.e. an instance queried after being created or upda
 information present than was included on the originally submitted record
 </p>
 
+<a name="integration"> </a>
 <h3>Data integration</h3>
 <p>
 Servers receiving updates from multiple sources may choose to be selective about what sources they
@@ -107,7 +108,17 @@ not included in an instance.  For example, if a Patient instance were received w
 contact information, all existing telecom and contact information would be retained and only those
 elements included in the instance would be updated.  Technically, this same approach can be followed with FHIR, however it would be atypical and unexpected. Also, unlike <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a>, FHIR does not have a defined construct to use to indicate that a particular data element should explicitly be set to empty if processing a PUT in a mode where omitted elements are typically retained. Systems wishing to fully emulate HL7 v2 behavior will need to use an extension to mirror this behavior.
 </p>
+<p>
+One of the types of changes that can occur when a resource is created or updated 
+is 'de-containing' a resource - i.e. taking a reference to a contained resource and turning 
+it into a reference to a distinct resource based on pre-existing server information.
+Typically, this can occur when the server has access to business logic - specifically, 
+statements about uniqueness that can be verified against some repository - that the client 
+does not. However care should always be taken that the re-identification that occurs is 
+reliable between invocations so that 'de-containment' is consistent.
+</p>
 
+<a name="ramifications"> </a>
 <h3>Ramifications of storage/retrieval variations</h3>
 <p>
 While changing data prior to storage or prior to returning query results is possible, it
@@ -146,6 +157,7 @@ passes through multiple systems.
 </li>
 </ul>
 
+<a name="mitigation"> </a>
 <h3>Mitigation approaches for storage/retrieval variations</h3>
 <p>
 FHIR does provide a couple of mechanisms that can help with the issue
@@ -154,12 +166,20 @@ was filtered from its record:
 </p>
 <ul>
 <li>
-For systems that enforce the use of <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19">ETags</a> for
-updates, the server can choose to not include an ETag when returning resource instances that have been modified in some way.
-This will prevent updates from being performed.
+For systems that enforce the use of <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.19">ETags</a>,
+the server SHOULD either echo back a copy of what was stored and include an ETag or not return an ETag because what was
+stored is not the same as what was submitted and the client can't know what the current record looks like, 
+thus preventing a subsequent unsafe update.
 </li>
 <li>
-The <a href="https://terminology.hl7.org/CodeSystem-v3-ObservationValue.html#v3-ObservationValue-SUBSETTED">SUBSETTED</a> <a href="security-labels.html">Security Label</a> can be used to flag data that has had information removed. It is at the server's discretion whether or not to accept an <code>UPDATE</code> or <code>CREATE</code> request that is tagged as <code>SUBSETTED></code>, and, if so, how to process such a request. It is important that the server implementation considers how to avoid accidental loss of data to which the updating client did not have access, and also to consider the possibility that a client update might invalidate data the client was unaware of.
+<!-- FHIR-32757 said to remove this, but not clear why? 
+The <a href="https://terminology.hl7.org/CodeSystem-v3-ObservationValue.html#v3-ObservationValue-SUBSETTED">SUBSETTED</a> 
+<a href="resource.html#Meta">Tag</a> can be used to flag data that has had information removed. 
+-->
+It is at the server's discretion whether or not to accept an <code>UPDATE</code> or <code>CREATE</code> request that 
+is tagged as <code>SUBSETTED></code>, and, if so, how to process such a request. It is important that the server 
+implementation considers how to avoid accidental loss of data to which the updating client did not have access, 
+and also to consider the possibility that a client update might invalidate data the client was unaware of.
 </li>
 </ul>
 <p>

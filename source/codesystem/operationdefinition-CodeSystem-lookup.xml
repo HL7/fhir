@@ -64,7 +64,7 @@
   <resource value="CodeSystem"/>
   <system value="false"/>
   <type value="true"/>
-  <instance value="false"/>
+  <instance value="true"/>
   <parameter>
     <name value="code"/>
     <use value="in"/>
@@ -143,6 +143,14 @@
     <min value="1"/>
     <max value="1"/>
     <documentation value="The preferred display for this concept"/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="definition"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="A statement of the meaning of the concept from the code system"/>
     <type value="string"/>
   </parameter>
   <parameter>

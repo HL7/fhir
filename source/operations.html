@@ -27,8 +27,10 @@ where named operations are performed with inputs and outputs (<b>E</b>xecute).
 Operations are appropriately used where:
 </p>
 <ul>
- <li>the server needs to play an active role in formulating the content of the response, not merely return existing information</li>
- <li>the intended purpose is to cause side effects such as the modification of existing resources or creation of new resources, or other changes out of scope of the RESTful interface (e.g. merging patient records)</li>
+ <li>The server needs to play an active role in formulating the content of the response, not merely return existing information</li>
+ <li>The intended purpose is to cause <a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">side effects</a> such as 
+     the modification or creation of resources not transmitted as part of the RESTful call (e.g. triggering the generation of an invoice), 
+     or other changes out of scope of the RESTful interface (e.g. merging patient records)</li>
  <li>The task involves business rules to be enforced across multiple different resources and/or</li>
  <li>the task involves updating several resources in a coordinated manner (note: this can also be done by a <a href="http.html#transaction">Transaction</a>, but an operation can be more focused on the task</li>
 </ul>
@@ -96,8 +98,12 @@ If there is a single output parameter named 'return' then the response MAY be th
 These kinds of usage are discussed further below.
 </p>
 <p>
-If the response is a <a href="bundle.html">Bundle</a>, the correct <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> is '<a href="codesystem-bundle-type.html#bundle-type-collection">collection</a>', unless it has <a href="http.html#search">search semantics</a>, such as 
-matching resource counts, and <a href="http.html#paging">page links (next etc)</a>.
+If the response is a <a href="bundle.html">Bundle</a>, the <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> will typically 
+be '<a href="codesystem-bundle-type.html#bundle-type-collection">collection</a>', though it could be one of the other types. For eample, 
+if the operation has <a href="http.html#search">search semantics</a>, such as 
+matching resource counts, and <a href="http.html#paging">page links (next etc) then
+the <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> will typically 
+be '<a href="codesystem-bundle-type.html#bundle-type-search-set">search-set</a>'</a>.
 </p>
 
 
@@ -163,10 +169,9 @@ For each parameter, the following information is needed:
  <li>Name - the name of the parameter. For implementer convenience, the name should be a valid token in common implementation languages</li>
  <li>Use - In | Out | Both</li>
  <li>Type - a data type or a Resource type</li>
- <li>Search Type - for string search parameters, what kind of search parameter they are (and what kind of modifiers they have)</li>
+ <li>Search Type - for simple string parameters, if they are acting as search parameters, what kind of search parameter they are (and what kind of modifiers they have)</li>
  <li>Profile - a <a href="structuredefinition.html">StructureDefinition</a>  that describes additional restrictions about the parameter - only used if the parameter type is a resource or data type</li>
  <li>Documentation - a description of the parameter's use</li>
- <li>(Optional) Search Type - if the type is a string, and the parameter is being used like a search parameter, which kind of search type applies</li>
 </ul>
 <p>
 Parameters may be nested into multi-part parameters. Each part has the same information as a parameter, except for use, which is taken from
@@ -242,8 +247,10 @@ are repeated by repeating the named parameter. E.g. Observation $stats statistic
 GET [base]/Observation/$stats?subject=Patient/123&amp;code=55284-4&amp;system=http://loinc.org&amp;duration=1&amp;statistic=average&amp;statistic=min&amp;statistic=max&amp;statistic=count
 </pre>
 <p>
-If, when invoking the operation, there is exactly one input parameter of type Resource (irrespective of whether other possible parameters are defined),
-that the operation can also be executed by a POST with that resource as the body of the request (and no parameters on the url).
+If an operation has exactly one input parameter whose type is a FHIR Resource and all other parameters 
+a client intends to submit are <a href="#executing">simple parameters</a>, then the client MAY invoke 
+the operation via POST with the input resource as the request body and additional parameters as query parameters.
+Servers SHALL support this means of invocation of the operation.
 </p>
 
 <p>

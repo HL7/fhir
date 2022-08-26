@@ -11,7 +11,7 @@
   <code value="author"/>
   <base value="CodeSystem"/>
   <type value="string"/>
-  <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/codesystem-author')"/>
-  <xpath value="f:CodeSystem/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/codesystem-author&#39;]"/>
+  <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/codesystem-author').value"/>
+  <xpath value="f:CodeSystem/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/codesystem-author&#39;]/f:valueDateTime"/>
   <xpathUsage value="normal"/>
 </SearchParameter>

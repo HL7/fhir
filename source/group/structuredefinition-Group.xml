@@ -182,7 +182,7 @@
       <binding>
         <strength value="required"/>
         <description value="The basis for membership in a group"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/group-membership-basis|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/group-membership-basis"/>
       </binding>
     </element>
     <element id="Group.code">

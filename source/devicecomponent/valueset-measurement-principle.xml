@@ -7,7 +7,7 @@
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/measurement-principle"/>
   <version value="5.0.0"/>
-  <name value="MeasmntPrinciple"/>
+  <name value="MeasurementPrinciple"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/measurement-principle"/>

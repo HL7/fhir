@@ -17,7 +17,6 @@ signatures.html
   <page title="Home" note="(map + search) - focus on useful links" filename="index.html">
     <!-- indexing content, not owned by any particular module  (e.g. owned by the product director) -->
     <page title="Table of Contents" filename="toc.html" icon="index.png">
-      <page title="Documentation Index" filename="documentation.html"/>
       <page title="Resources" filename="resourcelist.html"/>
       <page title="Patterns" filename="patterns.html"/>
       <page title="Profiles" filename="profilelist.html"/>
@@ -42,70 +41,75 @@ signatures.html
 
     <!-- foundation - quite a lot of documentation -->
     <page title="Foundation" filename="foundation-module.html" icon="foundation.png">
-      <page title="Conformance" filename="conformance-rules.html">
-        <page title="Best Practices" filename="best-practices.html"/>
-      </page>
-      <page title="Resource Life Cycles" filename="lifecycle.html"/>
-      <page title="References between Resources" filename="references.html">
-        <page title="Definitions" filename="references-definitions.html"/>
-      </page>
-      <page title="Narrative" filename="narrative.html">
-        <page title="Narrative Example" filename="narrative-example.html"/>
-        <page title="Definitions" filename="narrative-definitions.html"/>
-      </page>
-      <page title="Extensibility" filename="extensibility.html">
-        <page title="Defining Extensions" filename="defining-extensions.html"/>
-        <page title="Examples" filename="extensibility-examples.html"/>
-        <page title="Detailed Description" filename="extensibility-definitions.html"/>
-      </page>
-      <page title="Resource Definitions" filename="formats.html">
-        <page title="Resource Formats" filename="resource-formats.html"/>
-        <page title="XML format" filename="xml.html"/>
-        <page title="JSON format" filename="json.html"/>
-        <page title="ND-JSON format" filename="nd-json.html"/>
-        <page title="RDF Definition" filename="rdf.html"/>
-        <page title="UML Definition" filename="uml.html"/>
-      </page>
-      <page title="Change Management and Versioning" filename="versions.html">
-        <page title="Timelines" filename="timelines.html"/>
-      </page>
-      <page title="Managing Multiple FHIR Versions" filename="versioning.html"/>
-      <page title="FHIRPath" filename="fhirpath.html"/>
-      <page title="NPM Packages" filename="packages.html"/>
-      <page title="Version History" filename="history.html"/>
-      <page title="Differences from Release 3" filename="diff.html"/>
-      <page title="Release 2/3 Transforms" filename="r3maps.html"/>
-      <page title="Logical models" filename="logical.html"/>
+      <page title="Documentation Index" filename="documentation.html">
+        <page title="Conformance" filename="conformance-rules.html">
+          <page title="Best Practices" filename="best-practices.html"/>
+        </page>
+        <page title="Resource Life Cycles" filename="lifecycle.html"/>
+        <page title="References between Resources" filename="references.html">
+          <page title="Definitions" filename="references-definitions.html"/>
+        </page>
+        <page title="Narrative" filename="narrative.html">
+          <page title="Narrative Example" filename="narrative-example.html"/>
+          <page title="Definitions" filename="narrative-definitions.html"/>
+        </page>
+        <page title="Extensibility" filename="extensibility.html">
+          <page title="Defining Extensions" filename="defining-extensions.html"/>
+          <page title="Examples" filename="extensibility-examples.html"/>
+          <page title="Detailed Description" filename="extensibility-definitions.html"/>
+        </page>
+        <page title="Resource Definitions" filename="formats.html">
+          <page title="Resource Formats" filename="resource-formats.html"/>
+          <page title="XML format" filename="xml.html"/>
+          <page title="JSON format" filename="json.html"/>
+          <page title="ND-JSON format" filename="nd-json.html"/>
+          <page title="RDF Definition" filename="rdf.html"/>
+          <page title="UML Definition" filename="uml.html"/>
+        </page>
+        <page title="Change Management and Versioning" filename="versions.html">
+          <page title="Timelines" filename="timelines.html"/>
+        </page>
+        <page title="Managing Multiple FHIR Versions" filename="versioning.html"/>
+        <page title="FHIRPath" filename="fhirpath.html"/>
+        <page title="NPM Packages" filename="packages.html"/>
+        <page title="Version History" filename="history.html"/>
+        <page title="Differences from Release 3" filename="diff.html"/>
+        <page title="Release 2/3 Transforms" filename="r3maps.html"/>
+        <page title="Logical models" filename="logical.html"/>
 
-      <page title="Introduction" filename="overview.html"/>
-      <page title="Developer Introduction" filename="overview-dev.html"/>
-      <page title="Clinical Introduction" filename="overview-clinical.html"/>
-      <page title="Architect's Introduction" filename="overview-arch.html"/>
-      <page title="Summary" filename="summary.html"/>
-      <page title="Glossary #1" filename="help.html"/>
-      <page title="Glossary #2" filename="glossary.html"/>
-      <page title="License and Legal Terms" filename="license.html"/>
-      <page title="Community and Credits" filename="credits.html"/>
-      <page title="Outstanding Issues" filename="todo.html"/>
-      <page title="Coming Challenges" filename="change.html"/>
+        <page title="Introduction" filename="overview.html"/>
+        <page title="Developer Introduction" filename="overview-dev.html"/>
+        <page title="Clinical Introduction" filename="overview-clinical.html"/>
+        <page title="Architect's Introduction" filename="overview-arch.html"/>
+        <page title="Summary" filename="summary.html"/>
+        <page title="Glossary #1" filename="help.html"/>
+        <page title="Glossary #2" filename="glossary.html"/>
+        <page title="License and Legal Terms" filename="license.html"/>
+        <page title="Community and Credits" filename="credits.html"/>
+        <page title="Outstanding Issues" filename="todo.html"/>
+        <page title="Coming Challenges" filename="change.html"/>
 
-      <page title="Type Framework" filename="types.html">
-        <page title="Detailed Descriptions" filename="types-definitions.html"/>
-        <page title="Profiles and Extensions" filename="types-extras.html"/>
-        <page title="Mappings" filename="types-mappings.html"/>
-        <page title="R3 Conversions" filename="types-version-maps.html"/>
-      </page>
-      <page title="Data Types" filename="datatypes.html">
-        <page title="Examples" filename="datatypes-examples.html"/>
-        <page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
-        <page title="Mappings" filename="datatypes-mappings.html"/>
-        <page title="Profiles and Extensions" filename="datatypes-extras.html"/>
-        <page title="R3 Conversions" filename="datatypes-version-maps.html"/>
-      </page>
-      <page title="MetaData Types" filename="metadatatypes.html">
-        <page title="Examples" filename="metadatatypes-examples.html"/>
-        <page title="Detailed Descriptions" filename="metadatatypes-definitions.html"/>
-        <page title="Mappings" filename="metadatatypes-mappings.html"/>
+        <page title="Type Framework" filename="types.html">
+          <page title="Detailed Descriptions" filename="types-definitions.html"/>
+          <page title="Profiles and Extensions" filename="types-extras.html"/>
+          <page title="Mappings" filename="types-mappings.html"/>
+          <page title="R3 Conversions" filename="types-version-maps.html"/>
+        </page>
+        <page title="Data Types" filename="datatypes.html">
+          <page title="Examples" filename="datatypes-examples.html"/>
+          <page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
+          <page title="Mappings" filename="datatypes-mappings.html"/>
+          <page title="Profiles and Extensions" filename="datatypes-extras.html"/>
+          <page title="R3 Conversions" filename="datatypes-version-maps.html"/>
+        </page>
+        <page title="MetaData Types" filename="metadatatypes.html">
+          <page title="Examples" filename="metadatatypes-examples.html"/>
+          <page title="Detailed Descriptions" filename="metadatatypes-definitions.html"/>
+          <page title="Mappings" filename="metadatatypes-mappings.html"/>
+        </page>
+        <page title="Resource Guide" filename="resourceguide.html"/>
+        <page title="5Ws Pattern" filename="fivews.html"/>
+        <page title="FMG Process Page" filename="fmg.html"/>
       </page>
       <page type="resource" resource="Resource">
         <page title="Definitions" filename="resource-definitions.html"/>
@@ -119,11 +123,6 @@ signatures.html
         <page title="ElementDefinition Mappings" filename="elementdefinition-mappings.html"/>
         <page title="Profiles and Extensions" filename="elementdefinition-extras.html"/>
       </page>
-
-      <page title="Resource Guide" filename="resourceguide.html"/>
-      <page title="5Ws Pattern" filename="fivews.html"/>
-      <page title="FMG Process Page" filename="fmg.html"/>
-
       <!-- infrastructure resources -->
       <page type="resource" resource="Basic"/>
       <page type="resource" resource="Binary"/>

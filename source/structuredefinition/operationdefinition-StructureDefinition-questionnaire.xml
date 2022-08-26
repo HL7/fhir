@@ -78,7 +78,6 @@
     <max value="1"/>
     <documentation value="The [StructureDefinition](structuredefinition.html) is provided directly as part of the request. Servers may choose not to accept profiles in this fashion"/>
     <type value="StructureDefinition"/>
-    <searchType value="token"/>
   </parameter>
   <parameter>
     <name value="url"/>

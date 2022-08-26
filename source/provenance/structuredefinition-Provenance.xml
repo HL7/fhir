@@ -444,7 +444,7 @@
         <key value="prov-2"/>
         <severity value="error"/>
         <human value="If who is a PractitionerRole, onBehalfOf can't reference the same Practitioner"/>
-        <expression value="who.resolve().as(PractitionerRole).practitioner.resolve().exists() and onBehalfOf.resolve().as(Practitioner).exists() implies who.resolve().practitioner.resolve() != onBehalfOf.resolve()"/>
+        <expression value="who.resolve().ofType(PractitionerRole).practitioner.resolve().exists() and onBehalfOf.resolve().ofType(Practitioner).exists() implies who.resolve().practitioner.resolve() != onBehalfOf.resolve()"/>
         <xpath value="true()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
       </constraint>
@@ -452,7 +452,7 @@
         <key value="prov-3"/>
         <severity value="error"/>
         <human value="If who is an organization, onBehalfOf can't be a PractitionerRole within that organization"/>
-        <expression value="who.resolve().as(Organization).exists() and onBehalfOf.resolve().as(PractitionerRole).organization.resolve().exists() implies who.resolve() != onBehalfOf.resolve().organization.resolve()"/>
+        <expression value="who.resolve().ofType(Organization).exists() and onBehalfOf.resolve().ofType(PractitionerRole).organization.resolve().exists() implies who.resolve() != onBehalfOf.resolve().organization.resolve()"/>
         <xpath value="true()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
       </constraint>

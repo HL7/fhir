@@ -165,7 +165,7 @@
       <path value="NamingSystem.version"/>
       <short value="Business version of the naming system"/>
       <definition value="The identifier that is used to identify this version of the naming system when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the naming system author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different naming system instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the naming system with the format [url]|[version]."/>
+      <comment value="There may be different naming system instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the naming system with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -650,7 +650,7 @@
       <path value="NamingSystem.uniqueId.type"/>
       <short value="oid | uuid | uri | v2csmnemonic | other"/>
       <definition value="Identifies the unique identifier scheme used for this particular identifier."/>
-      <comment value="Different identifier types may be used in different types of communications (OIDs for v3, URIs for FHIR, etc.).  Other includes RUIDs from v3, standard v2 code name strings, etc."/>
+      <comment value="Different identifier types may be used in different types of communications (OIDs for v3, URIs for FHIR, etc.).  Other includes RUIDs from v3, standard v2 code name strings, etc. Preferred identifiers for the same identifier type SHOULD NOT overlap by period."/>
       <min value="1"/>
       <max value="1"/>
       <type>
