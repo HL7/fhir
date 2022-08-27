@@ -17,7 +17,7 @@ documentation (html). The resources typically specify some combination of:
 <li>Terminology: <a href="codesystem.html">Code Systems</a>, <a href="valueset.html">ValueSet</a> and <a href="conceptmap.html">concept maps</a></li>
 <li>Content rules: <a href="structuredefinition.html">Profiles and Extensions</a> and <a href="structuremap.html">Mappings to other content</a></li>
 <li>API Details: <a href="capabilitystatement.html">Capability Statement</a>, <a href="operationdefinition.html">operation definitions</a> and 
-additional <a href="ConceptMap">search parameters</a></li>
+additional <a href="searchparameter.html">search parameters</a></li>
 <li>Clinical Logic: <a href="questionnaire.html">Questionnaires</a>, <a href="library.html">logic libraries</a> and <a href="measure.html">measure definitions</a></li>
 <li>Test Information: <a href="testscript.html">Test Scripts</a></li>
 <li>Supporting Examples</li>
