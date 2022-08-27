@@ -79,15 +79,20 @@ Operations can be invoked on three types of FHIR endpoints:
 The body of the invocation contains a special infrastructure resource called <a href="parameters.html">Parameters</a>,
 which represents a collection of named parameters as &lt;key,value&gt; pairs, where the value may be any
 primitive or complex datatype or even a full Resource. It may also include strings
-formatted as search parameter types. A FHIR operation can take a set of zero or more input parameters.
+formatted as search parameter types. A FHIR operation can take a set of zero or more input parameters; 
+in the case where there is zero parameters, the resource may be omitted, and the body will be empty (see below).
 </p>
 <p>
-Upon completion, the operation returns another <code>Parameters</code> resource, containing one or more output parameters.
-If there is a single output parameter named 'return' then the response MAY be the resource that is the return value, 
-with no Parameters resource.
+Upon completion, the operation returns an HTTP status code indicating what the outcome of 
+performing the operation, and optionally another <code>Parameters</code> resource, containing 
+ne or more output parameters. If there is a single output parameter named 'return' then the 
+response MAY be the resource that is the return value, with no Parameters resource. If there is 
+zero output parameters (possibly because the operation failed), then the resource can be omitted,
+and the body will be empty.
 </p>
 <p>
-Both the body of the POST and the returned result are always a Resource.
+Both the body of the POST and the returned result are always a Resource if any body is present,
+except in the case that the server supports multi-part/form-data (see below). 
 </p>
 <p>
 Operations may be invoked using a <code>GET</code>, with parameters as HTTP URL parameters, if:
@@ -266,7 +271,8 @@ which can be useful when testing an operation using HTML forms.
 <h4>Operation Response</h4>
 
 <p>
-If an operation succeeds, an HTTP Status success code is returned.
+If an operation succeeds, an HTTP Status success code is returned. Servers 
+SHALL return the appropriate status code.
 This will usually be a 2xx code, though it may also be a 303 See Other.
 Other kinds of 3xx codes should be understood to indicate that the
 operation did not proceed, and the client will need to re-issue the
