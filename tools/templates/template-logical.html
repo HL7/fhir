@@ -84,7 +84,7 @@ Pattern Content
   
 <p>&nbsp;</p>  
 
-<p>alternate definitions: Master Definition <a href="<%name%>.xml.html">XML</a> + <a href="<%name%>.json.html">JSON</a>. </p>
+<p>Alternate definitions: Master Definition <a href="<%name%>.xml.html">XML</a> + <a href="<%name%>.json.html">JSON</a>. </p>
 
 
 <a name="tx"></a>
@@ -94,8 +94,35 @@ Pattern Content
 
 <%notes%>
 
+<a name=\"mappings\"></a>
+<h3>Mappings</h3>
+
 <%logical-mappings%>
 
+<p>
+Each non-grey cell contains a number, the number of elements or extensions mapped in the resource
+that are mapped to the pattern element in the column. If there are 0 elements, the 
+number is not shown. In addition, the cell has a color and some character flags.
+</p>
+<p>
+Colors:
+</p>
+<ul>
+  <li>Grey: the resource has no element or extension for the pattern element</li> 
+  <li>White: the resource has an element that implements the pattern element with the same name</li> 
+  <li>Yellow: the resource has a documented extension that implements the pattern element with the same name</li> 
+  <li>Blue: the resource has an element that implements the pattern element with a different name</li> 
+  <li>Red: the resource has an element that implements that pattern element, but the type or cardinality does not match </li> 
+</ul>
+<p>
+  Flags:
+  </p>
+  <ul>
+    <li>E: pattern element implemented by an extension</li> 
+    <li>N: pattern element implemented by an element with a different name</li> 
+    <li>T: pattern element implemented by an element with a different type</li> 
+    <li>C: pattern element implemented by an element with a different cardinality</li> 
+</ul>
 </div>
 
 <%file newfooter%>
