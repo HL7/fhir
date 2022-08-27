@@ -418,11 +418,20 @@ Applications might also be able to ignore a modifier extension if they know
 that it is safe to do so in their own context, though this would not usually be the case.
 </p>
 <p>
-Implementations SHALL ensure that they do not process data containing unrecognized modifier 
-extensions. Note that implementations might be able to be sure, due to their
-implementation environment (e.g. specific trading partner agreement),
-that modifier extensions will never occur, and can therefore meet
-the requirement to check for modifiers at the design stage.
+  Implementations SHALL ensure that they do not process data containing unrecognized modifier 
+  extensions.
+  Where a modifier appears on a child element within the resource rather than 
+on the resource as a whole, the system can choose to process the resource 
+but exclude the element containing the modifier from processing. 
+i.e. treat the element with the modifier as if it were missing. This approach 
+can only work if the processing can safely function with incomplete data. 
+Caution needs to be taken if doing this for elements that have a 'meaning if missing'.  
+</p>
+<p>
+  Note that implementations might be able to be sure, due to their
+  implementation environment (e.g. specific trading partner agreement),
+  that modifier extensions will never occur, and can therefore meet
+  the requirement to check for modifiers at the design stage.
 However, since integration and deployment options often change, 
 applications SHOULD always check for modifier extensions when
 processing resources.
@@ -441,6 +450,16 @@ information, so it is safe to show this to the user as an expression
 of the resource's content. A warning dialog box could be extended to
 offer the user the choice to see the original narrative.
 </p>
+<p>
+  An application only needs to concern itself with modifier extensions on elements that
+  it processes. Take, for example, a case where a procedure resource
+  has a modifier extension on one of the <code>performer</code> elements indicating that they did
+  not participate in the procedure. If an application is not using the performer details at all,
+  the fact that one of the performers has a modifier extension is irrelevant and the
+  application is free to ignore it. If the application does process the performers, and it sees the
+  modifier extension, it must act in one of the ways outlined above.
+</p>
+  
 <div class="example">
 <p>
 Here is the prescription example from above with narrative:
@@ -462,15 +481,6 @@ Here is the prescription example from above with narrative:
 &lt;/MedicationRequest&gt;
 </pre>
 </div>
-<p>
-An application only needs to concern itself with modifier extensions on elements that
-it processes. Take, for example, a case where a procedure resource
-has a modifier extension on one of the <code>performer</code> elements indicating that they did
-not participate in the procedure. If an application is not using the performer details at all,
-the fact that one of the performers has a modifier extension is irrelevant and the
-application is free to ignore it. If the application does process the performers, and it sees the
-modifier extension, it must act in one of the ways outlined above.
-</p>
 
 <p>
 <a href="implementationguide.html">Implementation Guides</a> might place limitations on the appearance 
