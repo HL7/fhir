@@ -484,6 +484,27 @@ Servers that do not support versioning SHALL ensure that <code>Resource.meta.ver
 resources they return, and SHALL update the value of <code>Resource.meta.lastUpdated</code> correctly.
 </p>
 
+<a name="timezones"></a>
+<h4>Client Timezone</h4>
+<p>
+In general, it is the business of the client to know which timezone a user is in, and update the 
+date/times accordingly. Note that not all date times should be adjusted to local time - particularly
+past dates in the clinical record, which generally should be reported in their timezone of origin (e.g. the patient 
+was admitted at 2pm in their local timezone). 
+</p>
+<p>
+However when the server is executing logic on behalf of the client, particularly for various operations, it
+may be important for the server to know what timezone the request is made on behalf of. In such cases, 
+the client timezone may be communiciated to the server using the <code>client-timezone</code> header 
+defined in this <a href="https://tools.ietf.org/html/draft-sharhalakis-httptz-05">RFC</a> (note that this 
+RFC was not adopted by the community). 
+</p>
+<p>
+Because the client does not know when the server is executing logic on behalf of the user, 
+clients SHOULD always populate this header, and servers SHOULD use this header to determine
+the user's timezone.
+</p>
+
 <a name="read"></a>
 <h3>read</h3>
 <p>
