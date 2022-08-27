@@ -28,9 +28,7 @@ POST /open/Patient/$match
         ],
         "name": [
           {
-            "family": [
-              "Chalmers"
-            ],
+            "family": "Chalmers",
             "given": [
               "Peter"
             ]
