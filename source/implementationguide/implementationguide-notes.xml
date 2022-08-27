@@ -4,9 +4,36 @@
 <h3>Distributing Implementation Guides</h3>
 <p>
 Implementation Guides are published through the FHIR Package distribution system.
-For further details, see the <a href="https://confluence.hl7.org/display/FHIR/NPM+Package+Specification">FHIR Confluence site</a>.
-This content may be moved into the specification in a future version.
+For further details, see the <a href="packages.html">FHIR NPM Packages</a>.
 </p>
+
+<a name="roles"></a>
+<h3>Roles of Implementation Guides</h3>
+<p>
+Implementation Guides are packages of both computer processible content (resources) and human readable 
+documentation (html). The resources typically specify some combination of:
+</p>
+<ul>
+<li>Terminology: <a href="codesystem.html">Code Systems</a>, <a href="valueset.html">ValueSet</a> and <a href="conceptmap.html">concept maps</a></li>
+<li>Content rules: <a href="structuredefinition.html">Profiles and Extensions</a> and <a href="structuremap.html">Mappings to other content</a></li>
+<li>API Details: <a href="capabilitystatement.html">Capability Statement</a>, <a href="operationdefinition.html">operation definitions</a> and 
+additional <a href="ConceptMap">search parameters</a></li>
+<li>Clinical Logic: <a href="questionnaire.html">Questionnaires</a>, <a href="library.html">logic libraries</a> and <a href="measure.html">measure definitions</a></li>
+<li>Test Information: <a href="testscript.html">Test Scripts</a></li>
+<li>Supporting Examples</li>
+</ul>
+<p>
+Note that any kinds of resources can be included; these are just the common uses.
+</p>
+<p>
+In addition, in the human readable portions, implementation guides often:
+</p>
+<ul>
+<li>Describe security arrangements in place for the relevent data exchanges, along with consent and access control requirements</li>
+<li>Detail additional rules about the user of the narrative in the resources</li>
+<li>Specify other conformance expectations that aren't testable directly</li>
+<li>Outline the business arrangements and expectations under which the data is exchanged</li>
+</ul>
 
 <a name="versions"></a>
 <h3>Multi-Version Implementation Guides</h3>
@@ -37,7 +64,7 @@ An implementation guide specifies which versions of FHIR it describes in the
 </p>
 <div class="json">
 <pre>
-  "fhirVersion" : ["3.0", "4.0"],
+  "fhirVersions" : ["3.0", "4.0"],
 </pre>
 </div>
 <p>
