@@ -79,12 +79,15 @@ Operations can be invoked on three types of FHIR endpoints:
 The body of the invocation contains a special infrastructure resource called <a href="parameters.html">Parameters</a>,
 which represents a collection of named parameters as &lt;key,value&gt; pairs, where the value may be any
 primitive or complex datatype or even a full Resource. It may also include strings
-formatted as search parameter types.
+formatted as search parameter types. A FHIR operation can take a set of zero or more input parameters.
 </p>
 <p>
-Upon completion, the operation returns another <code>Parameters</code> resource, containing one or
-more output parameters. This means that a FHIR operation can take a set of zero or more parameters <i>in</i> and return a set of zero or more
-result parameters <i>out</i>. Both the body of the POST and the returned result are always a Resource.
+Upon completion, the operation returns another <code>Parameters</code> resource, containing one or more output parameters.
+If there is a single output parameter named 'return' then the response MAY be the resource that is the return value, 
+with no Parameters resource.
+</p>
+<p>
+Both the body of the POST and the returned result are always a Resource.
 </p>
 <p>
 Operations may be invoked using a <code>GET</code>, with parameters as HTTP URL parameters, if:
