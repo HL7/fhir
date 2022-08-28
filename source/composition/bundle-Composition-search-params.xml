@@ -39,6 +39,14 @@
         <expression value="Composition.author"/>
         <xpath value="f:Composition/f:author"/>
         <xpathUsage value="normal"/>
+       <component>
+          <definition value="section"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="section-text"/>
+          <expression value="text"/>
+        </component>
       </SearchParameter>
     </resource>
   </entry>
@@ -360,6 +368,46 @@
         <expression value="Composition.version"/>
         <xpath value="f:Composition/f:version"/>
         <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-section-text"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-section-text"/>
+        <description value="Search on the section narrative of the resource"/>
+        <code value="section-text"/>
+        <type value="special"/>
+        <expression value="Composition.section.text | Composition.section.section.text"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Composition-section-code-text"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Composition-section-code-text"/>
+        <description value="Search on the section narrative of the resource"/>
+        <code value="section-code-text"/>
+        <type value="composite"/>
+        <expression value="Composition.section"/>
+        <xpathUsage value="normal"/>
+       <component>
+          <definition value="section"/>
+          <expression value="section.code"/>
+        </component>
+        <component>
+          <definition value="section-text"/>
+          <expression value="section.text"/>
+        </component>        
       </SearchParameter>
     </resource>
   </entry>
