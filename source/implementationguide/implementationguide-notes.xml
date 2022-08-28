@@ -64,11 +64,11 @@ An implementation guide specifies which versions of FHIR it describes in the
 </p>
 <div class="json">
 <pre>
-  "fhirVersions" : ["3.0", "4.0"],
+  "fhirVersions" : ["4.0", "5.0"],
 </pre>
 </div>
 <p>
-This specifies that the implementation guide applies to both <a href="http://hl7.org/fhir/STU3">release 3</a> and <a href="http://hl7.org/fhir/R4">Release 4</a>. 
+This specifies that the implementation guide applies to both <a href="http://hl7.org/fhir/R4">Release 4</a> and <a href="http://hl7.org/fhir/R5">Release 5</a>. 
 Note that the patch version (".1" for Release 3) is omitted, since the patch releases never make changes
 that make any difference to Implementation Guides.
 </p>
