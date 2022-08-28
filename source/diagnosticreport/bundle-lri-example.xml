@@ -7,7 +7,7 @@
 	</meta>
 	<type value="collection"/>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/DiagnosticReport/lri-example"/>
+		<fullUrl value="<%test-server%>/DiagnosticReport/lri-example"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="lri-example"/>
@@ -201,7 +201,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/Observation/lri-gramstain2"/>
+		<fullUrl value="<%test-server%>/Observation/lri-gramstain2"/>
 		<resource>
 			<Observation>
 				<id value="gramstain2"/>
@@ -291,7 +291,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/Observation/lri-gramstain3"/>
+		<fullUrl value="<%test-server%>/Observation/lri-gramstain3"/>
 		<resource>
 			<Observation>
 				<id value="gramstain3"/>
@@ -381,7 +381,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/Observation/lri-gramstain4"/>
+		<fullUrl value="<%test-server%>/Observation/lri-gramstain4"/>
 		<resource>
 			<Observation>
 				<id value="gramstain4"/>
@@ -471,7 +471,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/Observation/lri-growth1"/>
+		<fullUrl value="<%test-server%>/Observation/lri-growth1"/>
 		<resource>
 			<Observation>
 				<id value="growth1"/>
@@ -533,7 +533,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/Observation/lri-growth2"/>
+		<fullUrl value="<%test-server%>/Observation/lri-growth2"/>
 		<resource>
 			<Observation>
 				<id value="growth2"/>
@@ -595,7 +595,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/Observation/lri-growth3"/>
+		<fullUrl value="<%test-server%>/Observation/lri-growth3"/>
 		<resource>
 			<Observation>
 				<id value="growth3"/>
@@ -657,7 +657,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/Observation/lri-org2-amp"/>
+		<fullUrl value="<%test-server%>/Observation/lri-org2-amp"/>
 		<resource>
 			<Observation>
 				<id value="org2-amp"/>
@@ -725,7 +725,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/Observation/lri-org2-cip"/>
+		<fullUrl value="<%test-server%>/Observation/lri-org2-cip"/>
 		<resource>
 			<Observation>
 				<id value="org2-cip"/>
@@ -793,7 +793,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/Observation/lri-org2-gent"/>
+		<fullUrl value="<%test-server%>/Observation/lri-org2-gent"/>
 		<resource>
 			<Observation>
 				<id value="org2-gent"/>
@@ -861,7 +861,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/Observation/lri-org3-amp"/>
+		<fullUrl value="<%test-server%>/Observation/lri-org3-amp"/>
 		<resource>
 			<Observation>
 				<id value="org3-amp"/>
@@ -929,7 +929,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/Observation/lri-org3-cip"/>
+		<fullUrl value="<%test-server%>/Observation/lri-org3-cip"/>
 		<resource>
 			<Observation>
 				<id value="org3-cip"/>
@@ -997,7 +997,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/Observation/lri-org3-gent"/>
+		<fullUrl value="<%test-server%>/Observation/lri-org3-gent"/>
 		<resource>
 			<Observation>
 				<id value="org3-gent"/>
@@ -1053,7 +1053,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/Observation/lri-organism1"/>
+		<fullUrl value="<%test-server%>/Observation/lri-organism1"/>
 		<resource>
 			<Observation>
 				<id value="organism1"/>
@@ -1119,7 +1119,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/Observation/lri-organism2"/>
+		<fullUrl value="<%test-server%>/Observation/lri-organism2"/>
 		<resource>
 			<Observation>
 				<id value="organism2"/>
@@ -1197,7 +1197,7 @@
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://test.fhir.org/r5/Observation/lri-organism3"/>
+		<fullUrl value="<%test-server%>/Observation/lri-organism3"/>
 		<resource>
 			<Observation>
 				<id value="organism3"/>

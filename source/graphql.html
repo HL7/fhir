@@ -149,7 +149,7 @@ Any FHIR defined field can be used directly e.g. this graphql against the Patien
  }
 </pre>
 <p class="example">
-Example: <a href="http://test.fhir.org/r3/Patient/example/$graphql?query={name{text,given,family}}">http://test.fhir.org/r3/Patient/example/$graphql?query={name{text,given,family}}</a> (note: examples are only informative).
+Example: <a href="<%test-server%>/Patient/example/$graphql?query={name{text,given,family}}"><%test-server%>/Patient/example/$graphql?query={name{text,given,family}}</a> (note: examples are only informative).
 </p>
 <p>
 Polymorphic fields are represented by their JSON property name E.g. for Observation.value[x]:
@@ -160,7 +160,7 @@ Polymorphic fields are represented by their JSON property name E.g. for Observat
  }
 </pre>
 <p class="example">
-Example: <a href="http://test.fhir.org/r3/Observation/example/$graphql?query={valueQuantity{value,unit}}">http://test.fhir.org/r3/Observation/example/$graphql?query={valueQuantity{value,unit}}</a> (note: examples are only informative).
+Example: <a href="<%test-server%>/Observation/example/$graphql?query={valueQuantity{value,unit}}"><%test-server%>/Observation/example/$graphql?query={valueQuantity{value,unit}}</a> (note: examples are only informative).
 </p>
 <p>
 Note: This is because the leaf names have to correspond to scalar types, so there is no use selecting all the variants at once 
@@ -187,7 +187,7 @@ results in
  }
 </pre> 
 <p class="example">
-Example: <a href="http://test.fhir.org/r3/Patient/example/$graphql?query={birthDate,_birthDate{extension{valueDateTime}}}">http://test.fhir.org/r3/Patient/example/$graphql?query={birthDate,_birthDate{extension{valueDateTime}}}</a> (note: examples are only informative).
+Example: <a href="<%test-server%>/Patient/example/$graphql?query={birthDate,_birthDate{extension{valueDateTime}}}"><%test-server%>/Patient/example/$graphql?query={birthDate,_birthDate{extension{valueDateTime}}}</a> (note: examples are only informative).
 </p>
 
 <a name="arguments"></a>
@@ -215,7 +215,7 @@ Use a <a href="fhirpath.html">FHIRPath</a> statement selecting which of the set 
  }
 </pre>
   <p class="example">  
-  Example: <a href="http://test.fhir.org/r3/Patient/example/$graphql?query={name(fhirpath:%22family.exists()%22){text,given,family}}">http://test.fhir.org/r3/Patient/example/$graphql?query={name(fhirpath:%22family.exists()%22){text,given,family}}</a> (as compared to <a href="http://test.fhir.org/r3/Patient/example/$graphql?query={name{text,given,family}}">http://test.fhir.org/r3/Patient/example/$graphql?query={name{text,given,family}}</a>) (note: examples are only informative).
+  Example: <a href="<%test-server%>/Patient/example/$graphql?query={name(fhirpath:%22family.exists()%22){text,given,family}}"><%test-server%>/Patient/example/$graphql?query={name(fhirpath:%22family.exists()%22){text,given,family}}</a> (as compared to <a href="<%test-server%>/Patient/example/$graphql?query={name{text,given,family}}"><%test-server%>/Patient/example/$graphql?query={name{text,given,family}}</a>) (note: examples are only informative).
  </p>
 
 <p><b>Field Filter:</b></p> 
@@ -230,7 +230,7 @@ for the field to be included:
  }
 </pre>
   <p class="example">
-  Example: <a href="http://test.fhir.org/r3/Patient/example/$graphql?query={name(use:official){text,given,family}}">http://test.fhir.org/r3/Patient/example/$graphql?query={name(use:official){text,given,family}}</a> (note: examples are only informative).
+  Example: <a href="<%test-server%>/Patient/example/$graphql?query={name(use:official){text,given,family}}"><%test-server%>/Patient/example/$graphql?query={name(use:official){text,given,family}}</a> (note: examples are only informative).
  </p>
  <p>
 One way this can be used is to select particular extensions:
@@ -263,7 +263,7 @@ to make repeated requests reading further into the list as long as required. Thi
  }
 </pre>
   <p class="example">
-  Example: <a href="http://test.fhir.org/r5/List/long/$graphql?query={entry(_count:5,_offset:5){deleted%20item{reference}}}">http://test.fhir.org/r5/List/long/$graphql?query={entry(_count:5,_offset:5){deleted item{reference}}}</a> (note: examples are only informative).
+  Example: <a href="<%test-server%>/List/long/$graphql?query={entry(_count:5,_offset:5){deleted%20item{reference}}}"><%test-server%>/List/long/$graphql?query={entry(_count:5,_offset:5){deleted item{reference}}}</a> (note: examples are only informative).
  </p>
 <p>
 This will select the second set of 5 entries in the nominated List resource. Clients can use this approach to iterate through a list. If 
@@ -313,7 +313,7 @@ The resource selector has two arguments:
 </li>
 </ul>
 <p class="example">
-Example: <a href="http://test.fhir.org/r5/Observation/example/$graphql?query={id,subject{reference,resource{...on%20Patient{birthDate}...on%20Practitioner{practitionerRole{speciality}}}}code{coding{system,code}}}">http://test.fhir.org/r5/Observation/example/$graphql?query={id,subject{reference,resource{...on%20Patient{birthDate}...on%20Practitioner{practitionerRole{speciality}}}}code{coding{system,code}}}</a> (note: examples are only informative).
+Example: <a href="<%test-server%>/Observation/example/$graphql?query={id,subject{reference,resource{...on%20Patient{birthDate}...on%20Practitioner{practitionerRole{speciality}}}}code{coding{system,code}}}"><%test-server%>/Observation/example/$graphql?query={id,subject{reference,resource{...on%20Patient{birthDate}...on%20Practitioner{practitionerRole{speciality}}}}code{coding{system,code}}}</a> (note: examples are only informative).
 </p>
 <p>
 but slightly denser:
@@ -330,7 +330,7 @@ but slightly denser:
  }
  </pre>
 <p class="example">
-Example: <a href="http://test.fhir.org/r5/Observation/example/$graphql?query={id,subject{reference,resource(type:Patient){birthDate}resource(type:Practitioner){practitionerRole{speciality}}}code{coding{system,code}}}">http://test.fhir.org/r5/Observation/example/$graphql?query={id,subject{reference,resource(type:Patient){birthDate}resource(type:Practitioner){practitionerRole{speciality}}}code{coding{system,code}}}</a> (note: examples are only informative).
+Example: <a href="<%test-server%>/Observation/example/$graphql?query={id,subject{reference,resource(type:Patient){birthDate}resource(type:Practitioner){practitionerRole{speciality}}}code{coding{system,code}}}"><%test-server%>/Observation/example/$graphql?query={id,subject{reference,resource(type:Patient){birthDate}resource(type:Practitioner){practitionerRole{speciality}}}code{coding{system,code}}}</a> (note: examples are only informative).
 </p>
 <p>
 Clients can use either approach - type selection as a parameter, of using a fragment type condition - the first is shorter while the second aligns with the GraphQL schema more explicitly.
@@ -367,7 +367,7 @@ This returns a single Patient with the name id. The output from this is a single
  }
 </pre>
 <p class="example">
-Example: <a href="http://test.fhir.org/r5/$graphql?query={Patient(_id:example){id,name{given,family}}}">http://test.fhir.org/r5/$graphql?query={Patient(_id:example){id,name{given,family}}}</a> (note: examples are only informative).
+Example: <a href="<%test-server%>/$graphql?query={Patient(_id:example){id,name{given,family}}}"><%test-server%>/$graphql?query={Patient(_id:example){id,name{given,family}}}</a> (note: examples are only informative).
 </p>
 <p>
 Alternatively, the client can ask for a list of resources.  Here, the client simply asks for a list of resources:
@@ -405,7 +405,7 @@ The output of this is a list:
  }
 </pre>
 <p class="example">
-Example: <a href="http://test.fhir.org/r5/$graphql?query={PatientList(name:%22pet%22){name{family,given}}}">http://test.fhir.org/r5/$graphql?query={PatientList(name:%22pet%22){name{family,given}}}</a> 
+Example: <a href="<%test-server%>/$graphql?query={PatientList(name:%22pet%22){name{family,given}}}"><%test-server%>/$graphql?query={PatientList(name:%22pet%22){name{family,given}}}</a> 
 (note: examples are only informative).
 </p>
 <p>
@@ -452,10 +452,10 @@ The arguments are the same as for the simple List case, with the addition of the
  }
 </pre>
 <p>
-Example 1: <a href="http://test.fhir.org/r5/$graphql?query={PatientConnection(name:%22pet%22){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{name{family,given}}}}}">http://test.fhir.org/r5/$graphql?query={PatientConnection(name:%22pet%22){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{name{family,given}}}}}</a> (note: examples are only informative).
+Example 1: <a href="<%test-server%>/$graphql?query={PatientConnection(name:%22pet%22){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{name{family,given}}}}}"><%test-server%>/$graphql?query={PatientConnection(name:%22pet%22){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{name{family,given}}}}}</a> (note: examples are only informative).
 </p>
 <p>
-Example 2 (cursor): <a href="http://test.fhir.org/r5/$graphql?query={PatientConnection(){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{resourceType,id,name{family,given}}}}}}}}">http://test.fhir.org/r5/$graphql?query={PatientConnection(){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{resourceType,id,name{family,given}}}}}}}}</a> (note: examples are only informative).
+Example 2 (cursor): <a href="<%test-server%>/$graphql?query={PatientConnection(){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{resourceType,id,name{family,given}}}}}}}}"><%test-server%>/$graphql?query={PatientConnection(){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{resourceType,id,name{family,given}}}}}}}}</a> (note: examples are only informative).
 </p>
 <p>
 Notes: 
@@ -479,7 +479,7 @@ The client can follow up on the first/previous/next/last links using the argumen
  }
 </pre>
 <p class="example">
-Example: <a href="http://test.fhir.org/r5/$graphql?query={PatientConnection(cursor:%225b0719b5-0f01-442e-9576-5b0514c19a:50%22){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{resourceType,id,name{family,given}}}}}}}}">http://test.fhir.org/r5/$graphql?query={PatientConnection(cursor:%225b0719b5-0f01-442e-9576-5b0514c19a:50%22){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{resourceType,id,name{family,given}}}}}}}}</a> (note: examples are only informative). (note, though, that to make this one work, you have to replace the cursor token with one that you got from the link above).
+Example: <a href="<%test-server%>/$graphql?query={PatientConnection(cursor:%225b0719b5-0f01-442e-9576-5b0514c19a:50%22){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{resourceType,id,name{family,given}}}}}}}}"><%test-server%>/$graphql?query={PatientConnection(cursor:%225b0719b5-0f01-442e-9576-5b0514c19a:50%22){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{resourceType,id,name{family,given}}}}}}}}</a> (note: examples are only informative). (note, though, that to make this one work, you have to replace the cursor token with one that you got from the link above).
 </p>
 
 <p>
@@ -537,13 +537,13 @@ The response for the query above would be
 }
 </pre>
 <p class="example">
-Example: <a href="http://test.fhir.org/r5/Patient/example/$graphql?query={name{family,given}ConditionList(_reference:patient){id,clinicalStatus}}">http://test.fhir.org/r5/Patient/example/$graphql?query={name{family,given}ConditionList(_reference:patient){id,clinicalStatus}}</a> (note: examples are only informative).
+Example: <a href="<%test-server%>/Patient/example/$graphql?query={name{family,given}ConditionList(_reference:patient){id,clinicalStatus}}"><%test-server%>/Patient/example/$graphql?query={name{family,given}ConditionList(_reference:patient){id,clinicalStatus}}</a> (note: examples are only informative).
 </p>
 <p>
 The "connection" based search option is also supported, as described above, with the addition of _reference. If the client wishes to pursue any of the cursor based links in the graphQL results it asks for back, then it initiates this a new separate query as defined above, rather than repeating the nested query. I.e. the 'cursor' argument is prohibited, except at the root of query.
 </p>
 <p class="example">
-Example: <a href="http://test.fhir.org/r5/Patient/example/$graphql?query={name{family,given}ConditionConnection(_reference:patient){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{...onCondition{resourceType,id,clinicalStatus}}}}}">http://test.fhir.org/r5/Patient/example/$graphql?query={name{family,given}ConditionConnection(_reference:patient){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{...onCondition{resourceType,id,clinicalStatus}}}}}</a> (note: examples are only informative).
+Example: <a href="<%test-server%>/Patient/example/$graphql?query={name{family,given}ConditionConnection(_reference:patient){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{...onCondition{resourceType,id,clinicalStatus}}}}}"><%test-server%>/Patient/example/$graphql?query={name{family,given}ConditionConnection(_reference:patient){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{...onCondition{resourceType,id,clinicalStatus}}}}}</a> (note: examples are only informative).
 </p>
 
 <a name="operations"></a>
@@ -556,7 +556,7 @@ It's also possible to apply graphql to the results of other operations. This is 
   GET [base]/ValueSet/doc-typecodes/$validate-code?system=http://loinc.org&amp;code=1963-8&amp;display=test&amp;_graphql={result:parameter(name:"result"){value:valueBoolean}}
 </pre>
 <p class="example">
-Example: <a href="http://test.fhir.org/r5/ValueSet/doc-typecodes/$validate-code?system=http://loinc.org&amp;code=1963-8&amp;display=test&amp;_graphql={result:parameter(name:%22result%22){value:valueBoolean}}">http://test.fhir.org/r5/ValueSet/doc-typecodes/$validate-code?system=http://loinc.org&amp;code=1963-8&amp;display=test&amp;_graphql={result:parameter(name:%22result%22){value:valueBoolean}}</a> (note: examples are only informative).
+Example: <a href="<%test-server%>/ValueSet/doc-typecodes/$validate-code?system=http://loinc.org&amp;code=1963-8&amp;display=test&amp;_graphql={result:parameter(name:%22result%22){value:valueBoolean}}"><%test-server%>/ValueSet/doc-typecodes/$validate-code?system=http://loinc.org&amp;code=1963-8&amp;display=test&amp;_graphql={result:parameter(name:%22result%22){value:valueBoolean}}</a> (note: examples are only informative).
 </p>
 <p>
 The graphQL is executed on the output of the operation. If the operation fails, and returns an operation outcome, then the graphQL is not executed.

@@ -332,11 +332,12 @@ Resolving this pipe ('|') syntax is equivalent to using a GET with the version p
   GET fhir/ValueSet?url=http://hl7.org/fhir/ValueSet/my-valueset&amp;version=0.8
 </pre>
 <p>
-Both of these examples specify version <code>0.8</code> of the value set, by <code>ValueSet.version</code>.
-Note that these examples do not specify by <code>ValueSet.meta.versionId</code>.
+Both of these examples specify version <code>0.8</code> of the value set, by <code>ValueSet.version</code>
+(The canonical URL full format is {{CanonicalResource.url}}|{{CanonicalResource.version}}).
+Note that these examples do not relate to <code>ValueSet.meta.versionId</code>.
 </p>
 <p>
-Note that if a Reference to a canonical URL does not have a version, and the server finds multiple
+Note that if a canonical URL reference does not have a version, and the server finds multiple
 versions for the value set, the system using the reference should pick the latest version
 of the target resource and use that. Servers SHOULD support version specific searching for canonical
 URLs by automatically detecting the presence of a |[version] and performing the appropriate

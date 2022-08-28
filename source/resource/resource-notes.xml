@@ -25,7 +25,7 @@ the same server. Once assigned by the server, the id is never changed.
 <p>
 The location of a resource instance is an absolute URI constructed from the server 
 base address at which the instance is found, the resource type and the Logical ID, such as 
-http://test.fhir.org/rest/Patient/123 (where <code>123</code> is the Logical Id of a <a href="patient.html">Patient</a> resource).  
+<%test-server%>/rest/Patient/123 (where <code>123</code> is the Logical Id of a <a href="patient.html">Patient</a> resource).  
 When the location is an HTTP address, this address can generally be used to retrieve or manipulate the resource. 
 Note that implementations SHOULD NOT assume that the location of a resource is always resolvable 
 to an accessible server - it may be temporarily unavailable, or not available by policy (e.g. firewalls) or in some 
