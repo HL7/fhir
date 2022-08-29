@@ -193,9 +193,19 @@ As part of the mapping, time-valued UCUM units are mapped to the <a href="http:/
 <tr><td>s</td><td>second</td></tr>
 </table>
 
+[%dragons-start%]
 <p>
-e.g. the FHIR Quantity 1 'a' would be implicitly converted to the FHIRPath System.Quantity 1 'year'.
+i.e. The FHIR Quantity 1 'a' would be implicitly converted to the 
+FHIRPath System.Quantity 1 'year'.
+Note that there's a subtle difference between the UCUM definitions
+for <code>a</code> and <code>mo</code>, which are definition durations 
+of <code>365.25</code> and <code>30</code> days respectively, while 
+<code>year</code> and <code>month</code> are calendar based durations,
+and their length of time varies. See <a href="http://hl7.org/fhirpath/N1/#time-valued-quantities">Time-valued Quantities</a>
+for further discussion. Implementers should be aware of these subtle differences,
+but in general, this approach matches what users expect most closely.
 </p>
+[%dragons-end%]
 
 <a name="variables"></a>
 <h4>FHIR Specific Variables</h4>
