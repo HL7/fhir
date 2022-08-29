@@ -420,7 +420,7 @@
     </element>
     <element id="Provenance.agent">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,200"/>
+        <valueCode value="388,150"/>
       </extension>
       <path value="Provenance.agent"/>
       <short value="Actor involved"/>
@@ -597,7 +597,7 @@
         <valueCode value="trial-use"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="440,30"/>
+        <valueCode value="440,0"/>
       </extension>
       <path value="Provenance.entity"/>
       <short value="An entity used in this activity"/>
