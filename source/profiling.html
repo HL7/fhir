@@ -538,6 +538,12 @@ Further notes about the use of the different discriminator types:
    to the others). Implementers should use this only where absolutely required. 
    Typical example: slice on the type of <code>Composition.section.entry().resolve()</code> for the profiles Current-Clinical-Condition, Past-Medical-Event, etc
  </td></tr>
+ <tr><td>position</td><td>
+  Used to match slices based on their index. This is only possible if all but the last slice have a 
+  fixed cardinality where <code>min</code> &gt; 0 and <code>min</code> = <code>max</code>. The 
+  last slice MAY have <code>min</code> != <code>max</code>. 
+  Typical example: slice on Practitioner.name to require that the first name be the usual name for the practitioner, and it must be present
+</td></tr>
 </table>
 
 <p>
