@@ -466,5 +466,25 @@
         <code value="string"/>
       </type>
     </element>
+    <element id="CompartmentDefinition.resource.startParam">
+      <path value="CompartmentDefinition.resource.startParam"/>
+      <short value="Search Param for interpreting $everything.start"/>
+      <definition value="Search Parameter for mapping requests made with $everything.start (e.g. on [Patient.$everything](patient-operation-everything.html))."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="car"/>
+      </type>
+    </element>
+    <element id="CompartmentDefinition.resource.endParam">
+      <path value="CompartmentDefinition.resource.endParam"/>
+      <short value="Search Param for interpreting $everything.end"/>
+      <definition value="Search Parameter for mapping requests made with $everything.end (e.g. on [Patient.$everything](patient-operation-everything.html))."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
   </differential>
 </StructureDefinition>
