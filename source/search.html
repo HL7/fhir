@@ -3981,22 +3981,13 @@ Notes:
  <li>To sort by relevance, use <code>_score</code>.</li>
  <li>The server returns the sort it performs as part of the returned
      search parameters (see <a href="#conformance">below</a>).</li>
- <li>A search parameter can refer to an element that repeats, and therefore
-     there can be multiple values for a given search parameter for a single
-     resource. In this case, the sort is based on the item in the set of
-     multiple parameters that comes earliest in the specified sort order
-     when ordering the returned resources.</li>
-  <li>
-    A search parameter can refer to an element that has sub-elements (e.g.,
-    <code>Patient.name</code>).  In this case, the server SHOULD attempt to honor the
-    <a href="elementdefinition-definitions.html#ElementDefinition.orderMeaning">orderMeaning</a>
-    element, if present.  For example, if no elements of <code>Patient.name</code> have
-    a defined <code>orderMeaning</code>, servers if <code>Patient.name.given</code> has an
-    <code>orderMeaning</code>
-    ....
-    <br />
-    TODO: FHIR-37714 needs review.
-  </li>
+ <li>
+  Servers have discretion on the implementation of sorting for both repeated elements and complex elements. 
+  For example, if requesting a sort on <code>Patient.name</code>, servers might search by family name 
+  then given, given name then family, or prefix, family, and then given. Similarly, when 
+  sorting with multiple given names, the sort might be based on the 'earliest' name in sort order or the 
+  first name in the instance.
+ </li>
   <li>When sorting on string search parameters, sorting SHOULD be performed
      on a case-insensitive basis. Accents may either be ignored or sorted as
      per realm convention.</li>
