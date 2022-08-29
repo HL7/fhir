@@ -426,7 +426,10 @@
             </mapping>
         </element>
         <element id="Consent.policyBasis">
-            <path value="Consent.policyBasis" />
+             <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+                <valueCode value="right" />
+            </extension>
+           <path value="Consent.policyBasis" />
             <short value="Computable version of the backing policy" />
             <definition value="A Reference or URL used to uniquely identify the policy the organization will enforce for this Consent. This Reference or URL should be specific to the version of the policy and should be dereferencable to a computable policy of some form." />
             <min value="0" />
@@ -473,6 +476,9 @@
             <isSummary value="false" />
         </element>  
         <element id="Consent.verification">
+            <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+                <valueCode value="right" />
+            </extension>
             <path value="Consent.verification" />
             <short value="Consent Verified by patient or family" />
             <definition value="Whether a treatment instruction (e.g. artificial respiration: yes or no) was verified with the patient, his/her family or another authorized person." />
@@ -554,7 +560,7 @@
                 <valueString value="provision" />
             </extension>
             <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-                <valueCode value="right" />
+                <valueCode value="down" />
             </extension>
             <path value="Consent.provision" />
             <short value="Constraints to the base Consent.policyRule/Consent.policy" />
@@ -608,7 +614,7 @@
                 <valueString value="provisionActor" />
             </extension>
             <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-                <valueCode value="up" />
+                <valueCode value="down" />
             </extension>
             <path value="Consent.provision.actor" />
             <short value="Who|what controlled by this rule (or group, by role)" />
