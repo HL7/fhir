@@ -940,7 +940,7 @@
     </element>
     <element id="Citation.citedArtifact.relatesTo.type">
       <path value="Citation.citedArtifact.relatesTo.type"/>
-      <short value="documentation | justification | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | cite-as | created-with | documents | reprint | reprint-of | specification-of"/>
+      <short value="documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | documents | specification-of | created-with | cite-as | reprint | reprint-of"/>
       <definition value="The type of relationship to the related artifact."/>
       <min value="1"/>
       <max value="1"/>
