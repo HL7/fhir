@@ -2617,7 +2617,8 @@ A token type is a parameter that provides a close to exact match search on a str
 scoped by a URI. It is mostly used against a code or identifier data type where the value may have a
 URI that scopes its meaning, where the search is performed against the  pair from a Coding or an
 Identifier. Tokens are also used against other fields where exact matches are required - uris,
-booleans, and <a href="datatypes.html#ContactPoint">ContactPoints</a>. In these cases, the URI portion is not used.
+booleans, <a href="datatypes.html#ContactPoint">ContactPoints</a>, and <a href="datatypes.html#id">ids</a>. In these
+cases the URI portion (<code>[system]|</code>) is not used (only the <code>[code]</code> portion).
 </p>
 <p>
 For tokens, matches are literal (e.g. not based on <a href="codesystem.html#subsumption">subsumption</a> or other code system features).
@@ -2652,8 +2653,9 @@ Notes:
  <li>The namespace URI and code both must be <a href="#escaping">escaped</a> correctly.
 If a system is not applicable (e.g. an element of type <a href="datatypes.html#uri">uri</a>,
 then just the form [parameter]=[code] is used.</li>
- <li>For token parameters on elements of type <a href="datatypes.html#ContactPoint">ContactPoint</a>, <a href="datatypes.html#uri">uri</a>,
- or <a href="datatypes.html#boolean">boolean</a>, the presence of the pipe symbol SHALL NOT be used - only the <code>[parameter]=[code]</code> form is allowed</li>
+ <li>For token parameters on elements of type <a href="datatypes.html#id">id</a>, <a href="datatypes.html#ContactPoint">ContactPoint</a>, 
+  <a href="datatypes.html#uri">uri</a>, or <a href="datatypes.html#boolean">boolean</a>, the pipe symbol 
+  SHALL NOT be used - only the <code>[parameter]=[code]</code> form is allowed</li>
 </ul>
 <p>
 Token search parameters are used for the following data types:
