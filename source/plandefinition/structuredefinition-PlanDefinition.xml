@@ -1104,7 +1104,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Canonical"/>
+        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
       </type>
       <mapping>
