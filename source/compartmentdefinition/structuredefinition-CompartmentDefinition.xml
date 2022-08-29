@@ -473,7 +473,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="car"/>
+        <code value="uri"/>
       </type>
     </element>
     <element id="CompartmentDefinition.resource.endParam">
@@ -483,7 +483,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="uri"/>
       </type>
     </element>
   </differential>
