@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-05-23T20:36:08Z</Created>
-  <LastSaved>2022-08-26T07:35:29Z</LastSaved>
+  <LastSaved>2022-08-27T11:27:19Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -485,7 +485,7 @@
   <NamedRange ss:Name="Invariantids" ss:RefersTo="='/Users/grahamegrieve/work/r5/source/terminologies/Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="50" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="51" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s64" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s64" ss:Width="230.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="4" ss:StyleID="s64" ss:Width="219.0"/>
@@ -972,6 +972,13 @@
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">sec</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell><Data ss:Type="String">OperationOutcome</Data></Cell>
+    <Cell><Data ss:Type="String">Operation outcome (see translations.xml)</Data></Cell>
+    <Cell><Data ss:Type="String">special</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">#operation-outcome</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ParticipationRoleType</Data></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">The participation type for an agent </Data></Cell>
@@ -1173,6 +1180,7 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Selected/>
+   <TopRowVisible>10</TopRowVisible>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>

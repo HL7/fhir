@@ -145,10 +145,11 @@ Notes:
    Whether or not the reference is to a FHIR RESTful server, the reference SHALL point to a Resource as defined by this specification.
    <br/>Note that This regex is true if the reference to a resource is consistent with a FHIR API:
    <pre>
-   ((http|https):\/\/([A-Za-z0-9\-\\\.\:\%\$]*\/)+)?([%piperesources%])\/[%id_regex%](\/_history\/[%id_regex%])?
+   ((http|https):\/\/([A-Za-z0-9\-\\\.\:\%\$]*\/)+)?([%piperesources%])\/[%id_regex%](\/_history\/[%id_regex%])?(#[A-Za-z0-9\-\.]{1,64})?
    </pre>
    <br/>
-   However, conformance with this regex is no guarantee that the end-point is a FHIR server
+   Note however, conformance with this regex is no guarantee that the end-point is a FHIR server, and lack 
+   of conformance to this regex does not make a reference non-compliant
    </li>
  <li>URLs are always considered to be case-sensitive</li>
  <li>The URL may contain a reference to a canonical URL (see below) and applications can use the canonical URL resolution methods they support when resolving references, though the <code>|[version]</code> syntax part of the canonical reference is not supported</li>
@@ -331,11 +332,12 @@ Resolving this pipe ('|') syntax is equivalent to using a GET with the version p
   GET fhir/ValueSet?url=http://hl7.org/fhir/ValueSet/my-valueset&amp;version=0.8
 </pre>
 <p>
-Both of these examples specify version <code>0.8</code> of the value set, by <code>ValueSet.version</code>.
-Note that these examples do not specify by <code>ValueSet.meta.versionId</code>.
+Both of these examples specify version <code>0.8</code> of the value set, by <code>ValueSet.version</code>
+(The canonical URL full format is {{CanonicalResource.url}}|{{CanonicalResource.version}}).
+Note that these examples do not relate to <code>ValueSet.meta.versionId</code>.
 </p>
 <p>
-Note that if a Reference to a canonical URL does not have a version, and the server finds multiple
+Note that if a canonical URL reference does not have a version, and the server finds multiple
 versions for the value set, the system using the reference should pick the latest version
 of the target resource and use that. Servers SHOULD support version specific searching for canonical
 URLs by automatically detecting the presence of a |[version] and performing the appropriate
@@ -605,6 +607,11 @@ Some notes about use and interpretation of contained resources:
   <li>Contained resources SHALL NOT contain <code>meta.versionId</code>, <code>meta.lastUpdated</code>, or <code>meta.security</code>.</li>
   <li>Contained resources MAY contain <code>meta.tag</code>, though there are many tags that do not make sense on contained resources.</li>
   <li>A contained resource SHALL only be included in a resource if something in that resource (potentially another contained resource) has a reference to it or if the contained resource references the container resource.</li>
+  <li>Regarding histoy, it's possible to point to a contained resource within a version of the 
+    containing resource (via <code>[type]/[id]/_history/[version]#[containedId]</code>), but it's 
+    not possible to refer to a version of a contained resource (i.e. this is invalid: 
+    <code>[type]/[id]#[containedId]/_history/[version]</code>)</li>
+  <li>When a contained resource references its container or another contained resource within its container, it must always be a local relative reference (i.e. it must be or start with '#').  It's never possible to point to the container or a contained resource within it by absolute or versioned reference</li>
 </ul>
 
 <p>

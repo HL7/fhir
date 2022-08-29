@@ -296,7 +296,6 @@
       <path value="Parameters.parameter.part"/>
       <short value="Named part of a multi-part parameter"/>
       <definition value="A named part of a multi-part parameter."/>
-      <comment value="Only one level of nested parameters is allowed."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#Parameters.parameter"/>

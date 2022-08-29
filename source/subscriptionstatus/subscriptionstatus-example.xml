@@ -11,5 +11,5 @@
   <subscription>
     <reference value="http://example.org/FHIR/R5/Subscription/123"/>
   </subscription>
-  <topic value="http://example.org/FHIR/R4/SubscriptionTopic/admission"/>
+  <topic value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
 </SubscriptionStatus>

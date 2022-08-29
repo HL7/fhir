@@ -13,7 +13,7 @@ signatures.html
        [- example]
       mappings
       -->
-<fhir>
+<fhir> 
   <page title="Home" note="(map + search) - focus on useful links" filename="index.html">
     <!-- indexing content, not owned by any particular module  (e.g. owned by the product director) -->
     <page title="Table of Contents" filename="toc.html" icon="index.png">
@@ -28,6 +28,7 @@ signatures.html
       <page title="Namespace List" filename="ns.html"/>
       <page title="Workgroup List" filename="wglist.html"/>
       <page title="Getting Started" filename="modules.html"/>
+      <!---
       <page title="ANSI Documentation" filename="ansi.html">
         <page title="ANSI FHIR Infrastructure Standard" filename="ansi-infrastructure.html"/>
         <page title="ANSI FHIR Terminology &amp; Conformance Standard" filename="ansi-conformance.html"/>
@@ -35,6 +36,7 @@ signatures.html
         <page title="ANSI FHIR Observation Standard" filename="ansi-observation.html"/>
 
       </page>
+      -->
       <page title="CI Build Search" filename="search-build.html"/>
       <page title="Ballot Introduction" filename="ballot-intro.html"/>
     </page>
@@ -172,7 +174,7 @@ signatures.html
 
     <page title="Terminology" filename="terminology-module.html" icon="terminology.png">
       <page title="Using Codes" filename="terminologies.html"/>
-        <page title="Terminology Binding Examples" filename="terminologies-binding-examples.html"/>
+      <page title="Terminology Binding Examples" filename="terminologies-binding-examples.html"/>
       <page title="Code Systems" filename="terminologies-systems.html">
         <page title="SNOMED CT Usage Report" filename="snomedct-usage.html"/>
         <pages type="codesystem" filename="template-codesystem.html"/>

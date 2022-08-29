@@ -1367,6 +1367,9 @@
 		<translation lang="fr">Impossible de résourdre la référence locale à la ressource %s</translation>
 		<translation lang="ru">Невозможно определить локальную ссылку на ресурс %s</translation>
 	</item>
+	<item id="MSG_REMOTE_FAIL" ecode="true">
+		<translation lang="en">Unable to resolve local reference to resource %s</translation>
+	</item>
 	<item id="MSG_NO_MATCH" ecode="true">
 		<translation lang="en">No Resource found matching the query "%s"</translation>
 		<translation lang="nl">Geen resource gevonden met query "%s"</translation>

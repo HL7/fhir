@@ -127,10 +127,12 @@ must be determined by the content, context, or use case.
 <a name="patterns"></a>
 <h3>Message Exchange Patterns</h3>
 <p>
-Each FHIR request message has one or more response messages. There must be at least
-one response message so that the sender can know that the message was properly
-received. Multiple response messages SHALL NOT be returned for messages of consequence,
-and SHOULD not be returned for notifications.
+Each FHIR request message typically has one or more response messages. 
+The response message(s) inform the sender that the message was properly 
+received. Multiple response messages SHALL NOT be returned for messages of 
+consequence, and SHOULD not be returned for notifications.  
+For some notification scenarios it reasonable to only expect either only an http response, 
+possibly accompanied by an OperationOutcome.
 </p>
 <p>
 In principle, source applications are not required to wait for a response to
@@ -468,7 +470,7 @@ The recipient executes the operation as specified, and then:
 <p>
 Here's an example:
 </p>
-<pre class="xml">
+<pre class="xml" fragment="Bundle">
 &lt;Bundle xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;id value=&quot;urn:uuid:77831928-2a35-4c08-9496-8232323bf48c&quot;/&gt;
   &lt;!-- normal bundle stuff --&gt;

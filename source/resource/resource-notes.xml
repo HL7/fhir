@@ -25,7 +25,7 @@ the same server. Once assigned by the server, the id is never changed.
 <p>
 The location of a resource instance is an absolute URI constructed from the server 
 base address at which the instance is found, the resource type and the Logical ID, such as 
-http://test.fhir.org/rest/Patient/123 (where <code>123</code> is the Logical Id of a <a href="patient.html">Patient</a> resource).  
+<%test-server%>/rest/Patient/123 (where <code>123</code> is the Logical Id of a <a href="patient.html">Patient</a> resource).  
 When the location is an HTTP address, this address can generally be used to retrieve or manipulate the resource. 
 Note that implementations SHOULD NOT assume that the location of a resource is always resolvable 
 to an accessible server - it may be temporarily unavailable, or not available by policy (e.g. firewalls) or in some 
@@ -53,6 +53,24 @@ location anyway, for purposes of consistency, or they might not have an assigned
 id, and they are identified based on other kinds of identifiers. See 
 <a href="bundle.html#references">Resolving references in Bundles</a> for one method 
 of using resources not associated with RESTful servers.
+</p>
+
+<a name="identifier-categories"></a>
+<h4>Identifier Categories</h4>
+<p>
+In general, identifiers are sometimes categorised into one of three 
+categories: Business, informational, and instance.
+</p>
+<ul>
+ <li>a <b>business identifier</b> that uniquely identifies a singleton thing in the real world, e.g. a patient Jane Dupont, a drug Amoxycillin, etc, and if there are records about this thing inside systems, such an id would be one way to search for such record(s)</li>
+ <li>an <b>informational identifier</b> that is guaranteed unique for every informational entity known inside systems, including entities that appear to be not directly related to real world singleton entities (e.g. each med. rec. event on some patient's Rx list), aka things that don't have business identifiers;, aka things that are 'just information'</li>
+ <li>an <b>instance identifier</b>, guaranteed to be unique for any distinguishable instance of each logical informational entity (i.e. doesn't change for exact copies, but does change as soon as changes are made)</li>
+</ul>
+<p>
+In these terms, the <code>logical id</code> is an instance identifier, and all the other 
+identifiers are loosely called "business" identifiers. Note that due to real world practices 
+around IDs, business identifiers are often used to identify things by proxy e.g. identifying 
+multiple different patient records for the same person by the same driver's license number.
 </p>
 
 <a name="identifiers"></a>
