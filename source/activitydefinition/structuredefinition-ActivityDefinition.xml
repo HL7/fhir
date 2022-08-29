@@ -912,6 +912,32 @@
         <map value=".effectiveTime"/>
       </mapping>
     </element>
+    <element id="ActivityDefinition.asNeeded[x]">
+      <path value="ActivityDefinition.asNeeded[x]"/>
+      <short value="Preconditions for service"/>
+      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProcedureAsNeededReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=&quot;Assertion&quot;].value"/>
+      </mapping>
+    </element>
     <element id="ActivityDefinition.location">
       <path value="ActivityDefinition.location"/>
       <short value="Where it should happen"/>
