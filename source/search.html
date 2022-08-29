@@ -4490,8 +4490,8 @@ results for the convenience of the client.
 By default, search results only include resources that are not contained in other resources.
 A chained condition will be evaluated inside contained resources. To illustrate this, consider
 a MedicationRequest resource that has a contained Medication resource specifying
-a custom formulation that has ingredient with a <code>itemCodeableConcept</code> "abc" in "http://acme.com./medications".
-In this case, a search:
+a custom formulation that has ingredient with a <code>itemCodeableConcept</code> "abc" in "http://example.org/medications".
+In this case, the search:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
@@ -4503,7 +4503,7 @@ medication.ingredient-code=abc</span>
 </span>
 </p>
 <p>
-  will include the MedicationRequest resource in the results. However, this search:
+  will include the MedicationRequest resource in the results. However, the search:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
@@ -4513,28 +4513,28 @@ Content-Type: application/x-www-form-urlencoded
 ingredient-code=abc</span>
   </span>
 </span>
-will not include the contained Medication resource in the results, since either the
+will not have the contained Medication resource in the results, since either the
 wrong type of resource would be returned, or the contained resource would be returned
 without its container resource, which provides context to the contained resource.
 </p>
 <p>
-Clients can modify this behavior using the <code>_contained</code> parameter, which
-can have one of the following values:
+Clients can modify the search behavior for contained resources using the <code>_contained</code> 
+parameter, which can have one of the following values:
 </p>
 <ul>
- <li>false (default): Do not return contained resources</li>
- <li>true: return only contained resources</li>
- <li>both: return both contained and non-contained (normal) resources</li>
+ <li><code>false</code> (default): Do not search and return contained resources</li>
+ <li><code>true</code>: search and return only contained resources</li>
+ <li><code>both</code>: search and return both contained and non-contained (normal) resources</li>
 </ul>
 <p>
 When contained resources are being returned, the server
-should return either the container resource, or the contained resource alone. The
+can return either the container resource, or the contained resource alone. The
 client can specify which by using the <code>_containedType</code> parameter, which can have one of the
 following values:
 </p>
 <ul>
- <li>container (default): Return the container resources</li>
- <li>contained: return only the contained resource</li>
+ <li><code>container</code> (default): Return the container resources</li>
+ <li><code>contained</code>: return only the contained resource</li>
 </ul>
 <p>
 When returning a container resource, the server simply puts this in the
