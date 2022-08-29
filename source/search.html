@@ -80,7 +80,6 @@ their implementations.
 	    <li><a href="#mimetype">Searching MIME Types</a></li>
       <li><a href="#chaining">Chaining (chained parameters)</a></li>
       <li><a href="#has">Reverse Chaining</a></li>
-      <li>Composite Search Parameters ****(all data is in type right now...)</li>
       <li><a href="#missing">Handling Missing Data</a></li>
       <li><a href="#filter">Advanced Filtering</a></li>
       <li><a href="#type">Searching Multiple Resource Types</a></li>
@@ -688,6 +687,7 @@ GET [base]/[compartment-type]/[compartment-id]/[resource-type]?param1=value&amp;
 </p>
 
 <a name="multivalue"></a>
+<a name="combining"></a>
 <h4>Searching Multiple Values (joining with AND or OR)</h4>
 <p>
   Multiple search parameters passed to a single search are used to create an intersection of the results.  In other words,
@@ -735,11 +735,12 @@ given=valueGivenA,valueGivenB&amp;family=valueFamily</span>
   "valueGivenB".
 </p>
 <p>
-  Note that there is not a syntax for queries to perform unions on different elements (OR joins).  For example,
+  Note that there is not a syntax to request unions on different elements (OR joins).  For example,
   a client that wants records with either a given OR family name of "valueName".  However, it is possible to 
   define search parameters that operate on multiple elements.  For example, the described use case of searching 
   for a patient by any part of their name has a search parameter on Patient called <code>name</code>, which 
-  matches any part of a name (e.g., <code>name=valueName</code>).
+  matches any part of a name (e.g., <code>name=valueName</code>).  It is also possible to define
+  <a href="#composite">composite search parameters</a>, which allows servers to provide this functionality.
 </p>
 <p>
   If a client wants results based on OR-joins of unrelated elements, or if there is not a combined search 
@@ -2970,47 +2971,46 @@ url=urn:oid:1.2.3.4.5</span>
  
 
  <a name="composite"></a>
- <a name="combining"></a>
  <h4>Composite Search Parameters</h4>
  <p>
- Composite search parameters support joining single values with a <code>$</code>. For example, the result
- of the search operation is the intersection of the resources that match the criteria specified by each
- individual search parameter. If a parameter repeats, such as <code>/Patient?language=FR&amp;language=NL</code>, then
- this matches a patient who speaks both languages. This is known as an AND search parameter, since the
- server is expected to respond only with results which match both values.
+  Composite search parameters are allow joining multiple elements into distinct single values with a <code>$</code>.
+  This is different from doing a simple intersection - the intersection rules apply at the resource level, so,
+  for example, an Observation with multiple <a href="observation-definitions.html#Observation.component">component</a>
+  repetitions may match because one repetition has a desired code and a <em>different</em> repetition matches
+  a value filter.
  </p>
  <p>
- If, instead, the search is to find patients that speak either
- language, then this is a single parameter with multiple values, separated by a <code>,</code>.
- For example, <code>/Patient?language=FR,NL</code>. This is known as an OR search parameter,
- since the server is expected to respond with results which match either value. Every search parameter
- may be used with comma-separated values in this fashion; this includes the use of search parameters
- with modifiers, such as <code>?code:text=this,that</code>.
- </p>
+  The <code>composite</code> parameter approach works in this context because it allows searches based on a tuples of values.  For example:
+  <span class="http-search-example">
+    <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+    <span class="http-verb-display">
+      <span class="http-verb-display-get">GET [base]/Observation?code-value-quantity=code$loinc|12907-2,value$ge150|http://unitsofmeasure.org|mmol/L</span>
+      <span class="http-verb-display-post">POST [base]/Observation/_search
+Content-Type: application/x-www-form-urlencoded
+code-value-quantity=code$loinc|12907-2,value$ge150|http://unitsofmeasure.org|mmol/L</span>
+    </span>
+  </span>
+  will match Observation records with a LOINC code of "12907-2" (Sodium [Moles/volume] in Red Blood Cells) AND a value
+  greater than "150 mmol/L".
+  </p>
+  <p>
+    Note that the sequence is a single value and itself can be composed into a set of values.
+    For example, searching <a href="group-definitions.html#Group.characteristic">Group.characteristic</a>, searching
+    for multiple key/value pairs (instead of an intersection of matches on key and value):
+  <span class="http-search-example">
+    <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+    <span class="http-verb-display">
+      <span class="http-verb-display-get">GET [base]/Group?characteristic-value=gender$mixed,owner$Eve</span>
+      <span class="http-verb-display-post">POST [base]/Group/_search
+Content-Type: application/x-www-form-urlencoded
+characteristic-value=gender$mixed,owner$Eve</span>
+    </span>
+  </span>
+    will match Groups that have a <code>gender</code> characteristic of "mixed" (the group contains people of
+    multiple genders) OR the group has a <code>owner</code> characteristic of "Eve".
+  </p>
  <p>
- AND parameters and OR parameters may also be combined, for example:
- <code>/Patient?language=FR,NL&amp;language=EN</code> would refer to any patient who speaks
- English, as well as either French or Dutch.
- </p>
- <p>
- This approach allows for simple combinations of and/or values, but doesn't allow a search based on
- a pair of values, such as all observations with a sodium value >150 mmol/L (particularly
- as the end criteria of a chained search), or searching on Group.characteristic where you need
- find a combination of key/value, not an intersection of separate matches on key and value.
- Another example is spatial coordinates when doing geographical searches.
- </p>
- <p>
- To allow these searches, a resource may also specify <i>composite</i> parameters
- that take sequences of single values that match other defined parameters as an
- argument. The matching parameter of each component in such a sequence
- is documented in the definition of the parameter. These sequences are formed by
- joining the single values with a <code>$</code>.  Note: This sequence is a single
- value and itself can be composed into a set of values, so that, for example,
- multiple matching characteristic-value parameters can be specified as
- <code>GET [base]/Group?characteristic-value=gender$mixed,owner$Eve</code>.
- </p>
- <p>
- Note: Modifiers are not used on composite parameters.
+ Note that <a href="modifiers">search modifiers</a> are NOT allowed on composite parameters.
  <!--
  Future note: use \p and \m in search values? if we add a double = to parameter value for text, that would get rid
  of <code>:exact</code>.
@@ -3549,7 +3549,6 @@ _has:Observation:patient:_has:AuditEvent:entity:agent=MyUserId</span>
 </span>
 This search will fetch all Patient records that have an Observation where the observation has an audit event from a specific user.
 </p>
-
 <p>
   The <code>_has</code> parameter can also be used in chained-searches, for example:
   <span class="http-search-example">
@@ -3570,9 +3569,6 @@ patient._has:Group:member:_id=102</span>
   to use <a href="#advanced">Named Queries</a> or <a href="#_filter">Advanced filtering</a>.
 </p>
 
-
-
-<h5>Composite Search Parameters... (all data is in types right now)?? TODO(ginoc): add or remove?</h5>
 
 <a name="missing"></a>
 <h4>Handling Missing Data</h4>
@@ -3988,6 +3984,17 @@ Notes:
      resource. In this case, the sort is based on the item in the set of
      multiple parameters that comes earliest in the specified sort order
      when ordering the returned resources.</li>
+  <li>
+    A search parameter can refer to an element that has sub-elements (e.g.,
+    <code>Patient.name</code>).  In this case, the server SHOULD attempt to honor the
+    <a href="elementdefinition-definitions.html#ElementDefinition.orderMeaning">orderMeaning</a>
+    element, if present.  For example, if no elements of <code>Patient.name</code> have
+    a defined <code>orderMeaning</code>, servers if <code>Patient.name.given</code> has an
+    <code>orderMeaning</code>
+    ....
+    <br />
+    TODO: FHIR-37714 needs review.
+  </li>
   <li>When sorting on string search parameters, sorting SHOULD be performed
      on a case-insensitive basis. Accents may either be ignored or sorted as
      per realm convention.</li>
