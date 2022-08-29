@@ -67,7 +67,14 @@ their implementations.
 
   <li><a href="#specialconditions">Special Search Conditions</a>
     <ul>
-      <li><a href="#specialidentifiers">Searching Identifiers</a></li>
+      <li><a href="#specialidentifiers">Searching Identifiers</a>
+        <ul>
+          <li><a href="#identifierslogical">Logical Identifiers</a></li>
+          <li><a href="#membership">Searching by Membership</a></li>
+          <li><a href="#identifierreferences">Identifiers and References</a></li>
+          <li><a href="#identifiercanonical">Canonical Identifiers</a></li>
+        </ul>
+      </li>
       <li><a href="#versions">References and Versions</a></li>
       <li><a href="#recursive">Searching Hierarchies</a></li>
 	    <li><a href="#mimetype">Searching MIME Types</a></li>
@@ -75,7 +82,6 @@ their implementations.
       <li><a href="#has">Reverse Chaining</a></li>
       <li>Composite Search Parameters ****(all data is in type right now...)</li>
       <li><a href="#missing">Handling Missing Data</a></li>
-      <li><a href="#membership">Searching by Membership</a></li>
       <li><a href="#filter">Advanced Filtering</a></li>
       <li><a href="#type">Searching Multiple Resource Types</a></li>
       <li><a href="#implicitresources">Implicit Resources</a></li>
@@ -3072,21 +3078,25 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
 <a name="specialconditions"></a>
 <h3>Special Search Conditions</h3>
 <p>
-  ...
+  In addition to 'basic' searching, this specification defines behaviors for many 'special' cases that 
+  are common across implementations.
 </p>
 
 <a name="specialidentifiers"></a>
 <h4>Searching Identifiers</h4>
 <p>
-  ...
-</p>
-<p>
-  <span class="todo">Need to discuss the nuances of :identifier vs. chained searches, etc.  See <a href="https://jira.hl7.org/browse/FHIR-37424">FHIR-37424</a>
-  and <a href="https://jira.hl7.org/browse/FHIR-29410">FHIR-29410</a>.</span>
+  In FHIR data, there are a few types of identifiers that may apply to a resource: a single 
+  <a href="#identifierslogical">logical identifier</a> (the <code>Resource.id</code> of a resource), 
+  zero or more <a href="datatypes.html#Identifier">Identifier-type</a> elements (e.g., 
+  <a href="patient-definitions.html#Patient.identifier">Patient.Identifier</a>), and, if the resource is
+  a <a href="canonicalresource.html">Canonical Resource</a>, a 
+  <a href="canonicalresource-definitions.html#CanonicalResource.url">canonical url</a>.  Each of these 'identifiers'
+  have a different data type and expose different search functionality.  Some details about each are included
+  below.
 </p>
 
 <a name="identifierslogical"></a>
-<h5>Logical Identifier</h5>
+<h5>Logical Identifiers</h5>
 <p>
   The <a href="resource.html#id">Logical Identifier</a> of a resource represents a unique key for an instance within
   a specific context (e.g., a single resource type in a server collection, a resource in a bundle, etc.).  Searching
@@ -3122,15 +3132,110 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
   </ul>
 </p>
 <p>
-  Since <code>_id</code> requires a resource type 
-  context, and there can only be zero or one resources of a type with a given id, the search is functionally 
-  equivalent to the <a href="http.html#read">simple read operation</a> of <code>GET [base]/Patient/23</code>.
+  Since <code>_id</code> requires a resource type context and there can only be zero or one resources of a type with a given id, 
+  the search is functionally equivalent to the <a href="http.html#read">simple read operation</a> of <code>GET [base]/Patient/23</code>.
+  However, searching by logical identifier means that all other search functionality is available - e.g., <code>OperationOutcome</code>
+  resources for issues, additional search parameters, inclusion of additional resources, etc..
+</p>
+
+<a name="membership"></a>
+<h5>Searching by Membership</h5>
+<p>
+  Some resources (e.g., <a href="group.html">Group</a>, <a href="list.html">List</a>, 
+  and <a href="careteam.html">CareTeam</a>) are used to maintain collections of other resources.
+  For example, a Group of Patients representing a cohort or a List of patient allergies.
+  While it is possible to retrieve the collection resource, iterate over the entries, and fetch each
+  referenced resource, using search criterion allows for fewer round-trips and additional search criteria 
+  to be specified in-line.
+</p>
+<p>
+  There are two standard search parameters defined by this specification to support searching against
+  collection resources:
   <ul>
-    <li>
-      
-    </li>
+    <li><a href="#_in"><code>_in</code></a> to test against active membership, and</li>
+    <li><a href="#_list"><code>_list</code></a> to test against advanced <code>List</code> functionality
+    (e.g., functional list definitions).</li>
   </ul>
 </p>
+
+<a name="identifierreferences"></a>
+<h5>Identifiers and References</h5>
+<p>
+  The <a href="datatypes.html#Identifier">Identifier datatype</a> is typically only used on by a single element in a resource
+  and is typically named <code>identifier</code>.  The element is typically cardinality <code>0..*</code>, meaning that resources
+  may have zero, one, or more identifiers attached to them (e.g., a single patient record with MRNs for several related facilities).
+</p>
+<p>
+  Resources containing identifier elements usually expose a matching search parameter, e.g., <a href="patient.html#search">Patient.identifier</a>
+  or <a href="canonicalresource.html#search">CanonicalResource.identifier</a>.  Given the structure of the identifier type, the 
+  search parameter is a <a href="#token">token</a> type - see the <a href="#token">token search type</a> for details.
+</p>
+<p>
+  It is often useful to search via reference across resource links.  For example, if you have the MRN for a patient and do not know
+  the logical identifier, it is desireable to perform searches like "encounters for the patient with MRN 1234".  There are two ways
+  of searching references by identifier, depending on how data is stored in the system: via <a href="#chaining">chaining</a> or via the 
+  <a href="#modifieridentifier"><code>identifier</code></a> search modifier.
+</p>
+<p>
+  Chaining functions by resolving a resource reference and then searching inside it.  In this case, requesting:
+  <span class="http-search-example">
+    <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+    <span class="http-verb-display">
+      <span class="http-verb-display-get">GET [base]/Encounter?patient.identifier=http://example.org/facilityA|1234</span>
+      <span class="http-verb-display-post">POST [base]/Encounter/_search
+Content-Type: application/x-www-form-urlencoded
+patient.identifier=http://example.org/facilityA|1234</span>
+    </span>
+  </span>
+  will search Encounter resources, following references in the <code>patient</code> search parameter ("the patient present at the encounter"),
+  and testing those Patient resources against the <code>Patient.identifier</code> value of <code>1234</code> in system
+  <code>http://example.org/facilityA</code>.  In short, this search will return all Encounters for Patient records matching "1234"
+  in "facilityA".
+</p>
+<p>
+  This search is flexible, but does require resolving (searching against) Patient resources, even though
+  the request is only for Encounters.  If a system wants to enable searches via identifiers <em>without</em>
+  chaining, the server can include additional information in the <a href="references.html#Reference">Reference data type</a>
+  (in <a href="references-definitions.html#Reference.identifier">Reference.identifier</a>), which is then accessible by
+  the <a href="#modifieridentifier"><code>identifier</code></a> search modifier.  Note that this approach requires
+  additional bookkeeping by the server - if a patient record is modified, e.g., to add an additional identifier, <b>every</b> 
+  resource that reference that patient record would need to be updated.
+</p>
+<p>
+  The <code>identifier</code> modifier functions by testing the <code>Reference.identifier</code> element within resources.
+  In this case, requesting:
+  <span class="http-search-example">
+    <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+    <span class="http-verb-display">
+      <span class="http-verb-display-get">GET [base]/Encounter?patient:identifier=http://example.org/facilityA|1234</span>
+      <span class="http-verb-display-post">POST [base]/Encounter/_search
+Content-Type: application/x-www-form-urlencoded
+patient:identifier=http://example.org/facilityA|1234</span>
+    </span>
+  </span>
+  will search Encounter resources, testing the <code>Encounter.subject.identifier</code> element against the value of <code>1234</code> in system
+  <code>http://example.org/facilityA</code>.  In short, this search will return all Encounters for that have Patient references
+  and include the identifier "1234" from "facilityA".
+</p>
+<p>
+  Note that the difference between the two searches is a single character - the <code>.</code> (period) in the first example
+  represents a chained search and the <code>:</code> (colon) in the second indicates the use of a search modifier.
+</p>
+
+<a name="identifiercanonical"></a>
+<h5>Canonical Identifiers</h5>
+<p>
+  <a href="canonicalresource.html">Canonical Resources</a> are identified by their 
+  <a href="canonicalresource-definitions.html#CanonicalResource.url">url</a> and possibly a version.  Similarly, references
+  to canonical resources are made with the <a href="datatypes.html#canonical">canonical</a> datatype.  More details about
+  canonical references can be found in the <a href="references.html#canonical">Canonical URLs</a> section of the references page.
+</p>
+<p>
+  When searching canonical references, the search type is <a href="#reference">reference</a>, though with an additional syntax
+  for version information.  For more information about version resolution, see the 
+  <a href="#versions">References and Versions</a> section of this page.
+</p>
+
 
 <a name="versions"></a>
 <h4>References and Versions</h4>
@@ -3555,26 +3660,6 @@ comma syntax documented above for composite search parameters.
 <p>
 An alternative approach is to use the <a href="#filter"><code>_filter</code></a> parameter,
 for servers that support this parameter.
-</p>
-
-<a name="membership"></a>
-<h4>Searching by Membership</h4>
-<p>
-  Some resources (e.g., <a href="group.html">Group</a>, <a href="list.html">List</a>, 
-  and <a href="careteam.html">CareTeam</a>) are used to maintain collections of other resources.
-  For example, a Group of Patients representing a cohort or a List of patient allergies.
-  While it is possible to retrieve the collection resource, iterate over the entries, and fetch each
-  referenced resource, using search criterion allows for fewer round-trips and additional search criteria 
-  to be specified in-line.
-</p>
-<p>
-  There are two standard search parameters defined by this specification to support searching against
-  collection resources:
-  <ul>
-    <li><a href="#_in"><code>_in</code></a> to test against active membership, and</li>
-    <li><a href="#_list"><code>_list</code></a> to test against advanced <code>List</code> functionality
-    (e.g., functional list definitions).</li>
-  </ul>
 </p>
 
 <a name="filter"></a>
@@ -4486,7 +4571,7 @@ search results:
     &lt;resource&gt;
       &lt;MedicationRequest&gt;
         &lt;id value=&quot;23&quot;&gt;
-        ....
+        ...
         &lt;contained&gt;
           &lt;Medication&gt;
             &lt;id value=&quot;m1&quot;&gt;
