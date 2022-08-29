@@ -92,7 +92,7 @@ their implementations.
     <ul>
       <li><a href="#sort">Sorting (_sort)</a></li>
       <li><a href="#total">Total number of matching resources (_total)</a></li>
-      <li><a href="#count">Page Count (_count)</a></li>
+      <li><a href="#count">Limiting Page Size (_count)</a></li>
       <li><a href="#summary">Summary (_summary)</a></li>
       <li><a href="#elements">Selecting Elements (_elements)</a></li>
       <li><a href="#score">Relevance (_score)</a></li>
@@ -4039,7 +4039,7 @@ parameter: it is just an optimization hint, that might possibly save the server 
 
 <a name="count"></a>
 <a name="_count"></a>
-<h4>Page Count (_count)</h4>
+<h4>Limiting Page Size (_count)</h4>
 <p>
 In order to keep the load on clients, servers and the network
 minimized, the server may choose to return the results in
@@ -4060,9 +4060,9 @@ regarding how many resources should be returned in a
 single page. Servers SHALL NOT return more resources in a single page than requested,
 even if they don't support paging, but may return less than the client requested.
 NOTE: This means that all servers that support search or history SHALL support
-checking the _count parameter. The server should repeat
-the original <code>_count</code> parameter in its returned page links so that
-subsequent paging requests honor the original <code>_count</code>.  Note:
+checking the _count parameter. The server SHOULD ensure that any pages reachable via 
+links (e.g. previous/next) respect the the original requested
+<code>_count</code> expectations (or a server-overridden max page size).  Note:
 It is at the discretion of the search engine as to how to
 handle ongoing updates to the resources while the search
 is proceeding.
