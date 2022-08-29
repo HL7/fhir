@@ -4488,9 +4488,12 @@ results for the convenience of the client.
 <h5>Contained Resources (_contained)</h5>
 <p>
 By default, search results only include resources that are not contained in other resources.
-A chained condition will be evaluated inside contained resources. To illustrate this, consider
-a MedicationRequest resource that has a contained Medication resource specifying
-a custom formulation that has ingredient with a <code>itemCodeableConcept</code> "abc" in "http://example.org/medications".
+However, chained parameters will be evaluated inside contained resources. To illustrate this, consider
+a <a href="medicationrequest.html">MedicationRequest</a> resource (id: <code>MedicationRequest/23</code>) 
+that has a contained Medication resource specifying a custom formulation that has ingredient with an 
+<code>itemCodeableConcept</code> "abc" in "http://example.org/medications" (id: <code>Medication/m1</code>).
+</p>
+<p>
 In this case, the search:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
@@ -4503,7 +4506,11 @@ medication.ingredient-code=abc</span>
 </span>
 </p>
 <p>
-  will include the MedicationRequest resource in the results. However, the search:
+  will include <code>MedicationRequest/23</code> in the results as a match.  The search chained into the 
+  contained resource and met the search criteria.
+</p>
+<p>
+  However, the search:
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
@@ -4513,9 +4520,11 @@ Content-Type: application/x-www-form-urlencoded
 ingredient-code=abc</span>
   </span>
 </span>
-will not have the contained Medication resource in the results, since either the
-wrong type of resource would be returned, or the contained resource would be returned
-without its container resource, which provides context to the contained resource.
+will not find <code>Medication/m1</code> - the medication is a contained resource
+within a MedicationRequest and not subject to search.  This is because either the
+wrong type of resource would be returned (the MedicationRequest containing the Medication), 
+or the contained resource would be returned without its container resource (just the Medication),
+which would be missing the required context provided by the container resource.
 </p>
 <p>
 Clients can modify the search behavior for contained resources using the <code>_contained</code> 
@@ -4536,9 +4545,77 @@ following values:
  <li><code>container</code> (default): Return the container resources</li>
  <li><code>contained</code>: return only the contained resource</li>
 </ul>
+
 <p>
-When returning a container resource, the server simply puts this in the
-search results:
+  To return just the contained Medication (<code>Medication/m1</code>), the following search
+  could be used:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Medication?ingredient-code=abc&amp;_contained=true&amp;_containedType=contained</span>
+    <span class="http-verb-display-post">POST [base]/Medication/_search
+Content-Type: application/x-www-form-urlencoded
+ingredient-code=abc&amp;_contained=true&amp;_containedType=contained</span>
+  </span>
+</span>
+  This search would return a result bundle with the contained <code>Medication</code> records.  Note
+  that the <code>fullUrl</code> of the entry points to the containing resource first and includes the
+  required resolution for the contained resource:
+<span class="fhir-example">
+  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
+  <span class="example-format-display">
+    <span class="example-format-display-json">
+{
+  "resourceType": "Bundle",
+  ...
+  "entry": [{
+    "fullUrl": "http://example.com/fhir/MedicationRequest/23#m1",
+    "resource": {
+      "resourceType": "Medication",
+      "id": "m1",
+      ...
+    },
+    "search": {
+      "mode": "match"
+    }
+  }]
+}
+    </span>
+    <span class="example-format-display-xml">
+&lt;Bundle&gt;
+  ...
+  &lt;entry&gt;
+    &lt;fullUrl value="http://example.com/fhir/MedicationRequest/23#m1"/&gt;
+    &lt;resource&gt;
+      &lt;Medication&gt;
+        &lt;id value=&quot;m1&quot;&gt;
+        ...
+      &lt;/Medication&gt;
+    &lt;/resource&gt;
+    &lt;search&gt;
+      &lt;mode value=&quot;match&quot;/&gt;
+    &lt;/search&gt;
+  &lt;/entry&gt;
+&lt;/Bundle&gt;
+    </span>
+  </span>
+</span>
+</p>
+
+<p>
+  Similarly, the search could be performed to return the MedicationRequests containing the Medication records:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Medication?ingredient-code=abc&amp;_contained=true&amp;_containedType=container</span>
+    <span class="http-verb-display-post">POST [base]/Medication/_search
+Content-Type: application/x-www-form-urlencoded
+ingredient-code=abc&amp;_contained=true&amp;_containedType=container</span>
+  </span>
+</span>
+  This search would return a result bundle with the container <code>MedicationRequest</code> records and the
+  relevant contained resources.  Note that even though the request was for <code>Medication</code> resources,
+  the container <code>MedicationRequest</code> entries are categorized with the <code>mode</code> of <code>match</code>:
 <span class="fhir-example">
   <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
   <span class="example-format-display">
@@ -4590,59 +4667,6 @@ search results:
   </span>
 </span>
 </p>
-<p>
-In the case of returning container resources, the server SHALL populate the entry.search.mode
-element, as shown, so that the client can pick apart matches and includes (since the usual approach of doing it
-by type might not work).
-</p>
-<p>
-If the return type is the contained resource, this must be done slightly
-differently:
-<span class="fhir-example">
-  <span class="example-format-selector">Show as: <a href="#json">FHIR+JSON</a> | <a href="#xml">FHIR+XML</a></span>
-  <span class="example-format-display">
-    <span class="example-format-display-json">
-{
-  "resourceType": "Bundle",
-  ...
-  "entry": [{
-    "fullUrl": "http://example.com/fhir/MedicationRequest/23#m1",
-    "resource": {
-      "resourceType": "Medication",
-      "id": "m1",
-      ...
-    },
-    "search": {
-      "mode": "match"
-    }
-  }]
-}
-    </span>
-    <span class="example-format-display-xml">
-&lt;Bundle&gt;
-  ...
-  &lt;entry&gt;
-    &lt;fullUrl value="http://example.com/fhir/MedicationRequest/23#m1"/&gt;
-    &lt;resource&gt;
-      &lt;Medication&gt;
-        &lt;id value=&quot;m1&quot;&gt;
-        ...
-      &lt;/Medication&gt;
-    &lt;/resource&gt;
-    &lt;search&gt;
-      &lt;mode value=&quot;match&quot;/&gt;
-    &lt;/search&gt;
-  &lt;/entry&gt;
-&lt;/Bundle&gt;
-    </span>
-  </span>
-</span>
-</p>
-<p>
-In this case, the fullUrl informs the client that this is a contained resource,
-along with indicating the identity of the containing resource.
-</p>
-
 
 <a name="Paging"></a>
 <h5>Paging and Other Resources</h5>
