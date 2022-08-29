@@ -992,6 +992,21 @@
         <map value=".role.classCode"/>
       </mapping>
     </element>
+    <element id="ActivityDefinition.participant.typeCanonical">
+      <path value="ActivityDefinition.participant.typeCanonical"/>
+      <short value="Who or what can participate"/>
+      <definition value="The type of participant in the action."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role.classCode"/>
+      </mapping>
+    </element>
     <element id="ActivityDefinition.participant.typeReference">
       <path value="ActivityDefinition.participant.typeReference"/>
       <short value="Who or what can participate"/>
@@ -1004,6 +1019,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
