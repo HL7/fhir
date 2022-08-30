@@ -8,6 +8,7 @@ pr:
 variables:
 - group: ZULIP_VAR_GROUP
 - group: SSH_UPLOAD
+- ci_branch_directory: replace($(SYSTEM_PULLREQUEST_SOURCEBRANCH), '/', '_')
 
 jobs:
 - job: setupEnvironment
@@ -36,14 +37,13 @@ jobs:
 - job: buildAndPublishSpecification
   dependsOn: setupEnvironment
   steps:
-  # This task creates the TARGET_DIRECTORY variable for re-use in caching and
+  # This task reports the CI_TARGET_DIRECTORY variable for re-use in caching and
   # directory naming.
   - task: Bash@3
     inputs:
       targetType: 'inline'
       script: |    
-        TARGET_DIRECTORY=$(echo "$(System.PullRequest.SourceBranch)" | sed -r 's/\//_/g')
-        echo "Created target directory $TARGET_DIRECTORY"
+        echo "Created target directory $(CI_BRANCH_DIRECTORY)"
 
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Cache@2
