@@ -749,6 +749,7 @@
       <path value="CapabilityStatement.implementationGuide"/>
       <short value="Implementation guides supported"/>
       <definition value="A list of implementation guides that the server does (or should) support in their entirety."/>
+      <comment value="Note: this is primarily only relevant in terms of ImplementationGuides that don't define specific CapabilityStatements declaring the expectation of distinct roles.  (E.g. generic IGs that establish privacy policies.)  If CapabilityStatements are defined by the IG, then it is better to use CapabilityStatement.instantiates to identify the specific role(s) supported."/>
       <min value="0"/>
       <max value="*"/>
       <type>
