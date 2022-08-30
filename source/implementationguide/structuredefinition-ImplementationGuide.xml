@@ -648,16 +648,23 @@
 				<code value="markdown"/>
 			</type>
 		</element>
-		<element id="ImplementationGuide.definition.resource.example[x]">
-			<path value="ImplementationGuide.definition.resource.example[x]"/>
-			<short value="Is an example/What is this an example of?"/>
-			<definition value="If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile."/>
-			<comment value="Examples: &#xA;&#xA;* StructureDefinition -&gt; Any &#xA;* ValueSet -&gt; expansion &#xA;* OperationDefinition -&gt; Parameters &#xA;* Questionnaire -&gt; QuestionnaireResponse."/>
+		<element id="ImplementationGuide.definition.resource.isExample">
+			<path value="ImplementationGuide.definition.resource.isExample"/>
+			<short value="Is this an example"/>
+			<definition value="If true, indicates the resource is an example instance."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="boolean"/>
 			</type>
+		</element>
+		<element id="ImplementationGuide.definition.resource.profile">
+			<path value="ImplementationGuide.definition.resource.profile"/>
+			<short value="Profile(s) this is an example of"/>
+			<definition value="If present, indicates profile(s) the instance is valid against."/>
+			<comment value="Examples: &#xA;&#xA;* StructureDefinition -&gt; Any &#xA;* ValueSet -&gt; expansion &#xA;* OperationDefinition -&gt; Parameters &#xA;* Questionnaire -&gt; QuestionnaireResponse."/>
+			<min value="0"/>
+			<max value="*"/>
 			<type>
 				<code value="canonical"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
@@ -688,12 +695,12 @@
 				<code value="BackboneElement"/>
 			</type>
 			<constraint>
-        <key value="ig-3"/>
-        <severity value="error"/>
-        <human value="Source must be absent if 'generated' is generated"/>
-        <expression value="generated='generated' implies source.empty()"/>
-        <xpath value="not(f:generated/@value='generated') or not(exists(f:source))"/>
-      </constraint>
+				<key value="ig-3"/>
+				<severity value="error"/>
+				<human value="Source must be absent if 'generated' is generated"/>
+				<expression value="generated='generated' implies source.empty()"/>
+				<xpath value="not(f:generated/@value='generated') or not(exists(f:source))"/>
+			</constraint>
 		</element>
 		<element id="ImplementationGuide.definition.page.source[x]">
 			<path value="ImplementationGuide.definition.page.source[x]"/>
