@@ -9,7 +9,7 @@ A domain resource is a resource that:
 </p>
 <ul>
  <li>has a human-readable XHTML representation of the content of the resource (see <a href="narrative.html">Human Narrative in resources</a>)</li>
- <li>can contain additional related resources inside the resource (<p>&lt;li&gt;can contain additional related resources inside the resource (see <a href="contained">Using Contained Resources</a> below and <a href="references.html#contained">Contained Resources</a>)</li>
+ <li>can contain additional related resources inside the resource (see <a href="contained">Using Contained Resources</a> below and <a href="references.html#contained">Contained Resources</a>)</li>
  <li>can have additional extensions and modifierExtensions as well as the defined data (See <a href="extensibility.html">Extensibility</a>)</li>
 </ul>
 
