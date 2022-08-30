@@ -9,7 +9,7 @@ that may be used on the RESTful API to search or filter on a resource.
 The SearchParameter resource declares:
 </p>
 <ul>
- <li>how to refer to the search parameter from a client</li>
+ <li>how to typically refer to the search parameter from a client (<a href="searchparameter-definitions.html#SearchParameter.code">SearchParameter.code</a>)</li>
  <li>how the search parameter is to be understood by the server</li>
  <li>where in the source resource the parameter matches</li>
 </ul>

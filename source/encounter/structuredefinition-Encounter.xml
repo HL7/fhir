@@ -85,7 +85,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="Encounter[@moodCode=&#39;EVN&#39;]"/>
+        <map value="PatientEncounter[@moodCode=&#39;EVN&#39;]"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -450,7 +450,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubjectStatus"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="Current status of the subject  within the encounter."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-subject-status"/>
       </binding>
@@ -579,6 +579,13 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="enc-1"/>
+        <severity value="error"/>
+        <human value="A type must be provided when no explicit actor is specified"/>
+        <expression value="actor.exists() or type.exists()"/>
+        <xpath value="'true' // going to be deleted anyway"/>
+      </constraint>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -647,7 +654,7 @@
       <path value="Encounter.participant.actor"/>
       <short value="The individual, device, or service participating in the encounter"/>
       <definition value="Person involved in the encounter, the patient/group is also included here to indicate that the patient was actually participating in the encounter. Not including the patient here covers use cases such as a case meeting between practitioners about a patient - non contact times."/>
-      <comment value="For planning purposes, Appointments may include a CareTeam participant to indicate that one specific person from the CareTeam will be assigned, but that assignment might not happen until the Encounter begins. Hence CareTeam is not included in Encounter.participant, as the specific individual should be assigned and represented as a Practitioner or other person resource.&#xD;&#xD;Similarly, Location can be included in Appointment.participant to assist with planning.  However, the patient location is tracked on the Encounter in the Encounter.location property to allow for additional metadata and history to be recorded."/>
+      <comment value="For planning purposes, Appointments may include a CareTeam participant to indicate that one specific person from the CareTeam will be assigned, but that assignment might not happen until the Encounter begins. Hence CareTeam is not included in Encounter.participant, as the specific individual should be assigned and represented as a Practitioner or other person resource.&#xD;&#xD;Similarly, Location can be included in Appointment.participant to assist with planning.  However, the patient location is tracked on the Encounter in the Encounter.location property to allow for additional metadata and history to be recorded.&#xD;&#xD;The role of the participant can be used to declare what the actor will be doing in the scope of this encounter participation.&#xD;&#xD;If the individual is not specified during planning, then it is expected that the individual will be filled in at a later stage prior to the encounter commencing."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -700,6 +707,20 @@
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=FLFS].target[classCode=ENC, moodCode=APT]"/>
+      </mapping>
+    </element>
+    <element id="Encounter.virtualService">
+      <path value="Encounter.virtualService"/>
+      <short value="Connection details of a virtual service (e.g. conference call)"/>
+      <comment value="There are two types of virtual meetings that often exist:&#xD;&#xD;* a persistent, virtual meeting room that can only be used for a single purpose at a time, &#xD;* and a dynamic virtual meeting room that is generated on demand for a specific purpose.&#xD;&#xD;Implementers may consider using Location.virtualService for persistent meeting rooms.&#xD;&#xD;If each participant would have a different meeting link, an extension using the VirtualServiceContactDetail  can be applied to the Encounter.participant BackboneElement."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="VirtualServiceDetail"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
       </mapping>
     </element>
     <element id="Encounter.actualPeriod">
@@ -784,7 +805,6 @@
       <path value="Encounter.reason"/>
       <short value="Reason the encounter takes place (core or reference)"/>
       <definition value="Reason the encounter takes place, expressed as a code or a reference to another resource. For admissions, this can be used for a coded admission diagnosis."/>
-      <comment value="For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis)."/>
       <alias value="Indication"/>
       <alias value="Admission diagnosis"/>
       <min value="0"/>
@@ -848,7 +868,6 @@
       <path value="Encounter.diagnosis.condition"/>
       <short value="The diagnosis or procedure relevant to the encounter"/>
       <definition value="Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure."/>
-      <comment value="For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis)."/>
       <alias value="Admission diagnosis"/>
       <alias value="discharge diagnosis"/>
       <alias value="indication"/>
@@ -898,6 +917,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/diagnosis-role"/>
       </binding>
       <mapping>
+        <identity value="v2"/>
+        <map value="DG1-6 (Diagnosis Type)"/>
+      </mapping>
+      <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
       </mapping>
@@ -911,6 +934,10 @@
       <type>
         <code value="positiveInt"/>
       </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="DG1-15 (Diagnosis Priority)"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=RSON].priority"/>

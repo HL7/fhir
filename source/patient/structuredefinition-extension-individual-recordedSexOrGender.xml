@@ -83,7 +83,7 @@
 			<valueString value="recordedSexOrGender"/>
 		  </extension>
 		  <strength value="example"/>
-		  <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|5.0.0"/>
+		  <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
 	  </binding>
     </element>	
 	<element id="Extension.extension:internationalEquivalent">
@@ -307,6 +307,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+	  <binding>
+		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+			<valueString value="Jurisdiction ValueSet"/>
+		  </extension>
+		  <strength value="extensible"/>
+		  <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+	  </binding>
     </element>
     <element id="Extension.extension:comment">
       <path value="Extension.extension"/>

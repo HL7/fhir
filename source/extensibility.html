@@ -55,20 +55,23 @@ that must be met as part of their use and definition.
 <a name="extension"></a>
 <h2>Extension Element</h2>
 <p>
-Every element in a resource or data type includes an optional "extension" child element that may
-be present any number of times. This is the content model of the extension as it appears in each resource:
+Every resource or data type element may includes one or more "extension" child elements. The extension is either <i>simple</i> or <i>complex</i>. Simple extensions have only a value and no nested extensions. Complex extensions contain one or more nested extensions and no value. An extension can not have both a value and nested extensions.
 </p>
+<p>The Extension definition is shown below:</p>
 <%dt Extension 1%>
 <p>
 Notes:
 </p>
 <ul>
  <li>The <code>url</code> is a mandatory attribute / property and identifies a retrievable <a href="defining-extensions.html">extension definition</a> that defines the content and meaning of the extension</li>
+ <li>Extensions are not allowed on <code>Extension.url</code> or on <code>Element.id</code>; see <a href="elementdefinition-definitions.html#ElementDefinition.representation">ElementDefinition.representation</a> for background</li>
  <li>The <code>url</code> SHALL be a URL, not a URN (e.g. not an OID or a UUID), and it SHALL be the canonical URL of a StructureDefinition that defines the extension. Except for child extensions defined within complex extensions, the URL SHALL be an absolute URL. </li>
  <li>The structure definitions for the extension SHOULD be available to consumers of an instance.  The preferred mechanisms for achieving this availability are the direct resolvability of the extension's canonical URL and/or the publishing of the extension definition on a registry that is available and known to those systems that will be consuming the instances containing the extension</li>
  <li>An extension SHALL have either a value (i.e. a value[x] element) or sub-extensions, but not both. If present, the value[x] element SHALL have content (value attribute or other elements)</li>
- <li>If it is not safe for an application processing the content of the resource to ignore the extension it SHALL be represented using a <a href="#isModifier">Modifier Extension</a> rather than an <code>extension</code> element</li>
+ <li>If it is not safe for an application processing the content of the resource to ignore the extension it SHALL be represented using a <a href="#isModifier">Modifier Extension</a> rather than an <code>extension</code> element. 'Not safe' means that the extension causes information in other elements within the resource to be interpretted in a way that is not consistent with their base definition. See examples <a href="#modifierExtension">below</a>.</li>
  <li>There are a few resources (ones that do not specialize <a href="domainresource.html">DomainResource</a>) where extensions are not allowed on the root element, but extensions can appear elsewhere through the resource</li>
+ <li>If the meaning of an extension is clearly defined by a code, that code SHOULD be declared on the extension's root code 
+  (<code>StructureDefinition.differential.element[0].code</code>)</li>
  <li>The <i>value[x]</i> element has an actual name of "value" and then the TitleCased name of one of these defined types, and its contents are those as defined for that type: <a name="list"> </a>
   <ul class="dense">
    [%extension-type-list%]
@@ -260,6 +263,31 @@ by a fake organization, and not appropriate for re-use by implementers.
 </p>
 </div>
 
+<a name="primitives"></a>
+<h3>Extensions on Primitive Data Types</h3>
+
+<p>
+Primitive data types can carry extensions. The extensions may appear in place of the value of the primitive data type. 
+The <a href="xml.html#primitive">XML</a> and <a href="json.html#primitive">JSON</a> pages describe how this 
+looks like in those respective formats.
+Implementers should be aware that a mandatory primitive data type (i.e. mininum cardinality=1) may
+be present with extensions but no value. Type use case are extensions such as 
+<a href="extension-data-absent-reason.html">DataAbsentReason</a>,
+<a href="extension-iso21090-nullflavor.html">nullFlavor</a> and
+<a href="extension-cqf-expression.html">expression</a>.
+</p>
+<p>
+However, the use of an extension such as <a href="extension-data-absent-reason.html">DataAbsentReason</a> 
+cannot be used to bypass a required binding requirements.
+</p>
+<p>
+Note that this restriction also applies to extensible bindings on Coding and CodeableConcept data types.
+The use of an extension such as <a href="extension-data-absent-reason.html">DataAbsentReason</a> 
+cannot be used to bypass a required or extensible binding requirements.  For example, if a value set includes
+the concept of "unknown", then a <a href="extension-data-absent-reason.html">DataAbsentReason</a>  of "unknown" 
+cannot be sent without sending a Coding with the "unknown" concept.  
+(In which case also sending an 'unknown' code would be inappropriate and unnecessary.)
+</p>
 <a name="mustUnderstand"></a>
 <a name="isModifier"></a>
 <a name="modifierExtension"></a>
@@ -289,7 +317,7 @@ the use of resources, so this specification creates a framework for handling suc
 Implementers who are introducing an extension and are uncertain whether the extension should be marked as a modifier are encouraged to raise the question on <a href="http://chat.fhir.org">chat.fhir.org</a>.
 </p>
 <p>
-This specification allows for such modifier elements to be included at the base of a resource or in any elements
+This specification allows for such modifier elements to be included at the base of a domain resource, in any elements
 that do not have a data type (e.g. the elements that correspond to classes in the resource UML
 diagrams), and on a <a href="datatypes.html#modifiers">few specially selected data types</a>. 
 Other data types and elements inside data types SHALL NOT have modifier extensions, 
@@ -306,7 +334,12 @@ because the impact of the modifier element is expected to be known by applicatio
 Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
 Is-modifier elements not defined as part of an extension's definition cannot be conveyed.
 </p>
-
+<p>
+When defining a new modifier extension, it is designated as being a 'modifier' rather than a 
+'regular' extension by setting the <a href="elementdefinition-definitions.html#ElementDefinition.isModifier">isModifier</a> element on the root 'element' for the 
+<code>StructureDefinition</code> to 'true'. Only extensions that are defined as being 
+modifiers can appear in modifierExtension. A regular extension cannot be 'constrained' to be a modifier.
+</p>
 <p>
 In XML, these modifier elements are represented using an element named <code>modifierExtension</code>, which has same content as the
 <code>extension</code> element documented above:
@@ -358,9 +391,8 @@ things:
  <li>carry a warning concerning the data along with any action or output that results from processing the data to inform users that it has not fully understood the source information</li>
 </ol>
 <a name="processing"> </a>
-
 <p>
-Processing the data of a resource typically means
+For the purpose of this page, processing the data of a resource is taken to mean
 copying or filtering data out of a resource for use in another
 context (display to a human, decision support, exchange in another
 format where not all information is included, or storing it for this kind of use).
@@ -386,11 +418,20 @@ Applications might also be able to ignore a modifier extension if they know
 that it is safe to do so in their own context, though this would not usually be the case.
 </p>
 <p>
-Implementations SHALL ensure that they do not process data containing unrecognized modifier 
-extensions. Note that implementations might be able to be sure, due to their
-implementation environment (e.g. specific trading partner agreement),
-that modifier extensions will never occur, and can therefore meet
-the requirement to check for modifiers at the design stage.
+  Implementations SHALL ensure that they do not process data containing unrecognized modifier 
+  extensions.
+  Where a modifier appears on a child element within the resource rather than 
+on the resource as a whole, the system can choose to process the resource 
+but exclude the element containing the modifier from processing. 
+i.e. treat the element with the modifier as if it were missing. This approach 
+can only work if the processing can safely function with incomplete data. 
+Caution needs to be taken if doing this for elements that have a 'meaning if missing'.  
+</p>
+<p>
+  Note that implementations might be able to be sure, due to their
+  implementation environment (e.g. specific trading partner agreement),
+  that modifier extensions will never occur, and can therefore meet
+  the requirement to check for modifiers at the design stage.
 However, since integration and deployment options often change, 
 applications SHOULD always check for modifier extensions when
 processing resources.
@@ -409,6 +450,16 @@ information, so it is safe to show this to the user as an expression
 of the resource's content. A warning dialog box could be extended to
 offer the user the choice to see the original narrative.
 </p>
+<p>
+  An application only needs to concern itself with modifier extensions on elements that
+  it processes. Take, for example, a case where a procedure resource
+  has a modifier extension on one of the <code>performer</code> elements indicating that they did
+  not participate in the procedure. If an application is not using the performer details at all,
+  the fact that one of the performers has a modifier extension is irrelevant and the
+  application is free to ignore it. If the application does process the performers, and it sees the
+  modifier extension, it must act in one of the ways outlined above.
+</p>
+  
 <div class="example">
 <p>
 Here is the prescription example from above with narrative:
@@ -430,15 +481,6 @@ Here is the prescription example from above with narrative:
 &lt;/MedicationRequest&gt;
 </pre>
 </div>
-<p>
-An application only needs to concern itself with modifier extensions on elements that
-it processes. Take, for example, a case where a procedure resource
-has a modifier extension on one of the <code>performer</code> elements indicating that they did
-not participate in the procedure. If an application is not using the performer details at all,
-the fact that one of the performers has a modifier extension is irrelevant and the
-application is free to ignore it. If the application does process the performers, and it sees the
-modifier extension, it must act in one of the ways outlined above.
-</p>
 
 <p>
 <a href="implementationguide.html">Implementation Guides</a> might place limitations on the appearance 
@@ -452,7 +494,7 @@ of modifier extensions within instances that comply with the implementation guid
  <li>A Modifier Extension SHALL only modify the element which contains it and/or that element's children</li>
  <li>It SHALL always be safe to show the narrative to humans; any modifier extension SHALL be represented in the narrative</li>
  <li>Applications SHALL always ensure unrecognized modifier extensions are not present when processing the data from any element that might have carry modifier extensions</li>
- <li>If a Modifier Extension that an application does not understand is present, the application SHALL refuse to process the resource or affected element, or SHALL provide an appropriate warning to its users</li>
+ <li>If a Modifier Extension that an application does not understand is present at the root of a resource or on an element, the application SHALL refuse to <a href="#processing">process the data of</a> the resource/affected element, or SHALL provide an appropriate warning to its users</li>
 </ul>
 
 <a name="Special-Case"></a>
@@ -523,8 +565,9 @@ of these situations easier, but it cannot resolve them.
 modified element and its descendants, because it cannot know whether the modifications it has made
 might invalidate the value of the unknown extension</li>
  <li>Systems that drop existing elements are considered to be "<a href="#processing">processing the containing element</a>"</li>
- <li>A system SHALL NOT modify a resource or element that contains "modifier" extensions it doesn't understand</li>
- <li>Applications SHOULD ignore extensions that they do not recognize if they are not "modifier" extensions</li>
+ <li>A system SHALL NOT modify a resource or element if the resource as a whole or the element being modified within the resource has child "modifier" extensions it doesn't understand or is a descendant of an element that contains such modifier extensions</li>
+ <li>Applications SHOULD NOT reject instances containing extensions that are not "modifier" extensions if they do not recognize them. Instead, they SHOULD preserve unrecognized non-modifier extensions when processing the resource. If
+preservation is not possible, they SHOULD ignore them.</li>
 </ul>
 <p>
 The degree to which a system can retain unknown extensions is a function of the type of system

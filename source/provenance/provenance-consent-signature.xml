@@ -5,7 +5,7 @@
 <Provenance xmlns="http://hl7.org/fhir"> 
   <id value="consent-signature"/>
   <target>
-    <reference value="Consent/consent-example"/>
+    <reference value="Consent/consent-example-basic"/>
   </target>
  
   <!-- the provenance is recorded at the same time as 

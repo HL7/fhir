@@ -21,7 +21,7 @@
     <valueCode value="ii"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value="Imaging Study state is managed in PACS."/>
+    <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
   <version value="5.0.0"/>
@@ -75,9 +75,6 @@
   <derivation value="specialization"/>
   <differential>
     <element id="ImagingStudy">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,0"/>
-      </extension>
       <path value="ImagingStudy"/>
       <short value="A set of images produced in single study (one or more series of references images)"/>
       <definition value="Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities."/>
@@ -605,9 +602,9 @@
       </mapping>
     </element>
     <element id="ImagingStudy.series">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="380,50"/>
-      </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+            <valueCode value="right" />
+        </extension>
       <path value="ImagingStudy.series"/>
       <short value="Each study has one or more series of instances"/>
       <definition value="Each study has one or more series of images or other content."/>
@@ -867,6 +864,9 @@
       </mapping>
     </element>
     <element id="ImagingStudy.series.performer">
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+            <valueCode value="down" />
+        </extension>
       <path value="ImagingStudy.series.performer"/>
       <short value="Who performed the series"/>
       <definition value="Indicates who or what performed the series and how they were involved."/>
@@ -949,9 +949,9 @@
       </mapping>
     </element>
     <element id="ImagingStudy.series.instance">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="680,70"/>
-      </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+            <valueCode value="right" />
+        </extension>
       <path value="ImagingStudy.series.instance"/>
       <short value="A single SOP instance from the series"/>
       <definition value="A single SOP instance within the series, e.g. an image, or presentation state."/>

@@ -89,8 +89,8 @@
     </element>
     <element id="MessageHeader.event[x]">
       <path value="MessageHeader.event[x]"/>
-      <short value="Code for the event this message represents or link to event definition"/>
-      <definition value="Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value &quot;http://terminology.hl7.org/CodeSystem/message-events&quot;.  Alternatively uri to the EventDefinition."/>
+      <short value="Event code or link to EventDefinition"/>
+      <definition value="Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value &quot;http://terminology.hl7.org/CodeSystem/message-events&quot;.  Alternatively a canonical uri to the EventDefinition."/>
       <comment value="The time of the event will be found in the focus resource. The time of the message will be found in [Bundle.timestamp](bundle-definitions.html#Bundle.timestamp)."/>
       <requirements value="Drives the behavior associated with this message."/>
       <min value="1"/>
@@ -99,7 +99,8 @@
         <code value="Coding"/>
       </type>
       <type>
-        <code value="uri"/>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EventDefinition"/>
       </type>
       <isSummary value="true"/>
       <binding>

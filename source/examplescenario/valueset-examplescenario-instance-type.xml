@@ -31,7 +31,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <import value="http://hl7.org/fhir/ValueSet/resource-types"/>
     </include>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v2-0354"/>

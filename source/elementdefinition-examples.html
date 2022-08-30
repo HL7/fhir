@@ -16,9 +16,210 @@
 <h2>Element Definition Examples</h2>
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
+<a name="pattern-examples"></a>
+<h3>Pattern Examples</h3>
 <p>
-For ElementDefinition examples, see the extensive <a href="structuredefinition-examples.html">StructureDefinition example list</a>.
+  An element definition can provide a pattern that partially constrains
+  the value domain of the element that it describes. This is effectively 
+  constraint by example. This section provides examples for some uses 
+  of pattern. For other ElementDefinition examples, see the extensive 
+  <a href="structuredefinition-examples.html">StructureDefinition example list</a>.
 </p>
+  
+<a name="pattern-primitive"></a>
+<h4>Primitive Types</h4>
+<p>
+These examples show how a pattern behaves 
+when an element definition applies to an 
+element that cannot repeat.
+</p>
+<p>
+For a primitive data type, patterns are typically used 
+to fix the value of data type, and leave the element
+id and extension unspecified. For example:
+</p>
+<pre class="xml">
+ &lt;patternString value=&quot;This is a string value&quot;/&gt;
+</pre>
+<p>
+This pattern fixes the value of the string, so
+that this value is valid:
+</p>
+<pre class="xml">
+  &lt;element value=&quot;This is a string value&quot;/&gt;
+</pre>
+<p>
+This pattern fixes the value of the string, so
+that this value is valid:
+</p>
+<pre class="xml">
+  &lt;element value=&quot;This is a string value&quot;/&gt;
+</pre>
+<p>
+as is this:
+</p>
+<pre class="xml">
+  &lt;element value=&quot;This is a string value&quot;&gt;
+    &lt;extension url=&quot;http://example.org&quot;&gt;
+      &lt;valueCode value=&quot;something&quot;/&gt;
+    &lt;/extension&gt;
+  &lt;/element&gt;
+</pre>
+<p>
+but this is not:  
+</p> 
+<pre class="xml">
+  &lt;element value=&quot;This is a string value with additional content&quot;/&gt;
+</pre>
+<p>
+If a fixed value had been used, then the second 
+example would not be valid, because an extension could not be added.
+Note that it's not possible to only partiall specify 
+the content of any particular primitive value, such that
+the third example is valid - this can only be done 
+with a <a href="extension-regex.html">regex</a> or using
+a <a href="fhirpath.html">FHIRPath constraint</a> using 
+the <a href="http://hl7.org/fhirpath/N1/#matchesregex-string-boolean">.matches() function</a>
+(which is also regex based).
+</p>
+<p>
+Note also that the pattern value is not format specific. These 
+two JSON examples are also valid when tested against the pattern:
+</p>
+<pre class="json">
+  "element" : "This is a string value"
+</pre>
+<p>
+and
+</p>
+<pre class="json">
+  "element" : "This is a string value",
+  "_element" : [{
+    "url" : "http://example.org",
+    "valueCode" : "something"
+  }]
+</pre>
+
+  
+<a name="pattern-complex"></a>
+<h4>Complex Types</h4>
+
+<p>
+For complex data types, the pattern contains 
+a series of elements which are patterns in their own right.
+For example, this pattern:  
+</p>
+<pre class="xml">
+  &lt;patternCoding&gt;
+    &lt;system value=&quot;http://example.org/canonical&quot;/&gt;
+    &lt;code value=&quot;a-code&quot;/&gt;
+    &lt;display value=&quot;A display value&quot;/&gt;
+  &lt;/patternCoding&gt;  
+</pre>
+<p>
+This pattern requires that any coding include these 
+three values, but other elements and extensions are allowed: 
+</p>
+<pre class="xml">
+  &lt;coding&gt;
+    &lt;system value=&quot;http://example.org/canonical&quot;/&gt;
+    &lt;version value=&quot;0.1.0&quot;/&gt; 
+    &lt;code value=&quot;a-code&quot;/&gt;
+    &lt;display value=&quot;A display value&quot;&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/translation&quot;&gt;
+        &lt;extension url=&quot;lang&quot;&gt;
+        &lt;valueCode value=&quot;es&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/translation&quot;&gt;
+        &lt;extension url=&quot;content&quot;&gt;
+        &lt;valueString value=&quot;Un valor de visualización&quot;/&gt;
+      &lt;/extension&gt;
+    &lt;/display&gt;
+  &lt;/coding&gt;  
+</pre>
+<p>
+Note that a Coding with any of system, code or display missing does not 
+meet the requirements of the pattern.
+</p>
+
+
+<a name="pattern-array"></a>
+<h4>Repeating Value Examples</h4>
+<p>
+Consider this pattern, specified for an element named "code" that has a 
+cardinality of 0..*:  
+</p>
+<pre class="xml">
+  &lt;patternCodeableConcept&gt;
+    &lt;coding&gt;
+      &lt;system value=&quot;http://example.org/canonical&quot;/&gt;
+      &lt;code value=&quot;a-code&quot;/&gt;
+      &lt;display value=&quot;A display value&quot;/&gt;
+    &lt;/coding&gt;      
+  &lt;/patternCodeableConcept&gt;  
+</pre>
+<p>
+This means that any code element present SHALL have at least one 
+coding with at least that system, code, and display. Other 
+codings may be present, and the order does not matter.
+</p>
+<p>
+So this is valid:
+</p>
+<pre class="xml">
+  &lt;code&gt;
+    &lt;coding&gt;
+      &lt;system value=&quot;http://example.org/other-canonical&quot;/&gt;
+      &lt;code value=&quot;b-code&quot;/&gt;
+      &lt;display value=&quot;A different code&quot;/&gt;
+    &lt;/coding&gt;      
+    &lt;coding&gt;
+      &lt;system value=&quot;http://example.org/canonical&quot;/&gt;
+      &lt;code value=&quot;a-code&quot;/&gt;
+      &lt;display value=&quot;A display value&quot;/&gt;
+    &lt;/coding&gt;   
+    &lt;text value=&quot;This is some text&quot;/&gt;   
+  &lt;/code&gt;  
+</pre>
+<p>
+but this is not, since the required elements are present, but on different repeats:
+</p>
+<pre class="xml">
+  &lt;code&gt;
+    &lt;coding&gt;
+      &lt;system value=&quot;http://example.org/canonical&quot;/&gt;
+      &lt;code value=&quot;b-code&quot;/&gt;
+      &lt;display value=&quot;A different code&quot;/&gt;
+    &lt;/coding&gt;      
+    &lt;coding&gt;
+      &lt;system value=&quot;http://example.org/other-canonical&quot;/&gt;
+      &lt;code value=&quot;a-code&quot;/&gt;
+      &lt;display value=&quot;A display value&quot;/&gt;
+    &lt;/coding&gt;   
+    &lt;text value=&quot;This is some text&quot;/&gt;   
+  &lt;/code&gt;  
+</pre>
+<p>
+Nor is this valid, since the requirement applies to all the repeats:
+</p>
+<pre class="xml">
+  &lt;code&gt;
+    &lt;coding&gt;
+      &lt;system value=&quot;http://example.org/other-canonical&quot;/&gt;
+      &lt;code value=&quot;b-code&quot;/&gt;
+      &lt;display value=&quot;A different code&quot;/&gt;
+    &lt;/coding&gt;      
+  &lt;/code&gt;
+  &lt;code&gt;
+    &lt;coding&gt;
+      &lt;system value=&quot;http://example.org/canonical&quot;/&gt;
+      &lt;code value=&quot;a-code&quot;/&gt;
+      &lt;display value=&quot;A display value&quot;/&gt;
+    &lt;/coding&gt;   
+    &lt;text value=&quot;This is some text&quot;/&gt;   
+  &lt;/code&gt;  
+</pre>
+
 
 
 [%file newfooter%]

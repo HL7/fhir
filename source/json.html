@@ -72,63 +72,27 @@ in order to foster forwards compatibility in this regard, but may also choose no
 <!-- Applications declare their behavior with regard to unknown elements using
 <a href="capabilitystatement-definitions.html#CapabilityStatement.acceptUnknown">CapabilityStatement.acceptUnknown</a>. -->
 </p>
-
 <a name="xml"></a>
-
-<h3>Comparison with XML</h3>
 <p>
-The JSON format is similar to the XML format:
+This page contains some XML examples for the purposes of 
+comparison between the two formats. The formats page has 
+a <a href="resource-formats.html#comparison">comparison between the JSON and XML formats</a>.
 </p>
-<ul>
- <li>The names for the JSON object members are the same as the names of the elements and attributes in XML, including elements that may repeat. Property names are case sensitive</li>
- <li>Just as in XML, JSON objects and arrays are never empty, and properties never have null values (except for a special case documented below). Omit a property if it is empty</li>
- <li>JSON whitespace is not part of the contents of a resource. Applications MAY preserve the whitespace when handling resources, but are not required to do so. Note that digital signatures may depend on the whitespace</li>
-</ul>
-
-<p>There are differences from XML:</p>
-<ul>
- <li>There are no namespaces in the JSON representation</li>
- <li>The type of the resource is represented differently in JSON - instead of being the name of the base object (there is none in JSON), it is carried as the property <code>resourceType</code></li>
- <li>The order of properties of an object is not significant in the JSON representation, though order within an array SHALL be maintained</li>
- <li>JSON does not have a notion of attributes versus elements, so attributes (e.g. <code>id</code>, <code>value</code>) are handled differently (see below)</li>
- <li>JSON has the array notation, which is used to represent repeating elements. Note that arrays are used when the item might repeat, even if it does not repeat in a specific instance</li>
- <li>The XHTML <code>&lt;div&gt;</code> element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML SHALL still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
-</ul>
-
-<p>
-The JSON format for the resources follows the standard XML format closely to make interconversion
-easy, and so that XPath queries can easily be mapped to query the JSON structures. However,
-the differences - particularly the repeating element one, which cannot be avoided - mean
-that generic XML --&gt; JSON converters are not able to perform correctly. The <a href="downloads.html#refimpl">reference platforms</a>
-provide XML &lt;--&gt; JSON conversion functionality that accommodates these FHIR-specific characteristics.
-</p>
-
 
 <a name="repeat"></a>
 <h3>JSON Representation for repeating elements</h3>
 
 <p>
 An element that has a maximum cardinality of >1 (e.g. <code>x..*</code> in the definitions) may occur more than once in the instance.
-In XML, this is simply done by repeating the XML element multiple times. In JSON, this is
-done by using an array type. Note that:
+In JSON, this is done by using an array type. Note that:
 </p>
 <ul>
- <li>The name of the array is singular - the same as the XML element</li>
+ <li>The name of the array is singular</li>
  <li>An item that may repeat is represented as an array even in the case that it doesn't repeat so that the process of parsing the resource is the same either way</li>
  </ul>
-<pre class="xml" fragment="CodeableConcept">
- &lt;code&gt;
-   &lt;coding&gt;
-     &lt;system value="http://snomed.info/sct"/&gt;
-     &lt;code value="104934005"/&gt;
-   &lt;/coding&gt;
-   &lt;coding&gt;
-     &lt;system value="http://loinc.org"/&gt;
-     &lt;code value="2947-0"/&gt;
-   &lt;/coding&gt;
- &lt;/code&gt;
-</pre>
-<p>is represented in JSON like this:</p>
+
+<p>So a <a href="datatypes.html#CodeableConcept">CodeableConcept</a> is represented in JSON like this:</p>
+
 <pre class="json" fragment="CodeableConcept">
 {
  "coding": [
@@ -143,6 +107,23 @@ done by using an array type. Note that:
  ]
 }
 </pre>
+<p>
+XML for comparison:
+</p>
+<pre class="xml" fragment="CodeableConcept">
+  &lt;code&gt;
+    &lt;coding&gt;
+      &lt;system value="http://snomed.info/sct"/&gt;
+      &lt;code value="104934005"/&gt;
+    &lt;/coding&gt;
+    &lt;coding&gt;
+      &lt;system value="http://loinc.org"/&gt;
+      &lt;code value="2947-0"/&gt;
+    &lt;/coding&gt;
+  &lt;/code&gt;
+ </pre>
+ 
+
 
 <a name="primitive"></a>
 <h3>JSON representation of primitive elements</h3>
@@ -154,23 +135,26 @@ FHIR elements with primitive data types are represented in two parts:
  <li>a JSON property with <code>_</code> prepended to the name of the element, which, if present, contains the value's id and/or extensions</li>
 </ul>
 <p>
-The FHIR types <a href="datatypes.html#integer">integer</a> and <a href="datatypes.html#decimal">decimal</a> are represented as a JSON number, the FHIR type <a href="datatypes.html#boolean">boolean</a>
-as a JSON boolean, and all other types are represented as a JSON string which has the same content as that specified for the relevant data type. Whitespace is always significant
+The FHIR types <a href="datatypes.html#integer">integer</a>, <a href="datatypes.html#unsignedInt">unsignedInt</a>, 
+<a href="datatypes.html#positiveInt">positiveInt</a> and <a href="datatypes.html#decimal">decimal</a> are represented 
+as a JSON number, the FHIR type <a href="datatypes.html#boolean">boolean</a>
+as a JSON boolean, and all other types (including <a href="datatypes.html#integer64">integer64</a>) are represented as a JSON string which has the same content as that specified for the relevant data type. Whitespace is always significant
 (i.e. no leading and trailing spaces for non-strings).</p>
-<pre class="xml">
- &lt;<b>code</b> value="abc"/&gt; &lt;!-- code --&gt;
- &lt;<b>date</b> value="1972-11-30"/&gt; &lt;!-- dateTime --&gt;
- &lt;<b>deceased</b> value="false" /&gt; &lt;!-- boolean --&gt;
- &lt;<b>count</b> value="23" /&gt;  &lt;!-- integer --&gt;
-</pre>
-<p>is represented in JSON as</p>
 <pre class="json">
  "code" : "abc",
- "date" : "1972-11-30",
+ "birthDate" : "1972-11-30",
  "deceased" : false,
  "count" : 23
+ }
 </pre>
-<a name="decimal"></a>
+<p>For comparison, this is represented in XML as</p>
+<pre class="xml">
+  &lt;<b>code</b> value="abc"/&gt; &lt;!-- code --&gt;
+  &lt;<b>birthDate</b> value="1972-11-30"/&gt; &lt;!-- dateTime --&gt;
+  &lt;<b>deceased</b> value="false" /&gt; &lt;!-- boolean --&gt;
+  &lt;<b>count</b> value="23" /&gt;  &lt;!-- integer --&gt;
+ </pre>
+ <a name="decimal"></a>
 [%dragons-start%]
 <p>
 When using a JavaScript JSON.parse() implementation, note that JavaScript natively supports only one numeric datatype, which is a floating point number.
@@ -178,6 +162,7 @@ This can cause loss of precision for FHIR numbers. In particular, trailing 0s af
 The FHIR decimal data type is defined such that precision, including trailing zeros, is preserved for presentation purposes, and this
 is widely regarded as critical for correct presentation of clinical measurements. Implementations should consider using a custom parser and big number library
 (e.g. <a href="https://github.com/jtobey/javascript-bignum">https://github.com/jtobey/javascript-bignum</a>) to meet these requirements.
+See also <a href="extension-quantity-precision.html">the precision extension</a>.
 </p>
 
 [%dragons-end%]
@@ -185,15 +170,6 @@ is widely regarded as critical for correct presentation of clinical measurements
 <p>
 If the value has an id attribute, or extensions, then this is represented as follows:
 </p>
-<a name="null"></a>
-<pre class="xml">
- &lt;<b>birthDate</b> id="314159" value="1970-03-30" &gt;
-   &lt;extension url="http://example.org/fhir/StructureDefinition/text"&gt;
-     &lt;valueString value="Easter 1970"/&gt;
-   &lt;/extension&gt;
- &lt;/<b>birthDate</b>&gt;
-</pre>
-<p>is represented in JSON as:</p>
 <pre class="json">
  "birthDate": "1970-03-30",
  "_birthDate": {
@@ -205,7 +181,16 @@ If the value has an id attribute, or extensions, then this is represented as fol
  }
 </pre>
 <p>Note: If the primitive has an id attribute or extension, but no value, only the property with the <code>_</code> is rendered.</p>
-<p>
+<p>This is represented in XML as:</p>
+<pre class="xml">
+  &lt;<b>birthDate</b> id="314159" value="1970-03-30" &gt;
+    &lt;extension url="http://example.org/fhir/StructureDefinition/text"&gt;
+      &lt;valueString value="Easter 1970"/&gt;
+    &lt;/extension&gt;
+  &lt;/<b>birthDate</b>&gt;
+ </pre>
+ 
+ <p>
 In the case where the primitive element may repeat, it is represented
 in two arrays. JSON null values are used to fill out both arrays so
 that the id and/or extension are aligned with the matching value in
@@ -232,8 +217,14 @@ the first array, as demonstrated in this example:
    }
   ]
 </pre>
+<a name="null"></a>
+
 <p>Note: when one of the repeating elements has no value, it is represented in the first array using a null. When
-an element has a value but no extension/id, the second array will have a null at the position of that element.</p>
+an element has a value but no extension/id, the second array will have a null at the position of that element.
+If the length of a JSON "element" array is different from the length of its JSON "_element" array, 
+implementations SHALL infer null values in the suffix of the shorter array. If an array has only null elements,
+implementations SHOULD omit it entirely.
+</p>
 
 [%impl-note%]
 The representation of primitive data types has been
@@ -245,12 +236,12 @@ rarely used with primitive data types.
 
 <a name="complex"></a>
 
-<h3>JSON representation of Elements and Complex Data types</h3>
+<h3>JSON representation of Complex Data types and XHTML</h3>
 
 <p>
-Elements, and complex <a href="datatypes.html">datatypes</a> (types that contain named elements of other types) are represented using
-a JSON object, containing a member for each element in the datatype. Composites can have id attributes, which are
-converted to JSON member values, in the same manner as described for primitives. For example:</p>
+Complex <a href="datatypes.html">datatypes</a> (types that contain named elements of other types) are represented using
+a JSON object that contains a property for each element in the datatype. Complex data types can have ids, which are
+converted to JSON properties, in the same manner as described for primitives. For example:</p>
  <pre class="xml" fragment="Patient">
 &lt;Patient&gt;
   &lt;text&gt;
@@ -267,13 +258,14 @@ converted to JSON member values, in the same manner as described for primitives.
 <p>is represented in JSON as:</p>
 <pre class="json" fragment="Patient">
 {
+  "resourceType" : "Patient",
   "name" : [{
     "id" : "f2",
     "use" : "official" ,
     "given" : [ "Karen" ],
     "family" :  "Van",
     "_family" : {"id" : "a2"}
-   }],
+  }],
   "text" : {
     "status" : "generated" ,
     "div" : "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/div&gt;"
@@ -282,10 +274,11 @@ converted to JSON member values, in the same manner as described for primitives.
 </pre>
 <p>Things to note here are:</p>
 <ul>
-<li>Both given is a repeating XML elements, so it is serialized as an Array, whether or not it repeats in this instance</li>
+<li><code>given</code> is a repeating element, so it is serialized as an Array, whether or not it repeats in this instance</li>
 <li>In the family part of <code>name</code>, the <code>id</code> is added represented in <code>_family</code> as described above, while the <code>id</code> on the name itself is represented as just another property</li>
+<li>The order of JSON properties may differ from the order in the specification</li>
 <li>The XHTML content in the <code>div</code> element which is in the Narrative element <code>text</code> is represented
-  as an escaped string in the value property in JSON. The xhtml root element needs to be a &lt;div&gt; in the xhtml namespace</li>
+  as an escaped string in the value property in JSON. The xhtml root element SHALL be a &lt;div&gt; in the xhtml namespace</li>
 </ul>
 
 <a name="resources"></a>
@@ -332,11 +325,12 @@ Resources and/or Bundles may be digitally signed (see <a href="bundle.html">Bund
 </p>
 <p>
 This specification defines the following method for canonicalizing FHIR resources, when represented as
-JSON:
+JSON. The signed set of fragments SHALL be transformed such that:
 </p>
 <ul>
  <li>No whitespace other than single spaces in property values and in the xhtml in the <a href="narrative.html">Narrative</a></li>
- <li>Order properties alphabetically</li>
+ <li>Properties are ordered alphabetically within each object</li>
+ <li>Multiple fragments are concatenated with no intervening white-space in the order defined by the element with the <a href="datatypes.html#Signature">Signature</a> data type</li>
 </ul>
 <p>
 This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/json</code>. The

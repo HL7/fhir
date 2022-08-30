@@ -136,7 +136,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC.2, ORC.3, RF1-6 / RF1-11,"/>
+        <map value="ORC-2, ORC-3, RF1-6 / RF1-11,"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -226,7 +226,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC.8 (plus others)"/>
+        <map value="ORC-8 (plus others)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -256,7 +256,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="Handled by message location of ORC (ORC.1=RO or RU)"/>
+        <map value="Handled by message location of ORC (ORC-1=RO or RU)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -286,7 +286,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC.4"/>
+        <map value="ORC-4"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -327,7 +327,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC.5,RF1-1"/>
+        <map value="ORC-5,RF1-1"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -790,7 +790,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC.9,  RF1-7 / RF1-9"/>
+        <map value="ORC-9,  RF1-7 / RF1-9"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -833,7 +833,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC.12, PRT"/>
+        <map value="ORC-12, PRT"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -995,7 +995,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC.16, RF1-10"/>
+        <map value="ORC-16, RF1-10"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1062,7 +1062,7 @@
       <path value="ServiceRequest.specimen"/>
       <short value="Procedure Samples"/>
       <definition value="One or more specimens that the laboratory procedure will use."/>
-      <comment value="Many diagnostic procedures need a specimen, but the request itself is not actually about the specimen. This element is for when the diagnostic is requested on already existing specimens and the request points to the specimen it applies to.    Conversely, if the request is entered first with an unknown specimen, then the [Specimen](specimen.html) resource points to the ServiceRequest."/>
+      <comment value="The purpose of the ServiceRequest.specimen is to reflect the actual specimen that the requested test/procedure is asked to be performed on, whether the lab already has it or not.  References to specimens for purposes other than to perform a test/procedure on should be made using the ServiceRequest.supportingInfo or the Specimen.parent where the Specimen.parent would enable descendency and ServiceRequest.supportingInfo a general reference for context."/>
       <min value="0"/>
       <max value="*"/>
       <type>

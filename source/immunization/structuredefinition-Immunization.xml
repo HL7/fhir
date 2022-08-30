@@ -123,62 +123,6 @@
         <map value="ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/id"/>
       </mapping>
     </element>
-    <element id="Immunization.instantiatesCanonical">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Added - Jira 27016."/>
-      </extension>
-      <path value="Immunization.instantiatesCanonical"/>
-      <short value="Instantiates FHIR protocol or definition for the immunization event"/>
-      <definition value="The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Immunization."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-pattern">
-          <valueCanonical value="http://hl7.org/fhir/StructureDefinition/Definition"/>
-        </extension>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EventDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubscriptionTopic"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiatesCanonical"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
-    <element id="Immunization.instantiatesUri">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Added - Jira 27016."/>
-      </extension>
-      <path value="Immunization.instantiatesUri"/>
-      <short value="Instantiates external protocol or definition for the immunization event"/>
-      <definition value="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Immunization."/>
-      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiatesUri"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
     <element id="Immunization.basedOn">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Added - Jira 27015."/>
@@ -487,6 +431,24 @@
         <map value="component-&gt;EncounterEvent"/>
       </mapping>
     </element>
+    <element id="Immunization.supportingInformation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#36060"/>
+      </extension>
+      <path value="Immunization.supportingInformation"/>
+      <short value="Additional information in support of the immunization"/>
+      <definition value="Additional information that is relevant to the immunization (e.g. for a vaccine recipient who is pregnant, the gestational age of the fetus). The reason why a vaccine was given (e.g. occupation, underlying medical condition) should be conveyed in Immunization.reason, not as supporting information. The reason why a vaccine was not given (e.g. contraindication) should be conveyed in Immunization.statusReason, not as supporting information."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+    </element>
     <element id="Immunization.occurrence[x]">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="#7887, #16223."/>
@@ -530,8 +492,8 @@
         <valueString value="gForge #15696 and #20327."/>
       </extension>
       <path value="Immunization.primarySource"/>
-      <short value="Indicates context the data was recorded in"/>
-      <definition value="Indicates whether this record was captured as an original primary source-of-truth record rather than a secondary 'reported' record. A value &quot;true&quot; means this is a primary record of the immunization."/>
+      <short value="Indicates context the data was captured in"/>
+      <definition value="Indicates whether the data contained in the resource was captured by the individual/organization which was responsible for the administration of the vaccine rather than as 'secondary reported' data documented by a third party. A value of 'true' means this data originated with the individual/organization which was responsible for the administration of the vaccine."/>
       <comment value="Reflects the &#x201C;reliability&#x201D; of the content."/>
       <min value="0"/>
       <max value="1"/>
@@ -920,96 +882,6 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element id="Immunization.education">
-      <path value="Immunization.education"/>
-      <short value="Educational material presented to patient"/>
-      <definition value="Educational material presented to the patient (or guardian) at the time of vaccine administration."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <constraint>
-        <key value="imm-1"/>
-        <severity value="error"/>
-        <human value="One of documentType or reference SHALL be present"/>
-        <expression value="documentType.exists() or reference.exists()"/>
-        <xpath value="exists(f:documentType) or exists(f:reference)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
-      </constraint>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="Immunization.education.documentType">
-      <path value="Immunization.education.documentType"/>
-      <short value="Educational material document identifier"/>
-      <definition value="Identifier of the material presented to the patient."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-5 : OBX-3 = 69764-9"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="Immunization.education.reference">
-      <path value="Immunization.education.reference"/>
-      <short value="Educational material reference pointer"/>
-      <definition value="Reference pointer to the educational material given to the patient if the information was on line."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="Immunization.education.publicationDate">
-      <path value="Immunization.education.publicationDate"/>
-      <short value="Educational material publication date"/>
-      <definition value="Date the educational material was published."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-5 : OBX-3 = 29768-9"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="Immunization.education.presentationDate">
-      <path value="Immunization.education.presentationDate"/>
-      <short value="Educational material presentation date"/>
-      <definition value="Date the educational material was given to the patient."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <mapping>
-        <identity value="v2"/>
-        <map value="OBX-5 : OBX-3 = 29769-7"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
     <element id="Immunization.programEligibility">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="#5758; #32397."/>
@@ -1243,7 +1115,7 @@
         <valueString value="#19487 (cardinality changed), #15972 (changes to the value set)."/>
       </extension>
       <path value="Immunization.protocolApplied.targetDisease"/>
-      <short value="Vaccine preventatable disease being targetted"/>
+      <short value="Vaccine preventatable disease being targeted"/>
       <definition value="The vaccine preventable disease the dose is being administered against."/>
       <min value="0"/>
       <max value="*"/>

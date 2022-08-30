@@ -221,4 +221,24 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Group-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Group.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-name"/>
+        <description value="A portion of the Group&#39;s name"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="Group.name"/>
+        <xpath value="f:Group/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

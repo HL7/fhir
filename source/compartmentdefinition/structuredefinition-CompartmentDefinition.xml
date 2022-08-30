@@ -91,8 +91,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CompartmentDefinition"/>
       </constraint>
       <mapping>
@@ -116,6 +116,14 @@
       <requirements value="Allows the compartment definition to be referenced by a single globally unique identifier."/>
       <min value="1"/>
       <max value="1"/>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
       <type>
         <code value="uri"/>
       </type>
@@ -133,7 +141,7 @@
       <path value="CompartmentDefinition.version"/>
       <short value="Business version of the compartment definition"/>
       <definition value="The identifier that is used to identify this version of the compartment definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the compartment definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different compartment definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the compartment definition with the format [url]|[version]."/>
+      <comment value="There may be different compartment definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the compartment definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -148,6 +156,25 @@
         <identity value="w5"/>
         <map value="FiveWs.version"/>
       </mapping>
+    </element>
+    <element id="CompartmentDefinition.versionAlgorithm[x]">
+      <path value="CompartmentDefinition.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+      <isSummary value="true"/>
     </element>
     <element id="CompartmentDefinition.name">
       <path value="CompartmentDefinition.name"/>
@@ -437,6 +464,26 @@
       <max value="1"/>
       <type>
         <code value="string"/>
+      </type>
+    </element>
+    <element id="CompartmentDefinition.resource.startParam">
+      <path value="CompartmentDefinition.resource.startParam"/>
+      <short value="Search Param for interpreting $everything.start"/>
+      <definition value="Search Parameter for mapping requests made with $everything.start (e.g. on [Patient.$everything](patient-operation-everything.html))."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="CompartmentDefinition.resource.endParam">
+      <path value="CompartmentDefinition.resource.endParam"/>
+      <short value="Search Param for interpreting $everything.end"/>
+      <definition value="Search Parameter for mapping requests made with $everything.end (e.g. on [Patient.$everything](patient-operation-everything.html))."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
       </type>
     </element>
   </differential>

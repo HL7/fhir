@@ -88,8 +88,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </constraint>
       <mapping>
@@ -113,6 +113,14 @@
       <requirements value="Allows the plan definition to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
       <type>
         <code value="uri"/>
       </type>
@@ -163,7 +171,7 @@
       <path value="PlanDefinition.version"/>
       <short value="Business version of the plan definition"/>
       <definition value="The identifier that is used to identify this version of the plan definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the plan definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
-      <comment value="There may be different plan definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the plan definition with the format [url]|[version]."/>
+      <comment value="There may be different plan definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the plan definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -280,7 +288,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -336,14 +344,14 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-      </type>
-      <type>
-        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
+      </type>
+      <type>
+        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </type>
       <meaningWhenMissing value="Patient"/>
@@ -353,7 +361,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -1082,7 +1090,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1163,7 +1171,7 @@
     <element id="PlanDefinition.action.linkId">
       <path value="PlanDefinition.action.linkId"/>
       <short value="Unique id for the action in the PlanDefinition"/>
-      <definition value="An identifier that is unique within the PlanDefinition to allow linkage within the realized CarePlan and/or RequestGroup."/>
+      <definition value="An identifier that is unique within the PlanDefinition to allow linkage within the realized CarePlan and/or RequestOrchestration."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1257,7 +1265,7 @@
         </extension>
         <strength value="required"/>
         <description value="Identifies the level of importance to be assigned to actioning the request."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1362,7 +1370,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -1421,7 +1429,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines the kinds of conditions that can appear on actions."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-condition-kind|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-condition-kind"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1618,7 +1626,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines the types of relationships between actions."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1646,7 +1654,7 @@
       <path value="PlanDefinition.action.timing[x]"/>
       <short value="When the action should take place"/>
       <definition value="An optional value describing when the action should be performed."/>
-      <comment value="The intent of the timing element is to provide timing when the action should be performed. As a definitional resource, this timing is interpreted as part of an apply operation so that the timing of the result actions in a CarePlan or RequestGroup, for example, would be specified by evaluating the timing definition in the context of the apply and setting the resulting timing on the appropriate elements of the target resource. If the timing is an Age, the activity is expected to be performed when the subject is the given Age. When the timing is a Duration, the activity is expected to be performed within the specified duration from the apply. When the timing is a Range, it may be a range of Ages or Durations, providing a range for the expected timing of the resulting activity. When the timing is a Timing, it is establishing a schedule for the timing of the resulting activity."/>
+      <comment value="The intent of the timing element is to provide timing when the action should be performed. As a definitional resource, this timing is interpreted as part of an apply operation so that the timing of the result actions in a CarePlan or RequestOrchestration, for example, would be specified by evaluating the timing definition in the context of the apply and setting the resulting timing on the appropriate elements of the target resource. If the timing is an Age, the activity is expected to be performed when the subject is the given Age. When the timing is a Duration, the activity is expected to be performed within the specified duration from the apply. When the timing is a Range, it may be a range of Ages or Durations, providing a range for the expected timing of the resulting activity. When the timing is a Timing, it is establishing a schedule for the timing of the resulting activity."/>
       <requirements value="Allows prompting for activities and detection of missed planned activities."/>
       <min value="0"/>
       <max value="1"/>
@@ -1731,7 +1739,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1843,7 +1851,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines organization behavior of a group."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-grouping-behavior|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-grouping-behavior"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1865,7 +1873,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines selection behavior of a group."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-selection-behavior|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-selection-behavior"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1887,7 +1895,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines expectations around whether an action or action group is required."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-required-behavior|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-required-behavior"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1909,7 +1917,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines selection frequency behavior for an action or group."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-precheck-behavior|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-precheck-behavior"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1931,7 +1939,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines behavior for an action or a group for how many times that item may be repeated."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-cardinality-behavior|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-cardinality-behavior"/>
       </binding>
       <mapping>
         <identity value="rim"/>

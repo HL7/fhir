@@ -11,7 +11,9 @@ business identifier - in this case the same as the request id
       <BiologicallyDerivedProduct>
          <id value="Item1" />
          <productCode>
+           <coding>
             <code value="E0398" />
+           </coding>
          </productCode>
          <identifier>
             <system value="https://www.isbt128.org/uri/MPHOUniqueIdentifier" />
@@ -58,7 +60,9 @@ business identifier - in this case the same as the request id
       <BiologicallyDerivedProduct>
          <id value="Item2" />
          <productCode>
+           <coding>
             <code value="E0398" />
+          </coding>
          </productCode>
          <identifier>
             <system value="https://www.isbt128.org/uri/MPHOUniqueIdentifier" />
@@ -105,7 +109,9 @@ business identifier - in this case the same as the request id
       <BiologicallyDerivedProduct>
          <id value="Item3" />
          <productCode>
+           <coding>
             <code value="E0398" />
+           </coding>
          </productCode>
          <identifier>
             <system value="https://www.isbt128.org/uri/MPHOUniqueIdentifier" />
@@ -154,7 +160,7 @@ business identifier - in this case the same as the request id
    </identifier>
    <type>
       <coding>
-         <system value="http://terminology.hl7.org/CodeSystem/supplydelivery-supply-item-type" />
+         <system value="http://hl7.org/fhir/supplydelivery-supplyitemtype" />
          <code value="biologicallyderivedproduct" />
       </coding>
       <text value="Blood Dispatch" />

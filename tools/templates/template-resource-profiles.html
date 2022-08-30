@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+
+<!-- template-profiles.html -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<%file newheader%>
+</head>
+<body>
+<%file newnavbar%>
+
+<div class="col-12">
+
+<%resheader profiles%>
+<h2>Resource <%title%> - Extensions &amp; Profiles</h2>
+<table class="colsi"><tr><td><a href="<%wg%>"><%wgt%></a> Work Group</td><td><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>: Informative</td><td><%sec-cat%></td><!--!ns!--><td><%complinks%></td></tr></table>
+
+<p>
+This table lists profiles and extensions for the <%title%> resource. For background information, see
+<a href="profiling.html#resources">Profiling Resources</a> and <a href="extensibility.html">Extensibility</a>.
+Additional profiles and extensions may be found in published
+<a href="https://registry.fhir.org/guides">Implementation Guides</a>, or in the
+<a href="http://registry.fhir.org">Conformance resource registry</a>.
+</p>
+
+<a name="profiles"></a>
+<h3>Profiles</h3>
+
+<%no-extensions-base-warning%>
+
+<%profilelist%>
+
+
+<a name="extensions"></a>
+<h3>Extensions</h3>
+
+<table class="list">
+<%extensionlist%>
+</table>
+
+<p>Extensions that reference this resource:</p>
+
+<table class="list">
+<%extensionreflist%>
+</table>
+
+
+<a name="search"></a>
+<h3>Search Extensions</h3>
+
+<table class="list">
+<%searchextensionlist%>
+</table>
+
+<a name="meta"></a>
+<h3>Meta Profiles and Extensions</h3>
+
+
+<table class="list">
+  <%dtextensions Meta%>
+</table>
+
+
+</div>
+
+<%file newfooter%>
+
+</body>
+</html>

@@ -51,6 +51,6 @@
   <concept>
     <code value="option"/>
     <display value="Option"/>
-    <definition value="The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.  Refer to [[[RequestGroup]]] for additional information on how this status is used."/>
+    <definition value="The request represents a component or option for a RequestOrchestration that establishes timing, conditionality and/or other constraints among a set of requests.  Refer to [[[RequestOrchestration]]] for additional information on how this status is used."/>
   </concept>
 </CodeSystem>

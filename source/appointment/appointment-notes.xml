@@ -473,6 +473,7 @@
 			The iCalendar specification can be found at <a href="http://www.ietf.org/rfc/rfc2445.txt">http://www.ietf.org/rfc/rfc2445.txt</a>.
 		</li>
 	</ul>
+
 <a name="dstu"> </a>
 [%stu-note%]
 Implementer feedback is sought on the values for Appointment.priority and how interoperable they are.
@@ -483,5 +484,4 @@ ServiceType and Specialty, along with how they have approached the definition.
 <p>
 Feedback <a href="http://hl7.org/fhir-issues">here</a>.
 [%end-note%]
-  
 </div>

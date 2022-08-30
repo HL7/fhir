@@ -642,6 +642,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FHIRDeviceVersionType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The type of version indicated for the device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-versiontype"/>
+      </binding>
     </element>
     <element id="Device.version.component">
       <path value="Device.version.component"/>
@@ -702,6 +710,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FHIRDeviceSpecializationSystemType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The type of version indicated for the device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-specialization-systemtype"/>
+      </binding>
     </element>
     <element id="Device.specialization.version">
         <path value="Device.specialization.version"/>
@@ -754,10 +770,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+
+
+
     </element>
     <element id="Device.property.value[x]">
       <path value="Device.property.value[x]"/>
-      <short value="Property value - as a code, quantity, boolean, string or attachmment"/>
+      <short value="Property value - as a code, quantity, boolean, string or attachment"/>
       <definition value="Property value - can be a code, quantity, boolean, string or attachment."/>
       <comment value="The string is used for properties that are intrinsically text, such as warning text, or assemlby instructions. CodeableConcept.text also supports unencoded text but should be used where the characteristic is a concept that might be coded but there is no assigned code for the present value. For example, a security class can be a code like 'Class 1' but in some cases may contain a string like 'Depending on the settings' - in this case the property is normally coded but this is an exception"/>
       <min value="1"/>
@@ -1118,18 +1137,19 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Device.link">
-      <path value="Device.link"/>
-      <short value="An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device"/>
-      <definition value="An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device."/>
+    <element id="Device.gateway">
+      <path value="Device.gateway"/>
+      <short value="Linked device acting as a communication/data collector, translator or controller"/>
+      <definition value="The linked device acting as a communication/data collector, translator or controller for the current device (e.g., mobile phone application that relays a blood pressure device's data)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
     </element>
-    <element id="Device.link.relation">
-      <path value="Device.link.relation"/>
+    <!-- <element id="Device.gateway.relation">
+      <path value="Device.gateway.relation"/>
       <short value="The type indicates the relationship of the related device to the device instance"/>
       <definition value="The type indicates the relationship of the related device to the device instance."/>
       <min value="1"/>
@@ -1146,17 +1166,17 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-relationtype"/>
       </binding>
     </element>
-    <element id="Device.link.relatedDevice">
-      <path value="Device.link.relatedDevice"/>
-      <short value="A reference to the linked device"/>
-      <definition value="A reference to the linked device."/>
+    <element id="Device.gateway.relatedDevice">
+      <path value="Device.gateway.relatedDevice"/>
+      <short value="Reference to the gateway device"/>
+      <definition value="A reference to the gateway device."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
-    </element>
+    </element> -->
 
     <element id="Device.note">
       <path value="Device.note"/>

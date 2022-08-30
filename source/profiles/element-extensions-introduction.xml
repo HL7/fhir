@@ -11,7 +11,7 @@ to most or all of these:
 </p>
 <ul>
   <li><a href="structuredefinition.html">StructureDefinition</a>.*.element - defining the characteristics of the data elements and extensions when used according to the profile</li>
-  <li><a href="questionnaire.html">Questionnaire</a>.group.question - defining the characteristics of permitted answers</li>
+  <li><a href="questionnaire.html">Questionnaire</a>.item - defining the characteristics of permitted answers</li>
 </ul>
 <p>
 <b>Note:</b> Implementations are not required to reject invalid data.  However, transmitting data that violates one of these extensions would be considered invalid against
