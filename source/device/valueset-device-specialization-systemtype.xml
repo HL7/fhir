@@ -14,9 +14,9 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
-  <name value="DeviceRelationType"/>
+  <name value="DeviceSpecializationSystemType"/>
   <experimental value="false"/>
-  <description value="Type of relation between devices"/>
+  <description value="Type of specialization or standard that devices can adhere to"/>
   <compose>
     <include>
       <system value="urn:iso:std:iso:11073:10101"/>
