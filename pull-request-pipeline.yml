@@ -44,7 +44,7 @@ jobs:
     inputs:
       targetType: 'inline'
       script: |    
-        echo "Created target directory $(CI_BRANCH_DIRECTORY)"
+        echo "CI_BRANCH_DIRECTORY: $(CI_BRANCH_DIRECTORY)"
 
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Cache@2
