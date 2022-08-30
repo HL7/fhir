@@ -636,9 +636,6 @@
       </type>
     </element>
     <element id="TerminologyCapabilities.codeSystem.version.language">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
-        <valueBoolean value="true"/>
-      </extension>
       <path value="TerminologyCapabilities.codeSystem.version.language"/>
       <short value="Language Displays supported"/>
       <definition value="Language Displays supported."/>
@@ -647,6 +644,14 @@
       <type>
         <code value="code"/>
       </type>
+	  <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Language"/>
+        </extension>
+        <strength value="required"/>
+        <description value="IETF language tag"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+      </binding>
     </element>
     <element id="TerminologyCapabilities.codeSystem.version.filter">
       <path value="TerminologyCapabilities.codeSystem.version.filter"/>
@@ -696,6 +701,25 @@
       <type>
         <code value="code"/>
       </type>
+    </element>
+	<element id="TerminologyCapabilities.codeSystem.content">
+      <path value="TerminologyCapabilities.codeSystem.content"/>
+      <short value="not-present | example | fragment | complete | supplement"/>
+      <definition value="The extent of the content of the code system (the concepts and codes it defines) are represented in this resource instance."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CodeSystemContentMode"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/codesystem-content-mode|5.0.0"/>
+      </binding>
     </element>
     <element id="TerminologyCapabilities.codeSystem.subsumption">
       <path value="TerminologyCapabilities.codeSystem.subsumption"/>
