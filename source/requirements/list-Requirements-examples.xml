@@ -6,7 +6,7 @@
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="requirements-example1"/>
+      <valueString value="Requirements-example1"/>
     </extension>
     <item>
       <reference value="Requirements/example1"/>
@@ -15,7 +15,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="requirements-example2"/>
+      <valueString value="Requirements-example2"/>
     </extension>
     <item>
       <reference value="Requirements/example2"/>
