@@ -70,9 +70,9 @@
     <textEquivalent value="Administer medication 1, followed an hour later by medication 2"/>
     <timingDateTime value="2017-03-06T19:00:00Z"/>
     <participant>
-      <actor>
+      <actorReference>
         <reference value="Practitioner/1"/>
-      </actor>
+      </actorReference>
     </participant>
     <groupingBehavior value="logical-group"/>
     <selectionBehavior value="all"/>
