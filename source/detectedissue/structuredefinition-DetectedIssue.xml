@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="DetectedIssue"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -234,7 +234,7 @@
       <path value="DetectedIssue.patient"/>
       <short value="Associated patient"/>
       <definition value="Indicates the patient whose record the detected issue is associated with."/>
-      <requirements value="While the subject could be inferred by tracing the subject of the implicated resources, it&#39;s useful to have a direct link for query purposes."/>
+      <requirements value="While the subject could be inferred by tracing the subject of the implicated resources, it's useful to have a direct link for query purposes."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -328,7 +328,7 @@
       <path value="DetectedIssue.implicated"/>
       <short value="Problem resource"/>
       <definition value="Indicates the resource representing the current activity or proposed activity that is potentially problematic."/>
-      <comment value="There&#39;s an implicit constraint on the number of implicated resources based on DetectedIssue.type; e.g. For drug-drug, there would be more than one.  For timing, there would typically only be one."/>
+      <comment value="There's an implicit constraint on the number of implicated resources based on DetectedIssue.type; e.g. For drug-drug, there would be more than one.  For timing, there would typically only be one."/>
       <alias value="cause"/>
       <min value="0"/>
       <max value="*"/>
@@ -481,7 +481,7 @@
           <valueString value="DetectedIssueMitigationAction"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Codes describing steps taken to resolve the issue or other circumstances that mitigate the risk associated with the issue; e.g. &#39;added concurrent therapy&#39;, &#39;prior therapy documented&#39;, etc."/>
+        <description value="Codes describing steps taken to resolve the issue or other circumstances that mitigate the risk associated with the issue; e.g. 'added concurrent therapy', 'prior therapy documented', etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-mitigation-action"/>
       </binding>
       <mapping>

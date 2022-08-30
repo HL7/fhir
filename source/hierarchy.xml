@@ -61,12 +61,12 @@ signatures.html
           <page title="Detailed Description" filename="extensibility-definitions.html"/>
         </page>
         <page title="Resource Definitions" filename="formats.html">
+          <page title="UML Definition" filename="uml.html"/>
           <page title="Resource Formats" filename="resource-formats.html"/>
           <page title="XML format" filename="xml.html"/>
           <page title="JSON format" filename="json.html"/>
           <page title="ND-JSON format" filename="nd-json.html"/>
           <page title="RDF Definition" filename="rdf.html"/>
-          <page title="UML Definition" filename="uml.html"/>
         </page>
         <page title="Change Management and Versioning" filename="versions.html">
           <page title="Timelines" filename="timelines.html"/>
@@ -207,6 +207,8 @@ signatures.html
       <page type="resource" resource="DataElement"/>
       <page type="resource" resource="ImplementationGuide"/>
       <page type="resource" resource="GraphDefinition"/>
+      <page type="resource" resource="ActorDefinition"/>
+      <page type="resource" resource="Requirements"/>
     </page>
 
     <page title="Security and Privacy" filename="secpriv-module.html" icon="secpriv.jpg">
@@ -379,7 +381,6 @@ signatures.html
       <page type="resource" resource="SupplyDelivery"/>
       <page type="resource" resource="InventoryReport"/>
       <page type="resource" resource="ExampleScenario"/>
-
     </page>
 
     <page title="Financial" filename="financial-module.html" icon="financial.png">
