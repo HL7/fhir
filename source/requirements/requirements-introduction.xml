@@ -14,7 +14,7 @@ The requirements resource is intended to meet two principle use cases:
 </p>
 <ul>
 <li>Documenting known regulatory, business, functional and technical requirements for interoperability specifications,
-particularly those published as <a href="implementationguides.html">Implementation Guides</a></li>
+particularly those published as <a href="implementationguide.html">Implementation Guides</a></li>
 <li>Performing the same role for clinical processes as documented in <a href="plandefinition.html">PlanDefinition</a>
 and <a href="activitydefinition.html">ActivityDefinition</a></li>
 </ul>
@@ -48,7 +48,7 @@ statement has:
 <h2>Boundaries and Relationships</h2>
 
 <p>
-Requirements may by referenced from almost any resource by the <a href="null.html">Requirements Satisifed</a> extension.
+Requirements may by referenced from almost any resource by the <a href="extension-satisfies-requirement.html">Requirements Satisifed</a> extension.
 Generally, this extension will be found in the <a href="canonicalresource.html">Canonical Resources</a> but this is 
 not a hard rule.
 </p>
