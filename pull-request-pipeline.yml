@@ -8,7 +8,8 @@ pr:
 variables:
 - group: ZULIP_VAR_GROUP
 - group: SSH_UPLOAD
-- ci_branch_directory: replace($(SYSTEM_PULLREQUEST_SOURCEBRANCH), '/', '_')
+- name: CI_BRANCH_DIRECTORY
+  value: replace($(SYSTEM_PULLREQUEST_SOURCEBRANCH), '/', '_')
 
 jobs:
 - job: setupEnvironment
