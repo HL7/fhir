@@ -170,6 +170,14 @@
     <type value="boolean"/>
   </parameter>
   <parameter>
+    <name value="useSupplement"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="The supplement must be used when performing an expansion. Use of this parameter should result in $expand behaving the same way as if the supplements were included in the value set definition using the [supplement extension](extension-valueset-supplement.html)"/>
+    <type value="canonical"/>
+  </parameter>
+  <parameter>
     <name value="excludeNested"/>
     <use value="in"/>
     <min value="0"/>
