@@ -85,9 +85,6 @@
   <derivation value="specialization"/>
   <differential>
     <element id="DocumentReference">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,0"/>
-      </extension>
       <path value="DocumentReference"/>
       <short value="A reference to a document"/>
       <definition value="A reference to a document of any kind for any purpose. While the term “document” implies a more narrow focus, for this resource this &quot;document&quot; encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference."/>
@@ -199,7 +196,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestGroup"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
@@ -666,7 +663,7 @@
     </element>
     <element id="DocumentReference.attester">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="down"/>
+        <valueCode value="right"/>
       </extension>
       <path value="DocumentReference.attester"/>
       <short value="Attests to accuracy of the document"/>
@@ -814,9 +811,9 @@
       </mapping>
     </element>
     <element id="DocumentReference.relatesTo">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,90"/>
-      </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+            <valueCode value="right" />
+        </extension>
       <path value="DocumentReference.relatesTo"/>
       <short value="Relationships to other documents"/>
       <definition value="Relationships that this document has with other document references that already exist."/>
@@ -902,7 +899,7 @@
       <mapping>
         <identity value="cda"/>
         <map value="ClinicalDocument/relatedDocument/parentDocument"/>
-      </mapping> 
+      </mapping>
      </element>
     <element id="DocumentReference.description">
       <path value="DocumentReference.description"/>
@@ -974,9 +971,9 @@
       </mapping>
     </element>
     <element id="DocumentReference.content">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,300"/>
-      </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+            <valueCode value="down" />
+        </extension>
       <path value="DocumentReference.content"/>
       <short value="Document referenced"/>
       <definition value="The document and format referenced.  If there are multiple content element repetitions, these must all represent the same document in different format, or attachment metadata."/>
@@ -1029,6 +1026,9 @@
       </mapping>
     </element>
     <element id="DocumentReference.content.profile">
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+            <valueCode value="right" />
+        </extension>
       <path value="DocumentReference.content.profile"/>
       <short value="Content profile rules for the document"/>
       <definition value="An identifier of the document constraints, encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType."/>

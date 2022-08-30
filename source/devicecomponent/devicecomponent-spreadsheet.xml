@@ -1072,7 +1072,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">MeasmntPrinciple</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">MeasurementPrinciple</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5763,7 +5763,7 @@
     <Cell ss:StyleID="s117"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s150"><Data ss:Type="String">MeasmntPrinciple</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">MeasurementPrinciple</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Different measurement principle supported by the device.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">required</Data></Cell>

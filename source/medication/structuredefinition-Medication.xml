@@ -21,7 +21,7 @@
     <valueCode value="phx"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value="Medication does not have a status"/>
+    <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Medication"/>
   <version value="5.0.0"/>

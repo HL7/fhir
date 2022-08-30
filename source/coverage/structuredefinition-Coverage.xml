@@ -653,6 +653,79 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/coverage-copay-type"/>
       </binding>
     </element>
+    <element id="Coverage.costToBeneficiary.category">
+      <path value="Coverage.costToBeneficiary.category"/>
+      <short value="Benefit classification"/>
+      <definition value="Code to identify the general type of benefits under which products and services are provided."/>
+      <comment value="Examples include Medical Care, Periodontics, Renal Dialysis, Vision Coverage."/>
+      <requirements value="Needed to convey the category of service or product for which eligibility is sought."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BenefitCategory"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
+      </binding>
+    </element>
+    <element id="Coverage.costToBeneficiarynetwork">
+      <path value="Coverage.costToBeneficiarynetwork"/>
+      <short value="In or out of network"/>
+      <definition value="Is a flag to indicate whether the benefits refer to in-network providers or out-of-network providers."/>
+      <requirements value="Needed as in or out of network providers are treated differently under the coverage."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BenefitNetwork"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/benefit-network"/>
+      </binding>
+    </element>
+    <element id="Coverage.costToBeneficiary.unit">
+      <path value="Coverage.costToBeneficiary.unit"/>
+      <short value="Individual or family"/>
+      <definition value="Indicates if the benefits apply to an individual or to the family."/>
+      <requirements value="Needed for the understanding of the benefits."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BenefitUnit"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/benefit-unit"/>
+      </binding>
+    </element>
+    <element id="Coverage.costToBeneficiary.term">
+      <path value="Coverage.costToBeneficiary.term"/>
+      <short value="Annual or lifetime"/>
+      <definition value="The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual visits'."/>
+      <requirements value="Needed for the understanding of the benefits."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BenefitTerm"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/benefit-term"/>
+      </binding>
+    </element>
     <element id="Coverage.costToBeneficiary.value[x]">
       <path value="Coverage.costToBeneficiary.value[x]"/>
       <short value="The amount or percentage due from the beneficiary"/>

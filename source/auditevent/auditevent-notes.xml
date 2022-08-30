@@ -152,7 +152,7 @@ Likely as a <a href="references.html#contained">contained</a> resource, given th
 	</p>
 	<p>
 		<code>entity.type</code> is code <code>
-			<a href="codesystem-resource-types.html#resource-types-OperationOutcome">OperationOutcome</a>
+			<a href="codesystem-fhir-types.html#fhir-types-OperationOutcome">OperationOutcome</a>
 		</code>
 	</p>
 	<p>

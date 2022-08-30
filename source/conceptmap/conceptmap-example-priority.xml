@@ -1,0 +1,53 @@
+<ConceptMap>
+   <id value="example-priority"/>
+   <url value="http://hl7.org/fhir/ConceptMap/example-priority"/>
+   <version value="20220809"/>
+   <title value="Example map with priorities"/>
+   <status value="draft"/>
+   <description value="Example inspired by UK extended complex map (999002271000000101)"/>
+   <copyright value="Creative Commons 0"/>
+   <sourceScopeUri value="http://snomed.info/sct?fhir_vs"/>
+   <group>
+      <source value="http://snomed.info./sct"/>
+      <target value="http://hl7.org/fhir/sid/icd-10"/>
+      <element>
+         <code value="429353004"/>
+         <target>
+            <code value="S59.7"/>
+            <relationship value="source-is-narrower-than-target"/>
+            <product>
+               <property value="priority"/>
+               <valueInteger value="1"/>
+            </product>
+            <product>
+               <property value="mapAdvice"/>
+               <valueString value="ADDITIONAL CODE POSSIBLE"/>
+            </product>
+         </target>
+         <target>
+            <code value="S59.9"/>
+            <relationship value="source-is-narrower-than-target"/>
+            <product>
+               <property value="priority"/>
+               <valueInteger value="3"/>
+            </product>
+            <product>
+               <property value="mapAdvice"/>
+               <valueString value="ADDITIONAL CODE POSSIBLE"/>
+            </product>
+         </target>
+         <target>
+            <code value="S59.8"/>
+            <relationship value="source-is-narrower-than-target"/>
+            <product>
+               <property value="priority"/>
+               <valueInteger value="2"/>
+            </product>
+            <product>
+               <property value="mapAdvice"/>
+               <valueString value="ADDITIONAL CODE POSSIBLE"/>
+            </product>
+         </target>
+      </element>
+   </group>
+</ConceptMap>

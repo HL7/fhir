@@ -63,7 +63,7 @@ All documents have the same structure: a <a href="bundle.html">Bundle</a>
 of resources of <a href="bundle-definitions.html#Bundle.type">type</a> "document"
 that has a <a href="composition.html">Composition</a> resource as the first resource
 in the bundle, followed by a series of other resources, referenced from the <code>Composition</code>
-resource, that provide supporting evidence for the document. The bundle gathers all the content
+resource, that provide the supporting details for the document. The bundle gathers all the content
 of the document into a single XML or JSON document which may be signed and managed as required.
 The resources include both human readable and computer processable portions. In addition, the bundle
 may include <a href="http://www.w3.org/Style/CSS/Overview.en.html">CSS stylesheets</a>,
@@ -82,11 +82,16 @@ Resources referenced by the Composition as listed below SHALL be included in the
 </p>
 <%res-ref-list Composition%>
 <p>
-Other resources that these referenced resources refer to may also be included in the
-bundle if the document construction system chooses to do so. Including these additional resources will
-make the document bigger but will save applications from needing to retrieve the linked resources
-if they need them while processing the document. Thus, whether these linked resources should be included or
-not depends on the implementation environment.
+When these resources reference other resources, the referenced resources SHOULD also be 
+included in the bundle. Omitting referenced resources could compromise the integrity and 
+wholeness of the document, especially when considering that documents have legal retention 
+periods that may be longer than the life of the FHIR server where the reference(s) point to.
+</p>
+<p>
+In rare cases the referenced resources in Composition can also be contained resources 
+within Composition provided that the resource(s) in question meets the restrictions for 
+the use of contained resources (see <a href="references.html#contained">Contained Resources</a>
+for more information).
 </p>
 <p>
 The document bundle SHALL include only:
@@ -141,10 +146,10 @@ collated narrative portions in order:
  <li>The <a href="composition-definitions.html#Composition.section.text">section.text</a> Narratives</li>
 </ol>
 <p>
-The presentation of the document is called the 'attested content' of the document. Additional
-resources can be included in the bundle (e.g. resources referenced from the List that represent the section.content
-SHOULD be in the bundle, and other additional resources they reference can be included), but these (and any narrative)
-are not attested content. Specifically, the <code>Composition.attester</code> attests to the presented form of the document.
+The presentation of the document is called the 'attested content' of the document. Additional resources 
+included in the document that are not part of the presentation of the document are not considered attested 
+content (e.g. a <a href="condition.html">Condition</a> resource). Specifically, 
+the <code>Composition.attester</code> attests to the presented form of the document.
 </p>
 <p>
 The Composition resource narrative should summarize the important parts of the document header that are required

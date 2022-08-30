@@ -8,8 +8,6 @@
 <body>
 [%file newnavbar%]
 
-
-
 <a name="base"></a>
 <h2>Search</h2>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
@@ -21,7 +19,9 @@ Search operations traverse through an existing set of resources filtering by
 parameters supplied to the search operation. The text below describes
 the FHIR search framework, starting with simple cases moving to the more complex.
 Implementers need only implement the amount of
-complexity that they require for their implementations.
+complexity that they require for their implementations. Servers SHALL declare 
+what features of search they require through their <a href="capabilitystatement.html#search-decl">CapabilityStatement
+search declarations</a>, and clients are encouraged to do this too.
 </p>
 
 <a name="Summary"></a>
@@ -1092,7 +1092,8 @@ The search:
 GET {base]/Observation?definition:below=http:http://acme.com/some-profile|1
 </pre>
 <p>
-matches the first two element values.
+matches the first two element values. For further information about searching, 
+see <a href="references.html#canonical-matching">Choosing the right Canonical Reference</a>.
 </p>
 
 <a name="recursive"></a>
@@ -2300,6 +2301,10 @@ Cross-map between search parameter types and Data types:
   <td><%xcm CodeableConcept:uri%></td> <!-- uri -->
   <td><%xcm CodeableConcept:string%></td> <!-- string -->
   <td><%xcm CodeableConcept:token%></td> <!-- token -->
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#CodeableReference">CodeableReference</a></td>
+  <td colspan="7" style="background-color: #f9f9f9"><%xcmchk CodeableReference%>Not used in search (searches either refer to .concept or .reference)</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#Coding">Coding</a></td>

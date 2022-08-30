@@ -30,7 +30,7 @@
       <valueSet value="http://hl7.org/fhir/ValueSet/formatcodes"/>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <import value="http://hl7.org/fhir/ValueSet/resource-types"/>
     </include>
     <include>
       <system value="urn:ietf:rfc:3986"/>

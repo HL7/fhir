@@ -47,7 +47,7 @@
     <name value="ACME NamingSystem Management"/>
     <telecom>
       <system value="url"/>
-      <value value="http://acme.org/managememnt"/>
+      <value value="http://acme.org/management"/>
     </telecom>
   </editor>
   <reviewer>

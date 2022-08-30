@@ -160,7 +160,7 @@ business identifier - in this case the same as the request id
    </identifier>
    <type>
       <coding>
-         <system value="http://terminology.hl7.org/CodeSystem/supplydelivery-supply-item-type" />
+         <system value="http://hl7.org/fhir/supplydelivery-supplyitemtype" />
          <code value="biologicallyderivedproduct" />
       </coding>
       <text value="Blood Dispatch" />

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="device-specialization-systemtype"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/device-specialization-systemtype"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="DeviceRelationType"/>
+  <experimental value="false"/>
+  <description value="Type of relation between devices"/>
+  <compose>
+    <include>
+      <system value="urn:iso:std:iso:11073:10101"/>
+      <concept>
+        <code value="528391"/>
+        <display value="Blood Pressure Cuff"/>
+      </concept>
+      <concept>
+        <code value="528404"/>
+        <display value="Body Composition Analyzer"/>
+      </concept>
+      <concept>
+        <code value="528425"/>
+        <display value="Cardiovascular Device"/>
+      </concept>
+      <concept>
+        <code value="528402"/>
+        <display value="Coagulation meter"/>
+      </concept>
+      <concept>
+        <code value="528409"/>
+        <display value="Continuous Glucose Monitor"/>
+      </concept>
+      <concept>
+        <code value="528390"/>
+        <display value="Electro cardiograph"/>
+      </concept>
+      <concept>
+        <code value="528457"/>
+        <display value="Generic 20601 Device"/>
+      </concept>
+      <concept>
+        <code value="528401"/>
+        <display value="Glucose Monitor"/>
+      </concept>
+      <concept>
+        <code value="528455"/>
+        <display value="Independent Activity/Living Hub"/>
+      </concept>
+      <concept>
+        <code value="528403"/>
+        <display value="Insulin Pump"/>
+      </concept>
+      <concept>
+        <code value="528405"/>
+        <display value="Peak Flow meter"/>
+      </concept>
+      <concept>
+        <code value="528388"/>
+        <display value="Pulse Oximeter"/>
+      </concept>
+      <concept>
+        <code value="528397"/>
+        <display value="Respiration rate"/>
+      </concept>
+      <concept>
+        <code value="528408"/>
+        <display value="Sleep Apnea Breathing Equipment"/>
+      </concept>
+      <concept>
+        <code value="528426"/>
+        <display value="Strength Equipment"/>
+      </concept>
+      <concept>
+        <code value="528392"/>
+        <display value="Thermometer"/>
+      </concept>
+      <concept>
+        <code value="528399"/>
+        <display value="Weight Scale"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

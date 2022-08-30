@@ -57,17 +57,17 @@ FHIR defines a cascade of artifacts for this purpose:
  <tr>
   <td>Package</td>
   <td>A group of related adaptations that are published as a group within an Implementation Guide</td>
-  <td><a href="http://hl7.org/fhir/us/core/capstmnts.html">US Core Capability Statements</a></td>
+  <td><a href="http://hl7.org/fhir/us/core/STU5.0.1/capability-statements.html">US Core Capability Statements</a></td>
  </tr>
  <tr>
   <td>Conformance Resource</td>
   <td>A single resource in a package that makes rules about how an implementation works. These are described below</td>
-   <td><a href="http://hl7.org/fhir/us/core/ValueSet-us-core-problem.html">DAF Problem Value Set</a></td>
+   <td><a href="http://hl7.org/fhir/us/core/STU5.0.1/ValueSet-us-core-condition-code.html">US Core Condition Codes Value Set</a></td>
  </tr>
  <tr>
   <td>Profile</td>
   <td>A set of constraints on a resource represented as a structure definition with derivation = <code>constraint</code></td>
-   <td><a href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-medicationrequest.html">DAF Medication Request</a></td>
+   <td><a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-medicationrequest.html">US Core Medication Request</a></td>
  </tr>
 </table>
 <p>
@@ -307,6 +307,9 @@ series of <a href="elementdefinition.html">Element Definitions</a>:
  <li>Providing refined definitions, comments/usage notes and examples for the elements defined in a Resource to reflect the usage of the element within the context of the Profile</li>
  <li>Providing more specific or additional mappings (e.g. to <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> or <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>) for the resource when used in a particular context</li>
  <li>Declaring that one or more elements in the structure must be 'supported' (see below)</li>
+ <li>Restricting / clarifying a mapping by providing a new mapping with the same identity, which means that the new mapping replaces a mapping with the same identity
+    in the element being profiled
+ </li>
 </ul>
 <p>
 Any changed definitions SHALL be restrictions that are consistent with the
@@ -535,6 +538,12 @@ Further notes about the use of the different discriminator types:
    to the others). Implementers should use this only where absolutely required. 
    Typical example: slice on the type of <code>Composition.section.entry().resolve()</code> for the profiles Current-Clinical-Condition, Past-Medical-Event, etc
  </td></tr>
+ <tr><td>position</td><td>
+  Used to match slices based on their index. This is only possible if all but the last slice have a 
+  fixed cardinality where <code>min</code> &gt; 0 and <code>min</code> = <code>max</code>. The 
+  last slice MAY have <code>min</code> != <code>max</code>. 
+  Typical example: slice on Practitioner.name to require that the first name be the usual name for the practitioner, and it must be present
+</td></tr>
 </table>
 
 <p>
@@ -610,16 +619,29 @@ Some examples of discriminators:
   <tr>  <td>Observation.value[x]</td> <td>type</td> <td>$this</td> <td>Different constraints (e.g. "must support", usage notes, vocabulary bindings, etc.) are asserted for different supported types for the multi-typed element Observation.value[x]</td> </tr>
 </table>
 <p>
-Note that discriminator types of type and profile can also be used where a repeating element contains a resource directly (e.g.
-<a href="domainresource-definitions.html#DomainResource.contained">DomainResource.contained</a>, <a href="bundle-definitions.html#Bundle.entry">Bundle.entry</a>, <a href="parameters-definitions.html#Parameters.parameter.resource">Parameters.parameter.resource</a>).
+Notes:
 </p>
-<p>
-The <a href="profiling-examples.html">examples of slicing and discriminators</a> show exactly how this and other typical uses of slicing are represented in profiles.
-</p>
-<p>
-Note that extensions are always sliced by the <code>url</code> element, though they may be resliced on additional elements where required.
-</p>
-
+<ul>
+ <li>The discriminator types of type and profile can also be used where a repeating element contains a resource directly (e.g.
+  <a href="domainresource-definitions.html#DomainResource.contained">DomainResource.contained</a>, <a href="bundle-definitions.html#Bundle.entry">Bundle.entry</a>, <a href="parameters-definitions.html#Parameters.parameter.resource">Parameters.parameter.resource</a>).
+ </li>
+ <li>
+  The <a href="profiling-examples.html">examples of slicing and discriminators</a> show exactly how this and other typical uses of slicing are represented in profiles.
+ </li>
+ <li> 
+  Note that extensions are always sliced by the <code>url</code> element, though they may be resliced on additional elements where required.
+ </li>
+ <li>
+  With regard to the use of <code>resolve()</code>, any elements that are specified in the discriminator 
+  path beyond the resolve() function (e.g. 'name' in item.resolve().name) are referring to the corresponding 
+  element in the resource identified by the <code>reference</code>, as constrained by the 
+  applicable <code>targetProfile</code> (regardless of the discrinator type), and it is in the 
+  profile that the <code>targetProfile</code> refers to where a fixed value or pattern for the element 
+  must be declared. The targetProfile itself is declared in the element in the slice that immediately 
+  precedes the resolve() function in the discriminator path (e.g. 'item' in item.resolve().name), and that 
+  element is the final element that the slice declares.
+ </li>
+</ul>
 <a name="slice-cardinality"></a>
 <h3>Slice Cardinality</h3>
 <p>
@@ -992,7 +1014,7 @@ When this specification describes a profile, the profile is presented in 5 diffe
 <table class="grid">
  <tr><td>Text Summary</td><td>This presents a short summary human readable summary of the profile - a combination of the author's summary, and some automatically generated summary content</td></tr>
  <tr><td>Differential Table</td><td>This is a view of the differential statement (<a href="#snapshot">see above</a>). For context, additional information not in the differential is also shown partially transparent</td></tr>
- <tr><td>Snapshot Table</td><td>This is a view of the snapshot produced by the profile (<a href="#snapshot">see above</a>). The information is a comprehensive view of what the profile means</td></tr>
+ <tr><td>Full Structure</td><td>This is a view of the snapshot produced by the profile (<a href="#snapshot">see above</a>). The information is a comprehensive view of what the profile means, though inherited constraints are not presented</td></tr>
  <tr><td>XML Template</td><td>An example of what the profile looks like in XML format</td></tr>
  <tr><td>JSON Template</td><td>An example of what the profile looks like in JSON format</td></tr>
 </table>
@@ -1032,6 +1054,18 @@ Each profile can be thought of in terms of the set of instances that conform to 
  <li>One set contained in the other: all resources that conform to A conform to B, but only some of the ones that conform to B conform to A (or vice versa)</li>
  <li>Identical sets: the set of resources that conform to A is the same as the set of resource that conform to B and the set of resources that don't conform to A is the same as the set of resources that don't conform to B</li>
 </ol>
+<p>
+The following guidance for designing profiles will maintain broader compatibility of resource instances across diverse
+profiles and minimize non-overlapping profiles of a given resource type:
+</p>
+<ul>
+  <li>Omit elements from the profile if they are not required for a specific use case. Profile authors are discouraged
+    from prohibiting the element (min= 0).</li>
+  <li>When profiling coded values, profile authors are encouraged to allow additional Codings in an instance, and use <a
+      href="terminologies.html#extensible">extensible</a> and <a href="terminologies.html#preferred">preferred</a>
+        bindings instead of <a href="terminologies.html#required">required</a> bindings when possible.</li>
+</ul>
+
 <p>
 Profiles can be compared to determine their compatibility. See <a href="https://confluence.hl7.org/display/FHIR/Comparing+Profiles">Comparing Profiles</a> on the HL7 Confluence page.
 </p>

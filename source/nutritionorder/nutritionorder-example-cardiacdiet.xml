@@ -8,10 +8,10 @@ edited by Eric Haas Health eData Inc
 		<value value="123"/>
 	</identifier>
 	<status value="active"/><intent value="order"/>
-	<patient>
+	<subject>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>
-	</patient>
+	</subject>
 	<encounter>
 		<reference value="Encounter/example"/>
 		<display value="Inpatient"/>

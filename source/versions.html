@@ -54,7 +54,7 @@ different aspects of the specification.  They are as follows:
     </tr>
     <tr>
       <th style="background-color: #e6ffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><a name="normative"></a>Normative</th>
-      <td>This content been approved by the <a href="ansi.html">ANSI standards process</a>.  It has been subject to review and production implementation in a wide variety of environments.
+      <td>This content been approved by the <!-- <a href="ansi.html">ANSI standards process</a>-->.  It has been subject to review and production implementation in a wide variety of environments.
       The content is considered to be stable and has been 'locked', subjecting it to FHIR
       <a href="#change">Inter-version Compatibility Rules</a>.  While changes are possible, they are
       expected to be infrequent and are tightly constrained.
@@ -195,7 +195,7 @@ For further information, and discussion, see the <a href="https://confluence.hl7
 <p>
 The maturity model is significantly influenced by the degree and type of implementation activity using an artifact.
 For this reason, we encourage implementers to <a href="http://fhir.org/implementations/usage">register their implementations</a>.
-A detailed analysis of the basis for the maturity metrics for FHIR artifacts can be found <a href="https://docs.google.com/spreadsheets/d/18HfXF7mUCUV7jACCG0oejFp6D-ibtvbmcgywNhn76lw">here</a>.
+A detailed analysis of the basis for the maturity metrics for FHIR artifacts can be found <a href="http://hl7.org/fhir/maturity-metrics">here</a>.
 </p>
 
 
@@ -236,6 +236,7 @@ Each FHIR version is identified by a string composed from 4 parts: major.minor.p
        <li>FHIR Release 2 (DSTU) was version 1</li>
        <li>FHIR Release 3 (STU) was version 3 (skipped '2' to align the major numbers at implementer request)</li>
        <li>FHIR Release 4 (Normative + STU) is version 4</li>
+       <li>FHIR Release 5 (STU) is version 5</li>
      </ul>
    </td>
   </tr>
@@ -529,7 +530,10 @@ The following rules apply once an artifact in the FHIR core specification or in 
     <tr>
       <td>References</td>
       <td>
-      Where one conformance resource points to another (e.g. CapabilityStatement to profile, profile to profiles, profile to value set, etc.), the reference may change to point to a newer version of the conformance resource or to a distinct conformance resource so long as the content of the newly referenced resource adheres to the compatibility rules with respect to the previously referenced version.
+      Where one conformance resource points to another (e.g. CapabilityStatement to profile, profile to profiles, profile to value set, etc.), 
+      the reference may change to point to a newer version of the conformance resource or to a distinct conformance resource so long as the 
+      content of the newly referenced resource adheres to the compatibility rules with respect to the previously referenced version.
+      We will add the sentence: Additional resources or profiles can also be added to the list of available targets for a reference.
       </td>
     </tr>
 	<tr>

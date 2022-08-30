@@ -53,7 +53,7 @@
 	</space>
 	<space>
 		<url>http://loinc.org</url>
-		<columnName>LOINC Code</columnName>
+		<columnName>LOINC Field Name</columnName>
 		<title>LOINC code for the element</title>
 		<id>loinc</id>
 		<sort>2</sort>
