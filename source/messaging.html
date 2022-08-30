@@ -216,12 +216,10 @@ Some of the message delivery mechanisms mentioned above are reliable delivery
 systems - the message is always delivered, or an appropriate error is returned
 to the source. However most implementations use methods which do not provide
 reliable messaging, and either the request or the response can get lost in transit.
-FHIR messaging describes a simple approach that receivers SHOULD conform to in
-order to handle the absence of reliable messaging that maintains predictable
-functionality.
+For systems exchanging FHIR messages over infrastructure that does not guarantee reliable messaging, the remainder of this section describes a simple approach that senders and receivers SHOULD conform to that ensures reliable delivery and maintains predictable functionality.
 </p>
 <p>
-If the sender of the message implements reliable messaging, it SHALL do
+If a sender implements this protocol, it SHALL do
 the following when it receives no response to a message within a
 configured timeout period based on the value specified in the
 <a href="capabilitystatement.html">CapabilityStatement</a> <code>messaging.event.category</code>
