@@ -566,7 +566,8 @@ modified element and its descendants, because it cannot know whether the modific
 might invalidate the value of the unknown extension</li>
  <li>Systems that drop existing elements are considered to be "<a href="#processing">processing the containing element</a>"</li>
  <li>A system SHALL NOT modify a resource or element if the resource as a whole or the element being modified within the resource has child "modifier" extensions it doesn't understand or is a descendant of an element that contains such modifier extensions</li>
- <li>Applications SHOULD ignore extensions that they do not recognize if they are not "modifier" extensions</li>
+ <li>Applications SHOULD NOT reject instances containing extensions that are not "modifier" extensions if they do not recognize them. Instead, they SHOULD preserve unrecognized non-modifier extensions when processing the resource. If
+preservation is not possible, they SHOULD ignore them.</li>
 </ul>
 <p>
 The degree to which a system can retain unknown extensions is a function of the type of system
