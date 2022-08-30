@@ -8,6 +8,8 @@ pr:
 variables:
 - group: ZULIP_VAR_GROUP
 - group: SSH_UPLOAD
+# A target directory, with no path separators, used for both the build destination
+# and the tx-cache used in the build.
 - name: CI_BRANCH_DIRECTORY
   value: $[ replace(variables['System.PullRequest.SourceBranch'], '/', '_') ]
 
