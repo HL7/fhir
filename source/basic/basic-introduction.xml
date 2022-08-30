@@ -59,7 +59,7 @@ Basic resource instance with nothing other than narrative, a subject and code.  
 <p>Other resources that are commonly used to capture 'generic' data are listed below:</p>
 <ul>
 <li><a href="observation.html">Observation</a> is preferable to Basic when the data being captured is a point-in-time assertion, particularly if it's potentially subjective and when notions such as 'method' or 'performer' of - how the data was captured are relevant.</li>
-<li>href="questionnaire.html">Questionnaire</a> is appropriate when the focus is on how the data is gathered from the user and where the resulting data won't be directly searchable.</li>
+<li><a href="questionnaire.html">Questionnaire</a> is appropriate when the focus is on how the data is gathered from the user and where the resulting data won't be directly searchable.</li>
 <li><a href="parameters.html">Parameters</a> are used when invoking operations or possibly passing information into a messaging call.</li>
 <li><a href="documentreference.html">DocumentReference</a> can be used to encapsulate arbitrary data so long as there is a mime type that corresponds to that structure. However, such data is typically opaque to FHIR queries.</li>
 </ul>
