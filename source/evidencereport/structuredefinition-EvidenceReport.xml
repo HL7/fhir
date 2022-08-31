@@ -97,7 +97,7 @@
     <element id="EvidenceReport.url">
       <path value="EvidenceReport.url"/>
       <short value="Canonical identifier for this EvidenceReport, represented as a globally unique URI"/>
-      <definition value="An absolute URI that is used to identify this EvidenceReport when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers."/>
+      <definition value="An absolute URI that is used to identify this EvidenceReport when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers."/>
       <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version."/>
       <requirements value="Allows the EvidenceReport to be referenced by a single globally unique identifier."/>
       <min value="0"/>
