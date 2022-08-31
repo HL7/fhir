@@ -470,4 +470,24 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ActivityDefinition-kind"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ActivityDefinition.kind"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-kind"/>
+        <description value="The kind of activity definition"/>
+        <code value="kind"/>
+        <type value="token"/>
+        <expression value="ActivityDefinition.kind"/>
+        <xpath value="f:ActivityDefinition/f:kind"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

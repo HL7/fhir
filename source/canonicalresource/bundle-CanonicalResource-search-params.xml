@@ -113,6 +113,23 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="CanonicalResource-context-reference"/>
+        <extension url="http://http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/CanonicalResource-context-reference"/>
+        <description value="A use context reference assigned to the {{title}}"/>
+        <code value="context-reference"/>
+        <type value="reference"/>
+        <expression value="{{name}}.useContext.value"/>
+        <xpath value="f:CanonicalResource/f:useContext/f:value"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="CanonicalResource-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
