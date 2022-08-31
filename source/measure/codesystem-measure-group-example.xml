@@ -17,7 +17,7 @@
   <name value="MeasureGroupExample"/>
   <title value="MeasureGroupExample"/>
   <status value="draft"/>
-  <experimental value="false"/>
+  <experimental value="true"/>
   <publisher value="Clinical Quality Information Workgroup"/>
   <description value="Example Measure Groups for the Measure Resource."/>
   <caseSensitive value="true"/>

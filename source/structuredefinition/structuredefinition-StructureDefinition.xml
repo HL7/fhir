@@ -906,8 +906,8 @@
       <constraint>
         <key value="sdf-3"/>
         <severity value="error"/>
-        <human value="Each element definition in a snapshot must have a formal definition and cardinalities"/>
-        <expression value="element.all(definition.exists() and min.exists() and max.exists())"/>
+        <human value="Each element definition in a snapshot must have a formal definition and cardinalities, unless model is a logical model"/>
+        <expression value="%resource.kind = 'logical' or element.all(definition.exists() and min.exists() and max.exists())"/>
         <xpath value="count(f:element) = count(f:element[exists(f:definition) and exists(f:min) and exists(f:max)])"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
