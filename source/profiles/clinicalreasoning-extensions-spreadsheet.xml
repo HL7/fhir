@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-07-31T21:04:45Z</LastSaved>
+  <LastSaved>2022-08-30T02:05:31Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -877,6 +877,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -4112,7 +4117,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R1C23"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="63" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="65" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s85" ss:Width="227.0"/>
    <Column ss:StyleID="s84" ss:Width="51.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="120.0"/>
@@ -4210,6 +4215,7 @@
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">A library containing logic used by the artifact</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">A reference to a Library containing the formal logic used by the artifact</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">For questionnaires, see additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#cqf-library).</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s105"><Data ss:Type="String">expression</Data></Cell>
@@ -4227,6 +4233,7 @@
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">An dynamic expression</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">An expression that, when evaluated, provides the value for the element on which it appears</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">For questionnaires, see additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#cqf-expression).</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">initialValue</Data></Cell>
@@ -4247,6 +4254,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">Expression</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">A calculated value</Data></Cell>
     <Cell><Data ss:Type="String">An expression that determines a calculated value. The expression may be simply the name of a expression in a referenced library, or it may be a complete inline expression</Data></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">For questionnaires, see additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#cqf-calculatedValue).</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!parameter</Data></Cell>
@@ -4257,6 +4265,27 @@
     <Cell ss:Index="8"><Data ss:Type="String">ParameterDefinition</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Parameter to any logic within the scope</Data></Cell>
     <Cell><Data ss:Type="String">The definition of a parameter that is available to any expressions within the scope of the parameter. Parameter values are provided as part of the evaluation request</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">parameterDefinition</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">TriggerDefinition</Data></Cell>
+    <Cell><Data ss:Type="String">parameterDefinition</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">ParameterDefinition</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Parameter to the trigger</Data></Cell>
+    <Cell><Data ss:Type="String">The definition of a parameter that is expected to be provided as part of the invocation of the trigger</Data></Cell>
+    <Cell><Data ss:Type="String">For each event, what data are expected to be provided to event handlers</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">isPrefetchToken</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">ParameterDefinition</Data></Cell>
+    <Cell><Data ss:Type="String">isPrefetchToken</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Usable to parameterize prefetch queries</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Allows an indication of whether this parameter can be used to parameterize prefetch templates (i.e. queries that can be used to identify data-of-interest to be sent as part of a triggered request</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!dataRequirement</Data></Cell>
@@ -4945,7 +4974,7 @@
     <Cell><Data ss:Type="String">An expression providing a formal representation of the invariant condition</Data></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">The expression will have access to `%target` (the resource that was instantiated) and `%definition` (the definition for the instantiated resource)</Data></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">alternativeExpression</Data></Cell>
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Expression</Data></Cell>
@@ -4973,43 +5002,43 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>62</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>11</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C6:R26C6,R5C6:R6C6</Range>
+   <Range>R18C6:R28C6,R5C6:R6C6</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>"0..0,0..1,1..1,0..*,1..*,[n]..[m]"</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C10:R26C10,R5C10:R6C10</Range>
+   <Range>R18C10:R28C10,R5C10:R6C10</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>"Bindings!A2..A30"</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C9:R26C9,R5C9:R6C9</Range>
+   <Range>R18C9:R28C9,R5C9:R6C9</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>"Y,N"</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C8:R26C8,R5C8:R6C8</Range>
+   <Range>R18C8:R28C8,R5C8:R6C8</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>"*,Reference(A|B),boolean,string,code,id,oid,uuid,integer,decimal,date,dateTime,time,instant,uri,base64Binary,CodeableConcept,Coding,Identifier,Period,Timing,Range,Quantity,Age,Distance,Duration,Count,Money,Ratio,HumanName,Address,ContactPoint,SampledData"</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C19:R26C21</Range>
+   <Range>R18C19:R28C21</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>"N/A"</Value>
@@ -5018,14 +5047,14 @@
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C23">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C14:R26C14</Range>
+   <Range>R18C14:R28C14</Range>
    <Condition>
     <Value1>(RC1="")&lt;&gt;(RC="")</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:yellow"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C1:R6C13,R16C1:R26C23</Range>
+   <Range>R5C1:R6C13,R18C1:R28C23</Range>
    <Condition>
     <Value1>RC6="0..0"</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:#F2F2F2"/>
@@ -5036,49 +5065,49 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C2:R26C2,R5C2:R6C2</Range>
+   <Range>R18C2:R28C2,R5C2:R6C2</Range>
    <Condition>
     <Value1>AND(RC[-1]&lt;&gt;"",ISERR(SEARCH(".",RC[-1])),RC="")</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C3:R26C3,R5C3:R6C3</Range>
+   <Range>R18C3:R28C3,R5C3:R6C3</Range>
    <Condition>
     <Value1>(RC[-1]="")&lt;&gt;(RC="")</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C6:R26C6,R16C15:R26C15,R5C6:R6C6</Range>
+   <Range>R18C6:R28C6,R18C15:R28C15,R5C6:R6C6</Range>
    <Condition>
     <Value1>(RC1="")&lt;&gt;(RC="")</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C11:R26C13,R5C11:R6C13</Range>
+   <Range>R18C11:R28C13,R5C11:R6C13</Range>
    <Condition>
     <Value1>AND(SEARCH("|",RC8)&lt;&gt;0,RC&lt;&gt;"")</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C13:R26C13,R5C13:R6C13</Range>
+   <Range>R18C13:R28C13,R5C13:R6C13</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;"",NOT(EXACT(LEFT(RC8,1),LOWER(LEFT(RC8,1)))))</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C14:R26C15</Range>
+   <Range>R18C14:R28C15</Range>
    <Condition>
     <Value1>AND(RC14&lt;&gt;"",RC14=RC15)</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C1:R6C13,R16C1:R26C23</Range>
+   <Range>R5C1:R6C13,R18C1:R28C23</Range>
    <Condition>
     <Value1>LEFT(RC1,1)="!"</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:#A5A5A5"/>
@@ -5092,14 +5121,14 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C1:R26C1</Range>
+   <Range>R18C1:R28C1</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;"",R[-1]C="")</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:red"/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C19:R26C20</Range>
+   <Range>R18C19:R28C20</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;"",ISERR(SEARCH("N/A",#REF!)),RC="")</Value1>
     <Format Style="border:.5pt solid #D8D8D8;background:orange"/>
@@ -5693,6 +5722,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6277,6 +6311,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6861,6 +6900,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7445,6 +7489,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8029,6 +8078,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

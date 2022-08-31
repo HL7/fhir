@@ -14,7 +14,7 @@
       
       <p>This code system http://hl7.org/fhir/biologicallyderived-product-property-type-codes is a subset of the codes defined in http://terminology.hl7.org/CodeSystem/ib</p>
       
-      
+  
       
       <table class="codes">
         
@@ -192,10 +192,6 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/biologicallyderived-product-property-type-codes"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="BiologicallyDerivedProductPropertyTypeCodes"/>
   <title value="BiologicallyDerivedProductPropertyTypeCodes"/>
@@ -218,22 +214,22 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-property-type-codes"/>
   <content value="example"/>
   <concept>
-    <code value="CollectionType"/>
-    <display value="CollectionType"/>
+    <code value="collectiontype"/>
+    <display value="Collection Type"/>
     <definition value="See https://www.isbt128.org/uri/CollectionType"/>
   </concept>
   <concept>
-    <code value="ABORhD"/>
+    <code value="aborhd"/>
     <display value="ABORhD"/>
     <definition value="See https://www.isbt128.org/uri/ABORhD"/>
   </concept>
   <concept>
-    <code value="SingleEuropeanCode"/>
-    <display value="SingleEuropeanCode"/>
+    <code value="singleeuropeancode"/>
+    <display value="Single European Code"/>
     <definition value="See https://www.isbt128.org/uri/SingleEuropeanCode"/>
   </concept>
   <concept>
-    <code value="RedCellAntigen"/>
+    <code value="redcellantigen"/>
     <display value="Red Cell Antigen"/>
     <definition value="See https://www.isbt128.org/uri/RedCellAntigen"/>
   </concept>

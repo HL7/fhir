@@ -1,5 +1,4 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
@@ -45,5 +44,17 @@
 				</p>
 			</li>
 		</ul>
+
+		<a name="recurring"></a>
+		<h3>Recurring Appointments</h3>
+		<p>
+			When a recurring appointment is requested, the participant may choose to respond to each individual
+			occurrence, in which case <code>AppointmentResponse.recurring</code> should be <code>false</code>. If the participant chooses
+			to respond the same way for all occurrences, they may instead use a single AppointmentResponse with
+			recurring set to <code>true</code>. These may be combined as the participant chooses. For example, they may
+			accept all occurrences of a series (recurring = true), but then send a decline for a specific 
+			occurrence (recurring = false).<br/>
+			For more general information on recurring appointments, refer to the <a href="appointment.html#recurring">appointment page</a>.
+		</p>
 	</div>
 </div>

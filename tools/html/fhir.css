@@ -368,6 +368,15 @@ pre.json             {
 	width: 650px;
 }
 
+pre.liquid             {
+	border: 1px solid #dcdcdc;
+ 	font-size: 11px;
+        background: #fbf3e3 ; 
+	padding: 5px;
+	width: 650px;
+}
+
+
 pre.rdf             {
 	border: 1px solid #dcdcdc;
  	font-size: 11px;
@@ -944,4 +953,22 @@ ol.fmmlist li::before {
   content: "FMM " counter(number);
   position: relative;
   left:-25px
+}
+
+.copy-text .btn-copy{
+  visibility: hidden;
+}
+
+.copy-text:hover .btn-copy {
+  visibility: visible;
+}
+
+.btn-copy {
+  height: 14px;
+  width: 17px;
+  background-image: url('icon_clipboard.png');
+  background-size: 22px;
+  padding: 0px 0px; 
+  border-width: 0px;
+  background-color: transparent;
 }

@@ -809,7 +809,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">entered-in-error-status</Data></Cell>
-    <Cell><Data ss:Type="String">Delete the report if it is</Data></Cell>
+    <Cell><Data ss:Type="String">Delete the instance if it is in error</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -6869,7 +6869,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc.)</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/subject-type" ss:StyleID="s153"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/subject-type</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/participant-resource-types</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>

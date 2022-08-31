@@ -86,10 +86,6 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoChild"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
@@ -144,10 +140,6 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoMother"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
@@ -198,10 +190,6 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoFather"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
@@ -234,7 +222,7 @@
         <subject>
             <reference value="Patient/denovoChild"/>
         </subject>
-        <specimen><!-- 0..1 Reference(Specimen) The specimen used in the analysis event --></specimen>
+        <!-- <specimen> 0..1 Reference(Specimen) The specimen used in the analysis event</specimen> -->
         <date value="2021-01-01T03:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
         <note>
             <text value="This is a next generation sequencing analysis of the comparison analysis of proband and parents sequences."/>
@@ -250,10 +238,6 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoChild"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
         <input>  <!-- 0..* Inputs for the analysis event of Mother-->
             <file>
@@ -266,10 +250,6 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoMother"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
         <input>  <!-- 0..* Inputs for the analysis event of Father -->
             <file>
@@ -282,10 +262,6 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoFather"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>

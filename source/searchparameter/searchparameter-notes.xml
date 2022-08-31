@@ -1,16 +1,59 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 <a name="srch"></a>
 <h2>SearchParameters on Extensions</h2>
-<p>The SearchParameter resource may be used to define searches on extensions. Depending on the context of the extension
-(as defined in the <a href="structuredefinition.html">StructureDefinition</a>), this may require multiple instances of the
-<code>SearchParameter.xpath</code> element like so:</p>
+<p>
+The SearchParameter resource may be used to define searches on extensions.
+A simple definition defines the code, the base resource the extension can be 
+found in, and a type, and an expression. Assume that the extension is <code>http://example.org/fhir/StructureDefinition/extension-thumb-length</code>
+which has a value that is a quantity, and that is used on patient, then an appropriate SearchParameter would be:
+</p>
+<pre class="json">
+   "code" : "thumb-length",
+   "base" : ["Patient"],
+   "type" : "quantity",
+   "expression" : "Patient.extension('http://example.org/fhir/StructureDefinition/extension-thumb-length').value"
+</pre>
+<p>
+Servers MAY attempt to process expressions that just select the extension without the <code>.value</code>, but this
+is not required and may be discouraged or deprecated in the future. 
+</p>
+<p>
+Extensions may have multiple types with different search behaviours, so the type can be specifically selected:
+</p>
+<pre class="json">
+   "code" : "thumb-length-code",
+   "base" : ["Patient"],
+   "type" : "token",
+   "expression" : "Patient.extension('http://example.org/fhir/StructureDefinition/extension-thumb-length').value.ofType(CodeableConcept)"
+</pre>
+<p>
+This example would select coded thumb lengths and index them only for the <code>thumb-length-code</code> search parameter.
+When an extension can have multiple types with incompatible search behaviour, the search 
+parameters have to do this. Note that is type casting the extension directly (e.g.
+<code>Patient.extension('...').ofType(CodeableConcept)</code>) will lead to an empty index, 
+since the extension is not a CodeableConcept itself.
+</p>
+<p>
+When extensions can be used in multiple places, these places are enumerated in the expression:
+</p>
+<pre>
+Patient.extension('http://example.org/fhir/StructureDefinition/extension-thumb-length').value
+ | Patient.contact.extension('http://example.org/fhir/StructureDefinition/extension-thumb-length').value
+ | Practitioner.extension('http://example.org/fhir/StructureDefinition/extension-thumb-length').value
+</pre>
+<p>
+Notes:
+</p>
 <ul>
-<li>If the extension's context is scoped by a single resource, SearchParameter.base must be set to that resource,
-and there may be one or more <code>xpath</code> elements corresponding to the elements specified in the extension's context, e.g.
-"f:Patient/f:name/f:extension[@url='extension url']"</li> 
-<li>If the extension's context specifies multiple resources, this can be represented with multiple elements in the 
-<code>SearchParameter.base</code> array.</li>
-<li>You may use a single <code>xpath</code> element with the full URL of the Extension to indicate that the SearchParameter
-would search in all elements of the given <code>SearchParameter.base</code> resource for the given extension.</li>
+  <li>
+    If the extension's context specifies multiple resources, they are represented with multiple 
+    elements in the <code>SearchParameter.base</code> array
+  </li>
+  <li>
+    An expression like <code>Resource.descendents.extension('extension-url').value</code> is possible, but this 
+    is a low performance option for a server to evaluate, and search parameter expressions are performance 
+    sensitive
+  </li>
 </ul>
+
 </div>

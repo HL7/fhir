@@ -1,0 +1,72 @@
+<Group xmlns="http://hl7.org/fhir">
+  <id value="groupDenovoFamily"/> 
+  <text> 
+    <status value="additional"/> 
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p> Denovo mutation study members </p> 
+      <ul> 
+        <li> Patient: Child Junior Doe</li> 
+        <li> Mother: Jane Mother Doe</li> 
+        <li> Father: John Father Doe</li> 
+      </ul> 
+    </div> 
+  </text> 
+  <identifier>
+    <use value="temp"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+        <code value="MR"/>
+        <display value="Medical record number"/>
+      </coding>
+    </type>
+    <system value="http://www.somesystemabc.net/identifiers/groups"/>
+    <value value="11111"/>
+    <period>
+      <start value="2021-01-01"/>
+    </period>
+    <assigner>
+      <display value="Child Hospital"/>
+    </assigner>
+  </identifier>
+ <active value="true"/>
+ <type value="person"/>
+ <membership value="enumerated"/><!-- 1..1 definitional | enumerated -->
+ <!-- <code></code> -->
+ <name value="Denovo Mutation Example Group"/><!-- 0..1 Label for Group -->
+ <description value="[markdown]"/><!-- 0..1 Natural language description of the group -->
+ <quantity value="3"/>
+ <managingEntity>
+    <reference value="Practitioner/practitioner02"/>
+ </managingEntity>
+
+ <member>
+  <entity>
+    <reference value="Patient/denovoChild"/>
+  </entity>
+  <period> 
+      <start value="2021-01-01T01:01:10-06:00"/> 
+  </period>
+  <inactive value="false"/>
+ </member>
+
+  <member>
+  <entity>
+    <reference value="RelatedPerson/relatedPersonDenovoMother"/>
+  </entity>
+  <period> 
+      <start value="2021-01-01T01:01:10-06:00"/> 
+  </period>
+  <inactive value="false"/>
+ </member>
+
+  <member>
+  <entity>
+    <reference value="RelatedPerson/relatedPersonDenovoFather"/>
+  </entity>
+  <period> 
+      <start value="2021-01-01T01:01:10-06:00"/> 
+  </period>
+  <inactive value="false"/>
+ </member>
+</Group>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
   <id value="Account-search-params"/>
   <entry>
     <resource>
@@ -180,6 +180,20 @@
         <expression value="Account.type"/>
         <xpath value="f:Account/f:type"/>
         <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Account.relatedAccount.account"/>
+        </extension>
+        <description value="Parent and other related accounts"/>
+        <code value="relatedaccount"/>
+        <type value="reference"/>
+        <expression value="Account.relatedAccount.account"/>
+        <xpath value="f:Account/f:relatedAccount/f:account"/>
       </SearchParameter>
     </resource>
   </entry>

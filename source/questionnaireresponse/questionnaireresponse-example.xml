@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <QuestionnaireResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaireresponse.xsd">
   <id value="3141"/>
   <text>
@@ -100,6 +100,7 @@
   <partOf>
     <reference value="Procedure/f201"/>
   </partOf>
+  <questionnaire value="urn:uuid:95eaedf7-8a24-478a-8300-39acc44c746b"/>
   <status value="completed"/>
   <subject>
     <reference value="#patsub"/>

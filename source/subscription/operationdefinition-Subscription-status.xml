@@ -51,7 +51,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="This operation is used to return the current status information about one or more topic-based Subscriptions in R4."/>
+  <description value="This operation is used to return the current status information about one or more topic-based Subscriptions."/>
   <affectsState value="false"/>
   <code value="status"/>
   <resource value="Subscription"/>

@@ -191,6 +191,10 @@
     <display value="Bubo"/>
     <display value="Bubo (morphologic abnormality)"/>
   </concept>
+  <concept id="116154003" display="Patient">
+    <display value="Patient"/>
+    <display value="Patient (person)"/>
+  </concept>
   <concept id="116602009" display="Prednisone">
     <display value="Prednisone"/>
     <display value="Prednisone (substance)"/>
@@ -10735,6 +10739,11 @@
     <display value="Madura cattle breed (organism)"/>
     <display value="Madura cattle breed"/>
   </concept>
+  <concept id="133932002" display="Caregiver">
+    <display value="Caregiver"/>
+    <display value="Caregiver (person)"/>
+    <display value="Carer"/>
+  </concept>
   <concept id="134622004" display="Capecitabine 500mg tablet">
     <display value="Capecitabine 500mg tablet"/>
     <display value="Capecitabine 500mg tablet (product)"/>
@@ -14711,6 +14720,10 @@
     <display value="Iron measurement"/>
     <display value="Iron measurement (procedure)"/>
     <display value="Iron level"/>
+  </concept>
+  <concept id="429577009" display="Patient advocate">
+    <display value="Patient advocate (person)"/>
+    <display value="Patient advocate"/>
   </concept>
   <concept id="429858000" display="Computed tomography (CT) of head and neck">
     <display value="Computed tomography of head and neck (procedure)"/>

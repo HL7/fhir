@@ -26,6 +26,8 @@
         <value value="+31715269111"/>
         <use value="work"/>
     </telecom>
+    <gender value="male" /><!--The practitioner's administrative gender-->
+    <birthDate value="1960-06-12"/>
     <address><!--Work address for the individual-->
         <use value="work"/>
         <line value="Walvisbaai 3"/>    
@@ -35,8 +37,6 @@
         <country value="NLD"/><!--ISO 3166 3 letter code-->
     </address>   
     
-    <gender value="male" /><!--The practitioner's administrative gender-->
-    <birthDate value="1960-06-12"/>
 <!--    <photo>    
         <reference value="Media/LM-203.bmp"/>
         <display value="Picture_Luigi_Maas"/>

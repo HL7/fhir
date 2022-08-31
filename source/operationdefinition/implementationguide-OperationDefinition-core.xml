@@ -14,10 +14,5 @@
         <reference value="StructureDefinition/operationdefinition-profile"/>
       </reference>
     </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/operationdefinition-allowed-type"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

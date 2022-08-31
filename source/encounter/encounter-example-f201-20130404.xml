@@ -13,13 +13,6 @@
 			<display value="ambulatory"/>
 		</coding>
     </class>
-	<type><!--TODO Why is this merely a CodeableConcept and not Resource (any)?-->
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="11429006"/>
-			<display value="Consultation"/>
-		</coding>
-	</type>
 	<priority><!--Normal priority-->
 		<coding>
 			<system value="http://snomed.info/sct"/>
@@ -27,6 +20,13 @@
 			<display value="Normal"/>
 		</coding>
 	</priority>
+	<type><!--TODO Why is this merely a CodeableConcept and not Resource (any)?-->
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="11429006"/>
+			<display value="Consultation"/>
+		</coding>
+	</type>
 	<subject>
 		<reference value="Patient/f201"/>
 		<display value="Roel"/>

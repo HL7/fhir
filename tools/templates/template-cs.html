@@ -12,13 +12,15 @@
 
 <div class="col-12">
 
-<%txheader0 vs%>
 
 <a name="vs"></a>
-<h1>Code System <%vsurl%></h1>
+<h1>CodeSystem <%vsurl%></h1>
 <table class="<%fmm-style%>">
  <tr><td><a href="<%wg%>"><%wgt%></a> Work Group</td><td><%fmm%></td><td><%sstatus%></td><!--!ns!--><td><%profile-context%></td></tr>
 </table>
+
+<%exheader narrative%>
+
 [%normative cs %check%]
 
 <p>
@@ -27,15 +29,15 @@ This is a code system defined <%vssource%><%vsxref%>
 
 <p><b>Summary</b></p>
 <table class="grid">
- <tr><td>Defining URL:</td><td><code><%vsurl%></code></td></tr>
+ <tr><td>Defining URL:</td><td><span class="copy-text"><code><%vsurl%></code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="<%vsurl%>" data-original-title="Click to copy URL"></button></span></td></tr>
  <tr><td>Version:</td><td><%vsver%></td></tr>
  <tr><td>Name:</td><td><%vsnamed%></td></tr>
  <tr><td>Title:</td><td><%vstitle%></td></tr>
+ <tr><td>Status:</td><td><%vsstatus%></td></tr>
  <tr><td>Definition:</td><td><%vsdef%></td></tr>
  <tr><td>Committee:</td><td><%vscommittee%></td></tr>
  <tr><td>OID:</td><td><%txoid%> (for OID based terminology systems)</td></tr>
 <%txsummary%>
- <tr><td>Source Resource:</td><td><a href="<%vsref%>.xml.html">XML</a> / <a href="<%vsref%>.json.html">JSON</a></td></tr>
 </table>
 
 <%res-status-special%>
@@ -73,9 +75,12 @@ Explanation of the columns that may appear on this page:
 
 [%file newfooter%]
     
+<script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+<script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
     
 <script src="external/jquery/jquery.js"> </script>
 <script src="jquery-ui.min.js"> </script>
+
 <script>
 try {
   var currentTabIndex = sessionStorage.getItem('fhir-cslang-tab-index');

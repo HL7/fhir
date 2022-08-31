@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="seriousness-criteria"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/seriousness-criteria"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+  </identifier>
+  <version value="4.6.0"/>
+  <name value="SeriousnessCriteriaVS"/>
+  <title value="Seriousness Criteria"/>
+  <status value="active"/>
+  <date value="2022-06-14T10:06:34-06:00"/>
+  <publisher value="Vulcan Accelerator"/>
+  <contact>
+    <name value="Vulcan Accelerator"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir/example-publisher"/>
+    </telecom>
+  </contact>
+  <description value="Action criteria usually associated with serious events that pose a threat to a patient&#39;s life or functioning"/>
+  <compose>
+    <include>
+	  <system value="http://hl7.org/fhir/CodeSystem/seriousness-criteria"/>
+	</include>
+  </compose>
+</ValueSet>

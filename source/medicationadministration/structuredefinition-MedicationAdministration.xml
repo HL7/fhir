@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="MedicationAdministration"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -427,7 +427,7 @@
     </element>
     <element id="MedicationAdministration.recorded">
       <path value="MedicationAdministration.recorded"/>
-      <short value="When the MedicationAdministration was first captured in the subject&#39;s record"/>
+      <short value="When the MedicationAdministration was first captured in the subject's record"/>
       <definition value="The date the occurrence of the  MedicationAdministration was first captured in the record - potentially significantly after the occurrence of the event."/>
       <min value="0"/>
       <max value="1"/>
@@ -473,8 +473,8 @@
     </element>
     <element id="MedicationAdministration.performer">
       <path value="MedicationAdministration.performer"/>
-      <short value="Who performed the medication administration and what they did"/>
-      <definition value="Indicates who or what performed the medication administration and how they were involved."/>
+      <short value="Who or what performed the medication administration and what type of performance they did"/>
+      <definition value="Indicates who or what performed the medication administration and how they were involved. For devices, this is the device that is actually performing the administration of the medication.  An IV Pump would be an example of a device that is performing the administration.  Both the IV Pump and the practitioner that set the rate or bolus on the pump can be listed as performers."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -491,7 +491,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="RXA-10 Administering Provider / PRT-5 Participation Person: PRT-4 Participation=&#39;AP&#39; (RXA-10 is deprecated)"/>
+        <map value="RXA-10 Administering Provider / PRT-5 Participation Person: PRT-4 Participation='AP' (RXA-10 is deprecated)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -662,7 +662,7 @@
         <severity value="error"/>
         <human value="If dosage attribute is present then SHALL have at least one of dosage.text or dosage.dose or dosage.rate[x]"/>
         <expression value="(dose.exists() or rate.exists() or text.exists())"/>
-        <xpath value="exists(f:dose) or exists(f:text) or exists(f:*[starts-with(local-name(.), &#39;rate&#39;)])"/>
+        <xpath value="exists(f:dose) or exists(f:text) or exists(f:*[starts-with(local-name(.), 'rate')])"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
       </constraint>
       <mapping>

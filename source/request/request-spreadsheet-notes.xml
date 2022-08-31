@@ -4,7 +4,7 @@
   <h2>Extensions</h2>
   <p>
     Not all resources that follow the 'Request' pattern will necessarily include all of the above elements.  A set of standard extensions have been defined
-    for use with resources where an element might be "applicable" but is not commonly supported.  A list of these can be found on the 
+    for use with resources where an element might be "applicable" but is not commonly supported.  A list of these can be found on the
     <a href="request-extensions.html">Request Extensions</a>(request-specific) and <a href="workflow-extensions.html">Workflow Extensions</a>(shared by events
     and requests).
   </p>
@@ -18,7 +18,7 @@
     transitions may be supported, including from terminal nodes (e.g. from "completed" back to "active").
     That said, most resources should align with this state machine fairly well.
   </p>
-  <img src="request-state-machine.svg" alt="Typical state machine diagram for resources following 
+  <img src="request-state-machine.svg" alt="Typical state machine diagram for resources following
   the Request pattern"/>
   <p>
     Note that this state machine does not reflect the <i>execution</i> of the request.  That state is managed
@@ -29,7 +29,7 @@
   <a name="fulfillment"></a>
   <h2>Fulfillment/Execution information</h2>
   <p>
-    Request resources describe what activity is desired/authorized.  Requests do not track the execution/fulfillment 
+    Request resources describe what activity is desired/authorized.  Requests do not track the execution/fulfillment
     of the plan, proposal or order.  I.e. the request resource will not indicate actual performer, actual performance
     time, actual action performed, etc.  Information about what action (if any) has occurred against the request is
     tracked using the corresponding <a href="event.html">Event</a> resource(s).  Events that are associated with
@@ -45,10 +45,10 @@
     could support updating a completed request to change the subject, requester, authorized action, quantity, timing
     and any other such information.  However, most business processes will impose significant constraints on what changes,
     if any, are allowed to request resources, particularly after they have transitioned to "active" or "completed".
-    Servers are free to enforce whatever rules they deem appropriate - and to provide appropriate 
+    Servers are free to enforce whatever rules they deem appropriate - and to provide appropriate
     <a href="operationoutcome.html">OperationOutcome</a> responses detailing constraints if those rules are violated.
   </p>
-  
+
   <a name="compound"></a>
   <h2>Compound Requests</h2>
   <p>
@@ -57,32 +57,32 @@
   <ul>
     <li>Shared requisition id</li>
     <li>"Based on" chain</li>
-    <li>RequestGroup</li>
+    <li>RequestOrchestration</li>
   </ul>
-  
+
   <a name="requisitionid"></a>
   <h3>Shared requisition id</h3>
   <p>
-    The <code>Request.requisitionId</code> element allows multiple requests to be linked as having been created as part 
-    of the same "event" - generally by the same practitioner at the same time for the same subject.  The 
+    The <code>Request.requisitionId</code> element allows multiple requests to be linked as having been created as part
+    of the same "event" - generally by the same practitioner at the same time for the same subject.  The
     "requisitionId" represents the identifier of the prescription, lab requisition or other form that was
-    shared by all items.  The common information (<code>patient</code>/<code>practitioner</code>/<code>authoredOn</code>) 
+    shared by all items.  The common information (<code>patient</code>/<code>practitioner</code>/<code>authoredOn</code>)
     can be seen by examining
     any of the Request instances that share that <code>requisitionId</code>  If there are common comments or notes that
-    span the entire requisition, they should be captured as <a href="observation.html">Observation</a> or 
-    <a href="communication.html">Communication</a> instances linked to relevant Request instances using 
+    span the entire requisition, they should be captured as <a href="observation.html">Observation</a> or
+    <a href="communication.html">Communication</a> instances linked to relevant Request instances using
     <code>Request.supportingInfo</code>.
   </p>
   <p>
-    Each "component" behaves as an independent request and has its own status that changes independently.  The shared 
-    requisitionId allows business processes dependent on "simultaneous/requisition-based ordering" such as payment rules to 
+    Each "component" behaves as an independent request and has its own status that changes independently.  The shared
+    requisitionId allows business processes dependent on "simultaneous/requisition-based ordering" such as payment rules to
     know that the requests were ordered at the same time.
-  </p>    
+  </p>
   <p>
-    In general, the requisitionId, requester, authoredOn, and subject for each Request will not change over the lifetime of the 
-    instance, particularly once the status becomes 'active', though there may be situations where some workflows allow these 
-    elements to change.  Because of this, there could be situations where the subject, requester, authoredOn could differ between 
-    Requests that share the same requisitionId. Systems can enforce business rules to prevent such inconsistency from happening if 
+    In general, the requisitionId, requester, authoredOn, and subject for each Request will not change over the lifetime of the
+    instance, particularly once the status becomes 'active', though there may be situations where some workflows allow these
+    elements to change.  Because of this, there could be situations where the subject, requester, authoredOn could differ between
+    Requests that share the same requisitionId. Systems can enforce business rules to prevent such inconsistency from happening if
     it would be problematic.
   </p>
 
@@ -91,7 +91,7 @@
   <p>
     In this case "components" of a parent request are not treated as components, but rather as separate orders that are
     executed as part of the fulfillment process for the parent order.  For example, a lab order might spawn child orders
-    to draw the specimen, treat the specimen, run several tests and to create the report.  Each "child" Request would use 
+    to draw the specimen, treat the specimen, run several tests and to create the report.  Each "child" Request would use
     <code>Request.basedOn</code> to reference the original Request.  In this case, there's a relationship between the
     statuses of the base Request and the fulfilling Requests, but they transition separately and might not transition in
     the same manner.  For example, if the original lab order were updated to "suspended", the initial blood draw request might
@@ -101,16 +101,16 @@
   <p>
     <code>basedOn</code> is distinct from the notion of <code>replaces</code>.  In a "based on" relationship both resources are
     "active" and in force and the authority cascades from the initial request to the request that is based on that original request.
-    The source and target of a "replaces" relationship should have the same "intent". I.e. An order can replace another order, but 
+    The source and target of a "replaces" relationship should have the same "intent". I.e. An order can replace another order, but
     can't generally replace a proposal - though an order can be "basedOn" a proposal.
   </p>
 
-  <a name="requestgroup"></a>
-  <h3>RequestGroup</h3>
+  <a name="requestorchestration"></a>
+  <h3>RequestOrchestration</h3>
   <p>
-    This approach makes use of the <a href="requestgroup.html">RequestGroup</a> resource which allows the assertion of complex
+    This approach makes use of the <a href="requestorchestration.html">RequestOrchestration</a> resource which allows the assertion of complex
     timing and other dependencies between a collection of requests.  These effectively become one overall Request instance with
-    a single status.  All resources referenced by the RequestGroup must have an intent of "option", meaning that they cannot
+    a single status.  All resources referenced by the RequestOrchestration must have an intent of "option", meaning that they cannot
     be interpreted independently - and that changes to them must take into account the impact on referencing resources.
     Typically these will either be contained resources or tightly controlled or immutable instances based on ActivityDefinitions
     that can safely be referenced without concern of them changing independent of referencing Requests.
@@ -128,49 +128,49 @@
     However, they have slightling different purposes.
   </p>
   <ul>
-    <li><code>supportingInfo</code> <i>can</i> be a reference to a <a href="documentreference.html">DocumentReference</a> containing 
-      ad-hoc clinical notes, however in most cases, <code>supportingInfo</code> will be other types of resources containing discrete 
+    <li><code>supportingInfo</code> <i>can</i> be a reference to a <a href="documentreference.html">DocumentReference</a> containing
+      ad-hoc clinical notes, however in most cases, <code>supportingInfo</code> will be other types of resources containing discrete
       information.  In the situation where a DocumentReference is used to contain notes, those notes have an independent existence and
       maintenance cycle from the referencing Request resource and might be linked to multiple Request or other resources.  On the other
       hand, <code>notes</code> are associated with exactly one Request instance.</li>
-    <li>Notes are typically added to a request after it has been activated, though they can come before.  A key thing is that you want 
+    <li>Notes are typically added to a request after it has been activated, though they can come before.  A key thing is that you want
       to track who made the note and when.</li>
-    <li>Notes can be clinical or administrative in nature.  E.g. "Holding off sending the referral until patient is back from vacation", 
+    <li>Notes can be clinical or administrative in nature.  E.g. "Holding off sending the referral until patient is back from vacation",
       "Expect to resume med roughly 2 weeks post-discharge", "Possible compliance issues, follow up next appointment".</li>
     <li><code>supportingInfo</code> is information typically provided at the time the request is activated, though it can be added later.</li>
-    <li><code>supportingInfo</code> is information needed by the filler in order to be able to perform the order (e.g. recent lab tests 
-      supporting a referral, patient height/weight/age supporting a dosage instruction - or allowing calculation of dosage, previous 
+    <li><code>supportingInfo</code> is information needed by the filler in order to be able to perform the order (e.g. recent lab tests
+      supporting a referral, patient height/weight/age supporting a dosage instruction - or allowing calculation of dosage, previous
       procedures done, etc. to support a Claim.</li>
-    <li><code>notes</code> should never be used to reflect information conveyed in <code>supportingInfo</code>.</li>  
+    <li><code>notes</code> should never be used to reflect information conveyed in <code>supportingInfo</code>.</li>
   </ul>
-  
+
   <a name="history"> </a>
   <h2>Relevant history</h2>
   <p>
-    This pattern contains an element called "relevantHistory" that points to <a href="provenance.html">Provenance</a>.  This allows the 
-    resource to summarize key events that have happened over the lifespan of the resource.  For example, when the request was created, 
-    when it was suspended, when it was released, etc.  The list of referenced Provenence entries don't necessarily include <i>all</i> events 
-    that have occurred over the lifespan of the resource.  Instead, they list those the author considers 'significant' and relevant to 
+    This pattern contains an element called "relevantHistory" that points to <a href="provenance.html">Provenance</a>.  This allows the
+    resource to summarize key events that have happened over the lifespan of the resource.  For example, when the request was created,
+    when it was suspended, when it was released, etc.  The list of referenced Provenence entries don't necessarily include <i>all</i> events
+    that have occurred over the lifespan of the resource.  Instead, they list those the author considers 'significant' and relevant to
     downstream users.  Modifications to drafts or small corrections that do not impact fulfillment might not be needed.  In some cases,
     Provenance for changes to other resources (e.g. fulfilling events) might also be included if the source system tracks those as
     'events' tied to the Request.
   </p>
   <p>
     <b>IMPORTANT:</b> the relevantHistory generally excludes the most recent change on 'pure' FHIR repositories.  That is because in
-    pure FHIR environments, the Provenance instance must be created after the update has been made - because it needs to point to the new 
-    'version' of the resource that has been created.  This means that if there is a desire to include the 'current' change in relevant history, 
-    it is necessary to first make the change, then update the resource to add the event to recentHistory.  More typically, recentHistory 
+    pure FHIR environments, the Provenance instance must be created after the update has been made - because it needs to point to the new
+    'version' of the resource that has been created.  This means that if there is a desire to include the 'current' change in relevant history,
+    it is necessary to first make the change, then update the resource to add the event to recentHistory.  More typically, recentHistory
     simply won't include the most recent event.  If the full history is needed, the system will need to retrieve both the history as well as
-    the Provenance that points to the current release.  
+    the Provenance that points to the current release.
   </p>
   <p>
     For systems that don't store history separately from the base resource, the relevantHistory Provenance instances can be conveyed
-    as <a href="references.html#contained">contained resources</a>.  In this circumstance, there might also not be an issue with relevantHistory 
+    as <a href="references.html#contained">contained resources</a>.  In this circumstance, there might also not be an issue with relevantHistory
     also including the 'most recent' change as the history is updated at the same time the change is applied.
   </p>
   <p>
     The full set of potential Provenance information may be overkill for those systems that are only interested in it from a
-    relevantHistory perspective.  The <a href="provenance-relevant-history.html">Provenance Relevant History</a> profile is included to give guidance 
+    relevantHistory perspective.  The <a href="provenance-relevant-history.html">Provenance Relevant History</a> profile is included to give guidance
     on what data elements are most likely to be relevant for systems looking at Provenance from the perspective of relevantHistory.
   </p>
 </div>

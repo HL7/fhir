@@ -189,7 +189,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="dateTime"/>
+        <code value="date"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -213,7 +213,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="dateTime"/>
+        <code value="date"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -271,7 +271,7 @@
           <valueString value="InformationType"/>
         </extension>
         <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-information-type|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-information-type"/>
       </binding>
     </element>
     <element id="ArtifactAssessment.content.summary">
@@ -387,7 +387,7 @@
           <valueString value="WorkflowStatus"/>
         </extension>
         <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-workflow-status|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-workflow-status"/>
       </binding>
     </element>
     <element id="ArtifactAssessment.disposition">
@@ -405,7 +405,7 @@
           <valueString value="Disposition"/>
         </extension>
         <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-disposition|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-disposition"/>
       </binding>
     </element>
   </differential>

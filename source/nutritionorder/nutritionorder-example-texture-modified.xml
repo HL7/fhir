@@ -5,10 +5,10 @@
 		<value value="123"/>
 	</identifier>
 	<status value="active"/><intent value="order"/>
-	<patient>
+	<subject>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>
-	</patient>
+	</subject>
 	<dateTime value="2014-09-17"/>
 	<orderer>
 		<reference value="Practitioner/example"/>
@@ -31,6 +31,7 @@
 		</type>
 		<!-- EH example of three times a day starting on 2/10 -->
 		<schedule>
+			<timing>
 			<repeat>
 				<boundsPeriod>
 					<start value="2015-02-10"/>
@@ -39,6 +40,7 @@
 				<period value="1"/>
 				<periodUnit value="d"/>
 			</repeat>
+		</timing>
 		</schedule>
 		<texture>
 			<modifier>

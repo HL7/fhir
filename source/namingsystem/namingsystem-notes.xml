@@ -1,11 +1,29 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="duplicates"> </a>
 <h3>Dealing with duplicate entries</h3>
 <p>
 In some cases, the same code or identifier system might accidentally be created more than once in a registry, for example because someone failed to check
 for an existing entry before adding a new one or knows the same concept with a different name.  If this occurs, one of the system entries should be deleted
 and the remaining entry should have its <code>uniqueId</code> updated to include any identifiers present on the original entry (and possibly have its descriptive 
 information modified to include additional information from the duplicate entry).
+</p>
+
+<a name="duplicates"> </a>
+<h3>NamingSystem.url</h3>
+
+<p>
+The NamingSystem resource has a <code>url</code> property. 
+The NamingSystem resource also specifies preferred identifiers 
+for the Identifier or Code system that is being described. 
+These are not the same thing; the <code>url</code> property
+of the NamingSystem itself identifies the registration of 
+the system - the description itself, where as the preferred 
+identifiers identify the system being described.
+</p>
+<p>
+The NamingSystem.url SHOULD not be the same as a URL in the preferred identifiers 
+list, and it would not therefore appear in a <code>Coding.system</code> or an <code>Identifier.system</code>.
 </p>
 
 

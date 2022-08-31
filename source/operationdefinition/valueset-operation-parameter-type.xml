@@ -21,7 +21,7 @@
     </include>
   <!--    FHIR data types & Resources    -->
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
     </include>
     <include>
       <system value="http://hl7.org/fhir/special-types"/>
