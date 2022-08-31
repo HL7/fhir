@@ -177,7 +177,7 @@
       <valueString value="DocumentReference - Genomic File of a Proband"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="DocumentReference-Genomic File of a Proband"/>
+      <valueString value="DocumentReference-genomicFileProband"/>
     </extension>
     <item>
       <reference value="DocumentReference/genomicFileProband"/>
@@ -189,7 +189,7 @@
       <valueString value="DocumentReference - Genomic File of a Mother"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="DocumentReference-Genomic File of a Mother"/>
+      <valueString value="DocumentReference-genomicFileMother"/>
     </extension>
     <item>
       <reference value="DocumentReference/genomicFileMother"/>
@@ -201,7 +201,7 @@
       <valueString value="DocumentReference - Genomic File of a Father"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="DocumentReference-Genomic File of a Father"/>
+      <valueString value="DocumentReference-genomicFileFather"/>
     </extension>
     <item>
       <reference value="DocumentReference/genomicFileFather"/>
@@ -214,7 +214,7 @@
       <valueString value="DocumentReference - Genomic File of a Trio: proband, mother, and father"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="DocumentReference-Genomic File of a Trio"/>
+      <valueString value="DocumentReference-genomicFileGroupAsSubject"/>
     </extension>
     <item>
       <reference value="DocumentReference/genomicFileGroupAsSubject"/>
@@ -277,7 +277,7 @@
       <valueString value="Group - A group of a trio study including proband, mother, and father"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="Group-Trio"/>
+      <valueString value="Group-denovoFamily"/>
     </extension>
     <item>
       <reference value="Group/groupDenovoFamily"/>
@@ -364,7 +364,7 @@
       <valueString value="RelatedPerson - a proband's mother"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="RelatedPerson-Mother of a Proband"/>
+      <valueString value="RelatedPerson-denovoMother"/>
     </extension>
     <item>
       <reference value="RelatedPerson/relatedPersonDenovoMother"/>
@@ -376,7 +376,7 @@
       <valueString value="RelatedPerson - a proband's father"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="RelatedPerson-Father of a Proband"/>
+      <valueString value="RelatedPerson-denovoFather"/>
     </extension>
     <item>
       <reference value="RelatedPerson/relatedPersonDenovoFather"/>
@@ -438,10 +438,10 @@
       <valueString value="ServiceRequest - Genomic service request that references a proband as a subject"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="ServiceRequest-Genomic Service Request for a Proband"/>
+      <valueString value="ServiceRequest-genomicSRProband"/>
     </extension>
     <item>
-      <reference value="ServiceRequest/genomicSRPoband"/>
+      <reference value="ServiceRequest/genomicSRProband"/>
       <display value="General"/>
     </item>
   </entry>
@@ -450,10 +450,10 @@
       <valueString value="ServiceRequest - Genomic service request that references a proband's mother as a subject"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="ServiceRequest-Genomic Service Request for a Mother"/>
+      <valueString value="ServiceRequest-genomicSRMother"/>
     </extension>
     <item>
-      <reference value="ServiceRequest/genomicSMother"/>
+      <reference value="ServiceRequest/genomicSRMother"/>
       <display value="General"/>
     </item>
   </entry>
@@ -462,10 +462,10 @@
       <valueString value="ServiceRequest - Genomic service request that references a proband's father as a subject"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="ServiceRequest-Genomic Service Request for a Father"/>
+      <valueString value="ServiceRequest-genomicSRFather"/>
     </extension>
     <item>
-      <reference value="ServiceRequest/genomicSFather"/>
+      <reference value="ServiceRequest/genomicSRFather"/>
       <display value="General"/>
     </item>
   </entry>
@@ -512,7 +512,7 @@
       <valueString value="Specimen of a Proband as a subject"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="Specimen of a Proband"/>
+      <valueString value="Specimen-specimenProband"/>
     </extension>
     <item>
       <reference value="Specimen/specimenProband"/>
@@ -525,7 +525,7 @@
       <valueString value="Specimen of a proband's mother as a subject"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="Specimen of a Mother"/>
+      <valueString value="Specimen-specimenMother"/>
     </extension>
     <item>
       <reference value="Specimen/specimenMother"/>
@@ -537,7 +537,7 @@
       <valueString value="Specimen of a proband's father as a subject"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="Specimen of a Father"/>
+      <valueString value="Specimen-specimenFather"/>
     </extension>
     <item>
       <reference value="Specimen/specimenFather"/>
