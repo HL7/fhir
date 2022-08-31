@@ -171,6 +171,57 @@
       <display value="General"/>
     </item>
   </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic File of a Proband"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-Genomic File of a Proband"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicFileProband"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic File of a Mother"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-Genomic File of a Mother"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicFileMother"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic File of a Father"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-Genomic File of a Father"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicFileFather"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic File of a Trio: proband, mother, and father"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-Genomic File of a Trio"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicFileGroupAsSubject"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Device - NGS Device"/>
