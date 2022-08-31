@@ -995,7 +995,7 @@
     <element id="Measure.term.code">
       <path value="Measure.term.code"/>
       <short value="What term?"/>
-      <definition value="A codeable representation of the defined term"/>
+      <definition value="A codeable representation of the defined term."/>
       <min value="0"/>
       <max value="1"/>
       <type>
