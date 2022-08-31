@@ -181,7 +181,7 @@
             </file>
             <type>
                 <coding>
-                    <system value="http://hl7.org/fhir/ValueSet/genomicstudy-dataformat"/>
+                    <system value="http://hl7.org/fhir/genomicstudy-dataformat"/>
                     <code value="bam"/>
                     <display value="BAM"/>
                  </coding>
@@ -194,7 +194,7 @@
             </file>
             <type>
                 <coding>
-                    <system value="http://hl7.org/fhir/ValueSet/genomicstudy-dataformat"/>
+                    <system value="http://hl7.org/fhir/genomicstudy-dataformat"/>
                     <code value="bam"/>
                     <display value="BAM"/>
                  </coding>
@@ -207,7 +207,7 @@
             </file>
             <type>
                 <coding>
-                    <system value="http://hl7.org/fhir/ValueSet/genomicstudy-dataformat"/>
+                    <system value="http://hl7.org/fhir/genomicstudy-dataformat"/>
                     <code value="bam"/>
                     <display value="BAM"/>
                  </coding>
@@ -220,7 +220,7 @@
             </file>
             <type>
                 <coding>
-                    <system value="http://hl7.org/fhir/ValueSet/genomicstudy-dataformat"/>
+                    <system value="http://hl7.org/fhir/genomicstudy-dataformat"/>
                     <code value="vcf"/>
                     <display value="VCF"/>
                 </coding>
