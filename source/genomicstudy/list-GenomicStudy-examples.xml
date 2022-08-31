@@ -435,6 +435,43 @@
 
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ServiceRequest - Genomic service request that references a proband as a subject"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="ServiceRequest-Genomic Service Request for a Proband"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/genomicSRPoband"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ServiceRequest - Genomic service request that references a proband's mother as a subject"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="ServiceRequest-Genomic Service Request for a Mother"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/genomicSMother"/>
+      <display value="General"/>
+    </item>
+  </entry>
+    <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ServiceRequest - Genomic service request that references a proband's father as a subject"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="ServiceRequest-Genomic Service Request for a Father"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/genomicSFather"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Specimen - Denovo 1"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
