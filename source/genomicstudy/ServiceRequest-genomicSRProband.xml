@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ServiceRequest xmlns="http://hl7.org/fhir">
+  <id value="genomicSRPoband"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative</b></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource "genomicServiceRequest" </p></div><p><b>identifier</b>: Laboratory Accession ID: 111111111</p><p><b>status</b>: active</p><p><b>intent</b>: plan</p><p><b>code</b>: Carrier detection, molecular genetics (procedure) <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="https://browser.ihtsdotools.org/">SNOMED CT</a>#3981005)</span></p><p><b>subject</b>: <a href="Patient-denovoChild.html">Patient/denovoChild</a> " DOE"</p><p><b>encounter</b>: <a href="Encounter-denovoEncounter.html">Encounter/denovoEncounter</a></p></div>
+  </text>
+  <identifier>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+        <code value="LACSN"/>
+      </coding>
+      <text value="Laboratory Accession ID"/>
+    </type>
+    <system value="http://www.somesystemabc.net/identifiers/serviceRequests"/>
+    <value value="111111115"/>
+  </identifier>
+  <status value="active"/>
+  <intent value="plan"/>
+  <code>
+   <concept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="3981005"/>
+      <display value="Carrier detection, molecular genetics (procedure)"/>
+    </coding>
+    </concept>
+  </code>
+  <subject>
+    <reference value="Patient/proband"/>
+  </subject>
+  <encounter>
+    <reference value="Encounter/denovoEncounter"/>
+  </encounter>
+</ServiceRequest>
