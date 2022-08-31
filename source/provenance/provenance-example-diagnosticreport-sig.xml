@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Provenance xmlns="http://hl7.org/fhir"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://hl7.org/fhir ../../schema/provenance.xsd">
+	<id value="example-diagnosticreport-sig"/>
+	<!-- 
+    an example Provenance of a verification without changing the content, electronic signature
+  -->
+	<target>
+		<reference value="DiagnosticReport/101"/>
+	</target>
+	<recorded value="2011-03-04T08:30:00+11:00"/>
+	<policy value="http://example.org/policy/Reviewed"/>
+	<activity>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"/>
+			<code value="verify"/>
+		</coding>
+	</activity>
+	<patient>
+		<reference value="Patient/pat2"/>
+	</patient>
+	<agent>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/>
+				<code value="verifier"/>
+				<display value="Verifier"/>
+			</coding>
+		</type>
+		<who>
+			<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+		</who>
+	</agent>
+	<signature>
+		<!-- verification signature -->
+		<type>
+			<system value="http://uri.etsi.org/01903/v1.2.2"/>
+			<code value="ProofOfapproval"/>
+			<display value="Proof of approval"/>
+		</type>
+		<when value="2011-03-04T08:30:00+11:00"/>
+		<who>
+			<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+		</who>
+	</signature>
+</Provenance>
