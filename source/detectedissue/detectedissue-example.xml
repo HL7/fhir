@@ -15,6 +15,13 @@
     </div>
   </text>
   <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <code value="DRG"/>
+      <display value="Drug Interaction Alert"/>
+    </coding>
+  </category>
   <code>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
@@ -24,9 +31,9 @@
   </code>
   <severity value="high"/>
   <identifiedDateTime value="2014-01-05"/>
-  <author>
+  <subject>
     <reference value="Device/example"/>
-  </author>
+  </subject>
   <implicated>
     <reference value="MedicationUsage/example001"/>
     <display value="500 mg Acetaminophen tablet 1/day, PRN since 2010"/>

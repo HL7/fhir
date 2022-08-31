@@ -159,10 +159,42 @@
         <map value=".statusCode"/>
       </mapping>
     </element>
+    <element id="DetectedIssue.category">
+      <path value="DetectedIssue.category"/>
+      <short value="Type of detected issue, e.g. drug-drug, duplicate therapy, etc."/>
+      <definition value="A code that classifies the general type of detected issue."/>
+      <comment value="In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set."/>
+      <requirements value="Used for filtering what detected issues are retrieved and displayed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DetectedIssueCategory"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Codes for high level detected issue categories."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-category"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.category"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code"/>
+      </mapping>
+    </element>
     <element id="DetectedIssue.code">
       <path value="DetectedIssue.code"/>
-      <short value="Issue Category, e.g. drug-drug, duplicate therapy, etc."/>
-      <definition value="Identifies the general type of issue identified."/>
+      <short value="Specific type of detected issue, e.g. drug-drug, duplicate therapy, etc."/>
+      <definition value="Identifies the specific type of issue identified."/>
       <alias value="type"/>
       <min value="0"/>
       <max value="1"/>
@@ -175,7 +207,7 @@
           <valueString value="DetectedIssueCategory"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Codes identifying the general type of detected issue; e.g. Drug-drug interaction, Timing issue, Duplicate therapy, etc."/>
+        <description value="Codes identifying the type of detected issue; e.g. Drug-drug interaction, Timing issue, Duplicate therapy, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-category"/>
       </binding>
       <mapping>
@@ -230,16 +262,26 @@
         <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV].value"/>
       </mapping>
     </element>
-    <element id="DetectedIssue.patient">
-      <path value="DetectedIssue.patient"/>
-      <short value="Associated patient"/>
-      <definition value="Indicates the patient whose record the detected issue is associated with."/>
+    <element id="DetectedIssue.subject">
+      <path value="DetectedIssue.subject"/>
+      <short value="Associated subject"/>
+      <definition value="Indicates the subject whose record the detected issue is associated with."/>
       <requirements value="While the subject could be inferred by tracing the subject of the implicated resources, it&#39;s useful to have a direct link for query purposes."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -302,6 +344,8 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
