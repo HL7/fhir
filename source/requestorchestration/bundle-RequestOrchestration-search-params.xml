@@ -190,7 +190,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="RequestOrchestration.action.participant.actor"/>
+          <valueString value="RequestOrchestration.action.participant.actor[x]"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/RequestOrchestration-participant"/>
         <description value="The participant in the requests in the orchestration"/>

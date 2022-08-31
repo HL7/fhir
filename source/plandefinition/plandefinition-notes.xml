@@ -93,6 +93,10 @@
 			<td>The <code>timing</code> element in ActivityDefinition represents timings associated within the activity itself, where the <code>timing</code> element in PlanDefinition represents the timing of the activity with respect to the plan and its other actions. When a timing is provided on both, the timing defined in the plan generally takes precedence.</td>
 		</tr>
 		<tr>
+			<td>asNeeded</td>
+			<td>The <code>asNeeded</code> element allows pre-conditions to be associated with an action or activity. When asNeeded is specified on both, the value specified in the plan generally takes precedence.</td>
+		</tr>
+		<tr>
 			<td>participant</td>
 			<td>The <code>participant</code> element in ActivityDefinition represents what type of actor is expected to perform the activity generally, where the <code>participant</code> element in PlanDefinition represents the type of actor that is expected to perform the activity in the context of the plan.</td>
 		</tr>

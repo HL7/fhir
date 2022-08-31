@@ -325,6 +325,9 @@
       </mapping>
     </element>
     <element id="AuditEvent.outcome">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
       <path value="AuditEvent.outcome"/>
       <short value="Whether the event succeeded or failed"/>
       <definition value="Indicates whether the event succeeded or failed. A free text descripiton can be given in outcome.text."/>
@@ -810,9 +813,6 @@
     </element>
 
     <element id="AuditEvent.agent.network[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="right"/>
-      </extension>
       <path value="AuditEvent.agent.network[x]"/>
       <short value="This agent network location for the activity"/>
       <comment value="When remote network endpoint is known, another agent representing the remote agent would indicate the remote network endpoint used. Convention is to indicate data flowing from Source to Destination. The convention for Search, given data flows both ways (query parameters vs results), is to have the Source as the initiator of the Search Transaction, and the Destination the responder to the Search transaction."/>
@@ -882,7 +882,7 @@
     </element>
     <element id="AuditEvent.source">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="up"/>
+        <valueCode value="right"/>
       </extension>
       <path value="AuditEvent.source"/>
       <short value="Audit Event Reporter"/>

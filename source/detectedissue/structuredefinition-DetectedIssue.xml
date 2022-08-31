@@ -126,7 +126,7 @@
     </element>
     <element id="DetectedIssue.status">
       <path value="DetectedIssue.status"/>
-      <short value="preliminary | final | entered-in-error"/>
+      <short value="preliminary | final | entered-in-error | mitigated"/>
       <definition value="Indicates the status of the detected issue."/>
       <comment value="This element is labeled as a modifier because the status contains the code entered-in-error that marks the issue as not currently valid."/>
       <alias value="status"/>

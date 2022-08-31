@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="related-artifact-type-expanded"/>
+  <id value="detectedissue-status"/>
   <meta>
-    <lastUpdated value="2022-03-22T16:55:11.085+11:00"/>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -13,19 +13,19 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
-  <url value="http://terminology.hl7.org/CodeSystem/related-artifact-type-expanded"/>
+  <url value="http://hl7.org/fhir/detectedissue-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="5.0.0"/>
-  <name value="RelatedArtifactTypeExpanded"/>
-  <title value="RelatedArtifactTypeExpanded"/>
+  <version value="5.0.0-cibuild"/>
+  <name value="DetectedIssueStatus"/>
+  <title value="Detected Issue Status"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -37,18 +37,12 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The type of relationship to the cited artifact."/>
+  <description value="Indicates the status of the detected issue. This code system contains only status codes that are not already defined and used from the ObservationStatus code system."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/related-artifact-type-expanded"/>
   <content value="complete"/>
   <concept>
-    <code value="reprint"/>
-    <display value="Reprint"/>
-    <definition value="A copy of the artifact in a publication with a different artifact identifier."/>
-  </concept>
-  <concept>
-    <code value="reprint-of"/>
-    <display value="Reprint Of"/>
-    <definition value="The original version of record for which the current artifact is a copy."/>
+    <code value="mitigated"/>
+    <display value="Mitigated"/>
+    <definition value="Indicates the detected issue has been mitigated"/>
   </concept>
 </CodeSystem>
