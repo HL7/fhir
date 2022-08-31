@@ -274,6 +274,19 @@
 
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Group - A group of a trio study including proband, mother, and father"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Group-Trio"/>
+    </extension>
+    <item>
+      <reference value="Group/groupDenovoFamily"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Patient - denovoChild"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
