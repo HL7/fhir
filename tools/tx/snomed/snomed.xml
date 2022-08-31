@@ -11516,6 +11516,10 @@
     <display value="Status epilepticus"/>
     <display value="Status epilepticus (disorder)"/>
   </concept>
+  <concept id="230993007" display="Worsening">
+    <display value="Worsening"/>
+    <display value="Worsening (qualifier value)"/>
+  </concept>
   <concept id="2331003" display="Carbohydrate">
     <display value="Carbohydrate"/>
     <display value="Carbohydrate (substance)"/>
@@ -11976,6 +11980,13 @@
     <display value="Negative for"/>
     <display value="Ruled out"/>
     <display value="Negative (qualifier value)"/>
+  </concept>
+  <concept id="260388006" display="No status change">
+    <display value="No status change"/>
+    <display value="No change"/>
+    <display value="No status change (qualifier value)"/>
+    <display value="Unchanged"/>
+    <display value="Id status quo"/>
   </concept>
   <concept id="260419006" display="Projection">
     <display value="Projection"/>
@@ -13223,6 +13234,10 @@
     <display value="Tumor stage finding (finding)"/>
     <display value="Tumour stage finding"/>
     <display value="Tumor stage finding"/>
+  </concept>
+  <concept id="385633008" display="Improving">
+    <display value="Improving (qualifier value)"/>
+    <display value="Improving"/>
   </concept>
   <concept id="385669000" display="Successful">
     <display value="Successful (qualifier value)"/>
