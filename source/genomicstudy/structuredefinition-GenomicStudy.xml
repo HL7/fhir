@@ -136,7 +136,7 @@
       <short value="The type of the study (e.g., trio-analysis, biomarker detection, or polygenetic risk score calculation)"/>
       <definition value="The type of the study, e.g., trio-analysis, biomarker detection, or polygenetic risk score calculation."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
