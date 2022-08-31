@@ -7,6 +7,9 @@ pr:
 variables:
 - group: ZULIP_VAR_GROUP
 - group: SSH_UPLOAD
+- name: CI_BRANCH_DIRECTORY
+  value: $[ replace(variables['System.PullRequest.SourceBranch'], '/', '_') ]
+
 
 jobs:
 - job: setupEnvironment

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Provenance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/provenance.xsd">
+	<id value="example-delete"/>
+	<target>
+		<reference value="http://terminology.hl7.org/CodeSystem/location-physical-type/_history/3"/>
+	</target>
+
+	<recorded value="2015-06-27T08:39:24+10:00"/>
+    <authorization>
+		<concept>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+				<code value="METAMGT"/>
+			</coding>
+		</concept>
+    </authorization>
+	<activity>
+		<coding>
+           <system value="http://terminology.hl7.org/CodeSystem/v3-DataOperation" />
+            <code value="DELETE" />
+		</coding>
+	</activity>
+	<agent>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/>
+				<code value="author"/>
+			</coding>
+		</type>
+		<who>
+			<display  value="Brian Postlethwaite"/>
+		</who>
+	</agent>
+	<entity>
+		<role value="source"/>
+		<what>
+			<reference value="http://terminology.hl7.org/CodeSystem/location-physical-type/_history/3"/>    
+		</what>
+	</entity>
+</Provenance>

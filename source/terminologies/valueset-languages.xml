@@ -1361,6 +1361,58 @@
                 </designation>
             </concept>
             <concept>
+                <code value="fr-CA"/>
+                <display value="French (Canada)"/>
+                <designation>
+                    <language value="en"/>
+                    <use>
+                      <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+                      <code value="display"/>
+                    </use>
+                    <value value="French (Canada)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <use>
+                      <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+                      <code value="display"/>
+                    </use>
+                    <value value="Frans (Frankrijk)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <use>
+                      <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+                      <code value="display"/>
+                    </use>
+                    <value value="Французский (Канада)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <use>
+                      <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+                      <code value="display"/>
+                    </use>
+                    <value value="法语 （加拿大）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <use>
+                      <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+                      <code value="display"/>
+                    </use>
+                    <value value="Französisch (Kanada)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <use>
+                      <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
+                      <code value="display"/>
+                    </use>
+                    <value value="Fransk (Canada)"/>
+                </designation>
+            </concept>
+            <concept>
                 <code value="fy"/>
                 <display value="Frysian"/>
                 <designation>

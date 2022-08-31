@@ -38,14 +38,14 @@ editor Eric Haas Health eData Inc
 			<system value="http://unitsofmeasure.org"/>
 			<code value="cal/mL"/>
 		</caloricDensity>
-		<routeofAdministration>
+		<routeOfAdministration>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration"/>
 				<code value="NGT"/>
 				<display value="Instillation, nasogastric tube"/>
 			</coding>
 		<!--step up rate of tube feeding by 20 ml/hr every 4 hours -->
-		</routeofAdministration>
+		</routeOfAdministration>
 		<administration>
 			
 			<schedule>

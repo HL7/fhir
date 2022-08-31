@@ -70,13 +70,13 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 			<system value="http://unitsofmeasure.org"/>
 			<code value="cal/mL"/>
 		</caloricDensity>
-		<routeofAdministration>
+		<routeOfAdministration>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration"/>
 				<code value="GT"/>
 				<display value="Instillation, gastrostomy tube"/>
 			</coding>
-		</routeofAdministration>
+		</routeOfAdministration>
 		<administration>
 			<schedule>
 				<timing>

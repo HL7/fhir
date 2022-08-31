@@ -93,12 +93,12 @@
 				<code value="primary"/>
 			</coding>
 		</role>
-		<qualification>
+		<specialty>
 			<coding>
 				<system value="http://example.org/fhir/CodeSystem/provider-qualification"/>
 				<code value="physician"/>
 			</coding>
-		</qualification>
+		</specialty>
 	</careTeam>
 
 	<supportingInfo>

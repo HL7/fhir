@@ -703,8 +703,8 @@
     </element>
     <element id="Device.specialization.systemType">
       <path value="Device.specialization.systemType"/>
-      <short value="Code that specifies the property being represented"/>
-      <definition value="Code that specifies the property being represented. No codes are specified but the MDC codes are an example: https://build.fhir.org/mdc.html."/>
+      <short value="Code that specifies the system within which the specialization is indicated"/>
+      <definition value="Code that specifies the system that identifies the specialization that the device is adhering to."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -770,9 +770,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-
-
-
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DevicePropertyType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Device property type."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-property-type"/>
+      </binding>
     </element>
     <element id="Device.property.value[x]">
       <path value="Device.property.value[x]"/>

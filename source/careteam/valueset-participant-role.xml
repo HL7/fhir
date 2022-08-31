@@ -23,6 +23,18 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="429577009"/>
+      </concept>
+      <concept>
+        <code value="116154003"/>
+      </concept>
+      <concept>
+        <code value="133932002"/>
+      </concept>
+    </include>
+	<include>
+      <system value="http://snomed.info/sct"/>
       <filter>
         <property value="concept"/>
         <op value="is-a"/>

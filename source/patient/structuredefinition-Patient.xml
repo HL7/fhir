@@ -259,7 +259,7 @@
         </extension>
         <strength value="required"/>
         <description value="The gender of a person used for administrative purposes."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
       </binding>
       <mapping>
         <identity value="v2"/>
@@ -622,7 +622,7 @@
         </extension>
         <strength value="required"/>
         <description value="The gender of a person used for administrative purposes."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
       </binding>
       <mapping>
         <identity value="v2"/>
@@ -895,7 +895,7 @@
         </extension>
         <strength value="required"/>
         <description value="The type of link between this patient resource and another patient resource."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/link-type|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/link-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>

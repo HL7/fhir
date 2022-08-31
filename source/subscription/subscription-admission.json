@@ -3,7 +3,7 @@
 	"id": "admission",
 	"name": "AdmissionExample",
 	"status": "active",
-	"topic": "http://example.org/R4/SubscriptionTopic/admission",
+	"topic": "http://example.org/R5/SubscriptionTopic/admission",
 	"reason": "subscription for beginning of a clinical encounter for patient 123",
 	"filterBy": [
 		{

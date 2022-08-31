@@ -11,7 +11,7 @@
   <code value="end"/>
   <base value="ValueSet"/>
   <type value="date"/>
-  <expression value="CodeSystem.extension(&#39;http://hl7.org/fhir/StructureDefinition/valueset-expirationDate&#39;)"/>
-  <xpath value="f:ValueSet/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/valueset-expirationDate&#39;] | /f:#expirationDate"/>
+  <expression value="CodeSystem.extension(&#39;http://hl7.org/fhir/StructureDefinition/valueset-expirationDate&#39;).value"/>
+  <xpath value="f:ValueSet/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/valueset-expirationDate&#39;]/f:valueDateTime | /f:#expirationDate"/>
   <xpathUsage value="normal"/>
 </SearchParameter>

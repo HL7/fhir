@@ -85,7 +85,7 @@
         <valueString value="ResourceValidationMode"/>
       </extension>
       <strength value="required"/>
-      <valueSet value="http://hl7.org/fhir/ValueSet/resource-validation-mode|5.0.0"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/resource-validation-mode"/>
     </binding>
   </parameter>
   <parameter>

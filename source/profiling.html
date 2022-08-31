@@ -307,6 +307,9 @@ series of <a href="elementdefinition.html">Element Definitions</a>:
  <li>Providing refined definitions, comments/usage notes and examples for the elements defined in a Resource to reflect the usage of the element within the context of the Profile</li>
  <li>Providing more specific or additional mappings (e.g. to <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> or <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>) for the resource when used in a particular context</li>
  <li>Declaring that one or more elements in the structure must be 'supported' (see below)</li>
+ <li>Restricting / clarifying a mapping by providing a new mapping with the same identity, which means that the new mapping replaces a mapping with the same identity
+    in the element being profiled
+ </li>
 </ul>
 <p>
 Any changed definitions SHALL be restrictions that are consistent with the
@@ -535,6 +538,12 @@ Further notes about the use of the different discriminator types:
    to the others). Implementers should use this only where absolutely required. 
    Typical example: slice on the type of <code>Composition.section.entry().resolve()</code> for the profiles Current-Clinical-Condition, Past-Medical-Event, etc
  </td></tr>
+ <tr><td>position</td><td>
+  Used to match slices based on their index. This is only possible if all but the last slice have a 
+  fixed cardinality where <code>min</code> &gt; 0 and <code>min</code> = <code>max</code>. The 
+  last slice MAY have <code>min</code> != <code>max</code>. 
+  Typical example: slice on Practitioner.name to require that the first name be the usual name for the practitioner, and it must be present
+</td></tr>
 </table>
 
 <p>
@@ -1005,7 +1014,7 @@ When this specification describes a profile, the profile is presented in 5 diffe
 <table class="grid">
  <tr><td>Text Summary</td><td>This presents a short summary human readable summary of the profile - a combination of the author's summary, and some automatically generated summary content</td></tr>
  <tr><td>Differential Table</td><td>This is a view of the differential statement (<a href="#snapshot">see above</a>). For context, additional information not in the differential is also shown partially transparent</td></tr>
- <tr><td>Snapshot Table</td><td>This is a view of the snapshot produced by the profile (<a href="#snapshot">see above</a>). The information is a comprehensive view of what the profile means</td></tr>
+ <tr><td>Full Structure</td><td>This is a view of the snapshot produced by the profile (<a href="#snapshot">see above</a>). The information is a comprehensive view of what the profile means, though inherited constraints are not presented</td></tr>
  <tr><td>XML Template</td><td>An example of what the profile looks like in XML format</td></tr>
  <tr><td>JSON Template</td><td>An example of what the profile looks like in JSON format</td></tr>
 </table>

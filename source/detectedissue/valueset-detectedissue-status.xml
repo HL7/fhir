@@ -54,5 +54,12 @@
         <display value="Entered in Error"/>
       </concept>
     </include>
+    <include>
+      <system value="http://hl7.org/fhir/detectedissue-status"/>
+      <concept>
+        <code value="mitigated"/>
+        <display value="Mitigated"/>
+      </concept>
+    </include>
   </compose>
 </ValueSet>

@@ -112,4 +112,64 @@
       <display value="Consent Workflow"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Advanced Provenance of a create with all elements filled including patient, encounter, authorization, baseOn, and jpeg signature"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-advanced"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-advanced"/>
+      <display value="Advanced Provenance"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provenance of a signature activity against a DiagnosticReport using an electronic signature (no evidence of signature, neither image or digital-signature)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-diagnosticreport-sig"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-diagnosticreport-sig"/>
+      <display value="Signature on a DiagnosticReport"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provenance of import of resources from a document (DocumentReference) to show provenance from resources back to the source document."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-import"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-import"/>
+      <display value="Provenance on imported Resources from a document"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provenance of a delete of a codeSystem."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-delete"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-delete"/>
+      <display value="Provenance of CodeSystem delete"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of using Provenance as De-Identifiation linkage with security tag protection, enabling Re-Identification with authorization."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-anon0"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-anon0"/>
+      <display value="De-Identification / Re-Identificaiton using Provenance"/>
+    </item>
+  </entry>
 </List>

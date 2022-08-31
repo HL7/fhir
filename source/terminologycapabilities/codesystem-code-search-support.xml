@@ -87,7 +87,7 @@
   <title value="CodeSearchSupport"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
+  <date value="2022-08-31T10:21:22+10:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -104,13 +104,18 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/code-search-support"/>
   <content value="complete"/>
   <concept>
-    <code value="explicit"/>
-    <display value="Explicit Codes"/>
-    <definition value="The search for code on ValueSet only includes codes explicitly detailed on includes or expansions."/>
+    <code value="in-compose"/>
+    <display value="In Compose"/>
+    <definition value="The search for code on ValueSet returns ValueSet resources where the code is included in the extensional definition of the ValueSet."/>
   </concept>
   <concept>
-    <code value="all"/>
-    <display value="Implicit Codes"/>
-    <definition value="The search for code on ValueSet only includes all codes based on the expansion of the value set."/>
+    <code value="in-expansion"/>
+    <display value="In Expansion"/>
+    <definition value="The search for code on ValueSet returns ValueSet resources where the code is contained in the  ValueSet expansion."/>
+  </concept>
+    <concept>
+    <code value="in-compose-or-expansion"/>
+    <display value="In Compose Or Expansion"/>
+    <definition value="The search for code on ValueSet returns ValueSet resources where the code is included in the extensional definition or contained in the ValueSet expansion."/>
   </concept>
 </CodeSystem>

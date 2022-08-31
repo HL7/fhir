@@ -212,6 +212,23 @@
         <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
     </element>
+    <element id="NutritionOrder.basedOn">
+      <path value="NutritionOrder.basedOn"/> 
+      <short value="What this order fulfills"/> 
+      <definition value="A plan or request that is fulfilled in whole or in part by this nutrition order."/> 
+      <min value="0"/> 
+      <max value="*"/> 
+      <type> 
+        <code value="Reference"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/> 
+      </type> 
+      <mapping> 
+        <identity value="workflow"/> 
+        <map value="Request.basedOn"/> 
+      </mapping> 
+    </element>
     <element id="NutritionOrder.status">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#3720],[#14414]."/>
@@ -296,6 +313,37 @@
         <map value=".moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)"/>
       </mapping>
     </element>
+    <element id="NutritionOrder.priority">
+      <path value="NutritionOrder.priority"/> 
+      <short value="routine | urgent | asap | stat"/> 
+      <definition value="Indicates how quickly the Nutrition Order should be addressed with respect to other
+       requests."/> 
+      <min value="0"/> 
+      <max value="1"/> 
+      <type> 
+        <code value="code"/> 
+      </type> 
+      <binding> 
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NutritionOrderPriority"/> 
+        </extension> 
+        <strength value="required"/> 
+        <description value="Identifies the level of importance to be assigned to actioning the request."/> 
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|5.0.0-cibuild"/> 
+      </binding> 
+      <mapping> 
+        <identity value="workflow"/> 
+        <map value="Request.priority"/> 
+      </mapping> 
+      <mapping> 
+        <identity value="w5"/> 
+        <map value="FiveWs.grade"/> 
+      </mapping> 
+      <mapping> 
+        <identity value="rim"/> 
+        <map value=".priorityCode"/> 
+      </mapping> 
+    </element>
     <element id="NutritionOrder.subject">
       <path value="NutritionOrder.subject"/>
       <short value="Who requires the diet, formula or nutritional supplement"/>
@@ -356,6 +404,18 @@
         <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"/>
       </mapping>
     </element>
+    <element id="NutritionOrder.supportingInformation">
+      <path value="NutritionOrder.supportingInformation"/> 
+      <short value="Information to support fulfilling of the nutrition order"/> 
+      <definition value="Information to support fulfilling (i.e. dispensing or administering) of the nutrition,
+       for example, patient height and weight)."/>
+      <min value="0"/> 
+      <max value="*"/> 
+      <type> 
+        <code value="Reference"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/> 
+      </type> 
+    </element>
     <element id="NutritionOrder.dateTime">
       <path value="NutritionOrder.dateTime"/>
       <short value="Date and time the nutrition order was requested"/>
@@ -411,6 +471,22 @@
         <identity value="rim"/>
         <map value=".participation[typeCode=AUT].role"/>
       </mapping>
+    </element>
+    <element id="NutritionOrder.performer">
+      <path value="NutritionOrder.performer"/>
+      <short value="Who is desired to perform the administration of what is being ordered"/>
+      <definition value="The specified desired performer of the nutrition order."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
     </element>
     <element id="NutritionOrder.allergyIntolerance">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -1113,6 +1189,17 @@
         <map value=".id"/>
       </mapping>
     </element>
+    <element id="NutritionOrder.enteralFormula.deliveryDevice">
+      <path value="NutritionOrder.enteralFormula.deliveryDevice"/>
+      <short value="Intended type of device for the administration"/>
+      <definition value="The intended type of device that is to be used for the administration of the enteral formula."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+      </type>
+    </element>
     <element id="NutritionOrder.enteralFormula.additive">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
@@ -1213,8 +1300,8 @@
         <map value=".quantity (caloricDensity)"/>
       </mapping>
     </element>
-    <element id="NutritionOrder.enteralFormula.routeofAdministration">
-      <path value="NutritionOrder.enteralFormula.routeofAdministration"/>
+    <element id="NutritionOrder.enteralFormula.routeOfAdministration">
+      <path value="NutritionOrder.enteralFormula.routeOfAdministration"/>
       <short value="How the formula should enter the patient&#39;s gastrointestinal tract"/>
       <definition value="The route or physiological path of administration into the patient&#39;s gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube."/>
       <min value="0"/>

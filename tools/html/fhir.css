@@ -368,6 +368,15 @@ pre.json             {
 	width: 650px;
 }
 
+pre.liquid             {
+	border: 1px solid #dcdcdc;
+ 	font-size: 11px;
+        background: #fbf3e3 ; 
+	padding: 5px;
+	width: 650px;
+}
+
+
 pre.rdf             {
 	border: 1px solid #dcdcdc;
  	font-size: 11px;

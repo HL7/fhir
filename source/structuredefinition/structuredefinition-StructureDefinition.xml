@@ -95,8 +95,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -251,7 +251,7 @@
         <key value="sdf-29"/>
         <severity value="warning"/>
         <human value="Elements in Resources must have a min cardinality or 0 or 1 and a max cardinality of 1 or *"/>
-        <expression value="(kind in 'resource' | 'complex-type' and specialization = 'derivation') implies differential.element.where((min != 0 and min != 1) or (max != '1' and max != '*')).empty()"/>
+        <expression value="((kind in 'resource' | 'complex-type') and (specialization = 'derivation')) implies differential.element.where((min != 0 and min != 1) or (max != '1' and max != '*')).empty()"/>
         <xpath value="not(exists(f:baseDefinition)) or exists(f:derivation)"/>
       </constraint>
       <mapping>
@@ -321,7 +321,7 @@
       <path value="StructureDefinition.version"/>
       <short value="Business version of the structure definition"/>
       <definition value="The identifier that is used to identify this version of the structure definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different structure definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the structure definition with the format [url]|[version]."/>
+      <comment value="There may be different structure definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the structure definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -340,6 +340,25 @@
         <identity value="iso11179"/>
         <map value="Version"/>
       </mapping>
+    </element>
+    <element id="StructureDefinition.versionAlgorithm[x]">
+      <path value="StructureDefinition.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+      <isSummary value="true"/>
     </element>
     <element id="StructureDefinition.name">
       <path value="StructureDefinition.name"/>
@@ -393,7 +412,7 @@
         </extension>
         <strength value="required"/>
         <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -648,7 +667,7 @@
         </extension>
         <strength value="required"/>
         <description value="All published FHIR Versions."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version"/>
       </binding>
     </element>
     <element id="StructureDefinition.mapping">
@@ -732,7 +751,7 @@
         </extension>
         <strength value="required"/>
         <description value="Defines the type of structure that a definition is describing."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/structure-definition-kind|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/structure-definition-kind"/>
       </binding>
     </element>
     <element id="StructureDefinition.abstract">
@@ -775,7 +794,7 @@
         </extension>
         <strength value="required"/>
         <description value="How an extension context is interpreted."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/extension-context-type|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/extension-context-type"/>
       </binding>
     </element>
     <element id="StructureDefinition.context.expression">
@@ -816,14 +835,14 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRDefinedTypeExt"/>
+          <valueString value="FHIRTypes"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
           <valueString value="FHIR"/>
         </extension>
         <strength value="extensible"/>
         <description value="Either a resource or a data type, including logical model types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
       </binding>
     </element>
     <element id="StructureDefinition.baseDefinition">
@@ -860,7 +879,7 @@
         </extension>
         <strength value="required"/>
         <description value="How a type relates to its baseDefinition."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/type-derivation-rule|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/type-derivation-rule"/>
       </binding>
     </element>
     <element id="StructureDefinition.snapshot">
@@ -887,8 +906,8 @@
       <constraint>
         <key value="sdf-3"/>
         <severity value="error"/>
-        <human value="Each element definition in a snapshot must have a formal definition and cardinalities"/>
-        <expression value="element.all(definition.exists() and min.exists() and max.exists())"/>
+        <human value="Each element definition in a snapshot must have a formal definition and cardinalities, unless model is a logical model"/>
+        <expression value="%resource.kind = 'logical' or element.all(definition.exists() and min.exists() and max.exists())"/>
         <xpath value="count(f:element) = count(f:element[exists(f:definition) and exists(f:min) and exists(f:max)])"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
