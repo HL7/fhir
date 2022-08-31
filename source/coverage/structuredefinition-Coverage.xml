@@ -672,8 +672,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
       </binding>
     </element>
-    <element id="Coverage.costToBeneficiarynetwork">
-      <path value="Coverage.costToBeneficiarynetwork"/>
+    <element id="Coverage.costToBeneficiary.network">
+      <path value="Coverage.costToBeneficiary.network"/>
       <short value="In or out of network"/>
       <definition value="Is a flag to indicate whether the benefits refer to in-network providers or out-of-network providers."/>
       <requirements value="Needed as in or out of network providers are treated differently under the coverage."/>
