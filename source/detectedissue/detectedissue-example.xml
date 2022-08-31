@@ -30,10 +30,10 @@
     </coding>
   </code>
   <severity value="high"/>
-  <identifiedDateTime value="2014-01-05"/>
   <subject>
     <reference value="Device/example"/>
   </subject>
+  <identifiedDateTime value="2014-01-05"/>
   <implicated>
     <reference value="MedicationUsage/example001"/>
     <display value="500 mg Acetaminophen tablet 1/day, PRN since 2010"/>
