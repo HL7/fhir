@@ -348,6 +348,31 @@
 
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="RelatedPerson - a proband's mother"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="RelatedPerson-Mother of a Proband"/>
+    </extension>
+    <item>
+      <reference value="RelatedPerson/relatedPersonDenovoMother"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="RelatedPerson - a proband's father"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="RelatedPerson-Father of a Proband"/>
+    </extension>
+    <item>
+      <reference value="RelatedPerson/relatedPersonDenovoFather"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="ServiceRequest - Genomic Example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
