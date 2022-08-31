@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
@@ -14,8 +14,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -290,6 +289,12 @@
   </Style>
   <Style ss:ID="s100">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s101">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="3"/>
     <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
@@ -297,7 +302,7 @@
    <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s101">
+  <Style ss:ID="s102">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="3"/>
@@ -540,6 +545,13 @@
   <Style ss:ID="s132">
    <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11"/>
   </Style>
+  <Style ss:ID="s133">
+   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
+   </Borders>
+   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+  </Style>
   <Style ss:ID="s134" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
@@ -646,19 +658,6 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s150">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s152">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
-   </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
@@ -685,9 +684,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <TopRowVisible>1</TopRowVisible>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -761,13 +758,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -785,7 +780,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R19C25"/>
   </Names>
-  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="24" ss:StyleID="s85" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="25" ss:StyleID="s85" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s86" ss:Width="227.0"/>
    <Column ss:StyleID="s85" ss:Width="51.0"/>
    <Column ss:Span="1" ss:StyleID="s85" ss:Width="193.0"/>
@@ -1079,7 +1074,7 @@
     <Cell ss:StyleID="s98"><Data ss:Type="String">When a resource does not define a publisher element, this extension should be used to provide a publisher when the resource is being used as a knowledge artifact</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s150"><Data ss:Type="String">contact</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">contact</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1106,7 +1101,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s150"><Data ss:Type="String">description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1133,7 +1128,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s150"><Data ss:Type="String">useContext</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">useContext</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1160,7 +1155,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s150"><Data ss:Type="String">jurisdiction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">jurisdiction</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1187,7 +1182,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s150"><Data ss:Type="String">purpose</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">purpose</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1214,7 +1209,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s150"><Data ss:Type="String">copyright</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">copyright</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1265,21 +1260,21 @@
     <Cell><Data ss:Type="String">Consumers of knowledge artifacts need to understand the knowledge representation levels provided by a particular artifact, especially with respect to categorization, searching, and display within a knowledge artifact repository</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s100"><Data ss:Type="String">topic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">topic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">DefinitionTopic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">topic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">DefinitionTopic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">E.g. Education, Treatment, Assessment, etc.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Descriptive topics related to the content of the artifact. Topics provide a high-level categorization of the artifact that can be useful for filtering and searching.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Repositories must be able to determine how to categorize the {{title}} so that it can be found by topical searches.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1343,6 +1338,17 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">A {{title}} must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content.</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Each related artifact is either an attachment, or a reference to another resource, but not both.</Data></Cell>
    </Row>
+   <Row ss:Height="180">
+    <Cell><Data ss:Type="String">periodDuration</Data></Cell>
+    <Cell><Data ss:Type="String">DataType</Data></Cell>
+    <Cell><Data ss:Type="String">Period</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">periodDuration</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">Duration</Data></Cell>
+    <Cell ss:Index="16"><Data ss:Type="String">How long</Data></Cell>
+    <Cell><Data ss:Type="String">Specifies the duration of the period, based on the starting date, rather than specifying the end date of the period</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact developers need to be able to specify the effectivePeriod for an artifact as a periodic value, rather than specifying an end date for the period. For example, measure effective periods are often specified as Jan-01-XX to Dec-31-XX</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1350,19 +1356,19 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>98</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>17</TopRowBottomPane>
+   <TopRowBottomPane>19</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -1397,8 +1403,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -1611,8 +1615,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s101"/>
-    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
+    <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s118"/>
    </Row>
@@ -1624,7 +1628,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -2204,7 +2207,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2281,7 +2283,7 @@
     <Cell><Data ss:Type="String">Topics associated with the artifact</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29">
-    <Cell ss:StyleID="s152"><Data ss:Type="String">KnowledgeCapability</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">KnowledgeCapability</Data></Cell>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">required</Data></Cell>
@@ -2290,7 +2292,7 @@
     <Cell ss:Index="13" ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28">
-    <Cell ss:StyleID="s152"><Data ss:Type="String">KnowledgeRepresentationLevel</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">KnowledgeRepresentationLevel</Data></Cell>
     <Cell ss:StyleID="s85"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">required</Data></Cell>
@@ -2630,7 +2632,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s138"/>
-    <Cell ss:StyleID="s101"/>
+    <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -2651,7 +2653,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3243,7 +3244,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
