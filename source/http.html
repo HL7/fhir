@@ -796,7 +796,7 @@ Content-Type: application/fhir+json
 <p>
 If provided, the value of the <code>ETag</code> SHALL match the value of the version id for the resource. Servers
 are allowed to generate the version id in whatever fashion that they wish, so long
-as they are valid according to the <a href="datatypes.html#id">id</a> data type,
+as they are valid according to the <a href="datatypes.html#id">id</a> datatype,
 and are unique within the address space of all versions of the same resource.
 When resources are returned as part of a bundle, there is no <code>ETag</code>, and the
 versionId of the resource is used directly.
@@ -1467,7 +1467,7 @@ need to happen before the 'update' (per transaction rules), the created record w
 version-specific reference to the newly updated version of the reference target.
 </p>
 <p>
-Note, the use of the <code><a href="references.html">Reference</a></code> data type standard
+Note, the use of the <code><a href="references.html">Reference</a></code> datatype standard
 <code><a href="extension-resolve-as-version-specific.html">extension resolve-as-version-specific</a></code>
 is a request to turn the non-versioned reference into a reference to the most recent version of the target
 resource. In the case of a resource created in the transaction, the reference becomes a reference to the
