@@ -84,13 +84,13 @@ Dates and timezone issues are well-known sources of confusion and safety issues 
 <h3>Search Related Safety Checks</h3>
 <p>
 These basic safety checks relate to managing the search process correctly. Mismatches in expectations between 
-client and server (or search requester and search processor) can result in finding more resources than expected or 
+client and HTTP server (or search requester and search processor) can result in finding more resources than expected or 
 appropriate, or much more seriously, missing resources out in search results that were expected to be present. 
 </p>
 
 <ol start="14">
  <li title="cross-resource"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#cross-resource"> </a>My system takes care to ensure that clients can (for servers) or will (for clients) find the information they need when content that might reasonably be exposed using more than one FHIR resource. Possible patterns: Support a single search across the applicable resources, or expose data through each applicable resource. See discussion on <a href="https://confluence.hl7.org/display/FHIR/Managing+Overlap+Between+Resources">Wiki Page</a> for further information</li>
- <li title="search-param-names"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#search-param-names">My client checks the names of search parameters and operation definitions in the server's <a href="capabilitystatement.html">CapabilityStatement</a> to see if they have been renamed on the local system</a></li>
+ <li title="search-param-names"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#search-param-names">My client checks the names of search parameters and operation definitions in the HTTP server's <a href="capabilitystatement.html">CapabilityStatement</a> to see if they have been renamed on the local system</a></li>
  <li title="search-pages-client"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#search-pages-client">My client application checks for the existence of pages in search results (<code>Bundle.link</code> of type <code>next</code>) in the response to a search. Note: failure to page through the data will cause an application or it's human user to be missing the full clinical picture for the patient</a></li>
  <li title="search-pages-server"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#search-pages-server">My server clearly documents how sorting works when performing searches, and how concurrency works when clients move between pages (e.g. if data in a page can change/duplicate across pages)</a></li>
 </ol>
