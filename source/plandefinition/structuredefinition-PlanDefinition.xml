@@ -1097,6 +1097,21 @@
         <map value=".role.classCode"/>
       </mapping>
     </element>
+    <element id="PlanDefinition.actor.option.typeCanonical">
+      <path value="PlanDefinition.actor.option.typeCanonical"/>
+      <short value="Who or what can participate"/>
+      <definition value="The type of participant in the action."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role.classCode"/>
+      </mapping>
+    </element>
     <element id="PlanDefinition.actor.option.typeReference">
       <path value="PlanDefinition.actor.option.typeReference"/>
       <short value="Who or what can participate"/>
@@ -1108,6 +1123,8 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
@@ -1675,6 +1692,32 @@
         <map value=".effectiveTime"/>
       </mapping>
     </element>
+    <element id="PlanDefinition.asNeeded[x]">
+      <path value="PlanDefinition.asNeeded[x]"/>
+      <short value="Preconditions for service"/>
+      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProcedureAsNeededReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=&quot;Assertion&quot;].value"/>
+      </mapping>
+    </element>
     <element id="PlanDefinition.action.location">
       <path value="PlanDefinition.action.location"/>
       <short value="Where it should happen"/>
@@ -1746,6 +1789,21 @@
         <map value=".role.classCode"/>
       </mapping>
     </element>
+    <element id="PlanDefinition.action.participant.typeCanonical">
+      <path value="PlanDefinition.action.participant.typeCanonical"/>
+      <short value="Who or what can participate"/>
+      <definition value="The type of participant in the action."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".role.classCode"/>
+      </mapping>
+    </element>
     <element id="PlanDefinition.action.participant.typeReference">
       <path value="PlanDefinition.action.participant.typeReference"/>
       <short value="Who or what can participate"/>
@@ -1757,6 +1815,8 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
