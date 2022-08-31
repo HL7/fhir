@@ -101,6 +101,10 @@
   </context>
   <context>
     <type value="element"/>
+    <expression value="CapabilityStatement.rest.resource.conditionalPatch"/>
+  </context>
+  <context>
+    <type value="element"/>
     <expression value="CapabilityStatement.rest.resource.interaction"/>
   </context>
   <context>

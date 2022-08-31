@@ -33,7 +33,7 @@
 		Subscription Topics for resource interactions are defined using the <code>SubscriptionTopic.resourceTrigger.resource</code> and <code>SubscriptionTopic.resourceTrigger.supportedInteraction</code> elements.
 	</p>
   <p>
-    If a topic is designed to cover multiple resources, it can contain multiple <code>resourceTrigger</code> elements with each resource.  If a topic is generic to all resources, the <code>Resource</code> is available within the <a href="valueset-defined-types.html">FHIR Defined Type</a> value set.
+    If a topic is designed to cover multiple resources, it can contain multiple <code>resourceTrigger</code> elements with each resource.  If a topic is generic to all resources, the <code>Resource</code> is available within the <a href="valueset-fhir-types.html">FHIR Type</a> value set.
   </p>
 	
 		<a name="resource-operation-create" />

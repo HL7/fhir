@@ -31,7 +31,7 @@
 <h2>Boundaries and Relationships</h2>
 <p>The ServiceDefinition is similar in structure and purpose to <a href="operationdefinition.html">OperationDefinition</a>. However, ServiceDefinition also represents more information about <i>what</i> service is being described than an operation definition supports. This information is critical to the effective use of the resource as part of a decision support service repository, as it enables searching and selection of functionality based on this additional information.</p>
 
-<p>In addition, the way the $evaluate operation of the ServiceDefinition resource is defined enables all decision support services to share a common set of parameters without having to redeclare them for every module, while still supporting service-specific paramters on each module.</p>
+<p>In addition, the way the $evaluate operation of the ServiceDefinition resource is defined enables all decision support services to share a common set of parameters without having to redeclare them for every module, while still supporting service-specific parameters on each module.</p>
 </div>
 
 <!-- (optional):

@@ -11,6 +11,6 @@
   <code value="din"/>
   <base value="Device"/>
   <type value="token"/>
-  <expression value="Device.extension(&#39;http://hl7.org/fhir/SearchParameter/device-extensions-Device-din&#39;)"/>
+  <expression value="Device.extension(&#39;http://hl7.org/fhir/SearchParameter/device-extensions-Device-din&#39;).value"/>
   <xpathUsage value="normal"/>
 </SearchParameter>

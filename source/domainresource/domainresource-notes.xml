@@ -1,16 +1,31 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="contained"></a>
+<h2>Using Contained Resources</h2>
+
+<p>The 'contained' mechanism is not permitted as a means of reducing server calls. I.e., It is not allowed to package a set of resources as one base resource and a set of contained resources to allow multiple creates or updates to happen in a single transaction, nor is it permitted to use 'contained' as a means of retrieving multiple resources in a single 'read'.</p>
+<p>'contained' is <strong>only</strong> for use when there is a need to reference another resource, but the target resource does not have any independence from the referencing resource. Most commonly, this occurs when not enough information is known to allow uniquely identifying the target resource. For example, if a surgeon is known only as &quot;Dr. Smith&quot; (no full name, no license number, etc.), then there would be no way of determining which of the candidate &quot;Dr. Smith&quot; practitioners was being referenced. In that situation, it would be reasonable for the Procedure to have a 'contained' reference to the Practitioner.</p>
+<p>In other cases, there might be enough information to construct an independent resource, but system behavior does not recognize/permit an independent identity. As an example, a prescriber might create a prescription for a custom compound. However, rather than registering the compound as a new 'Medication' instance (that could be pointed to by many prescriptions/dispenses), the system treats the compound recipe as 'part' of the prescription - it can only be edited/modified in the context of that one prescription and cannot be queried or manipulated independently. If the prescription were deleted, the Medication would be deleted as well. This would be an appropriate use of 'contained'.</p>
+<p>A key consideration with respect to 'contained' resources is that if a resource is sent to a server as 'contained', then it is expected to remain 'contained' (at least until a formal update is received that removes the 'contained' resource and perhaps replaces it with a reference to a stand-alone resource due to additional information now being available).</p>
+<p>For implementations concerned about minimizing the number of service calls, FHIR provides a number of options:</p>
+<ul>
+<li>When sending creates or updates, leverage the <a href="http.html#transaction">transaction</a> feature to create/update multiple (interrelated) resources at once</li>
+<li>When querying for data, make use of <code>_include</code> and <code>_revinclude</code> to return additional resources that are relevant as part of the query</li>
+<li><a href="operations.html">Operations</a> can be defined that allow manipulation or retrieval of multiple resources as part of a single action.</li>
+<li>The <a href="documents.html">document</a> and <a href="messaging.html">messaging</a> paradigms also support the simultaneous transport of multiple resources.</li>
+</ul>
+<p>REST can be somewhat heavy in terms of the number of service calls needed to manipulate all desired resources. This is part of the cost associated with the flexibility that allows a single RESTful interface to support a wide range of use-cases.</p>
+
+
 <a name="search"></a>
 <h2>Searching Extensions</h2>
-<p>
-To search for extensions, define a <a href="searchparameter.html">SearchParameter</a> for the extension. 
-All other search parameters are named aliases for existing content in
-the resource. In some cases, though not all, the search parameter name
-is the same as the element that it searches, but this is not required. 
-Searching for extensions is the same - define a name that identifies 
-the value extension by its URL, and then searches can filter based on
-the value of the extension.
-</p>
 
+<p>The FHIR specification does not define <a href="searchparameter.html">SearchParameters</a> for most of the standard extensions we publish and obviously cannot define SearchParameters for extensions developed by implementers outside the core FHIR specification.  However, implementers are free to define their own SearchParameters for any extensions they make use of and servers are free to support SearchParameters above and beyond those published as part of the FHIR core specification.  There are no formal naming rules for extension-based search parameters.  Authors <strong>SHOULD</strong> name the search parameters in such a way that the linkage between the extension name and the search parameter is obvious.</p>
+
+<p>The expression for the search parameter would typically end with <code>extension('http://yourextensionurlhere').value</code>.  The expression would also need to provide a path to the extension, including handling situations where an extension appears on multiple paths if necessary.  Additional constraints could also be added if necessary (e.g. <code>.exists()</code>, <code>=true</code>, etc.)</p>
 
 </div>
+
+
+
+

@@ -54,7 +54,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Validate that a coded value is in the code system. If the operation is not called at the instance level, one of the parameters &quot;url&quot; or &quot;codeSystem&quot; must be provided. The operation returns a result (true / false), an error message, and the recommended display for the code.&#xA;&#xA;When invoking this operation, a client SHALL provide one (and only one) of the parameters (code+system, coding, or codeableConcept). Other parameters (including version and display) are optional"/>
+  <description value="Validate that a coded value is in the code system. If the operation is not called at the instance level, one of the parameters &quot;url&quot; or &quot;codeSystem&quot; must be provided. The operation returns a result (true / false), an error message, and the recommended display for the code.&#xA;&#xA;When invoking this operation, a client **SHALL** provide one (and only one) of the parameters (code+system, coding, or codeableConcept). Other parameters (including version and display) are optional. When validating a code or a coding, then the code, system and version output parameters **SHOULD** be populated when possible. When a validating a CodeableConcept, then the codeableConcept output parameter **SHOULD** be populated when possible."/>
   <affectsState value="false"/>
   <code value="validate-code"/>
   <resource value="CodeSystem"/>
@@ -164,5 +164,45 @@
     <max value="1"/>
     <documentation value="A valid display for the concept if the system wishes to display this to a user"/>
     <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="code"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The code that was validated"/>
+    <type value="code"/>
+  </parameter>
+  <parameter>
+    <name value="system"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The system for the code that was validated"/>
+    <type value="uri"/>
+  </parameter>
+   <parameter>
+    <name value="version"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The version of the system of the code that was validated"/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="codeableConcept"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="A codeableConcept containing codings for all the validated codes"/>
+    <type value="CodeableConcept"/>
+  </parameter>
+  <parameter>
+   <name value="issues"/>
+   <use value="out"/>
+   <min value="0"/>
+   <max value="1"/>
+   <documentation value="List of itemised issues with paths constrained to simple FHIRPath. Examples are CodeableConcept, CodeableConcept.coding[0], CodeableConcept.coding[1].display, or Coding.display"/>
+   <type value="OperationOutcome"/>
   </parameter>
 </OperationDefinition>

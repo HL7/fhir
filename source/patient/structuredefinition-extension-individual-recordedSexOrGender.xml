@@ -83,7 +83,7 @@
 			<valueString value="recordedSexOrGender"/>
 		  </extension>
 		  <strength value="example"/>
-		  <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender|5.0.0"/>
+		  <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
 	  </binding>
     </element>	
 	<element id="Extension.extension:internationalEquivalent">

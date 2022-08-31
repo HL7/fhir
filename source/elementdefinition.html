@@ -47,6 +47,17 @@ no repeating primitives in datatypes? No id's on primitives in datatypes...No da
 		ElementDefinition is used in [%dtusage ElementDefinition%]
 </p>
 
+[%stu-note%]
+The Jira task <a href="https://jira.hl7.org/browse/FHIR-37871">FHIR-37871</a> proposes
+to remove <code>ElementDefinition.constraint.xpath</code>. This is approved but removing 
+the xpath constraints will be difficult to reverse. The task proposes to remove them
+because no one is using them (or at least, no one is reporting errors in the xpaths).
+</p>
+<p>
+If you don't want the xpaths removed, raise this as a ballot issue, along with 
+justification.
+[%end-note%]
+
 <a name="definition"></a>
 <h2 style="margin-bottom: 1px">
 		Content
@@ -419,9 +430,10 @@ same path must conform.
 <h3>Rules about min and max</h3>
 
 <ul>
-		<li><b>If there is no <code>StructureDefinition.baseDefinition</code></b>: min and max are always required</li>
+		<li>If there is no <code>StructureDefinition.baseDefinition</code>: min and max are always required</li>
 		<li>Otherwise, in <code>StructureDefinition.differential</code>: min and max are always optional; if they are not present, they default to the min and max from the base definition</li>
 		<li>In <code>StructureDefinition.snapshot</code>: min and max are always required</li>
+		<li>If min = 0, and there is a fixed or pattern value present, the fixed or pattern value only applies if the element is actually present</li>
 </ul>
 
 <a name="aggregation"> </a>

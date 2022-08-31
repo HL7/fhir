@@ -52,6 +52,7 @@ find the structure when registered in repositories.
    <p>The identifier that is used to identify this version of the structure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure author manually and the value should be a timestamp.</p>
    <p>Note that there may be multiple resource versions of the structure that have this same identifier. The resource will have updates that create new versions for technical reasons, whereas the stated version number needs to be under the author's control</p>
    </td></tr>
+ <tr><td>versionAlgorithm</td><td>Indicates the mechanism used to compare versions to determine which is more current</td></tr>
  <tr><td>name</td><td>A Computer-ready name (e.g. a token) that identifies the structure - suitable for code generation. 
    Note that this name (and other names relevant for code generation, including element &amp; slice names, codes etc) may collide with reserved words in the relevant target language, and code generators will need to handle this </td></tr>
  <tr><td>title</td><td>A free text natural language name identifying the structure	</td></tr>

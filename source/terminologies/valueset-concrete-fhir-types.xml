@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="ElementTypes"/>
-  <title value="Common Tags"/>
+  <name value="ConcreteFHIRTypes"/>
+  <title value="Concrete FHIR Types"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -10,13 +10,11 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Allowed types for FHIR elements"/>
+  <description value="List of all non-abstract types, data types and resources"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/CodeSystem/fhirpath-types"/>
-    </include>
-    <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
+      <!-- filled out by the build -->
     </include>
   </compose>
 </ValueSet>
