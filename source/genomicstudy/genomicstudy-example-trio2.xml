@@ -216,7 +216,7 @@
         </input>
         <output>  <!-- 0..* Outputs for the analysis event -->
             <file>
-                <reference value="DocumentReference/genomicFile5"/>
+                <reference value="DocumentReference/genomicFileGroupAsSubject"/>
             </file>
             <type>
                 <coding>
