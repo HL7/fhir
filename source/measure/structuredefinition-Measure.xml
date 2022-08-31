@@ -1009,6 +1009,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DefinitionCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codeable representations of measure definition terms."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-definition-example"/>
+      </binding>
       <mapping>
         <identity value="rim"/>
         <map value="N/A"/>
