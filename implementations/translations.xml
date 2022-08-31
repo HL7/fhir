@@ -48,6 +48,9 @@
 		<translation lang="en">ActivityGroup</translation>
 		<translation lang="it">GruppoAttivita</translation>
 	</item>
+	<item id="ActorDefinition">
+		<translation lang="en">ActorDefinition</translation>
+	</item>
 	<item id="AdverseEvent">
 		<translation lang="en">AdverseEvent</translation>
 		<translation lang="es">EventoAdverso</translation>
@@ -892,6 +895,9 @@
 		<translation lang="it">OrchestrazioneDiRichieste</translation>
 		<translation lang="es">OrquestacionDeSolicitudes</translation>
 		<translation lang="zh">请求编排</translation>
+	</item>
+	<item id="Requirements">
+		<translation lang="en">Requirements</translation>
 	</item>
 	<item id="ResearchStudy">
 		<translation lang="en">ResearchStudy</translation>

@@ -5305,7 +5305,7 @@
     <Cell ss:StyleID="s136"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">valueset-expression-language</Data></Cell>
     <Cell ss:StyleID="s136"/>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">valueset-all-media-types</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/mimetypes</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
