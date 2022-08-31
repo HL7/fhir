@@ -431,6 +431,45 @@
       <display value="General"/>
     </item>
   </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Specimen of a Proband as a subject"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Specimen of a Proband"/>
+    </extension>
+    <item>
+      <reference value="Specimen/specimenProband"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Specimen of a proband's mother as a subject"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Specimen of a Mother"/>
+    </extension>
+    <item>
+      <reference value="Specimen/specimenMother"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Specimen of a proband's father as a subject"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Specimen of a Father"/>
+    </extension>
+    <item>
+      <reference value="Specimen/specimenFather"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Specimen - Genomic"/>
