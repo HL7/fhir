@@ -1,205 +1,215 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<MeasureReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/measurereport.xsd">
-  <id value="evaluate-measure-operation-response"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-	<!-- Generated... -->
-    </div>
-  </text>
-  <contained>
-    <Organization>
-      <id value="reporter"/>
-      <name value="Good Health Hospital"/>
-    </Organization>
-  </contained>
-  <status value="complete"/>
-  <type value="summary"/>
-  <measure value="http://example.org/fhir/Measure/CMS146"/>
-  <reporter>
-    <reference value="#reporter"/>
-  </reporter>
-  <period>
-      <start value="2014-01-01" />
-      <end value="2014-03-31" />
-  </period>
-  <group id="CMS146-group-1">
-    <population>
-      <code><coding><code value="initial-population"/></coding></code>
-      <count value="500"/>
-    </population>
-    <population>
-      <code><coding><code value="numerator"/></coding></code>
-      <count value="200"/>
-    </population>
-    <population>
-      <code><coding><code value="denominator"/></coding></code>
-      <count value="500"/>
-    </population>
-    <population>
-      <code><coding><code value="denominator-exclusion"/></coding></code>
-      <count value="100"/>
-    </population>
-    <stratifier>
-      <code><text value="stratifier-ages-up-to-9"/></code>
-      <stratum>
-        <value><text value="true"/></value> 
-        <population>
-          <code><coding><code value="initial-population"/></coding></code>
-          <count value="250"/>
-        </population>
-        <population>
-          <code><coding><code value="numerator"/></coding></code>
-          <count value="100"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator"/></coding></code>
-          <count value="250"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator-exclusion"/></coding></code>
-          <count value="50"/>
-        </population>
-      </stratum>
-      <stratum>
-        <value><text value="false"/></value>
-        <population>
-          <code><coding><code value="initial-population"/></coding></code>
-          <count value="250"/>
-        </population>
-        <population>
-          <code><coding><code value="numerator"/></coding></code>
-          <count value="100"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator"/></coding></code>
-          <count value="250"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator-exclusion"/></coding></code>
-          <count value="50"/>
-        </population>
-      </stratum>
-    </stratifier>
-    <stratifier>
-      <code><text value="stratifier-ages-10-plus"/></code>
-      <stratum>
-        <value><text value="true"/></value>
-        <population>
-          <code><coding><code value="initial-population"/></coding></code>
-          <count value="250"/>
-        </population>
-        <population>
-          <code><coding><code value="numerator"/></coding></code>
-          <count value="100"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator"/></coding></code>
-          <count value="250"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator-exclusion"/></coding></code>
-          <count value="50"/>
-        </population>
-      </stratum>
-      <stratum>
-        <value><text value="false"/></value>
-        <population>
-          <code><coding><code value="initial-population"/></coding></code>
-          <count value="250"/>
-        </population>
-        <population>
-          <code><coding><code value="numerator"/></coding></code>
-          <count value="100"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator"/></coding></code>
-          <count value="250"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator-exclusion"/></coding></code>
-          <count value="50"/>
-        </population>
-      </stratum>
-    </stratifier>
-    <stratifier>
-      <code><text value="stratifier-gender"/></code>
-      <stratum>
-        <value><text value="male"/></value>
-        <population>
-          <code><coding><code value="initial-population"/></coding></code>
-          <count value="250"/>
-        </population>
-        <population>
-          <code><coding><code value="numerator"/></coding></code>
-          <count value="100"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator"/></coding></code>
-          <count value="250"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator-exclusion"/></coding></code>
-          <count value="50"/>
-        </population>
-      </stratum>
-      <stratum>
-        <value><text value="female"/></value>
-        <population>
-          <code><coding><code value="initial-population"/></coding></code>
-          <count value="250"/>
-        </population>
-        <population>
-          <code><coding><code value="numerator"/></coding></code>
-          <count value="100"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator"/></coding></code>
-          <count value="250"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator-exclusion"/></coding></code>
-          <count value="50"/>
-        </population>
-      </stratum>
-      <stratum>
-        <value><text value="other"/></value>
-        <population>
-          <code><coding><code value="initial-population"/></coding></code>
-          <count value="0"/>
-        </population>
-        <population>
-          <code><coding><code value="numerator"/></coding></code>
-          <count value="0"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator"/></coding></code>
-          <count value="0"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator-exclusion"/></coding></code>
-          <count value="0"/>
-        </population>
-      </stratum>
-      <stratum>
-        <value><text value="unknown"/></value>
-        <population>
-          <code><coding><code value="initial-population"/></coding></code>
-          <count value="0"/>
-        </population>
-        <population>
-          <code><coding><code value="numerator"/></coding></code>
-          <count value="0"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator"/></coding></code>
-          <count value="0"/>
-        </population>
-        <population>
-          <code><coding><code value="denominator-exclusion"/></coding></code>
-          <count value="0"/>
-        </population>
-      </stratum>
-    </stratifier>
-  </group>
-</MeasureReport>
+<Parameters  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/measurereport.xsd">
+  <Bundle>
+    <entry>
+      <resource>
+        <MeasureReport>
+          <id value="evaluate-measure-operation-response"/>
+          <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+        	<!-- Generated... -->
+            </div>
+          </text>
+          <status value="complete"/>
+          <type value="summary"/>
+          <measure value="http://example.org/fhir/Measure/CMS146"/>
+          <reporter>
+            <reference value="Organization/reporter"/>
+          </reporter>
+          <period>
+              <start value="2014-01-01" />
+              <end value="2014-03-31" />
+          </period>
+          <group id="CMS146-group-1">
+            <population>
+              <code><coding><code value="initial-population"/></coding></code>
+              <count value="500"/>
+            </population>
+            <population>
+              <code><coding><code value="numerator"/></coding></code>
+              <count value="200"/>
+            </population>
+            <population>
+              <code><coding><code value="denominator"/></coding></code>
+              <count value="500"/>
+            </population>
+            <population>
+              <code><coding><code value="denominator-exclusion"/></coding></code>
+              <count value="100"/>
+            </population>
+            <stratifier>
+              <code><text value="stratifier-ages-up-to-9"/></code>
+              <stratum>
+                <value><text value="true"/></value>
+                <population>
+                  <code><coding><code value="initial-population"/></coding></code>
+                  <count value="250"/>
+                </population>
+                <population>
+                  <code><coding><code value="numerator"/></coding></code>
+                  <count value="100"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator"/></coding></code>
+                  <count value="250"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator-exclusion"/></coding></code>
+                  <count value="50"/>
+                </population>
+              </stratum>
+              <stratum>
+                <value><text value="false"/></value>
+                <population>
+                  <code><coding><code value="initial-population"/></coding></code>
+                  <count value="250"/>
+                </population>
+                <population>
+                  <code><coding><code value="numerator"/></coding></code>
+                  <count value="100"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator"/></coding></code>
+                  <count value="250"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator-exclusion"/></coding></code>
+                  <count value="50"/>
+                </population>
+              </stratum>
+            </stratifier>
+            <stratifier>
+              <code><text value="stratifier-ages-10-plus"/></code>
+              <stratum>
+                <value><text value="true"/></value>
+                <population>
+                  <code><coding><code value="initial-population"/></coding></code>
+                  <count value="250"/>
+                </population>
+                <population>
+                  <code><coding><code value="numerator"/></coding></code>
+                  <count value="100"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator"/></coding></code>
+                  <count value="250"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator-exclusion"/></coding></code>
+                  <count value="50"/>
+                </population>
+              </stratum>
+              <stratum>
+                <value><text value="false"/></value>
+                <population>
+                  <code><coding><code value="initial-population"/></coding></code>
+                  <count value="250"/>
+                </population>
+                <population>
+                  <code><coding><code value="numerator"/></coding></code>
+                  <count value="100"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator"/></coding></code>
+                  <count value="250"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator-exclusion"/></coding></code>
+                  <count value="50"/>
+                </population>
+              </stratum>
+            </stratifier>
+            <stratifier>
+              <code><text value="stratifier-gender"/></code>
+              <stratum>
+                <value><text value="male"/></value>
+                <population>
+                  <code><coding><code value="initial-population"/></coding></code>
+                  <count value="250"/>
+                </population>
+                <population>
+                  <code><coding><code value="numerator"/></coding></code>
+                  <count value="100"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator"/></coding></code>
+                  <count value="250"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator-exclusion"/></coding></code>
+                  <count value="50"/>
+                </population>
+              </stratum>
+              <stratum>
+                <value><text value="female"/></value>
+                <population>
+                  <code><coding><code value="initial-population"/></coding></code>
+                  <count value="250"/>
+                </population>
+                <population>
+                  <code><coding><code value="numerator"/></coding></code>
+                  <count value="100"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator"/></coding></code>
+                  <count value="250"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator-exclusion"/></coding></code>
+                  <count value="50"/>
+                </population>
+              </stratum>
+              <stratum>
+                <value><text value="other"/></value>
+                <population>
+                  <code><coding><code value="initial-population"/></coding></code>
+                  <count value="0"/>
+                </population>
+                <population>
+                  <code><coding><code value="numerator"/></coding></code>
+                  <count value="0"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator"/></coding></code>
+                  <count value="0"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator-exclusion"/></coding></code>
+                  <count value="0"/>
+                </population>
+              </stratum>
+              <stratum>
+                <value><text value="unknown"/></value>
+                <population>
+                  <code><coding><code value="initial-population"/></coding></code>
+                  <count value="0"/>
+                </population>
+                <population>
+                  <code><coding><code value="numerator"/></coding></code>
+                  <count value="0"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator"/></coding></code>
+                  <count value="0"/>
+                </population>
+                <population>
+                  <code><coding><code value="denominator-exclusion"/></coding></code>
+                  <count value="0"/>
+                </population>
+              </stratum>
+            </stratifier>
+          </group>
+        </MeasureReport>
+      </resource>
+    </entry>
+    <entry>
+      <resource>
+        <Organization>
+          <id value="reporter"/>
+          <name value="Good Health Hospital"/>
+        </Organization>
+      </resource>
+    </entry>
+  </Bundle>
+</Parameters>
