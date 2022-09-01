@@ -225,12 +225,13 @@ parameter(s)
     </span>
   </li>
   <li>A specified <a href="compartmentdefinition.html">compartment</a>, perhaps with a specified resource type in that compartment.
-    For example, a search to the <a href="compartmentdefinition-patient.html">Patient Compartment</a> would be shaped like:
+    Note that the literal <code>*</code> (asterisk) is valid for the <code>[type]</code> in a GET-based compartment search.  This
+    syntax allows for disambiguation between a read and a compartment search at the same URL.
     <span class='http-search-example'>
       <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
       <span class='http-verb-display'>
-        <span class='http-verb-display-get'>GET [base]/Patient/[id]/[type]?parameter(s)</span>
-        <span class='http-verb-display-post'>POST [base]/Patient/[id]/[type]/_search
+        <span class='http-verb-display-get'>GET [base]/[compartment]/[id]/[type]?parameter(s)</span>
+        <span class='http-verb-display-post'>POST [base]/[compartment]/[id]/[type]/_search
 Content-Type: application/x-www-form-urlencoded
 parameter(s)</span>
       </span>
@@ -496,7 +497,6 @@ for the following reasons:
  <li>The client can determine what parameters the server used by examining the self link in the return (see <a href="#conformance">below</a>)</li>
 </ul>
 <p>
-  <span class="todo">Filing ticket (Jira is down) request this in http.html and referred to here.</span>
 Clients can specify how the server should behave, by using the prefer header:
 </p>
 <ul>
@@ -504,9 +504,9 @@ Clients can specify how the server should behave, by using the prefer header:
  <li><code>Prefer: handling=lenient</code>: Client requests that the server ignore any unknown or unsupported parameter</li>
 </ul>
 <p>
-Servers SHOULD honor the client's request, but are not required to do so.
+Servers SHOULD honor the client's request, but are not required to do so.  For more information,
+see <a href="http.html#Http-Headers">HTTP Headers</a> on the HTTP Page.
 </p>
-
 
 <a name="transportprotocols"></a>
 <h3>Transport Protocols</h3>
