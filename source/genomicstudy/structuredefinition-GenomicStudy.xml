@@ -133,8 +133,8 @@
     </element>
     <element id="GenomicStudy.type">
       <path value="GenomicStudy.type"/>
-      <short value="The type of the study (e.g., trio-analysis, biomarker detection, or polygenetic risk score calculation)"/>
-      <definition value="The type of the study, e.g., trio-analysis, biomarker detection, or polygenetic risk score calculation."/>
+      <short value="The type of the study (e.g., Familial variant segregation, Functional variation detection, or Gene expression profiling)"/>
+      <definition value="The type of the study, e.g., Familial variant segregation, Functional variation detection, or Gene expression profiling."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -504,8 +504,8 @@
     </element>
     <element id="GenomicStudy.analysis.input.type">
       <path value="GenomicStudy.analysis.input.type"/>
-      <short value="Type of input data (e.g., BAM, FASTQ, or FASTA)"/>
-      <definition value="Type of input data, e.g., BAM, FASTQ, or FASTA."/>
+      <short value="Type of input data (e.g., BAM, CRAM, or FASTA)"/>
+      <definition value="Type of input data, e.g., BAM, CRAM, or FASTA."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -578,8 +578,8 @@
     </element>
     <element id="GenomicStudy.analysis.output.type">
       <path value="GenomicStudy.analysis.output.type"/>
-      <short value="Type of output data (e.g., VCF, MAF, or TSV)"/>
-      <definition value="Type of output data, e.g., VCF, MAF, or TSV."/>
+      <short value="Type of output data (e.g., VCF, MAF, or BAM)"/>
+      <definition value="Type of output data, e.g., VCF, MAF, or BAM."/>
       <min value="0"/>
       <max value="1"/>
       <type>
