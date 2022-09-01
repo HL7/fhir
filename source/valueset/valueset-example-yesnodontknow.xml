@@ -24,7 +24,7 @@
 				<display value="Don't know"/>
 			</concept>
 		</include>
-	</compose>
+	</compose><!--
 	<expansion>
 		<identifier value="urn:uuid:bf99fe50-2c2b-41ad-bd63-bee6919810b4"/>
 		<timestamp value="2015-07-14T10:00:00Z"/>
@@ -43,5 +43,5 @@
 			<code value="asked-unknown"/>
 			<display value="Don't know"/>
 		</contains>
-	</expansion>
+	</expansion>-->
 </ValueSet>
