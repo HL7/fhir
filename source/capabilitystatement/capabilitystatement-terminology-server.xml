@@ -2,68 +2,82 @@
 
 <CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="terminology-server"/>
-<!-- 
-    in addition to the code systems defined in line in value sets, 
-	  terminology servers also provide terminology functionality on 
-		additional code systems. Typically, LOINC, SNOMED CT, RcNorm in USA, etc.). 
-		
-		These extra code systems are declared here in this extension. It's a todo 
-		for a future version to standardise things like which versions are supported etc. 
-	 -->
-  <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-supported-system">
-    <valueUri value="http://loinc.org"/>
-  </extension>
-  <url value="http://hl7.org/fhir/terminology-server"/>
-  <name value="Terminology Service Capability Statement"/>
+  <url value="http://hl7.org/fhir/CapabilityStatement/terminology-server"/>
+  <version value="20220901"/>
+  <name value="ACMETerminologyService—CapabilityStatement"/>
+  <title value="ACME Terminology Service — Capability Statement"/>
   <status value="draft"/>
-  <date value="2015-07-05"/>
-  <publisher value="HL7, Inc"/>
-  <contact>
-    <name value="FHIR Project"/>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <description value="Basic capability statement for a Terminology Server. A server can support more fucntionality than defined here, but this is the minimum amount"/>
-  <kind value="capability"/>
-  <software>
-    <name value="ACME Terminology Server"/>
-  </software>
+  <date value="2022-09-01"/>
+  <description value="Example capability statement for a Terminology Server. A server can support more fucntionality than defined here, but this is the minimum amount"/>
+  <kind value="instance"/>
+  <instantiates value="http://hl7.org/fhir/CapabilityStatement/terminology-server"/>
   <fhirVersion value="5.0.0"/>
-<!--  json is mandatory, for support of mobile clients  -->
   <format value="json"/>
-<!--  xml is optional, but strongly recommended  -->
   <format value="xml"/>
-<!--  profile - terminology servers may consider 
-    supporting the shareable value set directly, but
-    are not required. HL7 servers will
-  <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>  
-   -->
   <rest>
     <mode value="server"/>
-    <documentation value="RESTful Terminology Server"/>
-    <security>
-    <!--  yes - terminology servers are expected to be used from web applications, and need to implement CORS  -->
-      <cors value="true"/>
-    <!--  this bit is optional: security using registered client certificates  -->
-      <service>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/restful-security-service"/>
-          <code value="Certificates"/>
-        </coding>
-      </service>
-    </security>
-  <!--  Server could implement value set & concept map editing using 
-         SMART-on-FHIR, but this doesn't make sense for the actual terminology services API
-      <service>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/restful-security-service"/>
-          <code value="SMART-on-FHIR"/>
-        </coding>
-      </service>
-       -->
-  <!--  value set. Must provide read and search  -->
+    <resource>
+      <type value="CodeSystem"/>
+      <profile value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="read"/>
+      </interaction>
+      <interaction>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <code value="search-type"/>
+      </interaction>
+      <searchParam>
+        <name value="url"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/CodeSystem-url"/>
+        <type value="uri"/>
+      </searchParam>
+      <searchParam>
+        <name value="version"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/CodeSystem-version"/>
+        <type value="token"/>
+      </searchParam>
+      <searchParam>
+        <name value="name"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/CodeSystem-name"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <name value="title"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/CodeSystem-title"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <name value="status"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/CodeSystem-status"/>
+        <type value="token"/>
+      </searchParam>
+      <operation>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="expand"/>
+        <definition value="http://hl7.org/fhir/OperationDefinition/CodeSystem-lookup"/>
+      </operation>
+      <operation>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="expand"/>
+        <definition value="http://hl7.org/fhir/OperationDefinition/CodeSystem-validate-code"/>
+      </operation>
+      <operation>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="expand"/>
+        <definition value="http://hl7.org/fhir/OperationDefinition/CodeSystem-subsumes"/>
+      </operation>
+    </resource>
     <resource>
       <type value="ValueSet"/>
       <profile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
@@ -72,53 +86,13 @@
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
-        <documentation value="Read allows clients to get the logical definitions of the value sets"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
-        <documentation value="Search allows clients to find value sets on the server"/>
       </interaction>
-    <!--  
-        servers should also consider offering these interactions to allow clients 
-        to edit the content on the server, but are not required to do so
-      <interaction>
-    		<code value="create"/>
-  	  </interaction>
-      <interaction>
-		<code value="update"/>
-	  </interaction>
-      <interaction>
-		<code value="delete"/>
-	  </interaction>
-      
-      this bit is up to servers - if they support editing, they should do so version safely
-      <versioning value="versioned-update"/>
-       -->
-    <!--  no need for version history (though servers can), and no need to conditional updates etc. -->
-    <!--  search parameters: at least code, date, name, reference, status, system, url and version. More is recommended  -->
-      <searchParam>
-        <name value="date"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-date"/>
-        <type value="date"/>
-      </searchParam>
-      <searchParam>
-        <name value="name"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-name"/>
-        <type value="string"/>
-      </searchParam>
-      <searchParam>
-        <name value="reference"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-reference"/>
-        <type value="uri"/>
-      </searchParam>
-      <searchParam>
-        <name value="status"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-status"/>
-        <type value="token"/>
-      </searchParam>
       <searchParam>
         <name value="url"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-url"/>
@@ -129,6 +103,35 @@
         <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-version"/>
         <type value="token"/>
       </searchParam>
+      <searchParam>
+        <name value="name"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-name"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <name value="title"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-title"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <name value="status"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ValueSet-status"/>
+        <type value="token"/>
+      </searchParam>
+      <operation>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="expand"/>
+        <definition value="http://hl7.org/fhir/OperationDefinition/ValueSet-expand"/>
+      </operation>
+      <operation>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="expand"/>
+        <definition value="http://hl7.org/fhir/OperationDefinition/ValueSet-validate-code"/>
+      </operation>
     </resource>
     <resource>
       <type value="ConceptMap"/>
@@ -138,58 +141,13 @@
           <valueCode value="SHALL"/>
         </extension>
         <code value="read"/>
-        <documentation value="Read allows clients to get the logical definitions of the concept maps"/>
       </interaction>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
         </extension>
         <code value="search-type"/>
-        <documentation value="Search allows clients to find concept maps on the server"/>
       </interaction>
-    <!--  
-        servers should also consider offering these interactions to allow clients 
-        to edit the content on the server, but are not required to do so
-      <interaction>
-		<code value="create"/>
-	  </interaction>
-      <interaction>
-		<code value="update"/>
-	  </interaction>
-      <interaction>
-		<code value="delete"/>
-	  </interaction>
-      
-      this bit is up to servers - if they support editing, they should do so version safely
-      <versioning value="versioned-update"/>
-       -->
-    <!--  no need for version history (though servers can), and no need to conditional updates etc. -->
-    <!--  search parameters: at least date, name, status, source, target, url, version. More is recommended  -->
-      <searchParam>
-        <name value="date"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-date"/>
-        <type value="date"/>
-      </searchParam>
-      <searchParam>
-        <name value="name"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-name"/>
-        <type value="string"/>
-      </searchParam>
-      <searchParam>
-        <name value="status"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-status"/>
-        <type value="token"/>
-      </searchParam>
-      <searchParam>
-        <name value="source"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-source"/>
-        <type value="reference"/>
-      </searchParam>
-      <searchParam>
-        <name value="target"/>
-        <definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-target"/>
-        <type value="reference"/>
-      </searchParam>
       <searchParam>
         <name value="url"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-url"/>
@@ -200,43 +158,28 @@
         <definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-version"/>
         <type value="token"/>
       </searchParam>
+      <searchParam>
+        <name value="name"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-name"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <name value="title"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-title"/>
+        <type value="string"/>
+      </searchParam>
+      <searchParam>
+        <name value="status"/>
+        <definition value="http://hl7.org/fhir/SearchParameter/ConceptMap-status"/>
+        <type value="token"/>
+      </searchParam>
+      <operation>
+        <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
+          <valueCode value="SHALL"/>
+        </extension>
+        <name value="expand"/>
+        <definition value="http://hl7.org/fhir/OperationDefinition/ConceptMap-translate"/>
+      </operation>
     </resource>
-  <!--  now, operations. We expect terminology services to implement these 
-      named services, though not necessarily actually these profiles  -->
-    <operation>
-      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
-        <valueCode value="SHALL"/>
-      </extension>
-      <name value="expand"/>
-      <definition value="http://hl7.org/fhir/OperationDefinition/ValueSet-expand"/>
-    </operation>
-    <operation>
-      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
-        <valueCode value="SHALL"/>
-      </extension>
-      <name value="lookup"/>
-      <definition value="http://hl7.org/fhir/OperationDefinition/CodeSystem-lookup"/>
-    </operation>
-    <operation>
-      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
-        <valueCode value="SHALL"/>
-      </extension>
-      <name value="validate-code"/>
-      <definition value="http://hl7.org/fhir/OperationDefinition/ValueSet-validate-code"/>
-    </operation>
-    <operation>
-      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
-        <valueCode value="SHALL"/>
-      </extension>
-      <name value="translate"/>
-      <definition value="http://hl7.org/fhir/OperationDefinition/ConceptMap-translate"/>
-    </operation>
-    <operation>
-      <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
-        <valueCode value="SHOULD"/>
-      </extension>
-      <name value="closure"/>
-      <definition value="http://hl7.org/fhir/OperationDefinition/ConceptMap-closure"/>
-    </operation>
   </rest>
 </CapabilityStatement>

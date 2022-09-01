@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TerminologyCapabilities xmlns="http://hl7.org/fhir">
+	<id value="terminology-server"/>
+	<url value="http://hl7.org/fhir/TerminologyCapabilities/terminology-server"/>
+	<name value="ACMETerminologyService—TerminologyCapabilities"/>
+	<title value="ACME Terminology Service — Terminology Capabilities"/>
+	<status value="draft"/>
+	<date value="2022-09-01"/>
+	<kind value="instance"/>
+	<implementation>
+		<description value="The ACME FHIR Terminology Server"/>
+	</implementation>
+	<codeSystem>
+		<uri value="http://hl7.org/fhir/gender-identity"/>
+		<version>
+			<code value="4.0.1"/>
+		</version>
+		<content value="complete"/>
+	</codeSystem>
+	<codeSystem>
+		<uri value="http://snomed.info/sct"/>
+		<version>
+			<code value="http://snomed.info/sct/32506021000036107/version/20220831"/>
+		</version>
+		<content value="complete"/>
+	</codeSystem>
+    <codeSystem>
+        <uri value="http://loinc.org"/>
+        <version>
+            <code value="2.73"/>
+        </version>
+		<content value="complete"/>
+	</codeSystem>
+</TerminologyCapabilities>
