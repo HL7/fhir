@@ -107,6 +107,13 @@
         <source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </constraint>
       <constraint>
+        <key value="csd-4"/>
+        <severity value="error"/>
+        <human value="If the code system content = supplement, it must nominate what it's a supplement for"/>
+        <expression value="CodeSystem.content = supplement implies CodeSystem.supplements.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
+      </constraint>
+      <constraint>
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
