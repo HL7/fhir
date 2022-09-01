@@ -93,7 +93,7 @@
         <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </constraint>
       <constraint>
-        <key value="opd-4"/>
+        <key value="opd-5"/>
         <severity value="error"/>
         <human value="A query operation cannot be defined at the instance level"/>
         <expression value="(kind = 'query') implies (instance = false)"/>
@@ -101,7 +101,7 @@
         <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </constraint>
       <constraint>
-        <key value="opd-5"/>
+        <key value="opd-6"/>
         <severity value="error"/>
         <human value="A query operation requires input parameters to have a search type"/>
         <expression value="(kind = 'query') implies (parameter.all((use = 'in' and searchType.exists()) or (use != 'in')))"/>
