@@ -78,7 +78,6 @@
     <documentation value="The url of the plan measure to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter (and optionally the version), or the measure parameter must be supplied"/>
     <type value="canonical"/>
     <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-    <searchType value="reference"/>
   </parameter>
   <parameter>
     <name value="version"/>
