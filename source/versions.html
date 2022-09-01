@@ -465,7 +465,8 @@ The following rules apply once an artifact in the FHIR core specification or in 
     <tr>
       <td>Value Constraints</td>
       <td>
-        The allowed list of Datatypes may be extended, but not constrained. Invariants, regular expressions, fixed values and patterns will not be added, removed, or changed in a way that would break forward compatibility, but may be relaxed.
+        The allowed list of Datatypes will not be added, removed or changed. Invariants, regular expressions, fixed values and patterns will not be added, removed or changed in a way that could invalidate previous 
+        instances.  New warning or best practice invariants may be added. 'Error' invariants may be added that are tied to newly introduced elements or codes, or existing rules in the specification narrative.
       </td>
     </tr>
     <tr>
