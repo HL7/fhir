@@ -17,6 +17,7 @@
   <name value="MeasureSupplementalDataExample"/>
   <title value="MeasureSupplementalDataExample"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Clinical Quality Information Workgroup"/>
   <description value="Supplemental data in a population for measuring purposes."/>
   <compose>

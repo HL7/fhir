@@ -17,6 +17,7 @@
   <name value="MeasureStratifierExample"/>
   <title value="MeasureStratifierExample"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Clinical Quality Information Workgroup"/>
   <description value="Identifier subgroups in a population for measuring purposes."/>
   <compose>
