@@ -11,6 +11,9 @@
   <description value="Example capability statement for a Terminology Server. A server can support more fucntionality than defined here, but this is the minimum amount"/>
   <kind value="instance"/>
   <instantiates value="http://hl7.org/fhir/CapabilityStatement/terminology-server"/>
+  <implementation>
+		<description value="The ACME FHIR Terminology Server"/>
+	</implementation>
   <fhirVersion value="5.0.0"/>
   <format value="json"/>
   <format value="xml"/>
