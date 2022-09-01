@@ -541,10 +541,10 @@
         <map value="DocumentVersion.keywordCode; DocumentVersion.keywordText"/>
       </mapping>
     </element>
-    <element id="ResearchStudy.location">
-      <path value="ResearchStudy.location"/>
-      <short value="Geographic region(s) for study"/>
-      <definition value="Indicates a country, state or other region where the study is taking place."/>
+    <element id="ResearchStudy.region">
+      <path value="ResearchStudy.region"/>
+      <short value="Geographic area for the study"/>
+      <definition value="A country, state or other area where the study is taking place rather than its precise geographic location or address."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -743,8 +743,8 @@
     </element>
     <element id="ResearchStudy.associatedParty.classifier">
       <path value="ResearchStudy.associatedParty.classifier"/>
-      <short value="nih | fda"/>
-      <definition value="Organisational type of association."/>
+      <short value="nih | fda | government | nonprofit | academic | industry"/>
+      <definition value="A categorization other than role for the associated party."/>
       <min value="0"/>
       <max value="*"/>
       <type>

@@ -169,6 +169,22 @@
 			<code value="fda"/>
 			<display value="FDA"/>
 		</concept>
+		<concept>
+			<code value="government"/>
+			<display value="Government"/>
+		</concept>
+		<concept>
+			<code value="nonprofit"/>
+			<display value="Nonprofit"/>
+		</concept>
+		<concept>
+			<code value="academic"/>
+			<display value="Academic"/>
+		</concept>
+		<concept>
+			<code value="industry"/>
+			<display value="Industry"/>
+		</concept>
 	</concept>
 	<concept>
 		<code value="research-study-party-role"/>
