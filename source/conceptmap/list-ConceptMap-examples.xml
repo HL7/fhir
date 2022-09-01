@@ -100,4 +100,16 @@
       <display value="Map with priorities"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Concept Map Message ADT A04 to Bundle"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="conceptmap-message-adt-a04-to-bundle"/>
+    </extension>
+    <item>
+      <reference value="ConceptMap/message-adt-a04-to-bundle"/>
+      <display value="Message ADT A04 to Bundle"/>
+    </item>
+  </entry>
 </List>
