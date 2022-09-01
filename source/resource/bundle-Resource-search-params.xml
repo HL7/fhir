@@ -207,7 +207,7 @@
       </SearchParameter>
     </resource>
   </entry>
-    <entry>
+  <entry>
     <resource>
       <SearchParameter>
         <id value="Resource-_type"/>
@@ -222,5 +222,19 @@
       </SearchParameter>
     </resource>
   </entry>
-
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Resource-_text"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_text"/>
+        <description value="Text search against the narrative"/>
+        <code value="_text"/>
+        <type value="string"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

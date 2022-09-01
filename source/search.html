@@ -225,8 +225,9 @@ parameter(s)
     </span>
   </li>
   <li>A specified <a href="compartmentdefinition.html">compartment</a>, perhaps with a specified resource type in that compartment.
-    Note that the literal <code>*</code> (asterisk) is valid for the <code>[type]</code> in a GET-based compartment search.  This
-    syntax allows for disambiguation between a read and a compartment search at the same URL.
+    Note that the literal <code>*</code> (asterisk) is valid as the <code>[type]</code> in a GET-based compartment search.  This
+    syntax is for disambiguation between an <a href="http.html#read">instance read</a> and a compartment search, which would 
+    otherwise share the same URL.
     <span class='http-search-example'>
       <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
       <span class='http-verb-display'>
@@ -238,7 +239,6 @@ parameter(s)</span>
     </span>
   </li>
 </ul>
-
 
 <a name="return"></a>
 <h3>Search Responses</h3>
@@ -4504,6 +4504,7 @@ results for the convenience of the client.
 <a name="contained"></a>
 <a name="_contained"></a>
 <a name="containedType"></a>
+<a name="_containedType"></a>
 <h5>Contained Resources (_contained)</h5>
 <p>
 By default, search results only include resources that are not contained in other resources.
@@ -4720,7 +4721,7 @@ pages.  This approach allows both sender and receiver to avoid caching results o
 <h4>Parameters for all resources</h4>
 <p>
 The following parameters apply <a href="resource.html#search">to all resources</a>: [%allparams%]. In addition, the search
-parameter <a href="#text"><code>_text</code></a> and <a href="#filter"><code>_filter</code></a>, (documented below) also applies to all resources (as do the search result parameters).
+parameters <a href="#text"><code>_text</code></a> and <a href="#filter"><code>_filter</code></a>, (documented below) also applies to all resources (as do the search result parameters).
 </p>
 
 <a name="_content"></a>
@@ -5168,6 +5169,44 @@ will match Observation resources that contain the a tag value matching the syste
 that an observation has been tagged as potentially life-threatening or with the potential cause permanent injury.
 </p>
 
+
+<a name="_text"></a>
+<h5>_text</h5>
+<p>
+  The standard search parameter <code>_text</code> is used to perform searches against the narrative content
+  of a resource.
+</p>
+<p>
+  The <code>_text</code> search parameter is defined as a <a href="#string">string</a> type parameter.
+  While the actual format used by the parameter is implementation-dependant, the search is some form of string
+  which can be used for advanced searching.
+</p>
+<p>
+  For example, the following search:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/Observation?_text=cancer OR metastases OR tumor</span>
+    <span class="http-verb-display-post">POST [base]/Observation/_search
+Content-Type: application/x-www-form-urlencoded
+_text=cancer OR metastases OR tumor</span>
+  </span>
+</span>
+  is a search for Observations that contain any of the phrases "cancer", "metastases", and "tumor" in
+  their narrative text (<code>Observation.text</code>).  For example, the key words may appear in:
+  <ul>
+    <li><code>Observation.text</code> - Text summary of the resource, for human interpretation</li>
+    <li><code>Observation.code.text</code> - Type of observation, Plain text representation of the concept</li>
+  </ul>
+</p>
+<p>
+  The server MAY choose to search for related terms (e.g., "carcinoma", etc.), but is not required to do so.
+</p>
+<p>
+  More information can be found in the section <a href="#text">Text Search Parameters</a>.
+</p>
+
+
 <a name="_type"></a>
 <h5>_type</h5>
 <p>
@@ -5329,116 +5368,40 @@ of <a href="auditevent.html">Audit Event</a> resources
 auditing the search itself.
 </p>
 
-
-<hr/>
-<hr/>
-<hr/>
-
-
-
-
-<p>
-  In the simplest case, a search is executed by performing a <code>GET</code> operation
-  in the RESTful framework:
-</p>
-<pre>
- GET [base]/[type]?name=value&amp;...{&amp;_format=[mime-type]}}
-</pre>
-<p>
-For this RESTful search (see <a href="http.html#search">definition in RESTful API</a>), the parameters are a series
-of name=[value] pairs encoded in the URL or as an
-application/x-www-form-urlencoded submission for a POST:
-</p>
-<pre>
- POST  [base]/[type]/_search{?[parameters]{&amp;_format=[mime-type]}}
-</pre>
-
-
-
-
-
-
 <a name="Summary"></a>
-<h3>Summary Table</h3>
-
-<table class="grid">
-<tr><td><b>Search Parameter Types</b></td><td><b>Parameters for all resources</b></td><td><b>Search result parameters</b></td></tr>
-<tr>
-<td>
-<%codetoc http://hl7.org/fhir/search-param-type%>
-</td>
-<td>
-<a href="#id"><code>_id</code></a><br/>
-<a href="#lastUpdated"><code>_lastUpdated</code></a><br/>
-<a href="#tag"><code>_tag</code></a><br/>
-<a href="#profile"><code>_profile</code></a><br/>
-<a href="#security"><code>_security</code></a><br/>
-<a href="#text"><code>_text</code></a><br/>
-<a href="#content"><code>_content</code></a><br/>
-<a href="#list"><code>_list</code></a><br/>
-<a href="#has"><code>_has</code></a><br/>
-<a href="#_type"><code>_type</code></a><br/>
-</td>
-<td>
-<a href="#sort"><code>_sort</code></a><br/>
-<a href="#count"><code>_count</code></a><br/>
-<a href="#include"><code>_include</code></a><br/>
-<a href="#revinclude"><code>_revinclude</code></a><br/>
-<a href="#summary"><code>_summary</code></a><br/>
-<a href="#total"><code>_total</code></a><br/>
-<a href="#elements"><code>_elements</code></a><br/>
-<a href="#contained"><code>_contained</code></a><br/>
-<a href="#containedType"><code>_containedType</code></a><br/>
-</td>
-</tr>
-</table>
-<p>
-In addition, there is a special search parameters <a href="#query"><code>_query</code></a> and <a href="#filter"><code>_filter</code></a> that allow for an alternative method of searching,
-and the parameters <code>_format</code> and <code>_pretty</code> <a href="http.html#parameters">defined for all interactions</a>.
-</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<hr/>
-
-
-
 <a name="table"></a>
 <h3>Summary Tables</h3>
 
 <table class="list">
 <tr><td colspan="4">Common Parameters defined for all resources:</td></tr>
 <tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Paths</b></td></tr>
-<tr><td><a href="#id"><code>_id</code></a></td><td><a href="#token">token</a></td><td>Resource id (not a full URL)</td><td>Resource.id</td></tr>
-<tr><td><a href="#lastUpdated"><code>_lastUpdated</code></a></td><td><a href="#date">date</a></td><td>Date last updated. Server has discretion on the boundary precision</td><td>Resource.meta.lastUpdated</td></tr>
-<tr><td><a href="#tag">_tag</a></td><td><a href="#token">token</a></td><td>Search by a resource tag</td><td>Resource.meta.tag</td></tr>
-<tr><td><a href="#profile"><code>_profile</code></a></td><td><a href="#reference">reference</a></td><td>Search for all resources tagged with a profile</td><td>Resource.meta.profile</td></tr>
-<tr><td><a href="#security"><code>_security</code></a></td><td><a href="#token">token</a></td><td>Search by a security label</td><td>Resource.meta.security</td></tr>
-<tr><td><a href="#text"><code>_text</code></a></td><td><a href="#string">string</a></td><td>Text search against the narrative</td><td></td></tr>
-<tr><td><a href="#content"><code>_content</code></a></td><td><a href="#string">string</a></td><td>Text search against the entire resource</td><td></td></tr>
-<tr><td><a href="#list"><code>_list</code></a></td><td><a href="#string">string</a></td><td>All resources in nominated list (by id, not a full URL)</td><td></td></tr>
-<tr><td><a href="#query">_query</a></td><td><a href="#string">string</a></td><td>Custom named query</td><td></td></tr>
+<tr><td><a href="#_content"><code>_content</code></a></td><td><a href="#string">string</a></td><td>Text search against the entire resource</td><td></td></tr>
+<tr><td><a href="#_id"><code>_id</code></a></td><td><a href="#token">token</a></td><td>Resource id (not a full URL)</td><td>Resource.id</td></tr>
+<tr><td><a href="#_in"><code>_in</code></a></td><td><a href="#reference">reference</a></td><td>Group, List, or CareTeam membership</td><td>Resource.id</td></tr>
+<tr><td><a href="#_language"><code>_language</code></a></td><td><a href="#token">token</a></td><td>Language of the resource content</td><td>Resource.language</td></tr>
+<tr><td><a href="#_lastUpdated"><code>_lastUpdated</code></a></td><td><a href="#date">date</a></td><td>Date last updated. Server has discretion on the boundary precision</td><td>Resource.meta.lastUpdated</td></tr>
+<tr><td><a href="#_list"><code>_list</code></a></td><td><a href="#string">string</a></td><td>All resources in nominated list (by id, not a full URL)</td><td></td></tr>
+<tr><td><a href="#_profile"><code>_profile</code></a></td><td><a href="#reference">reference</a></td><td>Search for all resources tagged with a profile</td><td>Resource.meta.profile</td></tr>
+<tr><td><a href="#_query">_query</a></td><td><a href="#string">string</a></td><td>Custom named query</td><td></td></tr>
+<tr><td><a href="#_security"><code>_security</code></a></td><td><a href="#token">token</a></td><td>Search by a security label</td><td>Resource.meta.security</td></tr>
+<tr><td><a href="#_source"><code>_source</code></a></td><td><a href="#uri">uri</a></td><td>Search by where the resource comes from</td><td>Resource.meta.source</td></tr>
+<tr><td><a href="#_tag"><code>_tag</code></a></td><td><a href="#token">token</a></td><td>Search by a resource tag</td><td>Resource.meta.tag</td></tr>
+<tr><td><a href="#_text"><code>_text</code></a></td><td><a href="#string">string</a></td><td>Text search against the narrative</td><td></td></tr>
+
 <tr><td colspan="4">Search Control Parameters:</td></tr>
 <tr><td><b>Name</b></td><td><b>Type</b></td><td><b>Description</b></td><td><b>Allowable Content</b></td></tr>
-<tr><td><a href="#sort"><code>_sort</code></a></td><td><a href="#string">string</a></td><td>Order to sort results in (can repeat for inner sort orders)</td><td>Name of a valid search parameter</td></tr>
-<tr><td><a href="#count"><code>_count</code></a></td><td><a href="#number ">number </a></td><td>Number of results per page</td><td>Whole number</td></tr>
-<tr><td><a href="#include"><code>_include</code></a></td><td><a href="#string">string</a></td><td>Other resources to include in the search results that search matches point to</td><td>SourceType:searchParam(:targetType)</td></tr>
-<tr><td><a href="#revinclude"><code>_revinclude</code></a></td><td><a href="#string">string</a></td><td>Other resources to include in the search results when they refer to search matches</td><td>SourceType:searchParam(:targetType)</td></tr>
-<tr><td><a href="#summary"><code>_summary</code></a></td><td><a href="#string">string</a></td><td>Just return the summary elements (for resources where this is defined)</td><td><code>true</code> | <code>false</code> (<code>false</code> is default)</td></tr>
-<tr><td><a href="#contained"><code>_contained</code></a></td><td><a href="#string">string</a></td><td>Whether to return resources contained in other resources in the search matches</td><td><code>true</code> | <code>false</code> | <code>both</code> (<code>false</code> is default)</td></tr>
-<tr><td><a href="#containedType"><code>_containedType</code></a></td><td><a href="#string">string</a></td><td>If returning contained resources, whether to return the contained or container resources</td><td><code>container</code> | <code>contained</code></td></tr>
+<tr><td><a href="#_contained"><code>_contained</code></a></td><td><a href="#string">string</a></td><td>Whether to return resources contained in other resources in the search matches</td><td><code>true</code> | <code>false</code> | <code>both</code> (<code>false</code> is default)</td></tr>
+<tr><td><a href="#_containedType"><code>_containedType</code></a></td><td><a href="#string">string</a></td><td>If returning contained resources, whether to return the contained or container resources</td><td><code>container</code> | <code>contained</code></td></tr>
+<tr><td><a href="#_count"><code>_count</code></a></td><td><a href="#number">number</a></td><td>Number of results per page</td><td>Whole number</td></tr>
+<tr><td><a href="#_elements"><code>_elements</code></a></td><td><a href="#token">token</a></td><td>Request that only a specific set of elements be returned for resources</td><td></td></tr>
+<tr><td><a href="#_graph"><code>_graph</code></a></td><td><a href="#reference">reference</a></td><td>Include additional resources according to a <code>GraphDefinition</code></td><td></td></tr>
+<tr><td><a href="#_include"><code>_include</code></a></td><td><a href="#string">string</a></td><td>Other resources to include in the search results that search matches point to</td><td>SourceType:searchParam(:targetType)</td></tr>
+<tr><td><a href="#_revinclude"><code>_revinclude</code></a></td><td><a href="#string">string</a></td><td>Other resources to include in the search results when they refer to search matches</td><td>SourceType:searchParam(:targetType)</td></tr>
+<tr><td><a href="#_score"><code>_score</code></a></td><td><a href="#token">token</a></td><td>Request match relevance in results</td><td><code>true</code> | <code>false</code></td></tr>
+<tr><td><a href="#_sort"><code>_sort</code></a></td><td><a href="#string">string</a></td><td>Order to sort results in (can repeat for inner sort orders)</td><td>Name of a valid search parameter</td></tr>
+<tr><td><a href="#_summary"><code>_summary</code></a></td><td><a href="#string">string</a></td><td>Just return the summary elements (for resources where this is defined)</td><td><code>true</code> | <code>false</code> (<code>false</code> is default)</td></tr>
+<tr><td><a href="#_total"><code>_total</code></a></td><td><a href="#token">token</a></td><td>Request a precision of the total number of results for a request</td><td><code>none</code> | <code>estimate</code> | <code>accurate</code></td></tr>
+
 </table>
 
 <p>
