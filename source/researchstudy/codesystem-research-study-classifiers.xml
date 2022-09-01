@@ -160,22 +160,22 @@
 		<concept>
 			<code value="fda-regulated-drug"/>
 			<display value="FDA regulated drug"/>
-			<definition value=""/>
+			<definition value="A medication regulated by the U.S. Food and Drug Administration."/>
 		</concept>
 		<concept>
 			<code value="fda-regulated-device"/>
 			<display value="FDA regulated device"/>
-			<definition value=""/>
+			<definition value="A medical device regulated by the U.S. Food and Drug Administration."/>
 		</concept>
 		<concept>
 			<code value="mpg-paragraph-23b"/>
-			<display value="MPG Paragraph 23b (German legal requirement)"/>
-			<definition value=""/>
+			<display value="MPG Paragraph 23b"/>
+			<definition value="Research regulated by a specific German legal requirement (Medizinproduktegesetz MPG Paragraph 23b)."/>
 		</concept>
 		<concept>
 			<code value="irb-exempt"/>
 			<display value="IRB-exempt"/>
-			<definition value=""/>
+			<definition value="Human subjects research that is excempt from oversight and monitoring by an institutional review board (IRB)."/>
 		</concept>
 	</concept>
 	<concept>
