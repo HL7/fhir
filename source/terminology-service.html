@@ -35,7 +35,7 @@ A FHIR terminology service SHALL support:
       <li><code>status</code></li>
     </ul>
   </li>
-  <li>the <a href="http.html#capabilities">capabilities interaction</a> with an absent <code>mode</code> parameter or a <code>mode</code> parameter with a value of <code>full</code> returning a <a href="capabilitystatement.html">CapabilityStatement</a> resource which includes the following elements:
+  <li>the <a href="http.html#capabilities">capabilities interaction</a> with an absent <code>mode</code> parameter or a <code>mode</code> parameter with a value of <code>full</code> returning a <a href="capabilitystatement.html">CapabilityStatement</a> resource which includes the following elements (plus the other requirements for a conformant CapabilityStatement resource instance):
   <ul>
     <li><code>url</code></li>
     <li><code>version</code></li>
@@ -45,12 +45,7 @@ A FHIR terminology service SHALL support:
     <li><code>date</code></li>
     <li><code>description</code></li>
     <li><code>kind</code> with a fixed value of <code>instance</code></li>
-    <li><code>instantiates</code> with a fixed value of <code>http://hl7.org/fhir/CapabilityStatement/terminology-server</code></li>
-    <li><code>implementation</code></li>
-    <li><code>implementation.description</code></li>
     <li><code>fhirVersion</code></li>
-    <li><code>format</code> with values for both the XML and JSON formats</li>
-    <li><code>rest</code> with subelements reflecting supported formats, interactions, resources, search parameters and operations.</li>
   </ul>
   </li>
   <li>the <a href="http.html#capabilities">capabilities interaction</a> with a <code>mode</code> parameter with a value of <code>terminology</code> returning a <a href="terminologycapabilities.html">TerminologyCapabilities</a> resource which includes the following elements:
@@ -61,8 +56,6 @@ A FHIR terminology service SHALL support:
       <li><code>status</code></li>
       <li><code>date</code></li>
       <li><code>kind</code> with a fixed value of <code>instance</code></li>
-      <li><code>implementation</code></li>
-      <li><code>implementation.description</code></li>
       <li>A <code>codeSystem</code> data element containing each of the following sub elements for each coding system supported for terminology services:
         <ul>
           <li><code>codeSystem.uri</code></li>
