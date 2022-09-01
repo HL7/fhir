@@ -3729,9 +3729,25 @@ types that the search applies to. This can be done by using the standard search 
 </p>
 <p>
   If no type is specified, the only search parameters that can be used in global search like
-  this are the base parameters that apply to all resources.
-  If multiple types are specified, any search parameters shared across the entire set of
-  specified resources may be used (see <a href="searchparameter-registry.html#common">search parameter registry</a>).
+  this are the base parameters that apply to <a href="#all">all resources</a>.
+</p>
+<p>
+  If a single type is specified, all search parameters for that type are allowed.
+</p>
+<p>
+  If multiple types are specified, all search parameters that can be referenced commonly
+  between resources can be used (e.g., listed with the same <code>name</code> in the
+  CapabilityStatement, typically the value of 
+  <a href="searchparameter-definitions.html#SearchParameter.code">SearchParameter.code</a>)
+  <span class="stu">TU</span>.
+  For example, both <a href="patient.html#search">Patient</a> and <a href="person.html#search">Person</a>
+  define a search parameter referenced by <code>name</code>.  Assuming a server implements
+  both parameters and uses <code>name</code> to do so, the <code>name</code> parameter
+  can be used to search across both Patient and Person resources.  Note that this is allowed
+  even though the search parameters do not share a common definition. If a request references
+  multiple parameters that are not the same type (e.g., if one parameter is a
+  <code>number</code> type and another is a <code>token</code> type, despite sharing the same name),
+  this is an error and servers SHOULD return a 400 status <span class="stu">TU</span>.
 </p>
 
 <a name="implicitresources"></a>

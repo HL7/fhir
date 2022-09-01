@@ -1372,7 +1372,8 @@ Note that there are specific operations defined to support fetching <a href="pat
 or <a href="encounter-operation-everything.html">all record for an encounter</a>.
 </p>
 <p>
-It is also possible to search across multiple resource types:
+It is also possible to search across multiple resource types.  For example, the following searches
+would test for matches across both Condition and Observation resources.
 </p>
 <pre class="http">GET [base]?_type=Condition,Observation&amp;[parameters]{&amp;_format=[mime-type]}</pre>
 <pre class="http">POST [base]/_search?{?[parameters]{&amp;_format=[mime-type]}}
@@ -1381,20 +1382,19 @@ Content-Type: application/x-www-form-urlencoded
 _type=Condition,Observation&amp;[parameters]{&amp;_format=[mime-type]}</pre>
 
 <p>
-This is a request to search on both Condition and Observation. In this case,
-the only parameters that can be used are those defined for both Condition and Observation
-(using <a href="searchparameter-definitions.html#SearchParameter.base">SearchParameter.base</a> - see <a href="searchparameter-registry.html#common">Cross-resource Search Parameters</a>),
-or the <a href="resource.html#search">parameters defined for all resources</a>. If a search lists types not listed in <code>SearchParameter.base</code>
-for any of the parameters, this is an error, and a server SHOULD return a 400 status. It is also possible to search on all types at once:
+  For details about searching across multiple types, including search parameter availability, see the 
+  <a href="search.html#type">Searching Multiple Resource Types</a> section of the search page.
 </p>
 <pre class="http">GET [base]?[parameters]{&amp;_format=[mime-type]}</pre>
 <pre class="http">POST [base]/_search?{?[parameters]{&amp;_format=[mime-type]}}
 Content-Type: application/x-www-form-urlencoded
 
 [parameters]{&amp;_format=[mime-type]}</pre>
-  <p>
-When searching all resources at once, the only search parameters that be can be used in global search like this are the <a href="resource.html#search">base parameters that apply to all resources</a>.
+<p>
+  For details about searching across all types, including search parameter availability, see the 
+  <a href="search.html#type">Searching Multiple Resource Types</a> section of the search page.
 </p>
+
 
 <a name="capabilities"></a>
 <h3>capabilities</h3>
