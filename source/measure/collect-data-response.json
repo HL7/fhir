@@ -6,7 +6,7 @@
       "resource": {
 		  "resourceType": "MeasureReport",
 		  "status": "complete",
-		  "type": "data-collection",
+		  "type": "data-exchange",
 		  "measure": "Measure/measure-mrp",
 		  "patient": {
 			"reference": "Patient/Practitioner-2178"

@@ -90,10 +90,6 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoMother"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
@@ -144,10 +140,6 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoFather"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
@@ -185,25 +177,9 @@
         <note>
             <text value="This is a next generation sequencing analysis of the comparison analysis of proband and parents sequences."/>
         </note>
-        <input>  <!-- 0..* Inputs for the analysis event of Child-->
+        <input>  <!-- 0..* Inputs for the analysis event, a combined vcf file-->
             <file>
-                <reference value="DocumentReference/genomicFile1"/>
-            </file>
-            <type>
-                <coding>
-                    <code value="bed"/>
-                    <display value="BED"/>
-                 </coding>
-            </type>
-            <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoChild"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
-        </input>
-        <input>  <!-- 0..* Inputs for the analysis event of Mother-->
-            <file>
-                <reference value="DocumentReference/genomicFile2"/>
+                <reference value="DocumentReference/genomicFile5"/>
             </file>
             <type>
                 <coding>
@@ -212,27 +188,8 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoMother"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
-        <input>  <!-- 0..* Inputs for the analysis event of Father -->
-            <file>
-                <reference value="DocumentReference/genomicFile3"/>
-            </file>
-            <type>
-                <coding>
-                    <code value="vcf"/>
-                    <display value="VCF"/>
-                 </coding>
-            </type>
-            <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoFather"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
-        </input>
+        
         <output>  <!-- 0..* Outputs for the analysis event -->
             <file>
                 <reference value="DocumentReference/genomicVCFfile"/>

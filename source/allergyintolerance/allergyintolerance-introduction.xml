@@ -144,15 +144,7 @@ Provides additional detail on exactly how the resource is to be used
 </p>
 </div>
 -->
-<a name="dstu0"></a>
-[%stu-note%]
-Requests have been received (GF#10369) to add codes to the <a href="extension-allergyintolerance-certainty.html">extension-allergyintolerance-certainty</a> value set (reaction-event-certainty), which is a required binding.  The requested codes include "unknown", "ruled out" and "possible".  
-The Patient Care WG has voted to add "unknown" to the value set, but recommends that if other terms (including "ruled out" and "possible") are desired for use in a specific setting, an extension or profile should be used.  
-During the STU period feedback is solicited regarding (1) the need and desirability of adding the code "unknown" to the value set, vs. omitting the element if the certainty is not known; and (2) whether or not additional codes besides "unknown" should be added to the value set for the core specification, or whether additional codes, if needed, should be added in an extension/profile.
-</p>
-<p>
-Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
-[%end-note%]
+
 </div>
 
 </div>

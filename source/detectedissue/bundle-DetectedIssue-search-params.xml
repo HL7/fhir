@@ -25,6 +25,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="DetectedIssue-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DetectedIssue.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DetectedIssue-category"/>
+        <description value="Issue Category, e.g. drug-drug, duplicate therapy, etc."/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="DetectedIssue.category"/>
+        <xpath value="f:DetectedIssue/f:category"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="DetectedIssue-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -33,7 +53,7 @@
           <valueString value="DetectedIssue.code"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DetectedIssue-code"/>
-        <description value="Issue Category, e.g. drug-drug, duplicate therapy, etc."/>
+        <description value="Issue Type, e.g. drug-drug, duplicate therapy, etc."/>
         <code value="code"/>
         <type value="token"/>
         <expression value="DetectedIssue.code"/>
@@ -105,19 +125,39 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="DetectedIssue-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DetectedIssue.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DetectedIssue-subject"/>
+        <description value="Associated subject"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="DetectedIssue.subject"/>
+        <xpath value="f:DetectedIssue/f:subject"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="DetectedIssue-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DetectedIssue.patient"/>
+          <valueString value="DetectedIssue.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DetectedIssue-patient"/>
         <description value="Associated patient"/>
         <code value="patient"/>
         <type value="reference"/>
-        <expression value="DetectedIssue.patient"/>
-        <xpath value="f:DetectedIssue/f:patient"/>
+        <expression value="DetectedIssue.subject"/>
+        <xpath value="f:DetectedIssue/f:subject"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

@@ -644,6 +644,134 @@
         <code value="Expression"/>
       </type>
     </element>
+    <element id="RequestOrchestration.action.input">
+      <path value="RequestOrchestration.action.input"/>
+      <short value="Input data requirements"/>
+      <definition value="Defines input data requirements for the action."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="pld-0"/>
+        <severity value="error"/>
+        <human value="Input data elements must have a requirement or a relatedData, but not both"/>
+        <expression value="requirement.exists() xor relatedData.exists()"/>
+        <xpath value="exists(f:requirement) xor exists (f:relatedData/@value)"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="RequestOrchestration.action.input.title">
+      <path value="RequestOrchestration.action.input.title"/>
+      <short value="User-visible title"/>
+      <definition value="A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="RequestOrchestration.action.input.requirement">
+      <path value="RequestOrchestration.action.input.requirement"/>
+      <short value="What data is provided"/>
+      <definition value="Defines the data that is to be provided as input to the action."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="DataRequirement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="RequestOrchestration.action.input.relatedData">
+      <path value="RequestOrchestration.action.input.relatedData"/>
+      <short value="What data is provided"/>
+      <definition value="Points to an existing input or output element that provides data to this input."/>
+      <comment value="The relatedData element allows indicating that an input to a parent action is an input to specific child actions. It also allows the output of one action to be identified as the input to a different action"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="RequestOrchestration.action.output">
+      <path value="RequestOrchestration.action.output"/>
+      <short value="Output data definition"/>
+      <definition value="Defines the outputs of the action, if any."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="pld-1"/>
+        <severity value="error"/>
+        <human value="Output data element must have a requirement or a relatedData, but not both"/>
+        <expression value="requirement.exists() xor relatedData.exists()"/>
+        <xpath value="exists(f:requirement) xor exists (f:relatedData/@value)"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="RequestOrchestration.action.output.title">
+      <path value="RequestOrchestration.action.output.title"/>
+      <short value="User-visible title"/>
+      <definition value="A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="RequestOrchestration.action.output.requirement">
+      <path value="RequestOrchestration.action.output.requirement"/>
+      <short value="What data is provided"/>
+      <definition value="Defines the data that results as output from the action."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="DataRequirement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="RequestOrchestration.action.output.relatedData">
+      <path value="RequestOrchestration.action.output.relatedData"/>
+      <short value="What data is provided"/>
+      <definition value="Points to an existing input or output element that is results as output from the action."/>
+      <comment value="The relatedData element allows indicating that the output of child action is also the output of a parent action. It also allows the input of one action to be identified as the output of a different action"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
     <element id="RequestOrchestration.action.relatedAction">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="20,370"/>
@@ -1023,6 +1151,97 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <condition value="rqg-1"/>
+    </element>
+    <element id="RequestOrchestration.action.definition[x]">
+      <path value="RequestOrchestration.action.definition[x]"/>
+      <short value="Description of the activity to be performed"/>
+      <definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, or an ObservationDefinition that specifies what observation should be captured."/>
+      <comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
+      </type>
+      <type>
+        <code value="uri"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.derivedFrom"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Act[classCode=ACT; moodCode=DEFN]"/>
+      </mapping>
+    </element>
+    <element id="RequestOrchestration.action.transform">
+      <path value="RequestOrchestration.action.transform"/>
+      <short value="Transform to apply the template"/>
+      <definition value="A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input."/>
+      <comment value="Note that when a referenced ActivityDefinition also defines a transform, the transform specified here generally takes precedence. In addition, if both a transform and dynamic values are specific, the dynamic values are applied to the result of the transform."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="RequestOrchestration.action.dynamicValue">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="750,0"/>
+      </extension>
+      <path value="RequestOrchestration.action.dynamicValue"/>
+      <short value="Dynamic aspects of the definition"/>
+      <definition value="Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient&#39;s weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result."/>
+      <comment value="Dynamic values are applied in the order in which they are defined in the RequestOrchestration resource. Note that when dynamic values are also specified by a referenced ActivityDefinition, the dynamicValues from the ActivityDefinition are applied first, followed by the dynamicValues specified here. In addition, if both a transform and dynamic values are specific, the dynamic values are applied to the result of the transform."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="RequestOrchestration.action.dynamicValue.path">
+      <path value="RequestOrchestration.action.dynamicValue.path"/>
+      <short value="The path to the element to be set dynamically"/>
+      <definition value="The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression. The specified path SHALL be a FHIRPath resolveable on the specified target type of the ActivityDefinition, and SHALL consist only of identifiers, constant indexers, and a restricted subset of functions. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details)."/>
+      <comment value="To specify the path to the current action being realized, the %action environment variable is available in this path. For example, to specify the description element of the target action, the path would be %action.description. The path attribute contains a [Simple FHIRPath Subset](fhirpath.html#simple) that allows path traversal, but not calculation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="RequestOrchestration.action.dynamicValue.expression">
+      <path value="RequestOrchestration.action.dynamicValue.expression"/>
+      <short value="An expression that provides the dynamic value for the customization"/>
+      <definition value="An expression specifying the value of the customized element."/>
+      <comment value="The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Expression"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
     </element>
     <element id="RequestOrchestration.action.action">
       <path value="RequestOrchestration.action.action"/>

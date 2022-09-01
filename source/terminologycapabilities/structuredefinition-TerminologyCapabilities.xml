@@ -817,7 +817,7 @@
     </element>
     <element id="TerminologyCapabilities.codeSearch">
       <path value="TerminologyCapabilities.codeSearch"/>
-      <short value="explicit | all"/>
+      <short value="in-compose | in-expansion | in-compose-or-expansion"/>
       <definition value="The degree to which the server supports the code search parameter on ValueSet, if it is supported."/>
       <comment value="See notes on the [ValueSet](valueset.html#) resource."/>
       <min value="0"/>
