@@ -266,7 +266,7 @@
     <element id="StructureDefinition.url">
       <path value="StructureDefinition.url"/>
       <short value="Canonical identifier for this structure definition, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this structure definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this structure definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the structure definition is stored on different servers."/>
+      <definition value="An absolute URI that is used to identify this structure definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this structure definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the structure definition is stored on different servers."/>
       <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the structure definition to be referenced by a single globally unique identifier."/>
       <alias value="url"/>
@@ -923,14 +923,14 @@
         <key value="sdf-24"/>
         <severity value="error"/>
         <human value="For CodeableReference elements, target profiles must be listed on the CodeableReference, not the CodeableReference.reference"/>
-        <expression value="element.where(type.code='Reference' and id.endsWith('.reference') and type.targetProfile.exists() and id.substring(0,$this.length()-10) in %context.element.where(type.code='CodeableReference').id).exists().not()"/>
+        <expression value="element.where(type.where(code='Reference').exists() and path.endsWith('.reference') and type.targetProfile.exists() and (path.substring(0,$this.path.length()-10) in %context.element.where(type.where(code='CodeableReference').exists()).path)).exists().not()"/>
         <xpath value="not(exists(for $cr in f:element[f:type/f:code/@value='CodeableReference'] return $cr/following-sibling::f:element[@id=concat($cr/@id, '.reference') and f:type/f:code/@value='Reference' and exists(f:type/f:targetProfile)]))"/>
       </constraint>
       <constraint>
         <key value="sdf-25"/>
         <severity value="error"/>
         <human value="For CodeableReference elements, bindings must be listed on the CodeableReference, not the CodeableReference.concept"/>
-        <expression value="element.where(type.code='CodeableConcept' and id.endsWith('.concept') and binding.exists() and id.substring(0,$this.length()-8) in %context.element.where(type.code='CodeableReference').id).exists().not()"/>
+        <expression value="element.where(type.where(code='CodeableConcept').exists() and path.endsWith('.concept') and binding.exists() and (path.substring(0,$this.path.length()-8) in %context.element.where(type.where(code='CodeableReference').exists()).path)).exists().not()"/>
         <xpath value="not(exists(for $cr in f:element[f:type/f:code/@value='CodeableReference'] return $cr/following-sibling::f:element[@id=concat($cr/@id, '.concept') and f:type/f:code/@value='CodeableConcept' and exists(f:binding)]))"/>
       </constraint>
       <constraint>
