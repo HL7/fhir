@@ -41,16 +41,52 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-type"/>
   <content value="example"/>
-  <concept>
-    <code value="trio"/>
-    <display value="Trio-analysis"/>
-  </concept>
-  <concept>
-    <code value="bd"/>
-    <display value="Biomarker Detection"/>
-  </concept>
-  <concept>
-    <code value="prs"/>
-    <display value="Polygenetic Risk Score"/>
-  </concept>
+    <concept>
+      <code value="alt-splc"/>
+      <display value="Alternative splicing detection"/>
+    </concept>
+    <concept>
+      <code value="chromatin"/>
+      <display value="Chromatin conformation"/>
+    </concept>
+    <concept>
+      <code value="cnv"/>
+      <display value="Copy Number Variation (CNV) detection"/>
+    </concept>
+    <concept>
+      <code value="epi-alt-hist"/>
+      <display value="Epigenetic Alterations - histone modifications"/>
+    </concept>
+    <concept>
+      <code value="epi-alt-dna"/>
+      <display value="Epigenetic Alterations -DNA methylation"/>
+    </concept>
+    <concept>
+      <code value="fam-var-segr"/>
+      <display value="Familial variant segregation"/>
+    </concept>
+    <concept>
+      <code value="func-var"/>
+      <display value="Functional variation detection"/>
+    </concept>
+    <concept>
+      <code value="gene-expression"/>
+      <display value="Gene expression profiling"/>
+    </concept>
+    <concept>
+      <code value="post-trans-mod"/>
+      <display value="Post-translational Modification Identification"/>
+    </concept>
+    <concept>
+      <code value="str"/>
+      <display value="Short Tandem Repeat (STR) count"/>
+    </concept>
+    <concept>
+      <code value="snp"/>
+      <display value="Single Nucleotide Polymorphism (SNP) Detection"/>
+    </concept>
+    <concept>
+      <code value="struc-var"/>
+      <display value="Structural variation detection"/>
+    </concept>
 </CodeSystem>
