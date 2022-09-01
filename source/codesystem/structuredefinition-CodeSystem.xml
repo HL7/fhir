@@ -110,7 +110,7 @@
         <key value="csd-4"/>
         <severity value="error"/>
         <human value="If the code system content = supplement, it must nominate what it's a supplement for"/>
-        <expression value="CodeSystem.content = supplement implies CodeSystem.supplements.exists()"/>
+        <expression value="CodeSystem.content = 'supplement' implies CodeSystem.supplements.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </constraint>
       <constraint>
@@ -948,6 +948,13 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="csd-5"/>
+        <severity value="error"/>
+        <human value="Must have a value for concept.designation.use if concept.designation.additionalUse is present"/>
+        <expression value="additionalUse.exists() implies use.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
+      </constraint>
     </element>
     <element id="CodeSystem.concept.designation.language">
       <path value="CodeSystem.concept.designation.language"/>
@@ -984,6 +991,25 @@
       <comment value="If no use is provided, the designation can be assumed to be suitable for general display to a human user."/>
       <min value="0"/>
       <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConceptDesignationUse"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Details of how a designation would be used."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/designation-use"/>
+      </binding>
+    </element>
+    <element id="CodeSystem.concept.designation.additionalUse">
+      <path value="CodeSystem.concept.designation.additionalUse"/>
+      <short value="Additional ways how this designation would be used"/>
+      <definition value="Additional codes that detail how this designation would be used, if there is more than one use."/>
+      <comment value="This was added rather than increasing the cardinality of .use to 0..* in order to maintain backward compatibility."/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="Coding"/>
       </type>
