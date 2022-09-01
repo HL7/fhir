@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
-      
+
 [%settitle Clinical Reasoning%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
 </head>
-<body> 
+<body>
 [%file newnavbar%]
 
 
@@ -19,7 +19,7 @@
 
 <p>The <code>relatedArtifact</code> element present on the Clinical Reasoning Module artifacts allows supporting documentation to be provided, either in the form of a reference to a resource, such as a DocumentReference, or as a reference to external content as an Attachment.</p>
 
-<p>This same mechanism can be used to attach supporting documentation to the <code>actionDefinition</code> elements of a PlanDefinition, allowing supporting documentation for specific steps in a rule or protocol, as well as to the <code>action</code> elements of a RequestGroup to provide supporting documentation for individual recommendations as part of the result of a decision support evaluation.</p>
+<p>This same mechanism can be used to attach supporting documentation to the <code>actionDefinition</code> elements of a PlanDefinition, allowing supporting documentation for specific steps in a rule or protocol, as well as to the <code>action</code> elements of a RequestOrchestration to provide supporting documentation for individual recommendations as part of the result of a decision support evaluation.</p>
 
 <pre><code>&lt;documentation&gt;
   &lt;type value=&quot;justification&quot;/&gt;
@@ -39,7 +39,7 @@
   &lt;/document&gt;
 &lt;/documentation&gt;</code></pre>
 
-<p>In all these cases, the qualityOfEvidence and strengthOfRecommendation extensions can be used to grade the information being provided. For example, the qualityOfEvidence extension can be attached to a DocumentReference to indicate a rating for the quality of the evidence represented in the document. Similarly, a strengthOfRecommendation extension can be attached to the action element of a RequestGroup to indicate the strength of the recommendation being made.</p>
+<p>In all these cases, the qualityOfEvidence and strengthOfRecommendation extensions can be used to grade the information being provided. For example, the qualityOfEvidence extension can be attached to a DocumentReference to indicate a rating for the quality of the evidence represented in the document. Similarly, a strengthOfRecommendation extension can be attached to the action element of a RequestOrchestration to indicate the strength of the recommendation being made.</p>
 
 <p>These extensions are bound to example valuesets based on the <a href="http://www.gradeworkinggroup.org/">GRADE</a> rating systems for quality of evidence and strength of recommendation. Other rating systems could be used by defining the appropriate valuesets and profiles to make use of them.</p>
 [%file newfooter%]

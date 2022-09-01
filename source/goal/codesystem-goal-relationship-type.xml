@@ -33,9 +33,9 @@
     <definition value="Indicates that this goal has been replaced by the target goal."/>
   </concept>
   <concept>
-    <code value="milestone"/>
-    <display value="Milestone"/>
-    <definition value="Indicates that the target goal is considered to be a &quot;piece&quot; of attaining this goal."/>
+    <code value="part-of"/>
+    <display value="Part Of"/>
+    <definition value="The relationship.target is a larger goal of which this particular goal is a component or step for."/>
   </concept>
   <concept>
     <code value="other"/>

@@ -13,7 +13,7 @@
     record this relates to
   -->
 	<target>
-		<reference value="DocumentReference/example"/>    
+		<reference value="DocumentReference/example/_history/4"/>    
 	</target>
 	<recorded value="2015-08-27T08:39:24+10:00"/>
 	<authorization>

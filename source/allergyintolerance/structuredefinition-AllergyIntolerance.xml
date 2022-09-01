@@ -384,7 +384,8 @@
       <path value="AllergyIntolerance.onset[x]"/>
       <short value="When allergy or intolerance was identified"/>
       <definition value="Estimated or actual date,  date-time, or age when allergy or intolerance was identified."/>
-      <min value="0"/>
+      <comment value="Age is generally used when the patient reports an age at which the AllergyIntolerance was noted. Period is generally used to convey an imprecise onset that occurred within the time period.  Range is generally used to convey an imprecise age range (e.g. 4 to 6 years old)."/>
+	  <min value="0"/>
       <max value="1"/>
       <type>
         <code value="dateTime"/>

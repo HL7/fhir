@@ -88,8 +88,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </constraint>
       <constraint>
@@ -129,6 +129,14 @@
       <requirements value="Allows the operation definition to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
       <type>
         <code value="uri"/>
       </type>
@@ -146,7 +154,7 @@
       <path value="OperationDefinition.version"/>
       <short value="Business version of the operation definition"/>
       <definition value="The identifier that is used to identify this version of the operation definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the operation definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different operation definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the operation definition with the format [url]|[version]."/>
+      <comment value="There may be different operation definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the operation definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -161,6 +169,25 @@
         <identity value="w5"/>
         <map value="FiveWs.version"/>
       </mapping>
+    </element>
+    <element id="OperationDefinition.versionAlgorithm[x]">
+      <path value="OperationDefinition.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+      <isSummary value="true"/>
     </element>
     <element id="OperationDefinition.name">
       <path value="OperationDefinition.name"/>
@@ -455,8 +482,9 @@
         <valueBoolean value="true"/>
       </extension>
       <path value="OperationDefinition.code"/>
-      <short value="Name used to invoke the operation"/>
-      <definition value="The name used to invoke the operation."/>
+      <short value="Recommended name for operation in search url"/>
+      <definition value="The label that is recommended to be used in the URL for this operation. In some cases, servers may need to use a different CapabilityStatement operation.name to differentiate between multiple SearchParameters that happen to have the same code."/>
+      <comment value="For maximum compatibility, use only lowercase ASCII characters. Note that HL7 will never define multiple operations with the same code. See [Naming Rules &amp; Guidelines](https://confluence.hl7.org/display/FHIR/Guide+to+Designing+Resources#GuidetoDesigningResources-NamingRules&amp;Guidelines) for the internal HL7 rules around codes, which are useful additional advice for all implementers"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -612,6 +640,14 @@
         <xpath value="not(exists(f:targetProfile)) or ((f:type/@value = &#39;Reference&#39;) or (f:type/@value = &#39;canonical&#39;))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </constraint>
+      <constraint>
+        <key value="opd-4"/>
+        <severity value="error"/>
+        <human value="SearchParamType can only be specified on in parameters"/>
+        <expression value="(use = 'out') implies searchType.empty()"/>
+        <xpath value="not(exists(f:searchType)) or ((f:use/@value = &#39;in&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+      </constraint>
     </element>
     <element id="OperationDefinition.parameter.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
@@ -646,6 +682,24 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/operation-parameter-use"/>
       </binding>
     </element>
+    <element id="OperationDefinition.parameter.scope">
+      <path value="OperationDefinition.parameter.scope"/>
+      <short value="instance | type | system"/>
+      <definition value="If present, indicates that the parameter applies when the operation is being invoked at the specified level."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <meaningIfMissing value="If no scope is indicated, it is assumed that the parameter is relevant whenever the operation is invoked."/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="OperationParameterScope"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/operation-parameter-scope"/>
+      </binding>
+    </element>
     <element id="OperationDefinition.parameter.min">
       <path value="OperationDefinition.parameter.min"/>
       <short value="Minimum Cardinality"/>
@@ -673,7 +727,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="OperationDefinition.parameter.type">
@@ -695,8 +749,8 @@
           <valueBoolean value="true"/>
         </extension>
         <strength value="required"/>
-        <description value="A list of all the concrete types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-types"/>
+        <description value="A list of all the types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
       </binding>
     </element>
     <element id="OperationDefinition.parameter.allowedType">
@@ -718,13 +772,13 @@
           <valueBoolean value="true"/>
         </extension>
         <strength value="required"/>
-        <description value="A list of all the concrete types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-types"/>
+        <description value="A list of all the types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
       </binding>
     </element>
     <element id="OperationDefinition.parameter.targetProfile">
       <path value="OperationDefinition.parameter.targetProfile"/>
-      <short value="If type is Reference | canonical, allowed targets"/>
+      <short value="If type is Reference | canonical, allowed targets. If type is 'Resource', then this constrains the allowed reosurce types"/>
       <definition value="Used when the type is &quot;Reference&quot; or &quot;canonical&quot;, and identifies a profile structure or implementation Guide that applies to the target of the reference this parameter refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide."/>
       <comment value="Often, these profiles are the base definitions from the spec (e.g. http://hl7.org/fhir/StructureDefinition/Patient)."/>
       <min value="0"/>
@@ -737,7 +791,8 @@
     <element id="OperationDefinition.parameter.searchType">
       <path value="OperationDefinition.parameter.searchType"/>
       <short value="number | date | string | token | reference | composite | quantity | uri | special"/>
-      <definition value="How the parameter is understood as a search parameter. This is only used if the parameter type is &#39;string&#39;."/>
+      <definition value="How the parameter is understood if/when it used as search parameter. This is only used if the parameter is a string."/>
+      <comment value="Parameters that are search parameter usually - but not always - are also defined for use with general searches, and function in the operation to filter the set of resources in scope for the operation just like the do when searching. The searchType describes how the server processes the value. For an example, see the [Evaluate Measure Operation](measure-operation-evaluate-measure.html)"/>
       <min value="0"/>
       <max value="1"/>
       <type>

@@ -10,6 +10,15 @@ there might be other candidate members who meet the characteristic and aren't (y
 All members SHALL have the listed characteristics.
 </p>
 
+<a name="large-resources"> </a>
+<h3>Managing large Groups</h3>
+
+<p>
+For operations to assist in adding to, removing from, or filtering contents of large Groups, see
+<a href="operations-for-large-resources.html">Operations for Large Resources</a>.
+</p>
+
+
 <a name="membership"> </a>
 <h3>Membership</h3>
 <p>

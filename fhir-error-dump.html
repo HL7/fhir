@@ -1,9 +1,11 @@
 ﻿<!DOCTYPE HTML>
 
 
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
-  <title>Downloads - FHIR v4.6.0</title>
+    <title>Operations-for-large-resources - FHIR v5.0.0-cibuild</title>
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -11,7 +13,7 @@
 
   <link href="fhir.css" rel="stylesheet"/>
   <link href="fhir-pub.css" rel="stylesheet"/>
-  <link rel="Prev" href="http://hl7.org/fhir/downloads.html"/>
+  <link rel="Prev" href="http://hl7.org/fhir/operations-for-large-resources.html"/>
 
   <!-- Bootstrap core CSS -->
   <link href="./dist/css/bootstrap.css" rel="stylesheet"/>
@@ -32,8 +34,9 @@
   <link rel="shortcut icon" href="./assets/ico/favicon.png"/>
 
 </head>
+
 <body>
-	<div id="segment-header" class="segment"><!-- segment-header -->	
+  	<div id="segment-header" class="segment"><!-- segment-header -->	
 		<div class="container">  <!-- container -->
 			<a no-external="true" id="logo" href="http://hl7.org/fhir"><img src="./assets/images/fhir-logo-www.png" alt="logo fhir" width="249" height="60"/> </a>
 			<div id="hl7-status">
@@ -88,8 +91,9 @@
 	<div id="segment-breadcrumb" class="segment"><!-- segment-breadcrumb -->
 		<div class="container"><!-- container -->	
 			<ul class="breadcrumb">
-        <li><a href="implsupport-module.html"><img src="implsupport.png"/> Implementation Support</a></li>
-        <li><b>Downloads</b></li>        <!-- downloads.html / page / -->
+        <li><a href="toc.html"><img src="index.png"/> Table of Contents</a></li>
+        <li><a href="operationslist.html">Operations</a></li>
+        <li><b>Operations for Large Resources</b></li>        <!-- operations-for-large-resources.html / page / -->
 
 			</ul>	
 		</div><!-- /container -->
@@ -108,224 +112,298 @@
 
 
 
+  <h1>Operations for Large Resources (e.g., Groups/Lists)</h1>
 
-
-
-<h1>Downloads</h1>
-
-<table class="colis"><tr><td id="wg"><a _target="blank" href="http://www.hl7.org/Special/committees/fiwg/index.cfm">FHIR Infrastructure</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
-
-<table class="lines">
-
-  <tr>
-    <td colspan="2" style="background: #eeeeee"><b>Specification Downloads</b></td>
-  </tr>
-
-  <tr>
-    <td>FHIR Definitions</td>
-    <td>All the value sets, profiles, etc. defined as part of the FHIR specification, and the included implementation guides:
-      <ul>
-       <li><a href="definitions.xml.zip">XML</a></li>
-       <li><a href="definitions.json.zip">JSON</a></li>
-      </ul>
-      This is the master set of definitions that should be the first choice whenever generating any implementation artifacts. All
-      the other forms below include only subsets of the information available in these definition files, and do not contain all of the rules about what makes resources valid. Implementers
-      will still need to be familiar with the content of the specification and with any <a href="profiling.html">profiles that apply to the resources</a> in order to make a conformant implementation.
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2"><hr/></td>
-  </tr>
-
-  <tr>
-    <td>XML</td>
-    <td>
-      <ul>
-       <li><a href="examples.zip">Examples</a> - all the example resources in XML format</li>
-       <li><a href="fhir-all-xsd.zip">Validation Schemas</a> (includes support schemas, resource schemas, modular &amp; combined schemas, and Schematrons)</li>
-       <li><a href="fhir-codegen-xsd.zip">Code Generation Schemas</a> (see <a href="xml.html#schema-gen">notes about code-generation schemas</a>)<br/>
-       <i>Note that names relevant for code generation, including resource names, element &amp; slice names, codes, etc. may collide with reserved words in the relevant target language, and code generators will need to handle this</i></li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2"><hr/></td>
-  </tr>
-
-  <tr>
-    <td>JSON</td>
-    <td>
-      <ul>
-       <li><a href="examples-json.zip">Examples</a> - all the example resources in JSON format</li>
-       <li><a href="fhir.schema.json.zip">JSON Schema</a> (Needs <a href="https://json-schema.org/draft-06/json-schema-release-notes.html">JSON Schema draft-06</a> or more recent)</li>
-       <li><a href="examples-ndjson.zip">Examples</a> - all the example resources in <a href="nd-json.html">ND-JSON format</a> (bulk data format)</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2"><hr/></td>
-  </tr>
-
-  <tr>
-    <td>RDF</td>
-    <td>
-      <ul>
-       <li><a href="examples-ttl.zip">Turtle Examples</a> - all the example resources in Turtle format</li>
-       <li><a href="fhir.schema.shex.zip">ShEx Schemas</a> - <a href="https://www.w3.org/2001/sw/wiki/ShEx">ShEx</a> definitions for validating RDF resources</li>
-       <li><a href="fhir.rdf.ttl.zip">Definitions</a> - the formal definitions that define the predicates and classes used in the RDF format</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>GraphQL</td>
-    <td>
-      <ul>
-       <li><a href="fhir.schema.graphql.zip">GraphQL Schemas</a> </li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2"><hr/></td>
-  </tr>
-
-  <tr>
-    <td>FHIR Specification</td>
-    <td><!--<a href="fhir-spec.zip"> -->The whole specification<!--</a>--> so that you can host your own local copy (does not include the downloads) (not downloadable from build.fhir.org)</td>
-  </tr>
-
-  <tr>
-    <td colspan="2" style="background: #eeeeee"><b>Implementation Tools</b></td>
-  </tr>
-
-  <tr>
-    <td>Validator</td>
-    <td>The <a href="https://github.com/hapifhir/org.hl7.fhir.core/releases/latest/download/validator_cli.jar">official FHIR validator</a> - a Java jar file that can be used to validate resources. See <a href="validation.html">Validation Tools</a> for further information, or <a href="https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator">Using the FHIR Validator</a> for parameter documentation</td>
-  </tr>
-
-  <tr>
-    <td>IG Publisher</td>
-    <td>The <a href="https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar">Implementation Guide Publishing Tool</a> (see <a href="https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation">IG Publishing documentation</a>)</td>
-  </tr>
-
-  <tr>
-    <td>NPM Packages</td>
-    <td>
-      There are several packages that support the FHIR specification:
-      <ul>
-        <li><b><code><a href="hl7.fhir.r5.core.tgz">hl7.fhir.r5.core</a></code></b>: Contains all the resources needed to test conformance to the FHIR specification, and/or generate code</li>
-        <li><b><code><a href="hl7.fhir.r5.expansions.tgz">hl7.fhir.r5.expansions</a></code></b>: Contains the expansions of the subset of the value sets the have a required binding (other than those that can't be expanded at all)</li>
-        <li><b><code><a href="hl7.fhir.r5.examples.tgz">hl7.fhir.r5.examples</a></code></b>: All the resources that are defined as part of the FHIR specification</li>
-        <li><b><code><a href="hl7.fhir.r5.elements.tgz">hl7.fhir.r5.elements</a></code></b>: A set of <a href="structuredefinition.html">StructureDefinition</a> resources that represent the resources and data types as a series of independently defined data elements</li>
-        <li><b><code><a href="hl7.fhir.r5.corexml.tgz">hl7.fhir.r5.corexml</a></code></b>: The same content as hl7.fhir.r5.core, but with the resources in XML, not JSON</li>
-      </ul>    
-    These packages are used by many of the FHIR tools (e.g. the IG publisher and the validator). Note that the tools usually find this package directly through the NPM-based distribution framework, and there's no need to download them</td>
-  </tr>
-
-  <tr>
-    <td>Spreadsheets</td>
-    <td>All the resource structures in a <a href="definitions.xlsx.zip">Spreadsheet Format</a> - mostly provided to assist with mapping</td>
-  </tr>
-
-  <tr>
-    <td>Translation File</td>
-    <td><a href="translations.xml">Translations of common FHIR names and messages</a> into multiple languages (see <a href="https://chat.fhir.org/#narrow/stream/10-translations">chat.fhir.org translations stream</a> for guidance on how to add to more)</td>
-  </tr>
-
-  <tr>
-    <td>Icon Pack</td>
-    <td>The <a href="icon-pack.zip">FHIR Icon at various resolutions</a>. Any FHIR Implementation created by an organization that has attended a connectathon is allowed to use the FHIR icon in association with the application (this policy will be reviewed in the future).</td>
-  </tr>
-
-  <tr>
-    <td>Test Cases</td>
-    <td>Test cases can mainly be found in the <a href="https://github.com/hapifhir/org.hl7.fhir.core/tree/master/org.hl7.fhir.r4/src/main/resources">org.hl7.fhir.core</a> repository</td>
-  </tr>
-
-  <tr>
-    <td>Code Generation Support</td>
-    <td>ValueSet expansions for the value sets used in schema generation (<a href="expansions.xml">XML</a> or <a href="expansions.json">JSON</a>) + a list of all <a href="choice-elements.json">choice elements</a> &amp; <a href="backbone-elements.json">backbone elements</a>.
-    Note that names relevant for code generation, including resource names, element &amp; slice names, codes, etc. may collide with reserved words in the relevant target language, and code generators will need to handle this</td>
-  </tr>
-
-  <tr>
-    <td colspan="2" style="background: #eeeeee"><b>Reference Implementations</b><a name="refimpl"></a></td>
-  </tr>
-
-  <tr>
-    <td colspan="2">
-    There are many open source reference implementations available to help implementers.
-    Here are a list of the more common implementations used by implementers:
-    </td>
-  </tr>
-
-  <tr>
-   <td>Java</td>
-   <td>
-     <a href="http://jamesagnew.github.io/hapi-fhir/">HAPI-FHIR</a>:
-     Object Models, Parsers, Client + Server Framework, FHIR Validator, &amp; Utilities. The specification is built with this Java code
-   </td>
-  </tr>
-  <tr>
-   <td>C#</td>
-   <td>
-    <a href="https://www.nuget.org/packages/Hl7.Fhir.R4/">Hl7.Fhir.R4</a> / <a href="https://www.nuget.org/packages/Hl7.Fhir.STU3/">Hl7.Fhir.STU3</a>:
-    Object models, Parsers/Serializers, Utilities, and a Client. Source code on GitHub at <a href="https://github.com/FirelyTeam/firely-net-sdk">https://github.com/FirelyTeam/firely-net-sdk</a>
-   </td>
-  </tr>
-  <tr>
-   <td>Pascal</td>
-   <td>
-    <a href="http://github.com/grahamegrieve/fhirserver">FhirServer</a>:
-    Object models, Parsers/Serializers, Validator, Utilities, Client, and the FHIR Reference server. Requires <a href="https://www.embarcadero.com/products/delphi">Delphi</a> (Unicode versions)
-   </td>
-  </tr>
-  <tr>
-   <td>XML</td>
-   <td>
-    <a href="fhir-4.6.0-XMLTools-0.01.zip">XML Tools</a>:
-    Document Rendering Stylesheet, supplementary implementation schemas and transforms
-   </td>
-  </tr>
-  <tr>
-   <td>Javascript</td>
-   <td>See the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=35718838#OpenSourceImplementations-Javascript">HL7 wiki for Javascript libraries</a> (Clients and Utilities for both servers and clients)
-   </td>
-  </tr> 
-  <tr>
-    <td>Python</td>
-    <td>- <a href="https://github.com/smart-on-fhir/client-py">Python SMART on FHIR client</a> Object Model, Client and
-      Utilities<br>- <a href="https://pypi.org/project/fhir.resources/">fhir.resources</a> Python classes with built-in
-      data validation<br>- <a href="https://pypi.org/project/fhirpy/">fhir-py</a> async/sync FHIR client for python3</td>
-  </tr>
-  <tr>
-   <td>Swift</td>
-   <td>
-    <a href="https://github.com/smart-on-fhir/Swift-FHIR">Swift-FHIR</a>:
-    Object Model, Client and Utilities
-   </td>
-  </tr> 
-  
- </table>
-
-<blockquote><p> <b>Implementation Note:</b> 
-These reference implementations are provided for implementer interest and assistance.
-While they may be used (and are) in production systems, HL7 and their various contributors accept no
-liability for their use. <span style="color: Maroon">Note that these reference implementations are
-provided to assist to implementers to adopt the specification, and some are maintained by the FHIR
-project team, but are not part of the specification, and implementations are not required to
-conform to these, nor are they subject to the formal standards process.</span>
+<a name="large-operations-stu-note"></a>
+<blockquote class="stu-note"><p><b>Trial-Use Note:</b>
+These operations have been drafted based on a long-articulated need, but we do not yet have implementation
+experience working with them. If inclusion of these operations is not supported by ballot feedback, we may
+remove these operations from the specification before FHIR R5 is published.
 </p></blockquote>
-<hr/>
-<p>
-Full blown open source implementations for FHIR, some of which use these reference implementations, are
-listed on <a href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7 Confluence</a>.
-</p>
-<p>
-It is not necessary to use these particular implementations in order to be conformant. Any other approach
-may be used, including code generated from the schemas.
-</p>
 
-</div> <!-- col-12 -->
+  <h2><code>$add</code> operation</h2>
+  <div>
+    This instance-level operation merges array entries into an existing ("target") resource, based on values from a
+    supplied ("input") resource, ignoring any values that are already present in the target.
+  </div>
+
+  <div>
+    <h4>Example invocation: add two items to a Group</h4>
+    <p>This example adds up to 2 new members to the member array of Group 123, based on whether these entity/period
+      combinations already exist.</p>
+    <pre class="hljs language-json"><code>POST /Group/<span class="hljs-number">123</span>/$add
+Content-Type: application/fhir+json
+If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
+
+{
+  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;Group&quot;</span>,
+  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Person&quot;</span>,
+  <span class="hljs-attr">&quot;actual&quot;</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">&quot;member&quot;</span>: [{
+    <span class="hljs-attr">&quot;entity&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>},
+    <span class="hljs-attr">&quot;period&quot;</span>: {<span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;2020-07-10&quot;</span>},
+  }, {
+    <span class="hljs-attr">&quot;entity&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>}
+  }]
+}
+</code></pre>
+    <h4>Example invocation: add two items to a List</h4>
+    <p>This example adds up to 2 entries to the entry array of List 123, based on whether these item/date combinations
+      already exist.</p>
+    <pre class="hljs language-json"><code>POST /List/<span class="hljs-number">123</span>/$add
+Content-Type: application/fhir+json
+If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
+
+{
+  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;List&quot;</span>,
+  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;current&quot;</span>,
+  <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;working&quot;</span>,
+  <span class="hljs-attr">&quot;entry&quot;</span>: [{
+    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>},
+    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2020-01-05&quot;</span>
+  }, {
+    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>}
+  }]
+}
+</code></pre>
+
+  </div>
+
+  <h3><code>$add</code> operation details</h3>
+  <p>Instance-level operation, invoked by</p>
+  <ul>
+    <li><code>POST /Group/123/$add</code> to grow <code>Group.member</code></li>
+    <li><code>POST /List/123/$add</code> to grow <code>List.entry</code></li>
+    <li>(Other target resource types may be added in future, if use cases arise.)</li>
+  </ul>
+  <p>Input Parameter:</p>
+  <ul>
+    <li><code>additions</code>: an input resource matching the type of the target resource. The client SHALL populate
+      all required top-level elements in a way that matches the target resource, to ensure the resource is technically
+      valid. The server SHALL ignore all elements except for the relevant array (e.g., <code>Group.member</code> or
+      <code>List.entry</code>).</li>
+  </ul>
+  <p>Behavior:</p>
+  <ul>
+    <li>The server SHALL extend the target resource array with any entries from the input resource array that do not
+      match an existing entry. See <a href="#Matching-Algorithm">Matching Algorithm</a>.</li>
+  </ul>
+  <h3>Contention Management</h3>
+  <p>Clients MAY supply an <code>If-Match</code> header with an ETag reflecting the current version of the target
+    resource. Servers SHALL NOT proceed if a supplied ETag does not match the current version of the target resource,
+    following the scheme described at <a
+      href="https://hl7.org/fhir/http.html#concurrency">https://hl7.org/fhir/http.html#concurrency</a>.</p>
+  <h2><code>$remove</code> operation</h2>
+
+  <div>
+    This instance-level operation removes array entries from an existing ("target") resource, based on a supplied
+    ("input") resource, ignoring any values that are already absent in the target.
+
+  </div>
+
+  <div>
+    <h4>Example invocation: remove two items to a Group</h4>
+    <p>This example removes elements from the member array of Group 123 if they match the supplied combinations of
+      entity/period.</p>
+    <pre class="hljs language-json"><code>POST /Group/<span class="hljs-number">123</span>/$remove
+Content-Type: application/fhir+json
+If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
+
+{
+  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;Group&quot;</span>,
+  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Person&quot;</span>,
+  <span class="hljs-attr">&quot;actual&quot;</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">&quot;member&quot;</span>: [{
+    <span class="hljs-attr">&quot;entity&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>},
+    <span class="hljs-attr">&quot;period&quot;</span>: {<span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;2020-07-10&quot;</span>},
+  }, {
+    <span class="hljs-attr">&quot;entity&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>},
+  }]
+}
+</code></pre>
+    <h4>Example invocation: add two items to a List</h4>
+    <p>This example removes elements from the entry array of List 123 if they match the supplied combinations of
+      item/date.</p>
+    <pre class="hljs language-json"><code>POST /List/<span class="hljs-number">123</span>/$remove
+Content-Type: application/fhir+json
+If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
+
+{
+  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;List&quot;</span>,
+  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;current&quot;</span>,
+  <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;working&quot;</span>,
+  <span class="hljs-attr">&quot;entry&quot;</span>: [{
+    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>},
+  }, {
+    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>},
+    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2020-01-12&quot;</span>
+  }]
+}
+</code></pre>
+  </div>
+
+  <h3><code>$remove</code> operation details</h3>
+  <p>Instance-level operation, invoked by</p>
+  <ul>
+    <li><code>POST /Group/123/$remove</code> to shrink <code>Group.member</code></li>
+    <li><code>POST /List/123/$remove</code> to shrink <code>List.entry</code></li>
+    <li>(Other target resource types may be added in future, if use cases arise.)</li>
+  </ul>
+  <p>Input Parameter:</p>
+  <ul>
+    <li><code>removals</code>: an input resource matching the type of the target resource. The client SHALL populate all
+      required top-level elements in a way that matches the target resource, to ensure the resource is technically
+      valid. The server SHALL ignore all elements except for the relevant array (e.g., <code>Group.member</code> or
+      <code>List.entry</code>).</li>
+  </ul>
+  <p>Behavior:</p>
+  <ul>
+    <li>The server SHALL remove any entries in the target resource’s array that match an entry in the input resource’s
+      array. See <a href="#Matching-Algorithm">Matching Algorithm</a>.</li>
+  </ul>
+  <h3>Contention Management</h3>
+  <p>Clients MAY supply an <code>If-Match</code> header with an ETag reflecting the current version of the target
+    resource. Servers SHALL NOT proceed if a supplied ETag does not match the current version of the target resource,
+    following the scheme described at <a
+      href="https://hl7.org/fhir/http.html#concurrency">https://hl7.org/fhir/http.html#concurrency</a>.</p>
+  <h2><code>$filter</code> operation</h2>
+  <div>
+    This instance-level operation returns the subset of array entries from an existing ("target") resource that match
+    values from a supplied ("input") resource.
+  </div>
+
+  <div>
+    <h4>Example invocation: filter a List by Patient</h4>
+    <p>This example filters List 123 to return items referencing Patient 456 (on any day) Patient 789 (in July 2022.</p>
+    <pre class="hljs language-json"><code>POST /List/<span class="hljs-number">123</span>/$filter
+Content-Type: application/fhir+json
+
+{
+  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;List&quot;</span>,
+  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;current&quot;</span>,
+  <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;working&quot;</span>,
+  <span class="hljs-attr">&quot;entry&quot;</span>: [{
+    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>},
+  }, {
+    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/789&quot;</span>},
+    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07&quot;</span>
+  }]
+}
+</code></pre>
+    <p>If this list included two items (with any date) referencing Patient 456, and one item with a date in July 2022
+      referencing Patient 789, then three subsetted entries would be returned:</p>
+    <pre class="hljs language-json"><code>{
+  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;List&quot;</span>,
+  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;123&quot;</span>,
+  <span class="hljs-attr">&quot;meta&quot;</span>: {
+    <span class="hljs-attr">&quot;tag&quot;</span>: [{
+      <span class="hljs-attr">&quot;system&quot;</span>: <span class="hljs-string">&quot;http://terminology.hl7.org/CodeSystem/v3-ObservationValue&quot;</span>,
+      <span class="hljs-attr">&quot;code&quot;</span>: <span class="hljs-string">&quot;SUBSETTED&quot;</span>
+    }]
+  },
+  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;current&quot;</span>,
+  <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;working&quot;</span>,
+  <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;Patient waiting list&quot;</span>,
+  <span class="hljs-attr">&quot;entry&quot;</span>: [{
+    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07-01&quot;</span>,
+    <span class="hljs-attr">&quot;flag&quot;</span>: {<span class="hljs-attr">&quot;text&quot;</span>: <span class="hljs-string">&quot;Registered&quot;</span>},
+    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456/_history/1&quot;</span>}
+  }, {
+    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07-02T11:00:00Z&quot;</span>,
+    <span class="hljs-attr">&quot;flag&quot;</span>: {<span class="hljs-attr">&quot;text&quot;</span>: <span class="hljs-string">&quot;Escalated&quot;</span>},
+    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456/_history/2&quot;</span>}
+  }, {
+    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07-02T12:00:00Z&quot;</span>,
+    <span class="hljs-attr">&quot;flag&quot;</span>: {<span class="hljs-attr">&quot;text&quot;</span>: <span class="hljs-string">&quot;Escalated&quot;</span>},
+    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/789&quot;</span>}
+  }]
+}
+</code></pre>
+
+  </div>
+
+  <h3><code>$filter</code> operation details</h3>
+  <p>Instance-level operation, invoked by</p>
+  <ul>
+    <li><code>POST /Group/123/$filter</code> to return a filtered subset of <code>Group.member</code></li>
+    <li><code>POST /List/123/$filter</code> to return a filtered subset of <code>List.entry</code></li>
+    <li>(Other target resource types may be added in future, if use cases arise.)</li>
+  </ul>
+  <p>Input Parameter:</p>
+  <ul>
+    <li><code>probes</code>: an input resource matching the type of the target resource. The client SHALL populate all
+      required top-level elements in a way that matches the target resource, to ensure the resource is technically
+      valid. The server SHALL ignore all elements except for the relevant array (e.g., <code>Group.member</code> or
+      <code>List.entry</code>).</li>
+  </ul>
+  <p>Behavior:</p>
+  <ul>
+    <li>The server SHALL determine which existing array entries in the target resource "match" each entry in the input
+      resource. See <a href="#Matching-Algorithm">Matching Algorithm</a>.</li>
+    <li>The server SHALL return a resource that includes all matching array entries</li>
+    <li>The returned resource SHALL include a <code>SUBSETTED</code> Coding in <code>.meta.tag</code></li>
+  </ul>
+  <hr>
+  <div>
+    <h3>Matching Algorithm</h3>
+    <p>Applies to: <code>$add</code>, <code>$remove</code>, and <code>$filter</code>.</p>
+    <p>This algorithm determines whether an entry in the target resource array "matches" an entry in the input resource
+      array. An entry is considered to "match" if:</p>
+    <ul>
+      <li>each supplied element in the input entry is present in the target entry AND</li>
+      <li>each supplied element has a value in the target entry that is:
+        <ul>
+          <li>identical to the value in the input entry OR</li>
+          <li>more specific than the value in the input entry
+            <ul>
+              <li>a date is "more specific" if it covers a narrower timespan, e.g. an input value of "2022-07" would
+                match a target value of "2022-07-01"</li>
+              <li>a reference is "more specific" if it points to a historical version, e.g. an input value of
+                "Patient/123" would match a target value of "Patient/123/_history/456"</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <hr>
+    <h5>Example 1: a single probe</h5>
+    <p>Entry in input resource:</p>
+    <pre class="hljs language-json"><code>{
+  <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>}
+}
+</code></pre>
+    <p>Entry in target resource:</p>
+    <pre class="hljs language-json"><code>{
+  <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07-01&quot;</span>,
+  <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123/_history/2&quot;</span>}
+}
+</code></pre>
+    <p>Result: this is a <strong>match</strong>, because the target entry contains a matching element for the input
+      entry’s elements (<code>item</code> and <code>item.reference</code>). The presence of an additional
+      <code>date</code> element in the target resource does not affect the result.</p>
+    <hr>
+    <h5>Example 2: asymmetry</h5>
+    <p>Now consider the same inputs from Example (1), but swap their roles (input / target) as follows.</p>
+    <p>Entry in input resource:</p>
+    <pre class="hljs language-json"><code>{
+  <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07-01&quot;</span>,
+  <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123/_history/2&quot;</span>}
+}
+</code></pre>
+    <p>Entry in target resource:</p>
+    <pre class="hljs language-json"><code>{
+  <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>}
+}
+</code></pre>
+    <p>Result: this is <strong>not a match</strong>, because the target entry contains no match for the input entry’s
+      <code>date</code> element, and also no match for the input entry’s version-specific <code>item.reference</code>
+      element. This example shows that the comparision operation is not symmetric; inputs match more-specific targets,
+      not less-specific targets.</p>
+
+  </div>
+
+
+  </div> <!-- col-12 -->
 				</div><!-- /inner-wrapper -->
             </div><!-- /row -->
         </div><!-- /container -->
@@ -337,7 +415,7 @@ may be used, including code generated from the schemas.
 		<div class="container"><!-- container -->
 			<div class="inner-wrapper">
 				<p>
-        FHIR &reg;© HL7.org 2011+. FHIR R5 Draft Ballot hl7.fhir.core#4.6.0 generated on Tue, Aug 9, 2022 18:04-0700. 
+        FHIR &reg;© HL7.org 2011+. FHIR R5 Draft Ballot hl7.fhir.core#5.0.0-cibuild generated on Tue, Aug 23, 2022 16:38-0400. 
         <br/>
         <span style="color: #FFFF77">
         Links: <a style="color: #b8dcf9" href="http://hl7.org/fhir/search.cfm">Search</a> | 
@@ -345,7 +423,7 @@ may be used, including code generated from the schemas.
                <a style="color: #b8dcf9" href="toc.html">Table of Contents</a> | 
                <a style="color: #ffffff" href="qa.html">QA Page</a> |
 <!--                <a style="color: #b8dcf9" href="credits.html">Credits</a> | -->
-               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FR4%2Fdownloads.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fdownloads.html">Compare to R4</a> |                
+               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FR4%2Foperations-for-large-resources.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Foperations-for-large-resources.html">Compare to R4</a> |                
                <a style="color: #b8dcf9" rel="license" href="license.html"><img src="cc0.png" style="border-style: none;" alt="CC0"/></a> | 
                <a style="color: #b8dcf9" target="_blank" href="http://hl7.org/fhir-issues">Propose a change</a>   
         </span>
@@ -375,5 +453,7 @@ may be used, including code generated from the schemas.
 <!-- Analytics Below
 ================================================== -->
 
+
 </body>
+
 </html>

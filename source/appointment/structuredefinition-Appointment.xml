@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Appointment"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -92,16 +92,16 @@
         <key value="app-4"/>
         <severity value="error"/>
         <human value="Cancellation reason is only used for appointments that have been cancelled, or noshow"/>
-        <expression value="cancellationReason.exists() implies (status=&#39;noshow&#39; or status=&#39;cancelled&#39;)"/>
-        <xpath value="not(exists(f:cancellationReason)) or f:status/@value=(&#39;noshow&#39;, &#39;cancelled&#39;)"/>
+        <expression value="cancellationReason.exists() implies (status='noshow' or status='cancelled')"/>
+        <xpath value="not(exists(f:cancellationReason)) or f:status/@value=('noshow', 'cancelled')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
       <constraint>
         <key value="app-3"/>
         <severity value="error"/>
         <human value="Only proposed or cancelled appointments can be missing start/end dates"/>
-        <expression value="(start.exists() and end.exists()) or (status in (&#39;proposed&#39; | &#39;cancelled&#39; | &#39;waitlist&#39;))"/>
-        <xpath value="((exists(f:start) and exists(f:end)) or (f:status/@value=&#39;proposed&#39;) or (f:status/@value=&#39;cancelled&#39;) or (f:status/@value=&#39;waitlist&#39;))"/>
+        <expression value="(start.exists() and end.exists()) or (status in ('proposed' | 'cancelled' | 'waitlist'))"/>
+        <xpath value="((exists(f:start) and exists(f:end)) or (f:status/@value='proposed') or (f:status/@value='cancelled') or (f:status/@value='waitlist'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
       <constraint>
@@ -132,7 +132,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="Act[@moodCode &lt;= &#39;INT&#39;]"/>
+        <map value="Act[@moodCode &lt;= 'INT']"/>
       </mapping>
       <mapping>
         <identity value="ical"/>
@@ -178,7 +178,7 @@
       <path value="Appointment.status"/>
       <short value="proposed | pending | booked | arrived | fulfilled | cancelled | noshow | entered-in-error | checked-in | waitlist"/>
       <definition value="The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status."/>
-      <comment value="If the Appointment&#39;s status is &quot;cancelled&quot; then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE.&#xA;&#xA;This element is labeled as a modifier because the status contains the code entered-in-error that mark the Appointment as not currently valid."/>
+      <comment value="If the Appointment's status is &quot;cancelled&quot; then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE.&#xA;&#xA;This element is labeled as a modifier because the status contains the code entered-in-error that mark the Appointment as not currently valid."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -470,7 +470,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[@typeCode = &#39;SPRT&#39;].observation"/>
+        <map value=".inboundRelationship[@typeCode = 'SPRT'].observation"/>
       </mapping>
       <mapping>
         <identity value="ical"/>
@@ -511,7 +511,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[@typeCode = &#39;SPRT&#39;].observation"/>
+        <map value=".inboundRelationship[@typeCode = 'SPRT'].observation"/>
       </mapping>
       <mapping>
         <identity value="ical"/>
@@ -638,7 +638,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".activityTime[@xsi:type = (&#39;SXPR_TS&#39;, &#39;PIVL_TS&#39;)].width"/>
+        <map value=".activityTime[@xsi:type = ('SXPR_TS', 'PIVL_TS')].width"/>
       </mapping>
       <mapping>
         <identity value="ical"/>
@@ -648,7 +648,7 @@
     <element id="Appointment.slot">
       <path value="Appointment.slot"/>
       <short value="The slots that this appointment is filling"/>
-      <definition value="The slots from the participants&#39; schedules that will be filled by the appointment."/>
+      <definition value="The slots from the participants' schedules that will be filled by the appointment."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -657,7 +657,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[@typeCode = &#39;REFR&#39;].act[@classCode = &#39;ACT&#39;][@moodCode = &#39;SLOT&#39;]"/>
+        <map value=".outboundRelationship[@typeCode = 'REFR'].act[@classCode = 'ACT'][@moodCode = 'SLOT']"/>
       </mapping>
     </element>
     <element id="Appointment.account">
@@ -719,7 +719,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".subjectOf.observation[@moodCode = &#39;EVN&#39;][code = &#39;annotation&#39;].value"/>
+        <map value=".subjectOf.observation[@moodCode = 'EVN'][code = 'annotation'].value"/>
       </mapping>
       <mapping>
         <identity value="ical"/>
@@ -744,7 +744,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".subjectOf.observation[@moodCode = &#39;EVN&#39;][code = &#39;annotation&#39;].value"/>
+        <map value=".subjectOf.observation[@moodCode = 'EVN'][code = 'annotation'].value"/>
       </mapping>
       <mapping>
         <identity value="ical"/>
@@ -771,7 +771,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[@typeCode = &#39;FLFS&#39;].act[@classCode &lt; &#39;ActCareProvisionRequestType&#39;][@moodCode = &#39;RQO&#39;]"/>
+        <map value=".outboundRelationship[@typeCode = 'FLFS'].act[@classCode &lt; 'ActCareProvisionRequestType'][@moodCode = 'RQO']"/>
       </mapping>
     </element>
     <element id="Appointment.subject">
@@ -990,7 +990,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".activityTime[@xsi:type = (&#39;SXPR_TS&#39;, &#39;PIVL_TS&#39;)]"/>
+        <map value=".activityTime[@xsi:type = ('SXPR_TS', 'PIVL_TS')]"/>
       </mapping>
     </element>
     <element id="Appointment.recurrenceId">
@@ -1049,15 +1049,15 @@
         <code value="CodeableConcept"/>
       </type>
       <binding>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
-          <valueString value="IANA Timezones (BCP 175)."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="IANATimezone"/>
         </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
+          <valueString value="IANA Timezones (BCP 175)."/>
+        </extension>
         <strength value="required"/>
         <description value="IANA Timezones (BCP 175)"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/timezones|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/timezones"/>
       </binding>
       <mapping>
         <identity value="ical"/>

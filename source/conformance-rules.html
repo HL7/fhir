@@ -72,7 +72,12 @@ two ways:
  <li>FHIR-like solutions (based on FHIR, but not conformant) may set expectations by trading partners which are not met due to the non-conformance of the system and these un-met expectations may also result in risk</li>
 </ul>
 <p>
-Systems can only claim FHIR Conformance for functionality described in the applicable <a href="capabilitystatement.html">CapabilityStatement</a>.
+Systems can only claim FHIR Conformance for functionality described in the applicable
+<a href="capabilitystatement.html">CapabilityStatement</a>. RESTful Servers are required 
+to provide a <code>CapabilityStatement</code> on request. Other systems or applications
+that wish to assert formal conformance to FHIR MAY choose to publish a CapabilityStatement 
+defining how they conform. Assertions of conformance to FHIR in the absense of a 
+CapabilityStatement have little meaning because they cannot be tested/verified.
 </p>
 
 <a name="conflang"></a>
@@ -319,9 +324,11 @@ Constraints defined on an element have the following properties:
  <tr><td><b>Key</b></td><td>Identifies the constraint uniquely amongst all the constraints in the context - typically, this is used to refer to the constraint in an error message</td></tr>
  <tr><td><b>Requirements</b></td><td>An explanation of why the constraint has been applied - what harmful conditions are being avoided</td></tr>
  <tr><td><b>Severity</b></td><td>The severity of the invariant - see below</td></tr>
+ <tr><td><b>Suppress</b></td><td>Allows for suppress warnings or best practice guidelines in derived profiles</td></tr>
  <tr><td><b>Human Description</b></td><td>A human description of the rule intended to be shown as the explanation for a message when the constraint is not met</td></tr>
  <tr><td><b>Expression</b></td><td>A <a href="fhirpath.html">FHIRPath</a> expression that must evaluate to true when run on the element</td></tr>
  <tr><td><b>XPath</b></td><td>An XPath expression that must evaluate to true when run on the element in the XML representation</td></tr>
+ <tr><td><b>Source</b></td><td>The URL of the profile that defined the constraint (this helps point a error recipient to the right place to understand the cause)</td></tr>
 </table>
 <p>
 Many constraints are defined in the base specification. In addition, additional
@@ -350,7 +357,14 @@ a notification to implementers that the element is affected by the constraint. I
 apply to an element, but they cannot alter or remove constraints that are already
 applied.
 </p>
-
+<p>
+Constraints have a key that is used to identify the constraint, for example, in an 
+error message. The constraint keys are required to be unique when they are declared.
+However constraints are repeated throughout profiles where ever the original element
+definitions, which means that there's no simple way to constrain the keys to be 
+unique. FHIR validators will validate that constraint keys are meaningfully unique
+as they can.
+</p>
 
 <a name="summary"></a>
 <a name="default"></a>

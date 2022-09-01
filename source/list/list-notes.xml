@@ -220,8 +220,17 @@ to the latter after a particular period of time has passed).
 The choice of flagging vs. outright removal is determined by the list author.
 </p>
 <p>
-Applications processing list SHOULD always check the deleted flag.
+Applications processsing list SHOULD always check the deleted flag.
 </p>
+
+<a name="large-resources"> </a>
+<h3>Managing large Lists</h3>
+
+<p>
+For operations to assist in adding to, removing from, or filtering contents of large Lists, see
+<a href="operations-for-large-resources.html">Operations for Large Resources</a>.
+</p>
+
 
 <a name="membership"> </a>
 <h3>Membership</h3>

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExampleScenario xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="example"/>
+  <text>
+    <status value="additional"/>
+    <div xmlns="http://www.w3.org/1999/xhtml"><p> <b> Generated Narrative: ExampleScenario</b> <a name="example"> </a> </p> <div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource ExampleScenario &quot;example&quot; </p> </div> <p> <b> status</b> : draft</p> <p> <b> purpose</b> : Purpose: this serves to enable remote performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR.</p> 
+     <img src="./examplescenario-example.png" alt="ExampleScenario diagram - IHE MMA example"></img></div>
+  </text>
   <status value="draft"/>
   <purpose value="Purpose: this serves to enable remote performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR."/>
   <!-- First define actors-->
@@ -32,7 +37,7 @@
   <instance>
     <key value="iherx001"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="MedicationRequest"/>
     </structureType>
     <title value="Initial Prescription"/>
@@ -41,7 +46,7 @@
   <instance>
     <key value="iherx001.001"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="MedicationRequest"/>
     </structureType>
     <title value="Request for day 1, morning"/>
@@ -50,7 +55,7 @@
   <instance>
     <key value="iherx001.002"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="MedicationRequest"/>
     </structureType>
     <title value="Request for day 1, lunch"/>
@@ -59,7 +64,7 @@
   <instance>
     <key value="iherx001.003"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="MedicationRequest"/>
     </structureType>
     <title value="Request for day 1, evening"/>
@@ -68,7 +73,7 @@
   <instance>
     <key value="iherx001.004"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="MedicationRequest"/>
     </structureType>
     <title value="Request for day 2, morning"/>
@@ -77,7 +82,7 @@
   <instance>
     <key value="iherx001.005"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="MedicationRequest"/>
     </structureType>
     <title value="Request for day 2, lunch"/>
@@ -86,7 +91,7 @@
   <instance>
     <key value="iherx001.006"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="MedicationRequest"/>
     </structureType>
     <title value="Request for day 2, evening"/>
@@ -95,7 +100,7 @@
   <instance>
     <key value="iheadm001a"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="MedicationAdministration"/>
     </structureType>
     <title value="Morning meds - taken"/>
@@ -104,7 +109,7 @@
   <instance>
     <key value="iheadm001b"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="MedicationAdministration"/>
     </structureType>
     <title value="Morning meds - not taken"/>
@@ -113,7 +118,7 @@
   <instance>
     <key value="iherx001bundle"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="MedicationRequest"/>
     </structureType>
     <title value="Bundle of Medication Requests"/>
@@ -140,7 +145,7 @@
   <instance>
     <key value="iheadm002"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="MedicationAdministration"/>
     </structureType>
     <title value="Lunch meds - taken"/>
@@ -158,7 +163,7 @@
   <instance>
     <key value="iherxqry"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="SearchParameter"/>
     </structureType>
     <title value="Search query1"/>

@@ -41,7 +41,7 @@
       <system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <import value="http://hl7.org/fhir/ValueSet/resource-types"/>
     </include>
   </compose>
 </ValueSet>

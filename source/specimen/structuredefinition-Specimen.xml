@@ -294,6 +294,53 @@
         <map value="outboundRelationship[typeCode=FLFS].target"/>
       </mapping>
     </element>
+    <element id="Specimen.combined">
+			<path value="Specimen.combined"/>
+			<short value="grouped | pooled"/>
+			<definition value="This element signifies if the specimen is part of a group or pooled."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PublicationStatus"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Codes for the combined status of a specimen."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/specimen-combined"/>
+			</binding>
+		</element>
+    <element id="Specimen.role">
+      <path value="Specimen.role"/>
+      <short value="The role the specimen serves"/>
+      <definition value="The role or reason for the specimen in the testing workflow."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SpecimenRole"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Codes describing specimen role."/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Codes describing specimen role."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-role"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="SPM-10"/>
+      </mapping>
+    </element>
     <element id="Specimen.feature">
       <path value="Specimen.feature"/>
       <short value="The physical feature of a specimen "/>

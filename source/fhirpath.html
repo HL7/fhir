@@ -166,11 +166,11 @@ Patient.name.given.getValue().is(System.string);
 <p>
 As shown, all FHIR primitives have the operation <code>getValue()</code> defined (see below)
 for the few edge cases where the automatic conversion isn't appropriate. Note
-that as() does not have such restrictions - both of the following are valid:
+that ofType() does not have such restrictions - both of the following are valid:
 </p>
 <pre class="fhirpath">
-Patient.name.given.as(FHIR.string);
-Patient.name.given.as(System.string);
+Patient.name.given.ofType(FHIR.string);
+Patient.name.given.ofType(System.string);
 </pre>
 
 
@@ -193,9 +193,19 @@ As part of the mapping, time-valued UCUM units are mapped to the <a href="http:/
 <tr><td>s</td><td>second</td></tr>
 </table>
 
+[%dragons-start%]
 <p>
-e.g. the FHIR Quantity 1 'a' would be implicitly converted to the FHIRPath System.Quantity 1 'year'.
+i.e. The FHIR Quantity 1 'a' would be implicitly converted to the 
+FHIRPath System.Quantity 1 'year'.
+Note that there's a subtle difference between the UCUM definitions
+for <code>a</code> and <code>mo</code>, which are definition durations 
+of <code>365.25</code> and <code>30</code> days respectively, while 
+<code>year</code> and <code>month</code> are calendar based durations,
+and their length of time varies. See <a href="http://hl7.org/fhirpath/N1/#time-valued-quantities">Time-valued Quantities</a>
+for further discussion. Implementers should be aware of these subtle differences,
+but in general, this approach matches what users expect most closely.
 </p>
+[%dragons-end%]
 
 <a name="variables"></a>
 <h4>FHIR Specific Variables</h4>
@@ -217,13 +227,19 @@ then %rootResource is the same as %resource.
 
 <a name="functions"></a>
 <h4>Additional functions</h4>
-<p>FHIR adds (compatible) functionality to the common set of functions:</p>
+<p>FHIR adds (compatible) functionality to the set of common FHIRPath functions:</p>
 
 <p><b>extension(url : string) : collection</b></p>
-<p>Will filter the input collection for items named "extension" with the given url. This is a syntactical shortcut for <code>.extension.where(url = string)</code>, but is simpler to write. Will return an empty collection if the input collection is empty or the url is empty.</p>
+<p>Will filter the input collection for items named "extension" with the given url. 
+  This is a syntactical shortcut for <code>.extension.where(url = string)</code>, 
+  but is simpler to write. Will return an empty collection if the input collection is 
+  empty or the url is empty.</p>
 
 <p><b>hasValue() : Boolean</b></p>
-<p>Returns true if the input collection contains a single value which is a FHIR primitive, and it has a primitive value (e.g. as opposed to not having a value and just having extensions).</p>
+<p>Returns true if the input collection contains a single value which is a FHIR primitive, 
+  and it has a primitive value (e.g. as opposed to not having a value and just having extensions).
+  Otherwise, the return value is empty.
+</p>
 
 <blockquote>
 <p><strong>Note to implementers</strong>: The FHIR conceptual model talks about "primitives" as subclasses of the type Element that also have id and extensions. What this actually means is that a FHIR primitive is not a primitive in an implementation language. The introduction (section 2 above) describes the navigation tree as if the FHIR model applies - primitives are both primitives and elements with children.</p>
@@ -232,63 +248,62 @@ then %rootResource is the same as %resource.
 </blockquote>
 
 <p><b>getValue() : System.[type]</b></p>
-<p>Return the underlying system value for the FHIR primitive (see discussion above).</p>
-
-
-<p><b>trace(name : string; selector : expression) : collection</b></p>
-
-<p>When FHIRPath statements are used in an invariant, the log contents should be added to the error message constructed when the invariant is violated. For example:</p>
-
-<pre class="fhirpath">
-"SHALL have a local reference if the resource is provided inline (url: height; ids: length,weight)"
-
-  from
-
-"reference.startsWith('#').not() or
-  (%context.reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))"
-</pre>
-<p>
-The FHIRPath specification adds an additional parameter to the trace() function, a selection expression that can be used
-to shape what is logged for the collection that is traced. E.g.
-</p>
-<pre class="fhirpath">
-  contained.where(criteria).trace('ids', type().name+"/"+id).process...
-</pre>
-<p>
-This will log the type/name for each contained resource that meets the criteria.
-</p>
-<p>
-Note: the selector parameter is planned to be added to a future version of the base FHIRPath specification.
-</p>
+<p>Return the underlying system value for the FHIR primitive if the input collection contains a single value which is a FHIR primitive, 
+  and it has a primitive value (see discussion for hasValue()). Otherwise the return value is empty.</p>
 
 <p><b>resolve() : collection</b></p>
-<p>For each item in the collection, if it is a string that is a <a href="datatypes.html#uri">uri</a> (or <a href="datatypes.html#canonical">canonical</a> or <a href="datatypes.html#url">url</a>), locate the target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, the item is ignored and nothing is added to the output collection.</p>
-<p>The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved.</p>
+<p>For each item in the collection, if it is a string that is a <a href="datatypes.html#uri">uri</a>
+   (or <a href="datatypes.html#canonical">canonical</a> or <a href="datatypes.html#url">url</a>), locate the 
+   target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, 
+   the item is ignored and nothing is added to the output collection.</p>
+<p>The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved. 
+  If the input is empty, the output will be empty.</p>
 
+<p><b>as(type : identifier) : collection</b></p>
+<p>An alias for ofType() maintained purely for backwards compatibility.</p>
+
+  
 <p><b>ofType(type : identifier) : collection</b></p>
-<p>In FHIR, only concrete core types are allowed as an argument. All primitives are considered to be independent types (so <code>markdown</code> is <strong>not</strong> a subclass of <code>string</code>). Profiled types are not allowed, so to select <code>SimpleQuantity</code> one would pass <code>Quantity</code> as an argument.</p>
+<p>Returns a collection that contains all items in the input collection that are of the given type or a subclass thereof.
+  This works the same as in the base FHIRPath specification, but implementers should be aware that in FHIR, 
+  only concrete core types are allowed as an argument. All primitives are considered to be independent 
+  types (so <code>markdown</code> is <strong>not</strong> a subclass of <code>string</code>). Profiled types are 
+  not allowed, so to select <code>SimpleQuantity</code> one would pass <code>Quantity</code> as an argument.</p>
+
 
 <p><b>elementDefinition() : collection</b></p>
-<p>Returns the FHIR element definition information for each element in the input collection.</p>
+<p>Returns the FHIR element definition information for each element in the input collection. If the 
+  input collection is empty, the return value will be empty.
+</p>
 
 <p><b>slice(structure : string, name : string) : collection</b></p>
-<p>Returns the given slice as defined in the given structure definition. The structure argument is a uri that resolves to the structure definition, and the name must be the name of a slice within that structure definition. If the structure cannot be resolved, or the name of the slice within the resolved structure is not present, an error is thrown.</p>
+<p>
+  Returns the given slice as defined in the given structure definition. The 
+  structure argument is a uri that resolves to the structure definition, and 
+  the name must be the name of a slice within that structure definition. 
+  If the structure cannot be resolved, or the name of the slice within the resolved structure is not present, or those parameters are empty, 
+  and empty value is returned.
+</p>
 <p>For every element in the input collection, if the resolved slice is present on the element, it will be returned. If the slice does not match any element in the input collection, or if the input collection is empty, the result is an empty collection (<code>{ }</code>).</p>
 
-<p><b>checkModifiers([{modifier : string}]) : collection</b></p>
+<p><b>checkModifiers(modifier : string) : collection</b></p>
 
-<p>For each element in the input collection, verifies that there are no modifying extensions defined other than the ones given by the <code>modifier</code> argument. If the check passes, the input collection is returned. Otherwise, an error is thrown.</p>
+<p>For each element in the input collection, verifies that there are no modifying extensions defined other than the ones given by the <code>modifier</code> argument. 
+  If the check passes, the input collection is returned. Otherwise, an error is thrown, including if modifier is empty.</p>
 
 <p><b>conformsTo(structure : string) : Boolean</b></p>
-<p>Returns <code>true</code> if the single input element conforms to the profile specified by the <code>structure</code> argument, and false otherwise. If the structure cannot be resolved to a valid profile, an error is thrown. If the input contains more than one element, an error is thrown. If the input is empty, the result is empty.</p>
+<p>Returns <code>true</code> if the single input element conforms to the profile specified by the <code>structure</code> argument, 
+  and false otherwise. If the input is not a single item, the structure is empty, or the structure cannot be resolved to a valid profile, 
+  the result is empty.</p>
 
 <p><b>memberOf(valueset : string) : Boolean</b></p>
 
-<p>When invoked on a code-valued element, returns true if the code is a member of the given valueset.
-When invoked on a concept-valued element, returns true if any code in the concept is a member of the given valueset.
-When invoked on a string, returns true if the string is equal to a code in the valueset, so long as the valueset only contains one codesystem. If the valueset in this case contains more than one codesystem, an error is thrown.</p>
+<p>When invoked on a single code-valued element, returns true if the code is a member of the given valueset.
+When invoked on a single concept-valued element, returns true if any code in the concept is a member of the given valueset.
+When invoked on a single string, returns true if the string is equal to a code in the valueset, so long as the valueset 
+only contains one codesystem. If the valueset in this case contains more than one codesystem, the return value is empty.</p>
 
-<p>If the valueset cannot be resolved as a uri to a value set, an error is thrown.</p>
+<p>If the valueset cannot be resolved as a uri to a value set, or the input is empty or has more than one value, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
 
 <p>For example:</p>
@@ -302,8 +317,9 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <p><b>subsumes(code : Coding | CodeableConcept) : Boolean</b></p>
 
 <p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code subsumes the given code (i.e. the source code is an ancestor of the given code in a subsumption hierarchy), and false otherwise.</p>
-<p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or a run-time error is thrown.</p>
+<p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or the return value is an empty value.</p>
 <p>When the source or given elements are CodeableConcepts, returns true if any Coding in the source or given elements is equivalent to or subsumes the given code.</p>
+<p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
 
 <p><b>subsumedBy(code: Coding | CodeableConcept) : Boolean</b></p>
@@ -311,12 +327,14 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code is subsumed by the given code (i.e. the given code is an ancestor of the source code in a subsumption hierarchy), and false otherwise.</p>
 <p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or a run-time error is thrown.</p>
 <p>When the source or given elements are CodeableConcepts, returns true if any Coding in the source or given elements is equivalent to or subsumed by the given code.</p>
+<p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
 
 <p><b>htmlChecks : Boolean</b></p>
 
-<p>When invoked on an <a href="narrative.html#xhtml">xhtml</a> element returns true if the <a href="narrative.html#rules">rules around
-HTML usage</a> are met, and false if they are not. The return value is undefined (<code>null</code>) on any other kind of element.
+<p>When invoked on a single <a href="narrative.html#xhtml">xhtml</a> element returns true if the <a href="narrative.html#rules">rules around
+HTML usage</a> are met, and false if they are not. The return value is empty on any other kind of element, or a collection of 
+xhtml elements.
 </p>
 
 <a name="changes"></a>
@@ -408,13 +426,19 @@ Calls to this object are passed through a <a href="terminology-service.html">sta
 Summary:
 </p>
 <pre class="fhirpath">
-%terminologes.expand(valueSet, params) : ValueSet
+%terminologies.expand(valueSet, params) : ValueSet
 %terminologies.lookup(coded, params) : Parameters
 %terminologies.validateVS(valueSet, coded, params) : Parameters
 %terminologies.validateCS(codeSystem, coded, params) : Parameters
 %terminologies.subsumes(system, coded1, coded2, params) : code
 %terminologies.translate(conceptMap, code, params) : Parameters
 </pre>
+
+<p>
+All these functions return an empty value if any of the parameters 
+are empty, or a collection with more than one value, or one or
+more of the parameters are not valid.
+</p>
 
 <p><b>expand</b></p>
 
@@ -432,7 +456,7 @@ Parameters:
  <li><b>params</b>: a URL encoded string with other parameters for the expand operation (e.g. 'displayLanguage=en&amp;activeOnly=true')</li>
 </ul>
 <p>
-<b>Return Value:</b> a <a href="valueset.html">ValueSet</a> with an expansion, or null if an error occurs.
+<b>Return Value:</b> a <a href="valueset.html">ValueSet</a> with an expansion, or an empty value if an error occurs.
 </p>
 
 <p><b>lookup</b></p>

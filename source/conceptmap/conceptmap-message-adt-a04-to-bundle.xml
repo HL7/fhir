@@ -1,0 +1,517 @@
+<?xml version="1.0"?>
+<ConceptMap xmlns="http://hl7.org/fhir">
+  <id value="message-adt-a04-to-bundle"/>
+  <url value="http://hl7.org/fhir/uv/v2mappings/message-adt-a04-to-bundle"/>
+  <version value="0.1.0"/>
+  <name value="MessageADT_A04toBundle"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2020-08-12"/>
+  <publisher value="HL7 International"/>
+  <contact>
+    <name value="HL7 Orders and Observations Workgroup"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <contact>
+    <name value="Keith W. Boone"/>
+    <telecom>
+      <system value="email"/>
+      <value value="kboone@ainq.com"/>
+    </telecom>
+  </contact>
+  <description value="This ConceptMap represents a mapping from the HL7 V2 Message ADT_A04 to the FHIR Message Bundle."/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <copyright value="Copyright (c) 2020, HL7 International, Inc., All Rights Reserved."/>
+  <sourceUri value="ADT_A04"/>
+  <targetUri value="Bundle"/>
+  <group>
+    <element>
+      <code value="ADT_A04.MSH"/>
+      <display value="Message Header"/>
+      <target>
+        <code value="Bundle"/>
+        <display value="Bundle"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="MSH[Bundle]"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.MSH"/>
+      <display value="Message Header"/>
+      <target>
+        <code value="MessageHeader[1]"/>
+        <display value="MessageHeader[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="MSH[MessageHeader]"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.MSH"/>
+      <display value="Message Header"/>
+      <target>
+        <code value="Provenance[1]"/>
+        <display value="Provenance[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="MSH[Provenance]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="Provenance.target=Bundle; Provenance.target=MessageHeader[MSH]"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.SFT"/>
+      <display value="Software Segment"/>
+      <target>
+        <code value="MessageHeader[1]"/>
+        <display value="MessageHeader[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="SFT[MessageHeader]"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.EVN"/>
+      <display value="Event Type"/>
+      <target>
+        <code value="Provenance[3]"/>
+        <display value="Provenance[3]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="EVN[Provenance]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="Provenance.target=Bundle; Provenance.target=MessageHeader[MSH]"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.PID"/>
+      <display value="Patient Identification"/>
+      <target>
+        <code value="Patient[1]"/>
+        <display value="Patient[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="PID[Patient]"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.PD1"/>
+      <display value="Additional Demographics"/>
+      <target>
+        <code value="Patient[1]"/>
+        <display value="Patient[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="PD1[Patient]"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04:follow:PID.ARV"/>
+      <display value="Access Restrictions"/>
+      <target>
+        <code value="Patient[1]"/>
+        <display value="Patient[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="ARV[Patient]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="Resource=Patient[1]"/>
+        </dependsOn>
+        <product>
+          <property value="antlr"/>
+          <valueString value="IF ARV-1 IN (&quot;PID&quot;, &quot;PD1&quot;) AND ARV-3 NOT VALUED"/>
+        </product>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04:follow:PID.ROL"/>
+      <display value="Role"/>
+      <target>
+        <code value="Patient[1]"/>
+        <display value="Patient[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="ROL[Patient-PractitionerRole]"/>
+        </dependsOn>
+        <product>
+          <property value="antlr"/>
+          <valueString value="IF ROL-3.1 EQUALS &quot;PP&quot; AND ROL-3.3 EQUALS &quot;HL70443&quot;"/>
+        </product>
+        <product>
+          <property value="fhirpath"/>
+          <valueString value="(element(&quot;3.1&quot;)=&quot;PP&quot;)and(element(&quot;3.3&quot;)=&quot;HL70443&quot;)"/>
+        </product>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04:follow:PID.ROL"/>
+      <display value="Role"/>
+      <target>
+        <code value="RelatedPerson[1]"/>
+        <display value="RelatedPerson[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="ROL[RelatedPerson]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="RelatedPerson[1].patient.reference=Patient[1].id"/>
+        </dependsOn>
+        <product>
+          <property value="antlr"/>
+          <valueString value="IF ROL-3.1 NOT EQUALS  &quot;PP&quot; OR ROL-3.3 NOT EQUALS &quot;HL70443&quot;"/>
+        </product>
+        <product>
+          <property value="fhirpath"/>
+          <valueString value="(element(&quot;3.1&quot;)!=&quot;PP&quot;)or(element(&quot;3.3&quot;)!=&quot;HL70443&quot;)"/>
+        </product>
+        <product>
+          <property value="narrative"/>
+          <valueString value="While most likely all other HL70443 values go to RelatedPerson, the implementation needs to determine whether that is fully accurate."/>
+        </product>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.NEXT_OF_KIN.NK1"/>
+      <display value="Next of Kin / Associated Parties"/>
+      <target>
+        <code value="RelatedPerson[2]"/>
+        <display value="RelatedPerson[2]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="NK1[RelatedPerson]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="RelatedPerson[2].patient.reference=Patient[1].id"/>
+        </dependsOn>
+        <product>
+          <property value="narrative"/>
+          <valueString value="The FHIR location will depend on the nature of the data being exchanged and how the systems use next of kin data"/>
+        </product>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.NEXT_OF_KIN.NK1"/>
+      <display value="Next of Kin / Associated Parties"/>
+      <target>
+        <code value="Patient[1]"/>
+        <display value="Patient[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="NK1[Patient]"/>
+        </dependsOn>
+        <product>
+          <property value="narrative"/>
+          <valueString value="The FHIR location will depend on the nature of the data being exchanged and how the systems use next of kin data"/>
+        </product>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.PV1"/>
+      <display value="Patient Visit"/>
+      <target>
+        <code value="Encounter[1]"/>
+        <display value="Encounter[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="PV1[Encounter]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="Encounter[1].subject.reference=Patient[1].id"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.PV1"/>
+      <display value="Patient Visit"/>
+      <target>
+        <code value="Patient[1]"/>
+        <display value="Patient[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="PV1[Patient]"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.PV2"/>
+      <display value="Patient Visit - Additional Info."/>
+      <target>
+        <code value="Encounter[1]"/>
+        <display value="Encounter[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="PV2[Encounter]"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04:follow:PV1.ARV"/>
+      <display value="Access Restrictions"/>
+      <target>
+        <code value="Encounter[1]"/>
+        <display value="Encounter[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="ARV[Encounter]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="Resource=Encounter[1]"/>
+        </dependsOn>
+        <product>
+          <property value="antlr"/>
+          <valueString value="IF ARV-1 IN (&quot;PV1&quot;, &quot;PV2&quot;) AND ARV-3 NOT VALUED"/>
+        </product>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.ROL"/>
+      <display value="Role"/>
+      <target>
+        <code value="Encounter[1]"/>
+        <display value="Encounter[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="ROL[Encounter-PractitionerRole]"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.OBSERVATIONADT_A04.OBX"/>
+      <display value="Observation/Result"/>
+      <target>
+        <code value="Observation"/>
+        <display value="Observation"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="OBX[Observation]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="Observation.subject.reference=Patient[1].id"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.OBSERVATIONADT_A04.OBX"/>
+      <display value="Observation/Result"/>
+      <target>
+        <code value="Observation"/>
+        <display value="Observation"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="OBX[Observation-Component]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="Observation.subject.reference=Patient[1].id"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.AL1"/>
+      <display value="Allergy Information"/>
+      <target>
+        <code value="AllergyIntolerance"/>
+        <display value="AllergyIntolerance"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="AL1[AllergyIntolerance]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="AllergyIntolerance.patient.reference=Patient[1].id"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.DG1"/>
+      <display value="Diagnosis Information"/>
+      <target>
+        <code value="Condition"/>
+        <display value="Condition"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="DG1[Condition]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="Condition.subject.reference=Patient[1].id"/>
+        </dependsOn>
+        <product>
+          <property value="narrative"/>
+          <valueString value="If in context of the patient"/>
+        </product>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.DG1"/>
+      <display value="Diagnosis Information"/>
+      <target>
+        <code value="Encounter[1]"/>
+        <display value="Encounter[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="DG1[Encounter]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="Encounter[1].diagnosis.reference=Condition[1].id"/>
+        </dependsOn>
+        <product>
+          <property value="antlr"/>
+          <valueString value="IF DG1-6 EQUALS &quot;admitting&quot;"/>
+        </product>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.DG1"/>
+      <display value="Diagnosis Information"/>
+      <target>
+        <code value="Encounter[1]"/>
+        <display value="Encounter[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="DG1[Encounter]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="Encounter[1].diagnosis.reference=Condition[1].id"/>
+        </dependsOn>
+        <product>
+          <property value="narrative"/>
+          <valueString value="If in context of an encounter"/>
+        </product>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.DG1"/>
+      <display value="Diagnosis Information"/>
+      <target>
+        <code value="EpisodeOfCare[1]"/>
+        <display value="EpisodeOfCare[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="DG1[EpisodeOfCare]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="EpisodeOfCare.diagnosis.reference=Condition[1].id"/>
+        </dependsOn>
+        <product>
+          <property value="narrative"/>
+          <valueString value="If in context of a episode of care"/>
+        </product>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.PROCEDUREADT_A04.PR1"/>
+      <display value="Procedures"/>
+      <target>
+        <code value="Procedure"/>
+        <display value="Procedure"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="PR1[Procedure]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="Procedure.subject.reference=Patient[1].id"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.INSURANCEADT_A04.IN1"/>
+      <display value="Insurance"/>
+      <target>
+        <code value="Coverage[1]"/>
+        <display value="Coverage[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="IN1[Coverage]"/>
+        </dependsOn>
+        <dependsOn>
+          <property value="references"/>
+          <valueString value="Coverage.subscriber.reference=Patient[1].id"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.INSURANCEADT_A04.IN2"/>
+      <display value="Insurance Additional Info."/>
+      <target>
+        <code value="Coverage[1]"/>
+        <display value="Coverage[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="IN2[Coverage]"/>
+        </dependsOn>
+      </target>
+    </element>
+    <element>
+      <code value="ADT_A04.INSURANCEADT_A04.IN3"/>
+      <display value="Insurance Additional Info - Cert."/>
+      <target>
+        <code value="Coverage[1]"/>
+        <display value="Coverage[1]"/>
+        <relationship value="equivalent"/>
+        <dependsOn>
+          <property value="segment-map"/>
+          <valueString value="IN3[Coverage]"/>
+        </dependsOn>
+      </target>
+    </element>
+  </group>
+</ConceptMap>

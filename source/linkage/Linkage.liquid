@@ -1,0 +1,12 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <p>
+     Links
+     {% if Linkage.author.exists() %} defined by {{ Linkage.author }} {% endif %}
+     :
+  </p>
+  <ul>
+    {% for link in Linkage.item %}
+    <li>{{ link.type }}: {{ link.resource }} </li>
+    {% endfor %}
+  </ul>
+</div>
