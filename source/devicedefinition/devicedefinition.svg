@@ -22,7 +22,7 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="1.2437265"
-     inkscape:cx="560.41258"
+     inkscape:cx="227.54198"
      inkscape:cy="248.04488"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
@@ -330,7 +330,7 @@
   </g>
   <g
      id="n1118"
-     transform="translate(279.64523,0.51231924)">
+     transform="translate(282.86137,1.3163545)">
     <rect
        id="DeviceDefinition.udiDeviceIdentifier.marketDistribution"
        x="670"
@@ -432,7 +432,7 @@ RegisteredName | UserFriendlyName | PatientReportedName</title>type</a> : <a
   </g>
   <g
      id="n1152"
-     transform="translate(-799.52113,33.076815)">
+     transform="translate(-798.71709,33.88085)">
     <rect
        id="DeviceDefinition.classification"
        x="800"
@@ -535,7 +535,7 @@ RegisteredName | UserFriendlyName | PatientReportedName</title>type</a> : <a
   </g>
   <g
      id="n1188"
-     transform="translate(805.0855,95.293283)">
+     transform="translate(775.3362,96.097318)">
     <rect
        id="DeviceDefinition.packaging"
        x="0"
@@ -704,7 +704,7 @@ RegisteredName | UserFriendlyName | PatientReportedName</title>type</a> : <a
   </g>
   <g
      id="n1245"
-     transform="translate(-270.88763,338.70148)">
+     transform="translate(-276.51589,324.22885)">
     <rect
        id="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution"
        x="1310"
@@ -813,7 +813,7 @@ RegisteredName | UserFriendlyName | PatientReportedName</title>type</a> : <a
   </g>
   <g
      id="n1281"
-     transform="translate(-920.54813,147.01191)">
+     transform="translate(-922.96024,147.01191)">
     <rect
        id="DeviceDefinition.property"
        x="950"
@@ -882,7 +882,7 @@ RegisteredName | UserFriendlyName | PatientReportedName</title>type</a> : <a
   </g>
   <g
      id="n1312"
-     transform="translate(-2.4442627e-8,11.973741)">
+     transform="translate(0.80403524,18.406023)">
     <rect
        id="DeviceDefinition.link"
        x="0"
@@ -1106,7 +1106,7 @@ RegisteredName | UserFriendlyName | PatientReportedName</title>type</a> : <a
   </g>
   <g
      id="n1405"
-     transform="translate(1.6080661,165.63127)">
+     transform="translate(1.6080661,170.45548)">
     <rect
        id="DeviceDefinition.correctiveAction"
        x="0"
