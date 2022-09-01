@@ -20,7 +20,6 @@
     </status>
     <type>
         <coding>
-            <!-- <system value="http://hl7.org/fhir/genomicstudy-type"/> -->
             <code value="trio"/>
             <display value="Trio-analysis"/>
         </coding>

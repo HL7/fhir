@@ -21,8 +21,8 @@
     <type>
         <coding>
             <!-- <system value="http://hl7.org/fhir/genomicstudy-type"/> -->
-            <code value="trio"/>
-            <display value="Trio-analysis"/>
+            <code value="fam-var-segr"/>
+            <display value="Familial variant segregation"/>
         </coding>
     </type>
     <subject>
