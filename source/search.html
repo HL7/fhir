@@ -2193,7 +2193,7 @@ Searching on a simple numerical value in a resource. Examples:
 <table class="grid">
  <tr><td><code>[parameter]=100</code></td><td>Values that equal 100, to 3 significant figures precision, so this is actually searching for values in the range [99.5 ... 100.5)</td></tr>
  <tr><td><code>[parameter]=100.00</code></td><td>Values that equal 100, to 5 significant figures precision, so this is actually searching for values in the range [99.995 ... 100.005)</td></tr>
- <tr><td><code>[parameter]=1e2</code></td><td>Values that equal 100, to 1 significant figures precision, so this is actually searching for values in the range [95 ... 105)</td></tr>
+ <tr><td><code>[parameter]=1e2</code></td><td>Values that equal 100, to 1 significant figures precision, so this is actually searching for values in the range [50 ... 150)</td></tr>
  <tr><td><code>[parameter]=lt100</code></td><td>Values that are less than exactly 100</td></tr>
  <tr><td><code>[parameter]=le100</code></td><td>Values that are less or equal to exactly 100</td></tr>
  <tr><td><code>[parameter]=gt100</code></td><td>Values that are greater than exactly 100</td></tr>
@@ -2256,8 +2256,8 @@ The syntax for the value follows the form:
 </p>
 <ul>
  <li><code>[parameter]={[prefix]}[number]</code> matches a quantity by <code>value</code>, with an optional prefix</li>
- <li><code>[parameter]={[prefix]}[number]||[code]</code> matches a quantity by <code>value</code> and <code>code</code> or <code>unit</code>, with an optional prefix</li>
  <li><code>[parameter]={[prefix]}[number]|[system]|[code]</code> matches a quantity by <code>value</code>, <code>system</code> and <code>code</code>, with an optional prefix</li>
+ <li><code>[parameter]={[prefix]}[number]||[code]</code> matches a quantity by <code>value</code> and <code>code</code> or <code>unit</code>, with an optional prefix</li>
 </ul>
 <p>
 The prefix is optional, and is as described in the section on <a href="#prefix">Prefixes</a>, both regarding how
