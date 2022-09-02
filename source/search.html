@@ -2193,7 +2193,7 @@ Searching on a simple numerical value in a resource. Examples:
 <table class="grid">
  <tr><td><code>[parameter]=100</code></td><td>Values that equal 100, to 3 significant figures precision, so this is actually searching for values in the range [99.5 ... 100.5)</td></tr>
  <tr><td><code>[parameter]=100.00</code></td><td>Values that equal 100, to 5 significant figures precision, so this is actually searching for values in the range [99.995 ... 100.005)</td></tr>
- <tr><td><code>[parameter]=1e2</code></td><td>Values that equal 100, to 1 significant figures precision, so this is actually searching for values in the range [50 ... 150)</td></tr>
+ <tr><td><code>[parameter]=1e2</code></td><td>Values that equal 100, to 1 significant figure precision, so this is actually searching for values in the range [50 ... 150)</td></tr>
  <tr><td><code>[parameter]=lt100</code></td><td>Values that are less than exactly 100</td></tr>
  <tr><td><code>[parameter]=le100</code></td><td>Values that are less or equal to exactly 100</td></tr>
  <tr><td><code>[parameter]=gt100</code></td><td>Values that are greater than exactly 100</td></tr>
@@ -2212,8 +2212,9 @@ Notes about searching on Numbers:
  <li>When a comparison prefix in the set <code>gt, lt, ge, le, sa &amp; eb</code> is provided, the
      implicit precision of the number is ignored, and they are treated as if they have arbitrarily high precision</li>
  <li>The way search parameters operate in resources is not the same as whether two numbers are equal to each other in a mathematical sense</li>
- <li>Searching on decimals involves an implicit range.  The number of significant digits of the implicit range is the number of digits specified in
-     the search parameter value, excluding leading zeros. So 100 and 1.00e2 both have the same number of significant digits - three</li>
+ <li>Searching on decimals without using one of the comparisons listed in the earlier bullet involves an implicit range.  The number of 
+     significant digits of the implicit range is the number of digits specified in the search parameter value, excluding leading zeros. 
+     So 100 and 1.00e2 both have the same number of significant digits - three</li>
 </ul>
 
 <p>
