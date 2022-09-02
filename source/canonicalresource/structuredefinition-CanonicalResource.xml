@@ -334,7 +334,7 @@
       <path value="CanonicalResource.description"/>
       <short value="Natural language description of the {{title}}"/>
       <definition value="A free text natural language description of the {{title}} from a consumer&#39;s perspective."/>
-      <comment value="This description can be used to capture details such as why the {{title}} was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the {{title}} as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the {{title}} is presumed to be the predominant language in the place the {{title}} was created)."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the {{title}} as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the {{title}} is presumed to be the predominant language in the place the {{title}} was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
