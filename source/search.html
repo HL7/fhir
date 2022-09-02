@@ -2551,7 +2551,7 @@ against any one or more elements of the <a href="datatypes.html#humanname">Human
 </p>
 <p>
 If the SearchParameter's narrative description includes additional considerations about what fields are indexed, 
-the <code>xpathUsage</code> (TODO: renamed to <code>processingMode</code> in R5, not yet applied) should be "other".
+<code>SearchParameter.processingMode</code> should have the value <code>other</code>.
 </p>
 <p>
 Examples:
@@ -2737,20 +2737,6 @@ as formal codes in the <a href="valueset-special-values.html">Special Values</a>
 need to be represented in a <a href="datatypes.html#coding">Coding</a> data type. The namespace for these codes is
 http://terminology.hl7.org/CodeSystem/special-values, though there is usually no reason to use this, as a simple true or false is sufficient.
 </p>
-
-<span class="todo">Remove original modifier table when satisfied with the updated one</span>
-<p><b>Modifiers:</b></p>
-<table class="lines">
- <tr> <td><b>Modifier</b></td> <td><b>Use</b></td> </tr>
- <tr> <td><code>:text</code></td> <td>The search parameter is processed as a string that searches text associated with the code/value - either <i>CodeableConcept.text</i>, <i>Coding.display</i>, or <i>Identifier.type.text</i>. In this case, the search functions as a <a href="#string">normal string search</a></td> </tr>
- <tr> <td><code>:not</code></td> <td>Reverse the code matching described in the paragraph above: return all resources that do not have a matching item. Note that this includes resources that have no value for the parameter - e.g. ?gender:not=male includes all patients that do not have gender = male, including patients that do not have a gender at all</td> </tr>
- <tr> <td><code>:above</code><a name="subsumption"></a></td> <td>The search parameter is a concept with the form <code>[system]|[code]</code>, and the search parameter tests whether the coding in a resource <a href="codesystem.html#subsumption">subsumes</a> the specified search code.  For example, the search concept has an is-a relationship with the coding in the resource, and this includes the coding itself.</td> </tr>
- <tr> <td><code>:below</code></td> <td>the search parameter is a concept with the form <code>[system]|[code]</code>, and the search parameter tests whether the coding in a resource is subsumed by the specified search code. For example, the coding in the resource has an is-a relationship with the search concept, and this includes the coding itself.</td> </tr>
- <tr> <td><code>:in</code></td> <td>The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified <a href="valueset.html">value set</a>. The reference may be literal (to an address where the value set can be found) or logical (a reference to ValueSet.url). If the server can treat the reference as a literal URL, it does, else it tries to match known logical ValueSet.url values.</td> </tr>
- <tr> <td><code>:not-in</code></td> <td>The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set.</td> </tr>
- <tr> <td><code>:of-type</code></td> <td>The search parameter has the format system|code|value, where the system and code refer to a <code>Identifier.type.coding.system</code> and <code>.code</code>, and match
-    if any of the type codes match. All 3 parts must be present</td> </tr>
-</table>
 <p>
 Most servers will only process value sets that are already known/registered/supported internally.
 However, servers can elect to accept any valid reference to a value set.
@@ -4705,11 +4691,11 @@ pages.  This approach allows both sender and receiver to avoid caching results o
 </p>
 
 
-
 <a name="standard"></a>
 <h3>Standard Parameters</h3>
 <p>
-  ....
+  Search parameters can be defined in either the core specification or externally (e.g., via Implementation Guides).
+  The parameters defined in the core specification fall into a few categories, as listed below.
 </p>
 <p>
   Note that if a 'base' <a href="searchparameter.html">SearchParameter</a> defined by HL7 or an implementation guide 
