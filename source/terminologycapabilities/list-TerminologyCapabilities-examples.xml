@@ -24,7 +24,7 @@
       <valueString value="terminologycapabilities-terminology-server"/>
     </extension>
     <item>
-      <reference value="TerminologyCapabilities/terminology-server"/>
+      <reference value="TerminologyCapabilities/example-terminology-server"/>
       <display value="TerminologyServer"/>
     </item>
   </entry>
