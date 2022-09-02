@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="use-context"/>
@@ -89,6 +89,11 @@
     <!-- task -->
     <include>
       <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActTaskCode"/>
+    </include>
+    
+    <!-- agreement-scope -->
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/usage-context-agreement-scope"/>
     </include>
     
   </compose>

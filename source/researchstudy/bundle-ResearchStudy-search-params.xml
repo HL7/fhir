@@ -107,19 +107,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ResearchStudy-location"/>
+        <id value="ResearchStudy-region"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ResearchStudy.location"/>
+          <valueString value="ResearchStudy.region"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-location"/>
-        <description value="Geographic region(s) for study"/>
-        <code value="location"/>
+        <description value="Geographic area for the study"/>
+        <code value="region"/>
         <type value="token"/>
-        <expression value="ResearchStudy.location"/>
-        <xpath value="f:ResearchStudy/f:location"/>
+        <expression value="ResearchStudy.region"/>
+        <xpath value="f:ResearchStudy/f:region"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
