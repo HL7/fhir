@@ -2,6 +2,9 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="invoice-priceComponentType"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
@@ -16,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.869"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="InvoicePriceComponentType"/>
   <title value="InvoicePriceComponentType"/>
   <status value="draft"/>

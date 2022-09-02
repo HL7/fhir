@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="citation-artifact-classifier"/>
+  <id value="manufactured-dose-form"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
+    <valueCode value="brr"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-activity">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
+  <url value="http://hl7.org/fhir/ValueSet/manufactured-dose-form"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1592"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
-  <name value="CitationArtifactClassifier"/>
-  <title value="CitationArtifactClassifier"/>
+  <name value="ManufacturedDoseForm"/>
+  <title value="ManufacturedDoseForm"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2021-03-11T10:55:11.085+11:00"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -36,11 +36,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Citation artifact classifier"/>
+  <description value="Dose form for a medication, as manufactured (and before any mixing etc.), not necessarily ready for administration to the patient."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+      <system value="http://hl7.org/fhir/manufactured-dose-form"/>
     </include>
   </compose>
 </ValueSet>
