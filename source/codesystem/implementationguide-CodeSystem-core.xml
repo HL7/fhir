@@ -22,11 +22,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/authoritativeSource."/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/codesystem-concept-comments"/>
       </reference>
     </resource>
@@ -103,6 +98,11 @@
     <resource>
       <reference>
         <reference value="StructureDefinition/codesystem-warning"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/codesystem-authoritativeSource"/>
       </reference>
     </resource>
     <resource>

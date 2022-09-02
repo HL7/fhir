@@ -1052,9 +1052,9 @@
     </element>
 	<element id="ValueSet.expansion.next">
 	  <path value="ValueSet.expansion.next"/>
-	  <short value="opaque urls for paging through expansion results"/>
+	  <short value="Opaque urls for paging through expansion results"/>
 	  <definition value="As per paging Search results, the next URLs are opaque to the client, have no dictated structure, and only the server understands them."/>
-	  <comment value="Clients SHOULD use the next link, if present, to page through expansion results in preference to using the offset & count parameters. Due to the optional nature of the next link, its absence does not necessarily indicate that it is the last page of results. Instead, as the offset & count parameters SHALL be populated when paging, clients can reliably use the count/offset parameters to determine whether the whole expansion is returned."/>
+	  <comment value="Clients SHOULD use the next link, if present, to page through expansion results in preference to using the offset and count parameters. Due to the optional nature of the next link, its absence does not necessarily indicate that it is the last page of results. Instead, as the offset and count parameters SHALL be populated when paging, clients can reliably use the count/offset parameters to determine whether the whole expansion is returned."/>
 	  <min value="0"/>
 	  <max value="1"/>
 	  <type>
