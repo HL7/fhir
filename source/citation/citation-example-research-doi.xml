@@ -192,7 +192,7 @@ The Non-Invasive Multimodal Foetal ECG-Doppler Dataset for Antenatal Cardiology 
 			</classifier>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<version value="5.0.0"/>
 					<code value="D064886"/>
 					<display value="Dataset"/>
