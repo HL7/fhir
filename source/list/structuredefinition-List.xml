@@ -407,7 +407,6 @@
         <code value="boolean"/>
       </type>
       <meaningWhenMissing value="List items are generally only treated as deleted when this element explicitly carries a value of true. Systems SHOULD always populate this value when mode is &#39;changes&#39;"/>
-      <condition value="lst-2"/>
       <isModifier value="true"/>
       <isModifierReason value="If deleted is true, then the item included in the list isn&#39;t actually part of the list anymore"/>
       <mapping>

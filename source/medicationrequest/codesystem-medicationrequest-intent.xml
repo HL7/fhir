@@ -18,6 +18,7 @@
   <experimental value="false"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-intent"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="proposal"/>

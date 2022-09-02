@@ -3,113 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="compartment-type"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/compartment-type defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">Patient
-            
-            <a name="compartment-type-Patient"> </a>
-          
-          </td>
-          
-          <td>Patient</td>
-          
-          <td>The compartment definition is for the patient compartment.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">Encounter
-            
-            <a name="compartment-type-Encounter"> </a>
-          
-          </td>
-          
-          <td>Encounter</td>
-          
-          <td>The compartment definition is for the encounter compartment.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">RelatedPerson
-            
-            <a name="compartment-type-RelatedPerson"> </a>
-          
-          </td>
-          
-          <td>RelatedPerson</td>
-          
-          <td>The compartment definition is for the related-person compartment.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">Practitioner
-            
-            <a name="compartment-type-Practitioner"> </a>
-          
-          </td>
-          
-          <td>Practitioner</td>
-          
-          <td>The compartment definition is for the practitioner compartment.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">Device
-            
-            <a name="compartment-type-Device"> </a>
-          
-          </td>
-          
-          <td>Device</td>
-          
-          <td>The compartment definition is for the device compartment.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -124,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.787"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="CompartmentType"/>
   <title value="CompartmentType"/>
   <status value="draft"/>

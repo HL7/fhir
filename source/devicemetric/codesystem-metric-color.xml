@@ -3,155 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="metric-color"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/metric-color defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">black
-            
-            <a name="metric-color-black"> </a>
-          
-          </td>
-          
-          <td>Color Black</td>
-          
-          <td>Color for representation - black.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">red
-            
-            <a name="metric-color-red"> </a>
-          
-          </td>
-          
-          <td>Color Red</td>
-          
-          <td>Color for representation - red.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">green
-            
-            <a name="metric-color-green"> </a>
-          
-          </td>
-          
-          <td>Color Green</td>
-          
-          <td>Color for representation - green.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">yellow
-            
-            <a name="metric-color-yellow"> </a>
-          
-          </td>
-          
-          <td>Color Yellow</td>
-          
-          <td>Color for representation - yellow.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">blue
-            
-            <a name="metric-color-blue"> </a>
-          
-          </td>
-          
-          <td>Color Blue</td>
-          
-          <td>Color for representation - blue.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">magenta
-            
-            <a name="metric-color-magenta"> </a>
-          
-          </td>
-          
-          <td>Color Magenta</td>
-          
-          <td>Color for representation - magenta.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">cyan
-            
-            <a name="metric-color-cyan"> </a>
-          
-          </td>
-          
-          <td>Color Cyan</td>
-          
-          <td>Color for representation - cyan.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">white
-            
-            <a name="metric-color-white"> </a>
-          
-          </td>
-          
-          <td>Color White</td>
-          
-          <td>Color for representation - white.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="dev"/>
   </extension>
@@ -166,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.655"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="DeviceMetricColor"/>
   <title value="DeviceMetricColor"/>
   <status value="draft"/>

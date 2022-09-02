@@ -3,113 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="account-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/account-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">active
-            
-            <a name="account-status-active"> </a>
-          
-          </td>
-          
-          <td>Active</td>
-          
-          <td>This account is active and may be used.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">inactive
-            
-            <a name="account-status-inactive"> </a>
-          
-          </td>
-          
-          <td>Inactive</td>
-          
-          <td>This account is inactive and should not be used to track financial information.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="account-status-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered in error</td>
-          
-          <td>This instance should not have been part of this patient&#39;s medical record.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">on-hold
-            
-            <a name="account-status-on-hold"> </a>
-          
-          </td>
-          
-          <td>On Hold</td>
-          
-          <td>This account is on hold.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">unknown
-            
-            <a name="account-status-unknown"> </a>
-          
-          </td>
-          
-          <td>Unknown</td>
-          
-          <td>The account status is unknown.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
@@ -124,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.727"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="AccountStatus"/>
   <title value="AccountStatus"/>
   <status value="draft"/>
@@ -158,7 +53,7 @@
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in error"/>
-    <definition value="This instance should not have been part of this patient&#39;s medical record."/>
+    <definition value="This instance should not have been part of this patient's medical record."/>
   </concept>
   <concept>
     <code value="on-hold"/>

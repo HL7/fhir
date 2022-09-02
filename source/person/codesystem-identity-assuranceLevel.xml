@@ -3,99 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="identity-assuranceLevel"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/identity-assuranceLevel defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">level1
-            
-            <a name="identity-assuranceLevel-level1"> </a>
-          
-          </td>
-          
-          <td>Level 1</td>
-          
-          <td>Little or no confidence in the asserted identity&#39;s accuracy.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">level2
-            
-            <a name="identity-assuranceLevel-level2"> </a>
-          
-          </td>
-          
-          <td>Level 2</td>
-          
-          <td>Some confidence in the asserted identity&#39;s accuracy.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">level3
-            
-            <a name="identity-assuranceLevel-level3"> </a>
-          
-          </td>
-          
-          <td>Level 3</td>
-          
-          <td>High confidence in the asserted identity&#39;s accuracy.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">level4
-            
-            <a name="identity-assuranceLevel-level4"> </a>
-          
-          </td>
-          
-          <td>Level 4</td>
-          
-          <td>Very high confidence in the asserted identity&#39;s accuracy.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
@@ -110,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.657"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="IdentityAssuranceLevel"/>
   <title value="IdentityAssuranceLevel"/>
   <status value="draft"/>
@@ -134,21 +43,21 @@
   <concept>
     <code value="level1"/>
     <display value="Level 1"/>
-    <definition value="Little or no confidence in the asserted identity&#39;s accuracy."/>
+    <definition value="Little or no confidence in the asserted identity's accuracy."/>
   </concept>
   <concept>
     <code value="level2"/>
     <display value="Level 2"/>
-    <definition value="Some confidence in the asserted identity&#39;s accuracy."/>
+    <definition value="Some confidence in the asserted identity's accuracy."/>
   </concept>
   <concept>
     <code value="level3"/>
     <display value="Level 3"/>
-    <definition value="High confidence in the asserted identity&#39;s accuracy."/>
+    <definition value="High confidence in the asserted identity's accuracy."/>
   </concept>
   <concept>
     <code value="level4"/>
     <display value="Level 4"/>
-    <definition value="Very high confidence in the asserted identity&#39;s accuracy."/>
+    <definition value="Very high confidence in the asserted identity's accuracy."/>
   </concept>
 </CodeSystem>

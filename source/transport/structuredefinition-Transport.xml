@@ -497,7 +497,6 @@
       <type>
         <code value="dateTime"/>
       </type>
-      <condition value="inv-1"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Request.authoredOn"/>
@@ -522,7 +521,6 @@
       <type>
         <code value="dateTime"/>
       </type>
-      <condition value="inv-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>

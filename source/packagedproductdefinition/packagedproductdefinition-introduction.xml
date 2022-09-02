@@ -17,7 +17,7 @@
 			See <a href="medicinalproductdefinition.html#contained">MedicinalProductDefinition</a> for an example.
 		</p>
 
-		<h2>Consistent representation of different package aspects</h2>
+		<h3>Consistent representation of different package aspects</h3>
 		
 		<p>The PackagedProductDefinition resource covers two main areas - package types that exist for a product (linked via productFor), and the packaging within those packages.</p> 
 		
@@ -41,7 +41,7 @@
 		A diagram of this is shown on the Medication Definition <a href="medication-definition-module.html#package-detail-consistency">module page</a>.
 		</p>
 		
-		<h2>Recursive relationships in this resource</h2>
+		<h3>Recursive relationships in this resource</h3>
 		<p>
 			This resource has two recursive relationships. 
 			One is primarily intended to be "internal" to the package - for package layers and contents, and the other for aggregated packages (e.g. for wholesaling) that are 

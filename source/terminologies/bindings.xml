@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-05-23T20:36:08Z</Created>
-  <LastSaved>2022-08-27T11:27:19Z</LastSaved>
+  <LastSaved>2022-09-02T06:27:54Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -26,7 +26,7 @@
   
   
   <TabRatio>780</TabRatio>
-  <MaxChange>0.0001</MaxChange>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -596,6 +596,14 @@
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">required</Data></Cell>
     <Cell><Data ss:Type="String">valueset-all-resource-types</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DataTypes</Data></Cell>
+    <Cell><Data ss:Type="String">List of FHIR Data Types</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-data-types</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
