@@ -33,7 +33,7 @@
       When populating the <code>SubscriptionStatus.notificationEvent</code> structure for a notification with an <code>empty</code> payload, a server SHALL NOT include references to resources (e.g., <a href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.focus">SubscriptionStatus.notificationEvent.focus</a> and <a href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.additionalContext">SubscriptionStatus.notificationEvent.additionalContex</a> SHALL NOT be present).
     </p>
 		<p>
-			When the content type is <code>empty</code>, notification bundles SHALL not contain <code>Bundle.entry</code> elements other than the <code>SubscriptionStatus</code> for the notification.
+			When the content type is <code>empty</code>, notification bundles SHALL NOT contain <code>Bundle.entry</code> elements other than the <code>SubscriptionStatus</code> for the notification.
 		</p>
 
 		<a name="payloads-id-only" />
