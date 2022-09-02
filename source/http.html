@@ -579,7 +579,7 @@ where they can indicate one of three levels for versioning support:
 <ul>
  <li><b>no-version</b>: Versioning and <code>meta.version</code> is not supported (server) or used (client)</li>
  <li><b>versioned</b>: Versioning and <code>meta.version</code> is supported (server) or used (client)</li>
- <li><b>versioned-update</b>:	Versioning and <code>meta.version</code> is supported, and version aware updates are used - Version ID must be correct for updates (server) or will be specified (If-match header) for updates (client)</li>
+ <li><b>versioned-update</b>:	Versioning and <code>meta.version</code> is supported, and version aware updates are used - supports version-aware updates (server) or will be specified (If-match header) for updates (client)</li>
 </ul>
 <p>
 Servers that do not support versioning SHALL ensure that <code>Resource.meta.versionId</code> is not present on
@@ -898,7 +898,7 @@ Content-Type: application/fhir+json
 <p>
 If provided, the value of the <code>ETag</code> SHALL match the value of the version id for the resource. Servers
 are allowed to generate the version id in whatever fashion that they wish, so long
-as they are valid according to the <a href="datatypes.html#id">id</a> data type,
+as they are valid according to the <a href="datatypes.html#id">id</a> datatype,
 and are unique within the address space of all versions of the same resource.
 When resources are returned as part of a bundle, there is no <code>ETag</code>, and the
 versionId of the resource is used directly.
@@ -989,7 +989,7 @@ for FHIR (<code>http://hl7.org/fhir</code>) and XHTML (<code>http://www.w3.org/1
 In the case of a failing <a href="http://jsonpatch.com/#test">JSON Patch test</a> operation, the server returns a <code>422</code> Unprocessable Entity.
 </p>
 <p>
-For PATCH Examples, see <a href="test-cases.zip">the FHIR test cases</a>.
+For PATCH Examples, see <a href="https://github.com/FHIR/fhir-test-cases/releases">the FHIR test cases</a>.
 </p>
 <p>
 Patch interactions may be performed as part of Batch or Transaction Operations using the FHIRPath Patch format.
@@ -1603,7 +1603,7 @@ need to happen before the 'update' (per transaction rules), the created record w
 version-specific reference to the newly updated version of the reference target.
 </p>
 <p>
-Note, the use of the <code><a href="references.html">Reference</a></code> data type standard
+Note, the use of the <code><a href="references.html">Reference</a></code> datatype standard
 <code><a href="extension-resolve-as-version-specific.html">extension resolve-as-version-specific</a></code>
 is a request to turn the non-versioned reference into a reference to the most recent version of the target
 resource. In the case of a resource created in the transaction, the reference becomes a reference to the

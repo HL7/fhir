@@ -716,17 +716,17 @@ of a more general pattern; e.g. it also applies to locations (something happened
 something happened in a particular identified hospital).
 </p>
 <p>
-The <code>CodeableReference</code> data type represents this pattern, and may be bound to a value set to
+The <code>CodeableReference</code> datatype represents this pattern, and may be bound to a value set to
 allow for a conceptual representation. In such cases, <a href="terminologies.html#binding">the value set
 binding</a> actually applies to the <code>concept</code> element as it usually would for a
 <a href="datatypes.html#CodeableConcept">CodeableConcept</a>. Alternatively, the <code>CodeableReference</code>
-data type can refer to another resource, and the list of valid target types for the CodeableReference resource
+datatype can refer to another resource, and the list of valid target types for the CodeableReference resource
 applies to the <code>Reference</code> as described above.
 </p>
 <p>
-In principle, this data type allows for either a reference or a concept, or both. If both are present,
+In principle, this datatype allows for either a reference or a concept, or both. If both are present,
 they are expected to be consistent with each other - e.g. the concept is to a code for headache, and
-the resource reference describes a headache. Note that it is not generally computable proveable whether
+the resource reference describes a headache. Note that it is not generally computably proveable whether
 this is true or not.
 </p>
 <p>
@@ -737,11 +737,11 @@ If they are specified on both, then they SHALL be the same.
 When we have experience with implementation practice, we will evaluate changing the SHOULD NOT to a SHALL NOT.
 </p>
 <p>
-This data type can be constrained in profiles so that only concept or reference are allowed, and
+This datatype can be constrained in profiles so that only concept or reference are allowed, and
 profiles can restrict the bound value sets and allowed target resource types.
 </p>
 <p>
-This data type is mostly used for reason for an action.
+This datatype is mostly used for reason for an action.
 </p>
 [%dt CodeableReference 1%]
 

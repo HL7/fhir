@@ -3,71 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="location-mode"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/location-mode defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">instance
-            
-            <a name="location-mode-instance"> </a>
-          
-          </td>
-          
-          <td>Instance</td>
-          
-          <td>The Location resource represents a specific instance of a location (e.g. Operating Theatre 1A).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">kind
-            
-            <a name="location-mode-kind"> </a>
-          
-          </td>
-          
-          <td>Kind</td>
-          
-          <td>The Location represents a class of locations (e.g. Any Operating Theatre) although this class of locations could be constrained within a specific boundary (such as organization, or parent location, address etc.).</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
@@ -82,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.331"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="LocationMode"/>
   <title value="LocationMode"/>
   <status value="draft"/>

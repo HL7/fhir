@@ -699,6 +699,19 @@
         <map value=".scoper"/>
       </mapping>
     </element>
+	<element id="Procedure.performer.period">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J33392"/>
+      </extension>
+      <path value="Procedure.performer.period"/>
+      <short value="When the performer performed the procedure"/>
+      <definition value="Time period during which the performer performed the procedure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+	</element>
     <element id="Procedure.location">
       <path value="Procedure.location"/>
       <short value="Where the procedure happened"/>

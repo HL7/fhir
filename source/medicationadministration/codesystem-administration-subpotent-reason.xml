@@ -20,6 +20,7 @@
   <experimental value="false"/>
   <description value="This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication administration process."/>
   <caseSensitive value="true"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="partialdose"/>

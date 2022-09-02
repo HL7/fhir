@@ -676,7 +676,7 @@ GET [base]/[compartment-type]/[compartment-id]/[resource-type]?param1=value&amp;
 <h3>Search Parameters</h3>
 <p>
   While search parameters are typically transmitted as URL-Encoded strings (e.g., HTTP Parameters or <code>x-www-form-urlencoded</code> body content),
-  FHIR is modeled with a rich set of primitive and complex data types to describe the data encountered in healthcare.  To provide consistent
+  FHIR is modeled with a rich set of <a href="datatypes.html#primitive">primitive</a> and <a href="datatypes.html#complex">complex</a> datatypes to describe the data encountered in healthcare.  To provide consistent
   mapping between the two formats, each search parameter is defined by a type that specifies how the search parameter
   behaves.  These are the defined search parameter types:
 </p>
@@ -2036,7 +2036,7 @@ The date parameter format is <code>yyyy-mm-ddThh:mm:ss[Z|(+|-)hh:mm]</code> (the
 </p>
 <p>
 Technically, this is any of the <a href="datatypes.html#date">date</a>, <a href="datatypes.html#dateTime">dateTime</a>,
-and <a href="datatypes.html#instant">instant</a> data types; e.g. Any degree of precision can be provided, but it SHALL
+and <a href="datatypes.html#instant">instant</a> datatypes; e.g. Any degree of precision can be provided, but it SHALL
 be populated from the left (e.g. can't specify a month without a year), except that the minutes SHALL be present if
 an hour is present, and you SHOULD provide a time zone if the time part is present. Note: Time can consist of hours and minutes with no seconds, unlike the XML Schema dateTime type. Some user agents may escape the <code>:</code>
 characters in the URL, and servers SHALL handle this correctly.
@@ -2044,7 +2044,7 @@ characters in the URL, and servers SHALL handle this correctly.
 <p>
   Date searches are intrinsically matches against 'periods', regardless of the underlying element type.  For more 
   information about how the different search prefixes work when comparing periods/ranges, refer to the 
-  <a href="#prefix">Prefixes</a> section.  Date parameters may be used with the following data types:
+  <a href="#prefix">Prefixes</a> section.  Date parameters may be used with the following datatypes:
 </p>
 <table class="grid">
  <tr><td><a href="datatypes.html#date">date</a></td><td>The range of the value is the day, month, or year as specified</td></tr>
@@ -2254,7 +2254,7 @@ dose-number=2</span>
 <a name="quantity"></a>
 <h4>quantity</h4>
 <p>
-A quantity parameter searches on the <a href="datatypes.html#Quantity">Quantity</a> data type.
+A quantity parameter searches on the <a href="datatypes.html#Quantity">Quantity</a> datatype.
 The syntax for the value follows the form:
 </p>
 <ul>
@@ -2358,7 +2358,7 @@ is uncontrolled and may be unpredictable.
 <p>
 The search processor may choose to perform a search based on <a href="datatypes.html#quantity">canonical units</a>
 (e.g. any value where the units can be converted to a value in mg in the case above). For example, an observation
-may have a value of <code>23 mm/hr</code>. This is equal to <code>0.23 m/hr</code>. The search processor can
+may have a value of <code>23 mm/hr</code>. This is equal to <code>0.023 m/hr</code>. The search processor can
 choose to normalize all the values to a canonical unit such as <code>6.4e-6 m/sec</code>, and convert
 search terms to the same units (m/sec). Such conversions can be performed based on the semantics defined
 in <a href="http://unitsofmeasure.org">UCUM</a>
@@ -2622,7 +2622,7 @@ or a free-text style searches on names to achieve the best results.
 <h4>token</h4>
 <p>
 A token type is a parameter that provides a close to exact match search on a string of characters, potentially
-scoped by a URI. It is mostly used against a code or identifier data type where the value may have a
+scoped by a URI. It is mostly used against a code or identifier datatype where the value may have a
 URI that scopes its meaning, where the search is performed against the  pair from a Coding or an
 Identifier. Tokens are also used against other fields where exact matches are required - uris,
 booleans, <a href="datatypes.html#ContactPoint">ContactPoints</a>, and <a href="datatypes.html#id">ids</a>. In these
@@ -2632,7 +2632,7 @@ cases the URI portion (<code>[system]|</code>) is not used (only the <code>[code
 For tokens, matches are literal (e.g. not based on <a href="codesystem.html#subsumption">subsumption</a> or other code system features).
 Match is case sensitive unless the underlying semantics for the context indicate that the token should be interpreted case-insensitively
 (see, e.g. <a href="codesystem-definitions.html#CodeSystem.caseSensitive">CodeSystem.caseSensitive</a>). Note that matches on <code>_id</code>
-are always case sensitive. If the underlying data type is <code><a href="datatypes.html#string">string</a></code>
+are always case sensitive. If the underlying datatype is <code><a href="datatypes.html#string">string</a></code>
 then the search is not case sensitive.
 </p>
 <p>
@@ -2666,11 +2666,11 @@ then just the form [parameter]=[code] is used.</li>
   SHALL NOT be used - only the <code>[parameter]=[code]</code> form is allowed</li>
 </ul>
 <p>
-Token search parameters are used for the following data types:
+Token search parameters are used for the following datatypes:
 </p>
 <table class="grid">
  <tr>
-  <td><b>Data Type</b></td>
+  <td><b>Datatype</b></td>
   <td><b>URI</b></td>
   <td><b>Code</b></td>
   <td><b>Comments</b></td>
@@ -2734,7 +2734,7 @@ Token search parameters are used for the following data types:
 <p>
 Note: The use of token search parameters for boolean fields: the boolean values "true" and "false" are also represented
 as formal codes in the <a href="valueset-special-values.html">Special Values</a> code system, which is useful when boolean values
-need to be represented in a <a href="datatypes.html#coding">Coding</a> data type. The namespace for these codes is
+need to be represented in a <a href="datatypes.html#coding">Coding</a> datatype. The namespace for these codes is
 http://terminology.hl7.org/CodeSystem/special-values, though there is usually no reason to use this, as a simple true or false is sufficient.
 </p>
 <p>
@@ -3087,7 +3087,7 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
   <a href="patient-definitions.html#Patient.identifier">Patient.Identifier</a>), and, if the resource is
   a <a href="canonicalresource.html">Canonical Resource</a>, a 
   <a href="canonicalresource-definitions.html#CanonicalResource.url">canonical url</a>.  Each of these 'identifiers'
-  have a different data type and expose different search functionality.  Some details about each are included
+  have a different datatype and expose different search functionality.  Some details about each are included
   below.
 </p>
 
@@ -3172,6 +3172,9 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
   of searching references by identifier, depending on how data is stored in the system: via <a href="#chaining">chaining</a> or via the 
   <a href="#modifieridentifier"><code>identifier</code></a> search modifier.
 </p>
+
+<a name="identifiercanonical"></a>
+<h5>Canonical Identifiers</h5>
 <p>
   Chaining functions by resolving a resource reference and then searching inside it.  In this case, requesting:
   <span class="http-search-example">
@@ -3191,7 +3194,7 @@ patient.identifier=http://example.org/facilityA|1234</span>
 <p>
   This search is flexible, but does require resolving (searching against) Patient resources, even though
   the request is only for Encounters.  If a system wants to enable searches via identifiers <em>without</em>
-  chaining, the server can include additional information in the <a href="references.html#Reference">Reference data type</a>
+  chaining, the server can include additional information in the <a href="references.html#Reference">Reference Datatype</a>
   (in <a href="references-definitions.html#Reference.identifier">Reference.identifier</a>), which is then accessible by
   the <a href="#modifieridentifier"><code>identifier</code></a> search modifier.  Note that this approach requires
   additional bookkeeping by the server - if a patient record is modified, e.g., to add an additional identifier, <b>every</b> 
@@ -5398,11 +5401,11 @@ auditing the search itself.
 </table>
 
 <p>
-Cross-map between search parameter types and Data types:
+Cross-map between search parameter types and Datatypes:
 </p>
 <table class="list">
  <tr>
-  <td><b>Data Type</b></td>
+  <td><b>Datatype</b></td>
   <td><b><a href="#number">number</a></b></td>
   <td><b><a href="#date">date</a></b></td>
   <td><b><a href="#reference">reference</a></b></td>
@@ -5557,7 +5560,7 @@ Cross-map between search parameter types and Data types:
   <td colspan="7" style="background-color: #f9f9f9"><%xcmchk uuid%>Not used in search (but see uri)</td>
  </tr>
  <tr>
-   <td colspan="8" style="background-color: #efefef"><b>Data Types</b></td>
+   <td colspan="8" style="background-color: #efefef"><b>Datatypes</b></td>
  </tr>
  <tr>
   <td><a href="datatypes.html#Address">Address</a></td>

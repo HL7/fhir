@@ -1,0 +1,119 @@
+// patient merge using patient identifiers and providing an explicit resulting resource:
+
+POST /open/Patient/$merge
+[some headers]
+
+POST: [base]/Patient/$merge
+<Parameters xmlns="http://hl7.org/fhir">
+  <parameter>
+    <name value="source-patient" />
+    <valueReference>
+      <reference value="Patient/01" />
+      <identifier>
+        <use value="official" />
+        <type>
+          <coding>
+            <system value="http://www.hospital-a/localid" />
+            <code value="HospitalA" />
+            <display value="Hospital A" />
+          </coding>
+          <text value="Hospital A" />
+        </type>
+        <system value="urn:oid:2.16.840.1.113883.3.72.5.9.1" />
+        <value value="1000000001" />
+        <assigner>
+          <display value="Hospital A" />
+        </assigner>
+      </identifier>
+    </valueReference>
+  </parameter>
+  <parameter>
+    <name value="target-patient" />
+    <valueReference>
+      <reference value="Patient/02" />
+      <identifier>
+        <use value="official" />
+        <type>
+          <coding>
+            <system value="http://www.hospital-a/localid" />
+            <code value="HospitalA" />
+            <display value="Hospital A" />
+          </coding>
+          <text value="Hospital A" />
+        </type>
+        <system value="urn:oid:2.16.840.1.113883.3.72.5.9.1" />
+        <value value="1000000002" />
+        <assigner>
+          <display value="Hospital A" />
+        </assigner>
+      </identifier>
+    </valueReference>
+  </parameter>
+  <parameter>
+    <name value="target-patient-identifier" />
+    <valueIdentifier>
+      <system value="http://example.org/SSN" />
+      <value value="804234513" />
+    </valueIdentifier>
+  </parameter>
+  <parameter>
+    <name value="result-patient" />
+    <resource>
+      <Patient xmlns="http://hl7.org/fhir">
+        <id value="02" />
+        <identifier>
+          <use value="official" />
+          <type>
+            <coding>
+              <system value="http://www.hospital-a/localid" />
+              <code value="MRN" />
+            </coding>
+            <text value="Hospital A MRN" />
+          </type>
+          <system value="http://www.hospital-a/localid" />
+          <value value="1000000002" />
+          <assigner>
+            <display value="Hospital A" />
+          </assigner>
+        </identifier>
+        <identifier>
+          <use value="old" />
+          <type>
+            <coding>
+              <system value="http://www.hospital-a/localid" />
+              <code value="MRN" />
+            </coding>
+            <text value="Hospital A MRN" />
+          </type>
+          <system value="http://www.hospital-a/localid" />
+          <value value="1000000001" />
+          <assigner>
+            <display value="Hospital A" />
+          </assigner>
+        </identifier>
+        <identifier>
+          <system value="http://example.org/SSN" />
+          <value value="804234513" />
+        </identifier>
+        <name>
+          <family value="LINCOLN" />
+          <given value="MARY" />
+        </name>
+        <name>
+          <use value="old" />
+          <family value="WASHINGTON" />
+          <given value="MARY" />
+        </name>
+        <gender value="female" />
+        <birthDate value="1954-07-04" />
+        <link>
+          <other>
+            <reference value="Patient/01" />
+            <display value="Mary Lincoln" />
+          </other>
+          <type value="replaces" />
+        </link>
+      </Patient>
+    </resource>
+  </parameter>
+</Parameters>

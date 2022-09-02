@@ -20,26 +20,25 @@
     </status>
     <type>
         <coding>
-            <system value="http://www.somesystemabc.net/CodeSystem"/>
-            <code value="denovo"/>
-            <display value="De Novo Mutation Analysis"/>
+            <code value="trio"/>
+            <display value="Trio-analysis"/>
         </coding>
     </type>
     <subject>
-        <reference value="Patient/denovoChild"/>
+        <reference value="Patient/proband"/>
     </subject>
     <encounter>
         <reference value="Encounter/denovoEncounter"/>
     </encounter>
     <startDate value="2022-05-01"/>
     <basedOn>
-        <reference value="ServiceRequest/genomicServiceRequest"/>
+        <reference value="ServiceRequest/genomicSRProband"/>
     </basedOn>
         <basedOn>
-        <reference value="ServiceRequest/genomicServiceRequest3"/>
+        <reference value="ServiceRequest/genomicSRMother"/>
     </basedOn>
     <basedOn>
-        <reference value="ServiceRequest/genomicServiceRequest4"/>
+        <reference value="ServiceRequest/genomicSRFather"/>
     </basedOn>
     <referrer>
         <reference value="Practitioner/practitioner01"/>
@@ -70,16 +69,16 @@
         <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
         <title value="Maternal Sequence Variation Detection Using Next Generation Sequencing"/><!-- 0..1 Name of the analysis event (human friendly) -->
         <subject>
-            <reference value="Patient/denovoMother"/>
+            <reference value="Patient/mother"/>
         </subject>
         <specimen>
-            <reference value="Specimen/denovo-2"/>
+            <reference value="Specimen/specimenMother"/>
         </specimen>
         <date value="2022-07-01T01:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
         <note>
             <text value="This is a next generation sequencing analysis of a mother of a proband."/>
         </note>
-        <input>  <!-- 0..* Inputs for the analysis event of Mother-->
+<!--         <input>
             <file>
                 <reference value="DocumentReference/genomicFile2"/>
             </file>
@@ -89,8 +88,7 @@
                     <display value="VCF"/>
                  </coding>
             </type>
-            <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-        </input>
+        </input> -->
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
                 <reference value="Practitioner/practitioner02"/>
@@ -120,16 +118,16 @@
         <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
         <title value="Paternal Sequence Variation Detection Using Next Generation Sequencing"/>
         <subject>
-            <reference value="Patient/denovoFather"/>
+            <reference value="Patient/father"/>
         </subject>
         <specimen>
-            <reference value="Specimen/denovo-3"/>
+            <reference value="Specimen/specimenFather"/>
         </specimen>
         <date value="2022-07-01T01:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
         <note>
             <text value="This is a next generation sequencing analysis of a father of a proband."/>
         </note>
-          <input>  <!-- 0..* Inputs for the analysis event -->
+<!--           <input>
             <file>
                 <reference value="DocumentReference/genomicFile3"/>
             </file>
@@ -139,8 +137,7 @@
                     <display value="VCF"/>
                  </coding>
             </type>
-            <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-        </input>
+          </input> -->
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
                 <reference value="Practitioner/practitioner02"/>
@@ -170,7 +167,7 @@
         <instantiatesUri value="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6885382/"/>
         <title value="De Novo Mutation Detection and Interpretation"/>
         <subject>
-            <reference value="Patient/denovoChild"/>
+            <reference value="Patient/proband"/>
         </subject>
         <!-- 0..1<specimen> Reference(Specimen) The specimen used in the analysis event </specimen>-->
         <date value="2022-07-01T03:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
@@ -179,23 +176,50 @@
         </note>
         <input>  <!-- 0..* Inputs for the analysis event, a combined vcf file-->
             <file>
-                <reference value="DocumentReference/genomicFile5"/>
+                <reference value="DocumentReference/genomicFileProband"/>
             </file>
             <type>
                 <coding>
-                    <code value="vcf"/>
-                    <display value="VCF"/>
+                    <!-- <system value="http://hl7.org/fhir/genomicstudy-dataformat"/> -->
+                    <code value="bam"/>
+                    <display value="BAM"/>
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
         </input>
-        
-        <output>  <!-- 0..* Outputs for the analysis event -->
+                <input>  <!-- 0..* Inputs for the analysis event, a combined vcf file-->
             <file>
-                <reference value="DocumentReference/genomicVCFfile"/>
+                <reference value="DocumentReference/genomicFileMother"/>
             </file>
             <type>
                 <coding>
+                    <!-- <system value="http://hl7.org/fhir/genomicstudy-dataformat"/> -->
+                    <code value="bam"/>
+                    <display value="BAM"/>
+                 </coding>
+            </type>
+            <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
+        </input>
+                <input>  <!-- 0..* Inputs for the analysis event, a combined vcf file-->
+            <file>
+                <reference value="DocumentReference/genomicFileFather"/>
+            </file>
+            <type>
+                <coding>
+                    <!-- <system value="http://hl7.org/fhir/genomicstudy-dataformat"/> -->
+                    <code value="bam"/>
+                    <display value="BAM"/>
+                 </coding>
+            </type>
+            <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
+        </input>
+        <output>  <!-- 0..* Outputs for the analysis event -->
+            <file>
+                <reference value="DocumentReference/genomicFileGroupAsSubject"/>
+            </file>
+            <type>
+                <coding>
+                    <!-- <system value="http://hl7.org/fhir/genomicstudy-dataformat"/> -->
                     <code value="vcf"/>
                     <display value="VCF"/>
                 </coding>

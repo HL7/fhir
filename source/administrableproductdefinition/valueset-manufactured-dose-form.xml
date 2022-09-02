@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="manufactured-dose-form"/>
-  <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-  </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <ul>
-        <li>Include all codes defined in 
-          <a href="codesystem-manufactured-dose-form.html">
-            <code>http://hl7.org/fhir/manufactured-dose-form</code>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="brr"/>
   </extension>

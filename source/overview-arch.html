@@ -173,7 +173,7 @@ Component definitions:
     <ul>
       <li>Base Classes: <a href="types.html#Element">Element</a> and <a href="resource.html">Resource</a></li>
       <li>Definitions for Base Classes: <a href="elementdefinition.html">ElementDefinition</a> and <a href="structuredefinition.html">StructureDefinition</a></li>
-      <li><a href="datatypes.html">Data Types</a></li>
+      <li><a href="datatypes.html">Datatypes</a></li>
     </ul>
   </li>
   <li>FHIR Conformance Model
@@ -434,7 +434,7 @@ intent of the reference which leads to the possibility of ambiguity and error. T
 but additional capabilities may be considered in the future to allow systems to address referential integrity.
 </li>
 <li>
-<b>Conditional Semantics</b> – Currently, the constraints for element definitions including things like data types, value sets, optionality and cardinality are
+<b>Conditional Semantics</b> – Currently, the constraints for element definitions including things like datatypes, value sets, optionality and cardinality are
 defined at design time with limited consideration for variable run-time semantics. Imagine the scenario where the value of Data Element Y (e.g., “intolerance type”) is
 constrained differently depending on the value of Data Element X (e.g., “causative agent”) in a given instance of a resource. For example, if the instance of
 an Intolerance Resource has the “intolerance type” data element populated with “food intolerance”, then “causative agent” should be constrained to only valid

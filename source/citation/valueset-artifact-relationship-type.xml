@@ -2,30 +2,6 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="artifact-relationship-type"/>
-  <meta>
-    <lastUpdated value="2021-03-11T10:55:11.085+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-  </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <ul>
-        
-        <li>Include all codes defined in 
-          
-          <a href="codesystem-artifact-relationship-type.html">
-            
-            <code>http://terminology.hl7.org/CodeSystem/artifact-relationship-type</code>
-          
-          </a>
-        
-        </li>
-      
-      </ul>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
