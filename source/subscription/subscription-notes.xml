@@ -15,7 +15,7 @@
 		When deciding which payload type to request, systems SHOULD consider both ease of processing and security of PHI. To mitigate the risk of information leakage, systems SHOULD use the minimum level of detail consistent with the use case. In practice, <code>id-only</code> provides a good balance between security and performance for many real-world scenarios.
 	</p>
 	<p>
-		If a server cannot or will not honor a payload type (e.g., will not send <code>full-resource</code> over HTTP), it SHOULD reject the Subscription request.  A server MAY instead accept the subscription with modificaitons and return the accepted version to the client.
+		If a server cannot or will not honor a payload type (e.g., will not send <code>full-resource</code> over HTTP), it SHOULD reject the Subscription request.  A server MAY instead accept the subscription with modifications and return the accepted version to the client.
 	</p>
   <p>
     When sending event notifications servers SHALL populate the <a href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent">SubscriptionStatus.notificationEvent</a> structure with relevant information, depending on the payload type.
@@ -27,10 +27,10 @@
 			An example notification with an <code>empty</code> payload can be found <a href="notification-empty.html">here</a>.
 		</p>
 		<p>
-			With the content type of <code>empty</code>, all information about the resources involved in triggering the notification is only available via channels other than the Subscription itself (e.g., the REST API or <a href="subscription-operation-events.html">$events</a> operation). This mitigates many security concerns by both removing most PHI from the notification and allows servers to consolidate authorization and authentication logic. When the subscriber receives a notification of this type, it may query the server to fetch all the relevant resources based on the <code>SubscriptionTopic</code> and applicable filters. The client might include a <code>_since=</code> query parameter, supplying its last query timestamp to retrieve only the most recent resources. For example, if the notification is for a topic about patient admission, the subscriber will generally query for recent Encounters for a patient or group of patients, then fetch them as needed.
+			With the content type of <code>empty</code>, all information about the resources involved in triggering the notification is only available via channels other than the Subscription itself (e.g., the REST API or <a href="subscription-operation-events.html">$events</a> operation). This mitigates many security concerns by both removing most PHI from the notification and allows servers to consolidate authorization and authentication logic. When the subscriber receives a notification of this type, it may query the server to fetch all the relevant resources based on the <code>SubscriptionTopic</code> and applicable filters. The client might include a <code>_lastUpdated</code> query parameter, supplying its last query timestamp to retrieve only the most recent resources. For example, if the notification is for a topic about patient admission, the subscriber will generally query for recent Encounters for a patient or group of patients, then fetch them as needed.
 		</p>
     <p>
-      When populating the <code>SubscriptionStatus.notificationEvent</code> structure for a notification with an <code>empty</code> payload, a server SHALL NOT include references to resources (e.g., <a href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.focus">SubscriptionStatus.notificationEvent.focus</a> and <a href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.additionalContext">SubscriptionStatus.notificationEvent.additionalContex</a> SHALL NOT be present).
+      When populating the <code>SubscriptionStatus.notificationEvent</code> structure for a notification with an <code>empty</code> payload, a server SHALL NOT include references to resources (e.g., <a href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.focus">SubscriptionStatus.notificationEvent.focus</a> and <a href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.additionalContext">SubscriptionStatus.notificationEvent.additionalContext</a> SHALL NOT be present).
     </p>
 		<p>
 			When the content type is <code>empty</code>, notification bundles SHALL NOT contain <code>Bundle.entry</code> elements other than the <code>SubscriptionStatus</code> for the notification.
@@ -402,7 +402,7 @@
 		</p>
 		<ul>
       <li>A system for Subscription.channelType that reflects the publisher of the definition (e.g., "https://myorg.example.org" instead of "urn:uuid:be35238b-0ed6-4062-93cf-818b8023a103")</li>
-			<li>A generally descriptive cdoe <code>Subscription.channelType</code> (e.g., 'secure-mq' instead of 'channel0012')</li>
+			<li>A generally descriptive code for <code>Subscription.channelType</code> (e.g., 'secure-mq' instead of 'channel0012')</li>
 			<li>The type of data required in <code>Subscription.endpoint</code> (e.g., URI, etc.)</li>
 			<li>The meaning of the <code>Subscription.header</code> field values (e.g., <a href="#rest-hook">REST-hook</a> defines as Auth headers included in a POST)</li>
 			<li>Any variations on MIME types for <code>Subscription.contentType</code> (e.g., <a href="#email">email</a> defines this as the email body, with allowable attachments.)</li>
