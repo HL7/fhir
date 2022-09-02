@@ -2042,7 +2042,9 @@ an hour is present, and you SHOULD provide a time zone if the time part is prese
 characters in the URL, and servers SHALL handle this correctly.
 </p>
 <p>
-Date parameters may be used with the following data types:
+  Date searches are intrinsically matches against 'periods', regardless of the underlying element type.  For more 
+  information about how the different search prefixes work when comparing periods/ranges, refer to the 
+  <a href="#prefix">Prefixes</a> section.  Date parameters may be used with the following data types:
 </p>
 <table class="grid">
  <tr><td><a href="datatypes.html#date">date</a></td><td>The range of the value is the day, month, or year as specified</td></tr>
