@@ -24,7 +24,7 @@
   <name value="GenomicStudyDataFormat"/>
   <title value="GenomicStudyDataFormat"/>
   <status value="draft"/>
-  <experimental value="false"/>
+  <experimental value="true"/>
   <date value="2022-08-17T14:49:24-05:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
