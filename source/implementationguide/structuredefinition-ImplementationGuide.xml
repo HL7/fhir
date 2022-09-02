@@ -733,14 +733,14 @@
 			<path value="ImplementationGuide.definition.page.source[x]"/>
 			<short value="Source for page"/>
 			<definition value="Indicates the URL or the actual content to provide for the page."/>
-			<comment value="If absent and the page isn't a generated page, this may be inferred from the page name by checking input locations."/>
+			<comment value="If absent and the page isn't a generated page, this may be inferred from the page name by checking input locations.  String is used for XHTML content - sent as an escaped string.  FHIR tooling can't support 'direct' XHTML anywhere other than in narrative."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="url"/>
 			</type>
 			<type>
-				<code value="xhtml"/>
+				<code value="string"/>
 			</type>
 			<type>
 				<code value="markdown"/>
