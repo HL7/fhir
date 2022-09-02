@@ -40,7 +40,7 @@
   <description value="The type relevant to GenomicStudy."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-type"/>
-  <content value="example"/>
+  <content value="complete"/>
 <concept>
   <code value="alt-splc"/>
   <display value="Alternative splicing detection"/>
