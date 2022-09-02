@@ -86,11 +86,11 @@ resources are known as the conformance resources. These conformance resources al
  <li>Indicate that <a href="http.html">some API calls</a> are not used for a particular situation, and provide additional details about how API calls are used (<a href="capabilitystatement.html">Capability Statement</a>)</li>
  <li>Add additional <a href="operations.html">operations</a> or <a href="search.html">search parameters</a> not in the base specification
    (using the <a href="operationdefinition.html">OperationDefinition</a> resource or the <a href="searchparameter.html">SearchParameter</a> Resource)</li>
- <li>Define how a particular structure (Resource, Extension or Data Type) is used (<a href="structuredefinition.html">StructureDefinition</a> Resource):
+ <li>Define how a particular structure (Resource, Extension or Datatype) is used (<a href="structuredefinition.html">StructureDefinition</a> Resource):
     <ul>
       <li>Describe how existing elements in resources are used</li>
       <li>Identify existing elements that are not used</li>
-      <li>Define extensions that can be used in resources or data types</li>
+      <li>Define extensions that can be used in resources or datatypes</li>
     </ul>
  </li>
  <li>Mix custom and standard terminologies and choose which codes from these to use for a particular coded element(<a href="valueset.html">Value Set</a> and StructureDefinition Resources)</li>
@@ -264,7 +264,7 @@ What StructureDefinitions can do when they are constraining existing resources a
 </p>
 <ul>
  <li>Profiles cannot break the rules established in the base specification (e.g. cardinality as described above)</li>
- <li>Profiles cannot specify default values or meanings for elements defined in the base specification (note that data types and resources do not define default values at all, but default values may be defined for <a href="structuredefinition.html#logical">logical models</a></li>
+ <li>Profiles cannot specify default values or meanings for elements defined in the base specification (note that datatypes and resources do not define default values at all, but default values may be defined for <a href="structuredefinition.html#logical">logical models</a></li>
  <li>Profiles cannot change the name of elements defined in the base specification, or add new elements</li>
  <li>It must be safe to process a resource without knowing the profile</li>
 </ul>
@@ -290,7 +290,7 @@ see <a href="resource.html#implicitRules">Restricted Understanding of Resources<
 <a name="using"></a>
 <h3>Using StructureDefinitions</h3>
 <p>
-A "constraint" StructureDefinition specifies a set of restrictions on the content of a FHIR resource or data type,
+A "constraint" StructureDefinition specifies a set of restrictions on the content of a FHIR resource or datatype,
 or an additional set of constraints on an existing profile.
 A given structure definition is identified by its canonical URL, which SHOULD be the URL at which it
 is published. The following kinds of statements can be made about how an element is used, using a
@@ -359,7 +359,7 @@ StructureDefinitions may contain a differential statement, a snapshot
 statement or both.
 </p>
 <p>Differential statements describe only the differences that they make
-relative to the structure definition they constrain (which is most often the base FHIR resource or data type).
+relative to the structure definition they constrain (which is most often the base FHIR resource or datatype).
 For example, a profile may make a single element mandatory (cardinality 1..1).
 In the example of a differential structure, it will contain a single element
 with the path of the element being made mandatory, and a cardinality statement.
@@ -856,7 +856,7 @@ in a resource.
 </p>
 <p>
 The extension definition also defines the context where the extension can be used (usually
-a particular path or a data type) and then defines the extension element using the same details used to
+a particular path or a datatype) and then defines the extension element using the same details used to
 profile the structural elements that are part of resources. This means that a single extension
 can be defined once and used on different resources and/or datatypes, e.g. one would only have to
 define an extension for "hair color" once, and then specify that it can be used on both Patient and Practitioner.
@@ -951,7 +951,7 @@ constraining profile does, it cannot make codes valid that are invalid in the ba
 <a name="mustsupport"></a>
 <h3>Must Support</h3>
 <p>
-One of the properties that can be declared on profiles but not on resource or data type definitions is 'mustSupport'.
+One of the properties that can be declared on profiles but not on resource or datatype definitions is 'mustSupport'.
 This is a boolean property.  If true, it means that systems claiming to conform to a given profile must "support" the element.
 This is distinct from cardinality.  It is possible to have an element with a minimum cardinality of "0", but still expect systems
 to support the element.

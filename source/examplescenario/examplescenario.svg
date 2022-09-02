@@ -117,7 +117,7 @@
        class="diagram-class-detail"><a
    xlink:href="examplescenario-definitions.html#ExampleScenario.url"
    id="n636"><title
-   id="title19">An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this example scenario is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the example scenario is stored on different servers</title>
+   id="title19">An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this example scenario is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the example scenario is stored on different servers</title>
 url</a>
  : <a
    xlink:href="datatypes.html#uri"

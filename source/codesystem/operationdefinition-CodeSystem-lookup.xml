@@ -184,6 +184,14 @@
       <type value="Coding"/>
     </part>
     <part>
+      <name value="additionalUse"/>
+      <use value="out"/>
+      <min value="0"/>
+      <max value="*"/>
+      <documentation value="Additional codes that detail how this designation would be used (if there is more than one)"/>
+      <type value="Coding"/>
+    </part>
+    <part>
       <name value="value"/>
       <use value="out"/>
       <min value="1"/>

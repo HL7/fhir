@@ -24,7 +24,7 @@ is handled is a bit different from an application API. This page describes:
  <li><a href="#maturity">The FHIR Maturity Model</a></li>
  <li><a href="#versions">How FHIR versions work</a></li>
  <li><a href="#change">The rules for inter-version change once an artifact is Normative</a></li>
- <li><a href="#stu">Managing Change during the development process</a></li>
+ <li><a href="#studev">Managing Change during the development process</a></li>
  <li><a href="#extensions">Extensions for converting between versions</a></li>
  <li><a href="#plans">Plans for future releases</a></li>
 </ul>
@@ -140,7 +140,7 @@ normative resources in future versions - they will undergo a period of trial use
 Note: it is also possible that some resources in the future will be labeled as 'trial use', but
 contain some elements labeled as 'normative'. There is no resource like this in this specification,
 though all Trial Use resources contain normative content from <a href="resource.html">Resource</a>
-and <a href="domainresource.html">DomainResource</a>, and the <a href="datatypes.html">Data types</a>.
+and <a href="domainresource.html">DomainResource</a>, and the <a href="datatypes.html">Datatypes</a>.
 </p>
 
 <p>
@@ -374,14 +374,14 @@ The following rules apply once an artifact in the FHIR core specification or in 
     <tr>
       <td>Artifacts (resources, profiles, code systems, etc.)</td>
       <td>
-      New artifacts including new resources and data types may be introduced.  Existing artifacts will not have any computable identifiers (e.g. resource names) changed.  Artifacts may be <a href="#deprecation">deprecated</a>
+      New artifacts including new resources and datatypes may be introduced.  Existing artifacts will not have any computable identifiers (e.g. resource names) changed.  Artifacts may be <a href="#deprecation">deprecated</a>
       </td>
     </tr>
     <tr>
       <td>Elements</td>
       <td>
        New optional elements and/or content (e.g. XML attributes, etc.) may be introduced
-      at any location in resource and data type structures provided they do not constitute "isModifier" elements.  However, the names, path
+      at any location in resource and datatype structures provided they do not constitute "isModifier" elements.  However, the names, path
       and meaning of previously existing data elements will not be changed.
       This means there will be no change to resource names and no changes to names assigned to slices and
       other elements within profiles.
@@ -455,17 +455,17 @@ The following rules apply once an artifact in the FHIR core specification or in 
       </td>
     </tr>
     <tr>
-      <td>Data Types</td>
+      <td>Datatypes</td>
       <td>
-      Except as described in the preceding paragraph, Data types will not be removed or changed except as allowed above for elements.  New data types may be introduced.  Types declared on existing elements will not be
+      Except as described in the preceding paragraph, Datatypes will not be removed or changed except as allowed above for elements.  New datatypes may be introduced.  Types declared on existing elements will not be
       removed or changed, except for the special case that <code>string</code> may be changed to <code>markdown</code>.
-      Additional data types may be added to elements which are already expressed as a choice of data types only if those elements are optional (minimum cardinality = 0).
+      Additional datatypes may be added to elements which are already expressed as a choice of datatypes only if those elements are optional (minimum cardinality = 0).
       </td>
     </tr>
     <tr>
       <td>Value Constraints</td>
       <td>
-        The allowed list of Data types may be extended, but not constrained. Invariants, regular expressions, fixed values and patterns will not be added, removed, or changed in a way that would break forward compatibility, but may be relaxed.
+        The allowed list of Datatypes may be extended, but not constrained. Invariants, regular expressions, fixed values and patterns will not be added, removed, or changed in a way that would break forward compatibility, but may be relaxed.
       </td>
     </tr>
     <tr>
@@ -507,7 +507,7 @@ The following rules apply once an artifact in the FHIR core specification or in 
       Profile structure, extension definitions and search criteria definitions will not be removed or have their
       URIs changed.  New profile structures, extension definitions and search criteria definitions may be
       introduced.  Profiles may have their statuses changed to "retired".  Profiles referenced by data elements
-      for structures or data types may be replaced
+      for structures or datatypes may be replaced
       with a reference to a distinct profile that is "compatible" with the previously referenced profile according
       to these forward and backward compatibility rules.
       </td>
@@ -583,13 +583,13 @@ Additional discussion on inter-versioning issues can be found here:
 </p>
 
 
-<a name="stu"></a>
+<a name="studev"></a>
 <h3>Managing Change during the development process</h3>
 
 <p>
 Regardless of the degree of prior implementation, all aspects of the FHIR specification are potentially subject to change while an artifact has a
 status of <i>Draft</i> or <i>Trial Use</i>.  These changes may be minor (clarifications of definitions, etc.) or major (refactoring of
-resources, changes to serialization rules, eliminating or adding data types, etc.)  There is no commitment to backward or forward compatibility
+resources, changes to serialization rules, eliminating or adding datatypes, etc.)  There is no commitment to backward or forward compatibility
 during the trial use process until content is normative.  Changes will not be made without cause, however the interests of long-term
 implementability will generally trump the impact on early adopters when determining what changes should be made.  This balance will
 shift more towards early adopters as maturity levels increase.  I.e. Impact on existing implementations will be weighted more highly
@@ -693,10 +693,10 @@ Implementers should be aware of the following issues when using these extensions
 <ul>
  <li>Implementations should always use the correct element for data when one exists. The version <a href="diff.html">differences</a> and <a href="r3maps.html">maps</a> (and their equivalent for other versions) can help</li>
  <li>There is no way to represent the few special elements that have the type "Resource" in extensions, so these are not defined (e.g. <code>Bundle.entry.resource</code>, <code>DomainResource.contained</code>, etc)</li>
- <li>Where complex data types have no equivalent in an earlier version, use a complex extension, 
+ <li>Where complex datatypes have no equivalent in an earlier version, use a complex extension, 
   where the name of the child properties is the name of the complex extension components, and each of these subextensions
   are extensions that also follow this pattern.</li>
- <li>This same pattern applies for any new elements not found in data types in earlier versions,
+ <li>This same pattern applies for any new elements not found in datatypes in earlier versions,
   and for additional children where there is a cardinality increase in the referenced (subsequent) version</li>
  <li>If the change between versions is that the subsequent version allows a type that is not alloewd in the 
   previous version, then whenever the type is allowed, it should be found in the element, but if it is not,
@@ -717,7 +717,7 @@ Implementers should be aware of the following issues when using these extensions
  <li>Where mapping simple types, the type conversions are shown in the table below. The mapping table SHALL be used</li>
 </ul>
 <p>
-This table shows the mapping between primitive data types across versions:
+This table shows the mapping between primitive datatypes across versions:
 </p>
 
 <table class="grid">
