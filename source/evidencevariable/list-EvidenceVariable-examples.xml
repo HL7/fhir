@@ -129,10 +129,10 @@
       <valueString value="StudyEligibilityCriteria: Obese patients ≥ 18 years old"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="evidencevariable-example-adults-with-obesity"/>
+      <valueString value="evidencevariable-example-eligibility-criteria-adults-with-obesity"/>
     </extension>
     <item>
-      <reference value="EvidenceVariable/example-adults-with-obesity"/>
+      <reference value="EvidenceVariable/example-eligibility-criteria-adults-with-obesity"/>
       <display value="StudyEligibilityCriteria: Obese patients ≥ 18 years old"/>
     </item>
   </entry>
