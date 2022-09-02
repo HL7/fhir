@@ -22,6 +22,11 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/authoritativeSource."/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/codesystem-concept-comments"/>
       </reference>
     </resource>
