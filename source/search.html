@@ -3006,7 +3006,7 @@ characteristic-value=gender$mixed,owner$Eve</span>
     multiple genders) OR the group has a <code>owner</code> characteristic of "Eve".
   </p>
  <p>
- Note that <a href="modifiers">search modifiers</a> are NOT allowed on composite parameters.
+ Note that <a href="#modifiers">search modifiers</a> are NOT allowed on composite parameters.
  <!--
  Future note: use \p and \m in search values? if we add a double = to parameter value for text, that would get rid
  of <code>:exact</code>.
@@ -4383,7 +4383,7 @@ references by resolving the version named in the reference.
   <code>_include</code> and <code>_revinclude</code> are, by default, invoked only on the initial results
   of the search set, not on any 'included' resources.  To repeatedly perform the <code>_include</code> and 
   <code>_revinclude</code> instructions on included resources, use the 
-  <a href="modifieriterate"><code>iterate</code></a> modifier.
+  <a href="#modifieriterate"><code>iterate</code></a> modifier.
 </p>
 <p>
   For example, this search returns all <a href="medicationrequest.html">MedicationRequest</a> resources and their 
@@ -4402,7 +4402,7 @@ _include=MedicationDispense:prescription&amp;_include:iterate=MedicationRequest:
 </p>
 <p>
   Details about the <code>iterate</code> modifier can be found in the section 
-  <a href="modifieriterate">Modifier: iterate</a>.
+  <a href="#modifieriterate">Modifier: iterate</a>.
 </p>
 <p>
 This technique applies to circular relationships as well. For example,
