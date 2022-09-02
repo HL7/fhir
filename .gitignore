@@ -378,3 +378,6 @@ gradle-app.setting
 /comp
 
 source/patient/Patient-rendering.liquid.x
+
+# VS Code local settings
+.vscode/
