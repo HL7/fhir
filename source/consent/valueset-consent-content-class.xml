@@ -23,8 +23,9 @@
     
     <!-- FHIR Resource types -->
     <include>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <import value="http://hl7.org/fhir/ValueSet/resource-types"/>
     </include>
+
     
     <!-- how to do profile references as codes -->
     <include>

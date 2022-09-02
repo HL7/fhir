@@ -39,4 +39,19 @@
       <reference value="OperationDefinition/Resource-graph"/>
     </item>
   </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Resource-large-resource-add"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Resource-large-resource-remove"/>
+    </item>
+  </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Resource-large-resource-filter"/>
+    </item>
+  </entry>
 </List>

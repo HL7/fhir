@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="RequestOrchestration-cdshooks"/>
+  <version value="0.01"/>
+  <name value="CDS Hooks RequestOrchestration"/>
+  <title value="CDS Hooks RequestOrchestration"/>
+  <status value="draft"/>
+  <date value="1970-01-01T10:00:00+10:00"/>
+  <publisher value="HL7"/>
+  <description value="Defines a RequestOrchestration that can represent a CDS Hooks response"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/cdshooksrequestorchestration"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

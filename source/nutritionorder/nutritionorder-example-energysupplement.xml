@@ -7,10 +7,10 @@ edited by Eric Haas Health eData Inc
 		<value value="123"/>
 	</identifier>
 	<status value="active"/><intent value="order"/>
-	<patient>
+	<subject>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>
-	</patient>
+	</subject>
 	<encounter>
 		<reference value="Encounter/example"/>
 		<display value="Inpatient"/>
@@ -40,6 +40,7 @@ edited by Eric Haas Health eData Inc
 	</excludeFoodModifier>
 	<supplement>
 		<type>
+			<concept>
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="442971000124100"/>
@@ -51,10 +52,12 @@ edited by Eric Haas Health eData Inc
 				<display value="Adult high energy drink"/>
 			</coding>
 			<text value="Adult high energy drink"/>
+		</concept>
 		</type>
 		<productName value="Ensure"/>
 		<!--EH:  1 8 oz can tid using coded data -->
 		<schedule>
+			<timing>
 			<repeat>
         <boundsPeriod>
           <start value="2015-02-10"/>
@@ -63,6 +66,7 @@ edited by Eric Haas Health eData Inc
 				<period value="1"/>
 				<periodUnit value="d"/>
 			</repeat>
+		</timing>
 		</schedule>
 		<quantity>
 			<value value="1"/>

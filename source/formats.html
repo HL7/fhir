@@ -2,7 +2,7 @@
 
 
 
-[%settitle Formats%]
+[%settitle Resource Definitions%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -94,7 +94,7 @@ Here's an example:
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck110.png)" class="hierarchy"><img alt="." class="hierarchy" src="tbl_spacer.png"/><img alt="." class="hierarchy" src="tbl_vline.png"/><img alt="." class="hierarchy" src="tbl_vjoin.png"/><img title="Primitive Data Type" style="background-color: white;" alt="." class="hierarchy" src="icon_primitive.png"/> <span title="Value of &quot;true&quot; or &quot;false&quot;">nameBType1</span></td>
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"></td>
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy">0..1</td>
- <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"><a href="#">TypeB</a></td>
+ <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"><a href="#">typeB</a></td>
  <td style="vertical-align: top; text-align : left; padding:0px 4px 0px 4px" class="hierarchy"></td>
 </tr>
 <tr style="border: 0px; padding:0px; vertical-align: top; background-color: white;">
@@ -193,6 +193,7 @@ this specification, but is a super type of all the data types.
 </p>
 
 <a name="choice"></a>
+<a name="choice"></a>
 <h3>Choice of Data Types</h3>
 <p>
 A few elements have a choice of more than one data type for their content. All such elements have a name that
@@ -211,55 +212,6 @@ of the language. In XML schema, these become an xs:choice of element. To help wi
 of choice elements</a> is published.
 </p>
 
-<a name="wire"></a>
-<h3>Serialization Format Representations</h3>
-
-<p>
-This specification defines the following ways to represent resources when they are exchanged:
-</p>
-<ul>
- <li><a href="json.html">JSON</a></li>
- <li><a href="xml.html">XML</a></li>
- <li><a href="rdf.html">RDF (Turtle)</a></li>
-</ul>
-
-<p>
-Systems SHALL declare which format(s) they support in their <a href="capabilitystatement.html">Capability Statement</a>.
-If a server receives a request for its Capability Statement in
-a format it does not otherwise support, it SHALL return a <code>406 Not Acceptable</code>. Note: 
-<code>406</code> is the appropriate response when the <code>Accept</code> header requests a format that the server
-does not support, and <code>415 Unsupported Media Type</code> when the client posts a format that is not supported 
-to the server.
-</p>
-<p>
-Clients and servers can choose what syntax(s) to implement. In the interests of interoperability, 
-servers SHOULD support both the XML and JSON formats, which have the same functionality, for 
-different technical stacks. The RDF format has quite different benefits - primarily around data
-analysis rather than exchange.  
-</p>
-
-<div class="draft-content">
-
-<a name="bulk"></a>
-<h4>Bulk Data Formats</h4>
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Unlike this rest of this page, the bulk use formats are draft until 
-further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
-</p>
-<p>
-The XML and JSON formats are designed to support typical system process-based
-data exchange uses. FHIR is also used to exchange large amounts 
-of data- 1000s of records, or more (up to billions). The formats above
-can be used for this, but more suitable formats exist. This specification
-documents (or is exploring documenting) the following formats:
-</p>
-<ul>
- <li><a href="nd-json.html">ND-Json</a> (New line delimited JSON)</li>
- <li>Google Protobuf (under consideration)</li>
- <li>Apache Parquet/Avro (bulk data formats under consideration)</li>
-</ul> 
-
-</div>
 [%file newfooter%]
 </body>
 </html>

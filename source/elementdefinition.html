@@ -47,6 +47,17 @@ no repeating primitives in datatypes? No id's on primitives in datatypes...No da
 		ElementDefinition is used in [%dtusage ElementDefinition%]
 </p>
 
+[%stu-note%]
+The Jira task <a href="https://jira.hl7.org/browse/FHIR-37871">FHIR-37871</a> proposes
+to remove <code>ElementDefinition.constraint.xpath</code>. This is approved but removing 
+the xpath constraints will be difficult to reverse. The task proposes to remove them
+because no one is using them (or at least, no one is reporting errors in the xpaths).
+</p>
+<p>
+If you don't want the xpaths removed, raise this as a ballot issue, along with 
+justification.
+[%end-note%]
+
 <a name="definition"></a>
 <h2 style="margin-bottom: 1px">
 		Content
@@ -195,7 +206,7 @@ same path must conform.
 		</tr>
 		<tr>
 				<td>min/max</td>
-				<td>optional (irrelevant)</td>
+				<td>optional§</td>
 				<td>required</td>
 				<td>optional</td>
 				<td>optional<sup>†</sup></td>
@@ -315,6 +326,10 @@ same path must conform.
 		<li><sup>†</sup>: The element's presence, and value, must match the definition in the base definition</li>
 		<li><sup>‡</sup>: The element content must be consistent with that matching element in the base definition</li>
 		<li><sup>∆</sup>: Additional constraints and mappings can be defined, but they do not replace the ones in the base definition</li>
+		<li><sup>§</sup>: The cardinality on a type places constraints on references to that type. I.e. profiles referencing the type must fall
+			 within the cardinality bounds of the type itself. This most commonly occurs with Extension profiles, where the profile 
+			 may prohibit the extension from repeating (max=1), or less commonly, make the extension mandatory (min=1) - i.e. if the 
+			 extension is referenced in a profile, it must be marked as mandatory.</li>
 		<li>For some simple types, rather than pointing to a FHIR data type, the element will be defined as having a data type defined by [FHIRPath].
 		E.g. <a href="http://hl7.org/fhirpath/System.String">http://hl7.org/fhirpath/System.String</a>. This occurs when the generic behavior of the FHIR primitive type is not desired
 		(e.g. inheriting extension, id, etc.). Implementations should map these FHIRPath data types to the appropriate simple data type defined in their implementation language.
@@ -415,9 +430,10 @@ same path must conform.
 <h3>Rules about min and max</h3>
 
 <ul>
-		<li><b>If there is no <code>StructureDefinition.baseDefinition</code></b>: min and max are always required</li>
+		<li>If there is no <code>StructureDefinition.baseDefinition</code>: min and max are always required</li>
 		<li>Otherwise, in <code>StructureDefinition.differential</code>: min and max are always optional; if they are not present, they default to the min and max from the base definition</li>
 		<li>In <code>StructureDefinition.snapshot</code>: min and max are always required</li>
+		<li>If min = 0, and there is a fixed or pattern value present, the fixed or pattern value only applies if the element is actually present</li>
 </ul>
 
 <a name="aggregation"> </a>
@@ -460,6 +476,8 @@ same path must conform.
 <p>
 	Note that default values can be defined in <a href="structuredefinition.html#logical">Logical Models</a>.
 </p>
+
+
 
 [%file newfooter%]
 

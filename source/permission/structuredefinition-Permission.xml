@@ -146,6 +146,20 @@
 				<map value="Consent.provision.period"/>
 			</mapping>
 		</element>
+		<element id="Permission.justification">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+				<valueCode value="right"/>
+			</extension>
+			<path value="Permission.justification"/>
+			<short value="The asserted justification for using the data"/>
+			<definition value="The asserted justification for using the data."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
 		<element id="Permission.justification.basis">
 			<path value="Permission.justification.basis"/>
 			<short value="The regulatory grounds upon which this Permission builds"/>
@@ -169,17 +183,6 @@
 				<map value="Consent.regulatoryBasis"/>
 			</mapping>
 		</element>
-		<element id="Permission.justification">
-			<path value="Permission.justification"/>
-			<short value="The asserted justification for using the data"/>
-			<definition value="The asserted justification for using the data."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
 		<element id="Permission.justification.evidence">
 			<path value="Permission.justification.evidence"/>
 			<short value="Justifing rational"/>
@@ -198,7 +201,7 @@
 		</element>
 		<element id="Permission.combining">
 			<path value="Permission.combining"/>
-			<short value="deny-overrides | permit-overrides | ordered-deny-overrides | deny-unless-permit | permit-unless-deny"/>
+			<short value="deny-overrides | permit-overrides | ordered-deny-overrides | ordered-permit-overrides | deny-unless-permit | permit-unless-deny"/>
 			<definition value="Defines a procedure for arriving at an access decision given the set of rules."/>
 			<comment value="see [XACML Combining Rules](http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-cos01-en.html#_Toc325047267)"/>
 			<min value="1"/>
@@ -223,7 +226,7 @@
             <valueString value="rule" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="right" />
+            <valueCode value="down" />
         </extension>
         <path value="Permission.rule" />
         <short value="Constraints to the Permission" />
@@ -262,6 +265,9 @@
 			</mapping>
 		</element>
 		<element id="Permission.rule.data">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+				<valueCode value="right"/>
+			</extension>
 			<path value="Permission.rule.data"/>
 			<short value="The selection criteria to identify data that is within scope of this provision"/>
 			<definition value="A description or definition of which activities are allowed to be done on the data."/>
@@ -273,6 +279,9 @@
 			<isSummary value="true"/>
 		</element>
 		<element id="Permission.rule.data.resource">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+				<valueCode value="down"/>
+			</extension>
 			<path value="Permission.rule.data.resource"/>
 			<short value="Explicit FHIR Resource references"/>
 			<definition value=""/>
@@ -367,6 +376,9 @@
 			</mapping>
 		</element>
 		<element id="Permission.rule.activity">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+				<valueCode value="down"/>
+			</extension>
 			<path value="Permission.rule.activity"/>
 			<short value="A description or definition of which activities are allowed to be done on the data"/>
 			<definition value="A description or definition of which activities are allowed to be done on the data."/>

@@ -46,7 +46,7 @@
       </DocumentReference>
   </contained>
   <contained>
-	<RequestGroup>
+	<RequestOrchestration>
 		  <action>
 			<title value="Healthwise Search Results"/>
 			<!-- NOTE: This is commented out until the structures are changed to accommodate this (see tracker #10257)
@@ -55,7 +55,7 @@
 			</documentation>
 			-->
 		  </action>
-	</RequestGroup>
+	</RequestOrchestration>
   </contained>
   <requestId value="InfoButtonRequest2"/>
   <module>

@@ -67,7 +67,7 @@
       </type>
       <subType>
         <coding>
-          <system value="http://hl7.org/fhir/resource-types"/>
+          <system value="http://hl7.org/fhir/fhir-types"/>
           <code value="ServiceRequest"/>
         </coding>
       </subType>
@@ -86,7 +86,7 @@
       </type>
       <subType>
         <coding>
-          <system value="http://hl7.org/fhir/resource-types"/>
+          <system value="http://hl7.org/fhir/fhir-types"/>
           <code value="DiagnosticReport"/>
         </coding>
       </subType>

@@ -144,7 +144,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="If an include parameter is specified, a limit may also be specified to limit the number of source Observations returned.  If the include paramter is absent or equal to &quot;false&quot; the limit parameter SHALL be ignored by the server"/>
+    <documentation value="If an include parameter is specified, a limit may also be specified to limit the number of source Observations returned.  If the include parameter is absent or equal to &quot;false&quot; the limit parameter SHALL be ignored by the server"/>
     <type value="positiveInt"/>
   </parameter>
   <parameter>

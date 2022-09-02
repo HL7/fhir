@@ -11,6 +11,6 @@
   <code value="mothersMaidenName"/>
   <base value="Patient"/>
   <type value="string"/>
-  <expression value="Patient.extension(&#39;http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName&#39;)"/>
+  <expression value="Patient.extension(&#39;http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName&#39;).value"/>
   <xpathUsage value="normal"/>
 </SearchParameter>

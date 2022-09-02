@@ -21,7 +21,7 @@
     <valueCode value="cqi"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value="Delete the report if it is"/>
+    <valueCode value="Delete the instance if it is in error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
   <version value="5.0.0"/>
@@ -803,7 +803,7 @@
       </extension>
       <path value="MeasureReport.evaluatedResource"/>
       <short value="What data was used to calculate the measure score"/>
-      <definition value="A reference to a Bundle containing the Resources that were used in the calculation of this measure."/>
+      <definition value="A reference to a Resource that was used in the calculation of this measure, or to a Bundle containing multiple resources."/>
       <min value="0"/>
       <max value="*"/>
       <type>
