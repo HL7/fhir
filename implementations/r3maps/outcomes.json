@@ -19201,11 +19201,11 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationAdministration.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationAdministration.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.contained.form.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
         "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.status is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationAdministration.medicationReference.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.medicationReference.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.medicationReference.contained.form.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)"
       ]
     },
@@ -19222,10 +19222,10 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationAdministration.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationAdministration.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.status is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationAdministration.medicationReference.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+        "ERROR @ MedicationAdministration.medicationReference.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "medadmin0308": {
@@ -19239,11 +19239,11 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationAdministration.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationAdministration.contained.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.contained.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationAdministration.contained.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationAdministration.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationAdministration.status is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationAdministration.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationAdministration.medicationReference.contained.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationAdministration.medicationReference.contained.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationAdministration.medicationReference.contained.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
@@ -19302,13 +19302,13 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationDispense.contained.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.contained.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.contained.extension[3]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.contained.extension[3].extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.contained.extension[3].extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content.amount is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationDispense.medicationReference.contained.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.medicationReference.contained.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.medicationReference.contained.extension[3]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.medicationReference.contained.extension[3].extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19410,9 +19410,9 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationDispense.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationDispense.medicationReference.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationDispense.subject.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.performer.onBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
@@ -19438,10 +19438,10 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationDispense.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationDispense.contained.form.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
         "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationDispense.medicationReference.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationDispense.medicationReference.contained.form.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
         "WARNING @ MedicationDispense.subject.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.performer.onBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)"
@@ -19466,10 +19466,10 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationDispense.contained.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.contained.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationDispense.medicationReference.contained.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.medicationReference.contained.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.performer.onBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
@@ -19522,9 +19522,9 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationDispense.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationDispense.medicationReference.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.performer.onBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
@@ -19549,9 +19549,9 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationDispense.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationDispense.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationDispense.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationDispense.medicationReference.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationDispense.medicationReference.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationDispense.performer.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationDispense.performer.onBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     }
@@ -19563,7 +19563,7 @@
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.status is unknown, and not allowed here (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension[2]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[3]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationOTC is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[4]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[5]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19578,7 +19578,7 @@
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ Medication.manufacturer.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     },
@@ -19587,7 +19587,7 @@
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[3]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[3].extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19600,7 +19600,7 @@
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[3]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[3].extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19613,7 +19613,7 @@
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[3]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[3].extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19626,7 +19626,7 @@
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ Medication.manufacturer.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ Medication.form.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)"
       ]
@@ -19636,7 +19636,7 @@
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[3]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[3].extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19649,9 +19649,9 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ Medication.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.contained[1].extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.contained[1].extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ Medication.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[3]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[3].extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19664,7 +19664,7 @@
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ Medication.manufacturer.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     },
@@ -19673,7 +19673,7 @@
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ Medication.ingredient.itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     },
@@ -19682,7 +19682,7 @@
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ Medication.ingredient.itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     },
@@ -19691,7 +19691,7 @@
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ Medication.ingredient.itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     },
@@ -19699,21 +19699,21 @@
       "execution": true,
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
-        "ERROR @ Medication.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "med0314": {
       "execution": true,
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
-        "ERROR @ Medication.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "med0315": {
       "execution": true,
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
-        "ERROR @ Medication.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "med0316": {
@@ -19721,7 +19721,7 @@
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ Medication.ingredient.itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     },
@@ -19729,14 +19729,14 @@
       "execution": true,
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
-        "ERROR @ Medication.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "med0318": {
       "execution": true,
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
-        "ERROR @ Medication.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
@@ -19744,7 +19744,7 @@
       "execution": true,
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
-        "ERROR @ Medication.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "med0320": {
@@ -19752,7 +19752,7 @@
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ Medication.ingredient.itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     },
@@ -19761,7 +19761,7 @@
       "round-trip": "properties differ at : missing property extension",
       "r4.errors": [
         "WARNING @ Medication.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ Medication.ingredient.itemReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)"
       ]
     },
@@ -19774,7 +19774,7 @@
       "r4.errors": [
         "WARNING @ Medication.contained[1]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
         "WARNING @ Medication.contained[2]: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ Medication.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ Medication.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[3]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ Medication.extension[3].extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19887,10 +19887,10 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationRequest.requester.onBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "medrx0316": {
@@ -19898,11 +19898,11 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationRequest.contained.form.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationRequest.requester.onBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationRequest.medicationReference.contained.form.coding.display: value should not start or finish with whitespace (src \u003d InstanceValidator)"
       ]
     },
@@ -19942,14 +19942,14 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.contained.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.contained.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.contained.extension[3]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.contained.extension[3].extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.contained.extension[3].extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content.amount is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationRequest.requester.onBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.medicationReference.contained.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.medicationReference.contained.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.medicationReference.contained.extension[3]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.medicationReference.contained.extension[3].extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.content is unknown, and not allowed here (src \u003d InstanceValidator)",
@@ -19969,11 +19969,11 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.contained.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.contained.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationRequest.requester.onBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.medicationReference.contained.extension[1]: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.medicationReference.contained.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.medicationReference.contained.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.package.container is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
@@ -20006,10 +20006,10 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationRequest.requester.onBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "medrx0329": {
@@ -20017,10 +20017,10 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationRequest.requester.onBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "medrx0330": {
@@ -20036,10 +20036,10 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationRequest.requester.onBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "medrx0332": {
@@ -20075,10 +20075,10 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationRequest.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationRequest.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationRequest.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationRequest.requester.onBehalfOf is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationRequest.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+        "ERROR @ MedicationRequest.medicationReference.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "medrx002": {
@@ -20094,11 +20094,11 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationStatement.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationStatement.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationStatement.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationStatement.status is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationStatement.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationStatement.taken is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationStatement.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationStatement.medicationReference.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+        "ERROR @ MedicationStatement.medicationReference.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "example002": {
@@ -20106,11 +20106,11 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationStatement.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationStatement.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationStatement.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationStatement.status is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationStatement.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationStatement.taken is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationStatement.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationStatement.medicationReference.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+        "ERROR @ MedicationStatement.medicationReference.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     },
     "example003": {
@@ -20146,11 +20146,11 @@
       "round-trip": "properties differ at .contained[0]: missing property extension",
       "r4.errors": [
         "WARNING @ MedicationStatement.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationStatement.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
+        "ERROR @ MedicationStatement.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationStatement.extension[1]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationStatement.status is unknown, and not allowed here (src \u003d InstanceValidator)",
         "ERROR @ MedicationStatement.extension[2]: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationStatement.taken is unknown, and not allowed here (src \u003d InstanceValidator)",
         "WARNING @ MedicationStatement.medicationReference.contained: A resource should have narrative for robust management [text.div.exists()] (src \u003d InstanceValidator)",
-        "ERROR @ MedicationStatement.medicationReference.contained.extension: The extension hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
+        "ERROR @ MedicationStatement.medicationReference.contained.extension: The extension http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand is unknown, and not allowed here (src \u003d InstanceValidator)"
       ]
     }
   },

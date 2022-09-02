@@ -1,7 +1,7 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <a name="contained"></a>
-<h2>Contained Resources</h2>
+<h2>Using Contained Resources</h2>
 
 <p>The 'contained' mechanism is not permitted as a means of reducing server calls. I.e., It is not allowed to package a set of resources as one base resource and a set of contained resources to allow multiple creates or updates to happen in a single transaction, nor is it permitted to use 'contained' as a means of retrieving multiple resources in a single 'read'.</p>
 <p>'contained' is <strong>only</strong> for use when there is a need to reference another resource, but the target resource does not have any independence from the referencing resource. Most commonly, this occurs when not enough information is known to allow uniquely identifying the target resource. For example, if a surgeon is known only as &quot;Dr. Smith&quot; (no full name, no license number, etc.), then there would be no way of determining which of the candidate &quot;Dr. Smith&quot; practitioners was being referenced. In that situation, it would be reasonable for the Procedure to have a 'contained' reference to the Practitioner.</p>

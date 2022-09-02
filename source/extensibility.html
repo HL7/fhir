@@ -55,7 +55,7 @@ that must be met as part of their use and definition.
 <a name="extension"></a>
 <h2>Extension Element</h2>
 <p>
-Every resource or data type element may includes one or more "extension" child elements. The extension is either <i>simple</i> or <i>complex</i>. Simple extensions have only a value and no nested extensions. Complex extensions contain one or more nested extensions and no value. An extension can not have both a value and nested extensions.
+Every resource or datatype element may includes one or more "extension" child elements. The extension is either <i>simple</i> or <i>complex</i>. Simple extensions have only a value and no nested extensions. Complex extensions contain one or more nested extensions and no value. An extension can not have both a value and nested extensions.
 </p>
 <p>The Extension definition is shown below:</p>
 <%dt Extension 1%>
@@ -65,7 +65,7 @@ Notes:
 <ul>
  <li>The <code>url</code> is a mandatory attribute / property and identifies a retrievable <a href="defining-extensions.html">extension definition</a> that defines the content and meaning of the extension</li>
  <li>Extensions are not allowed on <code>Extension.url</code> or on <code>Element.id</code>; see <a href="elementdefinition-definitions.html#ElementDefinition.representation">ElementDefinition.representation</a> for background</li>
- <li>The <code>url</code> SHALL be a URL, not a URN (e.g. not an OID or a UUID), and it SHALL be the canonical URL of a StructureDefinition that defines the extension. Except for child extensions defined within complex extensions, the URL SHALL be an absolute URL. </li>
+ <li>The <code>url</code> SHALL be a URL, not a URN (e.g. not an OID or a UUID), and it SHALL be a reference to the canonical URL of a StructureDefinition that defines the extension. Except for child extensions defined within complex extensions, the URL SHALL be an absolute URL. </li>
  <li>The structure definitions for the extension SHOULD be available to consumers of an instance.  The preferred mechanisms for achieving this availability are the direct resolvability of the extension's canonical URL and/or the publishing of the extension definition on a registry that is available and known to those systems that will be consuming the instances containing the extension</li>
  <li>An extension SHALL have either a value (i.e. a value[x] element) or sub-extensions, but not both. If present, the value[x] element SHALL have content (value attribute or other elements)</li>
  <li>If it is not safe for an application processing the content of the resource to ignore the extension it SHALL be represented using a <a href="#isModifier">Modifier Extension</a> rather than an <code>extension</code> element. 'Not safe' means that the extension causes information in other elements within the resource to be interpretted in a way that is not consistent with their base definition. See examples <a href="#modifierExtension">below</a>.</li>
@@ -116,7 +116,7 @@ Making the types explicit in the representation means that all systems can read 
 definition of the extension.
 </p>
 <p>
-Note that the JSON representation for extensions on primitive data types is handled
+Note that the JSON representation for extensions on primitive datatypes is handled
 differently. See <a href="json.html#primitive">Representing primitive types in JSON</a> for further information.
 </p>
 <p>
@@ -264,13 +264,13 @@ by a fake organization, and not appropriate for re-use by implementers.
 </div>
 
 <a name="primitives"></a>
-<h3>Extensions on Primitive Data Types</h3>
+<h3>Extensions on Primitive Datatypes</h3>
 
 <p>
-Primitive data types can carry extensions. The extensions may appear in place of the value of the primitive data type. 
+Primitive datatypes can carry extensions. The extensions may appear in place of the value of the primitive datatype. 
 The <a href="xml.html#primitive">XML</a> and <a href="json.html#primitive">JSON</a> pages describe how this 
 looks like in those respective formats.
-Implementers should be aware that a mandatory primitive data type (i.e. mininum cardinality=1) may
+Implementers should be aware that a mandatory primitive datatype (i.e. mininum cardinality=1) may
 be present with extensions but no value. Type use case are extensions such as 
 <a href="extension-data-absent-reason.html">DataAbsentReason</a>,
 <a href="extension-iso21090-nullflavor.html">nullFlavor</a> and
@@ -281,7 +281,7 @@ However, the use of an extension such as <a href="extension-data-absent-reason.h
 cannot be used to bypass a required binding requirements.
 </p>
 <p>
-Note that this restriction also applies to extensible bindings on Coding and CodeableConcept data types.
+Note that this restriction also applies to extensible bindings on Coding and CodeableConcept datatypes.
 The use of an extension such as <a href="extension-data-absent-reason.html">DataAbsentReason</a> 
 cannot be used to bypass a required or extensible binding requirements.  For example, if a value set includes
 the concept of "unknown", then a <a href="extension-data-absent-reason.html">DataAbsentReason</a>  of "unknown" 
@@ -318,9 +318,9 @@ Implementers who are introducing an extension and are uncertain whether the exte
 </p>
 <p>
 This specification allows for such modifier elements to be included at the base of a domain resource, in any elements
-that do not have a data type (e.g. the elements that correspond to classes in the resource UML
-diagrams), and on a <a href="datatypes.html#modifiers">few specially selected data types</a>. 
-Other data types and elements inside data types SHALL NOT have modifier extensions, 
+that do not have a datatype (e.g. the elements that correspond to classes in the resource UML
+diagrams), and on a <a href="datatypes.html#modifiers">few specially selected datatypes</a>. 
+Other datatypes and elements inside datatypes SHALL NOT have modifier extensions, 
 and extensions SHALL NOT have modifier extensions internally (except for the reusable structures
 allowed to appear in extensions, listed above).
 </p>
@@ -503,7 +503,7 @@ of modifier extensions within instances that comply with the implementation guid
 In some cases, implementers might find that they do not have appropriate data for an
 element with minimum cardinality = 1. In this case, the element must be present, but
 unless the resource or a profile on it has made the actual value of the primitive
-data type mandatory, it is possible to provide an extension that explains why the
+datatype mandatory, it is possible to provide an extension that explains why the
 primitive value is not present:
 </p>
 <pre class="xml">
@@ -516,14 +516,14 @@ primitive value is not present:
 <p>
 In this example, instead of a value, a <a href="general-extensions.html">data missing code</a> is provided. Note that
 it is not required that this particular extension be used. This extension
-is <b>not</b> a modifier extension, because the primitive data type has no
+is <b>not</b> a modifier extension, because the primitive datatype has no
 value.
 </p>
 <p>
 It is not valid to create a fictional piece of data for the primitive value,
 and then add an extension indicating that the data has been constructed
 to meet the data rules. This would be both a bad idea as well as a modifier
-extension, which is not allowed on simple data types.
+extension, which is not allowed on simple datatypes.
 </p>
 
 <a name="exchange"></a>

@@ -2,9 +2,9 @@
 <MolecularSequence xmlns="http://hl7.org/fhir">
     <id value="example"/>
     <type value="dna"/>
-    <patient>
+    <subject>
         <reference value="Patient/example"/>
-    </patient>
+    </subject>
     <formatted>
         <contentType value="application/json"/>
         <url value="http://grch37.rest.ensembl.org/ga4gh/variants/3:rs1333049?content-type=application/json"/>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="measure-definition-example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cqi"/>
+  </extension>
+  <url value="http://terminology.hl7.org/CodeSystem/measure-definition-example"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="MeasureDefinitionExample"/>
+  <title value="MeasureDefinitionExample"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="Clinical Quality Information Workgroup"/>
+  <description value="Example Measure Definitions for the Measure Resource."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/measure-definition-example"/>
+  <content value="complete"/>
+  <concept>
+    <code value="screening"/>
+    <display value="Screening"/>
+    <definition value="Completion of a clinical or diagnostic tool used to identify people at risk of developing or having a certain disease or condition, even in the absence of symptoms."/>
+  </concept>
+  <concept>
+    <code value="standardized-depression-screening-tool"/>
+    <display value="Standardized Depression Screening Tool"/>
+    <definition value="A normalized and validated depression screening tool developed for the patient population in which it is being utilized."/>
+  </concept>
+</CodeSystem>

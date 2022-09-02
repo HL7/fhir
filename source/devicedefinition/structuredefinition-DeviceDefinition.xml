@@ -60,9 +60,6 @@
   <derivation value="specialization"/>
   <differential>
     <element id="DeviceDefinition">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,0"/>
-      </extension>
       <path value="DeviceDefinition"/>
       <short value="An instance of a medical-related component of a medical device"/>
       <definition value="The characteristics, operational status and capabilities of a medical-related component of a medical device."/>
@@ -99,9 +96,6 @@
       </mapping>
     </element>
     <element id="DeviceDefinition.udiDeviceIdentifier">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="600,0"/>
-      </extension>
       <path value="DeviceDefinition.udiDeviceIdentifier"/>
       <short value="Unique Device Identifier (UDI) Barcode string"/>
       <definition value="Unique device identifier (UDI) assigned to device label or package.  Note that the Device may include multiple udiCarriers as it either may include just the udiCarrier for the jurisdiction it is sold, or for multiple jurisdictions it could have been sold."/>
@@ -213,9 +207,6 @@
       </mapping>
     </element>
     <element id="DeviceDefinition.deviceName">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="350,0"/>
-      </extension>
       <path value="DeviceDefinition.deviceName"/>
       <short value="The name or names of the device as given by the manufacturer"/>
       <definition value="The name or names of the device as given by the manufacturer."/>
@@ -326,9 +317,6 @@
       </type>
     </element>
     <element id="DeviceDefinition.specialization">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="600,170"/>
-      </extension>
       <path value="DeviceDefinition.specialization"/>
       <short value="The capabilities supported on a  device, the standards to which the device conforms for a particular purpose, and used for the communication"/>
       <definition value="The capabilities supported on a  device, the standards to which the device conforms for a particular purpose, and used for the communication."/>
@@ -606,9 +594,6 @@
       </type>
     </element>
     <element id="DeviceDefinition.property">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="600,240"/>
-      </extension>
       <path value="DeviceDefinition.property"/>
       <short value="The potential, valid configuration settings of a device, e.g., regulation status, time properties"/>
       <definition value="The potential, valid configuration settings of a device, e.g., regulation status, time properties."/>
@@ -785,9 +770,6 @@
       <isSummary value="true"/>
     </element>
     <element id="DeviceDefinition.material">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="350,240"/>
-      </extension>
       <path value="DeviceDefinition.material"/>
       <short value="A substance used to create the material(s) of which the device is made"/>
       <definition value="A substance used to create the material(s) of which the device is made."/>
@@ -931,9 +913,6 @@
 
 
     <element id="DeviceDefinition.correctiveAction">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="350,0"/>
-      </extension>
       <path value="DeviceDefinition.correctiveAction"/>
       <short value="Tracking of latest field safety corrective action"/>
       <definition value="Tracking of latest field safety corrective action."/>

@@ -16,4 +16,16 @@
       <display value="General"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Terminology Server Base TerminologyCapabilities"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="terminologycapabilities-terminology-server"/>
+    </extension>
+    <item>
+      <reference value="TerminologyCapabilities/terminology-server"/>
+      <display value="TerminologyServer"/>
+    </item>
+  </entry>
 </List>

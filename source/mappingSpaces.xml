@@ -118,7 +118,7 @@
 	</space>
 	<space>
 		<url>http://nema.org/dicom</url>
-		<link>http://nema.org/dicom</link>
+		<link>https://www.dicomstandard.org/current</link>
 		<columnName>DICOM Mapping</columnName>
 		<title>DICOM Tag Mapping</title>
 		<id>dicom</id>

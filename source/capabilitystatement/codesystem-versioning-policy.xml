@@ -133,6 +133,6 @@
   <concept>
     <code value="versioned-update"/>
     <display value="VersionId tracked fully"/>
-    <definition value="VersionId must be correct for updates (server) or will be specified (If-match header) for updates (client)."/>
+    <definition value="Supports version-aware updates (server) or will be specified (If-match header) for updates (client)."/>
   </concept>
 </CodeSystem>
