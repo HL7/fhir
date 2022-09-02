@@ -56,7 +56,7 @@
         <description value="Specified date occurs within period specified by CarePlan.activity.plannedActivityDetail.scheduled[x]"/>
         <code value="activity-scheduled-date"/>
         <type value="date"/>
-        <expression value="CarePlan.activity.plannedActivityDetail.scheduled.as(Timing) | CarePlan.activity.plannedActivityDetail.scheduled.as(Period)"/>
+        <expression value="CarePlan.activity.plannedActivityDetail.scheduled.ofType(Timing) | CarePlan.activity.plannedActivityDetail.scheduled.ofType(Period)"/>
         <xpath value="f:CarePlan/f:activity/f:plannedActivityDetail/f:scheduledTiming | f:CarePlan/f:activity/f:plannedActivityDetail/f:scheduledPeriod | f:CarePlan/f:activity/f:plannedActivityDetail/f:scheduledString"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
@@ -76,7 +76,7 @@
         <description value="When activity is to occur"/>
         <code value="activity-scheduled-string"/>
         <type value="string"/>
-        <expression value="CarePlan.activity.plannedActivityDetail.scheduled.as(string)"/>
+        <expression value="CarePlan.activity.plannedActivityDetail.scheduled.ofType(string)"/>
         <xpath value="f:CarePlan/f:activity/f:plannedActivityDetail/f:scheduledTiming | f:CarePlan/f:activity/f:plannedActivityDetail/f:scheduledPeriod | f:CarePlan/f:activity/f:plannedActivityDetail/f:scheduledString"/>
         <xpathUsage value="normal"/>
       </SearchParameter>

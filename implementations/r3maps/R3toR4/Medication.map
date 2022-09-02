@@ -8,7 +8,7 @@ imports "http://hl7.org/fhir/StructureMap/*3to4"
 group Medication(source src : MedicationR3, target tgt : Medication) extends DomainResource <<type+>> {
   src.code -> tgt.code;
   src.status as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.status',  vt.value = v;
-  src.isBrand as v ->  tgt.extension as vt,  vt.url = 'hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand',  vt.value = v;
+  src.isBrand as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand',  vt.value = v;
   src.isOverTheCounter as v ->  tgt.extension as vt,  vt.url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationOTC',  vt.value = v;
   src.manufacturer -> tgt.manufacturer;
   src.form -> tgt.form;

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="biologicallyderived-product-typecodes"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/biologicallyderived-product-typecodes"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="BiologicallyDerivedProductTypeCodes"/>
+  <title value="BiologicallyDerivedProductTypeCodes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Biologically Derived Product Type Codes."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-typecodes"/>
+  <content value="complete"/>
+  <concept>
+    <code value="collectiontype"/>
+    <display value="Collection Type"/>
+    <definition value="See https://www.isbt128.org/uri/CollectionType"/>
+  </concept>
+  <concept>
+    <code value="aborhd"/>
+    <display value="ABORhD"/>
+    <definition value="See https://www.isbt128.org/uri/ABORhD"/>
+  </concept>
+  <concept>
+    <code value="singleeuropeancode"/>
+    <display value="Single European Code"/>
+    <definition value="See https://www.isbt128.org/uri/SingleEuropeanCode"/>
+  </concept>
+  <concept>
+    <code value="redcellantigen"/>
+    <display value="Red Cell Antigen"/>
+    <definition value="See https://www.isbt128.org/uri/RedCellAntigen"/>
+  </concept>
+</CodeSystem>

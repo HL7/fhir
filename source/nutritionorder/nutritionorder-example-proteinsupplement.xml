@@ -7,10 +7,10 @@ edited by Eric Haas Health eData Inc
 		<value value="123"/>
 	</identifier>
 	<status value="active"/><intent value="order"/>
-	<patient>
+	<subject>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>
-	</patient>
+	</subject>
 	<encounter>
 		<reference value="Encounter/example"/>
 		<display value="Inpatient"/>
@@ -22,6 +22,7 @@ edited by Eric Haas Health eData Inc
 	</orderer>
 	<supplement>
 		<type>
+			<concept>
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="442991000124104"/>
@@ -33,15 +34,18 @@ edited by Eric Haas Health eData Inc
 				<display value="High Protein Powder"/>
 			</coding>
 			<text value="High Protein Powder"/>
+		</concept>
 		</type>
 		<productName value="Beneprotein"/>
 		<schedule>
+			<timing>
 			<repeat>
         <boundsPeriod>
           <start value="2015-02-10"/>
         </boundsPeriod>
 				<when value="C"/>
 			</repeat>
+		</timing>
 		</schedule>
 		<quantity>
 			<value value="1"/>

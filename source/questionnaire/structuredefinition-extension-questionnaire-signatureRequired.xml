@@ -8,7 +8,7 @@
 		<valueInteger value="1"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/questionnaire-signatureRequired"/>
-	<version value="4.6.0"/>
+	<version value="5.0.0"/>
 	<name value="signatureRequired"/>
 	<status value="draft"/>
 	<date value="2013-07-04"/>
@@ -20,7 +20,7 @@
 		</telecom>
 	</contact>
 	<description value="Indicates that a signature (of the specified type) is needed when completing the QuestionnaireResponse."/>
-	<fhirVersion value="4.6.0"/>
+	<fhirVersion value="5.0.0"/>
 	<mapping>
 		<identity value="rim"/>
 		<uri value="http://hl7.org/v3"/>
@@ -35,6 +35,10 @@
 	<context>
 		<type value="element"/>
 		<expression value="Questionnaire.item"/>
+	</context>
+	<context>
+		<type value="element"/>
+		<expression value="ElementDefinition"/>
 	</context>
 	<type value="Extension"/>
 	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>

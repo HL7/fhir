@@ -3,23 +3,33 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="ValueSet-core"/>
   <version value="0.01"/>
-  <name value="Shareable ValueSet"/>
-  <title value="Shareable ValueSet"/>
+  <name value="ValueSetCore"/>
+  <title value="ValueSet Core"/>
   <status value="draft"/>
   <date value="1970-01-01T10:00:00+10:00"/>
   <publisher value="HL7"/>
-  <description value="Enforces the minimum information set for the value set metadata required by HL7 and other organizations that share and publish value sets"/>
+  <description value="Core profiles and extensions defined for the ValueSet resource"/>
   <definition>
     <resource>
       <reference>
         <reference value="StructureDefinition/shareablevalueset"/>
       </reference>
     </resource>
-		<resource>
-	      <reference>
-	        <reference value="StructureDefinition/vsd-alignedvalueset"/>
-	      </reference>
-	    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/publishablevalueset"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/computablevalueset"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/executablevalueset"/>
+      </reference>
+    </resource>
     <resource>
       <reference>
         <reference value="StructureDefinition/valueset-concept-definition"/>
@@ -53,11 +63,6 @@
     <resource>
       <reference>
         <reference value="StructureDefinition/valueset-workflowStatusDescription"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/valueset-status-activityStatusDate"/>
       </reference>
     </resource>
     <resource>

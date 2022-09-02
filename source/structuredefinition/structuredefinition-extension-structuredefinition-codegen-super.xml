@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/structuredefinition-codegen-super"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="codegen-super"/>
   <status value="draft"/>
   <date value="2014-01-31"/>
@@ -21,7 +21,7 @@
     </telecom>
   </contact>
   <description value="A specific instruction to use an intermediate parent class when generating code for the classes."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

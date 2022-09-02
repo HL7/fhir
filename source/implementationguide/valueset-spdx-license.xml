@@ -3,21 +3,8 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="spdx-license"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <ul>
-        <li>Include all codes defined in 
-          <a href="codesystem-spdx-license.html">
-            <code>http://hl7.org/fhir/spdx-license</code>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -32,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.1026"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="SPDXLicense"/>
   <title value="SPDXLicense"/>
   <status value="draft"/>
@@ -49,7 +36,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The license that applies to an Implementation Guide (using an SPDX license Identifiers, or &#39;not-open-source&#39;). The binding is required but new SPDX license Identifiers are allowed to be used (https://spdx.org/licenses/)."/>
+  <description value="The license that applies to an Implementation Guide (using an SPDX license Identifiers, or 'not-open-source'). The binding is required but new SPDX license Identifiers are allowed to be used (https://spdx.org/licenses/)."/>
   <immutable value="true"/>
   <compose>
     <include>

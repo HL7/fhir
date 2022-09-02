@@ -9,13 +9,13 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-expression"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="expression"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
   <description value="An expression that provides an alternative definition of the content of the value set (compose). There are two different ways to use this expression extension: If both an expression (this extension) and a compose element is present, the compose is understood to the make the same statement as the expression. If there is no compose, the expression is the only definition of the value set, and the value set can only be processed by a server that understands the expression syntax, the expression is computable."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

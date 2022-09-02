@@ -3,113 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="report-action-result-codes"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/report-action-result-codes defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">pass
-            
-            <a name="report-action-result-codes-pass"> </a>
-          
-          </td>
-          
-          <td>Pass</td>
-          
-          <td>The action was successful.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">skip
-            
-            <a name="report-action-result-codes-skip"> </a>
-          
-          </td>
-          
-          <td>Skip</td>
-          
-          <td>The action was skipped.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">fail
-            
-            <a name="report-action-result-codes-fail"> </a>
-          
-          </td>
-          
-          <td>Fail</td>
-          
-          <td>The action failed.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">warning
-            
-            <a name="report-action-result-codes-warning"> </a>
-          
-          </td>
-          
-          <td>Warning</td>
-          
-          <td>The action passed but with warnings.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">error
-            
-            <a name="report-action-result-codes-error"> </a>
-          
-          </td>
-          
-          <td>Error</td>
-          
-          <td>The action encountered a fatal error and the engine was unable to process.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -124,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.721"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="TestReportActionResult"/>
   <title value="TestReportActionResult"/>
   <status value="draft"/>

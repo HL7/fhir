@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="Requirements-core"/>
+  <version value="0.01"/>
+  <name value="Requirements Profiles and Extensions"/>
+  <title value="Requirements Profiles and Extensions"/>
+  <status value="draft"/>
+  <date value="2022-01-11T10:00:00+10:00"/>
+  <publisher value="HL7"/>
+  <description value="Defines profiles and extensions used with or related to the Requirements resource"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/satisfies-requirement"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>

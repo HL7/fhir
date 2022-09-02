@@ -8,7 +8,7 @@
 		<valueInteger value="1"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix"/>
-	<version value="4.6.0"/>
+	<version value="5.0.0"/>
 	<name value="optionPrefix"/>
 	<status value="draft"/>
 	<date value="2013-07-04"/>
@@ -20,7 +20,7 @@
 		</telecom>
 	</contact>
 	<description value="The label to list in front of a code when presenting a list of possible values in a questionnaire-like fashion."/>
-	<fhirVersion value="4.6.0"/>
+	<fhirVersion value="5.0.0"/>
 	<mapping>
 		<identity value="rim"/>
 		<uri value="http://hl7.org/v3"/>

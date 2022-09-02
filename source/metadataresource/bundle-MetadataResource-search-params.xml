@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
   <id value="MetadataResource-search-params"/>
   <entry>
     <resource>
@@ -31,8 +31,8 @@
         <description value="A resource that the {{title}} is composed of"/>
         <code value="composed-of"/>
         <type value="reference"/>
-        <expression value="{{name}}.relatedArtifact.where(type=&#39;composed-of&#39;).resource"/>
-        <xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value=&#39;composed-of&#39;]/f:resource"/>
+        <expression value="{{name}}.relatedArtifact.where(type='composed-of').resource"/>
+        <xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value='composed-of']/f:resource"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -45,8 +45,8 @@
         <description value="A resource that the {{title}} depends on"/>
         <code value="depends-on"/>
         <type value="reference"/>
-        <expression value="{{name}}.relatedArtifact.where(type=&#39;depends-on&#39;).resource"/>
-        <xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value=&#39;depends-on&#39;]/f:resource"/>
+        <expression value="{{name}}.relatedArtifact.where(type='depends-on').resource"/>
+        <xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value='depends-on']/f:resource"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -59,8 +59,8 @@
         <description value="A resource that the {{title}} is derived from"/>
         <code value="derived-from"/>
         <type value="reference"/>
-        <expression value="{{name}}.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
-        <xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
+        <expression value="{{name}}.relatedArtifact.where(type='derived-from').resource"/>
+        <xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value='derived-from']/f:resource"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -73,8 +73,8 @@
         <description value="The predecessor of the {{title}}"/>
         <code value="predecessor"/>
         <type value="reference"/>
-        <expression value="{{name}}.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
-        <xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
+        <expression value="{{name}}.relatedArtifact.where(type='predecessor').resource"/>
+        <xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value='predecessor']/f:resource"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -87,8 +87,8 @@
         <description value="The successor of the {{title}}"/>
         <code value="successor"/>
         <type value="reference"/>
-        <expression value="{{name}}.relatedArtifact.where(type=&#39;successor&#39;).resource"/>
-        <xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value=&#39;successor&#39;]/f:resource"/>
+        <expression value="{{name}}.relatedArtifact.where(type='successor').resource"/>
+        <xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value='successor']/f:resource"/>
       </SearchParameter>
     </resource>
   </entry>

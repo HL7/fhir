@@ -81,7 +81,7 @@
         </component>
         <component>
           <definition value="context-quantity"/>
-          <expression value="value.as(Quantity) | value.as(Range)"/>
+          <expression value="value.ofType(Quantity) | value.ofType(Range)"/>
         </component>
       </SearchParameter>
     </resource>
@@ -105,7 +105,7 @@
         </component>
         <component>
           <definition value="context"/>
-          <expression value="value.as(CodeableConcept)"/>
+          <expression value="value.ofType(CodeableConcept)"/>
         </component>
       </SearchParameter>
     </resource>
@@ -158,14 +158,14 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="CapabilityStatement.version"/>
+          <valueString value="CapabilityStatement.fhirVersion"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-fhirversion"/>
         <description value="The version of FHIR"/>
         <code value="fhirversion"/>
         <type value="token"/>
-        <expression value="CapabilityStatement.version"/>
-        <xpath value="f:CapabilityStatement/f:version"/>
+        <expression value="CapabilityStatement.fhirVersion"/>
+        <xpath value="f:CapabilityStatement/f:fhirVersion"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

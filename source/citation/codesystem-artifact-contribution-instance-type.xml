@@ -3,119 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="artifact-contribution-instance-type"/>
   <meta>
-    <lastUpdated value="2021-03-11T10:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/artifact-contribution-instance-type defines the following codes:</p>
-      
-      
-      <table class="codes">
-        
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">
-            
-            
-            <b>Code</b>
-          
-          
-          </td>
-          
-          
-          <td>
-            
-            
-            <b>Display</b>
-          
-          
-          </td>
-          
-          
-          <td>
-            
-            
-            <b>Definition</b>
-          
-          
-          </td>
-        
-        
-        </tr>
-        
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">reviewed
-            
-            
-            <a name="artifact-contribution-instance-type-reviewed"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Reviewed</td>
-          
-          
-          <td>Reviewed</td>
-        
-        
-        </tr>
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">approved
-            
-            
-            <a name="artifact-contribution-instance-type-approved"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Approved</td>
-          
-          
-          <td>Approved</td>
-        
-        
-        </tr>
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">edited
-            
-            
-            <a name="artifact-contribution-instance-type-edited"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Edited</td>
-          
-          
-          <td>Edited</td>
-        
-        
-        </tr>
-      
-      
-      </table>
-    
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -130,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ArtifactContributionInstanceType"/>
   <title value="ArtifactContributionInstanceType"/>
   <status value="draft"/>

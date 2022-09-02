@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
   <id value="PractitionerRole-search-params"/>
   <entry>
     <resource>
@@ -50,14 +50,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PractitionerRole.telecom(system=email)"/>
+          <valueString value="PractitionerRole.contact.telecom(system=email)"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-email"/>
         <description value="A value in an email contact"/>
         <code value="email"/>
         <type value="token"/>
-        <expression value="PractitionerRole.telecom.where(system=&#39;email&#39;)"/>
-        <xpath value="f:PractitionerRole/f:telecom[system/@value=&#39;email&#39;]"/>
+        <expression value="PractitionerRole.contact.telecom.where(system='email')"/>
+        <xpath value="f:PractitionerRole/f:contact/f:telecom[system/@value='email']"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -93,7 +93,7 @@
           <valueString value="PractitionerRole.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-identifier"/>
-        <description value="A practitioner&#39;s Identifier"/>
+        <description value="A practitioner's Identifier"/>
         <code value="identifier"/>
         <type value="token"/>
         <expression value="PractitionerRole.identifier"/>
@@ -150,14 +150,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PractitionerRole.telecom(system=phone)"/>
+          <valueString value="PractitionerRole.contact.telecom(system=phone)"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-phone"/>
         <description value="A value in a phone contact"/>
         <code value="phone"/>
         <type value="token"/>
-        <expression value="PractitionerRole.telecom.where(system=&#39;phone&#39;)"/>
-        <xpath value="f:PractitionerRole/f:telecom[system/@value=&#39;phone&#39;]"/>
+        <expression value="PractitionerRole.contact.telecom.where(system='phone')"/>
+        <xpath value="f:PractitionerRole/f:contact/f:telecom[system/@value='phone']"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -213,7 +213,7 @@
           <valueString value="PractitionerRole.healthcareService"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-service"/>
-        <description value="The list of healthcare services that this worker provides for this role&#39;s Organization/Location(s)"/>
+        <description value="The list of healthcare services that this worker provides for this role's Organization/Location(s)"/>
         <code value="service"/>
         <type value="reference"/>
         <expression value="PractitionerRole.healthcareService"/>
@@ -250,14 +250,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PractitionerRole.telecom"/>
+          <valueString value="PractitionerRole.contact.telecom"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-telecom"/>
         <description value="The value in any kind of contact"/>
         <code value="telecom"/>
         <type value="token"/>
-        <expression value="PractitionerRole.telecom"/>
-        <xpath value="f:PractitionerRole/f:telecom"/>
+        <expression value="PractitionerRole.contact.telecom"/>
+        <xpath value="f:PractitionerRole/f:contact/f:telecom"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

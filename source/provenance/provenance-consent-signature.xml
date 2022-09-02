@@ -5,16 +5,22 @@
 <Provenance xmlns="http://hl7.org/fhir"> 
   <id value="consent-signature"/>
   <target>
-    <reference value="Consent/consent-example"/>
+    <reference value="Consent/consent-example-basic/_history/1"/>
   </target>
  
   <!-- the provenance is recorded at the same time as 
     the resource - batched together -->
   <recorded value="2016-05-26T00:41:10-04:00"/>
+	<activity>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion"/>
+			<code value="AU"/>
+			<display value="authenticated"/>
+		</coding>
+	</activity> 
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>
- 
   <agent> 
     <role>
       <coding>

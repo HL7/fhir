@@ -27,7 +27,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="TestScript"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -85,8 +85,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
       </constraint>
       <mapping>
@@ -101,7 +101,7 @@
     <element id="TestScript.url">
       <path value="TestScript.url"/>
       <short value="Canonical identifier for this test script, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this test script when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this test script is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the test script is stored on different servers."/>
+      <definition value="An absolute URI that is used to identify this test script when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this test script is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the test script is stored on different servers."/>
       <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the test script to be referenced by a single globally unique identifier."/>
       <alias value="url"/>
@@ -110,6 +110,14 @@
       <alias value="identity"/>
       <min value="0"/>
       <max value="1"/>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
       <type>
         <code value="uri"/>
       </type>
@@ -152,7 +160,7 @@
       <path value="TestScript.version"/>
       <short value="Business version of the test script"/>
       <definition value="The identifier that is used to identify this version of the test script when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the test script author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different test script instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the test script with the format [url]|[version]."/>
+      <comment value="There may be different test script instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the test script with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -167,6 +175,25 @@
         <identity value="w5"/>
         <map value="FiveWs.version"/>
       </mapping>
+    </element>
+    <element id="TestScript.versionAlgorithm[x]">
+      <path value="TestScript.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+      <isSummary value="true"/>
     </element>
     <element id="TestScript.name">
       <path value="TestScript.name"/>
@@ -744,7 +771,7 @@
     <element id="TestScript.fixture.resource">
       <path value="TestScript.fixture.resource"/>
       <short value="Reference of the resource"/>
-      <definition value="Reference to the resource (containing the contents of the resource needed for operations)."/>
+      <definition value="Reference to the resource (containing the contents of the resource needed for operations). This is allowed to be a Parameters resource."/>
       <comment value="See http://build.fhir.org/resourcelist.html for complete list of resource types."/>
       <min value="0"/>
       <max value="1"/>
@@ -966,14 +993,14 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRDefinedType"/>
+          <valueString value="FHIRConcreteTypes"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
         <strength value="extensible"/>
         <description value="A list of all the concrete types defined in this version of the FHIR specification - Data Types and Resource Types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/concrete-fhir-types"/>
       </binding>
     </element>
     <element id="TestScript.setup.action.operation.label">
@@ -1466,18 +1493,18 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="uri"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRDefinedType"/>
+          <valueString value="FHIRConcreteType"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="A list of all the concrete types defined in this version of the FHIR specification - Data Types and Resource Types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/concrete-fhir-types"/>
       </binding>
     </element>
     <element id="TestScript.setup.action.assert.response">

@@ -252,6 +252,9 @@ fabric.properties
 # See https://youtrack.jetbrains.com/issue/JBR-2257
 .idea/$CACHE_FILE$
 
+# vscode user settings
+.vs/
+
 # CodeStream plugin
 # https://plugins.jetbrains.com/plugin/12206-codestream
 .idea/codestream.xml
@@ -373,3 +376,8 @@ gradle-app.setting
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,eclipse,java,gradle,osx,windows,linux
 /comp
+
+source/patient/Patient-rendering.liquid.x
+
+# VS Code local settings
+.vscode/

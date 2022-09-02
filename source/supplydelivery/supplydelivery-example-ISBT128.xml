@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This is the corresponding supply delivery from the supplye request example
+-->
+<SupplyDelivery xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/supplydelivery.xsd">
+   <id value="ISBT128" />
+   <!--
+business identifier - in this case the same as the request id
+-->
+   <contained>
+      <BiologicallyDerivedProduct>
+         <id value="Item1" />
+         <productCode>
+           <coding>
+            <code value="E0398" />
+           </coding>
+         </productCode>
+         <identifier>
+            <system value="https://www.isbt128.org/uri/MPHOUniqueIdentifier" />
+            <value value="A9999E0398A999921123456000000" />
+         </identifier>
+         <biologicalSourceEvent>
+            <system value="https://www.isbt128.org/uri/DonationIdentificationNumber" />
+            <value value="A999921123456" />
+         </biologicalSourceEvent>
+         <processingFacility>
+            <reference value="Organization/A9999" />
+         </processingFacility>
+         <productStatus>
+            <code value="available" />
+         </productStatus>
+         <expirationDate value="2021-08-02T23:59:00-05:00" />
+         <property>
+            <type>
+               <code value="ABORhD" />
+            </type>
+            <valueCodeableConcept>
+               <coding>
+                  <system value="https://www.isbt128.org/uri/ABORhD" />
+                  <code value="62" />
+                  <display value="A RhD Positive" />
+               </coding>
+            </valueCodeableConcept>
+         </property>
+         <property>
+            <type>
+               <code value="V" />
+            </type>
+            <valueCodeableConcept>
+               <coding>
+                  <system value="https://www.isbt128.org/uri/CollectionType" />
+                  <code value="V" />
+                  <display value="Volunteer" />
+               </coding>
+            </valueCodeableConcept>
+         </property>
+      </BiologicallyDerivedProduct>
+	</contained>
+	<contained>
+      <BiologicallyDerivedProduct>
+         <id value="Item2" />
+         <productCode>
+           <coding>
+            <code value="E0398" />
+          </coding>
+         </productCode>
+         <identifier>
+            <system value="https://www.isbt128.org/uri/MPHOUniqueIdentifier" />
+            <value value="A9999E0398A999921123457000000" />
+         </identifier>
+         <biologicalSourceEvent>
+            <system value="https://www.isbt128.org/uri/DonationIdentificationNumber" />
+            <value value="A999921123457" />
+         </biologicalSourceEvent>
+         <processingFacility>
+            <reference value="Organization/A9999" />
+         </processingFacility>
+         <productStatus>
+            <code value="available" />
+         </productStatus>
+         <expirationDate value="2021-07-31T23:59:00-05:00" />
+         <property>
+            <type>
+               <code value="ABORhD" />
+            </type>
+            <valueCodeableConcept>
+               <coding>
+                  <system value="https://www.isbt128.org/uri/ABORhD" />
+                  <code value="51" />
+                  <display value="O RhD Positive" />
+               </coding>
+            </valueCodeableConcept>
+         </property>
+         <property>
+            <type>
+               <code value="V" />
+            </type>
+            <valueCodeableConcept>
+               <coding>
+                  <system value="https://www.isbt128.org/uri/CollectionType" />
+                  <code value="V" />
+                  <display value="Volunteer" />
+               </coding>
+            </valueCodeableConcept>
+         </property>
+      </BiologicallyDerivedProduct>
+	</contained>
+	<contained>
+      <BiologicallyDerivedProduct>
+         <id value="Item3" />
+         <productCode>
+           <coding>
+            <code value="E0398" />
+           </coding>
+         </productCode>
+         <identifier>
+            <system value="https://www.isbt128.org/uri/MPHOUniqueIdentifier" />
+            <value value="A9999E0398A999921123458000000" />
+         </identifier>
+         <biologicalSourceEvent>
+            <system value="https://www.isbt128.org/uri/DonationIdentificationNumber" />
+            <value value="A999921123458" />
+         </biologicalSourceEvent>
+         <processingFacility>
+            <reference value="Organization/A9999" />
+         </processingFacility>
+         <productStatus>
+            <code value="available" />
+         </productStatus>
+         <expirationDate value="2021-08-04T23:59:00-05:00" />
+         <property>
+            <type>
+               <code value="ABORhD" />
+            </type>
+            <valueCodeableConcept>
+               <coding>
+                  <system value="https://www.isbt128.org/uri/ABORhD" />
+                  <code value="51" />
+                  <display value="O RhD Positive" />
+               </coding>
+            </valueCodeableConcept>
+         </property>
+         <property>
+            <type>
+               <code value="V" />
+            </type>
+            <valueCodeableConcept>
+               <coding>
+                  <system value="https://www.isbt128.org/uri/CollectionType" />
+                  <code value="V" />
+                  <display value="Volunteer" />
+               </coding>
+            </valueCodeableConcept>
+         </property>
+      </BiologicallyDerivedProduct>
+   </contained>
+   <identifier>
+      <system value="https://www.isbt128.org/uri/ProductConsignment" />
+      <value value="A999922123450101" />
+   </identifier>
+   <type>
+      <coding>
+         <system value="http://hl7.org/fhir/supplydelivery-supplyitemtype" />
+         <code value="biologicallyderivedproduct" />
+      </coding>
+      <text value="Blood Dispatch" />
+   </type>
+   <suppliedItem>
+      <itemReference>
+	        <reference value="#Item1" />
+	  </itemReference>
+   </suppliedItem>
+   <suppliedItem>
+      <itemReference>
+	     <reference value="#Item2" />
+       </itemReference>
+   </suppliedItem>
+   <suppliedItem>
+      <itemReference>
+	      <reference value="#Item3" />
+	   </itemReference>
+   </suppliedItem>
+   <supplier>
+      <identifier>
+         <system value="https://www.isbt128.org/uri/ProcessorFIN" />
+         <value value="A9999" />
+      </identifier>
+      <display value="Community Blood Center" />
+   </supplier>
+   <destination>
+      <display value="St Johns Hospital, Anytown, AnyState" />
+   </destination>
+</SupplyDelivery>

@@ -3,127 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="adverse-event-causality-assess"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/adverse-event-causality-assess defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">certain
-            
-            <a name="adverse-event-causality-assess-certain"> </a>
-          
-          </td>
-          
-          <td>Certain</td>
-          
-          <td>i) Event or laboratory test abnormality, with plausible time relationship to drug intake; ii) Cannot be explained by disease or other drugs; iii) Response to withdrawal plausible (pharmacologically, pathologically); iv) Event definitive pharmacologically or phenomenologically (i.e. an objective and specific medical disorder or a recognized pharmacological phenomenon); or v) Re-challenge satisfactory, if necessary.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">probably-likely
-            
-            <a name="adverse-event-causality-assess-probably-likely"> </a>
-          
-          </td>
-          
-          <td>Probably/Likely</td>
-          
-          <td>i) Event or laboratory test abnormality, with reasonable time relationship to drug intake; ii) Unlikely to be attributed to disease or other drugs; iii) Response to withdrawal clinically reasonable; or iv) Re-challenge not required.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">possible
-            
-            <a name="adverse-event-causality-assess-possible"> </a>
-          
-          </td>
-          
-          <td>Possible</td>
-          
-          <td>i) Event or laboratory test abnormality, with reasonable time relationship to drug intake; ii) Could also be explained by disease or other drugs; or iii) Information on drug withdrawal may be lacking or unclear.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">unlikely
-            
-            <a name="adverse-event-causality-assess-unlikely"> </a>
-          
-          </td>
-          
-          <td>Unlikely</td>
-          
-          <td>i) Event or laboratory test abnormality, with a time to drug intake that makes a relationship improbable (but not impossible); or ii) Disease or other drugs provide plausible explanations.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">conditional-classified
-            
-            <a name="adverse-event-causality-assess-conditional-classified"> </a>
-          
-          </td>
-          
-          <td>Conditional/Classified</td>
-          
-          <td>i) Event or laboratory test abnormality; ii) More data for proper assessment needed; or iii) Additional data under examination.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">unassessable-unclassifiable
-            
-            <a name="adverse-event-causality-assess-unassessable-unclassifiable"> </a>
-          
-          </td>
-          
-          <td>Unassessable/Unclassifiable</td>
-          
-          <td>i) Report suggesting an adverse reaction; ii) Cannot be judged because information is insufficient or contradictory; or iii) Data cannot be supplemented or verified.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
   </extension>
@@ -138,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1254"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="AdverseEventCausalityAssessment"/>
   <title value="AdverseEventCausalityAssessment"/>
   <status value="draft"/>

@@ -3,63 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="genomicstudy-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>This code system http://hl7.org/fhir/genomicstudy-status defines the following codes:</p>
-      <table class="codes">
-        <tr>
-          <td style="white-space:nowrap">
-            <b>Code</b>
-          </td>
-          <td>
-            <b>Display</b>
-          </td>
-          <td>
-            <b>Definition</b>
-          </td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">registered
-            <a name="genomicstudy-status-registered"> </a>
-          </td>
-          <td>Registered</td>
-          <td>The existence of the genomic study is registered, but there is nothing yet available.</td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">available
-            <a name="genomicstudy-status-available"> </a>
-          </td>
-          <td>Available</td>
-          <td>At least one instance has been associated with this genomic study.</td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">cancelled
-            <a name="genomicstudy-status-cancelled"> </a>
-          </td>
-          <td>Cancelled</td>
-          <td>The genomic study is unavailable because the genomic study was not started or not completed (also sometimes called &quot;aborted&quot;).</td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">entered-in-error
-            <a name="genomicstudy-status-entered-in-error"> </a>
-          </td>
-          <td>Entered in Error</td>
-          <td>The genomic study has been withdrawn following a previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;cancelled&quot; rather than &quot;entered-in-error&quot;.).</td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">unknown
-            <a name="genomicstudy-status-unknown"> </a>
-          </td>
-          <td>Unknown</td>
-          <td>The system does not know which of the status values currently applies for this request. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it&#39;s just not known which one.</td>
-        </tr>
-      </table>
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cg"/>
   </extension>
@@ -74,11 +19,10 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="GenomicStudyStatus"/>
   <title value="GenomicStudyStatus"/>
   <status value="draft"/>
-  <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
@@ -118,6 +62,6 @@
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The system does not know which of the status values currently applies for this request. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it&#39;s just not known which one."/>
+    <definition value="The system does not know which of the status values currently applies for this request. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it's just not known which one."/>
   </concept>
 </CodeSystem>

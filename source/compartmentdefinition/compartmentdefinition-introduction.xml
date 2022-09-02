@@ -11,11 +11,19 @@ grouping of resources which share a common property. Compartments have two princ
  <li>Function as an access mechanism for finding a set of related resources quickly</li>
  <li>Provide a definitional basis for applying access control to resources quickly</li>
 </ul>
-<p><b>Note:</b></p>
-<p>
+<p><b>Notes:</b></p>
+<ul>
+<li>
 At present, compartment definitions can <i>only</i> be defined by HL7 International.  This is because
 their existence creates significant impact on the behavior of servers.
-</p>
+</li>
+<li>
+Although compartment definitions can be a useful foundation for access control, they may 
+not be sufficient for this purpose.  Resources outside the compartment might 
+still be appropriate to be made available or subject to compartment restrictions even 
+though they are not formally part of the compartment (see below about access rules).
+</li>
+</ul>
 </div> 
 
 <div> 
@@ -35,6 +43,10 @@ other systems may make use of compartments properly.
 </p>
 <ul>
  <li>CompartmentDefinitions are used by <a href="capabilitystatement.html">CapabilityStatement</a> instances for specifying how resources are accessed</li>
+</ul>
+<ul>
+ <li><a href="graphdefinition.html">GraphDefinition</a> also provides a mechanism for grouping resources, though it does not provide an additional search mechanism.
+ Inclusion of resources in a <a href="graphdefinition.html">GraphDefinition</a> supports more complex criteria for inclusion than that allowed by CompartmentDefinition.</li>
 </ul>
 
 </div> 

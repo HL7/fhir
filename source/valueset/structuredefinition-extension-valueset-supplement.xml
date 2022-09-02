@@ -9,13 +9,13 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-supplement"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="supplement"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
   <description value="This extension declares that a value set depends on a particular supplement and should not be used in its absence."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

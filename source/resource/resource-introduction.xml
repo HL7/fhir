@@ -13,13 +13,13 @@ this specification defines several different ways of exchanging the resources.
 A resource is an entity that:
 </p>
 <ul>
- <li>has a known identity (a URL) by which it can be addressed</li>
+ <li>has a known identity by which it can be addressed</li>
  <li>identifies itself as one of the types of resource defined in this specification</li>
  <li>contains a set of structured data items as described by the definition of the resource type</li>
  <li>has an identified version that changes if the contents of the resource change</li>
 </ul>
 <p>
-Resources have <a href="formats.html">multiple representations</a>. 
+Resources have <a href="resource-formats.html">multiple representations</a>. 
 </p>
 <!--
 <p>
@@ -48,8 +48,7 @@ The following optional elements and properties are defined for all resources:
  <li>A reference to "Implicit Rules"</li>
 </ul>
 <p>
-Most resources are derived from <a href="domainresource.html">DomainResource</a> - so they also can contain text, contained resources, extensions,
-and data elements specific to the particular domain of the resource. There is a special type of resource called <a href="bundle.html">Bundle</a> for collections of resources. 
+Resource is the ancestor of <a href="domainresource.html">DomainResource</a> from which most recources are derived. <a href="bundle.html">Bundle</a>, <a href="parameters.html">Parameters</a>, and <a href="binary.html">Binary</a> extend Resource directly.
 </p>
 <p>
 Note: there is documentation for the <a href="formats.html">Structure</a>, <a href="formats.html#uml">UML</a>, <a href="xml.html">XML</a>, and <a href="json.html">JSON</a> representations of the resource structure. 

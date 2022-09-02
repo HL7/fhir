@@ -21,13 +21,13 @@
     <valueCode value="cds"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value="Delete the report if it is"/>
+    <valueCode value="Delete the instance if it is in error"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="EvidenceVariable"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -46,7 +46,7 @@
   </contact>
   <description value="The EvidenceVariable resource describes an element that knowledge (Evidence) is about."/>
   <purpose value="Need to be able to define and reuse the definition of individual elements of a research question."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -87,8 +87,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </constraint>
       <mapping>
@@ -103,11 +103,19 @@
     <element id="EvidenceVariable.url">
       <path value="EvidenceVariable.url"/>
       <short value="Canonical identifier for this evidence variable, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this evidence variable when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this evidence variable is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the evidence variable is stored on different servers."/>
+      <definition value="An absolute URI that is used to identify this evidence variable when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this evidence variable is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the evidence variable is stored on different servers."/>
       <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the evidence variable to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
       <type>
         <code value="uri"/>
       </type>
@@ -150,7 +158,7 @@
       <path value="EvidenceVariable.version"/>
       <short value="Business version of the evidence variable"/>
       <definition value="The identifier that is used to identify this version of the evidence variable when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the evidence variable author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
-      <comment value="There may be different evidence variable instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the evidence variable with the format [url]|[version]."/>
+      <comment value="There may be different evidence variable instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the evidence variable with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -322,8 +330,8 @@
     <element id="EvidenceVariable.description">
       <path value="EvidenceVariable.description"/>
       <short value="Natural language description of the evidence variable"/>
-      <definition value="A free text natural language description of the evidence variable from a consumer&#39;s perspective."/>
-      <comment value="This description can be used to capture details such as why the evidence variable was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the evidence variable as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the evidence variable is presumed to be the predominant language in the place the evidence variable was created)."/>
+      <definition value="A free text natural language description of the evidence variable from a consumer's perspective."/>
+      <comment value="This description can be used to capture details such as why the evidence variable was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the evidence variable as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the evidence variable is presumed to be the predominant language in the place the evidence variable was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -536,8 +544,8 @@
         <valueString value="This was called &quot;inclusiveness&quot; with a code list of &quot;presence, absence&quot;. Changed to &quot;exclude&quot; boolean to simplify representation and to align with Group characteristic expression."/>
       </extension>
       <path value="EvidenceVariable.characteristic.exclude"/>
-      <short value="Whether the characteristic includes or excludes members"/>
-      <definition value="When true, members with this characteristic are excluded from the element."/>
+      <short value="Whether the characteristic is an inclusion criterion or exclusion criterion"/>
+      <definition value="When true, this characteristic is an exclusion criterion. In other words, not matching this characteristic definition is equivalent to meeting this criterion."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -569,7 +577,6 @@
       <type>
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
       </type>
       <condition value="evv-1"/>
@@ -614,7 +621,7 @@
     <element id="EvidenceVariable.characteristic.definitionByTypeAndValue">
       <path value="EvidenceVariable.characteristic.definitionByTypeAndValue"/>
       <short value="Defines the characteristic using type and value"/>
-      <definition value="Defines the characteristic using both a type[x] and value[x] elements."/>
+      <definition value="Defines the characteristic using both a type and value[x] elements."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -672,8 +679,8 @@
     </element>
     <element id="EvidenceVariable.characteristic.definitionByTypeAndValue.value[x]">
       <path value="EvidenceVariable.characteristic.definitionByTypeAndValue.value[x]"/>
-      <short value="Defines the characteristic when coupled with characteristic.type[x]"/>
-      <definition value="Defines the characteristic when paired with characteristic.type[x]."/>
+      <short value="Defines the characteristic when coupled with characteristic.type"/>
+      <definition value="Defines the characteristic when paired with characteristic.type."/>
       <min value="1"/>
       <max value="1"/>
       <type>

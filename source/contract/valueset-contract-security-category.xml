@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.1220"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ContractResourceScopeCodes"/>
   <title value="Contract Resource Scope codes"/>
   <status value="draft"/>

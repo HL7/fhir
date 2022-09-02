@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="patient-example-sex-and-gender"/>
+		
+	<extension url="http://hl7.org/fhir/StructureDefinition/individual-genderIdentity">
+		<extension url="value">
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="446141000124107"/>
+					<display value="Identifies as female gender (finding)"/>
+				</coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="period">
+			<valuePeriod>
+				<start value="2001-05-06"/>
+			</valuePeriod>
+		</extension>
+		<extension url="comment">
+			<valueString value="Patient transitioned from male to female in 2001."/>				
+		</extension>
+	</extension>
+		
+	<extension url="http://hl7.org/fhir/StructureDefinition/individual-pronouns">
+		<extension url="value">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://loinc.org"/>
+				<code value="LA29519-8"/>
+				<display value="she/her/her/hers/herself"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="period">
+			<valuePeriod>
+				<start value="2001-05-06"/>
+			</valuePeriod>
+		</extension>
+		<extension url="comment">
+			<valueString value="Patient transitioned from male to female in 2001."/>				
+		</extension>
+	</extension>
+		
+	<extension url="http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender">
+		<extension url="value">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://hl7.org/fhir/administrative-gender"/>
+				<code value="male"/>
+				<display value="Male"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="internationalEquivalent">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://terminology.hl7.org/CodeSystem/icaosex"/>
+				<code value="M"/>
+				<display value="Male"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="type">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://loinc.org"/>
+				<code value="76689-9"/>
+				<display value="Sex Assigned At Birth"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="effectivePeriod">
+			<valuePeriod>
+				<start value="1974-12-25"/>
+			</valuePeriod>
+		</extension>
+		<extension url="acquisitionDate">
+			<valueDateTime value="2005-12-06"/>
+		</extension>
+		<extension url="sourceDocument">
+			<!-- Reference to a scan of the birth certificate -->
+			<valueCodeableReference>
+			  <reference>
+  				<reference value="DocumentReference/1"/>
+			  </reference>
+			</valueCodeableReference>
+		</extension>
+		<extension url="sourceField">
+			<valueString value="SEX"/>
+		</extension>
+		<extension url="jurisdiction">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="https://www.usps.com/"/>
+				<code value="OH"/>
+				<display value="Ohio"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="comment">
+			<valueString value="Patient transitioned from male to female in 2001, but their birth certificate still indicates male."/>				
+		</extension>
+	</extension>
+		
+	<extension url="http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender">
+		<extension url="value">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://hl7.org/fhir/administrative-gender"/>
+				<code value="male"/>
+				<display value="Male"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="internationalEquivalent">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://terminology.hl7.org/CodeSystem/icaosex"/>
+				<code value="M"/>
+				<display value="Male"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="type">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://local-code-system.org/recorded-sex-or-gender-type"/>
+				<code value="insurance-card"/>
+				<display value="Insurance Card"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="effectivePeriod">
+			<valuePeriod>
+				<start value="2021-05-25"/>
+			</valuePeriod>
+		</extension>
+		<extension url="acquisitionDate">
+			<valueDateTime value="2021-06-06"/>
+		</extension>
+		<extension url="sourceDocument">
+			<!-- Reference to a scan of the insurance card-->
+			<valueCodeableReference>
+			  <reference>
+  				<reference value="DocumentReference/2"/>
+			  </reference>
+			</valueCodeableReference>
+		</extension>
+		<extension url="sourceField">
+			<valueString value="SEX"/>
+		</extension>
+		<extension url="jurisdiction">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://local-code-system.org/recorded-sex-or-gender-jurisdiction"/>
+				<code value="ICCA-P"/>
+				<display value="Indigo Crucifix Cobalt Aegis Payer"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="comment">
+			<valueString value="Patient transitioned from male to female in 2001, but their insurance card still indicates male."/>				
+		</extension>
+	</extension>
+	
+	<extension url="http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender">
+		<extension url="value">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://ohio.example.gov/drivers-license-sex"/>
+				<code value="M"/>
+				<display value="Male"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="internationalEquivalent">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://terminology.hl7.org/CodeSystem/icaosex"/>
+				<code value="M"/>
+				<display value="Male"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="type">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://jurisdiction-specific.example.com/document-type-code-system"/>
+				<code value="drivers-license"/>
+				<display value="Driver's License"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="effectivePeriod">
+			<valuePeriod>
+				<start value="1974-12-25"/>
+			</valuePeriod>
+		</extension>
+		<extension url="acquisitionDate">
+			<valueDateTime value="2005-12-06"/>
+		</extension>
+		<extension url="sourceDocument">
+			<!-- Reference to a scan of the driver's license -->
+			<valueCodeableReference>
+			  <reference>
+  				<reference value="DocumentReference/1"/>
+			  </reference>
+			</valueCodeableReference>
+		</extension>
+		<extension url="jurisdiction">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="https://www.usps.com/"/>
+				<code value="OH"/>
+				<display value="Ohio"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="comment">
+			<valueString value="Patient transitioned from male to female in 2001, but their driver's license still indicates male."/>				
+		</extension>
+	</extension>
+		
+	<extension url="http://hl7.org/fhir/StructureDefinition/patient-sexForClinicalUse">
+		<extension url="value">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://terminology.hl7.org/CodeSystem/sex-for-clinical-use"/>
+				<code value="specified"/>
+				<display value="Specified sex for clinical use"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="period">
+			<valuePeriod>
+				<start value="2002-07-13"/>
+			</valuePeriod>
+		</extension>
+		<extension url="comment">
+			<valueString value="Patient transitioned from male to female in 2001."/>				
+		</extension>
+		<extension url="supportingInfo">
+			<!-- Observation about an organ inventory (prostate) -->
+			<valueCodeableReference>
+			  <reference>
+  				<reference value="Observation/1"/>
+			  </reference>
+			</valueCodeableReference>
+		</extension>
+		<extension url="supportingInfo">
+			<!-- MedicationUsage indicating patient underwent hormone therapy -->
+			<valueCodeableReference>
+			  <reference>
+				  <reference value="MedicationUsage/2"/>
+			  </reference>
+			</valueCodeableReference>
+		</extension>
+	</extension>
+		
+	<identifier>
+		<use value="usual"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+				<code value="MR"/>
+			</coding>
+		</type>
+		<system value="urn:oid:1.2.36.146.595.217.0.1"/>
+		<value value="12345"/>
+	</identifier>
+	<active value="true"/>
+	<!-- Legal Name: Patrick Roth, goes by Patricia (formally), but also Pat (informally) -->
+	<name>
+		<use value="official"/>
+		<family value="Roth"/>
+		<given value="Patrick"/>
+	</name>
+	<name>
+		<use value="usual"/>
+		<family value="Roth"/>
+		<given value="Patricia"/>
+	</name>
+	<name>
+		<use value="nickname"/>
+		<given value="Pat"/>
+	</name>
+	<gender value="male"/>
+	<birthDate value="1974-12-25">
+	</birthDate>
+	<deceasedBoolean value="false"/>
+	<managingOrganization>
+		<reference value="Organization/1"/>
+	</managingOrganization>
+</Patient>

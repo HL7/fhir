@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="task-status-reason"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/task-status-reason"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="TaskStatusReason"/>
+  <title value="TaskStatusReason"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The current status reason of the task."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/task-status-reason"/>
+  <content value="complete"/>
+  <concept>
+    <code value="missing"/>
+    <display value="Missing"/>
+    <definition value="An item nessary for task completion is missing."/>
+  </concept>
+  <concept>
+    <code value="misidentified"/>
+    <display value="Misidentified"/>
+    <definition value="Something related to the task was misidentified."/>
+  </concept>
+  <concept>
+    <code value="equipment-issue"/>
+    <display value="Equipment-issue"/>
+    <definition value="A piece of equipment necessary for completion of the task is malfunctioning."/>
+  </concept>
+  <concept>
+    <code value="environmental-issue"/>
+    <display value="Environmental-issue"/>
+    <definition value="Something in the environment is preventing task completion."/>
+  </concept>
+  <concept>
+    <code value="personnel-issue"/>
+    <display value="Personnel-issue"/>
+    <definition value="Key personnel necessary for task completion are not present."/>
+  </concept>
+</CodeSystem>

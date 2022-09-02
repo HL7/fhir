@@ -2,22 +2,6 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="device-usage-adherence-code"/>
-  <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-  </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <ul>
-        <li>Include all codes defined in 
-          <a href="codesystem-device-usage-adherence-code.html">
-            <code>http://hl7.org/fhir/device-usage-adherence-code</code>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -28,7 +12,7 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/device-usage-adherence-code"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="DeviceUsageAdherenceCode"/>
   <title value="DeviceUsageAdherenceCode"/>
   <status value="draft"/>

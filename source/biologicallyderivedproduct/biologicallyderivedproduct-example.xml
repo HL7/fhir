@@ -5,12 +5,14 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text> -->
-  <productCode>
+  <productCode> 
+    <coding>
   		<code value="E0398" />
+    </coding>
   </productCode>
   <identifier>
     <system value="https://www.isbt128.org/uri/MPHOUniqueIdentifier" />
-    <value value="A9999E0398A999921123456000001" /> 
+    <value value="A9999E0398A999921123456A00000" /> 
   </identifier>
   <biologicalSourceEvent>
     <system value="https://www.isbt128.org/uri/DonationIdentificationNumber" />

@@ -1,9 +1,12 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
 <h2>Scope and Usage</h2>
 <p>
-This profile defines extensions that can be used to provide alignment with the <a href="event.html">Event</a> and <a href="request.html">Request</a> workflow patterns.  These are concepts that may be generally applicable but are sufficiently uncommon that they are more appropriate to include as extensions than as core properties of the resource.  See the <a href="workflow-module.html">workflow module</a> for more discussion about how this specification defines the Event and Request logical models for resources that are typically involved in workflow.
+This profile defines extensions that can be used to provide alignment with the <a href="definition.html">Definition</a>, <a href="event.html">Event</a> and 
+<a href="request.html">Request</a> workflow patterns.  These are concepts that may be generally applicable but are sufficiently uncommon that they are more 
+appropriate to include as extensions than as core properties of the resource.  See the <a href="workflow-module.html">workflow module</a> for more 
+discussion about how this specification defines the Definition, Event and Request logical models for resources that are typically involved in workflow.
 </p>
 </div>
 

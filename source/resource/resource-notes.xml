@@ -7,7 +7,7 @@
 There are two different ways to identify a resource:
 </p>
 <ul>
- <li>By a "Location" URL that identifies where it can be accessed (based on the "Logical ID"). This location will be change as it is copied/moved around</li>
+ <li>By a "Location" URL that identifies where it can be accessed (based on the "Logical ID"). This location will be changed as it is copied/moved around</li>
  <li>By some inherent identifier ("Business Identifier" or "Canonical URL") that is part of the resource and remains fixed as it is copied/moved around</li>
 </ul>
 
@@ -25,7 +25,7 @@ the same server. Once assigned by the server, the id is never changed.
 <p>
 The location of a resource instance is an absolute URI constructed from the server 
 base address at which the instance is found, the resource type and the Logical ID, such as 
-http://test.fhir.org/rest/Patient/123 (where <code>123</code> is the Logical Id of a <a href="patient.html">Patient</a> resource).  
+<%test-server%>/rest/Patient/123 (where <code>123</code> is the Logical Id of a <a href="patient.html">Patient</a> resource).  
 When the location is an HTTP address, this address can generally be used to retrieve or manipulate the resource. 
 Note that implementations SHOULD NOT assume that the location of a resource is always resolvable 
 to an accessible server - it may be temporarily unavailable, or not available by policy (e.g. firewalls) or in some 
@@ -53,6 +53,24 @@ location anyway, for purposes of consistency, or they might not have an assigned
 id, and they are identified based on other kinds of identifiers. See 
 <a href="bundle.html#references">Resolving references in Bundles</a> for one method 
 of using resources not associated with RESTful servers.
+</p>
+
+<a name="identifier-categories"></a>
+<h4>Identifier Categories</h4>
+<p>
+In general, identifiers are sometimes categorised into one of three 
+categories: Business, informational, and instance.
+</p>
+<ul>
+ <li>a <b>business identifier</b> that uniquely identifies a singleton thing in the real world, e.g. a patient Jane Dupont, a drug Amoxycillin, etc, and if there are records about this thing inside systems, such an id would be one way to search for such record(s)</li>
+ <li>an <b>informational identifier</b> that is guaranteed unique for every informational entity known inside systems, including entities that appear to be not directly related to real world singleton entities (e.g. each med. rec. event on some patient's Rx list), aka things that don't have business identifiers;, aka things that are 'just information'</li>
+ <li>an <b>instance identifier</b>, guaranteed to be unique for any distinguishable instance of each logical informational entity (i.e. doesn't change for exact copies, but does change as soon as changes are made)</li>
+</ul>
+<p>
+In these terms, the <code>logical id</code> is an instance identifier, and all the other 
+identifiers are loosely called "business" identifiers. Note that due to real world practices 
+around IDs, business identifiers are often used to identify things by proxy e.g. identifying 
+multiple different patient records for the same person by the same driver's license number.
 </p>
 
 <a name="identifiers"></a>
@@ -154,7 +172,7 @@ patient. For this reason, systems SHOULD:
 <p>
 Following these practices will make for consistent identification of concepts and real-world entities across 
 healthcare eco-systems. For example, medication orders can be represented as 
-<a href="medicationrequest.html">MedicationRequest</a> and <a href="medicationusage.html">MedicationSUsage</a>. 
+<a href="medicationrequest.html">MedicationRequest</a> and <a href="medicationusage.html">MedicationUsage</a>. 
 Some systems - primary sources - will provide the medication order as a MedicationRequest 
 while other secondary systems will provide them as a MedicationUsage. Any system processing 
 the resources will need to reconcile these, and the presence of consistent identifiers will 
@@ -256,7 +274,7 @@ in particular implementations or contexts of use.
      Version identifiers are generally either a serially incrementing id scoped by the logical id, or a uuid, though neither of these approaches 
      is required. There is no fixed order for version ids - clients cannot assume that a versionId that comes after another one either numerically or alphabetically represents a later version. 
      The same versionId can never be used for more than one version of the same resource.
-    <br/>On the RESTful API: On receiving a <a href="http.html#write">write operation</a>, the server SHALL update this item to 
+	    <br/>On the RESTful API: On receiving an <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other FHIR operation that impacts meta, the server SHALL update this item to 
 		the current value, or remove it. Note that servers SHOULD support versions, but some are unable to</td>
   </tr>
 	 
@@ -269,7 +287,7 @@ in particular implementations or contexts of use.
     <a href="extension-timezone.html">a timezone code</a> extension may be present on Meta.lastUpdated.
     If present, the timezone code applies to the server copy of the resource, and not necessarily to other 
     time related elements within the resource even if the timezone offsets are the same.
-		<br/>On the RESTful API: On receiving a <a href="http.html#write">write operation</a>, the server SHALL update this item to the current time on the server</td>
+		<br/>On the RESTful API: On receiving a <a href="http.html#create">create</a>, <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other FHIR operation that impacts meta, the server SHALL update this item to the current time on the server</td>
   </tr>
 	
   <tr>
@@ -277,11 +295,10 @@ in particular implementations or contexts of use.
    <td><a href="datatypes.html#uri">uri</a></td>
    <td>A uri that identifies the source system of the resource. This provides a minimal amount of <a href="provenance.html">Provenance</a>
      information that can be used to track or differentiate the source of information in the resource. The source
-     may identify another FHIR server, document, message, database, etc. In the provenance resource, 
-     this corresponds to <a href="provenance-definitions.html#Provenance.entity.what_x_">Provenance.entity.what[x]</a>. 
+     may be another resource, or it may be a more abstract or general identifier, or identify another FHIR server, end-point, document, message, database, etc. 
      The exact use of the source (and the implied Provenance.entity.role) is left to implementer discretion.
      Only one nominated source is allowed; for additional provenance details, a full Provenance resource should be used.
-		<br/>On the RESTful API: On receiving a <a href="http.html#write">write operation</a>, the server SHOULD generally leave this unchanged, unless applicable business rules, along with available provenance, dictate otherwise</td>
+		<br/>On the RESTful API: On receiving a <a href="http.html#create">create</a>, <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other FHIR operation that impacts meta, the server SHOULD generally leave this unchanged, unless applicable business rules, along with available provenance, dictate otherwise</td>
   </tr>
 	
   <tr>
@@ -290,7 +307,7 @@ in particular implementations or contexts of use.
    <td>An assertion that the content conforms to a resource profile (a <a href="structuredefinition.html">StructureDefinition</a>). See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. 
     Can be changed as profiles and value sets change or the system rechecks conformance. The profile can be used to 
     <a href="versioning.html#mp-version">indicate which version(s) of FHIR a resource conforms to</a>.
-		<br/>On the RESTful API: On receiving a <a href="http.html#write">write operation</a>, the server MAY elect to remove invalid claims, SHOULD retain claims that are correct or untested, and MAY add additional claims it believes are valid</td>
+		<br/>On the RESTful API: On receiving a <a href="http.html#create">create</a>, <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other FHIR operation that impacts meta, the server MAY elect to remove invalid claims, SHOULD retain claims that are correct or untested, and MAY add additional claims it believes are valid</td>
   </tr>
 	
   <tr>
@@ -298,7 +315,7 @@ in particular implementations or contexts of use.
    <td><a href="datatypes.html#Coding">Coding</a></td>
    <td><a href="security-labels.html">Security labels</a> applied to this resource. These tags connect resources in specific ways to 
     the overall security policy and infrastructure. Security tags can be updated when the resource changes, or whenever the security sub-system chooses to.
-		<br/>On the RESTful API: On receiving a <a href="http.html#write">write operation</a>, the server SHOULD preserve the labels unless applicable business rules dictate otherwise</td>
+		<br/>On the RESTful API: On receiving a <a href="http.html#create">create</a>, <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other FHIR operation that impacts meta, the server SHOULD preserve the labels unless applicable business rules dictate otherwise</td>
   </tr>
 	
   <tr>
@@ -306,7 +323,7 @@ in particular implementations or contexts of use.
    <td><a href="datatypes.html#Coding">Coding</a></td>
    <td><a href="resource-definitions.html#Meta.tag">Tags</a> applied to this resource. Tags are used to relate resources to process and workflow. Applications are not required to consider 
     the tags when interpreting the meaning of a resource.
-		<br/>On the RESTful API: On receiving a <a href="http.html#write">write operation</a>, the server SHOULD preserve the labels unless applicable business rules dictate otherwise</td>
+		<br/>On the RESTful API: On receiving a <a href="http.html#create">create</a>, <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other FHIR operation that impacts meta, the server SHOULD preserve the labels unless applicable business rules dictate otherwise</td>
   </tr>
 		
 </table>
@@ -455,6 +472,14 @@ There is no single best practice here; the correct choice depends on many factor
 scope of this specification. 
 </p>
 
+<a name="bv-format"></a>
+<p>
+For business versions in canonical resources, the busines version SHOULD NOT contain a <code>#</code>
+character, since the version appears in the URL, and the <code>#</code> has special meaning in a URL.
+If the version does contain a <code>#</code>, then it SHALL be escaped properly when used in a URL 
+as specified by <a href="references.html#canonical">Canonical References</a>.
+</p>
+
 <p><b>FHIR Version</b></p>
 <p>
 All resources always have a FHIR version against which they were written. Note, however, that resources may be valid 
@@ -563,7 +588,8 @@ pattern:
 </ul>
 <p>
 However, in some cases, an update may invalidate existing tags.  Servers may update 
-or remove previously existing recognized tags if this is known to be appropriate.
+or remove previously existing recognized tags if this is known to be appropriate. A client
+can retrieve the current tags using the <a href="resource-operation-meta.html">$meta</a> operation.
 </p>
 
  
@@ -574,7 +600,7 @@ or remove previously existing recognized tags if this is known to be appropriate
   <li><a href="resourcelist.html">Resource Definitions</a></li>
   <li><a href="references.html">References between Resources</a></li>
   <li><a href="narrative.html">Narratives</a></li>
-  <li><a href="formats.html">Formats:</a> <a href="xml.html">XML</a>, <a href="json.html">JSON</a> </li>
+  <li><a href="resource-formats.html">Formats:</a> <a href="xml.html">XML</a>, <a href="json.html">JSON</a> </li>
   <li><a href="extensibility.html">Extensibility</a> (<a href="extensibility-examples.html">Examples</a>)</li>
   <li><a href="resource-definitions.html">Detailed Descriptions</a></li>
   <li><a href="versions.html">Inter-version Compatibility</a></li>

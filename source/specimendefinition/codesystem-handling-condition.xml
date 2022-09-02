@@ -3,85 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="handling-condition"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/handling-condition defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">room
-            
-            <a name="handling-condition-room"> </a>
-          
-          </td>
-          
-          <td>room temperature</td>
-          
-          <td>room temperature.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">refrigerated
-            
-            <a name="handling-condition-refrigerated"> </a>
-          
-          </td>
-          
-          <td>refrigerated</td>
-          
-          <td>refrigerated temperature.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">frozen
-            
-            <a name="handling-condition-frozen"> </a>
-          
-          </td>
-          
-          <td>frozen</td>
-          
-          <td>frozen temperature.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -96,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1259"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="HandlingConditionSet"/>
   <title value="HandlingConditionSet"/>
   <status value="draft"/>

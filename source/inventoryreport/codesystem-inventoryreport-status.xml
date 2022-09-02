@@ -3,99 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="inventoryreport-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/inventoryreport-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">draft
-            
-            <a name="inventoryreport-status-draft"> </a>
-          
-          </td>
-          
-          <td>Draft</td>
-          
-          <td>The existence of the report is registered, but it is still without content or only some preliminary content.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">requested
-            
-            <a name="inventoryreport-status-requested"> </a>
-          
-          </td>
-          
-          <td>Requested</td>
-          
-          <td>The inventory report has been requested but there is no data available.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">active
-            
-            <a name="inventoryreport-status-active"> </a>
-          
-          </td>
-          
-          <td>Active</td>
-          
-          <td>This report is submitted as current.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="inventoryreport-status-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered in Error</td>
-          
-          <td>The report has been withdrawn following a previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -110,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="InventoryReportStatus"/>
   <title value="InventoryReportStatus"/>
   <status value="draft"/>

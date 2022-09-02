@@ -26,7 +26,7 @@
 		<valueString value="MetadataResource"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-	<version value="4.6.0"/>
+	<version value="5.0.0"/>
 	<name value="Questionnaire"/>
 	<status value="draft"/>
 	<date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
 	</contact>
 	<description value="A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection."/>
 	<purpose value="To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.  Questionnaires provide greater control over presentation and allow capture of data in a domain-independent way (i.e. capturing information that would otherwise require multiple distinct types of resources)."/>
-	<fhirVersion value="4.6.0"/>
+	<fhirVersion value="5.0.0"/>
 	<mapping>
 		<identity value="workflow"/>
 		<uri value="http://hl7.org/fhir/workflow"/>
@@ -90,8 +90,8 @@
 				<key value="cnl-0"/>
 				<severity value="warning"/>
 				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-				<expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){0,254}')"/>
-				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){0,254}')"/>
+				<expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){1,254}')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
@@ -123,6 +123,14 @@
 			<requirements value="&#x2026;  This is the id that will be used to link a QuestionnaireResponse to the Questionnaire the response is for."/>
 			<min value="0"/>
 			<max value="1"/>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
 			<type>
 				<code value="uri"/>
 			</type>
@@ -176,7 +184,7 @@
 			<path value="Questionnaire.version"/>
 			<short value="Business version of the questionnaire"/>
 			<definition value="The identifier that is used to identify this version of the questionnaire when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the questionnaire author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-			<comment value="There may be different questionnaire instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the questionnaire with the format [url]|[version]."/>
+			<comment value="There may be different questionnaire instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the questionnaire with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -196,6 +204,25 @@
 				<map value="N/A (to add?)"/>
 			</mapping>
 		</element>
+		<element id="Questionnaire.versionAlgorithm[x]">
+      <path value="Questionnaire.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+      <isSummary value="true"/>
+    </element>
 		<element id="Questionnaire.name">
 			<path value="Questionnaire.name"/>
 			<short value="Name for this questionnaire (computer friendly)"/>
@@ -756,8 +783,8 @@
 			</constraint>
 			<constraint>
 				<key value="que-14"/>
-				<severity value="error"/>
-				<human value="Can only have answerConstraint if answerOption or answerValueset are present"/>
+				<severity value="warning"/>
+				<human value="Can only have answerConstraint if answerOption or answerValueset are present.  (This is a warning because extensions may serve the same purpose)"/>
 				<expression value="answerConstraint.exists() implies answerOption.exists() or answerValueset.exists()"/>
 				<xpath value="not(exists(f:answerConstraint)) or exists(f:answerOption) or exists(f:answerValueSet)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
@@ -779,6 +806,18 @@
 				<code value="string"/>
 			</type>
 			<condition value="que-2"/>	
+			<constraint>
+				<key value="que-15"/>
+				<severity value="warning">
+          <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+            <valueBoolean value="true"/>
+          </extension>
+				</severity>
+				<human value="Link ids should be 255 characters or less"/>
+				<expression value="$this.length &lt;= 255"/>
+				<xpath value="string-length(@value) &lt;= 255"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+			</constraint>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".id"/>
@@ -788,7 +827,7 @@
 			<path value="Questionnaire.item.definition"/>
 			<short value="ElementDefinition - details for the item"/>
 			<definition value="This element is a URI that refers to an [ElementDefinition](elementdefinition.html) that provides information about this item, including information that might otherwise be included in the instance of the Questionnaire resource. A detailed description of the construction of the URI is shown in [Comments](questionnaire.html#definition), below."/>
-			<comment value="The uri refers to an ElementDefinition in a [StructureDefinition](structuredefinition.html#) and always starts with the [canonical URL](references.html#canonical) for the target resource. When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by its id [Element.id](types-definitions.html#Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence of a fragment identifier, the first/root element definition in the target is the matching element definition."/>
+			<comment value="The uri refers to an ElementDefinition in a [StructureDefinition](structuredefinition.html#) or to an [ObservationDefinition](observationdefinition.html) and always starts with the [canonical URL](references.html#canonical) for the target resource. When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by its id [Element.id](types-definitions.html#Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence of a fragment identifier, the first/root element definition in the target is the matching element definition."/>
 			<requirements value="A common pattern is to define a set of data elements and then build multiple questionnaires for different circumstances to gather the data. This element provides traceability to the common definition and allows the content for the question to come from the underlying definition."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -850,7 +889,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="markdown"/>
+				<code value="string"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>
@@ -891,7 +930,9 @@
 			<comment value="If multiple repetitions of this extension are present, the interpretation is driven by enableBehavior (either all repetitions must evaluate to true for this item to be enabled, or only one must evaluate to true for the item to be 
 enabled).  If the enableWhen.question has multiple answers, the condition evaluates to true if *any* of the answers for the referenced item match the enableWhen condition.
 
-This element is a modifier because if enableWhen is present for an item, &quot;required&quot; is ignored unless one of the enableWhen conditions is met. When an item is disabled, all of its descendants are disabled, regardless of what their own enableWhen logic might evaluate to.  If enableWhen logic depends on an item that is disabled, the logic should proceed as though the item is not valued - even if a default value or other value might be retained in memory in the event of the item being re-enabled."/>
+This element is a modifier because if enableWhen is present for an item, &quot;required&quot; is ignored unless one of the enableWhen conditions is met. When an item is disabled, all of its descendants are disabled, regardless of what their own enableWhen logic might evaluate to.  If enableWhen logic depends on an item that is disabled, the logic should proceed as though the item is not valued - even if a default value or other value might be retained in memory in the event of the item being re-enabled.
+
+In some cases, the comparison between the indicated answer and the specified value may differ only by precision.  For example, the enableWhen might be Q1 > 1970, but the answer to Q1 is 1970-10-15.  There is not a clear answer as to whether 1970-10-15 should be considered 'greater' than 1970, given that it is an imprecise value.  In these indeterminate situations, the form filler has the option of refusing to render the form.  If the form **is** displayed, items where enableWhen is indeterminate SHOULD be treated as enabled with a warning indicating that the questionnaire logic was faulty and it is possible that the item should not be enabled.  Questionnaires SHOULD be designed to take into account challenges around varying precision to minimize non-deterministic situations by setting constraints around expected precision, etc."/>
 			<requirements value="Allows questionnaires to adapt based on answers to other questions. E.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -1052,7 +1093,9 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 			<path value="Questionnaire.item.required"/>
 			<short value="Whether the item must be included in data results"/>
 			<definition value="An indication, if true, that the item must be present in a &quot;completed&quot; QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire."/>
-			<comment value="Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  It also only has meaning if the parent element is present.  If a non-required 'group' item contains a 'required' question item, it's completely fine to omit the group (because it's not required) despite it having a required child.  Similarly, if an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one descendant item with a populated answer). The value for 'required' may come from the ElementDefinition referred to by .definition."/>
+			<comment value="If the required item is a question, it must have a direct answer (i.e. an answer to the question itself, not merely answers to child questions) in order for the QuestionnaireResponse to be complete.  If the required item is a group, it must have at least one descendant question which has an answer
+			
+Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  It also only has meaning if the parent element is present.  If a non-required 'group' item contains a 'required' question item, it's completely fine to omit the group (because it's not required) despite it having a required child.  Similarly, if an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one descendant item with a populated answer). The value for 'required' may come from the ElementDefinition referred to by .definition."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1068,8 +1111,10 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 		<element id="Questionnaire.item.repeats">
 			<path value="Questionnaire.item.repeats"/>
 			<short value="Whether the item may repeat"/>
-			<definition value="An indication, if true, that the item may occur multiple times in the response, collecting multiple answers for questions or multiple sets of answers for groups."/>
-			<comment value="If a question is marked as repeats=true, then multiple answers can be provided for the question in the corresponding QuestionnaireResponse.  When rendering the questionnaire, it is up to the rendering software whether to render the question text for each answer repetition (i.e. &quot;repeat the question&quot;) or to simply allow entry/selection of multiple answers for the question (repeat the answers).  Which is most appropriate visually may depend on the type of answer as well as whether there are nested items.&#xA;&#xA;The resulting QuestionnaireResponse will be populated the same way regardless of rendering - one 'question' item with multiple answer values.&#xA;&#xA; The value may come from the ElementDefinition referred to by .definition."/>
+			<definition value="An indication, if true, that a QuestionnaireResponse for this item may include multiple answers associated with a single instance of this item (for question-type items) or multiple repetitions of the item (for group-type items)."/>
+			<comment value="If a question is marked as repeats=true, then multiple answers can be provided for the question in the corresponding QuestionnaireResponse.  When rendering the questionnaire, it is up to the rendering software whether to render the question text for each answer repetition (i.e. &quot;repeat the question&quot;) or to simply allow entry/selection of multiple answers for the question (repeat the answers).  Which is most appropriate visually may depend on the type of answer as well as whether there are nested items.&#xA;&#xA;The resulting QuestionnaireResponse will be populated the same way regardless of rendering - one 'question' item with multiple answer values.&#xA;&#xA; The value may come from the ElementDefinition referred to by .definition.
+			
+When repeats=true for a group, it'll be represented with multiple items with the same linkId in the QuestionnaireResponse.  For a question, it'll be represented by a single item with that linkId with multiple answers."/>
 			<requirements value="Items may be used to create set of (related) questions that can be repeated to give multiple answers to such a set."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1149,7 +1194,7 @@ This element is a modifier because if enableWhen is present for an item, &quot;r
 			<path value="Questionnaire.item.answerValueSet"/>
 			<short value="Valueset containing permitted answers"/>
 			<definition value="A reference to a value set containing a list of values representing permitted answers for a question."/>
-			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](loinc.html#alist). The value may come from the ElementDefinition referred to by .definition."/>
+			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

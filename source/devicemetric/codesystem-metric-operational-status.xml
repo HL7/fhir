@@ -3,99 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="metric-operational-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/metric-operational-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">on
-            
-            <a name="metric-operational-status-on"> </a>
-          
-          </td>
-          
-          <td>On</td>
-          
-          <td>The DeviceMetric is operating and will generate DeviceObservations.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">off
-            
-            <a name="metric-operational-status-off"> </a>
-          
-          </td>
-          
-          <td>Off</td>
-          
-          <td>The DeviceMetric is not operating.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">standby
-            
-            <a name="metric-operational-status-standby"> </a>
-          
-          </td>
-          
-          <td>Standby</td>
-          
-          <td>The DeviceMetric is operating, but will not generate any DeviceObservations.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="metric-operational-status-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered In Error</td>
-          
-          <td>The DeviceMetric was entered in error.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="dev"/>
   </extension>
@@ -110,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.647"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="DeviceMetricOperationalStatus"/>
   <title value="DeviceMetricOperationalStatus"/>
   <status value="draft"/>

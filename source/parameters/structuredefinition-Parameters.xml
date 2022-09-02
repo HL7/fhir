@@ -24,7 +24,7 @@
     <valueCode value="n/a - this resource is never stored"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Parameters"/>
   <status value="active"/>
   <date value="2020-12-31T07:32:20+11:00"/>
@@ -41,8 +41,8 @@
       <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
-  <description value="This resource is a non-persisted resource primarily used to pass information into and back from an [operation](operations.html). There is no RESTful endpoint associated with it."/>
-  <fhirVersion value="4.6.0"/>
+  <description value="This resource is used to pass information into and back from an operation (whether invoked directly from REST or within a messaging environment).  It is not persisted or allowed to be referenced by other resources except as described in the definition of the Parameters resource."/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -67,7 +67,7 @@
     <element id="Parameters">
       <path value="Parameters"/>
       <short value="Operation Request or Response"/>
-      <definition value="This resource is a non-persisted resource used to pass information into and back from an [operation](operations.html). It has no other use, and there is no RESTful endpoint associated with it."/>
+      <definition value="This resource is used to pass information into and back from an operation (whether invoked directly from REST or within a messaging environment).  It is not persisted or allowed to be referenced by other resources."/>      
       <comment value="The parameters that may be used are defined by the OperationDefinition resource."/>
       <min value="0"/>
       <max value="*"/>
@@ -296,7 +296,6 @@
       <path value="Parameters.parameter.part"/>
       <short value="Named part of a multi-part parameter"/>
       <definition value="A named part of a multi-part parameter."/>
-      <comment value="Only one level of nested parameters is allowed."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#Parameters.parameter"/>

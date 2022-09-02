@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Citation"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Citation"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
@@ -85,8 +85,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Citation"/>
       </constraint>
       <mapping>
@@ -97,11 +97,19 @@
     <element id="Citation.url">
       <path value="Citation.url"/>
       <short value="Canonical identifier for this citation, represented as a globally unique URI"/>
-      <definition value="An absolute URI that is used to identify this citation when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers."/>
+      <definition value="An absolute URI that is used to identify this citation when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers."/>
       <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version."/>
       <requirements value="Allows the citation to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
       <type>
         <code value="uri"/>
       </type>
@@ -144,7 +152,7 @@
       <path value="Citation.version"/>
       <short value="Business version of the citation"/>
       <definition value="The identifier that is used to identify this version of the citation when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the citation author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different citation instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the citation with the format [url]|[version]."/>
+      <comment value="There may be different citation instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the citation with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -932,7 +940,7 @@
     </element>
     <element id="Citation.citedArtifact.relatesTo.type">
       <path value="Citation.citedArtifact.relatesTo.type"/>
-      <short value="documentation | justification | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | cite-as | created-with | documents | reprint | reprint-of | specification-of"/>
+      <short value="documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | documents | specification-of | created-with | cite-as | reprint | reprint-of"/>
       <definition value="The type of relationship to the related artifact."/>
       <min value="1"/>
       <max value="1"/>
@@ -1101,17 +1109,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease"/>
-      <short value="The specific issue in which the cited article resides"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.citedMedium">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.citedMedium"/>
+    <element id="Citation.citedArtifact.publicationForm.citedMedium">
+      <path value="Citation.citedArtifact.publicationForm.citedMedium"/>
       <short value="Internet or Print"/>
       <definition value="Describes the form of the medium cited. Common codes are &quot;Internet&quot; or &quot;Print&quot;."/>
       <comment value="National Library of Medicine uses the codes &quot;Internet&quot; or &quot;Print&quot;."/>
@@ -1128,8 +1127,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/cited-medium"/>
       </binding>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.volume">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.volume"/>
+    <element id="Citation.citedArtifact.publicationForm.volume">
+      <path value="Citation.citedArtifact.publicationForm.volume"/>
       <short value="Volume number of journal in which the article is published"/>
       <min value="0"/>
       <max value="1"/>
@@ -1137,8 +1136,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.issue">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.issue"/>
+    <element id="Citation.citedArtifact.publicationForm.issue">
+      <path value="Citation.citedArtifact.publicationForm.issue"/>
       <short value="Issue, part or supplement of journal in which the article is published"/>
       <min value="0"/>
       <max value="1"/>
@@ -1146,26 +1145,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication"/>
-      <short value="Defining the date on which the issue of the journal was published"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.date">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.date"/>
-      <short value="Date on which the issue of the journal was published"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="date"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.year">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.year"/>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateYear">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateYear"/>
       <short value="Year on which the issue of the journal was published"/>
       <min value="0"/>
       <max value="1"/>
@@ -1173,8 +1154,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.month">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.month"/>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateMonth">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateMonth"/>
       <short value="Month on which the issue of the journal was published"/>
       <min value="0"/>
       <max value="1"/>
@@ -1182,8 +1163,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.day">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.day"/>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateDay">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateDay"/>
       <short value="Day on which the issue of the journal was published"/>
       <min value="0"/>
       <max value="1"/>
@@ -1191,8 +1172,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.season">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.season"/>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateSeason">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateSeason"/>
       <short value="Season on which the issue of the journal was published"/>
       <definition value="Spring, Summer, Fall/Autumn, Winter."/>
       <min value="0"/>
@@ -1201,8 +1182,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.text">
-      <path value="Citation.citedArtifact.publicationForm.periodicRelease.dateOfPublication.text"/>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateText">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateText"/>
       <short value="Text representation of the date of which the issue of the journal was published"/>
       <min value="0"/>
       <max value="1"/>

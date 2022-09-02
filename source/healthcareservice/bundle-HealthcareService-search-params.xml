@@ -85,6 +85,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="HealthcareService-offeredIn"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="HealthcareService.offeredIn"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/HealthcareService-offeredIn"/>
+        <description value="The service within which this service is offered"/>
+        <code value="offered-in"/>
+        <type value="reference"/>
+        <expression value="HealthcareService.offeredIn"/>
+        <xpath value="f:HealthcareService/f:offeredIn"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="HealthcareService-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

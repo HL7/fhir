@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="example-supplement"/>
   <text>
-    <status value="generated"/>
+    <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>A supplement pack for <code>http://hl7.org/fhir/CodeSystem/example</code> that defines the administrative property 'legacy' for whether the test is currently performed </p>
       <table class="grid">

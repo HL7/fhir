@@ -3,141 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="episode-of-care-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/episode-of-care-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">planned
-            
-            <a name="episode-of-care-status-planned"> </a>
-          
-          </td>
-          
-          <td>Planned</td>
-          
-          <td>This episode of care is planned to start at the date specified in the period.start. During this status, an organization may perform assessments to determine if the patient is eligible to receive services, or be organizing to make resources available to provide care services.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">waitlist
-            
-            <a name="episode-of-care-status-waitlist"> </a>
-          
-          </td>
-          
-          <td>Waitlist</td>
-          
-          <td>This episode has been placed on a waitlist, pending the episode being made active (or cancelled).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">active
-            
-            <a name="episode-of-care-status-active"> </a>
-          
-          </td>
-          
-          <td>Active</td>
-          
-          <td>This episode of care is current.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">onhold
-            
-            <a name="episode-of-care-status-onhold"> </a>
-          
-          </td>
-          
-          <td>On Hold</td>
-          
-          <td>This episode of care is on hold; the organization has limited responsibility for the patient (such as while on respite).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">finished
-            
-            <a name="episode-of-care-status-finished"> </a>
-          
-          </td>
-          
-          <td>Finished</td>
-          
-          <td>This episode of care is finished and the organization is not expecting to be providing further care to the patient. Can also be known as &quot;closed&quot;, &quot;completed&quot; or other similar terms.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">cancelled
-            
-            <a name="episode-of-care-status-cancelled"> </a>
-          
-          </td>
-          
-          <td>Cancelled</td>
-          
-          <td>The episode of care was cancelled, or withdrawn from service, often selected during the planned stage as the patient may have gone elsewhere, or the circumstances have changed and the organization is unable to provide the care. It indicates that services terminated outside the planned/expected workflow.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="episode-of-care-status-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered in Error</td>
-          
-          <td>This instance should not have been part of this patient&#39;s medical record.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
@@ -152,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.665"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="EpisodeOfCareStatus"/>
   <title value="EpisodeOfCareStatus"/>
   <status value="draft"/>
@@ -206,6 +73,6 @@
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="This instance should not have been part of this patient&#39;s medical record."/>
+    <definition value="This instance should not have been part of this patient's medical record."/>
   </concept>
 </CodeSystem>

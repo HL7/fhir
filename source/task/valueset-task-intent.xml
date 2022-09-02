@@ -11,12 +11,12 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>This value set includes codes based on the following rules:</p>
       <ul>
-        <li>Include all codes defined in 
+        <li>Include all codes defined in
           <a href="codesystem-task-intent.html">
             <code>http://hl7.org/fhir/task-intent</code>
           </a>
         </li>
-        <li>Include these codes as defined in 
+        <li>Include these codes as defined in
           <a href="codesystem-request-intent.html">
             <code>http://hl7.org/fhir/request-intent</code>
           </a>
@@ -51,7 +51,7 @@
                 <a href="codesystem-request-intent.html#request-intent-order">order</a>
               </td>
               <td>Order</td>
-              <td>The request represents a request/demand and authorization for action by a Practitioner.</td>
+              <td>The request represents a request/demand and authorization for action by the requestor.</td>
             </tr>
             <tr>
               <td>
@@ -86,7 +86,7 @@
                 <a href="codesystem-request-intent.html#request-intent-option">option</a>
               </td>
               <td>Option</td>
-              <td>The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.  Refer to [[[RequestGroup]]] for additional information on how this status is used.</td>
+              <td>The request represents a component or option for a RequestOrchestration that establishes timing, conditionality and/or other constraints among a set of requests.  Refer to [[[RequestOrchestration]]] for additional information on how this status is used.</td>
             </tr>
           </table>
         </li>
@@ -107,7 +107,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.1240"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="TaskIntent"/>
   <title value="TaskIntent"/>
   <status value="draft"/>

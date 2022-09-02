@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="MolecularSequence"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Representation of a molecular sequence."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
@@ -105,15 +105,25 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/sequence-type"/>
       </binding>
     </element>
-    <element id="MolecularSequence.patient">
-      <path value="MolecularSequence.patient"/>
-      <short value="Patient this sequence is associated too"/>
-      <definition value="Indicates the patient this sequence is associated too."/>
+    <element id="MolecularSequence.subject">
+      <path value="MolecularSequence.subject"/>
+      <short value="Subject this sequence is associated too"/>
+      <definition value="Indicates the subject this sequence is associated too."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
       </type>
       <isSummary value="true"/>
     </element>

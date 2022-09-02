@@ -27,7 +27,7 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Evidence"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
@@ -85,8 +85,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
       </constraint>
       <mapping>
@@ -97,11 +97,19 @@
     <element id="Evidence.url">
       <path value="Evidence.url"/>
       <short value="Canonical identifier for this evidence, represented as a globally unique URI"/>
-      <definition value="An absolute URI that is used to identify this evidence when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers."/>
+      <definition value="An absolute URI that is used to identify this evidence when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers."/>
       <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version."/>
       <requirements value="Allows the evidence to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
       <type>
         <code value="uri"/>
       </type>
@@ -567,22 +575,22 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/synthesis-type"/>
       </binding>
     </element>
-    <element id="Evidence.studyType">
-      <path value="Evidence.studyType"/>
-      <short value="The type of study that produced this evidence"/>
-      <definition value="The type of study that produced this evidence."/>
+    <element id="Evidence.studyDesign">
+      <path value="Evidence.studyDesign"/>
+      <short value="The design of the study that produced this evidence"/>
+      <definition value="The design of the study that produced this evidence. The design is described with any number of study design characteristics."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="StudyType"/>
+          <valueString value="StudyDesign"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The type of study the evidence was derived from."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/study-type"/>
+        <description value="This is a set of terms for study design characteristics."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/study-design"/>
       </binding>
     </element>
     <element id="Evidence.statistic">

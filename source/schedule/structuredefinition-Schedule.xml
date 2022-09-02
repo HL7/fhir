@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Schedule"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Schedule"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A container for slots of time that may be available for booking appointments."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -193,6 +193,18 @@
         <identity value="w5"/>
         <map value="FiveWs.class"/>
       </mapping>
+    </element>
+    <element id="Schedule.name">
+      <path value="Schedule.name"/>
+      <short value="Human-readable label"/>
+      <definition value="Further description of the schedule as it would be presented to a consumer while searching."/>
+      <comment value="This MAY be used to describe what the schedule is for where it is clearer than just the name of the single actor." />
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
     </element>
     <element id="Schedule.actor">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">

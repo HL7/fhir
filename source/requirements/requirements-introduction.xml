@@ -1,0 +1,78 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="bnc"></a>
+<h2>Scope and Usage</h2>
+
+<!-- TODO: Is there a pattern that this resource does fit? Metadata? Artifact?
+<p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
+ -->
+
+<p>
+The Requirements Resource a set of statements that are requirements for some design artifact to meet.
+The requirements resource is intended to meet two principle use cases:
+</p>
+<ul>
+<li>Documenting known regulatory, business, functional and technical requirements for interoperability specifications,
+particularly those published as <a href="implementationguide.html">Implementation Guides</a></li>
+<li>Performing the same role for clinical processes as documented in <a href="plandefinition.html">PlanDefinition</a>
+and <a href="activitydefinition.html">ActivityDefinition</a></li>
+</ul>
+
+<p>
+The Requirements Resource is focused on gathering known requirements and providing 
+traceability from solutions to the requirements they are intended to meet. 
+</p>
+
+<p>
+In any set of requirements, some of them may already be met by preexisting specifications,
+while others are requirements that must be fulfilled by some specification or design that 
+is created with or subsequent to the requirements. For this reason, requirements can
+directly identify features of specifications that satisfy the stated requirement, but in 
+most cases, it is expected that the specifications and designs that meet the requirements
+will provice traceability to the requirement.
+</p>
+<p>
+Each Requirements resource carries a set of statements about requirements. Each 
+statement has:
+</p>
+<ul>
+ <li><b>identity</b>: Computable and humn identification of the statement</li>
+ <li><b>requirement</b>: The wording of the requirement</li>
+ <li><b>conformance</b>: The strength associated with the statement. The strength is almost always embedded in the language of the requirement, but this allows for filtering and a degree of automated processing</li>
+ <li><b>source</b>: Source information about who was the source of the requirement</li>
+ <li><b>satisfied by</b>: A reference to some pre-existing specification element that satisfies the requirement</li>
+</ul>
+</div>
+<div>
+<h2>Boundaries and Relationships</h2>
+
+<p>
+Requirements may by referenced from almost any resource by the <a href="extension-satisfies-requirement.html">Requirements Satisifed</a> extension.
+Generally, this extension will be found in the <a href="canonicalresource.html">Canonical Resources</a> but this is 
+not a hard rule.
+</p>
+
+<p>
+If requirements are satisfied by an existing specification, they SHOULD reference
+a FHIR resource by <code>{url}</code> or a particular element by <code>{url}#id</code>,
+but the target of a reference does not need to be a resource at all.
+</p>
+
+<p>
+The requirements resource carries minimal provenance information - the name of the publisher,
+and the source of the statements. Additional provenance information should be carried in a 
+<a href="provenance.html">Provenance</a> resource.
+</p>
+
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+A number of stakeholders publishing FHIR implementation guides wish to do formal 
+requirements traacing. This resource exists for them.
+</p>
+</div>
+
+</div>

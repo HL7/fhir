@@ -182,46 +182,46 @@
   <li><b>links</b> - A set of links allowing the service to provide links to further information about the response</li>
 </ul>
 
-<p>At this point, the EHR processes the response and determines the most appropriate mechanism for displaying the results to the end-user. However, it is often the case that the results of the decision support interaction need to be persisted for future reference. The <a href="guidanceresponse.html">GuidanceResponse</a> and <a href="requestgroup.html">RequestGroup</a> resources provide a general mechanism that supports this use case.</p>
+<p>At this point, the EHR processes the response and determines the most appropriate mechanism for displaying the results to the end-user. However, it is often the case that the results of the decision support interaction need to be persisted for future reference. The <a href="guidanceresponse.html">GuidanceResponse</a> and <a href="requestorchestration.html">RequestOrchestration</a> resources provide a general mechanism that supports this use case.</p>
 
-<p>In general, a CDS Hooks Response can be captured as a single GuidanceResponse that represents the overall response from the CDS Service, and a single RequestGroup containing the cards and suggestions, as illustrated by the following object-level mappings:</p>
+<p>In general, a CDS Hooks Response can be captured as a single GuidanceResponse that represents the overall response from the CDS Service, and a single RequestOrchestration containing the cards and suggestions, as illustrated by the following object-level mappings:</p>
 
 <table>
   <tr><th><b>CDS Hooks Object</b></th><th><b>FHIR Resource Mapping</b></th><th><b>Description</b></th></tr>
-  <tr><td>Response</td><td>GuidanceResponse and RequestGroup</td><td>A CDS Hooks Response is 1 to 1 with a GuidanceResponse and an associated RequestGroup</td></tr>
-  <tr><td>Card</td><td>RequestGroup.action</td><td>Each Card in the response is represented as a top level action in the RequestGroup. The selectionBehavior of the action (i.e. among suggestions on the card) is specified by the selectionBehavior element of the card.</td></tr>
-  <tr><td>Suggestion</td><td>RequestGroup.action.action</td><td>Each suggestion on a card is represented as a nested action within the action for the card. The selectionBehavior of the action (i.e. among the actions described in the suggestion) is <code>all</code>, because CDS Hooks specifies that when a suggestion is accepted, all the actions on the suggestion are performed.</td></tr>
-  <tr><td>Action</td><td>RequestGroup.action.action.action</td><td>Each CDS Hooks Action on a card is represented as a nested action within the RequestGroup action for the suggestion, and the resource in the CDS Hooks Action populates the resource element of the RequestGroup action.</td></tr>
+  <tr><td>Response</td><td>GuidanceResponse and RequestOrchestration</td><td>A CDS Hooks Response is 1 to 1 with a GuidanceResponse and an associated RequestOrchestration</td></tr>
+  <tr><td>Card</td><td>RequestOrchestration.action</td><td>Each Card in the response is represented as a top level action in the RequestOrchestration. The selectionBehavior of the action (i.e. among suggestions on the card) is specified by the selectionBehavior element of the card.</td></tr>
+  <tr><td>Suggestion</td><td>RequestOrchestration.action.action</td><td>Each suggestion on a card is represented as a nested action within the action for the card. The selectionBehavior of the action (i.e. among the actions described in the suggestion) is <code>all</code>, because CDS Hooks specifies that when a suggestion is accepted, all the actions on the suggestion are performed.</td></tr>
+  <tr><td>Action</td><td>RequestOrchestration.action.action.action</td><td>Each CDS Hooks Action on a card is represented as a nested action within the RequestOrchestration action for the suggestion, and the resource in the CDS Hooks Action populates the resource element of the RequestOrchestration action.</td></tr>
 </table>
 
 <p>And the following table lists the element-level mappings:</p>
 
 <table>
   <tr><th><b>CDS Hooks Element</b></th><th><b>FHIR Resource Mapping</b></th></tr>
-  <tr><td>Request.hookInstance</td><td>GuidanceResponse.requestId &amp; RequestGroup.identifier</td></tr>
-  <tr><td>Request URL</td><td>GuidanceResponse.moduleUri &amp; RequestGroup.instantiatesUri</td></tr>
+  <tr><td>Request.hookInstance</td><td>GuidanceResponse.requestId &amp; RequestOrchestration.identifier</td></tr>
+  <tr><td>Request URL</td><td>GuidanceResponse.moduleUri &amp; RequestOrchestration.instantiatesUri</td></tr>
   <tr><td>Response status</td><td>GuidanceResponse.status</td></tr>
-  <tr><td>Request Patient</td><td>GuidanceResponse.subject &amp; RequestGroup.subject</td></tr>
-  <tr><td>Request time</td><td>GuidanceResponse.occurrenceDateTime &amp; RequestGroup.authoredOn</td></tr>
-  <tr><td>Request service</td><td>GuidanceResponse.performer &amp; RequestGroup.author (as a Device)</td></tr>
-  <tr><td>Response.card</td><td>RequestGroup.action</td></tr>
-  <tr><td>Response.card.summary</td><td>RequestGroup.action.title</td></tr>
-  <tr><td>Response.card.detail</td><td>RequestGroup.action.description</td></tr>
-  <tr><td>Response.card.indicator</td><td>RequestGroup.priority | RequestGroup.action.resource.priority, using the mapping specified <a href="conceptmap-cdshooks-indicator.html">here</a></td></tr>
-  <tr><td>Response.card.source</td><td>RequestGroup.action.relatedArtifact.where(type = 'documentation')</td></tr>
-  <tr><td>Response.card.selectionBehavior</td><td>RequestGroup.action.selectionBehavior</td></tr>
-  <tr><td>Response.card.suggestion</td><td>RequestGroup.action.action</td></tr>
-  <tr><td>Response.card.suggestion.label</td><td>RequestGroup.action.action.title</td></tr>
-  <tr><td>Response.card.suggestion.uuid</td><td>RequestGroup.action.action.id</td></tr>
-  <tr><td>Response.card.suggestion.action</td><td>RequestGroup.action.action.action</td></tr>
-  <tr><td>Response.card.suggestion.action.type</td><td>RequestGroup.action.action.action.type</td></tr>
-  <tr><td>Response.card.suggestion.action.description</td><td>RequestGroup.action.action.action.description</td></tr>
-  <tr><td>Response.card.suggestion.action.resource</td><td>RequestGroup.action.action.action.resource</td></tr>
+  <tr><td>Request Patient</td><td>GuidanceResponse.subject &amp; RequestOrchestration.subject</td></tr>
+  <tr><td>Request time</td><td>GuidanceResponse.occurrenceDateTime &amp; RequestOrchestration.authoredOn</td></tr>
+  <tr><td>Request service</td><td>GuidanceResponse.performer &amp; RequestOrchestration.author (as a Device)</td></tr>
+  <tr><td>Response.card</td><td>RequestOrchestration.action</td></tr>
+  <tr><td>Response.card.summary</td><td>RequestOrchestration.action.title</td></tr>
+  <tr><td>Response.card.detail</td><td>RequestOrchestration.action.description</td></tr>
+  <tr><td>Response.card.indicator</td><td>RequestOrchestration.priority | RequestOrchestration.action.resource.priority, using the mapping specified <a href="conceptmap-cdshooks-indicator.html">here</a></td></tr>
+  <tr><td>Response.card.source</td><td>RequestOrchestration.action.relatedArtifact.where(type = 'documentation')</td></tr>
+  <tr><td>Response.card.selectionBehavior</td><td>RequestOrchestration.action.selectionBehavior</td></tr>
+  <tr><td>Response.card.suggestion</td><td>RequestOrchestration.action.action</td></tr>
+  <tr><td>Response.card.suggestion.label</td><td>RequestOrchestration.action.action.title</td></tr>
+  <tr><td>Response.card.suggestion.uuid</td><td>RequestOrchestration.action.action.id</td></tr>
+  <tr><td>Response.card.suggestion.action</td><td>RequestOrchestration.action.action.action</td></tr>
+  <tr><td>Response.card.suggestion.action.type</td><td>RequestOrchestration.action.action.action.type</td></tr>
+  <tr><td>Response.card.suggestion.action.description</td><td>RequestOrchestration.action.action.action.description</td></tr>
+  <tr><td>Response.card.suggestion.action.resource</td><td>RequestOrchestration.action.action.action.resource</td></tr>
 </table>
 
 <p>Note that these examples all assume a FHIR DSTU2 service is being used.</p>
 
-<p>To support these scenarios, this module defines the <a href="guidanceresponse-cdshooks.html">CDS Hooks GuidanceResponse</a> and <a href="requestgroup-cdshooks.html">CDS Hooks RequestGroup</a> profiles.</p>
+<p>To support these scenarios, this module defines the <a href="guidanceresponse-cdshooks.html">CDS Hooks GuidanceResponse</a> and <a href="requestorchestration-cdshooks.html">CDS Hooks RequestOrchestration</a> profiles.</p>
 
 <a name="surfacing-clinical-decision-support"> </a>
 <h4>Surfacing Clinical Decision Support Guidance Using CDS Hooks</h4>
@@ -267,7 +267,7 @@
   <tr><td>Service.prefetch</td><td>PlanDefinition.data-requirement</td></tr>
 </table>
 
-<p>To support this representation, this module defines a <a href="plandefinition-cdshooks.html">CDS Hooks Service PlanDefinition</a> profile, which also supports specifying the CDS Hooks endpoint on which the PlanDefinition should be exposed.</p>
+<p>To support this representation, this module defines a <a href="plandefinition-cdshooks.html">CDSHooksServicePlanDefinition</a> profile, which also supports specifying the CDS Hooks endpoint on which the PlanDefinition should be exposed.</p>
 
 <p>The PlanDefinition/$apply operation can then be used to provide the behavior of the CDS Hooks service, as described in the Processing CDS Hooks Requests section below.</p>
 
@@ -296,7 +296,7 @@
 
 <img alt="Surfacing Clinical Reasoning Behavior via CDS Hooks" src="clinicalreasoning-cdshooks-approach.png"/>
 
-<p>As depicted in the above diagram, an EHR invokes a CDS Hooks request at the appropriate point in the workflow, providing the requested context and data. The CDS Service responds by performing an $apply operation against the specified PlanDefinition, and transforming the resulting RequestGroup into a CDS Hooks response.</p>
+<p>As depicted in the above diagram, an EHR invokes a CDS Hooks request at the appropriate point in the workflow, providing the requested context and data. The CDS Service responds by performing an $apply operation against the specified PlanDefinition, and transforming the resulting RequestOrchestration into a CDS Hooks response.</p>
 
 <p>Because PlanDefinitions can be used in a broad range of use cases, this module defines the <a href="library-cqf.html">CQL Library</a> and <a href="computableplandefinition.html">Computable PlanDefinition</a> profiles to describe the special case of a PlanDefinition being used as an event-condition-action rule with conditions and other dynamic behavior specified in a CQL Library. This arrangement provides a common and consistent pattern for describing decision support that can be easily integrated using the CDS Hooks specification.</p>
 [%file newfooter%]

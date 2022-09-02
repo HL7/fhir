@@ -37,7 +37,7 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CodeSystem-subsumes"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="subsumes"/>
   <title value="Subsumption Testing"/>
   <status value="draft"/>
@@ -121,7 +121,7 @@
         <valueString value="ConceptSubsumptionOutcome"/>
       </extension>
       <strength value="required"/>
-      <valueSet value="http://hl7.org/fhir/ValueSet/concept-subsumption-outcome|4.6.0"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/concept-subsumption-outcome"/>
     </binding>
   </parameter>
 </OperationDefinition>

@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/condition-outcome"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="outcome"/>
   <title value="Outcome"/>
   <status value="draft"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="A result of the condition. The &quot;Cause of death&quot; for a patient is typically captured as an Observation.  The &quot;outcome&quot; doesn&#39;t imply causality.  Some outcomes might not be assessable until the condition.clinicalStatus is no longer active."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

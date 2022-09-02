@@ -3,21 +3,8 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="questionnaire-answers-status"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <ul>
-        <li>Include all codes defined in 
-          <a href="codesystem-questionnaire-answers-status.html">
-            <code>http://hl7.org/fhir/questionnaire-answers-status</code>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -32,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:required"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="QuestionnaireResponseStatus"/>
   <title value="QuestionnaireResponseStatus"/>
   <status value="draft"/>

@@ -46,7 +46,7 @@ for all exchanges. Resources are an instance-level representation of some kind o
 All resources have the following features in <a href="resource.html">common</a>:
 </p>
 <ul>
- <li>A URL that identifies the resource</li>
+ <li>An identifier for the resource - typically a URL that defines where the resource is found</li>
  <li>Common metadata</li>
  <li>A <a href="narrative.html">human-readable XHTML summary</a></li>
  <li>A set of defined data elements - a different set for each type of resource </li>
@@ -95,9 +95,7 @@ This is an example of how a <a href="patient.html">patient</a> is represented as
 <code>  ],</code>
 <code>  "name": [</code>
 <code>    {</code>
-<code>      "family": [</code>
-<code>        "Levin"</code>
-<code>      ],</code>
+<code>      "family": "Levin",</code>
 <code>      "given": [</code>
 <code>        "Henry"</code>
 <code>      ],</code>
@@ -153,14 +151,15 @@ For manipulation of resources, FHIR provides a <a href="http.html">REST API</a> 
 rich but simple set of interactions:
 </p>
 <ul>
-<li><a href="http.html#create">Create</a> = POST https://example.com/path/{resourceType}</li>
-<li><a href="http.html#read">Read</a> = GET https://example.com/path/{resourceType}/{id}</li>
-<li><a href="http.html#update">Update</a> = PUT https://example.com/path/{resourceType}/{id}</li>
-<li><a href="http.html#delete">Delete</a> = DELETE https://example.com/path/{resourceType}/{id}</li>
-<li><a href="http.html#search">Search</a> = GET https://example.com/path/{resourceType}?search parameters...</li>
-<li><a href="http.html#history">History</a> = GET https://example.com/path/{resourceType}/{id}/_history</li>
-<li><a href="http.html#transaction">Transaction</a> = POST https://example.com/path/ <i>(POST a transaction bundle to the system)</i></li>
-<li><a href="operations.html">Operation</a> = GET https://example.com/path/{resourceType}/{id}/${opname}</li>
+<li><a href="http.html#create">Create</a> = POST https://example.com/base/{resourceType}</li>
+<li><a href="http.html#read">Read</a> = GET https://example.com/base/{resourceType}/{id}</li>
+<li><a href="http.html#update">Update</a> = PUT https://example.com/base/{resourceType}/{id}</li>
+<li><a href="http.html#patch">Patch</a> = PATCH https://example.com/base/{resourceType}/{id}</li>
+<li><a href="http.html#delete">Delete</a> = DELETE https://example.com/base/{resourceType}/{id}</li>
+<li><a href="http.html#search">Search</a> = GET https://example.com/base/{resourceType}?search parameters...</li>
+<li><a href="http.html#history">History</a> = GET https://example.com/base/{resourceType}/{id}/_history</li>
+<li><a href="http.html#transaction">Transaction</a> = POST https://example.com/base/ <i>(POST a transaction bundle to the system)</i></li>
+<li><a href="operations.html">Operation</a> = GET https://example.com/base/{resourceType}/{id}/${opname}</li>
 </ul>
 <p>
 The FHIR specification describes other kinds of exchanges beyond this simple RESTful API,
@@ -235,7 +234,7 @@ To <a href="http.html#create">create a resource</a>, send an HTTP POST request t
 point.
 </p>
 <pre>
-  POST https://example.com/path/{resourceType}
+  POST https://example.com/base/{resourceType}
 </pre>
 <p>
 In the example below we see the creation of a Patient.
@@ -243,7 +242,7 @@ In the example below we see the creation of a Patient.
 
 <div class="example">
 <pre class="http linecounter">
-<code>POST {some base path}/Patient HTTP/1.1</code>
+<code>POST /base/Patient HTTP/1.1</code>
 <code>Authorization: Bearer 37CC0B0E-C15B-4578-9AC1-D83DCED2B2F9</code>
 <code>Accept: application/fhir+json</code>
 <code>Content-Type: application/fhir+json</code>
@@ -288,7 +287,7 @@ do so.
 <code>Content-Type: application/fhir+json</code>
 <code>Date: Mon, 18 Aug 2014 01:43:30 GMT</code>
 <code>ETag: W/"1"</code>
-<code>Location: http://example.com/Patient/347</code>
+<code>Location: http://example.com/base/Patient/347</code>
 <code> </code>
 <code>{</code>
 <code>  &quot;resourceType&quot;: &quot;OperationOutcome&quot;,</code>
@@ -353,14 +352,14 @@ Notes:
 end-point.
 </p>
 <pre>
-  GET https://example.com/path/{resourceType}/{id}
+  GET https://example.com/base/{resourceType}/{id}
 </pre>
 <p>
 Here's an example.
 </p>
 <div class="example">
 <pre class="http linecounter">
-<code>GET /Patient/347?_format=xml HTTP/1.1</code>
+<code>GET /base/Patient/347?_format=xml HTTP/1.1</code>
 <code>Host: example.com</code>
 <code>Accept: application/fhir+xml</code>
 <code>Cache-Control: no-cache</code>
@@ -423,7 +422,7 @@ general pattern is:
 </p>
 <div class="example">
 <pre class="http">
-  GET https://example.com/path/{resourceType}?criteria
+  GET https://example.com/base/{resourceType}?criteria
 </pre>
 </div>
 <p>
@@ -505,7 +504,7 @@ Notes:
 The client sends the server a new version of the resource to replace the existing version - it PUTs it to the location of the existing resource:
 </p>
 <pre>
-  PUT https://example.com/path/{resourceType}/{id}
+  PUT https://example.com/base/{resourceType}/{id}
 </pre>
 <p>
 Note that there does not need to be a resource already existing at {id} - the server may elect to automatically create the resource at the specified address.
@@ -514,7 +513,7 @@ Here is an example of updating a patient:
 
 <div class="example">
 <pre class="http linecounter">
-<code>PUT /Patient/347 HTTP/1.1</code>
+<code>PUT /base/Patient/347 HTTP/1.1</code>
 <code>Host: example.com</code>
 <code>Content-Type: application/fhir+json</code>
 <code>Content-Length: 1435</code>
@@ -557,7 +556,7 @@ The response to an update request has metadata / status, and optionally an Opera
 <code>Content-Type: application/fhir+json</code>
 <code>Date: Mon, 18 Aug 2014 01:43:30 GMT</code>
 <code>ETag: W/"2"</code>
-<code>Location: https://example.com/Patient/347/_history/2</code>
+<code>Location: https://example.com/base/Patient/347/_history/2</code>
 <code> </code>
 <code>{</code>
 <code>  &quot;resourceType&quot;: &quot;OperationOutcome&quot;,</code>

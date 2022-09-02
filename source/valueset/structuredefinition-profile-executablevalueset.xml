@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="executablevalueset"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/executablevalueset"/>
+  <version value="5.0.0"/>
+  <name value="ExecutableValueSet"/>
+  <title value="Executable ValueSet"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="Defines an executable value set as one that SHALL have an expansion included, as well as a usage warning indicating the expansion is a point-in-time snapshot and must be maintained over time for production usage. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a computable definition of the value set must be obtained to compute the updated expansion."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="ValueSet"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="ValueSet">
+      <path value="ValueSet"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="ValueSet.extension:usageWarning">
+      <path value="ValueSet.extension"/>
+      <sliceName value="usageWarning"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-warning"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.extension:usageWarning.value[x]">
+      <path value="ValueSet.extension.value[x]"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <fixedMarkdown value="This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated."/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion">
+      <path value="ValueSet.expansion"/>
+      <min value="1"/>
+      <max value="1"/>
+      <constraint>
+        <key value="evs-1"/>
+        <severity value="error"/>
+        <human value="For contains, a version SHALL be provided unless the parameters element has a &quot;system-version&quot; parameter corresponding to the system of the entry and the version matches the system-version parameter."/>
+        <expression value="contains.version.exists() xor  parameter.where(name = 'system-version').exists()"/>
+        <xpath value="exists(f:expansion.contains.version)"/>
+      </constraint>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.identifier">
+      <path value="ValueSet.expansion.identifier"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.timestamp">
+      <path value="ValueSet.expansion.timestamp"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.total">
+      <path value="ValueSet.expansion.total"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.offset">
+      <path value="ValueSet.expansion.offset"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.parameter">
+      <path value="ValueSet.expansion.parameter"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.contains">
+      <path value="ValueSet.expansion.contains"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.contains.system">
+      <path value="ValueSet.expansion.contains.system"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.contains.abstract">
+      <path value="ValueSet.expansion.contains.abstract"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.contains.inactive">
+      <path value="ValueSet.expansion.contains.inactive"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.contains.version">
+      <path value="ValueSet.expansion.contains.version"/>
+      <condition value="evs-1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.contains.code">
+      <path value="ValueSet.expansion.contains.code"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.contains.display">
+      <path value="ValueSet.expansion.contains.display"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.contains.property">
+      <path value="ValueSet.expansion.contains.property"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.contains.property.code">
+      <path value="ValueSet.expansion.contains.property.code"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.contains.property.value[x]">
+      <path value="ValueSet.expansion.contains.property.value[x]"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ValueSet.expansion.contains.contains">
+      <path value="ValueSet.expansion.contains.contains"/>
+      <mustSupport value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

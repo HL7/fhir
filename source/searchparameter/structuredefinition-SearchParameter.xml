@@ -27,7 +27,7 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="SearchParameter"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -45,7 +45,7 @@
     </telecom>
   </contact>
   <description value="A search parameter that defines a named search item that can be used to search/filter on a resource."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -91,8 +91,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
       </constraint>
       <constraint>
@@ -111,6 +111,14 @@
         <xpath value="not(exists(f:chain)) or (f:type/@value = &#39;reference&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
       </constraint>
+      <constraint>
+        <key value="spd-3"/>
+        <severity value="error"/>
+        <human value="Search parameters comparator can only be used on type &#39;number&#39;, &#39;date&#39;, &#39;quantity&#39; or &#39;special&#39;."/>
+        <expression value="comparator.empty() or (type in (&#39;number&#39; | &#39;date&#39; | &#39;quantity&#39; | &#39;special&#39;))"/>
+        <xpath value="not(exists(f:comparator)) or (f:type/@value = &#39;number&#39;) or (f:type/@value = &#39;date&#39;) or (f:type/@value = &#39;quantity&#39;) or (f:type/@value = &#39;special&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
+      </constraint>
       <mapping>
         <identity value="v2"/>
         <map value="n/a"/>
@@ -127,11 +135,19 @@
     <element id="SearchParameter.url">
       <path value="SearchParameter.url"/>
       <short value="Canonical identifier for this search parameter, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this search parameter when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this search parameter is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the search parameter is stored on different servers."/>
+      <definition value="An absolute URI that is used to identify this search parameter when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this search parameter is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the search parameter is stored on different servers."/>
       <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the search parameter to be referenced by a single globally unique identifier. To allow referencing and reusing search parameter definitions under other names on operational systems (in case of name clash)."/>
       <min value="1"/>
       <max value="1"/>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
       <type>
         <code value="uri"/>
       </type>
@@ -149,7 +165,7 @@
       <path value="SearchParameter.version"/>
       <short value="Business version of the search parameter"/>
       <definition value="The identifier that is used to identify this version of the search parameter when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the search parameter author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different search parameter instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the search parameter with the format [url]|[version]."/>
+      <comment value="There may be different search parameter instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the search parameter with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -164,6 +180,25 @@
         <identity value="w5"/>
         <map value="FiveWs.version"/>
       </mapping>
+    </element>
+    <element id="SearchParameter.versionAlgorithm[x]">
+      <path value="SearchParameter.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+      <isSummary value="true"/>
     </element>
     <element id="SearchParameter.name">
       <path value="SearchParameter.name"/>
@@ -406,9 +441,9 @@
         <valueBoolean value="true"/>
       </extension>
       <path value="SearchParameter.code"/>
-      <short value="Code used in URL"/>
-      <definition value="The code used in the URL or the parameter name in a parameters resource for this search parameter."/>
-      <comment value="For maximum compatibility, use only lowercase ASCII characters."/>
+      <short value="Recommended name for parameter in search url"/>
+      <definition value="The label that is recommended to be used in the URL or the parameter name in a parameters resource for this search parameter.  In some cases, servers may need to use a different CapabilityStatement searchParam.name to differentiate between multiple SearchParameters that happen to have the same code."/>
+      <comment value="For maximum compatibility, use only lowercase ASCII characters. Note that HL7 will never define multiple search parameters with the same code."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -429,14 +464,14 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResourceType"/>
+          <valueString value="AllResourceType"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
         <strength value="required"/>
         <description value="One of the resource types defined as part of this version of FHIR."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
       </binding>
     </element>
     <element id="SearchParameter.type">
@@ -503,6 +538,16 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/search-xpath-usage"/>
       </binding>
     </element>
+    <element id="SearchParameter.constraint">
+      <path value="SearchParameter.constraint"/>
+      <short value="FHIRPath expression that constraints the usage of this SearchParamete"/>
+      <definition value="FHIRPath expression that defines/sets a complex constraint for when this SearchParameter is applicable."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="SearchParameter.target">
       <path value="SearchParameter.target"/>
       <short value="Types of resource (if a resource reference)"/>
@@ -566,7 +611,7 @@
     </element>
     <element id="SearchParameter.modifier">
       <path value="SearchParameter.modifier"/>
-      <short value="missing | exact | contains | not | text | in | not-in | below | above | type | identifier | ofType"/>
+      <short value="missing | exact | contains | not | text | in | not-in | below | above | type | identifier | of-type | code-text | text-advanced | iterate"/>
       <definition value="A modifier supported for the search parameter."/>
       <min value="0"/>
       <max value="*"/>
@@ -586,7 +631,7 @@
       <path value="SearchParameter.chain"/>
       <short value="Chained names supported"/>
       <definition value="Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from SearchParameter.code for a parameter on the target resource type."/>
-      <comment value="Systems are not required to list all the chain names they support, but if they don&#39;t list them, clients might not know to use them."/>
+      <comment value="Notes:&#10;&#10;* Not all systems will declare chain values.  If no chain values are specified at all, then no presumptions can be made about the degree of chaining support available&#10;* A server may use a single chain value of '*' to mean that all reference search types supported can be chained rather than enumerating all chain values&#10;*  If a particular reference search parameter is supported, but not subsequent chaining, then just list that search parameter name - e.g. for Patient.practitioner, the chain value would be ```practitioner```&#10;* If a particular reference search parameter is supported with unlimited chaining beneath it, then follow the search parameter name with '.'.  E.g. ```practitioner.```&#10;* If there are specific (not unlimited) chaining paths allowed they can be explicitly enumerated.  E.g. ```practitioner.organization```"/>
       <min value="0"/>
       <max value="*"/>
       <type>

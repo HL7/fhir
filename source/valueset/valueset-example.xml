@@ -6,7 +6,7 @@
 		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
 	</meta>
 	<text>
-		<status value="generated"/>
+		<status value="additional"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<p>Value set &quot;LOINC Codes for Cholesterol&quot;: This is an example value set that includes 
         all the  codes for serum cholesterol from LOINC v2.36.</p>
@@ -42,7 +42,8 @@
     Could also be a UUID too   -->
 	<version value="20150622"/>
 	<!--   set of loinc codes for cholesterol for LONC 2.36   -->
-	<name value="LOINC Codes for Cholesterol in Serum/Plasma"/>
+	<name value="LOINCCodesForCholesterolInSerumPlasma"/>
+	<title value="LOINC Codes for Cholesterol in Serum/Plasma"/>
 	<status value="draft"/>
 	<experimental value="true"/>
 	<date value="2015-06-22"/>

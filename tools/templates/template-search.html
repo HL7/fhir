@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+
+<!-- template-search.html -->
+       
+<%settitle Resource {xtitle} - Search Parameters%>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<%file newheader%>
+</head>
+<body>
+<%file newnavbar%>
+
+<div class="col-12">
+
+<%resheader search%>
+<h2><%title%></h2>
+<table class="colsi"><tr><td><a href="<%wg%>"><%wgt%></a> Work Group</td><td><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>: Informative</td><td><%sec-cat%></td><!--!ns!--><td><%complinks%></td></tr></table>
+
+<p>Search Parameter Registry for the <%name%> resource</p>
+
+<%searchParamTable%>
+
+</div>
+
+<%file newfooter%>
+    
+</body>
+</html>

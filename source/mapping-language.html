@@ -7,9 +7,6 @@
 <body>
 [%file newnavbar%]
 
-
-
-
 <h2>FHIR Mapping Language</h2>
 <table class="colsd"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 0 (Draft)</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
@@ -103,7 +100,11 @@ unless the names can be escaped. Escaping can be done by surrounding them by bac
    src  document4  `not-found`  `section4.5`  `group` 
 </pre>
 </p>
-
+<p>
+The media type for the FHIR Mapping language is <code>text/fhir-mapping</code>.
+Note that in order to conform to <a href="https://tools.ietf.org/html/rfc6657#page-3">RFC 6657</a>, 
+the <code>charset=utf-8</code> parameter SHALL be appended.
+</p>
 <a name="metadata"></a>
 <h3>Metadata</h3>
 
@@ -143,7 +144,7 @@ names (not unusual). If no alias is given, the name for the type will default to
 </p>
 <p>
 Any kind of structure definition may be referenced, including
-data types, resources, constraints on those, and logical models.
+datatypes, resources, constraints on those, and logical models.
 </p>
 <p>
 There are 4 modes in which a structure definition may be used:

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/lloyd/Documents/SVN/fhir/publish/fhir-single.xsd">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="questionnaire-optionRestriction"/>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
 		<valueCode value="fhir"/>
@@ -8,7 +8,7 @@
 		<valueInteger value="1"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/questionnaire-optionRestriction"/>
-	<version value="4.6.0"/>
+	<version value="5.0.0"/>
 	<name value="QuestionnaireOptionRestriction"/>
 	<title value="Questionnaire option restriction"/>
 	<status value="draft"/>
@@ -21,14 +21,18 @@
 		</telecom>
 	</contact>
 	<description value="Allows disabling certain questionnaire options for the containing item based on evaluating expressions."/>
-	<fhirVersion value="4.6.0"/>
+	<fhirVersion value="5.0.0"/>
 	<kind value="complex-type"/>
 	<abstract value="false"/>
 	<context>
 		<type value="element"/>
 		<expression value="Questionnaire.item"/>
 	</context>
-  <contextInvariant value="answerValueset or answerOption"/>
+	<context>
+		<type value="element"/>
+		<expression value="ElementDefinition"/>
+	</context>
+	<contextInvariant value="answerValueset or answerOption"/>
 	<type value="Extension"/>
 	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
 	<derivation value="constraint"/>
@@ -68,19 +72,19 @@
 			<min value="1"/>
 			<type>
 				<code value="integer"/>
-		  </type>
+			</type>
 			<type>
 				<code value="date"/>
-		  </type>
+			</type>
 			<type>
 				<code value="time"/>
-		  </type>
+			</type>
 			<type>
 				<code value="string"/>
-		  </type>
+			</type>
 			<type>
 				<code value="Coding"/>
-		  </type>
+			</type>
 			<type>
 				<code value="Reference"/>
 			</type>
@@ -120,6 +124,6 @@
 				<code value="uri"/>
 			</type>
 			<fixedUri value="http://hl7.org/fhir/StructureDefinition/questionnaire-optionRestriction"/>
-		</element>		
+		</element>
 	</differential>
 </StructureDefinition>

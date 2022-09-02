@@ -3,113 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="codesystem-content-mode"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/codesystem-content-mode defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">not-present
-            
-            <a name="codesystem-content-mode-not-present"> </a>
-          
-          </td>
-          
-          <td>Not Present</td>
-          
-          <td>None of the concepts defined by the code system are included in the code system resource.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">example
-            
-            <a name="codesystem-content-mode-example"> </a>
-          
-          </td>
-          
-          <td>Example</td>
-          
-          <td>A few representative concepts are included in the code system resource. There is no useful intent in the subset choice and there&#39;s no process to make it workable: it&#39;s not intended to be workable.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">fragment
-            
-            <a name="codesystem-content-mode-fragment"> </a>
-          
-          </td>
-          
-          <td>Fragment</td>
-          
-          <td>A subset of the code system concepts are included in the code system resource. This is a curated subset released for a specific purpose under the governance of the code system steward, and that the intent, bounds and consequences of the fragmentation are clearly defined in the fragment or the code system documentation. Fragments are also known as partitions.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">complete
-            
-            <a name="codesystem-content-mode-complete"> </a>
-          
-          </td>
-          
-          <td>Complete</td>
-          
-          <td>All the concepts defined by the code system are included in the code system resource.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">supplement
-            
-            <a name="codesystem-content-mode-supplement"> </a>
-          
-          </td>
-          
-          <td>Supplement</td>
-          
-          <td>The resource doesn&#39;t define any new concepts; it just provides additional designations and properties to another code system.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
   </extension>
@@ -127,7 +22,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.783"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="CodeSystemContentMode"/>
   <title value="CodeSystemContentMode"/>
   <status value="active"/>
@@ -156,7 +51,7 @@
   <concept>
     <code value="example"/>
     <display value="Example"/>
-    <definition value="A few representative concepts are included in the code system resource. There is no useful intent in the subset choice and there&#39;s no process to make it workable: it&#39;s not intended to be workable."/>
+    <definition value="A few representative concepts are included in the code system resource. There is no useful intent in the subset choice and there's no process to make it workable: it's not intended to be workable."/>
   </concept>
   <concept>
     <code value="fragment"/>
@@ -171,6 +66,6 @@
   <concept>
     <code value="supplement"/>
     <display value="Supplement"/>
-    <definition value="The resource doesn&#39;t define any new concepts; it just provides additional designations and properties to another code system."/>
+    <definition value="The resource doesn't define any new concepts; it just provides additional designations and properties to another code system."/>
   </concept>
 </CodeSystem>

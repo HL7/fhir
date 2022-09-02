@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Subscription-status"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="status"/>
   <title value="Get Current Subscription Status for One or More Subscriptions"/>
   <status value="draft"/>
@@ -51,7 +51,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="This operation is used to return the current status information about one or more topic-based Subscriptions in R4."/>
+  <description value="This operation is used to return the current status information about one or more topic-based Subscriptions."/>
   <affectsState value="false"/>
   <code value="status"/>
   <resource value="Subscription"/>
