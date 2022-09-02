@@ -4542,7 +4542,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="165">
     <Cell ss:StyleID="s129"><Data ss:Type="String">timezone</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">DataType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">date;dateTime;instant;Meta</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">date;dateTime;instant;Meta;time</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">TimezoneCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Timezone Code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">An IANA timezone code for  the timezone offset per BCP 175</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
