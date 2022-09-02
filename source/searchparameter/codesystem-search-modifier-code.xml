@@ -63,7 +63,7 @@
   <concept>
     <code value="text"/>
     <display value="Text"/>
-    <definition value="The search parameter is processed as a string that searches text associated with the code/value - either CodeableConcept.text, Coding.display, or Identifier.type.text."/>
+    <definition value="The search parameter is processed as a string that searches text associated with the code/value - either CodeableConcept.text, Coding.display, Identifier.type.text, or Reference.display."/>
   </concept>
   <concept>
     <code value="in"/>
@@ -96,8 +96,24 @@
     <definition value="The search parameter applies to the identifier on the resource, not the reference."/>
   </concept>
   <concept>
-    <code value="ofType"/>
+    <code value="of-type"/>
     <display value="Of Type"/>
     <definition value="The search parameter has the format system|code|value, where the system and code refer to an Identifier.type.coding.system and .code, and match if any of the type codes match. All 3 parts must be present."/>
   </concept>
+  <concept>
+    <code value="code-text"/>
+    <display value="Code Text"/>
+    <definition value="Tests whether the textual display value in a resource (e.g., CodeableConcept.text, Coding.display, or Reference.display) matches the supplied parameter value."/>
+  </concept>
+  <concept>
+    <code value="text-advanced"/>
+    <display value="Text Advanced"/>
+    <definition value="Tests whether the value in a resource matches the supplied parameter value using advanced text handling that searches text associated with the code/value - e.g., CodeableConcept.text, Coding.display, or Identifier.type.text."/>
+  </concept>
+  <concept>
+    <code value="iterate"/>
+    <display value="Iterate"/>
+    <definition value="The search parameter indicates an inclusion directive (_include, _revinclude) that is applied to an included resource instead of the matching resource."/>
+  </concept>
+
 </CodeSystem>
