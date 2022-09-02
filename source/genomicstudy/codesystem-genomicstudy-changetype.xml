@@ -24,7 +24,7 @@
   <name value="GenomicStudyChangeType"/>
   <title value="GenomicStudyChangeType"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <date value="2022-08-17T15:48:24-05:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
@@ -40,7 +40,7 @@
   <description value="The change type relevant to GenomicStudy analysis."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-changetype"/>
-  <content value="example"/>
+  <content value="complete"/>
   <concept>
     <code value="DNA"/>
     <display value="DNA change"/>
