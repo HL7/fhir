@@ -19,7 +19,7 @@
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
+    <valueCode value="vocab"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
@@ -30,7 +30,7 @@
   <url value="http://hl7.org/fhir/ValueSet/namingsystem-identifier-system-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.492"/>
+    <value value="urn:oid:2.16.840.1.113883.11.21013"/>
   </identifier>
   <version value="4.6.0"/>
   <name value="NamingSystemIdentifierSystemType"/>
@@ -53,7 +53,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/2.0.0/CodeSystem-v2-0203.html	"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
     </include>
   </compose>
 </ValueSet>
