@@ -287,6 +287,66 @@ The following filters are defined for all code systems:
  </tr>
 </table>
 
+<blockquote class="stu-note">
+<p>
+<strong>Note: </strong>Ballot feedback is sought in relation to the additional concept filters for code systems supporting is-a relationships included in the table below, which has been added for R5.
+</p>
+</blockquote>
+<p>
+The following filters are defined for all code systems that support "is-a" relationships between concepts. (The filters can be used regardless of whether the "is-a" relationships are conveyed as concept properties or as concept nesting):
+</p>
+<table class="grid">
+ <tr>
+   <th>Property Name</th>
+   <th>Operation</th>
+   <th>Value</th>
+   <th>Definition</th>
+   <th>Notes</th>
+ </tr>
+ <tr>
+   <td>concept</td>
+   <td>is-a</td>
+   <td>[string] concept code</td>
+   <td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (include descendant codes and self).</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td>concept</td>
+   <td>descendent-of</td>
+   <td>[string] concept code</td>
+   <td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself i.e. include descendant codes only).</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td>concept</td>
+   <td>is-not-a</td>
+   <td>[string] concept code</td>
+   <td>The specified property of the code does not have an is-a relationship with the provided value.</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td>concept</td>
+   <td>generalizes</td>
+   <td>[string] concept code</td>
+   <td>Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (i.e. include ancestor codes and self).</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td>concept</td>
+   <td>child-of</td>
+   <td>[string] concept code</td>
+   <td>Only concepts with a direct hierarchical relationship to the index code and no other concepts. This does not include the index code in the output.</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td>concept</td>
+   <td>descendent-leaf</td>
+   <td>[string] concept code</td>
+   <td>Includes concept ids that have a transitive is-a relationship with the concept Id provided as the value, but which do not have any concept ids with transitive is-a relationships with themselves.</td>
+   <td></td>
+ </tr>
+</table>
+
 <div class="draft-content">
 <p>
 This <a href="versions.html#std-process" title="Draft Content" class="draft-flag">draft section</a> about the relationships between rich terminologies and structured content is still undergoing review.
