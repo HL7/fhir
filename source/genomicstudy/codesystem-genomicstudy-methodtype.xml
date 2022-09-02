@@ -24,7 +24,6 @@
   <name value="GenomicStudyMethodType"/>
   <title value="GenomicStudyMethodType"/>
   <status value="draft"/>
-  <experimental value="false"/>
   <date value="2022-08-16T16:49:24-05:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
