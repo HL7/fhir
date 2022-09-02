@@ -13032,6 +13032,10 @@
     <display value="Genotype"/>
     <display value="Genotype determination (procedure)"/>
   </concept>
+  <concept id="363787002" display="Observable entity">
+    <display value="Observable entity"/>
+    <display value="Observable entity (observable entity)"/>
+  </concept>
   <concept id="36570001" display="DK pig 31">
     <display value="DK pig 31"/>
     <display value="Dekalb hybrid pig line 31 (organism)"/>

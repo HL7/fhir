@@ -6638,7 +6638,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Codes that indicate the meaning of a data element.</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/observation-codes</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">http://loinc.org/vs</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
