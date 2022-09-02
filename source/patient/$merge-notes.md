@@ -11,7 +11,7 @@ The merge operation will have multiple stages, and some of these may take additi
 
 |Stage | Description |
 |-|-|
-| Preview Merge | (Optional)<br/>This is a call to the operation (with preview=true) that simply checks for potential errors and warnings, without committing any changes.<br/>This may not be able to capture all possible causes of errors that could be encountered during the processing of the data patching.<br/>The returned Patient resource is a preview only and has not been committed. Hence the version number and last_modified date would be cleared/absent. |
+| Preview Merge | (Optional)<br/>This is a call to the operation (with preview=true) that simply checks for potential errors and warnings, without committing any changes.<br/>This might not be able to capture all possible causes of errors that could be encountered during the processing of the data patching.<br/>The returned Patient resource is a preview only and has not been committed. Hence the version number and last_modified date would be cleared/absent. |
 | Initiate Merge | This stage processes the input parameters checking for errors/warnings and begins the changes to the patient resources.<br/>If the system is able to complete the processing of all reference data to the target patient, then it may be complete and no task is required. Otherwise a Task for tracking would be created and monitor the progress of the merge. |
 | Data Processing | The rest operation may have returned, and processing is ongoing to patch any other resource that references the source patient to reference the target patient.<br/>This may take a considerable period of time in some systems where the volume of records being updated is large.<br/>The source Patient record will be marked as inactive, and add the link property to the target patient (except where systems delete the record)
 | Completed (or failed) | All data processing is complete, and the Task is marked as completed (maybe with errors) |
@@ -109,7 +109,7 @@ These notifications can be sent to other downstream systems, partners, or other 
 
 Consideration should be taken to ensure that the correct data is acted on.
 
-The downstream systems may not have all identifiers that the notifying system has, the notifier may be configured to know what "types" of identifiers should be propagated to which systems.
+The downstream systems might not have all identifiers that the notifying system has, the notifier may be configured to know what "types" of identifiers should be propagated to which systems.
 
 **Note:** When using the identifier parameters (rather than id) you should be using the same assigner (which in the example above would be the PAS/ADT or clinical system), this may be configured in the sending notification system, such as an EMPI based on local business rules.
 
@@ -120,9 +120,9 @@ Subscriptions on merges are most likely to be used by applications connecting di
 > * What can be used as triggers for the subscription
 >    * Patient update with new link values
 >    * Provenance(s) as an event
->    * operation itself as an event (the Task resource, although that may not exist, so just a pre-defined topic)
+>    * operation itself as an event (the Task resource, although that might not exist, so just a pre-defined topic)
 > * Will all the data that is patched over to the target patient ID be notified
->    * Systems may not notify that the content was changed, and rely on the merge notification to advise if required
+>    * Systems might not notify that the content was changed, and rely on the merge notification to advise if required
 >    * Also note the Client data refresh notification discussion above
 
 # Mapping HL7v2 Merge to FHIR
@@ -182,7 +182,7 @@ An A42 event is used to signal a merge of records for a visit that was incorrect
 ## Move Events
 ### ADT/ACK - Move Patient Information - Patient Identifier List (Event A43)
 
-A move has been done at the patient identifier list level.  Identifier to be moved in the PID-3 - Patient Identifier List and MRG-1 - Prior Patient Identifier List will have the same value. The "from" (incorrect source patient ID) and "to" (correct target patient ID) identifiers have different values. See A43 examples in section 5.  The identifiers involved in identifying the patient to be moved (MRG-1 - Prior Patient Identifier List) may or may not have accounts, which may or may not have visits.  In any case, all subordinate data sets associated with the identifier in MRG-1 - Prior Patient Identifier List are moved along with the identifier, from the "incorrect source patient ID" to the "correct target patient ID."
+A move has been done at the patient identifier list level.  Identifier to be moved in the PID-3 - Patient Identifier List and MRG-1 - Prior Patient Identifier List will have the same value. The "from" (incorrect source patient ID) and "to" (correct target patient ID) identifiers have different values. See A43 examples in section 5.  The identifiers involved in identifying the patient to be moved (MRG-1 - Prior Patient Identifier List) may or might not have accounts, which may or might not have visits.  In any case, all subordinate data sets associated with the identifier in MRG-1 - Prior Patient Identifier List are moved along with the identifier, from the "incorrect source patient ID" to the "correct target patient ID."
 
 ### ADT/ACK - Move Account Information - Patient Account Number (Event A44)
 *(For information only, not in scope of FHIR for now)*
