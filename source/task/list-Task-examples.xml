@@ -148,4 +148,15 @@
       <display value="Cancel a preauthorization"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a task to not administer a particular questionnaire, because it is part of typical care and patient circumstances indicate it should not be given"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="task-example-do-not-collect-information"/>
+    </extension>
+    <item>
+      <reference value="Task/cpg-example-1"/>
+      <display value="Do not administer a questionnaire"/>
+    </item>
 </List>
