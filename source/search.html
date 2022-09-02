@@ -2255,15 +2255,19 @@ A quantity parameter searches on the <a href="datatypes.html#Quantity">Quantity<
 The syntax for the value follows the form:
 </p>
 <ul>
- <li><b>[parameter]=[prefix][number]|[system]|[code]</b> matches a quantity with the given unit</li>
+ <li><code>[parameter]={[prefix]}[number]</code> matches a quantity by <code>value</code>, with an optional prefix</li>
+ <li><code>[parameter]={[prefix]}[number]||[code]</code> matches a quantity by <code>value</code> and <code>code</code> or <code>unit</code>, with an optional prefix</li>
+ <li><code>[parameter]={[prefix]}[number]|[system]|[code]</code> matches a quantity by <code>value</code>, <code>system</code> and <code>code</code>, with an optional prefix</li>
 </ul>
 <p>
-The prefix is optional, and is as described <a href="#prefix">above</a>, both regarding how
+The prefix is optional, and is as described in the section on <a href="#prefix">Prefixes</a>, both regarding how
 precision and comparator/range operators are interpreted. Like a number parameter, the
 number part of the search value can be a decimal in exponential format. The <code>system</code> and <code>code</code>
-follow the same pattern as <a href="#token">token parameters</a> are also optional. Example searches:
+follow the same pattern as <a href="#token">token parameters</a> are also optional. Note that when the <code>[system]</code>
+component has a value, it is implied that a precise (and potentially canonical) match is desired. In this case, it is 
+inappropriate to search on the human display for the unit, which can be is uncontrolled and may unpredictable.
+Example searches:
 </p>
-
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <table>
@@ -2345,7 +2349,7 @@ value-quantity=ap5.4|http://unitsofmeasure.org|mg</span>
 <p>
 Specifying a system and a code for the search implies that the search is based on a particular code system - usually <a href="http://unitsofmeasure.org">UCUM</a>, and
 that a precise (and potentially canonical) match is desired. In this case, it is inappropriate to search on the human display for the unit, which can be
-is uncontrolled and may unpredictable.
+is uncontrolled and may be unpredictable.
 </p>
 
 <p>
