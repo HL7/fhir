@@ -92,6 +92,22 @@
         <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </constraint>
+      <constraint>
+        <key value="opd-5"/>
+        <severity value="error"/>
+        <human value="A query operation cannot be defined at the instance level"/>
+        <expression value="(kind = 'query') implies (instance = false)"/>
+        <xpath value="((f:kind/@value = 'query') and (f:/instance = false)) or (not(f:kind/@value = 'query'))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+      </constraint>
+      <constraint>
+        <key value="opd-6"/>
+        <severity value="error"/>
+        <human value="A query operation requires input parameters to have a search type"/>
+        <expression value="(kind = 'query') implies (parameter.all((use = 'in' and searchType.exists()) or (use != 'in')))"/>
+        <xpath value="((f:kind/@value = 'query') and ((f:parameter/f:use/@value = 'in') and (f:parameter/f:searchType))) or (not(f:kind/@value = 'query'))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Definition"/>
