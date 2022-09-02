@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <CapabilityStatement xmlns="http://hl7.org/fhir">
-  <id value="terminology-server"/>
+  <id value="example-terminology-server"/>
   <url value="http://hl7.org/fhir/CapabilityStatement/terminology-server"/>
   <version value="20220901"/>
   <name value="ACMETerminologyService—CapabilityStatement"/>
