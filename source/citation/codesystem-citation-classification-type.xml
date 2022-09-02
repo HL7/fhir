@@ -3,119 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="citation-classification-type"/>
   <meta>
-    <lastUpdated value="2021-03-11T10:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/citation-classification-type defines the following codes:</p>
-      
-      
-      <table class="codes">
-        
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">
-            
-            
-            <b>Code</b>
-          
-          
-          </td>
-          
-          
-          <td>
-            
-            
-            <b>Display</b>
-          
-          
-          </td>
-          
-          
-          <td>
-            
-            
-            <b>Definition</b>
-          
-          
-          </td>
-        
-        
-        </tr>
-        
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">citation-source
-            
-            
-            <a name="citation-classification-type-citation-source"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Citation Source</td>
-          
-          
-          <td>Citation repository where this citation was created or copied from</td>
-        
-        
-        </tr>
-		
-        <tr>
-          
-          
-          <td style="white-space:nowrap">medline-owner
-            
-            
-            <a name="citation-classification-type-medline-owner"> </a>
-          
-          
-          </td>
-          
-          
-          <td>MEDLINE Citation Owner</td>
-          
-          
-          <td>The party responsible for creating and validating the MEDLINE citation</td>
-        
-        
-        </tr>
-		
-        <tr>
-          
-          
-          <td style="white-space:nowrap">fevir-platform-use
-            
-            
-            <a name="citation-classification-type-fevir-platform-use"> </a>
-          
-          
-          </td>
-          
-          
-          <td>FEvIR Platform Use</td>
-          
-          
-          <td>Used for Citation sharing on the Fast Evidence Interoperability Resources (FEvIR) Platform</td>
-        
-        
-        </tr>
-      
-      
-      </table>
-    
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -130,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="CitationClassificationType"/>
   <title value="CitationClassificationType"/>
   <status value="draft"/>

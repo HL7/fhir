@@ -713,8 +713,8 @@ Implementers should be aware of the following issues when using these extensions
   If the data element being referenced has <code>targetProfile</code> elements that refer to resources, 
   only those targetProfile resources that have URLs that exist in the referencing version can exist.  
   If a resource has been renamed, it can't be used in the prior release (note: this is because there's no 
-  computable way of determining what names would be allowed); the  <a href="extension-alternateReference.html">alternateReference</a>
-  and <a href="extension-alternateCanonical.html">alternateCanonical</a> extensions may be used in this context. E.g. if converting 
+  computable way of determining what names would be allowed); the  <a href="extension-alternate-reference.html">alternate-reference</a>
+  and <a href="extension-alternate-canonical.html">alternate-canonical</a> extensions may be used in this context. E.g. if converting 
   from a version that supports 3 target types when the target version only supports 2 target types, any repetition that referred to 
   the non-supported type would be represented as a reference or canonical instance where the content would just be the alternate extension (and a display, since something must be provided).
  </li>
@@ -800,7 +800,7 @@ In R4, this would look like:
         "code" : "prop-code",
         "valueString" : "prop-value",
         "extension" : [{
-          "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ValueSet.expansion.contains.property.subProperty" : [{
+          "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ValueSet.expansion.contains.property.subProperty",
           "extension" : [{
             "url" :"code",
             "valueCode" : "sub-prop-code"
