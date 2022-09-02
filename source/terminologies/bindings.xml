@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-05-23T20:36:08Z</Created>
-  <LastSaved>2022-08-27T11:27:19Z</LastSaved>
+  <LastSaved>2022-09-02T21:34:36Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -13,20 +13,13 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <SupBook>
-   <Path>\Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\conceptmap-spreadsheet.xml</Path>
-   <SheetName>Invariants</SheetName>
-  </SupBook>
-  <SupBook>
-   <Path>\Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\elementdefinition.xml</Path>
-   <SheetName>Invariants</SheetName>
-  </SupBook>
   
   
   
   
   <TabRatio>780</TabRatio>
   <MaxChange>0.0001</MaxChange>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -483,10 +476,10 @@
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="='\Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
+  <NamedRange ss:Name="Invariantids" ss:RefersTo="='Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="52" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="53" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s64" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s64" ss:Width="230.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="4" ss:StyleID="s64" ss:Width="219.0"/>
@@ -596,6 +589,14 @@
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">required</Data></Cell>
     <Cell><Data ss:Type="String">valueset-all-resource-types</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DataTypes</Data></Cell>
+    <Cell><Data ss:Type="String">List of FHIR Data Types (concrete and abstract)</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-data-types</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -1167,7 +1168,7 @@
     <Cell ss:Index="12" ss:StyleID="s76"><Data ss:Type="String">fhir</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s76"/>
    </Row>
-   <Row ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">UsageContextAgreementScope</Data></Cell>
     <Cell><Data ss:Type="String">Codes for usage context of type agreement scope</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">value set</Data></Cell>
@@ -5581,7 +5582,7 @@
  <Worksheet ss:Name="binding-strength">
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='binding-strength'!R1C1:R1C9"/>
-   <NamedRange ss:Name="Invariantids" ss:RefersTo="='\Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
+   <NamedRange ss:Name="Invariantids" ss:RefersTo="='Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s122" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s122" ss:Width="80.0"/>
