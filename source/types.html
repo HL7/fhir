@@ -21,7 +21,7 @@
 The FHIR specification defines many different types in the following general categories:
 </p>
 <ol>
-  <li><a href="datatypes.html">Data Types</a></li>
+  <li><a href="datatypes.html">Datatypes</a></li>
   <li><a href="resourcelist.html">Resources</a></li>
   <li><a href="types.html">Logical Models</a></li>
 </ol>
@@ -73,7 +73,7 @@ See also <a href="types-definitions.html#Element">Detailed Descriptions</a>, <a 
 
 <p>
 The base definition for all elements contained inside a resource. All elements, whether defined as
-a <a href="datatypes.html">Data Type</a> (including primitives) or as part of a resource structure,
+a <a href="datatypes.html">Datatype</a> (including primitives) or as part of a resource structure,
 have this base content:
 </p>
 <ul>
@@ -85,8 +85,8 @@ have this base content:
 There are 3 kinds of descendant types that specialize <code>Element</code>:
 </p>
 <ul>
- <li><a href="datatypes.html#primitive">Primitive data types</a>, that add a primitive value property of the specified type</li>
- <li><a href="datatypes.html#complex">Complex data types</a>, that add their own children (all of which are also elements)</li>
+ <li><a href="datatypes.html#primitive">Primitive datatypes</a>, that add a primitive value property of the specified type</li>
+ <li><a href="datatypes.html#complex">Complex datatypes</a>, that add their own children (all of which are also elements)</li>
  <li><a href="#BackboneElement">BackboneElement</a>, A specialization that adds modifierExtension, which is the super-type of all the element types defined in resource definitions (e.g. <a href="patient.html#resource">Patient.contact</a>)</li>
 </ul>
 <p>
@@ -146,7 +146,7 @@ See also <a href="types-definitions.html#BackboneElement">Detailed Descriptions<
 
 
 <p>
-The base definition for complex elements defined as part of a resource definition - that is, elements that have children that are defined in the resource. <a href="datatypes.html">Data Type</a> elements do not use this type.
+The base definition for complex elements defined as part of a resource definition - that is, elements that have children that are defined in the resource. <a href="datatypes.html">Datatype</a> elements do not use this type.
 For instance, <a href="patient.html#resource">Patient.contact</a> is an element that is defined as part of the patient resource, so it automatically
 has the type <code>BackboneElement</code>.
 </p>
@@ -174,7 +174,7 @@ See also <a href="types-definitions.html#DataType">Detailed Descriptions</a>, <a
 The base definition for the useable types defined by the FHIR Specification.
 </p>
 <p>
-See <a href="datatypes.html">FHIR Data Types</a> for specialization of this type.
+See <a href="datatypes.html">FHIR Datatypes</a> for specialization of this type.
 </p>
 
 [%adt DataType 1%]
@@ -191,7 +191,7 @@ See also <a href="types-definitions.html#BackboneType">Detailed Descriptions</a>
 
 
 <p>
-The base definition for the few data types that allow modifier extensions:
+The base definition for the few datatypes that allow modifier extensions:
 </p>
 <ul>
  <li><a href="datatypes.html#timing">Timing</a></li>

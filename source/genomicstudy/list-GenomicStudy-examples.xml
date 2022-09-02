@@ -171,6 +171,57 @@
       <display value="General"/>
     </item>
   </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic File of a Proband"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-genomicFileProband"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicFileProband"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic File of a Mother"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-genomicFileMother"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicFileMother"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic File of a Father"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-genomicFileFather"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicFileFather"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="DocumentReference - Genomic File of a Trio: proband, mother, and father"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="DocumentReference-genomicFileGroupAsSubject"/>
+    </extension>
+    <item>
+      <reference value="DocumentReference/genomicFileGroupAsSubject"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Device - NGS Device"/>
@@ -217,6 +268,19 @@
     </extension>
     <item>
       <reference value="Encounter/genomicEncounter"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Group - A group of a trio study including proband, mother, and father"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Group-denovoFamily"/>
+    </extension>
+    <item>
+      <reference value="Group/groupDenovoFamily"/>
       <display value="General"/>
     </item>
   </entry>
@@ -297,6 +361,31 @@
 
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="RelatedPerson - a proband's mother"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="RelatedPerson-denovoMother"/>
+    </extension>
+    <item>
+      <reference value="RelatedPerson/relatedPersonDenovoMother"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="RelatedPerson - a proband's father"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="RelatedPerson-denovoFather"/>
+    </extension>
+    <item>
+      <reference value="RelatedPerson/relatedPersonDenovoFather"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="ServiceRequest - Genomic Example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
@@ -346,6 +435,43 @@
 
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ServiceRequest - Genomic service request that references a proband as a subject"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="ServiceRequest-genomicSRProband"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/genomicSRProband"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ServiceRequest - Genomic service request that references a proband's mother as a subject"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="ServiceRequest-genomicSRMother"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/genomicSRMother"/>
+      <display value="General"/>
+    </item>
+  </entry>
+    <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ServiceRequest - Genomic service request that references a proband's father as a subject"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="ServiceRequest-genomicSRFather"/>
+    </extension>
+    <item>
+      <reference value="ServiceRequest/genomicSRFather"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Specimen - Denovo 1"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
@@ -380,6 +506,45 @@
       <display value="General"/>
     </item>
   </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Specimen of a Proband as a subject"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Specimen-specimenProband"/>
+    </extension>
+    <item>
+      <reference value="Specimen/specimenProband"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Specimen of a proband's mother as a subject"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Specimen-specimenMother"/>
+    </extension>
+    <item>
+      <reference value="Specimen/specimenMother"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Specimen of a proband's father as a subject"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="Specimen-specimenFather"/>
+    </extension>
+    <item>
+      <reference value="Specimen/specimenFather"/>
+      <display value="General"/>
+    </item>
+  </entry>
+
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Specimen - Genomic"/>

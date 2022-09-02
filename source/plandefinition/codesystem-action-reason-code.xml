@@ -3,113 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="action-reason-code"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/action-reason-code defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">off-pathway
-            
-            <a name="action-reason-code-off-pathway"> </a>
-          
-          </td>
-          
-          <td>Off pathway</td>
-          
-          <td>The action should be performed because the patient was determined to be off pathway.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">risk-assessment
-            
-            <a name="action-reason-code-risk-assessment"> </a>
-          
-          </td>
-          
-          <td>Risk assessment</td>
-          
-          <td>The action should be performed based on a particular risk assessment.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">care-gap
-            
-            <a name="action-reason-code-care-gap"> </a>
-          
-          </td>
-          
-          <td>Care gap detected</td>
-          
-          <td>The action should be performed to address a detected care gap.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">drug-drug-interaction
-            
-            <a name="action-reason-code-drug-drug-interaction"> </a>
-          
-          </td>
-          
-          <td>Drug-drug interaction</td>
-          
-          <td>The action should be performed to address a detected potential drug-drug interaction.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">quality-measure
-            
-            <a name="action-reason-code-quality-measure"> </a>
-          
-          </td>
-          
-          <td>Quality measure</td>
-          
-          <td>The action should be performed to bring the patient&#39;s care in line with a quality measure.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -124,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ActionReasonCode"/>
   <title value="ActionReasonCode"/>
   <status value="draft"/>
@@ -168,6 +63,6 @@
   <concept>
     <code value="quality-measure"/>
     <display value="Quality measure"/>
-    <definition value="The action should be performed to bring the patient&#39;s care in line with a quality measure."/>
+    <definition value="The action should be performed to bring the patient's care in line with a quality measure."/>
   </concept>
 </CodeSystem>

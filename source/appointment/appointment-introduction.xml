@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<div>
-<a name="scope"></a>
+    <a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<p>
 			Appointment resources are used to provide information about
@@ -130,8 +130,6 @@
 [%end-note%]
 			</li>
 		</ul>
-	</div>
-  <div>
 
 	<a name="recurring"> </a>
 	<h3>Recurring Appointments</h3>
@@ -188,6 +186,8 @@
 		<p>
 		Feedback <a href="http://hl7.org/fhir-issues">here</a>.
 	[%end-note%]
+	</div>
+	<div>
 
 <a name="bnr"></a>
     <h2>Boundaries and Relationships</h2>

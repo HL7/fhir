@@ -9,9 +9,6 @@
 <body>
 [%file newnavbar%]
 
-
-
-
 <%extheader examples%>
 
 <h2>Extensibility Examples</h2>
@@ -108,7 +105,6 @@ From this table, we can build a formal extension definition. In this case, it lo
       &lt;path value="Extension.valueUri"/>
       &lt;short value="The URI value"/&gt;
       &lt;min value="1"/&gt;
-      &lt;max value="*"/&gt;
       &lt;type>
          &lt;code value="uri"/&gt;
       &lt;/type>
@@ -140,7 +136,7 @@ Note that the URL of the extension refers to the registered location.
 </p>
 <pre class="xml" fragment="Patient">
 &lt;Patient xmlns="http://hl7.org/fhir"&gt;
-  &lt;extension url=&quot;http://example.org/phr/documents/fhir/extensions/participation-agreement&quot; &gt;
+  &lt;extension url=&quot;http://example.org/fhir/StructureDefinition/participation-agreement&quot; &gt;
     &lt;valueUri value=&quot;http://example.org/phr/documents/patient/general/v1&quot;/&gt;
   &lt;/extension&gt;
   &lt;!-- ... --&gt;
@@ -227,11 +223,11 @@ Note - this step is optional.
 <h3>Patient Name Parts</h3>
 
 <p>
-ISO 21090 (Healthcare Data Types) defines a concept called a "name part qualifier" that contains extra
+ISO 21090 (Healthcare Datatypes) defines a concept called a "name part qualifier" that contains extra
 information about how a particular name part should be used or interpreted. In practice, this field
 is used rarely except in particular cultural contexts, where certain part qualifiers are used as a
 matter of practice. Following the <a href="extensibility.html">FHIR design policy</a>, such a field
-is not included in the overall definition of the core name data type, instead is it added as an
+is not included in the overall definition of the core name datatype, instead is it added as an
 extension.
 </p>
 
@@ -332,7 +328,6 @@ and their associated bindings. In this case, the definition looks like this:
       &lt;path value="Extension.value"/>
       &lt;short value="LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN"/&gt;
       &lt;min value="0"/&gt;
-      &lt;max value="*"/&gt;
       &lt;type>
          &lt;code value="code"/&gt;
       &lt;/type>

@@ -1,18 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>
-        This value set includes all possible UCUM codes used for distance measures - that it is, all units which have the same canonical unit as "m" (metre)
-      </p>
-      <p> 
-        The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
-     </p>
-    
-    </div>
-  </text>
   <name value="AllUCUMExpressionForDistance"/>
   <title value="All UCUM Expression for Distance"/>
   <status value="draft"/>
@@ -23,7 +11,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Unified Code for Units of Measure (UCUM). This value set includes all UCUM codes for units of length"/>
+  <description value="Unified Code for Units of Measure (UCUM). This value set includes all possible UCUM codes used for distance measures - that it is, all units which have the same canonical unit as 'm' (metre)"/>
   <copyright value="The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved."/>
   <compose>
     <include>

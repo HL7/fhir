@@ -8,4 +8,11 @@
   <date value="2014-12-07T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
   <description value="This profile holds core ImplementationGuide extensions"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/implementationguide-sourceFile"/>
+      </reference>
+    </resource>
+  </definition>
 </ImplementationGuide>

@@ -42,7 +42,7 @@
 
  <member>
   <entity>
-    <reference value="Patient/denovoChild"/>
+    <reference value="Patient/proband"/>
   </entity>
   <period> 
       <start value="2021-01-01T01:01:10-06:00"/> 
