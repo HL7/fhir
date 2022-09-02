@@ -3,71 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="operation-kind"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/operation-kind defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">operation
-            
-            <a name="operation-kind-operation"> </a>
-          
-          </td>
-          
-          <td>Operation</td>
-          
-          <td>This operation is invoked as an operation.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">query
-            
-            <a name="operation-kind-query"> </a>
-          
-          </td>
-          
-          <td>Query</td>
-          
-          <td>This operation is a named query, invoked using the search mechanism.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -85,7 +22,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.507"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="OperationKind"/>
   <title value="OperationKind"/>
   <status value="active"/>

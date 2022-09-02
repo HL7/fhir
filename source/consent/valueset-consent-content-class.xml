@@ -18,7 +18,7 @@
   <compose>
     <!-- CDA specific document types. Use these for IHE published CDA templates -->
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/formatcodes"/>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-HL7FormatCodes"/>
     </include>
     
     <!-- FHIR Resource types -->

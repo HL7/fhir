@@ -119,7 +119,7 @@ using the singular name:
 <a name="primitive"></a>
 <h3>XML representation of primitive elements</h3>
 <p>
-FHIR elements with primitive data types are represented in by an XML element 
+FHIR elements with primitive datatypes are represented in by an XML element 
 with a value attribute.
 </p>
 <pre class="xml">
@@ -158,11 +158,11 @@ with a value attribute.
   }
 </pre>
    
-<h3>XML representation of Complex Data types and XHTML</h3>
+<h3>XML representation of Complex Datatypes and XHTML</h3>
 
 <p>
 Complex <a href="datatypes.html">datatypes</a> (types that contain named elements of other types) are represented using
-an element that containing an element for each element in the datatype. Complex data types can have ids, which are
+an element that containing an element for each element in the datatype. Complex datatypes can have ids, which are
 represented as id attributes, in the same manner as described for primitives. For example:
 </p>
 <pre class="xml" fragment="Patient">
@@ -205,7 +205,7 @@ represented as id attributes, in the same manner as described for primitives. Fo
 <a name="schema"></a>
 <h3>XML Schema and Schematron</h3>
 <p>
-This specification provides schema definitions for all the resource and data type content models it describes. 
+This specification provides schema definitions for all the resource and datatype content models it describes. 
 </p>
 <p>
 The base schema is called "<a href="fhir-base.xsd">fhir-base.xsd</a>" and defines all the 
@@ -258,10 +258,10 @@ support.
 <p>
 Implementers making use of schema-driven code generation tooling need
 to consider how to handle the <a href="datatypes.html#decimal">decimal</a>
-data type. The decimal data type is defined to be precision aware - that 
+datatype. The decimal datatype is defined to be precision aware - that 
 is, that implementers need to preserve the difference between "2.0" and
 "2.00" - this is ubiquitously considered important in handling observed
-data in healthcare. Both schemas map this data type to a union of <code>xsd:decimal</code> and <code>xsd:double</code>, but
+data in healthcare. Both schemas map this datatype to a union of <code>xsd:decimal</code> and <code>xsd:double</code>, but
 the base <a href="http://www.w3.org/TR/xmlschema-2/#decimal">W3C schema decimal type</a> is specified not to be precision aware. Schema
 driven implementations vary as to how precision is handled. Implementers
 will need to determine how their generated code handles decimals/doubles and 

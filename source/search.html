@@ -335,7 +335,7 @@ The modifiers are separated from the parameter name by a colon. Modifiers are:</
   Searching for <code>gender:missing=true</code> will return all the resources that don't have a value for the gender parameter (which usually
   equates to not having the relevant element in the resource). Searching for <code>gender:missing=false</code>
   will return all the resources that have a value for the <code>gender</code> parameter.
-  For simple data type elements, :missing=true will match on all elements where either the underlying element is omitted or where the element is present with extensions but no @value is specified
+  For simple datatype elements, :missing=true will match on all elements where either the underlying element is omitted or where the element is present with extensions but no @value is specified
   </li>
  <li>For string: <code>:exact</code> returns results that match the entire supplied parameter, including casing and combining characters.
     Note that the handling of (extended) <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters</a> is within
@@ -500,13 +500,13 @@ The date parameter format is <code>yyyy-mm-ddThh:mm:ss[Z|(+|-)hh:mm]</code> (the
 </p>
 <p>
 Technically, this is any of the <a href="datatypes.html#date">date</a>, <a href="datatypes.html#dateTime">dateTime</a>,
-and <a href="datatypes.html#instant">instant</a> data types; e.g. Any degree of precision can be provided, but it SHALL
+and <a href="datatypes.html#instant">instant</a> datatypes; e.g. Any degree of precision can be provided, but it SHALL
 be populated from the left (e.g. can't specify a month without a year), except that the minutes SHALL be present if
 an hour is present, and you SHOULD provide a time zone if the time part is present. Note: Time can consist of hours and minutes with no seconds, unlike the XML Schema dateTime type. Some user agents may escape the <code>:</code>
 characters in the URL, and servers SHALL handle this correctly.
 </p>
 <p>
-Date parameters may be used with the following data types:
+Date parameters may be used with the following datatypes:
 </p>
 <table class="grid">
  <tr><td><a href="datatypes.html#date">date</a></td><td>The range of the value is the day, month, or year as specified</td></tr>
@@ -725,7 +725,7 @@ search parameter, and interpreting that portion as a search on the version.
 <h4>token</h4>
 <p>
 A token type is a parameter that provides a close to exact match search on a string of characters, potentially
-scoped by a URI. It is mostly used against a code or identifier data type where the value may have a
+scoped by a URI. It is mostly used against a code or identifier datatype where the value may have a
 URI that scopes its meaning, where the search is performed against the  pair from a Coding or an
 Identifier. Tokens are also used against other fields where exact matches are required - uris,
 booleans, and <a href="datatypes.html#ContactPoint">ContactPoints</a>. In these cases, the URI portion is not used.
@@ -734,7 +734,7 @@ booleans, and <a href="datatypes.html#ContactPoint">ContactPoints</a>. In these 
 For tokens, matches are literal (e.g. not based on <a href="codesystem.html#subsumption">subsumption</a> or other code system features).
 Match is case sensitive unless the underlying semantics for the context indicate that the token should be interpreted case-insensitively
 (see, e.g. <a href="codesystem-definitions.html#CodeSystem.caseSensitive">CodeSystem.caseSensitive</a>). Note that matches on <code>_id</code>
-are always case sensitive. If the underlying data type is <code><a href="datatypes.html#string">string</a></code>
+are always case sensitive. If the underlying datatype is <code><a href="datatypes.html#string">string</a></code>
 then the search is not case sensitive.
 </p>
 <p>
@@ -768,11 +768,11 @@ then just the form [parameter]=[code] is used.</li>
  <li></li>
 </ul>
 <p>
-Token search parameters are used for the following data types:
+Token search parameters are used for the following datatypes:
 </p>
 <table class="lines">
  <tr>
-  <td><b>Data Type</b></td>
+  <td><b>Datatype</b></td>
   <td><b>URI</b></td>
   <td><b>Code</b></td>
   <td><b>Comments</b></td>
@@ -836,7 +836,7 @@ Token search parameters are used for the following data types:
 <p>
 Note: The use of token search parameters for boolean fields: the boolean values "true" and "false" are also represented
 as formal codes in the <a href="valueset-special-values.html">Special Values</a> code system, which is useful when boolean values
-need to be represented in a <a href="datatypes.html#coding">Coding</a> data type. The namespace for these codes is
+need to be represented in a <a href="datatypes.html#coding">Coding</a> datatype. The namespace for these codes is
 http://hl7.org/fhir/special-values, though there is usually no reason to use this, as a simple true or false is sufficient.
 </p>
 
@@ -904,7 +904,7 @@ formal subsumption logic.
 <a name="quantity"></a>
 <h4>quantity</h4>
 <p>
-A quantity parameter searches on the <a href="datatypes.html#Quantity">Quantity</a> data type.
+A quantity parameter searches on the <a href="datatypes.html#Quantity">Quantity</a> datatype.
 The syntax for the value follows the form:
 </p>
 <ul>
@@ -935,7 +935,7 @@ is uncontrolled and may unpredictable.
 <p>
 The search processor may choose to perform a search based on <a href="datatypes.html#quantity">canonical units</a>
 (e.g. any value where the units can be converted to a value in mg in the case above). For example, an observation
-may have a value of <code>23 mm/hr</code>. This is equal to <code>0.23 m/hr</code>. The search processer can
+may have a value of <code>23 mm/hr</code>. This is equal to <code>0.023 m/hr</code>. The search processer can
 choose to normalise all the values to a canonical unit such as <code>6.4e-6 m/sec</code>, and convert
 search terms to the same units (m/sec). Such conversions can be performed based on the semantics defined
 in <a href="http://unitsofmeasure.org">UCUM</a>
@@ -2103,11 +2103,11 @@ auditing the search itself.
 </table>
 
 <p>
-Cross-map between search parameter types and Data types:
+Cross-map between search parameter types and Datatypes:
 </p>
 <table class="list">
  <tr>
-  <td><b>Data Type</b></td>
+  <td><b>Datatype</b></td>
   <td><b><a href="#number">number</a></b></td>
   <td><b><a href="#date">date</a></b></td>
   <td><b><a href="#reference">reference</a></b></td>
@@ -2262,7 +2262,7 @@ Cross-map between search parameter types and Data types:
   <td colspan="7" style="background-color: #f9f9f9"><%xcmchk uuid%>Not used in search (but see uri)</td>
  </tr>
  <tr>
-   <td colspan="8" style="background-color: #efefef"><b>Data Types</b></td>
+   <td colspan="8" style="background-color: #efefef"><b>Datatypes</b></td>
  </tr>
  <tr>
   <td><a href="datatypes.html#Address">Address</a></td>

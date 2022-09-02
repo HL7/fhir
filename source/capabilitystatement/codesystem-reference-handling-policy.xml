@@ -3,113 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="reference-handling-policy"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/reference-handling-policy defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">literal
-            
-            <a name="reference-handling-policy-literal"> </a>
-          
-          </td>
-          
-          <td>Literal References</td>
-          
-          <td>The server supports and populates Literal references (i.e. using Reference.reference) where they are known (this code does not guarantee that all references are literal; see &#39;enforced&#39;).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">logical
-            
-            <a name="reference-handling-policy-logical"> </a>
-          
-          </td>
-          
-          <td>Logical References</td>
-          
-          <td>The server allows logical references (i.e. using Reference.identifier).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">resolves
-            
-            <a name="reference-handling-policy-resolves"> </a>
-          
-          </td>
-          
-          <td>Resolves References</td>
-          
-          <td>The server will attempt to resolve logical references to literal references - i.e. converting Reference.identifier to Reference.reference (if resolution fails, the server may still accept resources; see logical).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">enforced
-            
-            <a name="reference-handling-policy-enforced"> </a>
-          
-          </td>
-          
-          <td>Reference Integrity Enforced</td>
-          
-          <td>The server enforces that references have integrity - e.g. it ensures that references can always be resolved. This is typically the case for clinical record systems, but often not the case for middleware/proxy systems.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">local
-            
-            <a name="reference-handling-policy-local"> </a>
-          
-          </td>
-          
-          <td>Local References Only</td>
-          
-          <td>The server does not support references that point to other servers.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -127,7 +22,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.203"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ReferenceHandlingPolicy"/>
   <title value="ReferenceHandlingPolicy"/>
   <status value="active"/>
@@ -151,7 +46,7 @@
   <concept>
     <code value="literal"/>
     <display value="Literal References"/>
-    <definition value="The server supports and populates Literal references (i.e. using Reference.reference) where they are known (this code does not guarantee that all references are literal; see &#39;enforced&#39;)."/>
+    <definition value="The server supports and populates Literal references (i.e. using Reference.reference) where they are known (this code does not guarantee that all references are literal; see 'enforced')."/>
   </concept>
   <concept>
     <code value="logical"/>

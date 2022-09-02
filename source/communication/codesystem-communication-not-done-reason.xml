@@ -3,127 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="communication-not-done-reason"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/communication-not-done-reason defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">unknown
-            
-            <a name="communication-not-done-reason-unknown"> </a>
-          
-          </td>
-          
-          <td>Unknown</td>
-          
-          <td>The communication was not done due to an unknown reason.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">system-error
-            
-            <a name="communication-not-done-reason-system-error"> </a>
-          
-          </td>
-          
-          <td>System Error</td>
-          
-          <td>The communication was not done due to a system error.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">invalid-phone-number
-            
-            <a name="communication-not-done-reason-invalid-phone-number"> </a>
-          
-          </td>
-          
-          <td>Invalid Phone Number</td>
-          
-          <td>The communication was not done due to an invalid phone number.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">recipient-unavailable
-            
-            <a name="communication-not-done-reason-recipient-unavailable"> </a>
-          
-          </td>
-          
-          <td>Recipient Unavailable</td>
-          
-          <td>The communication was not done due to the recipient being unavailable.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">family-objection
-            
-            <a name="communication-not-done-reason-family-objection"> </a>
-          
-          </td>
-          
-          <td>Family Objection</td>
-          
-          <td>The communication was not done due to a family objection.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">patient-objection
-            
-            <a name="communication-not-done-reason-patient-objection"> </a>
-          
-          </td>
-          
-          <td>Patient Objection</td>
-          
-          <td>The communication was not done due to a patient objection.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
   </extension>
@@ -138,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1077"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="CommunicationNotDoneReason"/>
   <title value="CommunicationNotDoneReason"/>
   <status value="draft"/>

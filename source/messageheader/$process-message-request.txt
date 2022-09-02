@@ -1,5 +1,5 @@
 //request to link 2 patients, and respond asynchronously
-POST /ehr/fhir/$process-message?aync=true&response-url=http://example.org/clients/ehr-lite
+POST /ehr/fhir/$process-message?async=true&response-url=http://example.org/clients/ehr-lite
 [other headers]
 
 $include message-request-link.xml

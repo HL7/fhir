@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 
-[%settitle Data Type Mappings%]
+[%settitle Datatype Mappings%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -12,10 +12,10 @@
 
 
 <%dtheader mappings%>
-<h2>Data Type Mappings</h2>
+<h2>Datatype Mappings</h2>
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
-<p>This page provides mappings for the data types. There are mappings to <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>, <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>, and (where appropriate) vCard (see <a href="mappings.html">Mappings to Other Standards</a> for further information &amp; status).</p>
+<p>This page provides mappings for the datatypes. There are mappings to <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>, <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>, and (where appropriate) vCard (see <a href="mappings.html">Mappings to Other Standards</a> for further information &amp; status).</p>
 
 <p><b>Table of Contents</b></p>
 <table class="grid">
@@ -74,7 +74,7 @@ See also <a href="datatypes.html#identifier">Base Definition</a>, <a href="datat
 <a name="ii"></a>
 <h4>V3 Mapping Issues for Identifier</h4>
 <p>
-When mapping an HL7 v3 II data type to a FHIR Identifier, there are two possibilities:
+When mapping an HL7 v3 II datatype to a FHIR Identifier, there are two possibilities:
 </p>
 <ul>
  <li>If the II has only a root and no extension, the FHIR Identifier will have a system of 'urn:ietf:rfc:3986' and the II.root will appear in Identifier.value</li>

@@ -3,85 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="action-condition-kind"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/action-condition-kind defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">applicability
-            
-            <a name="action-condition-kind-applicability"> </a>
-          
-          </td>
-          
-          <td>Applicability</td>
-          
-          <td>The condition describes whether or not a given action is applicable.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">start
-            
-            <a name="action-condition-kind-start"> </a>
-          
-          </td>
-          
-          <td>Start</td>
-          
-          <td>The condition is a starting condition for the action.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">stop
-            
-            <a name="action-condition-kind-stop"> </a>
-          
-          </td>
-          
-          <td>Stop</td>
-          
-          <td>The condition is a stop, or exit condition for the action.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -96,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.816"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ActionConditionKind"/>
   <title value="ActionConditionKind"/>
   <status value="draft"/>

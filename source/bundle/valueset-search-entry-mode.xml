@@ -3,21 +3,8 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="search-entry-mode"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <ul>
-        <li>Include all codes defined in 
-          <a href="codesystem-search-entry-mode.html">
-            <code>http://hl7.org/fhir/search-entry-mode</code>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -35,7 +22,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.622"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="SearchEntryMode"/>
   <title value="SearchEntryMode"/>
   <status value="active"/>
@@ -52,7 +39,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Why an entry is in the result set - whether it&#39;s included as a match or because of an _include requirement, or to convey information or warning information about the search process."/>
+  <description value="Why an entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process."/>
   <immutable value="true"/>
   <compose>
     <include>

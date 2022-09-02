@@ -92,7 +92,7 @@ In addition, classes have zero or more associations, which are always aggregatio
 </svg>
 
 <p>
-The elements and the data types are hyperlinks to the formal definitions of the parts. 
+The elements and the datatypes are hyperlinks to the formal definitions of the parts. 
 </p>
 <p>
 Note that the order of elements in XML (the only serialization where order is required to be correct)
@@ -195,7 +195,7 @@ Notes for implementers:
 <h2>Stereotypes - Attributes</h2>
 
 <p>
-There are three stereotypes for attributes, both of which constrain the value domain of the assigned data type. These three 
+There are three stereotypes for attributes, both of which constrain the value domain of the assigned datatype. These three 
 stereotypes can be differentiated by examining the contents of the stereotype.
 </p>
 <p>
@@ -205,7 +205,7 @@ Note that where these stereotypes are allowed, they are usually present and popu
 <a name="choice"></a>
 <h3>Type Choice</h3>
 <p>
-If the data type assigned to an attribute is <a href="#abstract">abstract</a>, then a stereotype may be provided that 
+If the datatype assigned to an attribute is <a href="#abstract">abstract</a>, then a stereotype may be provided that 
 indicates which concrete sub-types are allowed to be used for this particular element. If this stereotype is provided, only the specified 
 types are allowed. Note: as such, this is equivalent to an OCL constraint on the attribute. 
 </p>
@@ -217,7 +217,7 @@ separated by the <code>|</code> character.
 <a name="reference"></a>
 <h3>Target Reference Type</h3>
 <p>
-If the data type assigned to an attribute is a reference to another resource (one of 
+If the datatype assigned to an attribute is a reference to another resource (one of 
 <a href="references.html#Reference">Reference</a>, <a href="datatypes.html#canonical">canonical</a> or <a href="datatypes.html#CodeableReference">CodeableReference</a>), 
 then a stereotype may be provided that indicates which kinds of resources the references are allowed to refer to. If this stereotype is provided, only the specified 
 resources are allowed to be referenced. Note: as such, this is conceptually equivalent to an OCL constraint on the attribute, but the rules can only be evaluated by
@@ -232,7 +232,7 @@ separated by the <code>|</code> character.
 <a name="binding"></a>
 <h3>Vocabulary Binding</h3>
 <p>
-If the data type associated with the attribute is one of the <a href="terminologies.html#type-list">data types that can be bound to a value set</a>,
+If the datatype associated with the attribute is one of the <a href="terminologies.html#type-list">datatypes that can be bound to a value set</a>,
 then a stereotype may be provided that restricts the codes that may be present in the attribute. If this stereotype is provided, the rules as defined 
 by the binding must be followed. Note: there is no OCL equivalent for this stereotype. 
 </p>
