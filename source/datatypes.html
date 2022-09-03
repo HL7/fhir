@@ -138,7 +138,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>[^\s]+(\s[^\s]+)*</code><br/>
+  <td style="border-top: 0px silver solid">Regex: <code>[^\s]+( [^\s]+)*</code><br/>
       This datatype can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="code.profile.xml.html">XML Definition</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="code.profile.json.html">JSON Definition</a></td>
@@ -276,7 +276,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Note that strings SHALL NOT exceed 1MB (1024*1024 characters) in size. Strings SHOULD not contain Unicode character points below 32, except for u0009 (horizontal tab), u0010 (carriage return) and u0013 (line feed).
+   <td style="border-top: 0px silver solid">Note that strings SHALL NOT exceed 1,048,576 (1024*1024) characters in size. Because UTF-8 characters can be expressed with more than one byte, the string size may be more than 1MB. Strings SHOULD not contain Unicode character points below 32, except for u0009 (horizontal tab), u000D (carriage return) and u000A (line feed).
 	   Leading and Trailing whitespace is allowed, but SHOULD be <a href="xml.html#whitespace">removed when using the XML format</a>.
      Note: This means that a string that consists only of whitespace could be trimmed to nothing, which would be treated as an invalid element value.  Therefore strings SHOULD always contain non-whitespace content</td>
  </tr>
@@ -428,7 +428,7 @@ Notes:
      <li>This specification requires and uses the <a href="https://github.github.com/gfm/">GFM (Github Flavored Markdown)</a> extensions on <a href="http://spec.commonmark.org/0.28/">CommonMark</a> format</li>
      <li>Note that GFM prohibits Raw HTML</li>
      <li>Systems are not required to have markdown support, so the content of a string should be readable without markdown processing, per markdown philosophy</li>
-     <li>Markdown content SHALL NOT contain Unicode character points below 32, except for u0009 (horizontal tab), u0010 (carriage return) and u0013 (line feed)</li>
+     <li>Markdown content SHALL NOT contain Unicode character points below 32, except for u0009 (horizontal tab), u000D (carriage return) and u000A (line feed)</li>
      <li>Markdown is a <code>string</code>, and subject to the same rules (e.g. length limit)</li>
 		 <li>Converting an element that has the type <code>string</code> to <code>markdown</code> in a later version of this FHIR specification
 		    is not considered a breaking change (neither is adding <code>markdown</code> as a choice to an optional element that already has a choice of datatypes)</li>
@@ -1682,7 +1682,8 @@ When the signature is an JSON Digital Signature (contentType = application/jose)
  <li>The signature is a <a href="https://tools.ietf.org/html/rfc7515#appendix-F">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
  <li>When FHIR Resources are signed, the signature is across the <a href="json.html#canonical">Canonical JSON form</a> of the resource(s)</li>
  <li>The Signature SHOULD use the hashing algorithm SHA256. Signature validation policy will apply to the signature and determine acceptability</li>
- <li>The Signature SHALL include a "CommitmentTypeIndication" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The <code>Signature.type</code> shall contain the same values as the CommitmentTypeIndication element.</li>
+ <li>The Signature SHALL include a "srCms signer commitments" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The Signature.type shall contain the same values as the srCms element.</li>
+ <li>The Signature SHOULD conform to JAdES-XL for support of long term signatures. The JAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
 </ul>
 <p>
 There are three levels of signature verification:
