@@ -497,7 +497,7 @@
     </element>
     <element id="Bundle.entry.request.ifNoneMatch">
       <path value="Bundle.entry.request.ifNoneMatch"/>
-      <short value="For managing cache currency"/>
+      <short value="For managing cache validation"/>
       <definition
         value="If the ETag values match, return a 304 Not Modified status. See the API documentation for [&quot;Conditional Read&quot;](http.html#cread)."/>
       <min value="0"/>
