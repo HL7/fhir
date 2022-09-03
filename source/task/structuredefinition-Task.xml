@@ -724,8 +724,8 @@
 			<path value="Task.location"/>
 			<short value="Where task occurs"/>
 			<definition value="Principal physical location where the this task is performed."/>
-			<requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
 			<comment value="This should only be specified when the Task to be/being performed happens or is expected to happen primarily within the bounds of a single Location.  Other locations (e.g. source, destination, etc.) would either be reflected on the 'basedOn' Request or be conveyed as distinct Task.input values."  />
+			<requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -938,9 +938,6 @@
 			</mapping>
 		</element>
 		<element id="Task.input">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-				<valueString value="Parameter"/>
-			</extension>
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
 				<valueCode value="400,225"/>
 			</extension>
