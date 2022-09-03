@@ -703,8 +703,8 @@
     </element>
     <element id="Device.specialization.systemType">
       <path value="Device.specialization.systemType"/>
-      <short value="Code that specifies the system within which the specialization is indicated"/>
-      <definition value="Code that specifies the system that identifies the specialization that the device is adhering to."/>
+      <short value="Code of the system that identifies the standard that the device adheres to"/>
+      <definition value="Code that specifies the system that identifies the specific standard that the device adheres to."/>
       <min value="1"/>
       <max value="1"/>
       <type>
