@@ -664,7 +664,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRDeviceVersionType"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="The type of version indicated for the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-versiontype"/>
       </binding>
@@ -732,7 +732,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRDeviceSpecializationSystemType"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="The type of version indicated for the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-specialization-systemtype"/>
       </binding>
@@ -760,7 +760,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRDeviceSpecializationCategory"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="The kind of standards used by the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-specialization-category"/>
       </binding>
@@ -826,7 +826,7 @@
         <code value="Attachment"/>
       </type>
     </element>
-    <element id="Device.subject">
+    <!-- <element id="Device.subject">
       <path value="Device.subject"/>
       <short value="Patient to whom Device is affixed"/>
       <definition value="Patient information, if the device is affixed to, or associated to a patient for their specific use, irrespective of the procedure, use, observation, or other activity that the device is involved in. The use of Patient is also appropriate for the use of devices outside a healthcare setting, such as a fitness tracker."/>
@@ -850,7 +850,7 @@
         <identity value="w5"/>
         <map value="FiveWs.subject"/>
       </mapping>
-    </element>
+    </element> -->
     <element id="Device.operationalState">
       <path value="Device.operationalState"/>
       <short value="The details about the device when it is in use to describe the actions, conditions and status"/>

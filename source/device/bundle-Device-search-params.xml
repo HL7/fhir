@@ -251,14 +251,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Device.subject"/>
+          <valueString value="Device.association.humanSubject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Device-subject"/>
-        <description value="Subject information, to which the device is associated of affixed"/>
+        <description value="Subject to which the device is associated of affixed"/>
         <code value="subject"/>
         <type value="reference"/>
-        <expression value="Device.subject"/>
-        <xpath value="f:Device/f:subject"/>
+        <expression value="Device.association.humanSubject"/>
+        <xpath value="f:Device/f:association/f:humanSubject"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
