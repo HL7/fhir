@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ActivityDefinition"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -27,6 +25,10 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1171"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="ActivityDefinition"/>
   <status value="draft"/>
@@ -85,8 +87,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
       </constraint>
       <mapping>
@@ -117,8 +119,8 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
+        <xpath value="not(exists(@value)) or matches(@value, '([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <type>
@@ -254,7 +256,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -379,7 +381,7 @@
       <short value="Name of the publisher (organization or individual)"/>
       <definition value="The name of the organization or individual that published the activity definition."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the activity definition is the organization or individual primarily responsible for the maintenance and upkeep of the activity definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the activity definition. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the activity definition.  May also allow for contact."/>
+      <requirements value="Helps establish the &#34;authority/credibility&#34; of the activity definition.  May also allow for contact."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -422,8 +424,8 @@
     <element id="ActivityDefinition.description">
       <path value="ActivityDefinition.description"/>
       <short value="Natural language description of the activity definition"/>
-      <definition value="A free text natural language description of the activity definition from a consumer&#39;s perspective."/>
-      <comment value="This description can be used to capture details such as why the activity definition was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the activity definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the activity definition is presumed to be the predominant language in the place the activity definition was created)."/>
+      <definition value="A free text natural language description of the activity definition from a consumer's perspective."/>
+      <comment value="This description can be used to capture details such as why the activity definition was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the activity definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the activity definition is presumed to be the predominant language in the place the activity definition was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -498,7 +500,7 @@
       <path value="ActivityDefinition.purpose"/>
       <short value="Why this activity definition is defined"/>
       <definition value="Explanation of why this activity definition is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the activity definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this activity definition."/>
+      <comment value="This element does not describe the usage of the activity definition. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this activity definition."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -567,7 +569,7 @@
       <path value="ActivityDefinition.approvalDate"/>
       <short value="When the activity definition was approved by publisher"/>
       <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -579,7 +581,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
+        <map value=".outboundRelationship[typeCode=&#34;SUBJ&#34;].act[classCode=CACT;moodCode=EVN;code=&#34;approval&#34;].effectiveTime"/>
       </mapping>
       <mapping>
         <identity value="objimpl"/>
@@ -591,7 +593,7 @@
       <short value="When the activity definition was last reviewed"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
-      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <requirements value="Gives a sense of how &#34;current&#34; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -603,7 +605,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;; subsetCode=&quot;RECENT&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;review&quot;].effectiveTime"/>
+        <map value=".outboundRelationship[typeCode=&#34;SUBJ&#34;; subsetCode=&#34;RECENT&#34;].act[classCode=CACT;moodCode=EVN;code=&#34;review&#34;].effectiveTime"/>
       </mapping>
       <mapping>
         <identity value="objimpl"/>
@@ -873,7 +875,7 @@
       <path value="ActivityDefinition.doNotPerform"/>
       <short value="True if the activity should not be performed"/>
       <definition value="Set this to true if the definition is to indicate that a particular activity should NOT be performed. If true, this element should be interpreted to reinforce a negative coding. For example NPO as a code with a doNotPerform of true would still indicate to NOT perform the action."/>
-      <comment value="This element is not intended to be used to communicate a decision support response to cancel an order in progress. That should be done with the &quot;remove&quot; type of a PlanDefinition or RequestOrchestration."/>
+      <comment value="This element is not intended to be used to communicate a decision support response to cancel an order in progress. That should be done with the &#34;remove&#34; type of a PlanDefinition or RequestOrchestration."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -915,7 +917,7 @@
     <element id="ActivityDefinition.asNeeded[x]">
       <path value="ActivityDefinition.asNeeded[x]"/>
       <short value="Preconditions for service"/>
-      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &#34;pain&#34;, &#34;on flare-up&#34;, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -930,12 +932,12 @@
           <valueString value="ProcedureAsNeededReason"/>
         </extension>
         <strength value="example"/>
-        <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+        <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &#34;pain&#34;, &#34;on flare-up&#34;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value="boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=&quot;Assertion&quot;].value"/>
+        <map value="boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=&#34;Assertion&#34;].value"/>
       </mapping>
     </element>
     <element id="ActivityDefinition.location">
@@ -1082,7 +1084,7 @@
         <valueString value="Elements here deliberately lean towards medication and service requests, as some of the most commonly needed activity types."/>
       </extension>
       <path value="ActivityDefinition.product[x]"/>
-      <short value="What&#39;s administered/supplied"/>
+      <short value="What's administered/supplied"/>
       <definition value="Identifies the food, drug or other product being consumed or supplied in the activity."/>
       <min value="0"/>
       <max value="1"/>
@@ -1142,7 +1144,7 @@
     <element id="ActivityDefinition.bodySite">
       <path value="ActivityDefinition.bodySite"/>
       <short value="What part of body to perform on"/>
-      <definition value="Indicates the sites on the subject&#39;s body where the procedure should be performed (I.e. the target sites)."/>
+      <definition value="Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites)."/>
       <comment value="Only used if not implicit in the code found in ServiceRequest.type."/>
       <requirements value="Knowing where the procedure is made is important for tracking if multiple sites are possible."/>
       <min value="0"/>
@@ -1232,7 +1234,7 @@
     <element id="ActivityDefinition.dynamicValue">
       <path value="ActivityDefinition.dynamicValue"/>
       <short value="Dynamic aspects of the definition"/>
-      <definition value="Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient&#39;s weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the request resource that would contain the result."/>
+      <definition value="Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the request resource that would contain the result."/>
       <comment value="Dynamic values are applied in the order in which they are defined in the ActivityDefinition. Note that if both a transform and dynamic values are specified, the dynamic values will be applied to the result of the transform."/>
       <min value="0"/>
       <max value="*"/>

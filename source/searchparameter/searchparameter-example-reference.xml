@@ -1,8 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<SearchParameter xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><SearchParameter xmlns="http://hl7.org/fhir">
   <id value="example-reference"/>
   <url value="http://hl7.org/fhir/SearchParameter/example-reference"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.16.18"/>
+  </identifier>
   <name value="Example Search Parameter"/>
   <status value="draft"/>
   <experimental value="true"/>
@@ -28,5 +30,3 @@
   <chain value="name"/>
   <chain value="identifier"/>  
 </SearchParameter>
-
-

@@ -1,9 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<SearchParameter xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><SearchParameter xmlns="http://hl7.org/fhir">
 	<id value="example"/>
 	<url value="http://hl7.org/fhir/SearchParameter/example"/>
-	<version value="1"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.16.17"/>
+  </identifier>
+  <version value="1"/>
 	<name value="ID-SEARCH-PARAMETER"/>
 	<derivedFrom value="http://hl7.org/fhir/SearchParameter/Resource-id"/>
 	<status value="draft"/>
@@ -47,5 +49,3 @@
 	<xpath value="f:*/f:id"/>
 	<xpathUsage value="normal"/>
 </SearchParameter>
-
-

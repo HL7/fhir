@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<SearchParameter xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><SearchParameter xmlns="http://hl7.org/fhir">
   <id value="device-extensions-Device-din"/>
   <url value="http://hl7.org/fhir/SearchParameter/device-extensions-Device-din"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.16.19"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="din"/>
   <status value="draft"/>
@@ -11,6 +13,6 @@
   <code value="din"/>
   <base value="Device"/>
   <type value="token"/>
-  <expression value="Device.extension(&#39;http://hl7.org/fhir/SearchParameter/device-extensions-Device-din&#39;).value"/>
+  <expression value="Device.extension('http://hl7.org/fhir/SearchParameter/device-extensions-Device-din').value"/>
   <xpathUsage value="normal"/>
 </SearchParameter>

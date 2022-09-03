@@ -132,7 +132,7 @@
       <valueString value="plandefinition-predecessor-example"/>
     </extension>
     <item>
-      <reference value="PlanDefinition/zika-virus-intervention-initial"/>
+      <reference value="PlanDefinition/plandefinition-predecessor-example"/>
       <display value="PredecessorExample"/>
     </item>
   </entry>

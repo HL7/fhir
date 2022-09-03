@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<SearchParameter xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><SearchParameter xmlns="http://hl7.org/fhir">
   <id value="valueset-extensions-ValueSet-author"/>
   <url value="http://hl7.org/fhir/SearchParameter/valueset-extensions-ValueSet-author"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.16.10"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="author"/>
   <status value="draft"/>
@@ -12,6 +14,6 @@
   <base value="ValueSet"/>
   <type value="string"/>
   <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/valueset-author').value"/>
-  <xpath value="f:ValueSet/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/valueset-author&#39;]/f:valueReference | /f:#author"/>
+  <xpath value="f:ValueSet/f:extension[@url='http://hl7.org/fhir/StructureDefinition/valueset-author']/f:valueReference | /f:#author"/>
   <xpathUsage value="normal"/>
 </SearchParameter>

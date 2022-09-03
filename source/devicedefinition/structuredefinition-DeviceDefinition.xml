@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="DeviceDefinition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".operationalStatus = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1072"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="DeviceDefinition"/>
   <status value="draft"/>
@@ -220,7 +222,7 @@
       <path value="DeviceDefinition.deviceName.name"/>
       <short value="A name that is used to refer to the device"/>
       <definition value="A human-friendly name that is used to refer to the device - depending on the type, it can be the brand name, the common name or alias, or other."/>
-      <alias value="&#x3A3;"/>
+      <alias value="Σ"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -523,7 +525,7 @@
       <path value="DeviceDefinition.version.type"/>
       <short value="The type of the device version, e.g. manufacturer, approved, internal"/>
       <definition value="The type of the device version, e.g. manufacturer, approved, internal."/>
-      <alias value="&#x3A3;"/>
+      <alias value="Σ"/>
       <min value="0"/>
       <max value="1"/>
       <type>

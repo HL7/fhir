@@ -1,9 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<SearchParameter xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><SearchParameter xmlns="http://hl7.org/fhir">
 	<id value="example-constraint"/>
 	<url value="http://hl7.org/fhir/SearchParameter/example-constraint"/>
-	<name value="example-constraint"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.16.14"/>
+  </identifier>
+  <name value="example-constraint"/>
 	<status value="draft"/>
 	<experimental value="true"/>
 	<publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -17,5 +19,3 @@
 	<constraint value="Bundle.type = 'document' and Bundle.entry[0].resource is Composition"/>
 	<target value="Composition"/>
 </SearchParameter>
-
-

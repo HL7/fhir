@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="group-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -17,7 +15,7 @@
   <url value="http://hl7.org/fhir/group-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.285"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.285"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="GroupType"/>
@@ -43,12 +41,12 @@
   <concept>
     <code value="person"/>
     <display value="Person"/>
-    <definition value="Group contains &quot;person&quot; Patient resources."/>
+    <definition value="Group contains &#34;person&#34; Patient resources."/>
   </concept>
   <concept>
     <code value="animal"/>
     <display value="Animal"/>
-    <definition value="Group contains &quot;animal&quot; Patient resources."/>
+    <definition value="Group contains &#34;animal&#34; Patient resources."/>
   </concept>
   <concept>
     <code value="practitioner"/>

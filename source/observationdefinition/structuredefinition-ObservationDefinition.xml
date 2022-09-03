@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ObservationDefinition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -27,6 +25,10 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1325"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="ObservationDefinition"/>
   <status value="draft"/>
@@ -82,8 +84,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <mapping>
@@ -166,7 +168,7 @@
       <path value="ObservationDefinition.status"/>
       <short value="draft | active | retired | unknown"/>
       <definition value="The current state of the ObservationDefinition."/>
-      <comment value="A nominal state-transition diagram can be found in the [[definition.html#statemachine | Definition pattern]] documentation&#xA;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is."/>
+      <comment value="A nominal state-transition diagram can be found in the [[definition.html#statemachine | Definition pattern]] documentation&#xA;Unknown does not represent &#34;other&#34; - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -214,7 +216,7 @@
     <element id="ObservationDefinition.publisher">
       <path value="ObservationDefinition.publisher"/>
       <short value="The name of the individual or organization that published the ObservationDefinition"/>
-      <definition value="Helps establish the &quot;authority/credibility&quot; of the ObservationDefinition. May also allow for contact."/>
+      <definition value="Helps establish the &#34;authority/credibility&#34; of the ObservationDefinition. May also allow for contact."/>
       <requirements value="Usually an organization, but may be an individual. The publisher (or steward) of the ObservationDefinition is the organization or individual primarily responsible for the maintenance and upkeep of the ObservationDefinition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the ObservationDefinition. This item SHOULD be populated unless the information is available from context."/>
       <min value="0"/>
       <max value="1"/>
@@ -241,7 +243,7 @@
     <element id="ObservationDefinition.description">
       <path value="ObservationDefinition.description"/>
       <short value="Natural language description of the ObservationDefinition"/>
-      <definition value="A free text natural language description of the ObservationDefinition from the consumer&#39;s perspective."/>
+      <definition value="A free text natural language description of the ObservationDefinition from the consumer's perspective."/>
       <comment value="This description can be used to capture details such as why the ObservationDefinition was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context."/>
       <min value="0"/>
       <max value="1"/>
@@ -286,7 +288,7 @@
       <path value="ObservationDefinition.purpose"/>
       <short value="Why this ObservationDefinition is defined"/>
       <definition value="Explains why this ObservationDefinition is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the ObservationDefinition. Rather it is for traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is. This may be used to point to source materials or specifications that drove the structure of this ObservationDefinition."/>
+      <comment value="This element does not describe the usage of the ObservationDefinition. Rather it is for traceability of ''why'' the resource is either needed or ''why'' it is defined as it is. This may be used to point to source materials or specifications that drove the structure of this ObservationDefinition."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -320,7 +322,7 @@
     <element id="ObservationDefinition.lastReviewDate">
       <path value="ObservationDefinition.lastReviewDate"/>
       <short value="Date on which the asset content was last reviewed"/>
-      <definition value="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn&#39;t change the original approval date."/>
+      <definition value="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date."/>
       <comment value="If specified, this is usually after the approval date."/>
       <min value="0"/>
       <max value="1"/>
@@ -368,7 +370,7 @@
       <path value="ObservationDefinition.subject"/>
       <short value="Type of subject for the defined observation"/>
       <definition value="A code that describes the intended kind of subject of Observation instances conforming to this ObservationDefinition."/>
-      <comment value="Examples: person, animal, device, air, surface &#x2026;."/>
+      <comment value="Examples: person, animal, device, air, surface …."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -391,7 +393,7 @@
       <path value="ObservationDefinition.category"/>
       <short value="General type of observation"/>
       <definition value="A code that classifies the general type of observation."/>
-      <comment value="This element allows various categorization schemes based on the owner&#x2019;s definition of the category and effectively multiple categories can be used for one instance of ObservationDefinition. The level of granularity is defined by the category concepts in the value set."/>
+      <comment value="This element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used for one instance of ObservationDefinition. The level of granularity is defined by the category concepts in the value set."/>
       <requirements value="Used for filtering what kinds of observations are retrieved and displayed."/>
       <alias value="Class of observation"/>
       <min value="0"/>
@@ -414,13 +416,13 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;DEF&quot;].code"/>
+        <map value=".outboundRelationship[typeCode=&#34;COMP].target[classCode=&#34;LIST&#34;, moodCode=&#34;DEF&#34;].code"/>
       </mapping>
     </element>
     <element id="ObservationDefinition.code">
       <path value="ObservationDefinition.code"/>
       <short value="Type of observation"/>
-      <definition value="Describes what will be observed. Sometimes this is called the observation &quot;name&quot;."/>
+      <definition value="Describes what will be observed. Sometimes this is called the observation &#34;name&#34;."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -478,7 +480,7 @@
       <path value="ObservationDefinition.multipleResultsAllowed"/>
       <short value="Multiple results allowed for conforming observations"/>
       <definition value="Multiple results allowed for observations conforming to this ObservationDefinition."/>
-      <comment value="An example of observation allowing multiple results is &quot;bacteria identified by culture&quot;. Conversely, the measurement of a potassium level allows a single result."/>
+      <comment value="An example of observation allowing multiple results is &#34;bacteria identified by culture&#34;. Conversely, the measurement of a potassium level allows a single result."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -492,7 +494,7 @@
     <element id="ObservationDefinition.bodySite">
       <path value="ObservationDefinition.bodySite"/>
       <short value="Body part to be observed"/>
-      <definition value="The site on the subject&#39;s body where the  observation is to be made."/>
+      <definition value="The site on the subject's body where the  observation is to be made."/>
       <comment value="Only used if the defined observation is to be made directly on a body part and if this body part is not implied by code found in ObservationDefinition.code. Not used for in vitro diagnostic observations. &#xA;Example: 14975008 |Forearm structure|."/>
       <min value="0"/>
       <max value="1"/>

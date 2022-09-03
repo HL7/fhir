@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/OperationDefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/OperationDefinition.xsd">
   <id value="DocumentReference-generate"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -37,6 +35,10 @@
     <valueMarkdown value="The server either returns a search result containing a single document reference, &#xA;or it returns an error. &#xA;If the URI refers to another server, it is at the discretion of the &#xA;server whether to retrieve it or return an error."/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/DocumentReference-generate"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.9.7"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="generate"/>
   <title value="Generate a DocumentReference from a document"/>

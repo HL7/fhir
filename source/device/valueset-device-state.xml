@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="device-status"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -14,7 +12,7 @@
   <url value="http://hl7.org/fhir/ValueSet/device-state"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.209"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3201"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="FHIRDeviceState"/>

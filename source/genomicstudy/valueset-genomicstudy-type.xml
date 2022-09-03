@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="genomicstudy-type"/>
   <meta>
     <lastUpdated value="2022-08-17T16:25:24.148-05:00"/>
@@ -38,7 +36,7 @@
   <url value="http://hl7.org/fhir/ValueSet/genomicstudy-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3082"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="GenomicStudyType"/>

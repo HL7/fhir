@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Bundle"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -27,6 +25,10 @@
     <valueCode value="Depends on the type: document - see for Composition; message - see for MessageHeader; transaction / transaction-response / history / searchset - not expected to be stored; collection: just delete it if it's stored, and in error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1156"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Bundle"/>
   <status value="active"/>
@@ -445,7 +447,7 @@
       <path value="Bundle.entry.request.url"/>
       <short value="URL for HTTP equivalent of this entry"/>
       <definition value="The URL for this entry, relative to the root (the address to which the request is posted)."/>
-      <comment value="E.g. for a Patient Create, the method would be &quot;POST&quot; and the URL would be &quot;Patient&quot;. For a Patient Update, the method would be PUT and the URL would be &quot;Patient/[id]&quot;."/>
+      <comment value="E.g. for a Patient Create, the method would be &#34;POST&#34; and the URL would be &#34;Patient&#34;. For a Patient Update, the method would be PUT and the URL would be &#34;Patient/[id]&#34;."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -456,7 +458,7 @@
     <element id="Bundle.entry.request.ifNoneMatch">
       <path value="Bundle.entry.request.ifNoneMatch"/>
       <short value="For managing cache currency"/>
-      <definition value="If the ETag values match, return a 304 Not Modified status. See the API documentation for [&quot;Conditional Read&quot;](http.html#cread)."/>
+      <definition value="If the ETag values match, return a 304 Not Modified status. See the API documentation for [&#34;Conditional Read&#34;](http.html#cread)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -467,7 +469,7 @@
     <element id="Bundle.entry.request.ifModifiedSince">
       <path value="Bundle.entry.request.ifModifiedSince"/>
       <short value="For managing cache currency"/>
-      <definition value="Only perform the operation if the last updated date matches. See the API documentation for [&quot;Conditional Read&quot;](http.html#cread)."/>
+      <definition value="Only perform the operation if the last updated date matches. See the API documentation for [&#34;Conditional Read&#34;](http.html#cread)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -478,7 +480,7 @@
     <element id="Bundle.entry.request.ifMatch">
       <path value="Bundle.entry.request.ifMatch"/>
       <short value="For managing update contention"/>
-      <definition value="Only perform the operation if the Etag value matches. For more information, see the API section [&quot;Managing Resource Contention&quot;](http.html#concurrency)."/>
+      <definition value="Only perform the operation if the Etag value matches. For more information, see the API section [&#34;Managing Resource Contention&#34;](http.html#concurrency)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -489,7 +491,7 @@
     <element id="Bundle.entry.request.ifNoneExist">
       <path value="Bundle.entry.request.ifNoneExist"/>
       <short value="For conditional creates"/>
-      <definition value="Instruct the server not to perform the create if a specified resource already exists. For further information, see the API documentation for [&quot;Conditional Create&quot;](http.html#ccreate). This is just the query portion of the URL - what follows the &quot;?&quot; (not including the &quot;?&quot;)."/>
+      <definition value="Instruct the server not to perform the create if a specified resource already exists. For further information, see the API documentation for [&#34;Conditional Create&#34;](http.html#ccreate). This is just the query portion of the URL - what follows the &#34;?&#34; (not including the &#34;?&#34;)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -577,7 +579,7 @@
       <path value="Bundle.signature"/>
       <short value="Digital Signature"/>
       <definition value="Digital Signature - base64 encoded. XML-DSig or a JWS."/>
-      <comment value="The signature could be created by the &quot;author&quot; of the bundle or by the originating device.   Requirements around inclusion of a signature, verification of signatures and treatment of signed/non-signed bundles is implementation-environment specific."/>
+      <comment value="The signature could be created by the &#34;author&#34; of the bundle or by the originating device.   Requirements around inclusion of a signature, verification of signatures and treatment of signed/non-signed bundles is implementation-environment specific."/>
       <requirements value="A Signature holds an electronic representation of a signature and its supporting context in a FHIR accessible form. The signature may either be a cryptographic type (XML DigSig or a JWS), which is able to provide non-repudiation proof, or it may be a graphical image that represents a signature or a signature process. This element allows capturing signatures on documents, messages, transactions or even search responses, to support content-authentication, non-repudiation or other business cases. This is primarily relevant where the bundle may travel through multiple hops or via other mechanisms where HTTPS non-repudiation is insufficient."/>
       <min value="0"/>
       <max value="1"/>

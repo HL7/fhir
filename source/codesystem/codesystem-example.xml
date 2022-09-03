@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="example"/>
@@ -8,7 +8,7 @@
   <text>
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>CodeSystem &quot;ACME Codes for Cholesterol&quot;: This is an example code system that includes 
+      <p>CodeSystem "ACME Codes for Cholesterol": This is an example code system that includes 
         all the codes for serum cholesterol defined by ACME inc.</p>
       <p>Developed by: FHIR project team (example)</p>
       <p>Published for testing on 28-Jan 2016</p>
@@ -57,6 +57,10 @@
   <url value="http://hl7.org/fhir/CodeSystem/example"/>
 <!--   an imaginary identifier. This is a non FHIR identifier - might be used in a 
 	  v2 context (though you always need to translate namespaces for v2)   -->
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1827"/>
+  </identifier>
   <identifier>
     <system value="http://acme.com/identifiers/codesystems"/>
     <value value="internal-cholesterol-inl"/>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="medicationdispense-admin-location"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,7 +9,7 @@
   <url value="http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-admin-location"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1513"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1972"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="Medication Dispense Administration Location Codes"/>
@@ -28,7 +26,7 @@
   <concept>
     <code value="outpatient"/>
     <display value="Outpatient"/>
-    <definition value="Includes dispenses for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor&#39;s office)."/>
+    <definition value="Includes dispenses for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)."/>
   </concept>
   <concept>
     <code value="community"/>

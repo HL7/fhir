@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="CodeSystem-find-matches"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -34,6 +32,10 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CodeSystem-find-matches"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.9.18"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="find-matches"/>
   <title value="Finding codes based on supplied properties"/>
@@ -51,7 +53,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Given a set of properties (and text), return one or more possible matching codes&#xA;&#xA;This operation takes a set of properties, and examines the code system looking for codes in the code system that match a set of known properties. &#xA;&#xA;When looking for matches, there are 3 possible types of match:&#xA;* a complete match - a code that represents all the provided properties correctly&#xA;* a partial match - a code that represents some of the provided properties correctly, and not others &#xA;* a possible match - a code that may represent the provided properties closely, but may capture less or more precise information for some of the properties&#xA;&#xA;The $find-matches operation can be called in one of 2 modes:&#xA;* By a human, looking for the best match for a set of properties. In this mode, the server returns a list of complete, possible or partial matches (possibly with comments), so that the user can choose (or not) the most appropriate code&#xA;* By a machine (typically in a system interface performing a transformation). In this mode, the server returns only a list of complete and partial matches, but no possible matches. The machine can choose a code from the list (or not) based on what properties are not coded&#xA;&#xA;These modes are differentiated by the &#39;exact&#39; parameter, so the client can indicate whether it only wants exact matches (including partial matches) or whether potential matches based on text matching are desired&#xA; &#xA;The find-matches operation is still preliminary. The interface can be expected to change as more experience is gained from implementations."/>
+  <description value="Given a set of properties (and text), return one or more possible matching codes&#xA;&#xA;This operation takes a set of properties, and examines the code system looking for codes in the code system that match a set of known properties. &#xA;&#xA;When looking for matches, there are 3 possible types of match:&#xA;* a complete match - a code that represents all the provided properties correctly&#xA;* a partial match - a code that represents some of the provided properties correctly, and not others &#xA;* a possible match - a code that may represent the provided properties closely, but may capture less or more precise information for some of the properties&#xA;&#xA;The $find-matches operation can be called in one of 2 modes:&#xA;* By a human, looking for the best match for a set of properties. In this mode, the server returns a list of complete, possible or partial matches (possibly with comments), so that the user can choose (or not) the most appropriate code&#xA;* By a machine (typically in a system interface performing a transformation). In this mode, the server returns only a list of complete and partial matches, but no possible matches. The machine can choose a code from the list (or not) based on what properties are not coded&#xA;&#xA;These modes are differentiated by the 'exact' parameter, so the client can indicate whether it only wants exact matches (including partial matches) or whether potential matches based on text matching are desired&#xA; &#xA;The find-matches operation is still preliminary. The interface can be expected to change as more experience is gained from implementations."/>
   <affectsState value="false"/>
   <code value="find-matches"/>
   <resource value="CodeSystem"/>
@@ -161,7 +163,7 @@
     <use value="in"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="Whether the operation is being used by a human (&#39;false&#39;), or a machine (&#39;true&#39;). If the operation is being used by a human, the terminology server can return a list of possible matches, with commentary. For a machine, the server returns complete or partial matches, not possible matches. The default value is &#39;false&#39;"/>
+    <documentation value="Whether the operation is being used by a human ('false'), or a machine ('true'). If the operation is being used by a human, the terminology server can return a list of possible matches, with commentary. For a machine, the server returns complete or partial matches, not possible matches. The default value is 'false'"/>
     <type value="boolean"/>
   </parameter>
   <parameter>

@@ -1,4 +1,4 @@
-﻿<CapabilityStatement xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="measure-processor"/>
   <text>
     <status value="generated"/>
@@ -68,6 +68,10 @@
     </div>
   </text>
   <url value="http://hl7.org/fhir/measure-processor"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.7.2"/>
+  </identifier>
   <name value="Measure Processor Service Conformance Statement"/>
   <status value="draft"/>
   <date value="2016-09-16"/>
@@ -79,8 +83,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Basic conformance statement for a Measure Processor Service. A server can support more functionality
-   than defined here, but this is the minimum amount"/>
+  <description value="Basic conformance statement for a Measure Processor Service. A server can support more functionality    than defined here, but this is the minimum amount"/>
   <kind value="capability"/>
   <software>
     <name value="ACME Measure Processor Service"/>

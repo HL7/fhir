@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="SubscriptionTopic"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -27,6 +25,10 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SubscriptionTopic"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1316"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="SubscriptionTopic"/>
   <status value="draft"/>
@@ -172,7 +174,7 @@
     <element id="SubscriptionTopic.title">
       <path value="SubscriptionTopic.title"/>
       <short value="Name for this subscription topic (Human friendly)"/>
-      <definition value="A short, descriptive, user-friendly title for the SubscriptionTopic, for example, &quot;admission&quot;."/>
+      <definition value="A short, descriptive, user-friendly title for the SubscriptionTopic, for example, &#34;admission&#34;."/>
       <alias value="Name"/>
       <alias value="SubscriptionTopic Name"/>
       <min value="0"/>
@@ -219,14 +221,14 @@
       <path value="SubscriptionTopic.status"/>
       <short value="draft | active | retired | unknown"/>
       <definition value="The current state of the SubscriptionTopic."/>
-      <comment value="A nominal state-transition diagram can be found in the [[definition.html#statemachine | Definition pattern]] documentation&#xA;&#xA;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <comment value="A nominal state-transition diagram can be found in the [[definition.html#statemachine | Definition pattern]] documentation&#xA;&#xA;Unknown does not represent &#34;other&#34; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired SubscriptionTopic without due consideration"/>
+      <isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired SubscriptionTopic without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -264,7 +266,7 @@
         <code value="boolean"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use an experimental SubscriptionTopic in production."/>
+      <isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use an experimental SubscriptionTopic in production."/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -306,7 +308,7 @@
     <element id="SubscriptionTopic.publisher">
       <path value="SubscriptionTopic.publisher"/>
       <short value="The name of the individual or organization that published the SubscriptionTopic"/>
-      <definition value="Helps establish the &quot;authority/credibility&quot; of the SubscriptionTopic.  May also allow for contact."/>
+      <definition value="Helps establish the &#34;authority/credibility&#34; of the SubscriptionTopic.  May also allow for contact."/>
       <requirements value="Usually an organization, but may be an individual. The publisher (or steward) of the SubscriptionTopic is the organization or individual primarily responsible for the maintenance and upkeep of the Topic. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the Topic. This item SHOULD be populated unless the information is available from context."/>
       <alias value="author"/>
       <min value="0"/>
@@ -351,7 +353,7 @@
     <element id="SubscriptionTopic.description">
       <path value="SubscriptionTopic.description"/>
       <short value="Natural language description of the SubscriptionTopic"/>
-      <definition value="A free text natural language description of the Topic from the consumer&#39;s perspective."/>
+      <definition value="A free text natural language description of the Topic from the consumer's perspective."/>
       <comment value="This description can be used to capture details such as why the Topic was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context."/>
       <min value="0"/>
       <max value="1"/>
@@ -422,7 +424,7 @@
       <path value="SubscriptionTopic.purpose"/>
       <short value="Why this SubscriptionTopic is defined"/>
       <definition value="Explains why this Topic is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the Topic.  Rather it is for traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this Topic."/>
+      <comment value="This element does not describe the usage of the Topic.  Rather it is for traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this Topic."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -478,13 +480,13 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
+        <map value=".outboundRelationship[typeCode=&#34;SUBJ&#34;].act[classCode=CACT;moodCode=EVN;code=&#34;approval&#34;].effectiveTime"/>
       </mapping>
     </element>
     <element id="SubscriptionTopic.lastReviewDate">
       <path value="SubscriptionTopic.lastReviewDate"/>
       <short value="Date the Subscription Topic was last reviewed by the publisher"/>
-      <definition value="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn&#39;t change the original approval date."/>
+      <definition value="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date."/>
       <comment value="If specified, this is usually after the approval date."/>
       <min value="0"/>
       <max value="1"/>
@@ -497,7 +499,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;; subsetCode=&quot;RECENT&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;review&quot;].effectiveTime"/>
+        <map value=".outboundRelationship[typeCode=&#34;SUBJ&#34;; subsetCode=&#34;RECENT&#34;].act[classCode=CACT;moodCode=EVN;code=&#34;review&#34;].effectiveTime"/>
       </mapping>
     </element>
     <element id="SubscriptionTopic.effectivePeriod">
@@ -538,7 +540,7 @@
     <element id="SubscriptionTopic.resourceTrigger.description">
       <path value="SubscriptionTopic.resourceTrigger.description"/>
       <short value="Text representation of the resource trigger"/>
-      <definition value="The human readable description of this resource trigger for the SubscriptionTopic -  for example, &quot;An Encounter enters the 'in-progress' state&quot;."/>
+      <definition value="The human readable description of this resource trigger for the SubscriptionTopic -  for example, &#34;An Encounter enters the 'in-progress' state&#34;."/>
       <comment value="Implementation of particular subscription topics might not use a computable definition and instead base their design on the definition."/>
       <min value="0"/>
       <max value="1"/>
@@ -550,7 +552,7 @@
     <element id="SubscriptionTopic.resourceTrigger.resource">
       <path value="SubscriptionTopic.resourceTrigger.resource"/>
       <short value="Data Type or Resource (reference to definition) for this trigger definition"/>
-      <definition value="URL of the Resource that is the type used in this resource trigger.  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &quot;Patient&quot; maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
+      <definition value="URL of the Resource that is the type used in this resource trigger.  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &#34;Patient&#34; maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see &lt;a href=&#34;elementdefinition-definitions.html#ElementDefinition.type.code&#34;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -600,7 +602,7 @@
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.previous"/>
       <short value="Rule applied to previous resource state"/>
       <definition value="The FHIR query based rules are applied to the previous resource state (e.g., state before an update)."/>
-      <comment value="The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading &quot;/&quot;."/>
+      <comment value="The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading &#34;/&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -611,7 +613,7 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate"/>
       <short value="test-passes | test-fails"/>
-      <definition value="For &quot;create&quot; interactions, should the &quot;previous&quot; criteria count as an automatic pass or an automatic fail."/>
+      <definition value="For &#34;create&#34; interactions, should the &#34;previous&#34; criteria count as an automatic pass or an automatic fail."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -631,7 +633,7 @@
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.current"/>
       <short value="Rule applied to current resource state"/>
       <definition value="The FHIR query based rules are applied to the current resource state (e.g., state after an update)."/>
-      <comment value="The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading &quot;/&quot;."/>
+      <comment value="The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading &#34;/&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -642,7 +644,7 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete"/>
       <short value="test-passes | test-fails"/>
-      <definition value="For &quot;delete&quot; interactions, should the &quot;current&quot; criteria count as an automatic pass or an automatic fail."/>
+      <definition value="For &#34;delete&#34; interactions, should the &#34;current&#34; criteria count as an automatic pass or an automatic fail."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -699,7 +701,7 @@
     <element id="SubscriptionTopic.eventTrigger.description">
       <path value="SubscriptionTopic.eventTrigger.description"/>
       <short value="Text representation of the event trigger"/>
-      <definition value="The human readable description of an event to trigger a notification for the SubscriptionTopic - for example, &quot;Patient Admission, as defined in HL7v2 via message ADT^A01&quot;. Multiple values are considered OR joined (e.g., matching any single event listed)."/>
+      <definition value="The human readable description of an event to trigger a notification for the SubscriptionTopic - for example, &#34;Patient Admission, as defined in HL7v2 via message ADT^A01&#34;. Multiple values are considered OR joined (e.g., matching any single event listed)."/>
       <comment value="Implementation of particular subscription topics might not use a computable definition and instead base their design on the definition."/>
       <min value="0"/>
       <max value="1"/>
@@ -730,7 +732,7 @@
     <element id="SubscriptionTopic.eventTrigger.resource">
       <path value="SubscriptionTopic.eventTrigger.resource"/>
       <short value="Data Type or Resource (reference to definition) for this trigger definition"/>
-      <definition value="URL of the Resource that is the focus type used in this event trigger.  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &quot;Patient&quot; maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
+      <definition value="URL of the Resource that is the focus type used in this event trigger.  Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &#34;Patient&#34; maps to http://hl7.org/fhir/StructureDefinition/Patient.  For more information, see &lt;a href=&#34;elementdefinition-definitions.html#ElementDefinition.type.code&#34;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -771,8 +773,8 @@
     <element id="SubscriptionTopic.canFilterBy.resource">
       <path value="SubscriptionTopic.canFilterBy.resource"/>
       <short value="URL of the triggering Resource that this filter applies to"/>
-      <definition value="URL of the Resource that is the type used in this filter. This is the &quot;focus&quot; of the topic (or one of them if there are more than one). It will be the same, a generality, or a specificity of SubscriptionTopic.resourceTrigger.resource or SubscriptionTopic.eventTrigger.resource when they are present."/>
-      <comment value="URL of the Resource that is the type used in this filter. Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &quot;Patient&quot; maps to http://hl7.org/fhir/StructureDefinition/Patient. For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
+      <definition value="URL of the Resource that is the type used in this filter. This is the &#34;focus&#34; of the topic (or one of them if there are more than one). It will be the same, a generality, or a specificity of SubscriptionTopic.resourceTrigger.resource or SubscriptionTopic.eventTrigger.resource when they are present."/>
+      <comment value="URL of the Resource that is the type used in this filter. Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &#34;Patient&#34; maps to http://hl7.org/fhir/StructureDefinition/Patient. For more information, see &lt;a href=&#34;elementdefinition-definitions.html#ElementDefinition.type.code&#34;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -791,8 +793,8 @@
     <element id="SubscriptionTopic.canFilterBy.filterParameter">
       <path value="SubscriptionTopic.canFilterBy.filterParameter"/>
       <short value="Human-readable and computation-friendly name for a filter parameter usable by subscriptions on this topic, via Subscription.filterBy.filterParameter"/>
-      <definition value="Either the canonical URL to a search parameter (like &quot;http://hl7.org/fhir/SearchParameter/encounter-patient&quot;) or topic-defined parameter (like &quot;hub.event&quot;) which is a label for the filter."/>
-      <comment value="Chained parameters are allowed (like &quot;patient.gender&quot;) - but can not use colons or modifiers."/>
+      <definition value="Either the canonical URL to a search parameter (like &#34;http://hl7.org/fhir/SearchParameter/encounter-patient&#34;) or topic-defined parameter (like &#34;hub.event&#34;) which is a label for the filter."/>
+      <comment value="Chained parameters are allowed (like &#34;patient.gender&#34;) - but can not use colons or modifiers."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -803,8 +805,8 @@
     <element id="SubscriptionTopic.canFilterBy.filterDefinition">
       <path value="SubscriptionTopic.canFilterBy.filterDefinition"/>
       <short value="Canonical URL for a filterParameter definition"/>
-      <definition value="Either the canonical URL to a search parameter (like &quot;http://hl7.org/fhir/SearchParameter/encounter-patient&quot;) or the officially-defined URI for a shared filter concept (like &quot;http://example.org/concepts/shared-common-event&quot;)."/>
-      <comment value="Chained parameters are allowed (like &quot;patient.gender&quot;) - but can not use colons or modifiers."/>
+      <definition value="Either the canonical URL to a search parameter (like &#34;http://hl7.org/fhir/SearchParameter/encounter-patient&#34;) or the officially-defined URI for a shared filter concept (like &#34;http://example.org/concepts/shared-common-event&#34;)."/>
+      <comment value="Chained parameters are allowed (like &#34;patient.gender&#34;) - but can not use colons or modifiers."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -853,8 +855,8 @@
     <element id="SubscriptionTopic.notificationShape.resource">
       <path value="SubscriptionTopic.notificationShape.resource"/>
       <short value="URL of the Resource that is the focus (main) resource in a notification shape"/>
-      <definition value="URL of the Resource that is the type used in this shape. This is the &quot;focus&quot; of the topic (or one of them if there are more than one) and the root resource for this shape definition. It will be the same, a generality, or a specificity of SubscriptionTopic.resourceTrigger.resource or SubscriptionTopic.eventTrigger.resource when they are present."/>
-      <comment value="URL of the Resource that is the type used in this shape. Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &quot;Patient&quot; maps to http://hl7.org/fhir/StructureDefinition/Patient. For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
+      <definition value="URL of the Resource that is the type used in this shape. This is the &#34;focus&#34; of the topic (or one of them if there are more than one) and the root resource for this shape definition. It will be the same, a generality, or a specificity of SubscriptionTopic.resourceTrigger.resource or SubscriptionTopic.eventTrigger.resource when they are present."/>
+      <comment value="URL of the Resource that is the type used in this shape. Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &#34;Patient&#34; maps to http://hl7.org/fhir/StructureDefinition/Patient. For more information, see &lt;a href=&#34;elementdefinition-definitions.html#ElementDefinition.type.code&#34;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
       <min value="1"/>
       <max value="1"/>
       <type>

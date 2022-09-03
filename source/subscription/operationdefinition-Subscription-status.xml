@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="Subscription-status"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -34,6 +32,10 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Subscription-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.9.29"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="status"/>
   <title value="Get Current Subscription Status for One or More Subscriptions"/>
@@ -63,7 +65,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="At the Instance level, this parameter is ignored.  At the Resource level, one or more parameters containing a FHIR id for a Subscription to get status information for. In the absence of any specified ids, the server returns the status for all Subscriptions available to the caller. Multiple values are joined via OR (e.g., &quot;id1&quot; OR &quot;id2&quot;)."/>
+    <documentation value="At the Instance level, this parameter is ignored.  At the Resource level, one or more parameters containing a FHIR id for a Subscription to get status information for. In the absence of any specified ids, the server returns the status for all Subscriptions available to the caller. Multiple values are joined via OR (e.g., &#34;id1&#34; OR &#34;id2&#34;)."/>
     <type value="id"/>
   </parameter>
   <parameter>
@@ -71,7 +73,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="At the Instance level, this parameter is ignored. At the Resource level, a Subscription status to filter by (e.g., &quot;active&quot;). In the absence of any specified status values, the server does not filter contents based on the status. Multiple values are joined via OR (e.g., &quot;error&quot; OR &quot;off&quot;)."/>
+    <documentation value="At the Instance level, this parameter is ignored. At the Resource level, a Subscription status to filter by (e.g., &#34;active&#34;). In the absence of any specified status values, the server does not filter contents based on the status. Multiple values are joined via OR (e.g., &#34;error&#34; OR &#34;off&#34;)."/>
     <type value="code"/>
   </parameter>
   <parameter>
@@ -79,7 +81,7 @@
     <use value="out"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="The operation returns a bundle containing one or more SubscriptionStatus resources, one per Subscription being queried. The Bundle type is &quot;searchset&quot;."/>
+    <documentation value="The operation returns a bundle containing one or more SubscriptionStatus resources, one per Subscription being queried. The Bundle type is &#34;searchset&#34;."/>
     <type value="Bundle"/>
   </parameter>
 </OperationDefinition>

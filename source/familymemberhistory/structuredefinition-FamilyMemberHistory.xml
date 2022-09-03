@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="FamilyMemberHistory"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1226"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="FamilyMemberHistory"/>
   <status value="draft"/>
@@ -71,7 +73,7 @@
   <differential>
     <element id="FamilyMemberHistory">
       <path value="FamilyMemberHistory"/>
-      <short value="Information about patient&#39;s relatives, relevant for patient"/>
+      <short value="Information about patient's relatives, relevant for patient"/>
       <definition value="Significant health conditions for a person related to the patient relevant in the context of care for the patient."/>
       <min value="0"/>
       <max value="*"/>
@@ -80,7 +82,7 @@
         <severity value="error"/>
         <human value="Can only have estimatedAge if age[x] is present"/>
         <expression value="age.exists() or estimatedAge.empty()"/>
-        <xpath value="exists(*[starts-with(local-name(.), &#39;age&#39;)]) or not(exists(f:estimatedAge))"/>
+        <xpath value="exists(*[starts-with(local-name(.), 'age')]) or not(exists(f:estimatedAge))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
       </constraint>
       <constraint>
@@ -88,7 +90,7 @@
         <severity value="error"/>
         <human value="Can have age[x] or born[x], but not both"/>
         <expression value="age.empty() or born.empty()"/>
-        <xpath value="not (*[starts-with(local-name(.), &#39;age&#39;)] and *[starts-with(local-name(.), &#39;birth&#39;)])"/>
+        <xpath value="not (*[starts-with(local-name(.), 'age')] and *[starts-with(local-name(.), 'birth')])"/>
         <source value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
       </constraint>
       <mapping>
@@ -210,7 +212,7 @@
     <element id="FamilyMemberHistory.dataAbsentReason">
       <path value="FamilyMemberHistory.dataAbsentReason"/>
       <short value="subject-unknown | withheld | unable-to-obtain | deferred"/>
-      <definition value="Describes why the family member&#39;s history is not available."/>
+      <definition value="Describes why the family member's history is not available."/>
       <requirements value="This is a separate element to allow it to have a distinct binding from reasonCode."/>
       <min value="0"/>
       <max value="1"/>
@@ -223,7 +225,7 @@
           <valueString value="FamilyHistoryAbsentReason"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes describing the reason why a family member&#39;s history is not available."/>
+        <description value="Codes describing the reason why a family member's history is not available."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/history-absent-reason"/>
       </binding>
       <mapping>
@@ -288,7 +290,7 @@
     <element id="FamilyMemberHistory.name">
       <path value="FamilyMemberHistory.name"/>
       <short value="The family member described"/>
-      <definition value="This will either be a name or a description; e.g. &quot;Aunt Susan&quot;, &quot;my cousin with the red hair&quot;."/>
+      <definition value="This will either be a name or a description; e.g. &#34;Aunt Susan&#34;, &#34;my cousin with the red hair&#34;."/>
       <requirements value="Allows greater ease in ensuring the same person is being talked about."/>
       <min value="0"/>
       <max value="1"/>
@@ -328,8 +330,8 @@
       <path value="FamilyMemberHistory.sex"/>
       <short value="male | female | other | unknown"/>
       <definition value="The birth sex of the family member."/>
-      <comment value="This element should ideally reflect whether the individual is genetically male or female.  However, as reported information based on the knowledge of the patient or reporting friend/relative, there may be situations where the reported sex might not be totally accurate.  E.g. &#39;Aunt Sue&#39; might be XY rather than XX.  Questions soliciting this information should be phrased to encourage capture of genetic sex where known.  However, systems performing analysis should also allow for the possibility of imprecision with this element."/>
-      <requirements value="Not all relationship codes imply sex and the relative&#39;s sex can be relevant for risk assessments."/>
+      <comment value="This element should ideally reflect whether the individual is genetically male or female.  However, as reported information based on the knowledge of the patient or reporting friend/relative, there may be situations where the reported sex might not be totally accurate.  E.g. 'Aunt Sue' might be XY rather than XX.  Questions soliciting this information should be phrased to encourage capture of genetic sex where known.  However, systems performing analysis should also allow for the possibility of imprecision with this element."/>
+      <requirements value="Not all relationship codes imply sex and the relative's sex can be relevant for risk assessments."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -349,7 +351,7 @@
       <path value="FamilyMemberHistory.born[x]"/>
       <short value="(approximate) date of birth"/>
       <definition value="The actual or approximate date of birth of the relative."/>
-      <requirements value="Allows calculation of the relative&#39;s age."/>
+      <requirements value="Allows calculation of the relative's age."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -388,7 +390,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value="participation[typeCode=SBJ].act[classCode=OBS,moodCode=EVN, code=&quot;age&quot;].value"/>
+        <map value="participation[typeCode=SBJ].act[classCode=OBS,moodCode=EVN, code=&#34;age&#34;].value"/>
       </mapping>
     </element>
     <element id="FamilyMemberHistory.estimatedAge">
@@ -433,7 +435,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value="player[classCode=LIV, determinerCode=INSTANCE].deceasedInd, deceasedDate (could be URG)  For age, you&#39;d hang an observation off the role"/>
+        <map value="player[classCode=LIV, determinerCode=INSTANCE].deceasedInd, deceasedDate (could be URG)  For age, you'd hang an observation off the role"/>
       </mapping>
     </element>
     <element id="FamilyMemberHistory.reason">
@@ -512,7 +514,7 @@
     <element id="FamilyMemberHistory.condition.code">
       <path value="FamilyMemberHistory.condition.code"/>
       <short value="Condition suffered by relation"/>
-      <definition value="The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like &#39;cancer&#39; depending on how much is known about the condition and the capabilities of the creating system."/>
+      <definition value="The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -584,7 +586,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value="inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;Subject Age at measurement&quot;, value&lt;Diagnosis].value[@xsi:typeCode=&#39;TS&#39; or &#39;IVL_TS&#39;]  Use originalText for string"/>
+        <map value="inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;Subject Age at measurement&#34;, value&lt;Diagnosis].value[@xsi:typeCode='TS' or 'IVL_TS']  Use originalText for string"/>
       </mapping>
     </element>
     <element id="FamilyMemberHistory.condition.note">

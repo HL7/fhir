@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Citation"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -27,6 +25,10 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Citation"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.997"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Citation"/>
   <status value="draft"/>
@@ -85,8 +87,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Citation"/>
       </constraint>
       <mapping>
@@ -106,8 +108,8 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
+        <xpath value="not(exists(@value)) or matches(@value, '([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <type>
@@ -210,7 +212,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -267,7 +269,7 @@
       <short value="The publisher of the Citation, not the publisher of the article or artifact being cited"/>
       <definition value="The name of the organization or individual that published the citation."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the citation is the organization or individual primarily responsible for the maintenance and upkeep of the citation. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the citation. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the citation.  May also allow for contact."/>
+      <requirements value="Helps establish the &#34;authority/credibility&#34; of the citation.  May also allow for contact."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -302,8 +304,8 @@
     <element id="Citation.description">
       <path value="Citation.description"/>
       <short value="Natural language description of the citation"/>
-      <definition value="A free text natural language description of the citation from a consumer&#39;s perspective."/>
-      <comment value="This description can be used to capture details such as why the citation was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the citation as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the citation is presumed to be the predominant language in the place the citation was created)."/>
+      <definition value="A free text natural language description of the citation from a consumer's perspective."/>
+      <comment value="This description can be used to capture details such as why the citation was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the citation as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the citation is presumed to be the predominant language in the place the citation was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -354,7 +356,7 @@
       <path value="Citation.purpose"/>
       <short value="Why this citation is defined"/>
       <definition value="Explanation of why this citation is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the citation. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this citation."/>
+      <comment value="This element does not describe the usage of the citation. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this citation."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -386,7 +388,7 @@
       <path value="Citation.approvalDate"/>
       <short value="When the citation was approved by publisher"/>
       <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -406,7 +408,7 @@
       <short value="When the citation was last reviewed"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
-      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <requirements value="Gives a sense of how &#34;current&#34; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1112,8 +1114,8 @@
     <element id="Citation.citedArtifact.publicationForm.citedMedium">
       <path value="Citation.citedArtifact.publicationForm.citedMedium"/>
       <short value="Internet or Print"/>
-      <definition value="Describes the form of the medium cited. Common codes are &quot;Internet&quot; or &quot;Print&quot;."/>
-      <comment value="National Library of Medicine uses the codes &quot;Internet&quot; or &quot;Print&quot;."/>
+      <definition value="Describes the form of the medium cited. Common codes are &#34;Internet&#34; or &#34;Print&#34;."/>
+      <comment value="National Library of Medicine uses the codes &#34;Internet&#34; or &#34;Print&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1385,7 +1387,7 @@
     <element id="Citation.citedArtifact.contributorship.complete">
       <path value="Citation.citedArtifact.contributorship.complete"/>
       <short value="Indicates if the list includes all authors and/or contributors"/>
-      <comment value="If list is incomplete &quot;et al&quot; can be appended to Contributorship.summary.value for display purposes."/>
+      <comment value="If list is incomplete &#34;et al&#34; can be appended to Contributorship.summary.value for display purposes."/>
       <min value="0"/>
       <max value="1"/>
       <type>

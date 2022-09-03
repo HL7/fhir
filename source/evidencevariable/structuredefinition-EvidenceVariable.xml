@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="EvidenceVariable"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -27,6 +25,10 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1086"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="EvidenceVariable"/>
   <status value="draft"/>
@@ -112,8 +114,8 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
+        <xpath value="not(exists(@value)) or matches(@value, '([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <type>
@@ -237,7 +239,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -295,7 +297,7 @@
       <short value="Name of the publisher (organization or individual)"/>
       <definition value="The name of the organization or individual that published the evidence variable."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the evidence variable is the organization or individual primarily responsible for the maintenance and upkeep of the evidence variable. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the evidence variable. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the evidence variable.  May also allow for contact."/>
+      <requirements value="Helps establish the &#34;authority/credibility&#34; of the evidence variable.  May also allow for contact."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -491,7 +493,7 @@
     <element id="EvidenceVariable.characteristic">
       <path value="EvidenceVariable.characteristic"/>
       <short value="A defining factor of the EvidenceVariable"/>
-      <definition value="A defining factor of the EvidenceVariable. Multiple characteristics are applied with &quot;and&quot; semantics."/>
+      <definition value="A defining factor of the EvidenceVariable. Multiple characteristics are applied with &#34;and&#34; semantics."/>
       <comment value="Characteristics can be defined flexibly to accommodate different use cases for membership criteria, ranging from simple codes, all the way to using an expression language to express the criteria."/>
       <min value="0"/>
       <max value="*"/>
@@ -541,7 +543,7 @@
     </element>
     <element id="EvidenceVariable.characteristic.exclude">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="This was called &quot;inclusiveness&quot; with a code list of &quot;presence, absence&quot;. Changed to &quot;exclude&quot; boolean to simplify representation and to align with Group characteristic expression."/>
+        <valueString value="This was called &#34;inclusiveness&#34; with a code list of &#34;presence, absence&#34;. Changed to &#34;exclude&#34; boolean to simplify representation and to align with Group characteristic expression."/>
       </extension>
       <path value="EvidenceVariable.characteristic.exclude"/>
       <short value="Whether the characteristic is an inclusion criterion or exclusion criterion"/>
@@ -735,7 +737,7 @@
       <path value="EvidenceVariable.characteristic.definitionByCombination.code"/>
       <short value="all-of | any-of | at-least | at-most | statistical | net-effect | dataset"/>
       <definition value="Used to specify if two or more characteristics are combined with OR or AND."/>
-      <requirements value="If code is &quot;at-least&quot; or &quot;at-most&quot; then threshold SHALL be used. If code is neither &quot;at-least&quot; nor &quot;at-most&quot; then threshold SHALL NOT be used."/>
+      <requirements value="If code is &#34;at-least&#34; or &#34;at-most&#34; then threshold SHALL be used. If code is neither &#34;at-least&#34; nor &#34;at-most&#34; then threshold SHALL NOT be used."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -751,8 +753,8 @@
     </element>
     <element id="EvidenceVariable.characteristic.definitionByCombination.threshold">
       <path value="EvidenceVariable.characteristic.definitionByCombination.threshold"/>
-      <short value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used"/>
-      <definition value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used."/>
+      <short value="Provides the value of &#34;n&#34; when &#34;at-least&#34; or &#34;at-most&#34; codes are used"/>
+      <definition value="Provides the value of &#34;n&#34; when &#34;at-least&#34; or &#34;at-most&#34; codes are used."/>
       <min value="0"/>
       <max value="1"/>
       <type>

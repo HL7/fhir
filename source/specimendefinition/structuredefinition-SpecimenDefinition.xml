@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="SpecimenDefinition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -27,6 +25,10 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1069"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="SpecimenDefinition"/>
   <status value="draft"/>
@@ -161,7 +163,7 @@
       <path value="SpecimenDefinition.status"/>
       <short value="draft | active | retired | unknown"/>
       <definition value="The current state of theSpecimenDefinition."/>
-      <comment value="A nominal state-transition diagram can be found in the [[definition.html#statemachine | Definition pattern]] documentation&#xA;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is."/>
+      <comment value="A nominal state-transition diagram can be found in the [[definition.html#statemachine | Definition pattern]] documentation&#xA;Unknown does not represent &#34;other&#34; - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -197,7 +199,7 @@
       <path value="SpecimenDefinition.subject[x]"/>
       <short value="Type of subject for specimen collection"/>
       <definition value="A code or group definition that describes the intended subject  from which this kind of specimen is to be collected."/>
-      <comment value="Examples: person, animal, device, water &#x2026;."/>
+      <comment value="Examples: person, animal, device, water …."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -223,7 +225,7 @@
     <element id="SpecimenDefinition.publisher">
       <path value="SpecimenDefinition.publisher"/>
       <short value="The name of the individual or organization that published the SpecimenDefinition"/>
-      <definition value="Helps establish the &quot;authority/credibility&quot; of the SpecimenDefinition. May also allow for contact."/>
+      <definition value="Helps establish the &#34;authority/credibility&#34; of the SpecimenDefinition. May also allow for contact."/>
       <requirements value="Usually an organization, but may be an individual. The publisher (or steward) of the SpecimenDefinition is the organization or individual primarily responsible for the maintenance and upkeep of the SpecimenDefinition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the SpecimenDefinition. This item SHOULD be populated unless the information is available from context."/>
       <min value="0"/>
       <max value="1"/>
@@ -250,7 +252,7 @@
     <element id="SpecimenDefinition.description">
       <path value="SpecimenDefinition.description"/>
       <short value="Natural language description of the SpecimenDefinition"/>
-      <definition value="A free text natural language description of the SpecimenDefinition from the consumer&#39;s perspective."/>
+      <definition value="A free text natural language description of the SpecimenDefinition from the consumer's perspective."/>
       <comment value="This description can be used to capture details such as why the SpecimenDefinition was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context."/>
       <min value="0"/>
       <max value="1"/>
@@ -293,7 +295,7 @@
       <path value="SpecimenDefinition.purpose"/>
       <short value="Why this SpecimenDefinition is defined"/>
       <definition value="Explains why this SpecimeDefinition is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the SpecimenDefinition. Rather it is for traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is. This may be used to point to source materials or specifications that drove the structure of this SpecimenDefinition."/>
+      <comment value="This element does not describe the usage of the SpecimenDefinition. Rather it is for traceability of ''why'' the resource is either needed or ''why'' it is defined as it is. This may be used to point to source materials or specifications that drove the structure of this SpecimenDefinition."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -327,7 +329,7 @@
     <element id="SpecimenDefinition.lastReviewDate">
       <path value="SpecimenDefinition.lastReviewDate"/>
       <short value="The date on which the asset content was last reviewed"/>
-      <definition value="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn&#39;t change the original approval date."/>
+      <definition value="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date."/>
       <comment value="If specified, this is usually after the approval date."/>
       <min value="0"/>
       <max value="1"/>
@@ -407,7 +409,7 @@
       </type>
       <example>
         <label value="General"/>
-        <valueString value="24 hour, 20&#39; post charge"/>
+        <valueString value="24 hour, 20' post charge"/>
       </example>
       <isSummary value="true"/>
       <mapping>
@@ -511,8 +513,8 @@
     </element>
     <element id="SpecimenDefinition.typeTested.container">
       <path value="SpecimenDefinition.typeTested.container"/>
-      <short value="The specimen&#39;s container"/>
-      <definition value="The specimen&#39;s container."/>
+      <short value="The specimen's container"/>
+      <definition value="The specimen's container."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -717,7 +719,7 @@
     <element id="SpecimenDefinition.typeTested.singleUse">
       <path value="SpecimenDefinition.typeTested.singleUse"/>
       <short value="Specimen for single use only"/>
-      <definition value="Specimen can be used by only one test or panel if the value is &quot;true&quot;."/>
+      <definition value="Specimen can be used by only one test or panel if the value is &#34;true&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -801,7 +803,7 @@
     <element id="SpecimenDefinition.typeTested.handling.instruction">
       <path value="SpecimenDefinition.typeTested.handling.instruction"/>
       <short value="Preservation instruction"/>
-      <definition value="Additional textual instructions for the preservation or transport of the specimen. For instance, &#39;Protect from light exposure&#39;."/>
+      <definition value="Additional textual instructions for the preservation or transport of the specimen. For instance, 'Protect from light exposure'."/>
       <min value="0"/>
       <max value="1"/>
       <type>

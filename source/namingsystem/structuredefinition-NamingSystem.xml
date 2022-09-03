@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="NamingSystem"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -27,6 +25,10 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1259"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="NamingSystem"/>
   <status value="draft"/>
@@ -44,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &quot;System&quot; used within the Identifier and Coding data types."/>
+  <description value="A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &#34;System&#34; used within the Identifier and Coding data types."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
@@ -83,23 +85,23 @@
       </extension>
       <path value="NamingSystem"/>
       <short value="System of unique identification"/>
-      <definition value="A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &quot;System&quot; used within the Identifier and Coding data types."/>
+      <definition value="A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &#34;System&#34; used within the Identifier and Coding data types."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
         <key value="nsd-1"/>
         <severity value="error"/>
         <human value="Root systems cannot have uuid identifiers"/>
-        <expression value="kind != &#39;root&#39; or uniqueId.all(type != &#39;uuid&#39;)"/>
-        <xpath value="not(f:kind/@value=&#39;root&#39; and f:uniqueId/f:type/@value=&#39;uuid&#39;)"/>
+        <expression value="kind != 'root' or uniqueId.all(type != 'uuid')"/>
+        <xpath value="not(f:kind/@value='root' and f:uniqueId/f:type/@value='uuid')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
       </constraint>
       <constraint>
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
       </constraint>
       <mapping>
@@ -127,8 +129,8 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
+        <xpath value="not(exists(@value)) or matches(@value, '([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <type>
@@ -193,7 +195,7 @@
       <path value="NamingSystem.name"/>
       <short value="Name for this naming system (computer friendly)"/>
       <definition value="A natural language name identifying the naming system. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly.The&quot;symbolic name&quot; for an OID would be captured as an extension."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly.The&#34;symbolic name&#34; for an OID would be captured as an extension."/>
       <requirements value="Support human navigation and code generation."/>
       <min value="1"/>
       <max value="1"/>
@@ -225,7 +227,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -317,7 +319,7 @@
       <short value="Name of the publisher (organization or individual)"/>
       <definition value="The name of the organization or individual that published the naming system."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the naming system is the organization or individual primarily responsible for the maintenance and upkeep of the naming system. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the naming system. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the naming system.  May also allow for contact."/>
+      <requirements value="Helps establish the &#34;authority/credibility&#34; of the naming system.  May also allow for contact."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -392,8 +394,8 @@
     <element id="NamingSystem.description">
       <path value="NamingSystem.description"/>
       <short value="Natural language description of the naming system"/>
-      <definition value="A free text natural language description of the naming system from a consumer&#39;s perspective. Details about what the namespace identifies including scope, granularity, version labeling, etc."/>
-      <comment value="This description can be used to capture details such as why the naming system was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the naming system as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the naming system is presumed to be the predominant language in the place the naming system was created)."/>
+      <definition value="A free text natural language description of the naming system from a consumer's perspective. Details about what the namespace identifies including scope, granularity, version labeling, etc."/>
+      <comment value="This description can be used to capture details such as why the naming system was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the naming system as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the naming system is presumed to be the predominant language in the place the naming system was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -452,7 +454,7 @@
       <path value="NamingSystem.purpose"/>
       <short value="Why this naming system is defined"/>
       <definition value="Explanation of why this naming system is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the code system. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this code system."/>
+      <comment value="This element does not describe the usage of the code system. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this code system."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -496,7 +498,7 @@
       <path value="NamingSystem.approvalDate"/>
       <short value="When the NamingSystem was approved by publisher"/>
       <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -516,7 +518,7 @@
       <short value="When the NamingSystem was last reviewed"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
-      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <requirements value="Gives a sense of how &#34;current&#34; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -678,7 +680,7 @@
       <path value="NamingSystem.uniqueId.value"/>
       <short value="The unique identifier"/>
       <definition value="The string that should be sent over the wire to identify the code system or identifier system."/>
-      <comment value="If the value is a URI intended for use as FHIR system identifier, the URI should not contain &quot;\&quot; or &quot;?&quot; or &quot;,&quot; since this makes escaping very difficult."/>
+      <comment value="If the value is a URI intended for use as FHIR system identifier, the URI should not contain &#34;\&#34; or &#34;?&#34; or &#34;,&#34; since this makes escaping very difficult."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -693,7 +695,7 @@
     <element id="NamingSystem.uniqueId.preferred">
       <path value="NamingSystem.uniqueId.preferred"/>
       <short value="Is this the id that should be used for this type"/>
-      <definition value="Indicates whether this identifier is the &quot;preferred&quot; identifier of this type."/>
+      <definition value="Indicates whether this identifier is the &#34;preferred&#34; identifier of this type."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -702,18 +704,18 @@
 	  <constraint>
         <key value="nsd-2"/>
         <severity value="error"/>
-        <human value="Can&#39;t have more than one preferred identifier for a type"/>
+        <human value="Can't have more than one preferred identifier for a type"/>
         <expression value="uniqueId.where(preferred = true).select(type).isDistinct()"/>
         <xpath value="not(exists(for $type in distinct-values(f:uniqueId/f:type/@value) return if (count(f:uniqueId[f:type/@value=$type and f:preferred/@value=true()])&gt;1) then $type else ()))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
       </constraint>
-      <meaningWhenMissing value="If there are multiple ids, and one is labeled &quot;preferred&quot;, then the assumption is that the others are not preferred. In the absence of any id marked as preferred, no inference can be drawn"/>
+      <meaningWhenMissing value="If there are multiple ids, and one is labeled &#34;preferred&#34;, then the assumption is that the others are not preferred. In the absence of any id marked as preferred, no inference can be drawn"/>
     </element>
     <element id="NamingSystem.uniqueId.comment">
       <path value="NamingSystem.uniqueId.comment"/>
       <short value="Notes about identifier usage"/>
       <definition value="Notes about the past or intended usage of this identifier."/>
-      <comment value="e.g. &quot;must be used in Germany&quot; or &quot;was initially published in error with this value&quot;."/>
+      <comment value="e.g. &#34;must be used in Germany&#34; or &#34;was initially published in error with this value&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -724,7 +726,7 @@
       <path value="NamingSystem.uniqueId.period"/>
       <short value="When is identifier valid?"/>
       <definition value="Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic."/>
-      <comment value="Within a registry, a given identifier should only be &quot;active&quot; for a single namespace at a time.  (Ideally, an identifier should only ever be associated with a single namespace across all time).&#xA;&#xA;The nuance of identifier deprecation is not represented with a separate element. When a determination is made that an identifier should not be used, the validity period end date is updated with the date the identifier is deemed to be deprecated. The identifier should no longer be used once the period end date is reached."/>
+      <comment value="Within a registry, a given identifier should only be &#34;active&#34; for a single namespace at a time.  (Ideally, an identifier should only ever be associated with a single namespace across all time).&#xA;&#xA;The nuance of identifier deprecation is not represented with a separate element. When a determination is made that an identifier should not be used, the validity period end date is updated with the date the identifier is deemed to be deprecated. The identifier should no longer be used once the period end date is reached."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -743,7 +745,7 @@
 	  <constraint>
         <key value="nsd-3"/>
         <severity value="error"/>
-        <human value="Can&#39;t have more than one authoritative identifier for a type/period combination (only one authoritative identifier allowed at any given point of time)"/>
+        <human value="Can't have more than one authoritative identifier for a type/period combination (only one authoritative identifier allowed at any given point of time)"/>
         <expression value="uniqueId.where(authoritative = true).select(type).isDistinct().select(period).isDistinct()"/>
         <xpath value="count(f:uniqueID)=count(distinct-values(f:uniqueID/f:period/@value)) or not(exists(for $type in distinct-values(f:uniqueId/f:type/@value) return if (count(f:uniqueId[f:type/@value=$type and f:authoritative/@value=true()])&gt;1) then $type else ()))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="CapabilityStatement-conforms"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -37,9 +35,13 @@
     <valueMarkdown value="The operation performs a full comparison of the functionality described by the two capability statements, including the profiles and value sets they reference, and also including concept maps and structure maps.     &#xA;&#xA;The full execution of this operation is still a matter of research, but it is intended to support comparison of systems to see if they will interoperate    &#xA;&#xA;If the capability statements can be successfully compared, then the return value is a 200 OK with an OperationOutcome along with intersection and union capability statements. The operation outcome can contain errors relating to differences between the capability statements. If the capability statements cannot be compared, because dependencies cannot be located, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CapabilityStatement-conforms"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.9.5"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="conforms"/>
-  <title value="Test if a server implements a client&#39;s required operations"/>
+  <title value="Test if a server implements a client's required operations"/>
   <status value="draft"/>
   <kind value="operation"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -67,7 +69,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="A canonical reference to the left-hand system&#39;s capability statement"/>
+    <documentation value="A canonical reference to the left-hand system's capability statement"/>
     <type value="canonical"/>
   </parameter>
   <parameter>
@@ -75,7 +77,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="A canonical reference to the right-hand system&#39;s capability statement"/>
+    <documentation value="A canonical reference to the right-hand system's capability statement"/>
     <type value="canonical"/>
   </parameter>
   <parameter>
@@ -83,7 +85,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="What kind of comparison to perform - server to server, or client to server (use the codes &#39;server/server&#39; or &#39;client/server&#39;)"/>
+    <documentation value="What kind of comparison to perform - server to server, or client to server (use the codes 'server/server' or 'client/server')"/>
     <type value="code"/>
   </parameter>
   <parameter>

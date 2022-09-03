@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="List-find"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -37,6 +35,10 @@
     <valueMarkdown value="Note that servers may support searching by a functional list, and not support this operation that allows clients to find the list directly"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/List-find"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.9.36"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="find"/>
   <title value="Find a functional list"/>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="CapabilityStatement"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -30,6 +28,10 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1048"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="CapabilityStatement"/>
   <status value="active"/>
@@ -82,15 +84,15 @@
       <path value="CapabilityStatement"/>
       <short value="A statement of system capabilities"/>
       <definition value="A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server or Client for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
-      <comment value="Applications may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, then a CapabilityStatement describes the system&#39;s support for a particular version of FHIR, and the server will have multiple statements, one for each version."/>
+      <comment value="Applications may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, then a CapabilityStatement describes the system's support for a particular version of FHIR, and the server will have multiple statements, one for each version."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
       </constraint>
       <constraint>
@@ -106,39 +108,39 @@
         <severity value="error"/>
         <human value="The set of documents must be unique by the combination of profile and mode."/>
         <expression value="document.select(profile&amp;mode).isDistinct()"/>
-        <xpath value="count(f:document[f:mode/@value=&#39;producer&#39;])=count(distinct-values(f:document[f:mode/@value=&#39;producer&#39;]/f:profile/f:reference/@value)) and count(f:document[f:mode/@value=&#39;consumer&#39;])=count(distinct-values(f:document[f:mode/@value=&#39;consumer&#39;]/f:profile/f:reference/@value))"/>
+        <xpath value="count(f:document[f:mode/@value='producer'])=count(distinct-values(f:document[f:mode/@value='producer']/f:profile/f:reference/@value)) and count(f:document[f:mode/@value='consumer'])=count(distinct-values(f:document[f:mode/@value='consumer']/f:profile/f:reference/@value))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
       </constraint>
       <constraint>
         <key value="cpb-16"/>
         <severity value="error"/>
         <human value="If kind = requirements, implementation and software must be absent"/>
-        <expression value="(kind!=&#39;requirements&#39;) or (implementation.exists().not() and software.exists().not())"/>
-        <xpath value="not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and not(exists(f:software)))"/>
+        <expression value="(kind!='requirements') or (implementation.exists().not() and software.exists().not())"/>
+        <xpath value="not(f:kind/@value='instance') or (not(exists(f:implementation)) and not(exists(f:software)))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
       </constraint>
       <constraint>
         <key value="cpb-15"/>
         <severity value="error"/>
         <human value="If kind = capability, implementation must be absent, software must be present"/>
-        <expression value="(kind != &#39;capability&#39;) or (implementation.exists().not() and software.exists())"/>
-        <xpath value="not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and exists(f:software))"/>
+        <expression value="(kind != 'capability') or (implementation.exists().not() and software.exists())"/>
+        <xpath value="not(f:kind/@value='instance') or (not(exists(f:implementation)) and exists(f:software))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
       </constraint>
       <constraint>
         <key value="cpb-3"/>
         <severity value="error"/>
         <human value="Messaging end-point is only permitted when a capability statement is for an implementation."/>
-        <expression value="messaging.endpoint.empty() or kind = &#39;instance&#39;"/>
-        <xpath value="not(exists(f:messaging/f:endpoint)) or f:kind/@value = &#39;instance&#39;"/>
+        <expression value="messaging.endpoint.empty() or kind = 'instance'"/>
+        <xpath value="not(exists(f:messaging/f:endpoint)) or f:kind/@value = 'instance'"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
       </constraint>
       <constraint>
         <key value="cpb-14"/>
         <severity value="error"/>
         <human value="If kind = instance, implementation must be present and software may be present"/>
-        <expression value="(kind != &#39;instance&#39;) or implementation.exists()"/>
-        <xpath value="not(f:kind/@value=&#39;instance&#39;) or exists(f:implementation)"/>
+        <expression value="(kind != 'instance') or implementation.exists()"/>
+        <xpath value="not(f:kind/@value='instance') or exists(f:implementation)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
       </constraint>
       <constraint>
@@ -178,8 +180,8 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
+        <xpath value="not(exists(@value)) or matches(@value, '([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <type>
@@ -275,7 +277,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -344,7 +346,7 @@
       <short value="Name of the publisher (organization or individual)"/>
       <definition value="The name of the organization or individual that published the capability statement."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the capability statement is the organization or individual primarily responsible for the maintenance and upkeep of the capability statement. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the capability statement. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the capability statement.  May also allow for contact."/>
+      <requirements value="Helps establish the &#34;authority/credibility&#34; of the capability statement.  May also allow for contact."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -382,8 +384,8 @@
     <element id="CapabilityStatement.description">
       <path value="CapabilityStatement.description"/>
       <short value="Natural language description of the capability statement"/>
-      <definition value="A free text natural language description of the capability statement from a consumer&#39;s perspective. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP."/>
-      <comment value="This description can be used to capture details such as why the capability statement was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the capability statement as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the capability statement is presumed to be the predominant language in the place the capability statement was created).This does not need to be populated if the description is adequately implied by the software or implementation details."/>
+      <definition value="A free text natural language description of the capability statement from a consumer's perspective. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP."/>
+      <comment value="This description can be used to capture details such as why the capability statement was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the capability statement as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the capability statement is presumed to be the predominant language in the place the capability statement was created).This does not need to be populated if the description is adequately implied by the software or implementation details."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -446,7 +448,7 @@
       <path value="CapabilityStatement.purpose"/>
       <short value="Why this capability statement is defined"/>
       <definition value="Explanation of why this capability statement is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the capability statement. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this capability statement."/>
+      <comment value="This element does not describe the usage of the capability statement. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this capability statement."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -642,7 +644,7 @@
       <path value="CapabilityStatement.fhirVersion"/>
       <short value="FHIR Version the system supports"/>
       <definition value="The version of the FHIR specification that this CapabilityStatement describes (which SHALL be the same as the FHIR version of the CapabilityStatement itself). There is no default value."/>
-      <comment value="Servers may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, and the CapabilityStatement is requested from the server, then this fhirVersion will be either the version requested, or the server&#39;s default version."/>
+      <comment value="Servers may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, and the CapabilityStatement is requested from the server, then this fhirVersion will be either the version requested, or the server's default version."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -665,7 +667,7 @@
       <path value="CapabilityStatement.format"/>
       <short value="formats supported (xml | json | ttl | mime type)"/>
       <definition value="A list of the formats supported by this implementation using their content types."/>
-      <comment value="&quot;xml&quot;, &quot;json&quot; and &quot;ttl&quot; are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here."/>
+      <comment value="&#34;xml&#34;, &#34;json&#34; and &#34;ttl&#34; are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here."/>
       <min value="1"/>
       <max value="*"/>
       <type>
@@ -804,7 +806,7 @@
     <element id="CapabilityStatement.rest.documentation">
       <path value="CapabilityStatement.rest.documentation"/>
       <short value="General description of implementation"/>
-      <definition value="Information about the system&#39;s restful capabilities that apply across all applications, such as security."/>
+      <definition value="Information about the system's restful capabilities that apply across all applications, such as security."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -917,7 +919,7 @@
     <element id="CapabilityStatement.rest.resource.profile">
       <path value="CapabilityStatement.rest.resource.profile"/>
       <short value="System-wide profile"/>
-      <definition value="A system-wide profile that is applied across *all* instances of the resource supported by the system. For example, if declared on Observation, this profile is the &quot;superset&quot; of capabilities for laboratory *and* vitals *and* other domains. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
+      <definition value="A system-wide profile that is applied across *all* instances of the resource supported by the system. For example, if declared on Observation, this profile is the &#34;superset&#34; of capabilities for laboratory *and* vitals *and* other domains. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
       <comment value="All other profiles for this type that are listed in `.rest.resource.supportedProfile` must conform to this profile."/>
       <min value="0"/>
       <max value="1"/>
@@ -991,7 +993,7 @@
     <element id="CapabilityStatement.rest.resource.interaction.documentation">
       <path value="CapabilityStatement.rest.resource.interaction.documentation"/>
       <short value="Anything special about operation behavior"/>
-      <definition value="Guidance specific to the implementation of this operation, such as &#39;delete is a logical delete&#39; or &#39;updates are only allowed with version id&#39; or &#39;creates permitted from pre-authorized certificates only&#39;."/>
+      <definition value="Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'."/>
       <requirements value="REST allows a degree of variability in the implementation of RESTful solutions that is useful for exchange partners to be aware of."/>
       <min value="0"/>
       <max value="1"/>
@@ -1005,7 +1007,7 @@
       </extension>
       <path value="CapabilityStatement.rest.resource.versioning"/>
       <short value="no-version | versioned | versioned-update"/>
-      <definition value="This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is &#39;versioned-update&#39;, then the server supports all the versioning features, including using e-tags for version integrity in the API."/>
+      <definition value="This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is 'versioned-update', then the server supports all the versioning features, including using e-tags for version integrity in the API."/>
       <comment value="If a server supports versionIds correctly, it SHOULD support vread too, but is not required to do so."/>
       <min value="0"/>
       <max value="1"/>
@@ -1028,7 +1030,7 @@
       <path value="CapabilityStatement.rest.resource.readHistory"/>
       <short value="Whether vRead can return past versions"/>
       <definition value="A flag for whether the server is able to return past versions as part of the vRead operation."/>
-      <comment value="It is useful to support the vRead operation for current operations, even if past versions aren&#39;t available."/>
+      <comment value="It is useful to support the vRead operation for current operations, even if past versions aren't available."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1042,7 +1044,7 @@
       <path value="CapabilityStatement.rest.resource.updateCreate"/>
       <short value="If update can commit to a new identity"/>
       <definition value="A flag to indicate that the server allows or needs to allow the client to create new identities on the server (that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server."/>
-      <comment value="Allowing the clients to create new identities on the server means that the system administrator needs to have confidence that the clients do not create clashing identities between them. Obviously, if there is only one client, this won&#39;t happen. While creating identities on the client means that the clients need to be managed, it&#39;s much more convenient for many scenarios if such management can be put in place."/>
+      <comment value="Allowing the clients to create new identities on the server means that the system administrator needs to have confidence that the clients do not create clashing identities between them. Obviously, if there is only one client, this won't happen. While creating identities on the client means that the clients need to be managed, it's much more convenient for many scenarios if such management can be put in place."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1163,7 +1165,7 @@
       <path value="CapabilityStatement.rest.resource.searchInclude"/>
       <short value="_include values supported by the server"/>
       <definition value="A list of _include values supported by the server."/>
-    <comment value="Documenting [`_include`](http://hl7.org/fhir/R5/search.html#revinclude) support helps set conformance expectations for the desired system. Still, it is a level of detail that might not be exposed by production servers or clients when using CapabilityStatement to describe an actual implementation. If this list is empty, the server does not support includes. Support for *iterative* (a.k.a., recursive) `_include` is communicated by listing the iterative includes values supported by the server in the `searchInclude` element of the &quot;root&quot; resource type. For example, to support the following search:&#xA;&#xA;`GET [base]/CarePlan?_include=CarePlan:activity-reference:DeviceRequest&amp;_include:iterate=DeviceRequest:device`&#xA;&#xA;These values would be listed as part of capabilities for &quot;CarePlan&quot;:&#xA;&#xA;&quot;searchInclude&quot; : [&quot;CarePlan:activity-reference:DeviceRequest&quot;,&quot;DeviceRequest:device&quot;],&#xA;"/>
+    <comment value="Documenting [`_include`](http://hl7.org/fhir/R5/search.html#revinclude) support helps set conformance expectations for the desired system. Still, it is a level of detail that might not be exposed by production servers or clients when using CapabilityStatement to describe an actual implementation. If this list is empty, the server does not support includes. Support for *iterative* (a.k.a., recursive) `_include` is communicated by listing the iterative includes values supported by the server in the `searchInclude` element of the &#34;root&#34; resource type. For example, to support the following search:&#xA;&#xA;`GET [base]/CarePlan?_include=CarePlan:activity-reference:DeviceRequest&amp;_include:iterate=DeviceRequest:device`&#xA;&#xA;These values would be listed as part of capabilities for &#34;CarePlan&#34;:&#xA;&#xA;&#34;searchInclude&#34; : [&#34;CarePlan:activity-reference:DeviceRequest&#34;,&#34;DeviceRequest:device&#34;],&#xA;"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1272,7 +1274,7 @@
       <path value="CapabilityStatement.rest.resource.operation.name"/>
       <short value="Name by which the operation/query is invoked"/>
       <definition value="The name of the operation or query. For an operation, this name is prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called. This SHOULD be the same as the OperationDefinition.code of the defining OperationDefinition.  However, it can sometimes differ if necessary to disambiguate when a server supports multiple OperationDefinition that happen to share the same code."/>
-      <comment value="The name here SHOULD be the same as the OperationDefinition.code in the referenced OperationDefinition, unless there is a name clash and the OperationDefinition.code cannot be used. The name does not include the &quot;$&quot; portion that is always included in the URL. There is no correspondence whatsoever between CapabilityStatement's operation.name and OperationDefinition.name - the latter is used as a class name when generating code for the operation. HL7 will never define operations that have conflicting names."/>
+      <comment value="The name here SHOULD be the same as the OperationDefinition.code in the referenced OperationDefinition, unless there is a name clash and the OperationDefinition.code cannot be used. The name does not include the &#34;$&#34; portion that is always included in the URL. There is no correspondence whatsoever between CapabilityStatement's operation.name and OperationDefinition.name - the latter is used as a class name when generating code for the operation. HL7 will never define operations that have conflicting names."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1283,7 +1285,7 @@
     <element id="CapabilityStatement.rest.resource.operation.definition">
       <path value="CapabilityStatement.rest.resource.operation.definition"/>
       <short value="The defined operation/query"/>
-      <definition value="Where the formal definition can be found. If a server references the base definition of an Operation (i.e. from the specification itself such as ```http://hl7.org/fhir/OperationDefinition/ValueSet-expand```), that means it supports the full capabilities of the operation - e.g. both GET and POST invocation.  If it only supports a subset, it must define its own custom [OperationDefinition](operationdefinition.html#) with a &#39;base&#39; of the original OperationDefinition.  The custom definition would describe the specific subset of functionality supported."/>
+      <definition value="Where the formal definition can be found. If a server references the base definition of an Operation (i.e. from the specification itself such as ```http://hl7.org/fhir/OperationDefinition/ValueSet-expand```), that means it supports the full capabilities of the operation - e.g. both GET and POST invocation.  If it only supports a subset, it must define its own custom [OperationDefinition](operationdefinition.html#) with a 'base' of the original OperationDefinition.  The custom definition would describe the specific subset of functionality supported."/>
       <comment value="This can be used to build an HTML form to invoke the operation, for instance."/>
       <min value="1"/>
       <max value="1"/>
@@ -1448,7 +1450,7 @@
     <element id="CapabilityStatement.messaging.reliableCache">
       <path value="CapabilityStatement.messaging.reliableCache"/>
       <short value="Reliable Message Cache Length (min)"/>
-      <definition value="Length if the receiver&#39;s reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender)."/>
+      <definition value="Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender)."/>
       <comment value="If this value is missing then the application does not implement (receiver) or depend on (sender) reliable messaging."/>
       <min value="0"/>
       <max value="1"/>
@@ -1459,7 +1461,7 @@
     <element id="CapabilityStatement.messaging.documentation">
       <path value="CapabilityStatement.messaging.documentation"/>
       <short value="Messaging interface behavior details"/>
-      <definition value="Documentation about the system&#39;s messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner."/>
+      <definition value="Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner."/>
       <min value="0"/>
       <max value="1"/>
       <type>

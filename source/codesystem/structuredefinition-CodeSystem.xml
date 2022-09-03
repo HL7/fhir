@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="CodeSystem"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -30,6 +28,10 @@
     <valueString value="MetadataResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1142"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="CodeSystem"/>
   <status value="active"/>
@@ -117,8 +119,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </constraint>
       <mapping>
@@ -142,8 +144,8 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
+        <xpath value="not(exists(@value)) or matches(@value, '([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <type>
@@ -245,7 +247,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired CodeSystem without due consideration"/>
+      <isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired CodeSystem without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -314,7 +316,7 @@
       <short value="Name of the publisher (organization or individual)"/>
       <definition value="The name of the organization or individual that published the code system."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the code system is the organization or individual primarily responsible for the maintenance and upkeep of the code system. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the code system. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the code system.  May also allow for contact."/>
+      <requirements value="Helps establish the &#34;authority/credibility&#34; of the code system.  May also allow for contact."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -349,8 +351,8 @@
     <element id="CodeSystem.description">
       <path value="CodeSystem.description"/>
       <short value="Natural language description of the code system"/>
-      <definition value="A free text natural language description of the code system from a consumer&#39;s perspective."/>
-      <comment value="This description can be used to capture details such as why the code system was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the code system as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the code system is presumed to be the predominant language in the place the code system was created)."/>
+      <definition value="A free text natural language description of the code system from a consumer's perspective."/>
+      <comment value="This description can be used to capture details such as why the code system was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the code system as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the code system is presumed to be the predominant language in the place the code system was created)."/>
       <alias value="Scope"/>
       <alias value="Purpose"/>
       <min value="0"/>
@@ -418,7 +420,7 @@
       <path value="CodeSystem.purpose"/>
       <short value="Why this code system is defined"/>
       <definition value="Explanation of why this code system is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the code system. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this code system."/>
+      <comment value="This element does not describe the usage of the code system. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this code system."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -466,7 +468,7 @@
       <path value="CodeSystem.approvalDate"/>
       <short value="When the CodeSystem was approved by publisher"/>
       <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -489,7 +491,7 @@
       <short value="When the CodeSystem was last reviewed"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
-      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <requirements value="Gives a sense of how &#34;current&#34; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -627,7 +629,7 @@
       <path value="CodeSystem.caseSensitive"/>
       <short value="If code comparison is case sensitive"/>
       <definition value="If code comparison is case sensitive when codes within this system are compared to each other."/>
-      <comment value="If this value is missing, then it is not specified whether a code system is case sensitive or not. When the rule is not known, Postel&#39;s law should be followed: produce codes with the correct case, and accept codes in any case. This element is primarily provided to support validation software."/>
+      <comment value="If this value is missing, then it is not specified whether a code system is case sensitive or not. When the rule is not known, Postel's law should be followed: produce codes with the correct case, and accept codes in any case. This element is primarily provided to support validation software."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -685,7 +687,7 @@
       <path value="CodeSystem.versionNeeded"/>
       <short value="If definitions are not stable"/>
       <definition value="This flag is used to signify that the code system does not commit to concept permanence across versions. If true, a version must be specified when referencing this code system."/>
-      <comment value="Best practice is that code systems do not redefine concepts, or that if concepts are redefined, a new code system definition is created. But this is not always possible, so some code systems may be defined as &#39;versionNeeded&#39;.&#xA;&#xA;Most code systems occasionally refine the displays defined for concepts between versions. Contexts in which the concept display values are validated may require that the version be specified for some code systems irrespective of the value of this property."/>
+      <comment value="Best practice is that code systems do not redefine concepts, or that if concepts are redefined, a new code system definition is created. But this is not always possible, so some code systems may be defined as 'versionNeeded'.&#xA;&#xA;Most code systems occasionally refine the displays defined for concepts between versions. Contexts in which the concept display values are validated may require that the version be specified for some code systems irrespective of the value of this property."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -820,8 +822,7 @@
       <path value="CodeSystem.property"/>
       <short value="Additional information supplied about each concept"/>
       <definition value="A property defines an additional slot through which additional information can be provided about a concept."/>
-	  <comment value="Multiple occurrences of CodeSystem.concept.property may occur for a CodeSystem.property where 
-	  CodeSystem.concept.property.code is the same and CodeSystem.concept.property.value differs. For example: multiple designations for a single concept."/>
+	  <comment value="Multiple occurrences of CodeSystem.concept.property may occur for a CodeSystem.property where     CodeSystem.concept.property.code is the same and CodeSystem.concept.property.value differs. For example: multiple designations for a single concept."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -868,7 +869,7 @@
     <element id="CodeSystem.property.type">
       <path value="CodeSystem.property.type"/>
       <short value="code | Coding | string | integer | boolean | dateTime | decimal"/>
-      <definition value="The type of the property value. Properties of type &quot;code&quot; contain a code defined by the code system (e.g. a reference to another defined concept)."/>
+      <definition value="The type of the property value. Properties of type &#34;code&#34; contain a code defined by the code system (e.g. a reference to another defined concept)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -941,7 +942,7 @@
       <path value="CodeSystem.concept.designation"/>
       <short value="Additional representations for the concept"/>
       <definition value="Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc."/>
-      <comment value="Concepts have both a ```display``` and an array of ```designation```. The display is equivalent to a special designation with an implied ```designation.use``` of &quot;primary code&quot; and a language equal to the [Resource Language](resource.html#language)."/>
+      <comment value="Concepts have both a ```display``` and an array of ```designation```. The display is equivalent to a special designation with an implied ```designation.use``` of &#34;primary code&#34; and a language equal to the [Resource Language](resource.html#language)."/>
       <requirements value="Many concept definition systems support multiple representations, in multiple languages, and for multiple purposes."/>
       <min value="0"/>
       <max value="*"/>

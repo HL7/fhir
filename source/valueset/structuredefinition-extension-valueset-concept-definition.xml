@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="valueset-concept-definition"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1193"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="concept-definition"/>
   <title value="Definition"/>
@@ -40,7 +42,7 @@
       <path value="Extension"/>
       <short value="A definition for this code"/>
       <definition value="A definition that describes the meaning of this code when used as part of this value set."/>
-      <comment value="This is provided for when the source code system doesn&#39;t actually provide a definition (there are many such). Providing an definition for a code SHOULD NOT be done where the underlying code system provides a definition."/>
+      <comment value="This is provided for when the source code system doesn't actually provide a definition (there are many such). Providing an definition for a code SHOULD NOT be done where the underlying code system provides a definition."/>
       <min value="0"/>
       <max value="1"/>
       <isModifier value="false"/>

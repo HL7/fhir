@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="research-subject-status"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -18,7 +16,7 @@
   <url value="http://hl7.org/fhir/research-subject-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.830"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.830"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="ResearchSubjectStatus"/>
@@ -84,7 +82,7 @@
   <concept>
     <code value="on-study-observation"/>
     <display value="On-study-observation"/>
-    <definition value="The subject is being evaluated via tests and assessments according to the study calendar, but is not receiving any intervention. Note that this state is study-dependent and might not exist in all studies.  A synonym for this is &quot;short-term follow-up&quot;."/>
+    <definition value="The subject is being evaluated via tests and assessments according to the study calendar, but is not receiving any intervention. Note that this state is study-dependent and might not exist in all studies.  A synonym for this is &#34;short-term follow-up&#34;."/>
   </concept>
   <concept>
     <code value="pending-on-study"/>

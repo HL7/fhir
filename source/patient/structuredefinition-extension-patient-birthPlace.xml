@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="patient-birthPlace"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
@@ -9,13 +7,17 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/patient-birthPlace"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1348"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="birthPlace"/>
   <title value="Birth Place"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="The registered place of birth of the patient. A sytem may use the address.text if they don&#39;t store the birthPlace address in discrete elements."/>
+  <description value="The registered place of birth of the patient. A sytem may use the address.text if they don't store the birthPlace address in discrete elements."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -35,7 +37,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="Place of Birth for patient"/>
-      <definition value="The registered place of birth of the patient. A sytem may use the address.text if they don&#39;t store the birthPlace address in discrete elements."/>
+      <definition value="The registered place of birth of the patient. A sytem may use the address.text if they don't store the birthPlace address in discrete elements."/>
       <min value="0"/>
       <max value="1"/>
     </element>

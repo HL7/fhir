@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="StructureDefinition-snapshot"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -34,6 +32,10 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/StructureDefinition-snapshot"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.9.1"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="snapshot"/>
   <title value="Generate Snapshot"/>
@@ -51,7 +53,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Generates a [StructureDefinition](structuredefinition.html) instance  with  a snapshot, based on a differential in a specified [StructureDefinition](structuredefinition.html).   &#xA;&#xA;If the operation is not called at the instance level, either *definition* or *url* &#39;in&#39; parameters must be provided. If more than one is specified, servers may raise an error or may resolve with the parameter of their choice. If called at the instance level, these parameters will be ignored."/>
+  <description value="Generates a [StructureDefinition](structuredefinition.html) instance  with  a snapshot, based on a differential in a specified [StructureDefinition](structuredefinition.html).   &#xA;&#xA;If the operation is not called at the instance level, either *definition* or *url* 'in' parameters must be provided. If more than one is specified, servers may raise an error or may resolve with the parameter of their choice. If called at the instance level, these parameters will be ignored."/>
   <affectsState value="true"/>
   <code value="snapshot"/>
   <resource value="StructureDefinition"/>
@@ -71,7 +73,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The StructureDefinition&#39;s canonical URL (i.e. &#39;StructureDefinition.url&#39;). The server must know the structure definition, or be able to retrieve it from other known repositories."/>
+    <documentation value="The StructureDefinition's canonical URL (i.e. 'StructureDefinition.url'). The server must know the structure definition, or be able to retrieve it from other known repositories."/>
     <type value="string"/>
     <searchType value="token"/>
   </parameter>
