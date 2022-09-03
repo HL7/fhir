@@ -13,7 +13,7 @@
           <valueString value="PaymentNotice.created"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PaymentNotice-created"/>
-        <description value="Creation date fro the notice"/>
+        <description value="Creation date for the notice"/>
         <code value="created"/>
         <type value="date"/>
         <expression value="PaymentNotice.created"/>

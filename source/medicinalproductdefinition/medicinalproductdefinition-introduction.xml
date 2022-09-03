@@ -54,7 +54,7 @@
 		</p>
 
 		<a name="authorisations"></a>
-		<h2>Authorisations</h2>
+		<h3>Authorisations</h3>
 		<p id="auth">
 			A key aspect of a regulated medicinal product is the authorisation (marketing authorisation). 
 				This is not directly carried on the product resource, but instead a <a href="regulatedauthorization.html">RegulatedAuthorization</a> resource is 
@@ -62,7 +62,7 @@
 		</p>
 
 		<a name="contained"></a>
-		<h2>Contained Resources</h2>
+		<h3>Contained Resources</h3>
 		<p>Due to the amount of information, cardinalities, and update granularity necessary for some applications, the full product model
 			is split over several resources.</p>
 		<p>If you need just a coded "package type" list for your product you can use MedicinalProductDefinition.packagedMedicinalProduct. 

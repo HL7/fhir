@@ -1,0 +1,80 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "MedicinalProductDefinition",
+  "meta" : {
+    "lastUpdated" : "2022-09-01T13:47:12.078+10:00"
+  },
+  "url" : "http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition",
+  "version" : "5.0.0-cibuild",
+  "name" : "MedicinalProductDefinition",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2022-09-01T13:47:12+10:00",
+  "publisher" : "Health Level Seven International (Biomedical Research and Regulation)",
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "MedicinalProductDefinition",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/DomainResource",
+  "derivation" : "specialization",
+  "snapshot" : {
+    "element" : [{
+      "id" : "MedicinalProductDefinition",
+      "path" : "MedicinalProductDefinition",
+      "short" : "Detailed definition of a medicinal product",
+      "definition" : "A medicinal product, being a substance or combination of substances that is intended to treat, prevent or diagnose a disease, or to restore, correct or modify physiological functions by exerting a pharmacological, immunological or metabolic action. This resource is intended to define and detail such products and their properties, for uses other than direct patient care (e.g. regulatory use, or drug catalogs).",
+      "min" : 0,
+      "max" : "*"
+    },
+    {
+      "id" : "MedicinalProductDefinition.impurity",
+      "path" : "MedicinalProductDefinition.impurity",
+      "short" : "Any component of the drug product which is not the chemical entity defined as the drug substance, or an excipient in the drug product",
+      "definition" : "Any component of the drug product which is not the chemical entity defined as the drug substance, or an excipient in the drug product. This includes process-related impurities and contaminants, product-related impurities including degradation products.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "MedicinalProductDefinition.impurity",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableReference",
+        "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"]
+      }],
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "SNOMEDCTSubstanceCodes"
+        }],
+        "strength" : "example",
+        "description" : "This value set includes all substance codes from SNOMED CT - provided as an exemplar value set.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/substance-codes"
+      }
+    },
+    {
+      "id" : "MedicinalProductDefinition.impurity.concept",
+      "path" : "MedicinalProductDefinition.impurity.concept",
+      "short" : "Any component of the drug product which is not the chemical entity defined as the drug substance, or an excipient in the drug product",
+      "definition" : "Any component of the drug product which is not the chemical entity defined as the drug substance, or an excipient in the drug product. This includes process-related impurities and contaminants, product-related impurities including degradation products.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "MedicinalProductDefinition.impurity.concept",
+        "min" : 0,
+        "max" : "*"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "SNOMEDCTSubstanceCodes"
+        }],
+        "strength" : "example",
+        "description" : "This value set includes all substance codes from SNOMED CT - provided as an exemplar value set.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/substance-codes"
+      }
+    }]
+  }
+}

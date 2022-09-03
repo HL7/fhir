@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2022-08-26T03:04:41Z</LastSaved>
+  <LastSaved>2022-08-31T04:29:21Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -14,7 +14,8 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -802,7 +803,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Binding</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Binding for coded data - either from local Bindings tab or declared elsewhere</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Example</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">An example of the expected sort of value for this element.</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Translatable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Default Value</Data><Comment ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">        </Font><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The value to be assumed if the element is omitted from the instance.  Only permitted for simple data types</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Default Value</Data><Comment ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The value to be assumed if the element is omitted from the instance.  Only permitted for simple data types</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Missing Meaning</Data><Comment ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Semantic inferred if element is omitted from instance</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Regex</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Indicates a regular expression that the value of this element must meet.  Only allowed for simple data types.</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Short Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Short description or code1 | code2 | code3 +</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3429,7 +3430,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3472,8 +3472,8 @@
     <Cell ss:StyleID="s83"><Data ss:Type="String">Reference</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">SHALL have a contained resource if a local reference is provided</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids')) or (reference='#' and %rootResource!=%resource)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">not(starts-with(f:reference/@value, '#')) or exists(ancestor::*[self::f:entry or self::f:parameter]/f:resource/f:*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')]|/*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')])</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">reference.exists()  implies (reference.startsWith('#').not() or (reference.substring(1).trace('url') in %rootResource.contained.id.trace('ids')) or (reference='#' and %rootResource!=%resource))</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">not(exists(f:reference)) or not(starts-with(f:reference/@value, '#')) or exists(ancestor::*[self::f:entry or self::f:parameter]/f:resource/f:*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')]|/*/f:contained/f:*[f:id/@value=substring-after(current()/f:reference/@value, '#')])</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">2</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -3968,6 +3968,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

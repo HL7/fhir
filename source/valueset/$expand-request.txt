@@ -3,7 +3,7 @@ GET [base]/ValueSet/23/$expand?filter=abdo
 
 --------------------------------------
 // Expanding a value set by it's canonical URL (version 1.1), with a text filter of "abdo"
-GET [base]/ValueSet/$expand?url=http://acme.com/fhir/ValueSet/23&amp;valueSetVerson=1.1&amp;filter=abdo
+GET [base]/ValueSet/$expand?url=http://acme.com/fhir/ValueSet/23&valueSetVerson=1.1&filter=abdo
 
 --------------------------------------
 // Expanding a value set that is specified by the client (using JSON)
@@ -25,7 +25,7 @@ POST [base]/ValueSet/$expand
 
 --------------------------------------
 // Expanding a value set for a particular element, for what a client is allowed to PUT/POST. The server determines the appropriate value set to use
-GET [base]/ValueSet/$expand?context=DiagnosticReport.category&amp;contextDirection=incoming
+GET [base]/ValueSet/$expand?context=DiagnosticReport.category&contextDirection=incoming
 
 --------------------------------------
 // like the last example, but profile specific. Note the need to encode the #. When no contextDirection is specified, server discretion applies
@@ -33,15 +33,15 @@ GET [base]/ValueSet/$expand?context=http://fhir.org/guides/argonaut-clinicalnote
 
 --------------------------------------
 // Expanding a value set for a particular date (for an old record), for a german user
-GET [base]/ValueSet/23/$expand?date=2014-02-23&amp;displayLanguage=de
+GET [base]/ValueSet/23/$expand?date=2014-02-23&displayLanguage=de
 
 --------------------------------------
 // Expanding a value set, in the 3rd page
-GET [base]/ValueSet/23/$expand?offset=200&amp;count=100
+GET [base]/ValueSet/23/$expand?offset=200&count=100
 
 --------------------------------------
 // Expanding a value set. Asking not to get any SNOMED CT codes, and requiring that any LOINC codes come from 2.62 (if any other version of LOINC is in use, it's an error)
-GET [base]/ValueSet/23/$expand?exclude-system=http://snomed.info/sct&amp;check-system-version=http://loinc.org|2.62
+GET [base]/ValueSet/23/$expand?exclude-system=http://snomed.info/sct&check-system-version=http://loinc.org|2.62
 
 
 

@@ -3,85 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="service-provision-conditions"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/service-provision-conditions defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">free
-            
-            <a name="service-provision-conditions-free"> </a>
-          
-          </td>
-          
-          <td>Free</td>
-          
-          <td>This service is available for no patient cost.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">disc
-            
-            <a name="service-provision-conditions-disc"> </a>
-          
-          </td>
-          
-          <td>Discounts Available</td>
-          
-          <td>There are discounts available on this service for qualifying patients.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">cost
-            
-            <a name="service-provision-conditions-cost"> </a>
-          
-          </td>
-          
-          <td>Fees apply</td>
-          
-          <td>Fees apply for this service.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
@@ -96,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1143"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ServiceProvisionConditions"/>
   <title value="ServiceProvisionConditions"/>
   <status value="draft"/>

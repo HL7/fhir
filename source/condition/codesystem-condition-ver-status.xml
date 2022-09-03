@@ -3,145 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="condition-ver-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/condition-ver-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td>
-            
-            <b>Lvl</b>
-          
-          </td>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>1</td>
-          
-          <td style="white-space:nowrap">unconfirmed
-            
-            <a name="condition-ver-status-unconfirmed"> </a>
-          
-          </td>
-          
-          <td>Unconfirmed</td>
-          
-          <td>There is not sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>2</td>
-          
-          <td style="white-space:nowrap">  provisional
-            
-            <a name="condition-ver-status-provisional"> </a>
-          
-          </td>
-          
-          <td>Provisional</td>
-          
-          <td>This is a tentative diagnosis - still a candidate that is under consideration.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>2</td>
-          
-          <td style="white-space:nowrap">  differential
-            
-            <a name="condition-ver-status-differential"> </a>
-          
-          </td>
-          
-          <td>Differential</td>
-          
-          <td>One of a set of potential (and typically mutually exclusive) diagnoses asserted to further guide the diagnostic process and preliminary treatment.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>1</td>
-          
-          <td style="white-space:nowrap">confirmed
-            
-            <a name="condition-ver-status-confirmed"> </a>
-          
-          </td>
-          
-          <td>Confirmed</td>
-          
-          <td>There is sufficient diagnostic and/or clinical evidence to treat this as a confirmed condition.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>1</td>
-          
-          <td style="white-space:nowrap">refuted
-            
-            <a name="condition-ver-status-refuted"> </a>
-          
-          </td>
-          
-          <td>Refuted</td>
-          
-          <td>This condition has been ruled out by subsequent diagnostic and clinical evidence.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>1</td>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="condition-ver-status-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered in Error</td>
-          
-          <td>The statement was entered in error and is not valid.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
   </extension>
@@ -156,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1075"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ConditionVerificationStatus"/>
   <title value="ConditionVerificationStatus"/>
   <status value="draft"/>

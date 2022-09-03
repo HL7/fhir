@@ -1,5 +1,9 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<div>
+<a name="scope"></a>
+<h2>Scope and Usage</h2>
+
 <blockquote class="stu-note">
   <p>
     <a href="https://confluence.hl7.org/display/FMG">FMG</a> is presently considering whether this resource is appopriate to include in the FHIR specification. 
@@ -19,9 +23,6 @@ The FHIR Management Group has provisionally approved the Citation Resource with 
 			</ul>
 [%end-note-np%]
 
-<div>
-<a name="scope"></a>
-<h2>Scope and Usage</h2>
 <p>The scope of the Citation Resource is to describe any aspect of identification, location, authorship, and contributorship to a journal article, report, document, resource, or other knowledge artifact. Citations are used extensively in scholarly communication and important for documenting the evidence or source behind statements of fact, opinion, and interpretation. Citations are also used for acknowledgement of the contributions of individuals and groups to the creation and advancement of knowledge.</p>
 <p>Across the academic and scientific community citations are used extensively to reference the knowledge artifacts contributing to current work. For any community searching for reports of research or scholarly publications (such as searching MEDLINE) the citations contain the metadata used for such searches. Standardization of citations supports interoperability across citation managers and adaptation to current needs, such as reports being available on preprint servers before 'final' peer-reviewed published form, need to cite datasets or other alternative forms of expression, or the ability to support citation of FHIR Resources where the FHIR Resource represents research or scholarly publication.</p>
 <p>The Resource can accommodate both human and machine readers. The <i>summary</i> element provides human-readable information.</p>
@@ -39,6 +40,5 @@ The FHIR Management Group has provisionally approved the Citation Resource with 
 <p>The <a href="provenance.html">Provenance Resource</a> is used to track the contributions to a resource as it occurs, especially for purposes of confirming authenticity and trust. Citation.citedArtifact.contributorship is used to report the attribution of contributions to the cited artifact, especially for purposes of recognition and acknowledgement, but is not directly reporting the data to support authenticity of the contributions.</p>
 <p>The <a href="documentreference.html">DocumentReference Resource</a> is described as a reference to a document of any kind for any purpose. As the DocumentReference Resource was developed for healthcare data exchange it is modeled to support individualized provenance, security, and artifact relationships as often needed in this context. The Citation Resource was developed for the reference to knowledge artifacts commonly used in scientific and scholarly communication so is modeled to support identification, attribution, classification, status tracking, and representation (summary) of the citation.</p>
 </div>
-
 
 </div>

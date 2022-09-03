@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects."/>
+  <description value="A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="BRIDG5.1"/>
@@ -80,7 +80,7 @@
       </extension>
       <path value="ResearchStudy"/>
       <short value="Investigation to increase healthcare-related patient-independent knowledge"/>
-      <definition value="A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances."/>
+      <definition value="A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future."/>
       <comment value="Need to make sure we encompass public health studies."/>
       <alias value="Clinical Trial"/>
       <alias value="Study"/>
@@ -541,10 +541,10 @@
         <map value="DocumentVersion.keywordCode; DocumentVersion.keywordText"/>
       </mapping>
     </element>
-    <element id="ResearchStudy.location">
-      <path value="ResearchStudy.location"/>
-      <short value="Geographic region(s) for study"/>
-      <definition value="Indicates a country, state or other region where the study is taking place."/>
+    <element id="ResearchStudy.region">
+      <path value="ResearchStudy.region"/>
+      <short value="Geographic area for the study"/>
+      <definition value="A country, state or other area where the study is taking place rather than its precise geographic location or address."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -670,7 +670,7 @@
     <element id="ResearchStudy.classifier">
       <path value="ResearchStudy.classifier"/>
       <short value="Classification for the study"/>
-      <definition value="Additional grouping mechanism or categorization of a research study. Example: type of blinding, type of randomization, etc. Implementation Note: do not use the classifier element to support existing semantics that are already supported thru explicit elements in the resource."/>
+      <definition value="Additional grouping mechanism or categorization of a research study. Example: FDA regulated device, FDA regulated drug, MPG Paragraph 23b (a German legal requirement), IRB-exempt, etc. Implementation Note: do not use the classifier element to support existing semantics that are already supported thru explicit elements in the resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -743,8 +743,8 @@
     </element>
     <element id="ResearchStudy.associatedParty.classifier">
       <path value="ResearchStudy.associatedParty.classifier"/>
-      <short value="nih | fda"/>
-      <definition value="Organisational type of association."/>
+      <short value="nih | fda | government | nonprofit | academic | industry"/>
+      <definition value="A categorization other than role for the associated party."/>
       <min value="0"/>
       <max value="*"/>
       <type>
