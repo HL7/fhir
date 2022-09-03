@@ -1,2049 +1,2117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="PlanDefinition"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-    <valueString value="Specialized.Definitional Artifacts"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="business"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".status = retired"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="MetadataResource"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-  <version value="5.0.0"/>
-  <name value="PlanDefinition"/>
-  <status value="draft"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (Clinical Decision Support)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
-    </telecom>
-  </contact>
-  <description value="This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical and non-clinical artifacts such as clinical decision support rules, order sets, protocols, and drug quality specifications."/>
-  <fhirVersion value="5.0.0"/>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="PlanDefinition"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
-  <derivation value="specialization"/>
-  <differential>
-    <element id="PlanDefinition">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="The PlanDefinition resource was originally modeled as a KnowledgeArtifact resource, was then broken out into separate resources for OrderSet, DocumentationTemplate, and DecisionSupportRule, and then collapsed back into the current PlanDefinition structure. The resource is a FHIR rendering of the CDS KnowledgeArtifact specification, and can be used to model various types of decision support artifacts including order sets, documentation templates, decision support rules, protocols, and workflows. There is ongoing work to construct a bi-directional mapping between BPMN, CMMN, and DMN and PlanDefinition in various flavors."/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,0"/>
-      </extension>
-      <path value="PlanDefinition"/>
-      <short value="The definition of a plan for a series of actions, independent of any specific patient or context"/>
-      <definition value="This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical and non-clinical artifacts such as clinical decision support rules, order sets, protocols, and drug quality specifications."/>
-      <min value="0"/>
-      <max value="*"/>
-      <constraint>
-        <key value="cnl-0"/>
-        <severity value="warning"/>
-        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-      </constraint>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="Act[classCode=GROUPER;moodCode=DEFN]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="clinical.general"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.url">
-      <path value="PlanDefinition.url"/>
-      <short value="Canonical identifier for this plan definition, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this plan definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this plan definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the plan definition is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-      <requirements value="Allows the plan definition to be referenced by a single globally unique identifier."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.url"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".identifier[scope=BUSN;reliability=ISS]"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.identifier">
-      <path value="PlanDefinition.identifier"/>
-      <short value="Additional identifier for the plan definition"/>
-      <definition value="A formal identifier that is used to identify this plan definition when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-      <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this plan definition outside of FHIR, where it is not possible to use the logical URI."/>
-      <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.version">
-      <path value="PlanDefinition.version"/>
-      <short value="Business version of the plan definition"/>
-      <definition value="The identifier that is used to identify this version of the plan definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the plan definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
-      <comment value="There may be different plan definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the plan definition with the format [url]|[version]."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.version"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.version"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.name">
-      <path value="PlanDefinition.name"/>
-      <short value="Name for this plan definition (computer friendly)"/>
-      <definition value="A natural language name identifying the plan definition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-      <requirements value="Support human navigation and code generation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <condition value="cnl-0"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.title">
-      <path value="PlanDefinition.title"/>
-      <short value="Name for this plan definition (human friendly)"/>
-      <definition value="A short, descriptive, user-friendly title for the plan definition."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.title"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".title"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.subtitle">
-      <path value="PlanDefinition.subtitle"/>
-      <short value="Subordinate title of the plan definition"/>
-      <definition value="An explanatory or alternate title for the plan definition giving additional information about its content."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.type">
-      <path value="PlanDefinition.type"/>
-      <short value="order-set | clinical-protocol | eca-rule | workflow-definition"/>
-      <definition value="A high-level category for the plan definition that distinguishes the kinds of systems that would be interested in the plan definition."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PlanDefinitionType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The type of PlanDefinition."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/plan-definition-type"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.status">
-      <path value="PlanDefinition.status"/>
-      <short value="draft | active | retired | unknown"/>
-      <definition value="The status of this plan definition. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of plan definitions that are appropriate for use versus not."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PublicationStatus"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|5.0.0"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.status {different ValueSet}"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".status"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.experimental">
-      <path value="PlanDefinition.experimental"/>
-      <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-      <comment value="Allows filtering of plan definitions that are appropriate for use versus not."/>
-      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level plan definition."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.experimental"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.subject[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="As part of R4, the subject element was introduced in all the knowledge resources to support content expressed on resources other than patient, such as Location, Organization, and even Encounter and Procedure.&#xA;The subject element was expanded in R4B to support a canonical reference to the new product definition resources."/>
-      </extension>
-      <path value="PlanDefinition.subject[x]"/>
-      <short value="Type of individual the plan definition is focused on"/>
-      <definition value="A code, group definition, or canonical reference that describes  or identifies the intended subject of the plan definition. Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource."/>
-      <comment value="Note that the choice of canonical for the subject element was introduced in R4B to support pharmaceutical quality use cases. To ensure as much backwards-compatibility as possible, it is recommended to only use the new canonical type with these use cases."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
-      </type>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
-      </type>
-      <meaningWhenMissing value="Patient"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubjectType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.subject"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.date">
-      <path value="PlanDefinition.date"/>
-      <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the plan definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the plan definition changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the plan definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-      <alias value="Revision Date"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.date"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.recorded"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=AUT].time"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.publisher">
-      <path value="PlanDefinition.publisher"/>
-      <short value="Name of the publisher (organization or individual)"/>
-      <definition value="The name of the organization or individual that published the plan definition."/>
-      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the plan definition is the organization or individual primarily responsible for the maintenance and upkeep of the plan definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the plan definition. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the plan definition.  May also allow for contact."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.publisher"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.witness"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=AUT].role"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.contact">
-      <path value="PlanDefinition.contact"/>
-      <short value="Contact details for the publisher"/>
-      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.contact"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=CALLBCK].role"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.description">
-      <path value="PlanDefinition.description"/>
-      <short value="Natural language description of the plan definition"/>
-      <definition value="A free text natural language description of the plan definition from a consumer&#39;s perspective."/>
-      <comment value="This description can be used to capture details such as why the plan definition was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the plan definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the plan definition is presumed to be the predominant language in the place the plan definition was created)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.description"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".text"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.useContext">
-      <path value="PlanDefinition.useContext"/>
-      <short value="The context that the content is intended to support"/>
-      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate plan definition instances."/>
-      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-      <requirements value="Assist in searching for appropriate content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="UsageContext"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.useContext"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.jurisdiction">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Jurisdiction was originally modeled as a type of useContext, but was broken out as a separate element for ease of reference."/>
-      </extension>
-      <path value="PlanDefinition.jurisdiction"/>
-      <short value="Intended jurisdiction for plan definition (if applicable)"/>
-      <definition value="A legal or geographic region in which the plan definition is intended to be used."/>
-      <comment value="It may be possible for the plan definition to be used in jurisdictions other than those for which it was originally designed or intended."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Jurisdiction"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Countries and regions within which this artifact is targeted for use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.jurisdiction"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.purpose">
-      <path value="PlanDefinition.purpose"/>
-      <short value="Why this plan definition is defined"/>
-      <definition value="Explanation of why this plan definition is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the plan definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this plan definition."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.purpose"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.why[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".reasonCode.text"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.usage">
-      <path value="PlanDefinition.usage"/>
-      <short value="Describes the clinical usage of the plan"/>
-      <definition value="A detailed description of how the plan definition is used from a clinical perspective."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.copyright">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="There is ongoing discussion about the uses of copyright, particularly around modeling information such as license, copyright, and disclaimers."/>
-      </extension>
-      <path value="PlanDefinition.copyright"/>
-      <short value="Use and/or publishing restrictions"/>
-      <definition value="A copyright statement relating to the plan definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the plan definition."/>
-      <requirements value="Consumers must be able to determine any legal restrictions on the use of the plan definition and/or its content."/>
-      <alias value="License"/>
-      <alias value="Restrictions"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.copyright"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.approvalDate">
-      <path value="PlanDefinition.approvalDate"/>
-      <short value="When the plan definition was approved by publisher"/>
-      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="date"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.approvalDate"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.lastReviewDate">
-      <path value="PlanDefinition.lastReviewDate"/>
-      <short value="When the plan definition was last reviewed"/>
-      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
-      <comment value="If specified, this date follows the original approval date."/>
-      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="date"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.lastReviewDate"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;; subsetCode=&quot;RECENT&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;review&quot;].effectiveTime"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.effectivePeriod">
-      <path value="PlanDefinition.effectivePeriod"/>
-      <short value="When the plan definition is expected to be used"/>
-      <definition value="The period during which the plan definition content was or is planned to be in active use."/>
-      <comment value="The effective period for a plan definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
-      <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the plan definition are or are expected to be used instead."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.effectivePeriod"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.topic">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Topic was originally modeled as a type of useContext, but was broken out as a separate element for ease of reference."/>
-      </extension>
-      <path value="PlanDefinition.topic"/>
-      <short value="E.g. Education, Treatment, Assessment"/>
-      <definition value="Descriptive topics related to the content of the plan definition. Topics provide a high-level categorization of the definition that can be useful for filtering and searching."/>
-      <requirements value="Repositories must be able to determine how to categorize the plan definition so that it can be found by topical searches."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DefinitionTopic"/>
-        </extension>
-        <strength value="example"/>
-        <description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.subject[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.author">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Author was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
-      </extension>
-      <path value="PlanDefinition.author"/>
-      <short value="Who authored the content"/>
-      <definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=AUT]"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.editor">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Editor was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
-      </extension>
-      <path value="PlanDefinition.editor"/>
-      <short value="Who edited the content"/>
-      <definition value="An individual or organization primarily responsible for internal coherence of the content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=AUT]"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.reviewer">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Reviewer was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
-      </extension>
-      <path value="PlanDefinition.reviewer"/>
-      <short value="Who reviewed the content"/>
-      <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.endorser">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Endorser was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
-      </extension>
-      <path value="PlanDefinition.endorser"/>
-      <short value="Who endorsed the content"/>
-      <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.relatedArtifact">
-      <path value="PlanDefinition.relatedArtifact"/>
-      <short value="Additional documentation, citations"/>
-      <definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
-      <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
-      <requirements value="Plan definitions must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="RelatedArtifact"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.library">
-      <path value="PlanDefinition.library"/>
-      <short value="Logic used by the plan definition"/>
-      <definition value="A reference to a Library resource containing any formal logic used by the plan definition."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.goal">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Goal resource is not appropriate because it represents an instance of a goal with respect to a particular patient or group, and is very much concerned with tracking the state of the goal, rather than its definition. The Goal resource can point to a goal with an extension by virtue of the fact that it is a Request resource."/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,420"/>
-      </extension>
-      <path value="PlanDefinition.goal"/>
-      <short value="What the plan is trying to accomplish"/>
-      <definition value="A goal describes an expected outcome that activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, meeting the acceptance criteria for a test as specified by a quality specification, etc."/>
-      <requirements value="Goal information needs to be captured for order sets, protocols, and care plan definitions to better describe the objectives of the protocol activities and to guide the creation of specific goals within the derived care plans and orders."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.goal.category">
-      <path value="PlanDefinition.goal.category"/>
-      <short value="E.g. Treatment, dietary, behavioral"/>
-      <definition value="Indicates a category the goal falls within."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="GoalCategory"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Example codes for grouping goals for filtering or presentation."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/goal-category"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.goal.description">
-      <path value="PlanDefinition.goal.description"/>
-      <short value="Code or text describing the goal"/>
-      <definition value="Human-readable and/or coded description of a specific desired objective of care, such as &quot;control blood pressure&quot; or &quot;negotiate an obstacle course&quot; or &quot;dance with child at wedding&quot;."/>
-      <comment value="If no code is available, use CodeableConcept.text."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="GoalDescription"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Describes goals that can be achieved."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.goal.priority">
-      <path value="PlanDefinition.goal.priority"/>
-      <short value="high-priority | medium-priority | low-priority"/>
-      <definition value="Identifies the expected level of importance associated with reaching/sustaining the defined goal."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="GoalPriority"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="Indicates the level of importance associated with reaching or sustaining a goal."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/goal-priority"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.goal.start">
-      <path value="PlanDefinition.goal.start"/>
-      <short value="When goal pursuit begins"/>
-      <definition value="The event after which the goal should begin being pursued."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="GoalStartEvent"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Identifies the types of events that might trigger the start of a goal."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/goal-start-event"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.goal.addresses">
-      <path value="PlanDefinition.goal.addresses"/>
-      <short value="What does the goal address"/>
-      <definition value="Identifies problems, conditions, issues, or concerns the goal is intended to address."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="GoalAddresses"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Identifies problems, conditions, issues, or concerns that goals may address."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.goal.documentation">
-      <path value="PlanDefinition.goal.documentation"/>
-      <short value="Supporting documentation for the goal"/>
-      <definition value="Didactic or other informational resources associated with the goal that provide further supporting information about the goal. Information resources can include inline text commentary and links to web resources."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="RelatedArtifact"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.goal.target">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,600"/>
-      </extension>
-      <path value="PlanDefinition.goal.target"/>
-      <short value="Target outcome for the goal"/>
-      <definition value="Indicates what should be done and within what timeframe."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.goal.target.measure">
-      <path value="PlanDefinition.goal.target.measure"/>
-      <short value="The parameter whose value is to be tracked"/>
-      <definition value="The parameter whose value is to be tracked, e.g. body weight, blood pressure, or hemoglobin A1c level."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="GoalTargetMeasure"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Identifies types of parameters that can be tracked to determine goal achievement."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.goal.target.detail[x]">
-      <path value="PlanDefinition.goal.target.detail[x]"/>
-      <short value="The target value to be achieved"/>
-      <definition value="The target value of the measure to be achieved to signify fulfillment of the goal, e.g. 150 pounds or 7.0%, or in the case of pharmaceutical quality - NMT 0.6%, Clear solution, etc. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any value at or above the low value."/>
-      <comment value="A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the goal.target.measure defines a coded value."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-      </type>
-      <type>
-        <code value="Range"/>
-      </type>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="string"/>
-      </type>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <type>
-        <code value="integer"/>
-      </type>
-      <type>
-        <code value="Ratio"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.goal.target.due">
-      <path value="PlanDefinition.goal.target.due"/>
-      <short value="Reach goal within"/>
-      <definition value="Indicates the timeframe after the start of the goal in which the goal should be met."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Duration"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.actor">
-      <path value="PlanDefinition.actor"/>
-      <short value="Actors within the plan"/>
-      <definition value="Actors represent the individuals or groups involved in the execution of the defined set of activities."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=PFM]"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.actor.title">
-      <path value="PlanDefinition.actor.title"/>
-      <short value="User-visible title"/>
-      <definition value="A descriptive label for the actor."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.actor.description">
-      <path value="PlanDefinition.actor.description"/>
-      <short value="Describes the actor"/>
-      <definition value="A description of how the actor fits into the overall actions of the plan definition."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.actor.option">
-      <path value="PlanDefinition.actor.option"/>
-      <short value="Who or what can be this actor"/>
-      <definition value="The characteristics of the candidates that could serve as the actor."/>
-      <min value="1"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.actor.option.type">
-      <path value="PlanDefinition.actor.option.type"/>
-      <short value="careteam | device | group | healthcareservice | location | organization | patient | practitioner | practitionerrole | relatedperson"/>
-      <definition value="The type of participant in the action."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActivityParticipantType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|5.0.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".role.classCode"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.actor.option.typeReference">
-      <path value="PlanDefinition.actor.option.typeReference"/>
-      <short value="Who or what can participate"/>
-      <definition value="The type of participant in the action."/>
-      <comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".role.classCode"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.actor.option.role">
-      <path value="PlanDefinition.actor.option.role"/>
-      <short value="E.g. Nurse, Surgeon, Parent"/>
-      <definition value="The role the participant should play in performing the described action."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionParticipantRole"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/action-participant-role"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="There is ongoing discussion about the overlap between the action element here and the ActivityDefinition. In general, ActivityDefinition is intended to support reusable, structural definition of activities, where action supports simple inline declaration. In addition, ActivityDefinition is atomic, so if there need to be constraints or dependencies expressed, that needs to be done within the actions of a PlanDefinition."/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="360,0"/>
-      </extension>
-      <path value="PlanDefinition.action"/>
-      <short value="Action defined by the plan"/>
-      <definition value="An action or group of actions to be taken as part of the plan. For example, in clinical care, an action would be to prescribe a particular indicated medication, or perform a particular test as appropriate. In pharmaceutical quality, an action would be the test that needs to be performed on a drug product as defined in the quality specification."/>
-      <comment value="Note that there is overlap between many of the elements defined here and the ActivityDefinition resource. When an ActivityDefinition is referenced (using the definition element), the overlapping elements in the plan override the content of the referenced ActivityDefinition unless otherwise documented in the specific elements. See the PlanDefinition resource for more detailed information."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="{Is a contained Definition}"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="Act[classCode=ACT; moodCode=DEFN]"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.linkId">
-      <path value="PlanDefinition.action.linkId"/>
-      <short value="Unique id for the action in the PlanDefinition"/>
-      <definition value="An identifier that is unique within the PlanDefinition to allow linkage within the realized CarePlan and/or RequestOrchestration."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.prefix">
-      <path value="PlanDefinition.action.prefix"/>
-      <short value="User-visible prefix for the action (e.g. 1. or A.)"/>
-      <definition value="A user-visible prefix for the action. For example a section or item numbering such as 1. or A."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.title">
-      <path value="PlanDefinition.action.title"/>
-      <short value="User-visible title"/>
-      <definition value="The textual description of the action displayed to a user. For example, when the action is a test to be performed, the title would be the title of the test such as Assay by HPLC."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.title"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".title"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.description">
-      <path value="PlanDefinition.action.description"/>
-      <short value="Brief description of the action"/>
-      <definition value="A brief description of the action used to provide a summary to display to the user."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.description"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".text"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.textEquivalent">
-      <path value="PlanDefinition.action.textEquivalent"/>
-      <short value="Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system"/>
-      <definition value="A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.description"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".text"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.priority">
-      <path value="PlanDefinition.action.priority"/>
-      <short value="routine | urgent | asap | stat"/>
-      <definition value="Indicates how quickly the action should be addressed with respect to other actions."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="RequestPriority"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Identifies the level of importance to be assigned to actioning the request."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|5.0.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".priority"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.code">
-      <path value="PlanDefinition.action.code"/>
-      <short value="Code representing the meaning of the action or sub-actions"/>
-      <definition value="A code that provides a meaning, grouping, or classification for the action or action group. For example, a section may have a LOINC code for the section of a documentation template. In pharmaceutical quality, an action (Test) such as pH could be classified as a physical property."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionCode"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Provides examples of actions to be performed."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-code"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".classCode"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.reason">
-      <path value="PlanDefinition.action.reason"/>
-      <short value="Why the action should be performed"/>
-      <definition value="A description of why this action is necessary or appropriate."/>
-      <comment value="This is different than the clinical evidence documentation, it&#39;s an actual business description of the reason for performing the action."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionReasonCode"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Provides examples of reasons for actions to be performed."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-reason-code"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".reasonCode"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.documentation">
-      <path value="PlanDefinition.action.documentation"/>
-      <short value="Supporting documentation for the intended performer of the action"/>
-      <definition value="Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="RelatedArtifact"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.goalId">
-      <path value="PlanDefinition.action.goalId"/>
-      <short value="What goals this action supports"/>
-      <definition value="Identifies goals that this action supports. The reference must be to a goal element defined within this plan definition. In pharmaceutical quality, a goal represents acceptance criteria (Goal) for a given action (Test), so the goalId would be the unique id of a defined goal element establishing the acceptance criteria for the action."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="id"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.subject[x]">
-      <path value="PlanDefinition.action.subject[x]"/>
-      <short value="Type of individual the action is focused on"/>
-      <definition value="A code, group definition, or canonical reference that describes the intended subject of the action and its children, if any. Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource."/>
-      <comment value="The subject of an action overrides the subject at a parent action or on the root of the PlanDefinition if specified.&#xA;&#xA;In addition, because the subject needs to be resolved during realization, use of subjects in actions (or in the ActivityDefinition referenced by the action) resolves based on the set of subjects supplied in context and by type (i.e. the patient subject would resolve to a resource of type Patient)."/>
-      <requirements value="Multiple steps in a protocol often have different groups of steps that are focused on testing different things. The subject of an action specifies the focus of the action and any child actions."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-      </type>
-      <type>
-        <code value="canonical"/>
-      </type>
-      <meaningWhenMissing value="Patient"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubjectType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.subject"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.trigger">
-      <path value="PlanDefinition.action.trigger"/>
-      <short value="When the action should be triggered"/>
-      <definition value="A description of when the action should be triggered. When multiple triggers are specified on an action, any triggering event invokes the action."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="TriggerDefinition"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.condition">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="320,380"/>
-      </extension>
-      <path value="PlanDefinition.action.condition"/>
-      <short value="Whether or not the action is applicable"/>
-      <definition value="An expression that describes applicability criteria or start/stop conditions for the action."/>
-      <comment value="When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all the conditions are true."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.condition.kind">
-      <path value="PlanDefinition.action.condition.kind"/>
-      <short value="applicability | start | stop"/>
-      <definition value="The kind of condition."/>
-      <comment value="Applicability criteria are used to determine immediate applicability when a plan definition is applied to a given context. Start and stop criteria are carried through application and used to describe enter/exit criteria for an action."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionConditionKind"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Defines the kinds of conditions that can appear on actions."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-condition-kind|5.0.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.condition.expression">
-      <path value="PlanDefinition.action.condition.expression"/>
-      <short value="Boolean-valued expression"/>
-      <definition value="An expression that returns true or false, indicating whether the condition is satisfied."/>
-      <comment value="The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Expression"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.input">
-      <path value="PlanDefinition.action.input"/>
-      <short value="Input data requirements"/>
-      <definition value="Defines input data requirements for the action."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <constraint>
-        <key value="pld-0"/>
-        <severity value="error"/>
-        <human value="Input data elements must have a requirement or a relatedData, but not both"/>
-        <expression value="requirement.exists() xor relatedData.exists()"/>
-        <xpath value="exists(f:requirement) xor exists (f:relatedData/@value)"/>
-      </constraint>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.input.title">
-      <path value="PlanDefinition.action.input.title"/>
-      <short value="User-visible title"/>
-      <definition value="A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.input.requirement">
-      <path value="PlanDefinition.action.input.requirement"/>
-      <short value="What data is provided"/>
-      <definition value="Defines the data that is to be provided as input to the action."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="DataRequirement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.input.relatedData">
-      <path value="PlanDefinition.action.input.relatedData"/>
-      <short value="What data is provided"/>
-      <definition value="Points to an existing input or output element that provides data to this input."/>
-      <comment value="The relatedData element allows indicating that an input to a parent action is an input to specific child actions. It also allows the output of one action to be identified as the input to a different action"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="id"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.output">
-      <path value="PlanDefinition.action.output"/>
-      <short value="Output data definition"/>
-      <definition value="Defines the outputs of the action, if any."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <constraint>
-        <key value="pld-1"/>
-        <severity value="error"/>
-        <human value="Output data element must have a requirement or a relatedData, but not both"/>
-        <expression value="requirement.exists() xor relatedData.exists()"/>
-        <xpath value="exists(f:requirement) xor exists (f:relatedData/@value)"/>
-      </constraint>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.output.title">
-      <path value="PlanDefinition.action.output.title"/>
-      <short value="User-visible title"/>
-      <definition value="A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.output.requirement">
-      <path value="PlanDefinition.action.output.requirement"/>
-      <short value="What data is provided"/>
-      <definition value="Defines the data that results as output from the action."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="DataRequirement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.output.relatedData">
-      <path value="PlanDefinition.action.output.relatedData"/>
-      <short value="What data is provided"/>
-      <definition value="Points to an existing input or output element that is results as output from the action."/>
-      <comment value="The relatedData element allows indicating that the output of child action is also the output of a parent action. It also allows the input of one action to be identified as the output of a different action"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.relatedAction">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="520,380"/>
-      </extension>
-      <path value="PlanDefinition.action.relatedAction"/>
-      <short value="Relationship to another action"/>
-      <definition value="A relationship to another action such as &quot;before&quot; or &quot;30-60 minutes after start of&quot;."/>
-      <comment value="When an action depends on multiple actions, the meaning is that all actions are dependencies, rather than that any of the actions are a dependency."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.relatedAction.targetId">
-      <path value="PlanDefinition.action.relatedAction.targetId"/>
-      <short value="What action is this related to"/>
-      <definition value="The element id of the target related action."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="id"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.relatedAction.relationship">
-      <path value="PlanDefinition.action.relatedAction.relationship"/>
-      <short value="before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end"/>
-      <definition value="The relationship of this action to the related action."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionRelationshipType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Defines the types of relationships between actions."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type|5.0.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.relatedAction.offset[x]">
-      <path value="PlanDefinition.action.relatedAction.offset[x]"/>
-      <short value="Time offset for the relationship"/>
-      <definition value="A duration or range of durations to apply to the relationship. For example, 30-60 minutes before."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Duration"/>
-      </type>
-      <type>
-        <code value="Range"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.timing[x]">
-      <path value="PlanDefinition.action.timing[x]"/>
-      <short value="When the action should take place"/>
-      <definition value="An optional value describing when the action should be performed."/>
-      <comment value="The intent of the timing element is to provide timing when the action should be performed. As a definitional resource, this timing is interpreted as part of an apply operation so that the timing of the result actions in a CarePlan or RequestOrchestration, for example, would be specified by evaluating the timing definition in the context of the apply and setting the resulting timing on the appropriate elements of the target resource. If the timing is an Age, the activity is expected to be performed when the subject is the given Age. When the timing is a Duration, the activity is expected to be performed within the specified duration from the apply. When the timing is a Range, it may be a range of Ages or Durations, providing a range for the expected timing of the resulting activity. When the timing is a Timing, it is establishing a schedule for the timing of the resulting activity."/>
-      <requirements value="Allows prompting for activities and detection of missed planned activities."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Age"/>
-      </type>
-      <type>
-        <code value="Duration"/>
-      </type>
-      <type>
-        <code value="Range"/>
-      </type>
-      <type>
-        <code value="Timing"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.location">
-      <path value="PlanDefinition.action.location"/>
-      <short value="Where it should happen"/>
-      <definition value="Identifies the facility where the action will occur; e.g. home, hospital, specific clinic, etc."/>
-      <comment value="May reference a specific clinical location or may just identify a type of location."/>
-      <requirements value="Helps in planning of activity."/>
-      <alias value="facility"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=LOC].role"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.participant">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="720,300"/>
-      </extension>
-      <path value="PlanDefinition.action.participant"/>
-      <short value="Who should participate in the action"/>
-      <definition value="Indicates who should participate in performing the action described."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=PFM]"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.participant.actorId">
-      <path value="PlanDefinition.action.participant.actorId"/>
-      <short value="What actor"/>
-      <definition value="A reference to the id element of the actor who will participate in this action."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.participant.type">
-      <path value="PlanDefinition.action.participant.type"/>
-      <short value="careteam | device | group | healthcareservice | location | organization | patient | practitioner | practitionerrole | relatedperson"/>
-      <definition value="The type of participant in the action."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActivityParticipantType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|5.0.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".role.classCode"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.participant.typeReference">
-      <path value="PlanDefinition.action.participant.typeReference"/>
-      <short value="Who or what can participate"/>
-      <definition value="The type of participant in the action."/>
-      <comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".role.classCode"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.participant.role">
-      <path value="PlanDefinition.action.participant.role"/>
-      <short value="E.g. Nurse, Surgeon, Parent"/>
-      <definition value="The role the participant should play in performing the described action."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionParticipantRole"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Defines roles played by participants for the action."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/action-participant-role"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".role.code"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.participant.function">
-      <path value="PlanDefinition.action.participant.function"/>
-      <short value="E.g. Author, Reviewer, Witness, etc."/>
-      <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionParticipantFunction"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-function"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".role.code"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.type">
-      <path value="PlanDefinition.action.type"/>
-      <short value="create | update | remove | fire-event"/>
-      <definition value="The type of action to perform (create, update, remove)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The type of action to be performed."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-type"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".moodCode { Maybe? this is effectively Create, Update, or Delete }"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.groupingBehavior">
-      <path value="PlanDefinition.action.groupingBehavior"/>
-      <short value="visual-group | logical-group | sentence-group"/>
-      <definition value="Defines the grouping behavior for the action and its children."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionGroupingBehavior"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Defines organization behavior of a group."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-grouping-behavior|5.0.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.selectionBehavior">
-      <path value="PlanDefinition.action.selectionBehavior"/>
-      <short value="any | all | all-or-none | exactly-one | at-most-one | one-or-more"/>
-      <definition value="Defines the selection behavior for the action and its children."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionSelectionBehavior"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Defines selection behavior of a group."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-selection-behavior|5.0.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.requiredBehavior">
-      <path value="PlanDefinition.action.requiredBehavior"/>
-      <short value="must | could | must-unless-documented"/>
-      <definition value="Defines the required behavior for the action."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionRequiredBehavior"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Defines expectations around whether an action or action group is required."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-required-behavior|5.0.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.precheckBehavior">
-      <path value="PlanDefinition.action.precheckBehavior"/>
-      <short value="yes | no"/>
-      <definition value="Defines whether the action should usually be preselected."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionPrecheckBehavior"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Defines selection frequency behavior for an action or group."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-precheck-behavior|5.0.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.cardinalityBehavior">
-      <path value="PlanDefinition.action.cardinalityBehavior"/>
-      <short value="single | multiple"/>
-      <definition value="Defines whether the action can be selected multiple times."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionCardinalityBehavior"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Defines behavior for an action or a group for how many times that item may be repeated."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-cardinality-behavior|5.0.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.definition[x]">
-      <path value="PlanDefinition.action.definition[x]"/>
-      <short value="Description of the activity to be performed"/>
-      <definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, or an ObservationDefinition that specifies what observation should be captured."/>
-      <comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
-      </type>
-      <type>
-        <code value="uri"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.derivedFrom"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="Act[classCode=ACT; moodCode=DEFN]"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.transform">
-      <path value="PlanDefinition.action.transform"/>
-      <short value="Transform to apply the template"/>
-      <definition value="A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input."/>
-      <comment value="Note that when a referenced ActivityDefinition also defines a transform, the transform specified here generally takes precedence. In addition, if both a transform and dynamic values are specific, the dynamic values are applied to the result of the transform."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.dynamicValue">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="750,0"/>
-      </extension>
-      <path value="PlanDefinition.action.dynamicValue"/>
-      <short value="Dynamic aspects of the definition"/>
-      <definition value="Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient&#39;s weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result."/>
-      <comment value="Dynamic values are applied in the order in which they are defined in the PlanDefinition resource. Note that when dynamic values are also specified by a referenced ActivityDefinition, the dynamicValues from the ActivityDefinition are applied first, followed by the dynamicValues specified here. In addition, if both a transform and dynamic values are specific, the dynamic values are applied to the result of the transform."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.dynamicValue.path">
-      <path value="PlanDefinition.action.dynamicValue.path"/>
-      <short value="The path to the element to be set dynamically"/>
-      <definition value="The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression. The specified path SHALL be a FHIRPath resolveable on the specified target type of the ActivityDefinition, and SHALL consist only of identifiers, constant indexers, and a restricted subset of functions. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details)."/>
-      <comment value="To specify the path to the current action being realized, the %action environment variable is available in this path. For example, to specify the description element of the target action, the path would be %action.description. The path attribute contains a [Simple FHIRPath Subset](fhirpath.html#simple) that allows path traversal, but not calculation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.dynamicValue.expression">
-      <path value="PlanDefinition.action.dynamicValue.expression"/>
-      <short value="An expression that provides the dynamic value for the customization"/>
-      <definition value="An expression specifying the value of the customized element."/>
-      <comment value="The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Expression"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.action.action">
-      <path value="PlanDefinition.action.action"/>
-      <short value="A sub-action"/>
-      <definition value="Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition."/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#PlanDefinition.action"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="{InverseRelationship of Definition.partOf}"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-  </differential>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="PlanDefinition"/>
+	<meta>
+		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+		<valueString value="Specialized.Definitional Artifacts"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="3"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+		<valueCode value="business"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="cds"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+		<valueCode value=".status = retired"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+		<valueString value="MetadataResource"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+	<version value="5.0.0"/>
+	<name value="PlanDefinition"/>
+	<status value="draft"/>
+	<date value="2021-01-05T10:01:24+11:00"/>
+	<publisher value="Health Level Seven International (Clinical Decision Support)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
+		</telecom>
+	</contact>
+	<description value="This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical and non-clinical artifacts such as clinical decision support rules, order sets, protocols, and drug quality specifications."/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="PlanDefinition"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
+	<derivation value="specialization"/>
+	<differential>
+		<element id="PlanDefinition">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="The PlanDefinition resource was originally modeled as a KnowledgeArtifact resource, was then broken out into separate resources for OrderSet, DocumentationTemplate, and DecisionSupportRule, and then collapsed back into the current PlanDefinition structure. The resource is a FHIR rendering of the CDS KnowledgeArtifact specification, and can be used to model various types of decision support artifacts including order sets, documentation templates, decision support rules, protocols, and workflows. There is ongoing work to construct a bi-directional mapping between BPMN, CMMN, and DMN and PlanDefinition in various flavors."/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="0,0"/>
+			</extension>
+			<path value="PlanDefinition"/>
+			<short value="The definition of a plan for a series of actions, independent of any specific patient or context"/>
+			<definition value="This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical and non-clinical artifacts such as clinical decision support rules, order sets, protocols, and drug quality specifications."/>
+			<min value="0"/>
+			<max value="*"/>
+			<constraint>
+				<key value="cnl-0"/>
+				<severity value="warning"/>
+				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+			</constraint>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="Act[classCode=GROUPER;moodCode=DEFN]"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="clinical.general"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.url">
+			<path value="PlanDefinition.url"/>
+			<short value="Canonical identifier for this plan definition, represented as a URI (globally unique)"/>
+			<definition value="An absolute URI that is used to identify this plan definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this plan definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the plan definition is stored on different servers."/>
+			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+			<requirements value="Allows the plan definition to be referenced by a single globally unique identifier."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
+			<constraint>
+				<key value="cnl-1"/>
+				<severity value="warning"/>
+				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+				<expression value="url.matches(&#39;([^|#])*&#39;)"/>
+				<xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+			</constraint>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.url"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".identifier[scope=BUSN;reliability=ISS]"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.identifier">
+			<path value="PlanDefinition.identifier"/>
+			<short value="Additional identifier for the plan definition"/>
+			<definition value="A formal identifier that is used to identify this plan definition when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this plan definition outside of FHIR, where it is not possible to use the logical URI."/>
+			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.version">
+			<path value="PlanDefinition.version"/>
+			<short value="Business version of the plan definition"/>
+			<definition value="The identifier that is used to identify this version of the plan definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the plan definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
+			<comment value="There may be different plan definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the plan definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.version"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.version"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.name">
+			<path value="PlanDefinition.name"/>
+			<short value="Name for this plan definition (computer friendly)"/>
+			<definition value="A natural language name identifying the plan definition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+			<requirements value="Support human navigation and code generation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<condition value="cnl-0"/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.title">
+			<path value="PlanDefinition.title"/>
+			<short value="Name for this plan definition (human friendly)"/>
+			<definition value="A short, descriptive, user-friendly title for the plan definition."/>
+			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.title"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".title"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.subtitle">
+			<path value="PlanDefinition.subtitle"/>
+			<short value="Subordinate title of the plan definition"/>
+			<definition value="An explanatory or alternate title for the plan definition giving additional information about its content."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.type">
+			<path value="PlanDefinition.type"/>
+			<short value="order-set | clinical-protocol | eca-rule | workflow-definition"/>
+			<definition value="A high-level category for the plan definition that distinguishes the kinds of systems that would be interested in the plan definition."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PlanDefinitionType"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The type of PlanDefinition."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/plan-definition-type"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.status">
+			<path value="PlanDefinition.status"/>
+			<short value="draft | active | retired | unknown"/>
+			<definition value="The status of this plan definition. Enables tracking the life-cycle of the content."/>
+			<comment value="Allows filtering of plan definitions that are appropriate for use versus not."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isModifier value="true"/>
+			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PublicationStatus"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The lifecycle status of an artifact."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.status {different ValueSet}"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.status"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".status"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.experimental">
+			<path value="PlanDefinition.experimental"/>
+			<short value="For testing purposes, not real usage"/>
+			<definition value="A Boolean value to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+			<comment value="Allows filtering of plan definitions that are appropriate for use versus not."/>
+			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level plan definition."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.experimental"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.class"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.subject[x]">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="As part of R4, the subject element was introduced in all the knowledge resources to support content expressed on resources other than patient, such as Location, Organization, and even Encounter and Procedure.&#xA;The subject element was expanded in R4B to support a canonical reference to the new product definition resources."/>
+			</extension>
+			<path value="PlanDefinition.subject[x]"/>
+			<short value="Type of individual the plan definition is focused on"/>
+			<definition value="A code, group definition, or canonical reference that describes  or identifies the intended subject of the plan definition. Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource."/>
+			<comment value="Note that the choice of canonical for the subject element was introduced in R4B to support pharmaceutical quality use cases. To ensure as much backwards-compatibility as possible, it is recommended to only use the new canonical type with these use cases."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
+			</type>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+			</type>
+			<meaningWhenMissing value="Patient"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SubjectType"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.subject"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.date">
+			<path value="PlanDefinition.date"/>
+			<short value="Date last changed"/>
+			<definition value="The date  (and optionally time) when the plan definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the plan definition changes."/>
+			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the plan definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+			<alias value="Revision Date"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.date"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.recorded"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=AUT].time"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.publisher">
+			<path value="PlanDefinition.publisher"/>
+			<short value="Name of the publisher (organization or individual)"/>
+			<definition value="The name of the organization or individual that published the plan definition."/>
+			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the plan definition is the organization or individual primarily responsible for the maintenance and upkeep of the plan definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the plan definition. This item SHOULD be populated unless the information is available from context."/>
+			<requirements value="Helps establish the &quot;authority/credibility&quot; of the plan definition.  May also allow for contact."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.publisher"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.witness"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=AUT].role"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.contact">
+			<path value="PlanDefinition.contact"/>
+			<short value="Contact details for the publisher"/>
+			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+			<comment value="May be a web site, an email address, a telephone number, etc."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.contact"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=CALLBCK].role"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.description">
+			<path value="PlanDefinition.description"/>
+			<short value="Natural language description of the plan definition"/>
+			<definition value="A free text natural language description of the plan definition from a consumer&#39;s perspective."/>
+			<comment value="This description can be used to capture details such as why the plan definition was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the plan definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the plan definition is presumed to be the predominant language in the place the plan definition was created)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.description"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".text"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.useContext">
+			<path value="PlanDefinition.useContext"/>
+			<short value="The context that the content is intended to support"/>
+			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate plan definition instances."/>
+			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+			<requirements value="Assist in searching for appropriate content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="UsageContext"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.useContext"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.jurisdiction">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Jurisdiction was originally modeled as a type of useContext, but was broken out as a separate element for ease of reference."/>
+			</extension>
+			<path value="PlanDefinition.jurisdiction"/>
+			<short value="Intended jurisdiction for plan definition (if applicable)"/>
+			<definition value="A legal or geographic region in which the plan definition is intended to be used."/>
+			<comment value="It may be possible for the plan definition to be used in jurisdictions other than those for which it was originally designed or intended."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="Jurisdiction"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Countries and regions within which this artifact is targeted for use."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.jurisdiction"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.purpose">
+			<path value="PlanDefinition.purpose"/>
+			<short value="Why this plan definition is defined"/>
+			<definition value="Explanation of why this plan definition is needed and why it has been designed as it has."/>
+			<comment value="This element does not describe the usage of the plan definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this plan definition."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.purpose"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.why[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".reasonCode.text"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.usage">
+			<path value="PlanDefinition.usage"/>
+			<short value="Describes the clinical usage of the plan"/>
+			<definition value="A detailed description of how the plan definition is used from a clinical perspective."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.copyright">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="There is ongoing discussion about the uses of copyright, particularly around modeling information such as license, copyright, and disclaimers."/>
+			</extension>
+			<path value="PlanDefinition.copyright"/>
+			<short value="Use and/or publishing restrictions"/>
+			<definition value="A copyright statement relating to the plan definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the plan definition."/>
+			<requirements value="Consumers must be able to determine any legal restrictions on the use of the plan definition and/or its content."/>
+			<alias value="License"/>
+			<alias value="Restrictions"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.copyright"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.approvalDate">
+			<path value="PlanDefinition.approvalDate"/>
+			<short value="When the plan definition was approved by publisher"/>
+			<definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+			<comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="date"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.approvalDate"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.lastReviewDate">
+			<path value="PlanDefinition.lastReviewDate"/>
+			<short value="When the plan definition was last reviewed"/>
+			<definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
+			<comment value="If specified, this date follows the original approval date."/>
+			<requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="date"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.lastReviewDate"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;; subsetCode=&quot;RECENT&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;review&quot;].effectiveTime"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.effectivePeriod">
+			<path value="PlanDefinition.effectivePeriod"/>
+			<short value="When the plan definition is expected to be used"/>
+			<definition value="The period during which the plan definition content was or is planned to be in active use."/>
+			<comment value="The effective period for a plan definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+			<requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the plan definition are or are expected to be used instead."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Period"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.effectivePeriod"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.topic">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Topic was originally modeled as a type of useContext, but was broken out as a separate element for ease of reference."/>
+			</extension>
+			<path value="PlanDefinition.topic"/>
+			<short value="E.g. Education, Treatment, Assessment"/>
+			<definition value="Descriptive topics related to the content of the plan definition. Topics provide a high-level categorization of the definition that can be useful for filtering and searching."/>
+			<requirements value="Repositories must be able to determine how to categorize the plan definition so that it can be found by topical searches."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="DefinitionTopic"/>
+				</extension>
+				<strength value="example"/>
+				<description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.subject[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.author">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Author was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+			</extension>
+			<path value="PlanDefinition.author"/>
+			<short value="Who authored the content"/>
+			<definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=AUT]"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.editor">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Editor was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+			</extension>
+			<path value="PlanDefinition.editor"/>
+			<short value="Who edited the content"/>
+			<definition value="An individual or organization primarily responsible for internal coherence of the content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=AUT]"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.reviewer">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Reviewer was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+			</extension>
+			<path value="PlanDefinition.reviewer"/>
+			<short value="Who reviewed the content"/>
+			<definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.endorser">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Endorser was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+			</extension>
+			<path value="PlanDefinition.endorser"/>
+			<short value="Who endorsed the content"/>
+			<definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.relatedArtifact">
+			<path value="PlanDefinition.relatedArtifact"/>
+			<short value="Additional documentation, citations"/>
+			<definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
+			<comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
+			<requirements value="Plan definitions must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="RelatedArtifact"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.library">
+			<path value="PlanDefinition.library"/>
+			<short value="Logic used by the plan definition"/>
+			<definition value="A reference to a Library resource containing any formal logic used by the plan definition."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.goal">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Goal resource is not appropriate because it represents an instance of a goal with respect to a particular patient or group, and is very much concerned with tracking the state of the goal, rather than its definition. The Goal resource can point to a goal with an extension by virtue of the fact that it is a Request resource."/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="0,420"/>
+			</extension>
+			<path value="PlanDefinition.goal"/>
+			<short value="What the plan is trying to accomplish"/>
+			<definition value="A goal describes an expected outcome that activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, meeting the acceptance criteria for a test as specified by a quality specification, etc."/>
+			<requirements value="Goal information needs to be captured for order sets, protocols, and care plan definitions to better describe the objectives of the protocol activities and to guide the creation of specific goals within the derived care plans and orders."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.goal.category">
+			<path value="PlanDefinition.goal.category"/>
+			<short value="E.g. Treatment, dietary, behavioral"/>
+			<definition value="Indicates a category the goal falls within."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="GoalCategory"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Example codes for grouping goals for filtering or presentation."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/goal-category"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.goal.description">
+			<path value="PlanDefinition.goal.description"/>
+			<short value="Code or text describing the goal"/>
+			<definition value="Human-readable and/or coded description of a specific desired objective of care, such as &quot;control blood pressure&quot; or &quot;negotiate an obstacle course&quot; or &quot;dance with child at wedding&quot;."/>
+			<comment value="If no code is available, use CodeableConcept.text."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="GoalDescription"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Describes goals that can be achieved."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.goal.priority">
+			<path value="PlanDefinition.goal.priority"/>
+			<short value="high-priority | medium-priority | low-priority"/>
+			<definition value="Identifies the expected level of importance associated with reaching/sustaining the defined goal."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="GoalPriority"/>
+				</extension>
+				<strength value="preferred"/>
+				<description value="Indicates the level of importance associated with reaching or sustaining a goal."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/goal-priority"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.goal.start">
+			<path value="PlanDefinition.goal.start"/>
+			<short value="When goal pursuit begins"/>
+			<definition value="The event after which the goal should begin being pursued."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="GoalStartEvent"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Identifies the types of events that might trigger the start of a goal."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/goal-start-event"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.goal.addresses">
+			<path value="PlanDefinition.goal.addresses"/>
+			<short value="What does the goal address"/>
+			<definition value="Identifies problems, conditions, issues, or concerns the goal is intended to address."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="GoalAddresses"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Identifies problems, conditions, issues, or concerns that goals may address."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.goal.documentation">
+			<path value="PlanDefinition.goal.documentation"/>
+			<short value="Supporting documentation for the goal"/>
+			<definition value="Didactic or other informational resources associated with the goal that provide further supporting information about the goal. Information resources can include inline text commentary and links to web resources."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="RelatedArtifact"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.goal.target">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="0,600"/>
+			</extension>
+			<path value="PlanDefinition.goal.target"/>
+			<short value="Target outcome for the goal"/>
+			<definition value="Indicates what should be done and within what timeframe."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.goal.target.measure">
+			<path value="PlanDefinition.goal.target.measure"/>
+			<short value="The parameter whose value is to be tracked"/>
+			<definition value="The parameter whose value is to be tracked, e.g. body weight, blood pressure, or hemoglobin A1c level."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="GoalTargetMeasure"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Identifies types of parameters that can be tracked to determine goal achievement."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.goal.target.detail[x]">
+			<path value="PlanDefinition.goal.target.detail[x]"/>
+			<short value="The target value to be achieved"/>
+			<definition value="The target value of the measure to be achieved to signify fulfillment of the goal, e.g. 150 pounds or 7.0%, or in the case of pharmaceutical quality - NMT 0.6%, Clear solution, etc. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any value at or above the low value."/>
+			<comment value="A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the goal.target.measure defines a coded value."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Quantity"/>
+			</type>
+			<type>
+				<code value="Range"/>
+			</type>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<type>
+				<code value="string"/>
+			</type>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<type>
+				<code value="integer"/>
+			</type>
+			<type>
+				<code value="Ratio"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.goal.target.due">
+			<path value="PlanDefinition.goal.target.due"/>
+			<short value="Reach goal within"/>
+			<definition value="Indicates the timeframe after the start of the goal in which the goal should be met."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Duration"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.actor">
+			<path value="PlanDefinition.actor"/>
+			<short value="Actors within the plan"/>
+			<definition value="Actors represent the individuals or groups involved in the execution of the defined set of activities."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=PFM]"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.actor.title">
+			<path value="PlanDefinition.actor.title"/>
+			<short value="User-visible title"/>
+			<definition value="A descriptive label for the actor."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.actor.description">
+			<path value="PlanDefinition.actor.description"/>
+			<short value="Describes the actor"/>
+			<definition value="A description of how the actor fits into the overall actions of the plan definition."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.actor.option">
+			<path value="PlanDefinition.actor.option"/>
+			<short value="Who or what can be this actor"/>
+			<definition value="The characteristics of the candidates that could serve as the actor."/>
+			<min value="1"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.actor.option.type">
+			<path value="PlanDefinition.actor.option.type"/>
+			<short value="careteam | device | group | healthcareservice | location | organization | patient | practitioner | practitionerrole | relatedperson"/>
+			<definition value="The type of participant in the action."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActivityParticipantType"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The type of participant in the activity."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".role.classCode"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.actor.option.typeCanonical">
+			<path value="PlanDefinition.actor.option.typeCanonical"/>
+			<short value="Who or what can participate"/>
+			<definition value="The type of participant in the action."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".role.classCode"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.actor.option.typeReference">
+			<path value="PlanDefinition.actor.option.typeReference"/>
+			<short value="Who or what can participate"/>
+			<definition value="The type of participant in the action."/>
+			<comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".role.classCode"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.actor.option.role">
+			<path value="PlanDefinition.actor.option.role"/>
+			<short value="E.g. Nurse, Surgeon, Parent"/>
+			<definition value="The role the participant should play in performing the described action."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionParticipantRole"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/action-participant-role"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="There is ongoing discussion about the overlap between the action element here and the ActivityDefinition. In general, ActivityDefinition is intended to support reusable, structural definition of activities, where action supports simple inline declaration. In addition, ActivityDefinition is atomic, so if there need to be constraints or dependencies expressed, that needs to be done within the actions of a PlanDefinition."/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="360,0"/>
+			</extension>
+			<path value="PlanDefinition.action"/>
+			<short value="Action defined by the plan"/>
+			<definition value="An action or group of actions to be taken as part of the plan. For example, in clinical care, an action would be to prescribe a particular indicated medication, or perform a particular test as appropriate. In pharmaceutical quality, an action would be the test that needs to be performed on a drug product as defined in the quality specification."/>
+			<comment value="Note that there is overlap between many of the elements defined here and the ActivityDefinition resource. When an ActivityDefinition is referenced (using the definition element), the overlapping elements in the plan override the content of the referenced ActivityDefinition unless otherwise documented in the specific elements. See the PlanDefinition resource for more detailed information."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="{Is a contained Definition}"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="Act[classCode=ACT; moodCode=DEFN]"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.linkId">
+			<path value="PlanDefinition.action.linkId"/>
+			<short value="Unique id for the action in the PlanDefinition"/>
+			<definition value="An identifier that is unique within the PlanDefinition to allow linkage within the realized CarePlan and/or RequestOrchestration."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.prefix">
+			<path value="PlanDefinition.action.prefix"/>
+			<short value="User-visible prefix for the action (e.g. 1. or A.)"/>
+			<definition value="A user-visible prefix for the action. For example a section or item numbering such as 1. or A."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.title">
+			<path value="PlanDefinition.action.title"/>
+			<short value="User-visible title"/>
+			<definition value="The textual description of the action displayed to a user. For example, when the action is a test to be performed, the title would be the title of the test such as Assay by HPLC."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.title"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".title"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.description">
+			<path value="PlanDefinition.action.description"/>
+			<short value="Brief description of the action"/>
+			<definition value="A brief description of the action used to provide a summary to display to the user."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.description"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".text"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.textEquivalent">
+			<path value="PlanDefinition.action.textEquivalent"/>
+			<short value="Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system"/>
+			<definition value="A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.description"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".text"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.priority">
+			<path value="PlanDefinition.action.priority"/>
+			<short value="routine | urgent | asap | stat"/>
+			<definition value="Indicates how quickly the action should be addressed with respect to other actions."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="RequestPriority"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Identifies the level of importance to be assigned to actioning the request."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".priority"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.code">
+			<path value="PlanDefinition.action.code"/>
+			<short value="Code representing the meaning of the action or sub-actions"/>
+			<definition value="A code that provides a meaning, grouping, or classification for the action or action group. For example, a section may have a LOINC code for the section of a documentation template. In pharmaceutical quality, an action (Test) such as pH could be classified as a physical property."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionCode"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Provides examples of actions to be performed."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-code"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".classCode"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.reason">
+			<path value="PlanDefinition.action.reason"/>
+			<short value="Why the action should be performed"/>
+			<definition value="A description of why this action is necessary or appropriate."/>
+			<comment value="This is different than the clinical evidence documentation, it&#39;s an actual business description of the reason for performing the action."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionReasonCode"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Provides examples of reasons for actions to be performed."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-reason-code"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".reasonCode"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.documentation">
+			<path value="PlanDefinition.action.documentation"/>
+			<short value="Supporting documentation for the intended performer of the action"/>
+			<definition value="Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="RelatedArtifact"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.goalId">
+			<path value="PlanDefinition.action.goalId"/>
+			<short value="What goals this action supports"/>
+			<definition value="Identifies goals that this action supports. The reference must be to a goal element defined within this plan definition. In pharmaceutical quality, a goal represents acceptance criteria (Goal) for a given action (Test), so the goalId would be the unique id of a defined goal element establishing the acceptance criteria for the action."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="id"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.subject[x]">
+			<path value="PlanDefinition.action.subject[x]"/>
+			<short value="Type of individual the action is focused on"/>
+			<definition value="A code, group definition, or canonical reference that describes the intended subject of the action and its children, if any. Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource."/>
+			<comment value="The subject of an action overrides the subject at a parent action or on the root of the PlanDefinition if specified.&#xA;&#xA;In addition, because the subject needs to be resolved during realization, use of subjects in actions (or in the ActivityDefinition referenced by the action) resolves based on the set of subjects supplied in context and by type (i.e. the patient subject would resolve to a resource of type Patient)."/>
+			<requirements value="Multiple steps in a protocol often have different groups of steps that are focused on testing different things. The subject of an action specifies the focus of the action and any child actions."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+			</type>
+			<type>
+				<code value="canonical"/>
+			</type>
+			<meaningWhenMissing value="Patient"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SubjectType"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.subject"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.trigger">
+			<path value="PlanDefinition.action.trigger"/>
+			<short value="When the action should be triggered"/>
+			<definition value="A description of when the action should be triggered. When multiple triggers are specified on an action, any triggering event invokes the action."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="TriggerDefinition"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.condition">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="320,380"/>
+			</extension>
+			<path value="PlanDefinition.action.condition"/>
+			<short value="Whether or not the action is applicable"/>
+			<definition value="An expression that describes applicability criteria or start/stop conditions for the action."/>
+			<comment value="When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all the conditions are true."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.condition.kind">
+			<path value="PlanDefinition.action.condition.kind"/>
+			<short value="applicability | start | stop"/>
+			<definition value="The kind of condition."/>
+			<comment value="Applicability criteria are used to determine immediate applicability when a plan definition is applied to a given context. Start and stop criteria are carried through application and used to describe enter/exit criteria for an action."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionConditionKind"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Defines the kinds of conditions that can appear on actions."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-condition-kind"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.condition.expression">
+			<path value="PlanDefinition.action.condition.expression"/>
+			<short value="Boolean-valued expression"/>
+			<definition value="An expression that returns true or false, indicating whether the condition is satisfied."/>
+			<comment value="The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Expression"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.input">
+			<path value="PlanDefinition.action.input"/>
+			<short value="Input data requirements"/>
+			<definition value="Defines input data requirements for the action."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<constraint>
+				<key value="pld-0"/>
+				<severity value="error"/>
+				<human value="Input data elements must have a requirement or a relatedData, but not both"/>
+				<expression value="requirement.exists() xor relatedData.exists()"/>
+				<xpath value="exists(f:requirement) xor exists (f:relatedData/@value)"/>
+			</constraint>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.input.title">
+			<path value="PlanDefinition.action.input.title"/>
+			<short value="User-visible title"/>
+			<definition value="A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.input.requirement">
+			<path value="PlanDefinition.action.input.requirement"/>
+			<short value="What data is provided"/>
+			<definition value="Defines the data that is to be provided as input to the action."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="DataRequirement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.input.relatedData">
+			<path value="PlanDefinition.action.input.relatedData"/>
+			<short value="What data is provided"/>
+			<definition value="Points to an existing input or output element that provides data to this input."/>
+			<comment value="The relatedData element allows indicating that an input to a parent action is an input to specific child actions. It also allows the output of one action to be identified as the input to a different action"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="id"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.output">
+			<path value="PlanDefinition.action.output"/>
+			<short value="Output data definition"/>
+			<definition value="Defines the outputs of the action, if any."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<constraint>
+				<key value="pld-1"/>
+				<severity value="error"/>
+				<human value="Output data element must have a requirement or a relatedData, but not both"/>
+				<expression value="requirement.exists() xor relatedData.exists()"/>
+				<xpath value="exists(f:requirement) xor exists (f:relatedData/@value)"/>
+			</constraint>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.output.title">
+			<path value="PlanDefinition.action.output.title"/>
+			<short value="User-visible title"/>
+			<definition value="A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.output.requirement">
+			<path value="PlanDefinition.action.output.requirement"/>
+			<short value="What data is provided"/>
+			<definition value="Defines the data that results as output from the action."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="DataRequirement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.output.relatedData">
+			<path value="PlanDefinition.action.output.relatedData"/>
+			<short value="What data is provided"/>
+			<definition value="Points to an existing input or output element that is results as output from the action."/>
+			<comment value="The relatedData element allows indicating that the output of child action is also the output of a parent action. It also allows the input of one action to be identified as the output of a different action"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.relatedAction">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="520,380"/>
+			</extension>
+			<path value="PlanDefinition.action.relatedAction"/>
+			<short value="Relationship to another action"/>
+			<definition value="A relationship to another action such as &quot;before&quot; or &quot;30-60 minutes after start of&quot;."/>
+			<comment value="When an action depends on multiple actions, the meaning is that all actions are dependencies, rather than that any of the actions are a dependency."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.relatedAction.targetId">
+			<path value="PlanDefinition.action.relatedAction.targetId"/>
+			<short value="What action is this related to"/>
+			<definition value="The element id of the target related action."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="id"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.relatedAction.relationship">
+			<path value="PlanDefinition.action.relatedAction.relationship"/>
+			<short value="before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end"/>
+			<definition value="The relationship of this action to the related action."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionRelationshipType"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Defines the types of relationships between actions."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.relatedAction.offset[x]">
+			<path value="PlanDefinition.action.relatedAction.offset[x]"/>
+			<short value="Time offset for the relationship"/>
+			<definition value="A duration or range of durations to apply to the relationship. For example, 30-60 minutes before."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Duration"/>
+			</type>
+			<type>
+				<code value="Range"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.timing[x]">
+			<path value="PlanDefinition.action.timing[x]"/>
+			<short value="When the action should take place"/>
+			<definition value="An optional value describing when the action should be performed."/>
+			<comment value="The intent of the timing element is to provide timing when the action should be performed. As a definitional resource, this timing is interpreted as part of an apply operation so that the timing of the result actions in a CarePlan or RequestOrchestration, for example, would be specified by evaluating the timing definition in the context of the apply and setting the resulting timing on the appropriate elements of the target resource. If the timing is an Age, the activity is expected to be performed when the subject is the given Age. When the timing is a Duration, the activity is expected to be performed within the specified duration from the apply. When the timing is a Range, it may be a range of Ages or Durations, providing a range for the expected timing of the resulting activity. When the timing is a Timing, it is establishing a schedule for the timing of the resulting activity."/>
+			<requirements value="Allows prompting for activities and detection of missed planned activities."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Age"/>
+			</type>
+			<type>
+				<code value="Duration"/>
+			</type>
+			<type>
+				<code value="Range"/>
+			</type>
+			<type>
+				<code value="Timing"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".effectiveTime"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.asNeeded[x]">
+			<path value="PlanDefinition.asNeeded[x]"/>
+			<short value="Preconditions for service"/>
+			<definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ProcedureAsNeededReason"/>
+				</extension>
+				<strength value="example"/>
+				<description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=&quot;Assertion&quot;].value"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.location">
+			<path value="PlanDefinition.action.location"/>
+			<short value="Where it should happen"/>
+			<definition value="Identifies the facility where the action will occur; e.g. home, hospital, specific clinic, etc."/>
+			<comment value="May reference a specific clinical location or may just identify a type of location."/>
+			<requirements value="Helps in planning of activity."/>
+			<alias value="facility"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableReference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=LOC].role"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.participant">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="720,300"/>
+			</extension>
+			<path value="PlanDefinition.action.participant"/>
+			<short value="Who should participate in the action"/>
+			<definition value="Indicates who should participate in performing the action described."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=PFM]"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.participant.actorId">
+			<path value="PlanDefinition.action.participant.actorId"/>
+			<short value="What actor"/>
+			<definition value="A reference to the id element of the actor who will participate in this action."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.participant.type">
+			<path value="PlanDefinition.action.participant.type"/>
+			<short value="careteam | device | group | healthcareservice | location | organization | patient | practitioner | practitionerrole | relatedperson"/>
+			<definition value="The type of participant in the action."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActivityParticipantType"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The type of participant in the activity."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".role.classCode"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.participant.typeCanonical">
+			<path value="PlanDefinition.action.participant.typeCanonical"/>
+			<short value="Who or what can participate"/>
+			<definition value="The type of participant in the action."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".role.classCode"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.participant.typeReference">
+			<path value="PlanDefinition.action.participant.typeReference"/>
+			<short value="Who or what can participate"/>
+			<definition value="The type of participant in the action."/>
+			<comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".role.classCode"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.participant.role">
+			<path value="PlanDefinition.action.participant.role"/>
+			<short value="E.g. Nurse, Surgeon, Parent"/>
+			<definition value="The role the participant should play in performing the described action."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionParticipantRole"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Defines roles played by participants for the action."/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/action-participant-role"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".role.code"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.participant.function">
+			<path value="PlanDefinition.action.participant.function"/>
+			<short value="E.g. Author, Reviewer, Witness, etc."/>
+			<definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionParticipantFunction"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-participant-function"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".role.code"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.type">
+			<path value="PlanDefinition.action.type"/>
+			<short value="create | update | remove | fire-event"/>
+			<definition value="The type of action to perform (create, update, remove)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionType"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The type of action to be performed."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-type"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".moodCode { Maybe? this is effectively Create, Update, or Delete }"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.groupingBehavior">
+			<path value="PlanDefinition.action.groupingBehavior"/>
+			<short value="visual-group | logical-group | sentence-group"/>
+			<definition value="Defines the grouping behavior for the action and its children."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionGroupingBehavior"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Defines organization behavior of a group."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-grouping-behavior"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.selectionBehavior">
+			<path value="PlanDefinition.action.selectionBehavior"/>
+			<short value="any | all | all-or-none | exactly-one | at-most-one | one-or-more"/>
+			<definition value="Defines the selection behavior for the action and its children."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionSelectionBehavior"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Defines selection behavior of a group."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-selection-behavior"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.requiredBehavior">
+			<path value="PlanDefinition.action.requiredBehavior"/>
+			<short value="must | could | must-unless-documented"/>
+			<definition value="Defines the required behavior for the action."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionRequiredBehavior"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Defines expectations around whether an action or action group is required."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-required-behavior"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.precheckBehavior">
+			<path value="PlanDefinition.action.precheckBehavior"/>
+			<short value="yes | no"/>
+			<definition value="Defines whether the action should usually be preselected."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionPrecheckBehavior"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Defines selection frequency behavior for an action or group."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-precheck-behavior"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.cardinalityBehavior">
+			<path value="PlanDefinition.action.cardinalityBehavior"/>
+			<short value="single | multiple"/>
+			<definition value="Defines whether the action can be selected multiple times."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionCardinalityBehavior"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Defines behavior for an action or a group for how many times that item may be repeated."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-cardinality-behavior"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.definition[x]">
+			<path value="PlanDefinition.action.definition[x]"/>
+			<short value="Description of the activity to be performed"/>
+			<definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, or an ObservationDefinition that specifies what observation should be captured."/>
+			<comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
+			</type>
+			<type>
+				<code value="uri"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.derivedFrom"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="Act[classCode=ACT; moodCode=DEFN]"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.transform">
+			<path value="PlanDefinition.action.transform"/>
+			<short value="Transform to apply the template"/>
+			<definition value="A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input."/>
+			<comment value="Note that when a referenced ActivityDefinition also defines a transform, the transform specified here generally takes precedence. In addition, if both a transform and dynamic values are specific, the dynamic values are applied to the result of the transform."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.dynamicValue">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="750,0"/>
+			</extension>
+			<path value="PlanDefinition.action.dynamicValue"/>
+			<short value="Dynamic aspects of the definition"/>
+			<definition value="Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient&#39;s weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result."/>
+			<comment value="Dynamic values are applied in the order in which they are defined in the PlanDefinition resource. Note that when dynamic values are also specified by a referenced ActivityDefinition, the dynamicValues from the ActivityDefinition are applied first, followed by the dynamicValues specified here. In addition, if both a transform and dynamic values are specific, the dynamic values are applied to the result of the transform."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.dynamicValue.path">
+			<path value="PlanDefinition.action.dynamicValue.path"/>
+			<short value="The path to the element to be set dynamically"/>
+			<definition value="The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression. The specified path SHALL be a FHIRPath resolveable on the specified target type of the ActivityDefinition, and SHALL consist only of identifiers, constant indexers, and a restricted subset of functions. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details)."/>
+			<comment value="To specify the path to the current action being realized, the %action environment variable is available in this path. For example, to specify the description element of the target action, the path would be %action.description. The path attribute contains a [Simple FHIRPath Subset](fhirpath.html#simple) that allows path traversal, but not calculation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.dynamicValue.expression">
+			<path value="PlanDefinition.action.dynamicValue.expression"/>
+			<short value="An expression that provides the dynamic value for the customization"/>
+			<definition value="An expression specifying the value of the customized element."/>
+			<comment value="The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Expression"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.action">
+			<path value="PlanDefinition.action.action"/>
+			<short value="A sub-action"/>
+			<definition value="Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition."/>
+			<min value="0"/>
+			<max value="*"/>
+			<contentReference value="#PlanDefinition.action"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="{InverseRelationship of Definition.partOf}"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+	</differential>
 </StructureDefinition>

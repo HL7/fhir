@@ -1,1518 +1,1561 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="Measure"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-    <valueString value="Specialized.Quality Reporting &amp;amp; Testing"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="anonymous"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cqi"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value="Delete the report if it is"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="MetadataResource"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/Measure"/>
-  <version value="5.0.0"/>
-  <name value="Measure"/>
-  <status value="draft"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (Clinical Quality Information)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/cqi/index.cfm"/>
-    </telecom>
-  </contact>
-  <description value="The Measure resource provides the definition of a quality measure."/>
-  <fhirVersion value="5.0.0"/>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="Measure"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
-  <derivation value="specialization"/>
-  <differential>
-    <element id="Measure">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="The Measure resource is a FHIR-rendering of the Health Quality Measure Format (HQMF)."/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,0"/>
-      </extension>
-      <path value="Measure"/>
-      <short value="A quality measure definition"/>
-      <definition value="The Measure resource provides the definition of a quality measure."/>
-      <min value="0"/>
-      <max value="*"/>
-      <constraint>
-        <key value="cnl-0"/>
-        <severity value="warning"/>
-        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
-      </constraint>
-      <constraint>
-        <key value="mea-1"/>
-        <severity value="error"/>
-        <human value="Stratifier SHALL be either a single criteria or a set of criteria components"/>
-        <expression value="group.stratifier.all((code | description | criteria).exists() xor component.exists())"/>
-        <xpath value="exists(f:group/stratifier/code) or exists(f:group/stratifier/component)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
-      </constraint>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="Observation[classCode=OBS, moodCode=DEFN]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="clinical.general"/>
-      </mapping>
-    </element>
-    <element id="Measure.url">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Version-independent identifier, this was typically a GUID in HQMF documents, with additional GUIDs defined for each version of the eCQM. In FHIR, this is accomplished with the base URL as the version-independent identifier, and the base URL combined with the version element as the version-specific identifier."/>
-      </extension>
-      <path value="Measure.url"/>
-      <short value="Canonical identifier for this measure, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this measure when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this measure is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the measure is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-      <requirements value="Allows the measure to be referenced by a single globally unique identifier."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.url"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".identifier[scope=BUSN;reliability=ISS]"/>
-      </mapping>
-    </element>
-    <element id="Measure.identifier">
-      <path value="Measure.identifier"/>
-      <short value="Additional identifier for the measure"/>
-      <definition value="A formal identifier that is used to identify this measure when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-      <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this measure outside of FHIR, where it is not possible to use the logical URI."/>
-      <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="Measure.version">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="This is only the version, not a complete version-specific identifier; this element is combined with the url to obtain a version-specific identifier (i.e. url|version)."/>
-      </extension>
-      <path value="Measure.version"/>
-      <short value="Business version of the measure"/>
-      <definition value="The identifier that is used to identify this version of the measure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the measure author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
-      <comment value="There may be different measure instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the measure with the format [url]|[version]."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.version"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.version"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.name">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="In human-readable renderings of HQMF, the measure title is typically referred to as the name; this will be a source of confusion going forward, as _name_ in FHIR is intended to be a machine-friendly identifier (i.e. a valid identifier in traditional development languages such as Java, JavaScript, C, and C#)."/>
-      </extension>
-      <path value="Measure.name"/>
-      <short value="Name for this measure (computer friendly)"/>
-      <definition value="A natural language name identifying the measure. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-      <requirements value="Support human navigation and code generation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <condition value="cnl-0"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="Measure.title">
-      <path value="Measure.title"/>
-      <short value="Name for this measure (human friendly)"/>
-      <definition value="A short, descriptive, user-friendly title for the measure."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.title"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".title"/>
-      </mapping>
-    </element>
-    <element id="Measure.subtitle">
-      <path value="Measure.subtitle"/>
-      <short value="Subordinate title of the measure"/>
-      <definition value="An explanatory or alternate title for the measure giving additional information about its content."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.status">
-      <path value="Measure.status"/>
-      <short value="draft | active | retired | unknown"/>
-      <definition value="The status of this measure. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of measures that are appropriate for use versus not."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PublicationStatus"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.status"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".status"/>
-      </mapping>
-    </element>
-    <element id="Measure.experimental">
-      <path value="Measure.experimental"/>
-      <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this measure is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-      <comment value="Allows filtering of measures that are appropriate for use versus not."/>
-      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level measure."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.experimental"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.subject[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Subject is the entity that is the focus of the measure, typically patient, and the referent of population criteria expressions; population basis is the type of elements in the population, i.e. the result type of population criteria expressions. In the special case that the subject and population basis are the same, the result type of criteria expressions is a boolean. Population basis is scheduled to be added as a first-class element both at the root, and overridable per group."/>
-      </extension>
-      <path value="Measure.subject[x]"/>
-      <short value="E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
-      <definition value="The intended subjects for the measure. If this element is not provided, a Patient subject is assumed, but the subject of the measure can be anything."/>
-      <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-      </type>
-      <meaningWhenMissing value="Patient"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubjectType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?) { only applies for subject Patient? }"/>
-      </mapping>
-    </element>
-    <element id="Measure.basis">
-      <path value="Measure.basis"/>
-      <short value="Population basis"/>
-      <definition value="The population basis specifies the type of elements in the population. For a subject-based measure, this is boolean (because the subject and the population basis are the same, and the population criteria define yes/no values for each individual in the population). For measures that have a population basis that is different than the subject, this element specifies the type of the population basis. For example, an encounter-based measure has a subject of Patient and a population basis of Encounter, and the population criteria all return lists of Encounters."/>
-      <comment value="For a subject-based measure, the population basis is simply boolean; all the criteria are expressed as true/false conditions that determine membership of an individual case in the population. For non-subject-based measures, the population basis can be any resource type, and the criteria are queries that return the subject&#39;s contribution to the population as a list of that resource type. For example, for a procedure-based measure, the population criteria would return lists of procedures that should be included in each population."/>
-      <requirements value="Allows non-subject-based measures to be specified"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <meaningWhenMissing value="boolean"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BasisType"/>
-        </extension>
-        <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-types"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?) { only applies for subject Patient? }"/>
-      </mapping>
-    </element>
-    <element id="Measure.date">
-      <path value="Measure.date"/>
-      <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the measure was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the measure changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the measure. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-      <alias value="Revision Date"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.date"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.recorded"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=AUT].time"/>
-      </mapping>
-    </element>
-    <element id="Measure.publisher">
-      <path value="Measure.publisher"/>
-      <short value="Name of the publisher (organization or individual)"/>
-      <definition value="The name of the organization or individual that published the measure."/>
-      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the measure is the organization or individual primarily responsible for the maintenance and upkeep of the measure. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the measure. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the measure.  May also allow for contact."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.publisher"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.witness"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="participation[typeCode=AUT].role"/>
-      </mapping>
-    </element>
-    <element id="Measure.contact">
-      <path value="Measure.contact"/>
-      <short value="Contact details for the publisher"/>
-      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.contact"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=CALLBCK].role"/>
-      </mapping>
-    </element>
-    <element id="Measure.description">
-      <path value="Measure.description"/>
-      <short value="Natural language description of the measure"/>
-      <definition value="A free text natural language description of the measure from a consumer&#39;s perspective."/>
-      <comment value="This description can be used to capture details such as why the measure was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the measure as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the measure is presumed to be the predominant language in the place the measure was created)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.description"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".text"/>
-      </mapping>
-    </element>
-    <element id="Measure.useContext">
-      <path value="Measure.useContext"/>
-      <short value="The context that the content is intended to support"/>
-      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate measure instances."/>
-      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-      <requirements value="Assist in searching for appropriate content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="UsageContext"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.useContext"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.jurisdiction">
-      <path value="Measure.jurisdiction"/>
-      <short value="Intended jurisdiction for measure (if applicable)"/>
-      <definition value="A legal or geographic region in which the measure is intended to be used."/>
-      <comment value="It may be possible for the measure to be used in jurisdictions other than those for which it was originally designed or intended."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Jurisdiction"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Countries and regions within which this artifact is targeted for use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.jurisdiction"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.purpose">
-      <path value="Measure.purpose"/>
-      <short value="Why this measure is defined"/>
-      <definition value="Explanation of why this measure is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the measure. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this measure."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.purpose"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.why[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".reasonCode.text"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="Measure.usage">
-      <path value="Measure.usage"/>
-      <short value="Describes the clinical usage of the measure"/>
-      <definition value="A detailed description, from a clinical perspective, of how the measure is used."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.copyright">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Copyright is the copyright statement of the measure content itself, as opposed to content restrictions and usage information (see disclaimer)."/>
-      </extension>
-      <path value="Measure.copyright"/>
-      <short value="Use and/or publishing restrictions"/>
-      <definition value="A copyright statement relating to the measure and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the measure."/>
-      <requirements value="Consumers must be able to determine any legal restrictions on the use of the measure and/or its content."/>
-      <alias value="License"/>
-      <alias value="Restrictions"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.copyright"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="Measure.approvalDate">
-      <path value="Measure.approvalDate"/>
-      <short value="When the measure was approved by publisher"/>
-      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="date"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.approvalDate"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=SUBJ].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="Measure.lastReviewDate">
-      <path value="Measure.lastReviewDate"/>
-      <short value="When the measure was last reviewed"/>
-      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
-      <comment value="If specified, this date follows the original approval date."/>
-      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="date"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.lastReviewDate"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRleationship[typeCode=SUBJ;subsetCode=RECENT].act[classCode=CACT;moodCode=EVN;code=review].effectiveTime"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="Measure.effectivePeriod">
-      <path value="Measure.effectivePeriod"/>
-      <short value="When the measure is expected to be used"/>
-      <definition value="The period during which the measure content was or is planned to be in active use."/>
-      <comment value="The effective period for a measure  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
-      <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the measure are or are expected to be used instead."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.effectivePeriod"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="Measure.topic">
-      <path value="Measure.topic"/>
-      <short value="The category of the measure, such as Education, Treatment, Assessment, etc."/>
-      <definition value="Descriptive topics related to the content of the measure. Topics provide a high-level categorization grouping types of measures that can be useful for filtering and searching."/>
-      <requirements value="Repositories must be able to determine how to categorize the measure so that it can be found by topical searches."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DefinitionTopic"/>
-        </extension>
-        <strength value="example"/>
-        <description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.author">
-      <path value="Measure.author"/>
-      <short value="Who authored the content"/>
-      <definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=AUT]"/>
-      </mapping>
-    </element>
-    <element id="Measure.editor">
-      <path value="Measure.editor"/>
-      <short value="Who edited the content"/>
-      <definition value="An individual or organization primarily responsible for internal coherence of the content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=AUT] { not a great match, but there does not appear to be an editor concept in V3 participation }"/>
-      </mapping>
-    </element>
-    <element id="Measure.reviewer">
-      <path value="Measure.reviewer"/>
-      <short value="Who reviewed the content"/>
-      <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
-      </mapping>
-    </element>
-    <element id="Measure.endorser">
-      <path value="Measure.endorser"/>
-      <short value="Who endorsed the content"/>
-      <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
-      </mapping>
-    </element>
-    <element id="Measure.relatedArtifact">
-      <path value="Measure.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc."/>
-      <definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
-      <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
-      <requirements value="Measures must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="RelatedArtifact"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}"/>
-      </mapping>
-    </element>
-    <element id="Measure.library">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Library is not required to allow for measures that are strictly narrative, as well as for measures that have inline criteria expressions."/>
-      </extension>
-      <path value="Measure.library"/>
-      <short value="Logic used by the measure"/>
-      <definition value="A reference to a Library resource containing the formal logic used by the measure."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.disclaimer">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Disclaimer contains usage information, including licensing restrictions, as well as third-party content disclaimers such as copyright and license information of referenced content."/>
-      </extension>
-      <path value="Measure.disclaimer"/>
-      <short value="Disclaimer for use of the measure or its referenced content"/>
-      <definition value="Notices and disclaimers regarding the use of the measure or related to intellectual property (such as code systems) referenced by the measure."/>
-      <requirements value="Some organizations require that notices and disclosures be included when publishing measures that reference their intellecutal property."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.scoring">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Scoring determines what population criteria types are allowed/expected, see the Quality Measure IG for profiles that make this explicit (which are scheduled for promotion to the base specification). In addition, scoring is scheduled to be introduced at the group level to allow groups to override the root scoring."/>
-      </extension>
-      <path value="Measure.scoring"/>
-      <short value="proportion | ratio | continuous-variable | cohort"/>
-      <definition value="Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureScoring"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The scoring type of the measure."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode { the aspect of how the calculation is performed }"/>
-      </mapping>
-    </element>
-    <element id="Measure.scoringUnit">
-      <path value="Measure.scoringUnit"/>
-      <short value="What units?"/>
-      <definition value="Defines the expected units of measure for the measure score. This element SHOULD be specified as a UCUM unit."/>
-      <comment value="When this element is specified, implementations are expected to report measure scores in the specified units. Note that this may involve unit conversion if the expected units are different than the units of the resulting score calculation. In this case, unit conversions SHALL be performed according to the unit conversion semantics specified by UCUM."/>
-      <requirements value="When the unit cannot be inferred directly from the calculation logic, this element allows the specification of the desired units of measure of the output."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureScoringUnit"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring-unit"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode { the aspect of how the calculation is performed }"/>
-      </mapping>
-    </element>
-    <element id="Measure.compositeScoring">
-      <path value="Measure.compositeScoring"/>
-      <short value="opportunity | all-or-nothing | linear | weighted"/>
-      <definition value="If this is a composite measure, the scoring method used to combine the component measures to determine the composite score."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="CompositeMeasureScoring"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The composite scoring method of the measure."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/composite-measure-scoring"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode { the aspect of how component measures are combined }"/>
-      </mapping>
-    </element>
-    <element id="Measure.type">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Type is scheduled to be introduced at the group level to allow groups to override the root type."/>
-      </extension>
-      <path value="Measure.type"/>
-      <short value="process | outcome | structure | patient-reported-outcome | composite"/>
-      <definition value="Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-type"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode { the aspect of what the measure applies to }"/>
-      </mapping>
-    </element>
-    <element id="Measure.riskAdjustment">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Although risk adjustment is characterized narratively here, there is active work to describe risk adjustment models formally."/>
-      </extension>
-      <path value="Measure.riskAdjustment"/>
-      <short value="How risk adjustment is applied for this measure"/>
-      <definition value="A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results."/>
-      <comment value="Describes the method of adjusting for clinical severity and conditions present at the start of care that can influence patient outcomes for making valid comparisons of outcome measures across providers. Indicates whether a measure is subject to the statistical process for reducing, removing, or clarifying the influences of confounding factors to allow for more useful comparisons."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.rateAggregation">
-      <path value="Measure.rateAggregation"/>
-      <short value="How is rate aggregation performed for this measure"/>
-      <definition value="Describes how to combine the information calculated, based on logic in each of several populations, into one summarized result."/>
-      <comment value="The measure rate for an organization or clinician is based upon the entities&#x2019; aggregate data and summarizes the performance of the entity over a given time period (e.g., monthly, quarterly, yearly). The aggregated data are derived from the results of a specific measure algorithm and, if appropriate, the application of specific risk adjustment models.  Can also be used to describe how to risk adjust the data based on supplemental data elements described in the eMeasure (e.g., pneumonia hospital measures antibiotic selection in the ICU versus non-ICU and then the roll-up of the two). This could be applied to aggregated cohort measure definitions (e.g., CDC&#39;s aggregate reporting for TB at the state level)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.rationale">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Rationale and purpose are scheduled to be collapsed."/>
-      </extension>
-      <path value="Measure.rationale"/>
-      <short value="Detailed description of why the measure exists"/>
-      <definition value="Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence."/>
-      <requirements value="Measure developers need to be able to provide a detailed description of the purpose of the measure. This element provides detailed rationale, where the purpose element provides a summary of the rationale."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.clinicalRecommendationStatement">
-      <path value="Measure.clinicalRecommendationStatement"/>
-      <short value="Summary of clinical guidelines"/>
-      <definition value="Provides a summary of relevant clinical guidelines or other clinical recommendations supporting the measure."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.improvementNotation">
-      <path value="Measure.improvementNotation"/>
-      <short value="increase | decrease"/>
-      <definition value="Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)."/>
-      <requirements value="Measure consumers and implementers must be able to determine how to interpret a measure score."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureImprovementNotation"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".interpretationCode"/>
-      </mapping>
-    </element>
-    <element id="Measure.definition">
-      <path value="Measure.definition"/>
-      <short value="Defined terms used in the measure documentation"/>
-      <definition value="Provides a description of an individual term used within the measure."/>
-      <requirements value="Measure developers must be able to provide precise definitions of terms used within measure descriptions and guidance to help communicate the intent of the measure."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.guidance">
-      <path value="Measure.guidance"/>
-      <short value="Additional guidance for implementers"/>
-      <definition value="Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure."/>
-      <requirements value="Measure developers must be able to provide additional guidance for implementers to understand the intent with greater specificity than that provided in the population criteria of the measure. This element provides detailed guidance, where the usage element provides a summary of the guidance."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.group">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Measures can have any number of groups, each defining a different performance rate. Although currently they must all be of the same type, scoring, subject, and populationBasis, the committee has scheduled work to allow these aspects of performance rates to be specified per group, allowing much greater flexibility in the description and packaging of FHIR-based eCQMs."/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="370,300"/>
-      </extension>
-      <path value="Measure.group"/>
-      <short value="Population criteria group"/>
-      <definition value="A group of population criteria for the measure."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=COMP]"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.code">
-      <path value="Measure.group.code"/>
-      <short value="Meaning of the group"/>
-      <definition value="Indicates a meaning for the group. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing groups to be correlated across measures."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureGroupExample"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Example of measure groups."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-group-example"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".code"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.description">
-      <path value="Measure.group.description"/>
-      <short value="Summary description"/>
-      <definition value="The human readable description of this population group."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".text"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.type">
-      <path value="Measure.group.type"/>
-      <short value="process | outcome | structure | patient-reported-outcome | composite"/>
-      <definition value="Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization."/>
-      <comment value="When specified at the group level, defines the measure type for this specific group. If not specified, the measureType of the group is determined by the root type element"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureType"/>
-        </extension>
-        <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-type"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".typeCode"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.basis">
-      <path value="Measure.group.basis"/>
-      <short value="Population basis"/>
-      <definition value="The population basis specifies the type of elements in the population. For a subject-based measure, this is boolean (because the subject and the population basis are the same, and the population criteria define yes/no values for each individual in the population). For measures that have a population basis that is different than the subject, this element specifies the type of the population basis. For example, an encounter-based measure has a subject of Patient and a population basis of Encounter, and the population criteria all return lists of Encounters."/>
-      <comment value="When specified at the group level, defines the population basis for this specific group. If not specified, the basis for the group is determined by the root basis element"/>
-      <requirements value="Allows non-subject-based measures to be specified"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <meaningWhenMissing value="boolean"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BasisType"/>
-        </extension>
-        <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-types"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?) { only applies for subject Patient? }"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.scoring">
-      <path value="Measure.group.scoring"/>
-      <short value="proportion | ratio | continuous-variable | cohort"/>
-      <definition value="Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented."/>
-      <comment value="When specified at the group level, defines the scoring for this specific group. If not specified, scoring for this group is determined by the root scoring element"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureScoring"/>
-        </extension>
-        <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode { the aspect of how the calculation is performed }"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.scoringUnit">
-      <path value="Measure.group.scoringUnit"/>
-      <short value="What units?"/>
-      <definition value="Defines the expected units of measure for the measure score. This element SHOULD be specified as a UCUM unit."/>
-      <comment value="When specified at the group level, this defines the scoringUnit for this specific group. If not specified, the scoringUnit for this group is determined by the root scoringUnit element. As with the root element, when this element is specified, implementations are expected to report measure scores in the specified units. Note that this may involve unit conversion if the expected units are different than the units of the resulting score calculation. In this case, unit conversions SHALL be performed according to the unit conversion semantics specified by UCUM."/>
-      <requirements value="When the unit cannot be inferred directly from the calculation logic, this element allows the specification of the desired units of measure of the output."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureScoringUnit"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring-unit"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode { the aspect of how the calculation is performed }"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.improvementNotation">
-      <path value="Measure.group.improvementNotation"/>
-      <short value="increase | decrease"/>
-      <definition value="Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)."/>
-      <comment value="When specified at the group level, this element defines the improvementNotation for this specific group. If not specified, improvementNotation for this group is determined by the root improvementNotation element"/>
-      <requirements value="Measure consumers and implementers must be able to determine how to interpret a measure score."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureImprovementNotation"/>
-        </extension>
-        <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode { the aspect of how the calculation is performed }"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.population">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="370,150"/>
-      </extension>
-      <path value="Measure.group.population"/>
-      <short value="Population criteria"/>
-      <definition value="A population criteria for the measure."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=COMP]"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.population.code">
-      <path value="Measure.group.population.code"/>
-      <short value="initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation"/>
-      <definition value="The type of population criteria."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasurePopulationType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The type of population."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".code"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.population.description">
-      <path value="Measure.group.population.description"/>
-      <short value="The human readable description of this population criteria"/>
-      <definition value="The human readable description of this population criteria."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".text"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.population.criteria">
-      <path value="Measure.group.population.criteria"/>
-      <short value="The criteria that defines this population"/>
-      <definition value="An expression that specifies the criteria for the population, typically the name of an expression in a library."/>
-      <comment value="In the case of a continuous-variable or ratio measure, this may be the name of a function that calculates the value of the individual observation for each patient or event in the population. For these types of measures, individual observations are reported as observation resources included in the evaluatedResources bundle for each patient. See the MeasureReport resource or the Quality Reporting topic for more information."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Expression"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.population.inputPopulationId">
-      <path value="Measure.group.population.inputPopulationId"/>
-      <short value="Which population"/>
-      <definition value="The id of a population element in this measure that provides the input for this population criteria. In most cases, the scoring structure of the measure implies specific relationships (e.g. the Numerator uses the Denominator as the source in a proportion scoring). In some cases, however, multiple possible choices exist and must be resolved explicitly. For example in a ratio measure with multiple initial populations, the denominator must specify which population should be used as the starting point."/>
-      <requirements value="For ratio and continuous variable measures, the source populations must be specified explicitly when they cannot be unambiguously determined from the scoring structure."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.population.aggregateMethod">
-      <path value="Measure.group.population.aggregateMethod"/>
-      <short value="Aggregation method for a measure score (e.g. sum, average, median, minimum, maximum, count)"/>
-      <definition value="Specifies which method should be used to aggregate measure observation values. For most scoring types, this is implied by scoring (e.g. a proportion measure counts members of the populations). For continuous variables, however, this information must be specified to ensure correct calculation."/>
-      <requirements value="For continuous variable measures, specifications must be able to indicate the aggregation method to be used for tallying results from individual observations."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureAggregateMethod"/>
-        </extension>
-        <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-aggregate-method"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.stratifier">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="370,450"/>
-      </extension>
-      <path value="Measure.group.stratifier"/>
-      <short value="Stratifier criteria for the measure"/>
-      <definition value="The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=COMP]"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.stratifier.code">
-      <path value="Measure.group.stratifier.code"/>
-      <short value="Meaning of the stratifier"/>
-      <definition value="Indicates a meaning for the stratifier. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing stratifiers to be correlated across measures."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureStratifierExample"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Meaning of the stratifier."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".code"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.stratifier.description">
-      <path value="Measure.group.stratifier.description"/>
-      <short value="The human readable description of this stratifier"/>
-      <definition value="The human readable description of this stratifier criteria."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".text"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.stratifier.criteria">
-      <path value="Measure.group.stratifier.criteria"/>
-      <short value="How the measure should be stratified"/>
-      <definition value="An expression that specifies the criteria for the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Expression"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.stratifier.component">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="370,450"/>
-      </extension>
-      <path value="Measure.group.stratifier.component"/>
-      <short value="Stratifier criteria component for the measure"/>
-      <definition value="A component of the stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path."/>
-      <comment value="Stratifiers are defined either as a single criteria, or as a set of component criteria."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=COMP]"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.stratifier.component.code">
-      <path value="Measure.group.stratifier.component.code"/>
-      <short value="Meaning of the stratifier component"/>
-      <definition value="Indicates a meaning for the stratifier component. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing stratifiers to be correlated across measures."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureStratifierExample"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Meaning of the stratifier."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".code"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.stratifier.component.description">
-      <path value="Measure.group.stratifier.component.description"/>
-      <short value="The human readable description of this stratifier component"/>
-      <definition value="The human readable description of this stratifier criteria component."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".text"/>
-      </mapping>
-    </element>
-    <element id="Measure.group.stratifier.component.criteria">
-      <path value="Measure.group.stratifier.component.criteria"/>
-      <short value="Component of how the measure should be stratified"/>
-      <definition value="An expression that specifies the criteria for this component of the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Expression"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.supplementalData">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="370,0"/>
-      </extension>
-      <path value="Measure.supplementalData"/>
-      <short value="What other data should be reported with the measure"/>
-      <definition value="The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path."/>
-      <comment value="Note that supplemental data are reported as observations for each patient and included in the evaluatedResources bundle. See the MeasureReport resource or the Quality Reporting topic for more information."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=COMP]"/>
-      </mapping>
-    </element>
-    <element id="Measure.supplementalData.code">
-      <path value="Measure.supplementalData.code"/>
-      <short value="Meaning of the supplemental data"/>
-      <definition value="Indicates a meaning for the supplemental data. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing supplemental data to be correlated across measures."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureSupplementalDataExample"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Meaning of the supplemental data."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-supplemental-data-example"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".code"/>
-      </mapping>
-    </element>
-    <element id="Measure.supplementalData.usage">
-      <path value="Measure.supplementalData.usage"/>
-      <short value="supplemental-data | risk-adjustment-factor"/>
-      <definition value="An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureDataUsage"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The intended usage for supplemental data elements in the measure."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-data-usage"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode"/>
-      </mapping>
-    </element>
-    <element id="Measure.supplementalData.description">
-      <path value="Measure.supplementalData.description"/>
-      <short value="The human readable description of this supplemental data"/>
-      <definition value="The human readable description of this supplemental data."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".text"/>
-      </mapping>
-    </element>
-    <element id="Measure.supplementalData.criteria">
-      <path value="Measure.supplementalData.criteria"/>
-      <short value="Expression describing additional data to be reported"/>
-      <definition value="The criteria for the supplemental data. This is typically the name of a valid expression defined within a referenced library, but it may also be a path to a specific data element. The criteria defines the data to be returned for this element."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Expression"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-  </differential>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="Measure"/>
+	<meta>
+		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+		<valueString value="Specialized.Quality Reporting &amp;amp; Testing"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="3"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+		<valueCode value="anonymous"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="cqi"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+		<valueCode value="Delete the instance if it is in error"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+		<valueString value="MetadataResource"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+	<version value="5.0.0"/>
+	<name value="Measure"/>
+	<status value="draft"/>
+	<date value="2021-01-05T10:01:24+11:00"/>
+	<publisher value="Health Level Seven International (Clinical Quality Information)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/cqi/index.cfm"/>
+		</telecom>
+	</contact>
+	<description value="The Measure resource provides the definition of a quality measure."/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="Measure"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
+	<derivation value="specialization"/>
+	<differential>
+		<element id="Measure">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="The Measure resource is a FHIR-rendering of the Health Quality Measure Format (HQMF)."/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="0,0"/>
+			</extension>
+			<path value="Measure"/>
+			<short value="A quality measure definition"/>
+			<definition value="The Measure resource provides the definition of a quality measure."/>
+			<min value="0"/>
+			<max value="*"/>
+			<constraint>
+				<key value="cnl-0"/>
+				<severity value="warning"/>
+				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+			</constraint>
+			<constraint>
+				<key value="mea-1"/>
+				<severity value="error"/>
+				<human value="Stratifier SHALL be either a single criteria or a set of criteria components"/>
+				<expression value="group.stratifier.all((code | description | criteria).exists() xor component.exists())"/>
+				<xpath value="exists(f:group/stratifier/code) or exists(f:group/stratifier/component)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+			</constraint>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="Observation[classCode=OBS, moodCode=DEFN]"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="clinical.general"/>
+			</mapping>
+		</element>
+		<element id="Measure.url">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Version-independent identifier, this was typically a GUID in HQMF documents, with additional GUIDs defined for each version of the eCQM. In FHIR, this is accomplished with the base URL as the version-independent identifier, and the base URL combined with the version element as the version-specific identifier."/>
+			</extension>
+			<path value="Measure.url"/>
+			<short value="Canonical identifier for this measure, represented as a URI (globally unique)"/>
+			<definition value="An absolute URI that is used to identify this measure when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this measure is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the measure is stored on different servers."/>
+			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+			<requirements value="Allows the measure to be referenced by a single globally unique identifier."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
+			<constraint>
+				<key value="cnl-1"/>
+				<severity value="warning"/>
+				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+				<expression value="url.matches(&#39;([^|#])*&#39;)"/>
+				<xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+			</constraint>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.url"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".identifier[scope=BUSN;reliability=ISS]"/>
+			</mapping>
+		</element>
+		<element id="Measure.identifier">
+			<path value="Measure.identifier"/>
+			<short value="Additional identifier for the measure"/>
+			<definition value="A formal identifier that is used to identify this measure when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this measure outside of FHIR, where it is not possible to use the logical URI."/>
+			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="Measure.version">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="This is only the version, not a complete version-specific identifier; this element is combined with the url to obtain a version-specific identifier (i.e. url|version)."/>
+			</extension>
+			<path value="Measure.version"/>
+			<short value="Business version of the measure"/>
+			<definition value="The identifier that is used to identify this version of the measure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the measure author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
+			<comment value="There may be different measure instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the measure with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.version"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.version"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.name">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="In human-readable renderings of HQMF, the measure title is typically referred to as the name; this will be a source of confusion going forward, as _name_ in FHIR is intended to be a machine-friendly identifier (i.e. a valid identifier in traditional development languages such as Java, JavaScript, C, and C#)."/>
+			</extension>
+			<path value="Measure.name"/>
+			<short value="Name for this measure (computer friendly)"/>
+			<definition value="A natural language name identifying the measure. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+			<requirements value="Support human navigation and code generation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<condition value="cnl-0"/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="Measure.title">
+			<path value="Measure.title"/>
+			<short value="Name for this measure (human friendly)"/>
+			<definition value="A short, descriptive, user-friendly title for the measure."/>
+			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.title"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".title"/>
+			</mapping>
+		</element>
+		<element id="Measure.subtitle">
+			<path value="Measure.subtitle"/>
+			<short value="Subordinate title of the measure"/>
+			<definition value="An explanatory or alternate title for the measure giving additional information about its content."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.status">
+			<path value="Measure.status"/>
+			<short value="draft | active | retired | unknown"/>
+			<definition value="The status of this measure. Enables tracking the life-cycle of the content."/>
+			<comment value="Allows filtering of measures that are appropriate for use versus not."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isModifier value="true"/>
+			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PublicationStatus"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The lifecycle status of an artifact."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.status"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.status"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".status"/>
+			</mapping>
+		</element>
+		<element id="Measure.experimental">
+			<path value="Measure.experimental"/>
+			<short value="For testing purposes, not real usage"/>
+			<definition value="A Boolean value to indicate that this measure is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+			<comment value="Allows filtering of measures that are appropriate for use versus not."/>
+			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level measure."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.experimental"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.class"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.subject[x]">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Subject is the entity that is the focus of the measure, typically patient, and the referent of population criteria expressions; population basis is the type of elements in the population, i.e. the result type of population criteria expressions. In the special case that the subject and population basis are the same, the result type of criteria expressions is a boolean. Population basis is scheduled to be added as a first-class element both at the root, and overridable per group."/>
+			</extension>
+			<path value="Measure.subject[x]"/>
+			<short value="E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
+			<definition value="The intended subjects for the measure. If this element is not provided, a Patient subject is assumed, but the subject of the measure can be anything."/>
+			<comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+			</type>
+			<meaningWhenMissing value="Patient"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SubjectType"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?) { only applies for subject Patient? }"/>
+			</mapping>
+		</element>
+		<element id="Measure.basis">
+			<path value="Measure.basis"/>
+			<short value="Population basis"/>
+			<definition value="The population basis specifies the type of elements in the population. For a subject-based measure, this is boolean (because the subject and the population basis are the same, and the population criteria define yes/no values for each individual in the population). For measures that have a population basis that is different than the subject, this element specifies the type of the population basis. For example, an encounter-based measure has a subject of Patient and a population basis of Encounter, and the population criteria all return lists of Encounters."/>
+			<comment value="For a subject-based measure, the population basis is simply boolean; all the criteria are expressed as true/false conditions that determine membership of an individual case in the population. For non-subject-based measures, the population basis can be any resource type, and the criteria are queries that return the subject&#39;s contribution to the population as a list of that resource type. For example, for a procedure-based measure, the population criteria would return lists of procedures that should be included in each population."/>
+			<requirements value="Allows non-subject-based measures to be specified"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<meaningWhenMissing value="boolean"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="BasisType"/>
+				</extension>
+				<strength value="required"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?) { only applies for subject Patient? }"/>
+			</mapping>
+		</element>
+		<element id="Measure.date">
+			<path value="Measure.date"/>
+			<short value="Date last changed"/>
+			<definition value="The date  (and optionally time) when the measure was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the measure changes."/>
+			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the measure. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+			<alias value="Revision Date"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.date"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.recorded"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=AUT].time"/>
+			</mapping>
+		</element>
+		<element id="Measure.publisher">
+			<path value="Measure.publisher"/>
+			<short value="Name of the publisher (organization or individual)"/>
+			<definition value="The name of the organization or individual that published the measure."/>
+			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the measure is the organization or individual primarily responsible for the maintenance and upkeep of the measure. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the measure. This item SHOULD be populated unless the information is available from context."/>
+			<requirements value="Helps establish the &quot;authority/credibility&quot; of the measure.  May also allow for contact."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.publisher"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.witness"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="participation[typeCode=AUT].role"/>
+			</mapping>
+		</element>
+		<element id="Measure.contact">
+			<path value="Measure.contact"/>
+			<short value="Contact details for the publisher"/>
+			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+			<comment value="May be a web site, an email address, a telephone number, etc."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.contact"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=CALLBCK].role"/>
+			</mapping>
+		</element>
+		<element id="Measure.description">
+			<path value="Measure.description"/>
+			<short value="Natural language description of the measure"/>
+			<definition value="A free text natural language description of the measure from a consumer&#39;s perspective."/>
+			<comment value="This description can be used to capture details such as why the measure was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the measure as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the measure is presumed to be the predominant language in the place the measure was created)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.description"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".text"/>
+			</mapping>
+		</element>
+		<element id="Measure.useContext">
+			<path value="Measure.useContext"/>
+			<short value="The context that the content is intended to support"/>
+			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate measure instances."/>
+			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+			<requirements value="Assist in searching for appropriate content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="UsageContext"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.useContext"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.jurisdiction">
+			<path value="Measure.jurisdiction"/>
+			<short value="Intended jurisdiction for measure (if applicable)"/>
+			<definition value="A legal or geographic region in which the measure is intended to be used."/>
+			<comment value="It may be possible for the measure to be used in jurisdictions other than those for which it was originally designed or intended."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="Jurisdiction"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Countries and regions within which this artifact is targeted for use."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.jurisdiction"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.purpose">
+			<path value="Measure.purpose"/>
+			<short value="Why this measure is defined"/>
+			<definition value="Explanation of why this measure is needed and why it has been designed as it has."/>
+			<comment value="This element does not describe the usage of the measure. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this measure."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.purpose"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.why[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".reasonCode.text"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="Measure.usage">
+			<path value="Measure.usage"/>
+			<short value="Describes the clinical usage of the measure"/>
+			<definition value="A detailed description, from a clinical perspective, of how the measure is used."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.copyright">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Copyright is the copyright statement of the measure content itself, as opposed to content restrictions and usage information (see disclaimer)."/>
+			</extension>
+			<path value="Measure.copyright"/>
+			<short value="Use and/or publishing restrictions"/>
+			<definition value="A copyright statement relating to the measure and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the measure."/>
+			<requirements value="Consumers must be able to determine any legal restrictions on the use of the measure and/or its content."/>
+			<alias value="License"/>
+			<alias value="Restrictions"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.copyright"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="Measure.approvalDate">
+			<path value="Measure.approvalDate"/>
+			<short value="When the measure was approved by publisher"/>
+			<definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+			<comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="date"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.approvalDate"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=SUBJ].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="Measure.lastReviewDate">
+			<path value="Measure.lastReviewDate"/>
+			<short value="When the measure was last reviewed"/>
+			<definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
+			<comment value="If specified, this date follows the original approval date."/>
+			<requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="date"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.lastReviewDate"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRleationship[typeCode=SUBJ;subsetCode=RECENT].act[classCode=CACT;moodCode=EVN;code=review].effectiveTime"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="Measure.effectivePeriod">
+			<path value="Measure.effectivePeriod"/>
+			<short value="When the measure is expected to be used"/>
+			<definition value="The period during which the measure content was or is planned to be in active use."/>
+			<comment value="The effective period for a measure  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+			<requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the measure are or are expected to be used instead."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Period"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.effectivePeriod"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".effectiveTime"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="Measure.topic">
+			<path value="Measure.topic"/>
+			<short value="The category of the measure, such as Education, Treatment, Assessment, etc."/>
+			<definition value="Descriptive topics related to the content of the measure. Topics provide a high-level categorization grouping types of measures that can be useful for filtering and searching."/>
+			<requirements value="Repositories must be able to determine how to categorize the measure so that it can be found by topical searches."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="DefinitionTopic"/>
+				</extension>
+				<strength value="example"/>
+				<description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.author">
+			<path value="Measure.author"/>
+			<short value="Who authored the content"/>
+			<definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=AUT]"/>
+			</mapping>
+		</element>
+		<element id="Measure.editor">
+			<path value="Measure.editor"/>
+			<short value="Who edited the content"/>
+			<definition value="An individual or organization primarily responsible for internal coherence of the content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=AUT] { not a great match, but there does not appear to be an editor concept in V3 participation }"/>
+			</mapping>
+		</element>
+		<element id="Measure.reviewer">
+			<path value="Measure.reviewer"/>
+			<short value="Who reviewed the content"/>
+			<definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+			</mapping>
+		</element>
+		<element id="Measure.endorser">
+			<path value="Measure.endorser"/>
+			<short value="Who endorsed the content"/>
+			<definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+			</mapping>
+		</element>
+		<element id="Measure.relatedArtifact">
+			<path value="Measure.relatedArtifact"/>
+			<short value="Additional documentation, citations, etc."/>
+			<definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
+			<comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
+			<requirements value="Measures must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="RelatedArtifact"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}"/>
+			</mapping>
+		</element>
+		<element id="Measure.library">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Library is not required to allow for measures that are strictly narrative, as well as for measures that have inline criteria expressions."/>
+			</extension>
+			<path value="Measure.library"/>
+			<short value="Logic used by the measure"/>
+			<definition value="A reference to a Library resource containing the formal logic used by the measure."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.disclaimer">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Disclaimer contains usage information, including licensing restrictions, as well as third-party content disclaimers such as copyright and license information of referenced content."/>
+			</extension>
+			<path value="Measure.disclaimer"/>
+			<short value="Disclaimer for use of the measure or its referenced content"/>
+			<definition value="Notices and disclaimers regarding the use of the measure or related to intellectual property (such as code systems) referenced by the measure."/>
+			<requirements value="Some organizations require that notices and disclosures be included when publishing measures that reference their intellecutal property."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.scoring">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Scoring determines what population criteria types are allowed/expected, see the Quality Measure IG for profiles that make this explicit (which are scheduled for promotion to the base specification). In addition, scoring is scheduled to be introduced at the group level to allow groups to override the root scoring."/>
+			</extension>
+			<path value="Measure.scoring"/>
+			<short value="proportion | ratio | continuous-variable | cohort"/>
+			<definition value="Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MeasureScoring"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The scoring type of the measure."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".methodCode { the aspect of how the calculation is performed }"/>
+			</mapping>
+		</element>
+		<element id="Measure.scoringUnit">
+			<path value="Measure.scoringUnit"/>
+			<short value="What units?"/>
+			<definition value="Defines the expected units of measure for the measure score. This element SHOULD be specified as a UCUM unit."/>
+			<comment value="When this element is specified, implementations are expected to report measure scores in the specified units. Note that this may involve unit conversion if the expected units are different than the units of the resulting score calculation. In this case, unit conversions SHALL be performed according to the unit conversion semantics specified by UCUM."/>
+			<requirements value="When the unit cannot be inferred directly from the calculation logic, this element allows the specification of the desired units of measure of the output."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MeasureScoringUnit"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring-unit"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".methodCode { the aspect of how the calculation is performed }"/>
+			</mapping>
+		</element>
+		<element id="Measure.compositeScoring">
+			<path value="Measure.compositeScoring"/>
+			<short value="opportunity | all-or-nothing | linear | weighted"/>
+			<definition value="If this is a composite measure, the scoring method used to combine the component measures to determine the composite score."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="CompositeMeasureScoring"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The composite scoring method of the measure."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/composite-measure-scoring"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".methodCode { the aspect of how component measures are combined }"/>
+			</mapping>
+		</element>
+		<element id="Measure.type">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Type is scheduled to be introduced at the group level to allow groups to override the root type."/>
+			</extension>
+			<path value="Measure.type"/>
+			<short value="process | outcome | structure | patient-reported-outcome | composite"/>
+			<definition value="Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MeasureType"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-type"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".methodCode { the aspect of what the measure applies to }"/>
+			</mapping>
+		</element>
+		<element id="Measure.riskAdjustment">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Although risk adjustment is characterized narratively here, there is active work to describe risk adjustment models formally."/>
+			</extension>
+			<path value="Measure.riskAdjustment"/>
+			<short value="How risk adjustment is applied for this measure"/>
+			<definition value="A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results."/>
+			<comment value="Describes the method of adjusting for clinical severity and conditions present at the start of care that can influence patient outcomes for making valid comparisons of outcome measures across providers. Indicates whether a measure is subject to the statistical process for reducing, removing, or clarifying the influences of confounding factors to allow for more useful comparisons."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.rateAggregation">
+			<path value="Measure.rateAggregation"/>
+			<short value="How is rate aggregation performed for this measure"/>
+			<definition value="Describes how to combine the information calculated, based on logic in each of several populations, into one summarized result."/>
+			<comment value="The measure rate for an organization or clinician is based upon the entities&#x2019; aggregate data and summarizes the performance of the entity over a given time period (e.g., monthly, quarterly, yearly). The aggregated data are derived from the results of a specific measure algorithm and, if appropriate, the application of specific risk adjustment models.  Can also be used to describe how to risk adjust the data based on supplemental data elements described in the eMeasure (e.g., pneumonia hospital measures antibiotic selection in the ICU versus non-ICU and then the roll-up of the two). This could be applied to aggregated cohort measure definitions (e.g., CDC&#39;s aggregate reporting for TB at the state level)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.rationale">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Rationale and purpose are scheduled to be collapsed."/>
+			</extension>
+			<path value="Measure.rationale"/>
+			<short value="Detailed description of why the measure exists"/>
+			<definition value="Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence."/>
+			<requirements value="Measure developers need to be able to provide a detailed description of the purpose of the measure. This element provides detailed rationale, where the purpose element provides a summary of the rationale."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.clinicalRecommendationStatement">
+			<path value="Measure.clinicalRecommendationStatement"/>
+			<short value="Summary of clinical guidelines"/>
+			<definition value="Provides a summary of relevant clinical guidelines or other clinical recommendations supporting the measure."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.improvementNotation">
+			<path value="Measure.improvementNotation"/>
+			<short value="increase | decrease"/>
+			<definition value="Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)."/>
+			<requirements value="Measure consumers and implementers must be able to determine how to interpret a measure score."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MeasureImprovementNotation"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".interpretationCode"/>
+			</mapping>
+		</element>
+		<element id="Measure.term">
+			<path value="Measure.term"/>
+			<short value="Defined terms used in the measure documentation"/>
+			<definition value="Provides a description of an individual term used within the measure."/>
+			<requirements value="Measure developers must be able to provide precise definitions of terms used within measure descriptions and guidance to help communicate the intent of the measure."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="Measure.term.code">
+			<path value="Measure.term.code"/>
+			<short value="What term?"/>
+			<definition value="A codeable representation of the defined term."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="DefinitionCode"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Codeable representations of measure definition terms."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-definition-example"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="Measure.term.definition">
+			<path value="Measure.term.definition"/>
+			<short value="Meaning of the term"/>
+			<definition value="Provides a definition for the term as used within the measure."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.guidance">
+			<path value="Measure.guidance"/>
+			<short value="Additional guidance for implementers"/>
+			<definition value="Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure."/>
+			<requirements value="Measure developers must be able to provide additional guidance for implementers to understand the intent with greater specificity than that provided in the population criteria of the measure. This element provides detailed guidance, where the usage element provides a summary of the guidance."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.group">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Measures can have any number of groups, each defining a different performance rate. Although currently they must all be of the same type, scoring, subject, and populationBasis, the committee has scheduled work to allow these aspects of performance rates to be specified per group, allowing much greater flexibility in the description and packaging of FHIR-based eCQMs."/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="370,300"/>
+			</extension>
+			<path value="Measure.group"/>
+			<short value="Population criteria group"/>
+			<definition value="A group of population criteria for the measure."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=COMP]"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.code">
+			<path value="Measure.group.code"/>
+			<short value="Meaning of the group"/>
+			<definition value="Indicates a meaning for the group. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing groups to be correlated across measures."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MeasureGroupExample"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Example of measure groups."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-group-example"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".code"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.description">
+			<path value="Measure.group.description"/>
+			<short value="Summary description"/>
+			<definition value="The human readable description of this population group."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".text"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.type">
+			<path value="Measure.group.type"/>
+			<short value="process | outcome | structure | patient-reported-outcome | composite"/>
+			<definition value="Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization."/>
+			<comment value="When specified at the group level, defines the measure type for this specific group. If not specified, the measureType of the group is determined by the root type element"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MeasureType"/>
+				</extension>
+				<strength value="extensible"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-type"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".typeCode"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.basis">
+			<path value="Measure.group.basis"/>
+			<short value="Population basis"/>
+			<definition value="The population basis specifies the type of elements in the population. For a subject-based measure, this is boolean (because the subject and the population basis are the same, and the population criteria define yes/no values for each individual in the population). For measures that have a population basis that is different than the subject, this element specifies the type of the population basis. For example, an encounter-based measure has a subject of Patient and a population basis of Encounter, and the population criteria all return lists of Encounters."/>
+			<comment value="When specified at the group level, defines the population basis for this specific group. If not specified, the basis for the group is determined by the root basis element"/>
+			<requirements value="Allows non-subject-based measures to be specified"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<meaningWhenMissing value="boolean"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="BasisType"/>
+				</extension>
+				<strength value="required"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?) { only applies for subject Patient? }"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.scoring">
+			<path value="Measure.group.scoring"/>
+			<short value="proportion | ratio | continuous-variable | cohort"/>
+			<definition value="Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented."/>
+			<comment value="When specified at the group level, defines the scoring for this specific group. If not specified, scoring for this group is determined by the root scoring element"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MeasureScoring"/>
+				</extension>
+				<strength value="extensible"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".methodCode { the aspect of how the calculation is performed }"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.scoringUnit">
+			<path value="Measure.group.scoringUnit"/>
+			<short value="What units?"/>
+			<definition value="Defines the expected units of measure for the measure score. This element SHOULD be specified as a UCUM unit."/>
+			<comment value="When specified at the group level, this defines the scoringUnit for this specific group. If not specified, the scoringUnit for this group is determined by the root scoringUnit element. As with the root element, when this element is specified, implementations are expected to report measure scores in the specified units. Note that this may involve unit conversion if the expected units are different than the units of the resulting score calculation. In this case, unit conversions SHALL be performed according to the unit conversion semantics specified by UCUM."/>
+			<requirements value="When the unit cannot be inferred directly from the calculation logic, this element allows the specification of the desired units of measure of the output."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MeasureScoringUnit"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring-unit"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".methodCode { the aspect of how the calculation is performed }"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.improvementNotation">
+			<path value="Measure.group.improvementNotation"/>
+			<short value="increase | decrease"/>
+			<definition value="Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)."/>
+			<comment value="When specified at the group level, this element defines the improvementNotation for this specific group. If not specified, improvementNotation for this group is determined by the root improvementNotation element"/>
+			<requirements value="Measure consumers and implementers must be able to determine how to interpret a measure score."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MeasureImprovementNotation"/>
+				</extension>
+				<strength value="required"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".methodCode { the aspect of how the calculation is performed }"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.population">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="370,150"/>
+			</extension>
+			<path value="Measure.group.population"/>
+			<short value="Population criteria"/>
+			<definition value="A population criteria for the measure."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=COMP]"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.population.code">
+			<path value="Measure.group.population.code"/>
+			<short value="initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation"/>
+			<definition value="The type of population criteria."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MeasurePopulationType"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The type of population."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".code"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.population.description">
+			<path value="Measure.group.population.description"/>
+			<short value="The human readable description of this population criteria"/>
+			<definition value="The human readable description of this population criteria."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".text"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.population.criteria">
+			<path value="Measure.group.population.criteria"/>
+			<short value="The criteria that defines this population"/>
+			<definition value="An expression that specifies the criteria for the population, typically the name of an expression in a library."/>
+			<comment value="In the case of a continuous-variable or ratio measure, this may be the name of a function that calculates the value of the individual observation for each patient or event in the population. For these types of measures, individual observations are reported as observation resources included in the evaluatedResources bundle for each patient. See the MeasureReport resource or the Quality Reporting topic for more information."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="Expression"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.population.inputPopulationId">
+			<path value="Measure.group.population.inputPopulationId"/>
+			<short value="Which population"/>
+			<definition value="The id of a population element in this measure that provides the input for this population criteria. In most cases, the scoring structure of the measure implies specific relationships (e.g. the Numerator uses the Denominator as the source in a proportion scoring). In some cases, however, multiple possible choices exist and must be resolved explicitly. For example in a ratio measure with multiple initial populations, the denominator must specify which population should be used as the starting point."/>
+			<requirements value="For ratio and continuous variable measures, the source populations must be specified explicitly when they cannot be unambiguously determined from the scoring structure."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.population.aggregateMethod">
+			<path value="Measure.group.population.aggregateMethod"/>
+			<short value="Aggregation method for a measure score (e.g. sum, average, median, minimum, maximum, count)"/>
+			<definition value="Specifies which method should be used to aggregate measure observation values. For most scoring types, this is implied by scoring (e.g. a proportion measure counts members of the populations). For continuous variables, however, this information must be specified to ensure correct calculation."/>
+			<requirements value="For continuous variable measures, specifications must be able to indicate the aggregation method to be used for tallying results from individual observations."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MeasureAggregateMethod"/>
+				</extension>
+				<strength value="extensible"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-aggregate-method"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.stratifier">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="370,450"/>
+			</extension>
+			<path value="Measure.group.stratifier"/>
+			<short value="Stratifier criteria for the measure"/>
+			<definition value="The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=COMP]"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.stratifier.code">
+			<path value="Measure.group.stratifier.code"/>
+			<short value="Meaning of the stratifier"/>
+			<definition value="Indicates a meaning for the stratifier. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing stratifiers to be correlated across measures."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MeasureStratifierExample"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Meaning of the stratifier."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".code"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.stratifier.description">
+			<path value="Measure.group.stratifier.description"/>
+			<short value="The human readable description of this stratifier"/>
+			<definition value="The human readable description of this stratifier criteria."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".text"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.stratifier.criteria">
+			<path value="Measure.group.stratifier.criteria"/>
+			<short value="How the measure should be stratified"/>
+			<definition value="An expression that specifies the criteria for the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Expression"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.stratifier.component">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="370,450"/>
+			</extension>
+			<path value="Measure.group.stratifier.component"/>
+			<short value="Stratifier criteria component for the measure"/>
+			<definition value="A component of the stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path."/>
+			<comment value="Stratifiers are defined either as a single criteria, or as a set of component criteria."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=COMP]"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.stratifier.component.code">
+			<path value="Measure.group.stratifier.component.code"/>
+			<short value="Meaning of the stratifier component"/>
+			<definition value="Indicates a meaning for the stratifier component. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing stratifiers to be correlated across measures."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MeasureStratifierExample"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Meaning of the stratifier."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".code"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.stratifier.component.description">
+			<path value="Measure.group.stratifier.component.description"/>
+			<short value="The human readable description of this stratifier component"/>
+			<definition value="The human readable description of this stratifier criteria component."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".text"/>
+			</mapping>
+		</element>
+		<element id="Measure.group.stratifier.component.criteria">
+			<path value="Measure.group.stratifier.component.criteria"/>
+			<short value="Component of how the measure should be stratified"/>
+			<definition value="An expression that specifies the criteria for this component of the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="Expression"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="Measure.supplementalData">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="370,0"/>
+			</extension>
+			<path value="Measure.supplementalData"/>
+			<short value="What other data should be reported with the measure"/>
+			<definition value="The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path."/>
+			<comment value="Note that supplemental data are reported as observations for each patient and included in the evaluatedResources bundle. See the MeasureReport resource or the Quality Reporting topic for more information."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=COMP]"/>
+			</mapping>
+		</element>
+		<element id="Measure.supplementalData.code">
+			<path value="Measure.supplementalData.code"/>
+			<short value="Meaning of the supplemental data"/>
+			<definition value="Indicates a meaning for the supplemental data. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing supplemental data to be correlated across measures."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MeasureSupplementalDataExample"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Meaning of the supplemental data."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-supplemental-data-example"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".code"/>
+			</mapping>
+		</element>
+		<element id="Measure.supplementalData.usage">
+			<path value="Measure.supplementalData.usage"/>
+			<short value="supplemental-data | risk-adjustment-factor"/>
+			<definition value="An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MeasureDataUsage"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The intended usage for supplemental data elements in the measure."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/measure-data-usage"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".methodCode"/>
+			</mapping>
+		</element>
+		<element id="Measure.supplementalData.description">
+			<path value="Measure.supplementalData.description"/>
+			<short value="The human readable description of this supplemental data"/>
+			<definition value="The human readable description of this supplemental data."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".text"/>
+			</mapping>
+		</element>
+		<element id="Measure.supplementalData.criteria">
+			<path value="Measure.supplementalData.criteria"/>
+			<short value="Expression describing additional data to be reported"/>
+			<definition value="The criteria for the supplemental data. This is typically the name of a valid expression defined within a referenced library, but it may also be a path to a specific data element. The criteria defines the data to be returned for this element."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="Expression"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+	</differential>
 </StructureDefinition>

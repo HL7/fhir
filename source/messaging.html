@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 
-
 [%settitle Messaging using FHIR Resources%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -8,8 +7,6 @@
 </head>
 <body>
 [%file newnavbar%]
-
-
 
 <h1>Messaging using FHIR Resources</h1>
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
@@ -22,10 +19,27 @@ Applications asserting conformance to this framework claim to be conformant to "
 <p>
 In FHIR messaging, a "message" is sent from a source application to a destination
 application when an event happens. Events mostly correspond to things that happen in the
-real world. The request message consists of a <a href="bundle.html">Bundle</a> identified
-by the <a href="bundle-definitions.html#Bundle.type">type</a> "message",
-with the first resource in the bundle being a <a href="messageheader.html">MessageHeader</a>
-resource. The MessageHeader resource has a code - the message event - that identifies the
+real world.
+</p>
+<p>
+Messages are <a href="bundle.html">Bundle</a> resources, with the following rules:
+</p>
+<ul>
+  <li>The Bundle <a href="bundle-definitions.html#Bundle.type">type</a> SHALL be <code>message</code></li>
+  <li>The first resource in the bundle SHALL be a <a href="messageheader.html">MessageHeader</a> resource</li>
+  <li>If the <a href="messageheader-definitions.html#MessageHeader.focus">MessageHeader.focus</a> and
+     <a href="messageheader-definitions.html#MessageHeader.response.details">MessageHeader.response.details</a> refer to
+     any resources, they SHALL be included in the Bundle entries</li>
+  <li>The bundle MAY also contain additional resource that these other resources refer to. It SHOULD include all resources needed
+     for the receiver to be able to process the message as expected by the MessageHeader.event 
+     (this can be defined by a <a href="graphdefinition.html">GraphDefinition</a> resource)</li>
+  <li>The bundle SHALL NOT include resources that do have references 
+    (by <a href="references.html#Reference">Reference</a> or <a href="references.html#canonical">canonical</a> links) 
+    to the <code>MessageHeader</code>
+  </li>
+</ul>  
+<p>
+The MessageHeader resource has a code - the message event - that identifies the
 nature of the request message, and it also carries additional request metadata.
 The other resources in the bundle depend on the type of the request.
 </p>
@@ -113,10 +127,12 @@ must be determined by the content, context, or use case.
 <a name="patterns"></a>
 <h3>Message Exchange Patterns</h3>
 <p>
-Each FHIR request message has one or more response messages. There must be at least
-one response message so that the sender can know that the message was properly
-received. Multiple response messages SHALL NOT be returned for messages of consequence,
-and SHOULD not be returned for notifications.
+Each FHIR request message typically has one or more response messages. 
+The response message(s) inform the sender that the message was properly 
+received. Multiple response messages SHALL NOT be returned for messages of 
+consequence, and SHOULD not be returned for notifications.  
+For some notification scenarios it reasonable to only expect either only an http response, 
+possibly accompanied by an OperationOutcome.
 </p>
 <p>
 In principle, source applications are not required to wait for a response to
@@ -161,6 +177,22 @@ Note that asynchronous messaging can be harder to implement due to the amount of
 This specification does not dictate any particular error handling protocols or responsibilities; these are left to trading partner agreements between implementers.
 </p>
 
+
+<a name="id-feedback"></a>
+[%stu-note%]
+Since this page was first written, Bundle.identifier was added. 
+FHIR-I is considering rewriting this so that the decisions are 
+made against Bundle.identifier not Bundle.id. This would allow 
+intermediaries to use the Bundle.id as the primary internal id
+for bundle. There's an additional proposal to add MessageHeader.identifier
+and change to using that instead of MessageHeader.id. 
+</p>
+<p>
+Ballot input is solicited on two issues: should this section 
+change at all (e.g. change to Bundle.identifier), and should 
+it be based on MessageHeader.identifier (assuming this is added).
+[%end-note%]
+
 <h3>MessageHeader Identifiers &amp; Timestamps</h3>
 <p>
 An incoming message contains two identifiers: the Bundle.id and
@@ -200,12 +232,10 @@ Some of the message delivery mechanisms mentioned above are reliable delivery
 systems - the message is always delivered, or an appropriate error is returned
 to the source. However most implementations use methods which do not provide
 reliable messaging, and either the request or the response can get lost in transit.
-FHIR messaging describes a simple approach that receivers SHOULD conform to in
-order to handle the absence of reliable messaging that maintains predictable
-functionality.
+For systems exchanging FHIR messages over infrastructure that does not guarantee reliable messaging, the remainder of this section describes a simple approach that senders and receivers SHOULD conform to that ensures reliable delivery and maintains predictable functionality.
 </p>
 <p>
-If the sender of the message implements reliable messaging, it SHALL do
+If a sender implements this protocol, it SHALL do
 the following when it receives no response to a message within a
 configured timeout period based on the value specified in the
 <a href="capabilitystatement.html">CapabilityStatement</a> <code>messaging.event.category</code>
@@ -437,7 +467,7 @@ an operation definition. To invoke an operation using a message:
  <li>The requester sends a message (a bundle with type = message, and a message header resource)</li>
  <li>The message header has an event.system of <code>urn:ietf:rfc:3986</code></li>
  <li>The event.code is the URL from the operation definition <code>OperationDefinition.url</code></li>
- <li>The <code>MessageHeader.data</code> refers to a <a href="parameters.html">Parameters</a> resource</li>
+ <li>The <code>MessageHeader.focus</code> refers to a <a href="parameters.html">Parameters</a> resource</li>
  <li>The parameters resource is populated appropriately as specified by the nominated operation definition</li>
 </ul>
 <p>
@@ -447,14 +477,14 @@ The recipient executes the operation as specified, and then:
  <li>The receiver sends a message (a bundle with type = message, and a message header resource)</li>
  <li>The message header has the same event as the original message</li>
  <li>The MessageHeader contains a response that refers to the original request message, and a code for the outcome, with details if the operation failed</li>
- <li>The <code>MessageHeader.data</code> refers to a <a href="parameters.html">Parameters</a> resource</li>
+ <li>The <code>MessageHeader.focus</code> refers to a <a href="parameters.html">Parameters</a> resource</li>
  <li>The parameters resource is populated appropriately as specified for the response by the nominated operation definition</li>
- <li>If the operation definition specifies a single return, then this is returned as the target of the MesssageHeader.data directly</li>
+ <li>If the operation definition specifies a single return, then this is returned as the target of the MesssageHeader.focus directly</li>
 </ul>
 <p>
 Here's an example:
 </p>
-<pre class="xml">
+<pre class="xml" fragment="Bundle">
 &lt;Bundle xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;id value=&quot;urn:uuid:77831928-2a35-4c08-9496-8232323bf48c&quot;/&gt;
   &lt;!-- normal bundle stuff --&gt;
@@ -464,11 +494,11 @@ Here's an example:
       &lt;MessageHeader&gt;
 			  &lt;id value="cac8143e-6138-4f45-b086-bb8ebf976aae"/&gt;
         &lt;!-- normal message header stuff --&gt;
-        &lt;event&gt;
+        &lt;eventCoding&gt;
           &lt;system value=&quot;urn:ietf:rfc:3986&quot;/&gt;
           &lt;!-- value set expansion --&gt;
           &lt;code value=&quot;http://hl7.org/fhir/OperationDefinition/ValueSet-expand&quot;/&gt;
-        &lt;/event&gt;
+        &lt;/eventCoding&gt;
         &lt;!-- more normal message header stuff --&gt;
       &lt;/MessageHeader&gt;
     &lt;/resource&gt;
@@ -495,6 +525,27 @@ at the System or Resource level for a particular resource.
 <a name="search"></a>
 <h3>Invoking Search via Messages</h3>
 <p>
+To perform a search with messaging that mirrors REST functionality, the message 
+should leverage a Parameters instance with a standard parameter name of "url" and 
+a valueString that corresponds to the search string that would typically be to 
+the right of the base URL.  E.g. if in REST you would say <code>http://someserver.org/fhir/Patient?name=joe</code>code>, 
+then the parameter would have a value of <code>Patient?name=joe</code>.
+</p>
+<p>
+The <code>event</code> in this case would be either <code>search-type</code> or <code>search-system</code>
+in the system <code>http://hl7.org/fhir/restful-interaction</code>.  (If <code>search-system</code> is used, 
+the string would start with a <code>?</code> rather than <code>[resource]?</code>.)  Systems would indicate support for this search 
+mechanism using their CapabilityStatement as they would any other messaging event.  If a system supports messaging 
+search but not RESTful search, the means of describing any limitations on what resources, search parameters, 
+qualifiers, etc. they support is not currently defined.
+</p>
+<p>
+Messaging interfaces may also choose to define alternative search mechanisms including query-by-example 
+searches that pass in a partially completed resource, or that use a Parameters instance populated in other ways.
+</p>
+
+<!--
+<p>
 In the same way that a defined operation can be invoked, a regular search operation
 can be invoked. This also uses the <a href="parameters.html">Parameters</a> resource,
 with the following rules:
@@ -502,12 +553,12 @@ with the following rules:
 <ul>
  <li>The event code is "search-type" or "search-system" in the system http://hl7.org/fhir/restful-interaction</li>
  <li>If the event type is "search-type" there SHALL be a parameter "resourceType" with specifies the type of resource being searched</li>
- <li>The search parameters are converted to FHIR data types according to the following table</li>
+ <li>The search parameters are converted to FHIR datatypes according to the following table</li>
 </ul>
 <table class="grid">
  <tr>
   <td><b>Search Parameter Type</b></td>
-  <td><b>Data Type</b></td>
+  <td><b>Datatype</b></td>
  </tr>
  <tr>
   <td>number</td>
@@ -555,11 +606,11 @@ Here's an example:
     &lt;resource&gt;
       &lt;MessageHeader&gt;
         &lt;!-- normal message header stuff --&gt;
-        &lt;event&gt;
+        &lt;eventCoding&gt;
           &lt;system value=&quot;http://hl7.org/fhir/restful-interaction&quot;/&gt;
           &lt;!-- Search against Patient --&gt;
           &lt;code value=&quot;search-type&quot;/&gt;
-        &lt;/event&gt;
+        &lt;/eventCoding&gt;
         &lt;!-- more normal message header stuff --&gt;
       &lt;/MessageHeader&gt;
     &lt;/resource&gt;
@@ -581,7 +632,7 @@ Here's an example:
   &lt;/entry&gt;
 &lt;/Bundle&gt;
 </pre>
-
+-->
 
 
 

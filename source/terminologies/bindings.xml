@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-05-23T20:36:08Z</Created>
-  <LastSaved>2022-08-12T10:36:40Z</LastSaved>
+  <LastSaved>2022-09-02T21:34:36Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -13,20 +13,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <SupBook>
-   <Path>/Users/grahamegrieve/work/r5/source/terminologies/Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\conceptmap-spreadsheet.xml</Path>
-   <SheetName>Invariants</SheetName>
-  </SupBook>
-  <SupBook>
-   <Path>/Users/grahamegrieve/work/r5/source/terminologies/Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\elementdefinition.xml</Path>
-   <SheetName>Invariants</SheetName>
-  </SupBook>
   
   
   
   
   <TabRatio>780</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <MaxChange>0.0001</MaxChange>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -484,10 +476,10 @@
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="='/Users/grahamegrieve/work/r5/source/terminologies/Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
+  <NamedRange ss:Name="Invariantids" ss:RefersTo="='Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="52" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="53" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s64" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s64" ss:Width="230.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="4" ss:StyleID="s64" ss:Width="219.0"/>
@@ -517,14 +509,95 @@
     <Cell><Data ss:Type="String">Normative-Version</Data></Cell>
     <Cell><Data ss:Type="String">Max-Normative-Version</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">AbstractType</Data></Cell>
-    <Cell><Data ss:Type="String">A list of the base types defined by this version of the FHIR specification - types that are defined, but for which only specializations actually are created</Data></Cell>
-    <Cell><Data ss:Type="String">special</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">#abstract-types</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">FHIRTypes</Data></Cell>
+    <Cell><Data ss:Type="String">List of FHIR types (resources, data types)</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-fhir-types</Data></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">FHIRPathTypes</Data></Cell>
+    <Cell><Data ss:Type="String">List of FHIRPath data types</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-fhirpath-types</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ResourceTypes</Data></Cell>
+    <Cell><Data ss:Type="String">List of FHIR Resource Types (concrete only)</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-resource-types</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">RequestResourceTypes</Data></Cell>
+    <Cell><Data ss:Type="String">List of FHIR Request Resource Types</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-request-resource-types</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EventResourceTypes</Data></Cell>
+    <Cell><Data ss:Type="String">List of FHIR Event Resource Types</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-event-resource-types</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DefinitionResourceTypes</Data></Cell>
+    <Cell><Data ss:Type="String">List of FHIR Definition Resource Types</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-definition-resource-types</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ParticipantResourceTypes</Data></Cell>
+    <Cell><Data ss:Type="String">List of FHIR Participant Resource Types</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-participant-resource-types</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ElementDefinitionTypes</Data></Cell>
+    <Cell><Data ss:Type="String">List of all Types for ElementDefinition.type.code</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-elementdefinition-types</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">FHIRConcreteTypes</Data></Cell>
+    <Cell><Data ss:Type="String">List of all non-abstract types, data types and resources</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-concrete-fhir-types</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AllResourceTypes</Data></Cell>
+    <Cell><Data ss:Type="String">List of FHIR Resource Types (concrete and abstract)</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-all-resource-types</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DataTypes</Data></Cell>
+    <Cell><Data ss:Type="String">List of FHIR Data Types (concrete and abstract)</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-data-types</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">AdjudicationError</Data></Cell>
@@ -710,31 +783,6 @@
     <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">A version specific list of the data types defined by the FHIR specification for use as an element  type (any of the FHIR defined data types)</Data></Cell>
-    <Cell><Data ss:Type="String">special</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">#data-types</Data></Cell>
-    <Cell><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s76"><Data ss:Type="String">DefinitionResourceType</Data></Cell>
-    <Cell><Data ss:Type="String">A list of all the definition resource types defined in this version of the FHIR specification</Data></Cell>
-    <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">#definition-resource-types</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s83"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosisRole</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">The type of diagnosis this condition represents</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
@@ -758,67 +806,6 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">oo</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:Index="15" ss:StyleID="s67"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s76"><Data ss:Type="String">EventOrRequestResourceTypes</Data></Cell>
-    <Cell><Data ss:Type="String">A list of all the event or request request resource types defined in this version of the FHIR specification</Data></Cell>
-    <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">valueset-event-or-request-resource-types</Data></Cell>
-    <Cell><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="s76"/>
-    <Cell ss:Index="14" ss:StyleID="s76"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s76"><Data ss:Type="String">EventResourceType</Data></Cell>
-    <Cell><Data ss:Type="String">A list of all the event resource types defined in this version of the FHIR specification</Data></Cell>
-    <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">#event-resource-types</Data></Cell>
-    <Cell><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:Index="15" ss:StyleID="s76"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">FHIRAllTypes</Data></Cell>
-    <Cell><Data ss:Type="String">A list of all the concrete types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types</Data></Cell>
-    <Cell><Data ss:Type="String">special</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">#all-types</Data></Cell>
-    <Cell><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="s67"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">FHIRDefinedType</Data></Cell>
-    <Cell><Data ss:Type="String">A list of all the concrete types defined in this version of the FHIR specification - Data Types and Resource Types</Data></Cell>
-    <Cell><Data ss:Type="String">special</Data></Cell>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">#defined-types</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">FHIRDefinedTypeExt</Data></Cell>
-    <Cell><Data ss:Type="String">Either a resource or a data type, including logical model types</Data></Cell>
-    <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell><Data ss:Type="String">extensible</Data></Cell>
-    <Cell><Data ss:Type="String">valueset-fhir-element-types</Data></Cell>
-    <Cell><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">FHIRPathTypes</Data></Cell>
-    <Cell><Data ss:Type="String">List of FHIRPath data types</Data></Cell>
-    <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell><Data ss:Type="String">required</Data></Cell>
-    <Cell><Data ss:Type="String">valueset-fhirpath-types</Data></Cell>
-    <Cell><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s84"><Data ss:Type="String">FHIRVersion</Data></Cell>
@@ -901,14 +888,6 @@
     <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">KnowledgeResourceType</Data></Cell>
-    <Cell><Data ss:Type="String">A list of all the knowledge resource types defined in this version of the FHIR specification</Data></Cell>
-    <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">#knowledge-resource-types</Data></Cell>
-    <Cell><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="s79"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s84"><Data ss:Type="String">Language</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">A human language.</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">value set</Data></Cell>
@@ -986,7 +965,7 @@
     <Cell ss:StyleID="s67"/>
     <Cell ss:Index="16" ss:StyleID="s77"/>
    </Row>
-   <Row ss:Height="16">
+   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell><Data ss:Type="String">ObjectLifecycleEvents</Data></Cell>
     <Cell><Data ss:Type="String">Lifecycle events from multiple code systems</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
@@ -994,6 +973,13 @@
     <Cell><Data ss:Type="String">valueset-object-lifecycle-events</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">sec</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell><Data ss:Type="String">OperationOutcome</Data></Cell>
+    <Cell><Data ss:Type="String">Operation outcome (see translations.xml)</Data></Cell>
+    <Cell><Data ss:Type="String">special</Data></Cell>
+    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">#operation-outcome</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ParticipationRoleType</Data></Cell>
@@ -1079,31 +1065,6 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">fm</Data></Cell>
     <Cell ss:StyleID="s67"/>
     <Cell ss:StyleID="s67"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s76"><Data ss:Type="String">RequestResourceType</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">A list of all the request resource types defined in this version of the FHIR specification</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">#request-resource-types</Data></Cell>
-    <Cell ss:StyleID="s76"><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:Index="13" ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-    <Cell ss:StyleID="s76"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">ResourceType</Data></Cell>
-    <Cell><Data ss:Type="String">One of the resource types defined as part of this version of FHIR.</Data></Cell>
-    <Cell><Data ss:Type="String">special</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">#resource-types</Data></Cell>
-    <Cell><Data ss:Type="String">n</Data></Cell>
-    <Cell ss:Index="12" ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">4.0.0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s68"><Data ss:Type="String">SearchParamType</Data></Cell>
@@ -1207,6 +1168,15 @@
     <Cell ss:Index="12" ss:StyleID="s76"><Data ss:Type="String">fhir</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s76"/>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell><Data ss:Type="String">UsageContextAgreementScope</Data></Cell>
+    <Cell><Data ss:Type="String">Codes for usage context of type agreement scope</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">example</Data></Cell>
+    <Cell><Data ss:Type="String">valueset-usage-context-agreement-scope</Data></Cell>
+    <Cell><Data ss:Type="String">n</Data></Cell>
+    <Cell ss:Index="12" ss:StyleID="s67"><Data ss:Type="String">fhir</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1220,7 +1190,8 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <TopRowVisible>7</TopRowVisible>
+   <Selected/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -1608,9 +1579,7 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <TopRowVisible>7</TopRowVisible>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -1984,6 +1953,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <LeftColumnVisible>6</LeftColumnVisible>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -2553,6 +2527,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3118,6 +3097,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3751,6 +3735,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -5571,6 +5560,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5588,7 +5582,7 @@
  <Worksheet ss:Name="binding-strength">
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='binding-strength'!R1C1:R1C9"/>
-   <NamedRange ss:Name="Invariantids" ss:RefersTo="='/Users/grahamegrieve/work/r5/source/terminologies/Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
+   <NamedRange ss:Name="Invariantids" ss:RefersTo="='Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s122" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s122" ss:Width="80.0"/>
@@ -6156,6 +6150,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6169,517 +6168,5 @@
   </WorksheetOptions>
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
   </AutoFilter>
- </Worksheet>
- <Worksheet ss:Name="definition-resource-types">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="7" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Index="2" ss:Width="63.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="209.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="639.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="78.0"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s102">
-    <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell><Data ss:Type="String">Code</Data></Cell>
-    <Cell><Data ss:Type="String">Display</Data></Cell>
-    <Cell><Data ss:Type="String">Definition</Data></Cell>
-    <Cell><Data ss:Type="String">Comment</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">ActivityDefinition</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">ActivityDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">EventDefinition</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">EventDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">The EventDefinition resource provides a reusable description of when a particular event can occur.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">Measure</Data></Cell>
-    <Cell><Data ss:Type="String">Measure</Data></Cell>
-    <Cell><Data ss:Type="String">The Measure resource provides the definition of a quality measure.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">OperationDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">OperationDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).</Data></Cell>
-    <Cell ss:StyleID="s104"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="String">PlanDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">PlanDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Questionnaire</Data></Cell>
-    <Cell><Data ss:Type="String">Questionnaire</Data></Cell>
-    <Cell><Data ss:Type="String">A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Print>
-    <ValidPrinterInfo/>
-    <PaperSizeIndex>9</PaperSizeIndex>
-    <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>0</VerticalResolution>
-   </Print>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="request-resource-types">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="18" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Index="2" ss:Width="63.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="209.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="639.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="78.0"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s102">
-    <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell><Data ss:Type="String">Code</Data></Cell>
-    <Cell><Data ss:Type="String">Display</Data></Cell>
-    <Cell><Data ss:Type="String">Definition</Data></Cell>
-    <Cell><Data ss:Type="String">Comment</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">Appointment</Data></Cell>
-    <Cell><Data ss:Type="String">Appointment</Data></Cell>
-    <Cell><Data ss:Type="String">A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s) </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">AppointmentResponse</Data></Cell>
-    <Cell><Data ss:Type="String">AppointmentResponse</Data></Cell>
-    <Cell><Data ss:Type="String">A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection                                                 </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">CarePlan</Data></Cell>
-    <Cell><Data ss:Type="String">CarePlan</Data></Cell>
-    <Cell><Data ss:Type="String">Healthcare plan for patient or group                                                                                                                                              </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="String">Claim</Data></Cell>
-    <Cell><Data ss:Type="String">Claim</Data></Cell>
-    <Cell><Data ss:Type="String">Claim, Pre-determination or Pre-authorization                                                                                                                                           </Data></Cell>
-    <Cell ss:StyleID="s104"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="String">CommunicationRequest</Data></Cell>
-    <Cell><Data ss:Type="String">CommunicationRequest</Data></Cell>
-    <Cell><Data ss:Type="String">A request for information to be sent to a receiver                                                                                                        </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell><Data ss:Type="String">Contract</Data></Cell>
-    <Cell><Data ss:Type="String">Contract</Data></Cell>
-    <Cell><Data ss:Type="String">Legal Agreement                                                                                                                                                                   </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell><Data ss:Type="String">DeviceRequest</Data></Cell>
-    <Cell><Data ss:Type="String">DeviceRequest</Data></Cell>
-    <Cell><Data ss:Type="String">Medical device request                                                                                                                                                  </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell><Data ss:Type="String">EnrollmentRequest</Data></Cell>
-    <Cell><Data ss:Type="String">EnrollmentRequest</Data></Cell>
-    <Cell><Data ss:Type="String">Enrollment request                                                                                                                                              </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell><Data ss:Type="String">ImmunizationRecommendation</Data></Cell>
-    <Cell><Data ss:Type="String">ImmunizationRecommendation</Data></Cell>
-    <Cell><Data ss:Type="String">Guidance or advice relating to an immunization                                                                                                </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="String">MedicationRequest</Data></Cell>
-    <Cell><Data ss:Type="String">MedicationRequest</Data></Cell>
-    <Cell><Data ss:Type="String">Ordering of medication for patient or group                                                                                                                     </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">11</Data></Cell>
-    <Cell><Data ss:Type="String">NutritionOrder</Data></Cell>
-    <Cell><Data ss:Type="String">NutritionOrder</Data></Cell>
-    <Cell><Data ss:Type="String">Diet, formula or nutritional supplement request                                                                                                                       </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">12</Data></Cell>
-    <Cell><Data ss:Type="String">ServiceRequest</Data></Cell>
-    <Cell><Data ss:Type="String">ServiceRequest</Data></Cell>
-    <Cell><Data ss:Type="String">A record of a request for service such as diagnostic investigations, treatments, or operations to be performed</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">13</Data></Cell>
-    <Cell><Data ss:Type="String">SupplyRequest</Data></Cell>
-    <Cell><Data ss:Type="String">SupplyRequest</Data></Cell>
-    <Cell><Data ss:Type="String">Request for a medication, substance or device                                                                                                                           </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">14</Data></Cell>
-    <Cell><Data ss:Type="String">Task</Data></Cell>
-    <Cell><Data ss:Type="String">Task</Data></Cell>
-    <Cell><Data ss:Type="String">A task to be performed                                                                                                                                                                    </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell><Data ss:Type="String">VisionPrescription</Data></Cell>
-    <Cell><Data ss:Type="String">VisionPrescription</Data></Cell>
-    <Cell><Data ss:Type="String">Prescription for vision correction products for a patient                                                                                                     </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Index="18">
-    <Cell ss:Index="2" ss:StyleID="s104"/>
-    <Cell ss:StyleID="s104"/>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Print>
-    <ValidPrinterInfo/>
-    <PaperSizeIndex>9</PaperSizeIndex>
-    <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>0</VerticalResolution>
-   </Print>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="event-resource-types">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="35" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Index="2" ss:Width="203.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="209.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="639.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="78.0"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s102">
-    <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell><Data ss:Type="String">Code</Data></Cell>
-    <Cell><Data ss:Type="String">Display</Data></Cell>
-    <Cell><Data ss:Type="String">Definition</Data></Cell>
-    <Cell><Data ss:Type="String">Comment</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">ChargeItem</Data></Cell>
-    <Cell><Data ss:Type="String">ChargeItem</Data></Cell>
-    <Cell><Data ss:Type="String">Item containing charge code(s) associated with the provision of healthcare provider products                                                                       </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">ClaimResponse</Data></Cell>
-    <Cell><Data ss:Type="String">ClaimResponse</Data></Cell>
-    <Cell><Data ss:Type="String">Remittance resource                                                                                                                                          </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">ClinicalImpression</Data></Cell>
-    <Cell><Data ss:Type="String">ClinicalImpression</Data></Cell>
-    <Cell><Data ss:Type="String">A clinical assessment performed when planning treatments and management strategies for a patient                                                   </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="String">Communication</Data></Cell>
-    <Cell><Data ss:Type="String">Communication</Data></Cell>
-    <Cell><Data ss:Type="String">A record of information transmitted from a sender to a receiver                                                                                              </Data></Cell>
-    <Cell ss:StyleID="s104"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="String">Composition</Data></Cell>
-    <Cell><Data ss:Type="String">Composition</Data></Cell>
-    <Cell><Data ss:Type="String">A set of resources composed into a single coherent clinical statement with clinical attestation                                                                  </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell><Data ss:Type="String">Condition</Data></Cell>
-    <Cell><Data ss:Type="String">Condition</Data></Cell>
-    <Cell><Data ss:Type="String">Detailed information about conditions, problems or diagnoses                                                                                                         </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell><Data ss:Type="String">Consent</Data></Cell>
-    <Cell><Data ss:Type="String">Consent</Data></Cell>
-    <Cell><Data ss:Type="String">A healthcare consumer's policy choices to permits or denies recipients or roles to perform actions for specific purposes and periods of time                             </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell><Data ss:Type="String">Coverage</Data></Cell>
-    <Cell><Data ss:Type="String">Coverage</Data></Cell>
-    <Cell><Data ss:Type="String">Insurance or medical plan or a payment agreement                                                                                                                       </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell><Data ss:Type="String">DeviceUsage</Data></Cell>
-    <Cell><Data ss:Type="String">DeviceUsage</Data></Cell>
-    <Cell><Data ss:Type="String">Record of use of a device                                                                                                                          </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="String">DiagnosticReport</Data></Cell>
-    <Cell><Data ss:Type="String">DiagnosticReport</Data></Cell>
-    <Cell><Data ss:Type="String">A Diagnostic report - a combination of request information, atomic results, images, interpretation, as well as formatted reports                       </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">11</Data></Cell>
-    <Cell><Data ss:Type="String">DocumentManifest</Data></Cell>
-    <Cell><Data ss:Type="String">DocumentManifest</Data></Cell>
-    <Cell><Data ss:Type="String">A list that defines a set of documents                                                                                                                 </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">12</Data></Cell>
-    <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
-    <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
-    <Cell><Data ss:Type="String">A reference to a document                                                                                                                            </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">13</Data></Cell>
-    <Cell><Data ss:Type="String">Encounter</Data></Cell>
-    <Cell><Data ss:Type="String">Encounter</Data></Cell>
-    <Cell><Data ss:Type="String">An interaction during which services are provided to the patient                                                                                                     </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">14</Data></Cell>
-    <Cell><Data ss:Type="String">EnrollmentResponse</Data></Cell>
-    <Cell><Data ss:Type="String">EnrollmentResponse</Data></Cell>
-    <Cell><Data ss:Type="String">EnrollmentResponse resource                                                                                                                        </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell><Data ss:Type="String">EpisodeOfCare</Data></Cell>
-    <Cell><Data ss:Type="String">EpisodeOfCare</Data></Cell>
-    <Cell><Data ss:Type="String">An association of a Patient with an Organization and  Healthcare Provider(s) for a period of time that the Organization assumes some level of responsibility </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">16</Data></Cell>
-    <Cell><Data ss:Type="String">ExplanationOfBenefit</Data></Cell>
-    <Cell><Data ss:Type="String">ExplanationOfBenefit</Data></Cell>
-    <Cell><Data ss:Type="String">Explanation of Benefit resource                                                                                                                </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">17</Data></Cell>
-    <Cell><Data ss:Type="String">FamilyMemberHistory</Data></Cell>
-    <Cell><Data ss:Type="String">FamilyMemberHistory</Data></Cell>
-    <Cell><Data ss:Type="String">Information about patient's relatives, relevant for patient                                                                                      </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">18</Data></Cell>
-    <Cell><Data ss:Type="String">GuidanceResponse</Data></Cell>
-    <Cell><Data ss:Type="String">GuidanceResponse</Data></Cell>
-    <Cell><Data ss:Type="String">The formal response to a guidance request                                                                                                              </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">19</Data></Cell>
-    <Cell><Data ss:Type="String">ImagingStudy</Data></Cell>
-    <Cell><Data ss:Type="String">ImagingStudy</Data></Cell>
-    <Cell><Data ss:Type="String">A set of images produced in single study (one or more series of references images)                                                                             </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">20</Data></Cell>
-    <Cell><Data ss:Type="String">Immunization</Data></Cell>
-    <Cell><Data ss:Type="String">Immunization</Data></Cell>
-    <Cell><Data ss:Type="String">Immunization event information                                                                                                                                 </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">21</Data></Cell>
-    <Cell><Data ss:Type="String">MeasureReport</Data></Cell>
-    <Cell><Data ss:Type="String">MeasureReport</Data></Cell>
-    <Cell><Data ss:Type="String">Results of a measure evaluation                                                                                                                              </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">22</Data></Cell>
-    <Cell><Data ss:Type="String">Media</Data></Cell>
-    <Cell><Data ss:Type="String">Media</Data></Cell>
-    <Cell><Data ss:Type="String">A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference                                          </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">23</Data></Cell>
-    <Cell><Data ss:Type="String">MedicationAdministration</Data></Cell>
-    <Cell><Data ss:Type="String">MedicationAdministration</Data></Cell>
-    <Cell><Data ss:Type="String">Administration of medication to a patient                                                                                              </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">24</Data></Cell>
-    <Cell><Data ss:Type="String">MedicationDispense</Data></Cell>
-    <Cell><Data ss:Type="String">MedicationDispense</Data></Cell>
-    <Cell><Data ss:Type="String">Dispensing a medication to a named patient                                                                                                         </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">25</Data></Cell>
-    <Cell><Data ss:Type="String">MedicationUsage</Data></Cell>
-    <Cell><Data ss:Type="String">MedicationUsage</Data></Cell>
-    <Cell><Data ss:Type="String">Record of medication being taken by a patient                                                                                                    </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">26</Data></Cell>
-    <Cell><Data ss:Type="String">Observation</Data></Cell>
-    <Cell><Data ss:Type="String">Observation</Data></Cell>
-    <Cell><Data ss:Type="String">Measurements and simple assertions                                                                                                                               </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">27</Data></Cell>
-    <Cell><Data ss:Type="String">PaymentNotice</Data></Cell>
-    <Cell><Data ss:Type="String">PaymentNotice</Data></Cell>
-    <Cell><Data ss:Type="String">PaymentNotice request                                                                                                                                        </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">28</Data></Cell>
-    <Cell><Data ss:Type="String">PaymentReconciliation</Data></Cell>
-    <Cell><Data ss:Type="String">PaymentReconciliation</Data></Cell>
-    <Cell><Data ss:Type="String">PaymentReconciliation resource                                                                                                               </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">29</Data></Cell>
-    <Cell><Data ss:Type="String">Procedure</Data></Cell>
-    <Cell><Data ss:Type="String">Procedure</Data></Cell>
-    <Cell><Data ss:Type="String">An action that is being or was performed on a patient                                                                                                                </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">30</Data></Cell>
-    <Cell><Data ss:Type="String">ProcessResponse</Data></Cell>
-    <Cell><Data ss:Type="String">ProcessResponse</Data></Cell>
-    <Cell><Data ss:Type="String">ProcessResponse resource                                                                                                                                 </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">31</Data></Cell>
-    <Cell><Data ss:Type="String">QuestionnaireResponse</Data></Cell>
-    <Cell><Data ss:Type="String">QuestionnaireResponse</Data></Cell>
-    <Cell><Data ss:Type="String">A structured set of questions and their answers                                                                                              </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">32</Data></Cell>
-    <Cell><Data ss:Type="String">RiskAssessment</Data></Cell>
-    <Cell><Data ss:Type="String">RiskAssessment</Data></Cell>
-    <Cell><Data ss:Type="String">Potential outcomes for a subject with likelihood                                                                                                           </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">33</Data></Cell>
-    <Cell><Data ss:Type="String">SupplyDelivery</Data></Cell>
-    <Cell><Data ss:Type="String">SupplyDelivery</Data></Cell>
-    <Cell><Data ss:Type="String">Delivery of bulk Supplies                                                                                                                                  </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">34</Data></Cell>
-    <Cell><Data ss:Type="String">Task</Data></Cell>
-    <Cell><Data ss:Type="String">Task</Data></Cell>
-    <Cell><Data ss:Type="String">A task to be performed                                                                                                                                                         </Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Print>
-    <ValidPrinterInfo/>
-    <PaperSizeIndex>9</PaperSizeIndex>
-    <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>0</VerticalResolution>
-   </Print>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="knowledge-resource-types">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="10" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Index="2" ss:Width="63.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="209.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="639.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="78.0"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s102">
-    <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell><Data ss:Type="String">Code</Data></Cell>
-    <Cell><Data ss:Type="String">Display</Data></Cell>
-    <Cell><Data ss:Type="String">Definition</Data></Cell>
-    <Cell><Data ss:Type="String">Comment</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">ActivityDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">ActivityDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">The definition of a specific activity to be taken, independent of any particular patient or context </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">CodeSystem</Data></Cell>
-    <Cell><Data ss:Type="String">CodeSystem</Data></Cell>
-    <Cell><Data ss:Type="String">A set of codes drawn from one or more code systems                                                                  </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">ConceptMap</Data></Cell>
-    <Cell><Data ss:Type="String">ConceptMap</Data></Cell>
-    <Cell><Data ss:Type="String">A map from one set of concepts to one or more other concepts                                                        </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="String">Library</Data></Cell>
-    <Cell><Data ss:Type="String">Library</Data></Cell>
-    <Cell><Data ss:Type="String">Represents a library of quality improvement components                                                                    </Data></Cell>
-    <Cell ss:StyleID="s104"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="String">Measure</Data></Cell>
-    <Cell><Data ss:Type="String">Measure</Data></Cell>
-    <Cell><Data ss:Type="String">A quality measure definition                                                                                              </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell><Data ss:Type="String">PlanDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">PlanDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">The definition of a plan for a series of actions, independent of any specific patient or context            </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">Structural Definition                                                                             </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell><Data ss:Type="String">StructureMap</Data></Cell>
-    <Cell><Data ss:Type="String">StructureMap</Data></Cell>
-    <Cell><Data ss:Type="String">A Map of relationships between 2 structures that can be used to transform data                                  </Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell><Data ss:Type="String">ValueSet</Data></Cell>
-    <Cell><Data ss:Type="String">A set of codes drawn from one or more code systems                                                                      </Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Print>
-    <ValidPrinterInfo/>
-    <PaperSizeIndex>9</PaperSizeIndex>
-    <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>0</VerticalResolution>
-   </Print>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
  </Worksheet>
 <!--canonicalized--></Workbook>

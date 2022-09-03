@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-[%settitle Data Types%]
+[%settitle Datatypes%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -12,41 +12,41 @@
 
 <%dtheader base%>
 
-<h1>Data Types</h1>
+<h1>Datatypes</h1>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg mnm%]">[%wgt mnm%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Partially Normative</a></td></tr></table>
 
 [%normative page infrastructure%]
 
 <p>
-The FHIR specification defines a set of data types that are used for the
-resource elements. There are four categories of data types:
+The FHIR specification defines a set of datatypes that are used for the
+resource elements. There are four categories of datatypes:
 </p>
 <ol>
   <li>Simple / primitive types, which are single elements with a primitive value (<a href="#primitive">below</a>)</li>
   <li>General-purpose complex types, which are re-usable clusters of elements (<a href="#complex">below</a>)</li>
-  <li>Metadata types: A set of types for use with metadata resources<!-- (todo: provide link when pattern is defined) --></li>
-  <li>Special purpose data types - defined elsewhere in the specification for specific usages</li>
+  <li>Metadatatypes: A set of types for use with metadata resources<!-- (todo: provide link when pattern is defined) --></li>
+  <li>Special purpose datatypes - defined elsewhere in the specification for specific usages</li>
 </ol>
 <p>
-This page describes the general-purpose data types (categories 1 and 2).
+This page describes the general-purpose datatypes (categories 1 and 2).
 </p>
 
-<p><b>Data Types Summary</b>.
+<p><b>Datatypes Summary</b>.
 </p>
 <p>Legend: see <a href="versions.html#std-process">Standards Status Colors</a></p>
 <div class="row">
     <div class="col-6" style="width: auto; border: #efefef 1px solid"><b>Primitive Types</b><br />[%diagram datatypes/allprimitivetypes.diagram 1dt%]</div>
-    <div class="col-6" style="width: auto; border: #efefef 1px solid; padding-right: 0px; margin-right: -25px;"><b>General-Purpose Data types</b><br />[%diagram datatypes/alltypes.diagram 2dt%]</div>
+    <div class="col-6" style="width: auto; border: #efefef 1px solid; padding-right: 0px; margin-right: -25px;"><b>General-Purpose Datatypes</b><br />[%diagram datatypes/alltypes.diagram 2dt%]</div>
 </div>
 <div class="row">
     <div class="col-6" style="width: auto; border: #efefef 1px solid"><b>Metadata Types</b><br />[%diagram datatypes/metadatatypes.diagram 3dt%]</div>
-    <div class="col-6" style="width: auto; border: #efefef 1px solid; padding-right: 0px; margin-right: -25px;"><b>Special Purpose Data types</b><br />[%diagram datatypes/specialtypes.diagram 4dt%]</div>
+    <div class="col-6" style="width: auto; border: #efefef 1px solid; padding-right: 0px; margin-right: -25px;"><b>Special Purpose Datatypes</b><br />[%diagram datatypes/specialtypes.diagram 4dt%]</div>
 </div>
 <a name="modifiers"></a>
 <p>
-A <a href="extensibility.html#list">limited set</a> of these data types may
-appear in extensions. All data types (including primitives) may have
-extensions, but only the following data types may include <a href="extensibility.html#modifier">Modifier Extensions</a>:
+A <a href="extensibility.html#list">limited set</a> of these datatypes may
+appear in extensions. All datatypes (including primitives) may have
+extensions, but only the following datatypes may include <a href="extensibility.html#modifier">Modifier Extensions</a>:
 </p>
 <ul>
  <li><a href="datatypes.html#timing">Timing</a></li>
@@ -139,7 +139,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 <tr>
   <td style="border-top: 0px silver solid"></td>
   <td style="border-top: 0px silver solid">Regex: <code>[^\s]+(\s[^\s]+)*</code><br/>
-      This data type can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
+      This datatype can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="code.profile.xml.html">XML Definition</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="code.profile.json.html">JSON Definition</a></td>
  </tr>
@@ -165,7 +165,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])<br/>(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])<br/>(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,9})?)?)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="datetime.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="datetime.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -209,7 +209,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])<br/>T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])<br/>T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,9}})?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="instant.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="instant.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -282,7 +282,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">This data type can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
+   <td style="border-top: 0px silver solid">This datatype can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
@@ -313,7 +313,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,3})?</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,9})?</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="time.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="time.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -346,7 +346,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  <tr>
    <td style="border-top: 0px silver solid"></td>
    <td style="border-top: 0px silver solid">URIs can be absolute or relative, and may have an optional fragment identifier<br/>
-   This data type can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
+   This datatype can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
  </tr>
 
  <tr>
@@ -431,7 +431,7 @@ Notes:
      <li>Markdown content SHALL NOT contain Unicode character points below 32, except for u0009 (horizontal tab), u0010 (carriage return) and u0013 (line feed)</li>
      <li>Markdown is a <code>string</code>, and subject to the same rules (e.g. length limit)</li>
 		 <li>Converting an element that has the type <code>string</code> to <code>markdown</code> in a later version of this FHIR specification
-		    is not considered a breaking change (neither is adding <code>markdown</code> as a choice to an optional element that already has a choice of data types)</li>
+		    is not considered a breaking change (neither is adding <code>markdown</code> as a choice to an optional element that already has a choice of datatypes)</li>
    </ul>
  </li>
 </ul>
@@ -542,16 +542,16 @@ id: [%dtusage id%]
 
 <p>
 In XML, these types are represented as XML Elements with child elements with the name of the defined elements of the type. The name of the element is defined where the type is used.
-In JSON, the data type is represented by an object with properties named the same as the XML elements. Since the JSON representation is almost exactly the same,
+In JSON, the datatype is represented by an object with properties named the same as the XML elements. Since the JSON representation is almost exactly the same,
 only the first <a href="datatypes-examples.html#Attachment">example</a> has an additional explicit JSON representation.
 </p>
 <p>
-Complex data types may be "profiled". A <a href="structuredefinition.html">Structure Definition</a> or type "constraint" makes
+Complex datatypes may be "profiled". A <a href="structuredefinition.html">Structure Definition</a> or type "constraint" makes
 a set of rules about which elements SHALL have values and what the possible
 values are.
 </p>
 
-<p><b>UML Diagrams of the Data types</b></p>
+<p><b>UML Diagrams of the Datatypes</b></p>
 
 [%diagram datatypes/types.diagram 4dt%]
 <hr/>
@@ -635,7 +635,7 @@ A Coding is a representation of a defined concept using a symbol from a defined 
 - see <a href="terminologies.html">Using Codes in resources</a> for more details.
 </p>
 <p>
-This data type can be <a href="terminologies.html#Coding">bound</a> to a <a href="valueset.html">ValueSet</a>.
+This datatype can be <a href="terminologies.html#Coding">bound</a> to a <a href="valueset.html">ValueSet</a>.
 </p>
 
 [%dt Coding 2%]
@@ -731,14 +731,14 @@ This specification defines two types for representing coded values:
  <li><b>CodeableConcept</b>: a text description and/or a list of Codings (i.e. a list of references to codes defined by code systems)</li>
 </ul>
 <p>
-The <code>Coding</code> data type corresponds to the simple case of selecting
+The <code>Coding</code> datatype corresponds to the simple case of selecting
 a single code from a code list. However, this type is rarely used in the
 FHIR specifications; long experience with exchanging coded values in
 HL7 shows that in the general case, systems need to able to exchange
 multiple translation codes, and/or an original text.
 </p>
 <p>
-The <code>Coding</code> data type is used directly  when there is certainty that the value
+The <code>Coding</code> datatype is used directly  when there is certainty that the value
 must be selected directly from one of the available codes, and the list of
 possible codes is agreed to by all participants. This is not usually the case
 in the context of FHIR - general interoperability - so Coding is mostly used
@@ -758,7 +758,7 @@ A CodeableConcept represents a value that is usually supplied by providing a ref
 provision of text. This is a common pattern in healthcare data.
 </p>
 <p>
-This data type can be <a href="terminologies.html#CodeableConcept">bound</a> to a <a href="valueset.html">ValueSet</a>.
+This datatype can be <a href="terminologies.html#CodeableConcept">bound</a> to a <a href="valueset.html">ValueSet</a>.
 </p>
 [%dt CodeableConcept 3%]
 <p><b>Additional Codes</b></p>
@@ -840,7 +840,7 @@ See also <a href="datatypes-examples.html#Quantity">Examples</a>, <a href="datat
 A measured amount (or an amount that can potentially be measured).
 </p>
 <p>
-This data type can be <a href="terminologies.html#Quantity">bound</a> to a <a href="valueset.html">ValueSet</a>.
+This datatype can be <a href="terminologies.html#Quantity">bound</a> to a <a href="valueset.html">ValueSet</a>.
 </p>
 
 [%dt Quantity 4%]
@@ -882,9 +882,9 @@ Quantity is used in the following places: [%dtusage Quantity%]
 Defined Variations on Quantity
 </h3>
 <p>
-There are several additional data types that are specializations of Quantity
+There are several additional datatypes that are specializations of Quantity
 that only introduce new restrictions on the existing elements defined as part
-of the Quantity data type.
+of the Quantity datatype.
 </p>
 <div class="draft-content">
 <p>
@@ -1210,11 +1210,11 @@ SampledData
 See also <a href="datatypes-examples.html#SampledData">Examples</a>, <a href="datatypes-definitions.html#SampledData">Detailed Descriptions</a>, <a href="datatypes-mappings.html#SampledData">Mappings</a>, <a href="datatypes-extras.html#SampledData">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#SampledData">R3 Conversions</a>.
 </p>
 <p>
-Data that comes from a series of measurements taken by a device, which may have upper and lower limits. The data type also supports more than one dimension in the data.
+Data that comes from a series of measurements taken by a device, which may have upper and lower limits. The datatype also supports more than one dimension in the data.
 </p>
 <p>
 A SampledData provides a concise way to handle the data produced by devices that sample a particular physical state at a high frequency. A typical
-use for this is for the output of an ECG or EKG device. The data type includes a series of raw decimal values (which are mostly simple integers), along with adjustments for scale and
+use for this is for the output of an ECG or EKG device. The datatype includes a series of raw decimal values (which are mostly simple integers), along with adjustments for scale and
 factor. These are interpreted such that
 </p>
 <pre>
@@ -1429,7 +1429,7 @@ See also <a href="datatypes-examples.html#Address">Examples</a>, <a href="dataty
 </p>
 <p>
 An address expressed using postal conventions (as opposed to GPS or other location definition
-formats).  This data type may be used to convey addresses for use in delivering mail as well
+formats).  This datatype may be used to convey addresses for use in delivering mail as well
 as for visiting locations which might not be valid for mail delivery.  There are a variety
 of postal address formats defined around the world.
 </p>
@@ -1512,7 +1512,7 @@ can be expressed in a structured form and/or as a code. When both event and a re
 specification are provided, the list of events should be understood as an interpretation
 of the information in the repeat structure.
 </p>
-<p>Note: The Timing data type allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
+<p>Note: The Timing datatype allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
 [%dt Timing 13%]
 <p>
 If the timing schedule has repeating criteria, the repeat can occur a given number of times per
@@ -1534,7 +1534,7 @@ the morning on weekends and days off work' would be represented as:
 <p>
 Note, though, that some systems include timing details in
 something like 'Dosage instructions' which is wider than just Timing; those systems do not use the
-Timing data type. Other systems use a set of 'common' codes - including, but usually not limited to,
+Timing datatype. Other systems use a set of 'common' codes - including, but usually not limited to,
 widely understood acronyms such as "BID". If a <code>Timing.code</code> is
 provided, the code is understood to be a complete statement of whatever is specified in the structured timing
 data (except for <code>Timing.repeat.bounds</code>, which applies to the code), and either the code or the
@@ -1542,7 +1542,7 @@ data may be used to interpret the <code>Timing</code>. A structured timing speci
 possible, unless the code is BID, TID, QID, AM or PM, which have a ubiquitous meaning.
 </p>
 <p>
-This table summarizes some common uses of the Timing Data Type criteria.
+This table summarizes some common uses of the Timing Datatype criteria.
 </p>
 <table class="grid">
  <tr><td><b>description</b></td> <td><b>duration</b></td> <td><b>durationUnit</b></td> <td><b>frequency</b></td> <td><b>frequencyMax</b></td> <td><b>period</b></td> <td><b>periodUnit</b></td> <td><b>periodMax</b></td> <td><b>Day of Week</b></td> <td><b>Time Of Day</b></td> <td><b>when</b></td> <td><b>offset</b></td>  <td><b>bounds[x]</b></td>  <td><b>count</b></td></tr>
@@ -1749,7 +1749,7 @@ Some elements do not have a specified type. The type is represented by the wildc
 
 [%wildcard-type-list%]
 <p>
-The element name ends with "[x]", and this is replaced with the Title cased name of the data type.
+The element name ends with "[x]", and this is replaced with the Title cased name of the datatype.
 </p>
 
 <p>
@@ -1759,7 +1759,7 @@ Open types are used in the following places: [%dtusage *%]
 <a name="other"></a>
 <h2>Other Types</h2>
 <p>
-The following types are defined as part of the data types, but are documented elsewhere in the specification:
+The following types are defined as part of the datatypes, but are documented elsewhere in the specification:
 </p>
 [%diagram datatypes/types3.diagram 6dt%]
 
@@ -1770,7 +1770,7 @@ The following types are defined as part of the data types, but are documented el
  <li><b><a href="narrative.html#Narrative">Narrative</a></b> - conveys a human-readable representation of the content of a resource</li>
 </ul>
 
-<!--[.%.onthispage Primitive Types#primitive|Data Types#Types|Other Types#other.%.]-->
+<!--[.%.onthispage Primitive Types#primitive|Datatypes#Types|Other Types#other.%.]-->
 
 [%file newfooter%]
 

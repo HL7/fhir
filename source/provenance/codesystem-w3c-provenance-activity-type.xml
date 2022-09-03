@@ -3,15 +3,6 @@
 	<meta>
 		<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
 	</meta>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml"> 
-	"The PROV data model, PROV-DM, a generic data model for provenance that allows domain and application specific representations of provenance to be translated into such a data model and interchanged between systems. Thus, heterogeneous systems can export their native provenance into such a core data model, and applications that need to make sense of provenance can then import it, process it, and reason over it.
-	A key goal of PROV is the specification of a machine-processable data model for provenance. However, communicating provenance between humans is also important when teaching, illustrating, formalizing, and discussing provenance-related issues.  With these two requirements in mind, this document introduces PROV-N, the PROV notation, a syntax designed to write instances of the PROV data model according to the following design principles: •Technology independence. PROV-N provides a simple syntax that can be mapped to several technologies. 
-	•Human readability. PROV-N follows a functional syntax style that is meant to be easily human-readable so it can be used in illustrative examples, such as those presented in the PROV documents suite. 
-	•Formality. PROV-N is defined through a formal grammar amenable to be used with parser generators."
-		</div>
-	</text>
 	<url value="http://hl7.org/fhir/w3c-provenance-activity-type"/>
 	<version value="1.1.0"/>
 	<name value="W3cProvenanceActivityType"/>

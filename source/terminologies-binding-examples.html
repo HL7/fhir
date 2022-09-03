@@ -10,16 +10,16 @@
 
 
 
-<%txheader%>
+<%txheader examples%>
 
-<h1>Terminology Binding Examples</h1>
+<h2>Terminology Binding Examples</h2>
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt vocab%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 <a name="binding-examples"></a>
 
 <a name="extensible"></a>
-<h2>Extensible binding examples</h2>
+<h3>Extensible binding examples</h3>
 
-<h3>Condition.code with Extensible binding</h3>
+<h4>Condition.code with Extensible binding</h4>
 <p>For example, we have a Condition.code and the applicable profile binds the code to the value set <a href="http://build.fhir.org/valueset-condition-code.html">http://hl7.org/fhir/ValueSet/condition-code</a> 
 with an Extensible binding:</p>
 
@@ -59,7 +59,7 @@ with an Extensible binding:</p>
 <p>This concept (code = 39065001) is included in the value set so the instance is valid.</p>
   
 <a name="extensible.c2"></a>
-<h3>Condition instance #2</h3>
+<h4>Condition instance #2</h4>
 
 <pre class="json">{
   "resourceType": "Condition",
@@ -91,7 +91,7 @@ That also appears likely to be the case.  But that isn&#8217;t entirely clear, w
 <p>So this example is most likely valid (based on human review).</p>
 
 <a name="extensible.c3"></a>
-<h3>Condition instance #3</h3>
+<h4>Condition instance #3</h4>
     
 <pre class="json">{
   "resourceType": "Condition",
@@ -124,9 +124,9 @@ used instead, this instance is not valid.</li>
 </ul>
 
 <a name="extensible.c4"></a>
-<h3>Condition instance #4</h3>
+<h4>Condition instance #4</h4>
 <p>What if we would like to send our local code for &#8216;Severe pneumococcal pneumonia&#8217; in the instance along with
-the SNOMED CT code 233607000 for &#8216;Pneumococcal pneumonia&#8217;?  Because the data type for Condition.code is CodeableConcept, 
+the SNOMED CT code 233607000 for &#8216;Pneumococcal pneumonia&#8217;?  Because the datatype for Condition.code is CodeableConcept, 
 we can do that using an additional Coding (as a translation):
 </p>
     
@@ -157,7 +157,7 @@ condition-code value set for &#8216;Pneumococcal pneumonia&#8217; as well as my 
 &#8216;Severe pneumococcal pneumonia&#8217;.</p>
         
 <a name="preferred"></a>
-<h2>Preferred binding examples</h2>
+<h3>Preferred binding examples</h3>
 
 <p>The choice of code with a Preferred binding is considerably simpler than for an Extensional binding, because the Preferred
 binding is a suggestion from the developers of the resource or profile about which codes they believe would be best to use to
@@ -169,7 +169,7 @@ particular desires and needs, and there are no specific conformance expectations
 with a Preferred binding:</p>
 
 <a name="preferred.c1"></a>
-<h3>Condition.code with Preferred binding</h3>
+<h4>Condition.code with Preferred binding</h4>
 
 <pre class="json">{
   "path": "Condition.code",
@@ -185,7 +185,7 @@ with a Preferred binding:</p>
 Condition resource:</p>
 
 <a name="preferred.c2"></a>
-<h3>Condition instance #5</h3>
+<h4>Condition instance #5</h4>
 
 <pre class="json">{
   "resourceType": "Condition",
@@ -206,7 +206,7 @@ Condition resource:</p>
 </pre>
 
 <a name="preferred.c4"></a>
-<h3>Condition instance #6</h3>
+<h4>Condition instance #6</h4>
 
 <pre class="json">{
   "resourceType": "Condition",
@@ -226,7 +226,7 @@ Condition resource:</p>
 </pre>
 
 <a name="preferred.c5"></a>
-<h3>Condition instance #7</h3>
+<h4>Condition instance #7</h4>
     
 <pre class="json">{
   "resourceType": "Condition",
@@ -246,7 +246,7 @@ Condition resource:</p>
 </pre>
 
 <a name="preferred.c6"></a>
-<h3>Condition instance #8</h3>
+<h4>Condition instance #8</h4>
 
 <pre class="json">{
   "resourceType": "Condition",

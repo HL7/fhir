@@ -14,10 +14,10 @@
    <Path>\\ERICS-AIR-2\ehaas\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  
-  
-  
-  
+
+
+
+
   <TabRatio>735</TabRatio>
   <ActiveSheet>1</ActiveSheet>
   <DoNotCalculateBeforeSave/>
@@ -918,7 +918,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Canonical identifier for this {{title}}, represented as a URI (globally unique)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">An absolute URI that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this {{title}} is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the {{title}} is stored on different servers.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">An absolute URI that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this {{title}} is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the {{title}} is stored on different servers.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Allows the {{title}} to be referenced by a single globally unique identifier.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#10;&#10;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#10;&#10;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -946,7 +946,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">Business version of the {{title}}</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">The identifier that is used to identify this version of the {{title}} when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the {{title}} author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">There may be different {{title}} instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the {{title}} with the format [url]|[version].</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">There may be different {{title}} instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the {{title}} with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1096,7 +1096,7 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">Natural language description of the {{title}}</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">A free text natural language description of the {{title}} from a consumer's perspective.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">This description can be used to capture details such as why the {{title}} was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the {{title}} as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the {{title}} is presumed to be the predominant language in the place the {{title}} was created).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the {{title}} as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the {{title}} is presumed to be the predominant language in the place the {{title}} was created).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1827,7 +1827,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -2164,7 +2164,7 @@
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -2512,7 +2512,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3102,7 +3102,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3469,7 +3469,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3774,7 +3774,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -4183,7 +4183,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -4349,7 +4349,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

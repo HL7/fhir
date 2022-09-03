@@ -175,10 +175,10 @@
                 <total value="4"/>
                 <link>
                     <relation value="self"/>
-                    <url value="http://local.fhir.org:960/r4/Condition?_format=application/fhir+xml&amp;search-id=36aac5c3-a9f6-4c3a-bf94-24d32ed604&amp;&amp;patient=example&amp;_sort=_id"/>
+                    <url value="<%test-server%>/Condition?_format=application/fhir+xml&amp;search-id=36aac5c3-a9f6-4c3a-bf94-24d32ed604&amp;&amp;patient=example&amp;_sort=_id"/>
                 </link>
                 <entry>
-                    <fullUrl value="http://local.fhir.org:960/r4/Condition/example"/>
+                    <fullUrl value="<%test-server%>/Condition/example"/>
                     <resource>
                         <Condition xmlns="http://hl7.org/fhir">
                             <id value="example"/>
@@ -248,7 +248,7 @@
                     </search>
                 </entry>
                 <entry>
-                    <fullUrl value="http://local.fhir.org:960/r4/Condition/example2"/>
+                    <fullUrl value="<%test-server%>/Condition/example2"/>
                     <resource>
                         <Condition xmlns="http://hl7.org/fhir">
                             <id value="example2"/>
@@ -300,7 +300,7 @@
                     </search>
                 </entry>
                 <entry>
-                    <fullUrl value="http://local.fhir.org:960/r4/Condition/family-history"/>
+                    <fullUrl value="<%test-server%>/Condition/family-history"/>
                     <resource>
                         <Condition xmlns="http://hl7.org/fhir">
                             <id value="family-history"/>
@@ -342,7 +342,7 @@
                     </search>
                 </entry>
                 <entry>
-                    <fullUrl value="http://local.fhir.org:960/r4/Condition/stroke"/>
+                    <fullUrl value="<%test-server%>/Condition/stroke"/>
                     <resource>
                         <Condition xmlns="http://hl7.org/fhir">
                             <id value="stroke"/>
@@ -410,7 +410,7 @@
                 <total value="0"/>
                 <link>
                     <relation value="self"/>
-                    <url value="http://local.fhir.org:960/r4/MedicationUsage?_format=application/fhir+xml&amp;search-id=0f08b401-5120-4444-9a83-3fd21d33df&amp;&amp;patient=example&amp;_sort=_id"/>
+                    <url value="<%test-server%>/MedicationUsage?_format=application/fhir+xml&amp;search-id=0f08b401-5120-4444-9a83-3fd21d33df&amp;&amp;patient=example&amp;_sort=_id"/>
                 </link>
             </Bundle>
         </resource>
@@ -431,7 +431,7 @@
                 <total value="0"/>
                 <link>
                     <relation value="self"/>
-                    <url value="http://local.fhir.org:960/r4/Observation?_format=application/fhir+xml&amp;search-id=50df0414-1375-48a4-ba1e-66f580360a&amp;&amp;patient=example&amp;code=http%3A//loinc.org%7C55284%2D4&amp;date=ge2015%2D01%2D01&amp;_sort=_id"/>
+                    <url value="<%test-server%>/Observation?_format=application/fhir+xml&amp;search-id=50df0414-1375-48a4-ba1e-66f580360a&amp;&amp;patient=example&amp;code=http%3A//loinc.org%7C55284%2D4&amp;date=ge2015%2D01%2D01&amp;_sort=_id"/>
                 </link>
             </Bundle>
         </resource>

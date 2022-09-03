@@ -54,6 +54,16 @@
       <definition value="This is the base resource type for everything."/>
       <min value="0"/>
       <max value="*"/>
+      <!--
+      <constraint>
+        <key value="res-1"/>
+        <severity value="error"/>
+        <human value="Resource references must be to other resources"/>
+        <expression value="Resource.descendants().ofType(Reference).where(type.exists() and type.contains(':')).empty()"/>
+        <xpath value="don't now"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+      </constraint>      
+      -->
       <mapping>
         <identity value="rim"/>
         <map value="Entity. Role, or Act"/>

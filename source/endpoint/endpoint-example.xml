@@ -46,8 +46,8 @@
 	</period>
 	<payloadType>
 		<coding>
-        <system value="http://hl7.org/fhir/resource-types" />
-			<code value="CarePlan" />
+      <system value="http://hl7.org/fhir/fhir-types" />
+		 	<code value="CarePlan" />
 		</coding>
 	</payloadType>
 	<payloadMimeType value="application/fhir+xml"/>

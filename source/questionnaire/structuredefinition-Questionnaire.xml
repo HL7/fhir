@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="Questionnaire"/>
 	<meta>
 		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -90,8 +90,8 @@
 				<key value="cnl-0"/>
 				<severity value="warning"/>
 				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-				<expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){0,254}')"/>
-				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){0,254}')"/>
+				<expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){1,254}')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
@@ -126,6 +126,14 @@
 			<type>
 				<code value="uri"/>
 			</type>
+			<constraint>
+				<key value="cnl-1"/>
+				<severity value="warning"/>
+				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+				<expression value="url.matches(&#39;([^|#])*&#39;)"/>
+				<xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+			</constraint>
 			<isSummary value="true"/>
 			<mapping>
 				<identity value="workflow"/>
@@ -176,7 +184,7 @@
 			<path value="Questionnaire.version"/>
 			<short value="Business version of the questionnaire"/>
 			<definition value="The identifier that is used to identify this version of the questionnaire when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the questionnaire author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-			<comment value="There may be different questionnaire instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the questionnaire with the format [url]|[version]."/>
+			<comment value="There may be different questionnaire instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the questionnaire with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -195,6 +203,25 @@
 				<identity value="rim"/>
 				<map value="N/A (to add?)"/>
 			</mapping>
+		</element>
+		<element id="Questionnaire.versionAlgorithm[x]">
+			<path value="Questionnaire.versionAlgorithm[x]"/>
+			<short value="How to compare versions"/>
+			<definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+			<comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<type>
+				<code value="Coding"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<strength value="extensible"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+			</binding>
 		</element>
 		<element id="Questionnaire.name">
 			<path value="Questionnaire.name"/>
@@ -302,6 +329,7 @@
 			<type>
 				<code value="boolean"/>
 			</type>
+			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
 			<isSummary value="true"/>
 			<mapping>
 				<identity value="workflow"/>
@@ -437,9 +465,9 @@
 			</mapping>
 		</element>
 		<element id="Questionnaire.useContext">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
 			<path value="Questionnaire.useContext"/>
 			<short value="The context that the content is intended to support"/>
 			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate questionnaire instances."/>
@@ -709,27 +737,27 @@
 				<xpath value="f:type/@value=('boolean', 'decimal', 'integer', 'string', 'text', 'url') or f:answerConstraint/@value='openOrString' or not(f:maxLength)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
-      <constraint>
-        <key value="que-1a"/>
-        <severity value="error"/>
-        <human value="Group items must have nested items when Questionanire is complete"/>
-        <expression value="(type='group' and %resource.status='complete') implies item.empty().not()"/>
-        <xpath value="not(f:type/@value='group' and ancestor::f:Questionnaire/f:status/@value='complete' and not(exists(f:item)))"/>
-      </constraint>
-      <constraint>
-        <key value="que-1b"/>
-        <severity value="warning"/>
-        <human value="Groups should have items"/>
-        <expression value="type='group' implies item.empty().not()"/>
-        <xpath value="not(f:type/@value='group' and not(exists(f:item)))"/>
-      </constraint>
-      <constraint>
-        <key value="que-1c"/>
-        <severity value="error"/>
-        <human value="Display items cannot have child items"/>
-        <expression value="type='display' implies item.empty()"/>
-        <xpath value="not(f:type/@value='display' and exists(f:item))"/>
-      </constraint>
+			<constraint>
+				<key value="que-1a"/>
+				<severity value="error"/>
+				<human value="Group items must have nested items when Questionanire is complete"/>
+				<expression value="(type='group' and %resource.status='complete') implies item.empty().not()"/>
+				<xpath value="not(f:type/@value='group' and ancestor::f:Questionnaire/f:status/@value='complete' and not(exists(f:item)))"/>
+			</constraint>
+			<constraint>
+				<key value="que-1b"/>
+				<severity value="warning"/>
+				<human value="Groups should have items"/>
+				<expression value="type='group' implies item.empty().not()"/>
+				<xpath value="not(f:type/@value='group' and not(exists(f:item)))"/>
+			</constraint>
+			<constraint>
+				<key value="que-1c"/>
+				<severity value="error"/>
+				<human value="Display items cannot have child items"/>
+				<expression value="type='display' implies item.empty()"/>
+				<xpath value="not(f:type/@value='display' and exists(f:item))"/>
+			</constraint>
 			<constraint>
 				<key value="que-13"/>
 				<severity value="error"/>
@@ -778,13 +806,13 @@
 			<type>
 				<code value="string"/>
 			</type>
-			<condition value="que-2"/>	
+			<condition value="que-2"/>
 			<constraint>
 				<key value="que-15"/>
 				<severity value="warning">
-          <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
-            <valueBoolean value="true"/>
-          </extension>
+					<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+						<valueBoolean value="true"/>
+					</extension>
 				</severity>
 				<human value="Link ids should be 255 characters or less"/>
 				<expression value="$this.length &lt;= 255"/>

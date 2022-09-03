@@ -1,30 +1,25 @@
-﻿<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-<!-- TODO: Had to take this valueset out of the build because it results in a NullPointerException in BaseValidator.splitByCamelCase. Without this in the build, I get an information warning on several of the CDS resources...
--->
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="zika-affected-areas"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">Zika Affected Areas</div>
-  </text>
   <url value="http://hl7.org/fhir/ValueSet/zika-affected-areas"/>
-  <!--url value="urn:oid:2.16.840.1.114222.4.11.7459"/-->
-    <identifier>
+  <identifier>
     <use value="usual"/>
     <value value="Zika Affected Areas"/>
-    </identifier>
-    <identifier>
-      <use value="official"/>
-      <system value="oid"/>
-      <value value="2.16.840.1.114222.4.11.7457"/>
-    </identifier>
-    <version value="1.0.0"/>
-    <name value="zika-affected-areas"/>
-    <title value="Zika Affected Areas"/>
-    <status value="active"/>
-    <publisher value="PHINVADS"/>
-    <compose>
-		<include>
-			<valueSet value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7457"/>
-		</include>
-	</compose>
+  </identifier>
+  <identifier>
+    <use value="official"/>
+    <system value="oid"/>
+    <value value="2.16.840.1.114222.4.11.7457"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <name value="zika-affected-areas"/>
+  <title value="Zika Affected Areas"/>
+  <status value="active"/>
+  <publisher value="PHINVADS"/>
+  <compose>
+    <include>
+      <valueSet value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7457"/>
+    </include>
+  </compose>
 </ValueSet>

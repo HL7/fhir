@@ -1,874 +1,945 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="OperationDefinition"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-    <valueString value="Foundation.Conformance"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="normative"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-    <valueCode value="4.0.0"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="anonymous"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".status = retired"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="CanonicalResource"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
-  <version value="5.0.0"/>
-  <name value="OperationDefinition"/>
-  <status value="active"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
-    </telecom>
-  </contact>
-  <description value="A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction)."/>
-  <fhirVersion value="5.0.0"/>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="OperationDefinition"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-  <derivation value="specialization"/>
-  <differential>
-    <element id="OperationDefinition">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,0"/>
-      </extension>
-      <path value="OperationDefinition"/>
-      <short value="Definition of an operation or a named query"/>
-      <definition value="A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <constraint>
-        <key value="cnl-0"/>
-        <severity value="warning"/>
-        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
-      </constraint>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="conformance.behavior"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.url">
-      <path value="OperationDefinition.url"/>
-      <short value="Canonical identifier for this operation definition, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this operation definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this operation definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the operation definition is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-      <requirements value="Allows the operation definition to be referenced by a single globally unique identifier."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.url"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.version">
-      <path value="OperationDefinition.version"/>
-      <short value="Business version of the operation definition"/>
-      <definition value="The identifier that is used to identify this version of the operation definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the operation definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different operation definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the operation definition with the format [url]|[version]."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.version"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.version"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.name">
-      <path value="OperationDefinition.name"/>
-      <short value="Name for this operation definition (computer friendly)"/>
-      <definition value="A natural language name identifying the operation definition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-      <requirements value="Support human navigation and code generation."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <condition value="cnl-0"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.title"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.title">
-      <path value="OperationDefinition.title"/>
-      <short value="Name for this operation definition (human friendly)"/>
-      <definition value="A short, descriptive, user-friendly title for the operation definition."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.title"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.status">
-      <path value="OperationDefinition.status"/>
-      <short value="draft | active | retired | unknown"/>
-      <definition value="The status of this operation definition. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of operation definitions that are appropriate for use versus not."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PublicationStatus"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.status {different ValueSet}"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.kind">
-      <path value="OperationDefinition.kind"/>
-      <short value="operation | query"/>
-      <definition value="Whether this is an operation or a named query."/>
-      <comment value="Named queries are invoked differently, and have different capabilities."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="OperationKind"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Whether an operation is a normal operation or a query."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/operation-kind"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.experimental">
-      <path value="OperationDefinition.experimental"/>
-      <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-      <comment value="Allows filtering of operation definitions that are appropriate for use versus not."/>
-      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level operation definition."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.experimental"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.date">
-      <path value="OperationDefinition.date"/>
-      <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the operation definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the operation definition changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the operation definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-      <alias value="Revision Date"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.date"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.recorded"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.publisher">
-      <path value="OperationDefinition.publisher"/>
-      <short value="Name of the publisher (organization or individual)"/>
-      <definition value="The name of the organization or individual that published the operation definition."/>
-      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the operation definition is the organization or individual primarily responsible for the maintenance and upkeep of the operation definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the operation definition. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the operation definition.  May also allow for contact."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.publisher"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.witness"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.contact">
-      <path value="OperationDefinition.contact"/>
-      <short value="Contact details for the publisher"/>
-      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.contact"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.description">
-      <path value="OperationDefinition.description"/>
-      <short value="Natural language description of the operation definition"/>
-      <definition value="A free text natural language description of the operation definition from a consumer&#39;s perspective."/>
-      <comment value="This description can be used to capture details such as why the operation definition was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the operation definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the operation definition is presumed to be the predominant language in the place the operation definition was created)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.description"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.useContext">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="OperationDefinition.useContext"/>
-      <short value="The context that the content is intended to support"/>
-      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate operation definition instances."/>
-      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-      <requirements value="Assist in searching for appropriate content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="UsageContext"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.useContext"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.jurisdiction">
-      <path value="OperationDefinition.jurisdiction"/>
-      <short value="Intended jurisdiction for operation definition (if applicable)"/>
-      <definition value="A legal or geographic region in which the operation definition is intended to be used."/>
-      <comment value="It may be possible for the operation definition to be used in jurisdictions other than those for which it was originally designed or intended."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Jurisdiction"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Countries and regions within which this artifact is targeted for use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.jurisdiction"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.purpose">
-      <path value="OperationDefinition.purpose"/>
-      <short value="Why this operation definition is defined"/>
-      <definition value="Explanation of why this operation definition is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the operation definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this operation definition."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.purpose"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.why[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.copyright">
-      <path value="OperationDefinition.copyright"/>
-      <short value="Use and/or publishing restrictions"/>
-      <definition value="A copyright statement relating to the OperationDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the OperationDefinition."/>
-      <requirements value="Consumers must be able to determine any legal restrictions on the use of the OperationDefinition and/or its content."/>
-      <alias value="License"/>
-      <alias value="Restrictions"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.copyright"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.affectsState">
-      <path value="OperationDefinition.affectsState"/>
-      <short value="Whether content is changed by the operation"/>
-      <definition value="Whether the operation affects state. Side effects such as producing audit trail entries do not count as &#39;affecting  state&#39;."/>
-      <comment value="What http methods can be used for the operation depends on the .affectsState value and whether the input parameters are primitive or complex:&#xA;&#xA;1. Servers SHALL support POST method for all operations.&#xA;&#xA;2. Servers SHALL support the GET method when the operation has affectsState = false and all required parameters for the operation are primitive."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="OperationDefinition.code">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
-        <valueBoolean value="true"/>
-      </extension>
-      <path value="OperationDefinition.code"/>
-      <short value="Name used to invoke the operation"/>
-      <definition value="The name used to invoke the operation."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="OperationDefinition.comment">
-      <path value="OperationDefinition.comment"/>
-      <short value="Additional information about use"/>
-      <definition value="Additional information about how to use this operation or named query."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="OperationDefinition.base">
-      <path value="OperationDefinition.base"/>
-      <short value="Marks this as a profile of the base"/>
-      <definition value="Indicates that this operation definition is a constraining profile on the base."/>
-      <comment value="A constrained profile can make optional parameters required or not used, introduce new parameters (required or optional), and clarify documentation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.derivedFrom"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.resource">
-      <path value="OperationDefinition.resource"/>
-      <short value="Types this operation applies to"/>
-      <definition value="The types on which this operation can be executed."/>
-      <comment value="If the type is an abstract resource (&quot;Resource&quot; or &quot;DomainResource&quot;) then the operation can be invoked on any concrete specialization."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResourceType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="One of the resource types defined as part of this version of FHIR."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.subject[x]"/>
-      </mapping>
-    </element>
-    <element id="OperationDefinition.system">
-      <path value="OperationDefinition.system"/>
-      <short value="Invoke at the system level?"/>
-      <definition value="Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context)."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="OperationDefinition.type">
-      <path value="OperationDefinition.type"/>
-      <short value="Invoke at the type level?"/>
-      <definition value="Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context)."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="OperationDefinition.instance">
-      <path value="OperationDefinition.instance"/>
-      <short value="Invoke on an instance?"/>
-      <definition value="Indicates whether this operation can be invoked on a particular instance of one of the given types."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="OperationDefinition.inputProfile">
-      <path value="OperationDefinition.inputProfile"/>
-      <short value="Validation information for in parameters"/>
-      <definition value="Additional validation information for the in parameters - a single profile that covers all the parameters. The profile is a constraint on the parameters resource as a whole."/>
-      <comment value="If present the profile shall not conflict with what is specified in the parameters in the operation definition (max/min etc.), though it may provide additional constraints. The constraints expressed in the profile apply whether the operation is invoked by a POST wih parameters or not."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-      </type>
-    </element>
-    <element id="OperationDefinition.outputProfile">
-      <path value="OperationDefinition.outputProfile"/>
-      <short value="Validation information for out parameters"/>
-      <definition value="Additional validation information for the out parameters - a single profile that covers all the parameters. The profile is a constraint on the parameters resource."/>
-      <comment value="If present the profile shall not conflict with what is specified in the parameters in the operation definition (max/min etc.), though it may provide additional constraints. The constraints expressed in the profile apply whether the operation is invoked by a POST wih parameters or not."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-      </type>
-    </element>
-    <element id="OperationDefinition.parameter">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,0"/>
-      </extension>
-      <path value="OperationDefinition.parameter"/>
-      <short value="Parameters for the operation/query"/>
-      <definition value="The parameters for the operation/query."/>
-      <comment value="Query Definitions only have one output parameter, named &quot;result&quot;. This might not be described, but can be to allow a profile to be defined."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <constraint>
-        <key value="opd-1"/>
-        <severity value="error"/>
-        <human value="Either a type must be provided, or parts"/>
-        <expression value="type.exists() or part.exists()"/>
-        <xpath value="exists(f:type) or exists(f:part)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
-      </constraint>
-      <constraint>
-        <key value="opd-2"/>
-        <severity value="error"/>
-        <human value="A search type can only be specified for parameters of type string"/>
-        <expression value="searchType.exists() implies type = &#39;string&#39;"/>
-        <xpath value="not(exists(f:searchType)) or (f:type/@value = &#39;string&#39;)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
-      </constraint>
-      <constraint>
-        <key value="opd-3"/>
-        <severity value="error"/>
-        <human value="A targetProfile can only be specified for parameters of type Reference or Canonical"/>
-        <expression value="targetProfile.exists() implies (type = &#39;Reference&#39; or type = &#39;canonical&#39;)"/>
-        <xpath value="not(exists(f:targetProfile)) or ((f:type/@value = &#39;Reference&#39;) or (f:type/@value = &#39;canonical&#39;))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
-      </constraint>
-    </element>
-    <element id="OperationDefinition.parameter.name">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
-        <valueBoolean value="true"/>
-      </extension>
-      <path value="OperationDefinition.parameter.name"/>
-      <short value="Name in Parameters.parameter.name or in URL"/>
-      <definition value="The name of used to identify the parameter."/>
-      <comment value="This name must be a token (start with a letter in a..z, and only contain letters, numerals, and underscore. Note that for search parameters (type = string, with a search type), the name may be altered by the search modifiers."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-    </element>
-    <element id="OperationDefinition.parameter.use">
-      <path value="OperationDefinition.parameter.use"/>
-      <short value="in | out"/>
-      <definition value="Whether this is an input or an output parameter."/>
-      <comment value="If a parameter name is used for both an input and an output parameter, the parameter should be defined twice."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="OperationParameterUse"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Whether an operation parameter is an input or an output parameter."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/operation-parameter-use"/>
-      </binding>
-    </element>
-    <element id="OperationDefinition.parameter.min">
-      <path value="OperationDefinition.parameter.min"/>
-      <short value="Minimum Cardinality"/>
-      <definition value="The minimum number of times this parameter SHALL appear in the request or response."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="integer"/>
-      </type>
-    </element>
-    <element id="OperationDefinition.parameter.max">
-      <path value="OperationDefinition.parameter.max"/>
-      <short value="Maximum Cardinality (a number or *)"/>
-      <definition value="The maximum number of times this element is permitted to appear in the request or response."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="OperationDefinition.parameter.documentation">
-      <path value="OperationDefinition.parameter.documentation"/>
-      <short value="Description of meaning/use"/>
-      <definition value="Describes the meaning or use of this parameter."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="OperationDefinition.parameter.type">
-      <path value="OperationDefinition.parameter.type"/>
-      <short value="What type this parameter has"/>
-      <definition value="The type for this parameter."/>
-      <comment value="if there is no stated parameter, then the parameter is a multi-part parameter type and must have at least one part defined."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <condition value="opd-1"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRAllTypes"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="A list of all the concrete types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-types"/>
-      </binding>
-    </element>
-    <element id="OperationDefinition.parameter.allowedType">
-      <path value="OperationDefinition.parameter.allowedType"/>
-      <short value="Allowed sub-type this parameter can have (if type is abstract)"/>
-      <definition value="Support for polymorphic types. If the parameter type is abstract, this element lists allowed sub-types for the parameter."/>
-      <comment value="In previous versions of FHIR, there was an extension for this: http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <condition value="opd-1"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRAllTypes"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="A list of all the concrete types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-types"/>
-      </binding>
-    </element>
-    <element id="OperationDefinition.parameter.targetProfile">
-      <path value="OperationDefinition.parameter.targetProfile"/>
-      <short value="If type is Reference | canonical, allowed targets"/>
-      <definition value="Used when the type is &quot;Reference&quot; or &quot;canonical&quot;, and identifies a profile structure or implementation Guide that applies to the target of the reference this parameter refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide."/>
-      <comment value="Often, these profiles are the base definitions from the spec (e.g. http://hl7.org/fhir/StructureDefinition/Patient)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-      </type>
-    </element>
-    <element id="OperationDefinition.parameter.searchType">
-      <path value="OperationDefinition.parameter.searchType"/>
-      <short value="number | date | string | token | reference | composite | quantity | uri | special"/>
-      <definition value="How the parameter is understood as a search parameter. This is only used if the parameter type is &#39;string&#39;."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <condition value="opd-2"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SearchParamType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Data types allowed to be used for search parameters."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/search-param-type"/>
-      </binding>
-    </element>
-    <element id="OperationDefinition.parameter.binding">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,230"/>
-      </extension>
-      <path value="OperationDefinition.parameter.binding"/>
-      <short value="ValueSet details if this is coded"/>
-      <definition value="Binds to a value set if this parameter is coded (code, Coding, CodeableConcept)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="OperationDefinition.parameter.binding.strength">
-      <path value="OperationDefinition.parameter.binding.strength"/>
-      <short value="required | extensible | preferred | example"/>
-      <definition value="Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances."/>
-      <comment value="For further discussion, see [Using Terminologies](terminologies.html)."/>
-      <alias value="conformance"/>
-      <alias value="extensibility"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BindingStrength"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Indication of the degree of conformance expectations associated with a binding."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/binding-strength"/>
-      </binding>
-    </element>
-    <element id="OperationDefinition.parameter.binding.valueSet">
-      <path value="OperationDefinition.parameter.binding.valueSet"/>
-      <short value="Source of value set"/>
-      <definition value="Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used."/>
-      <comment value="For value sets with a referenceResource, the display can contain the value set description.  The reference may be version-specific or not."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
-      </type>
-    </element>
-    <element id="OperationDefinition.parameter.referencedFrom">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="OperationDefinition.parameter.referencedFrom"/>
-      <short value="References to this parameter"/>
-      <definition value="Identifies other resource parameters within the operation invocation that are expected to resolve to this resource."/>
-      <comment value="Resolution applies if the referenced parameter exists."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="OperationDefinition.parameter.referencedFrom.source">
-      <path value="OperationDefinition.parameter.referencedFrom.source"/>
-      <short value="Referencing parameter"/>
-      <definition value="The name of the parameter or dot-separated path of parameter names pointing to the resource parameter that is expected to contain a reference to this resource."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="OperationDefinition.parameter.referencedFrom.sourceId">
-      <path value="OperationDefinition.parameter.referencedFrom.sourceId"/>
-      <short value="Element id of reference"/>
-      <definition value="The id of the element in the referencing resource that is expected to resolve to this resource."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="OperationDefinition.parameter.part">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="right"/>
-      </extension>
-      <path value="OperationDefinition.parameter.part"/>
-      <short value="Parts of a nested Parameter"/>
-      <definition value="The parts of a nested Parameter."/>
-      <comment value="Query Definitions only have one output parameter, named &quot;result&quot;. This might not be described, but can be to allow a profile to be defined."/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#OperationDefinition.parameter"/>
-      <condition value="opd-1"/>
-    </element>
-    <element id="OperationDefinition.overload">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="left"/>
-      </extension>
-      <path value="OperationDefinition.overload"/>
-      <short value="Define overloaded variants for when  generating code"/>
-      <definition value="Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation."/>
-      <comment value="The combinations are suggestions as to which sets of parameters to use together, but the combinations are not intended to be authoritative."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="OperationDefinition.overload.parameterName">
-      <path value="OperationDefinition.overload.parameterName"/>
-      <short value="Name of parameter to include in overload"/>
-      <definition value="Name of parameter to include in overload."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="OperationDefinition.overload.comment">
-      <path value="OperationDefinition.overload.comment"/>
-      <short value="Comments to go on overload"/>
-      <definition value="Comments to go on overload."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-  </differential>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="OperationDefinition"/>
+	<meta>
+		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+		<valueString value="Foundation.Conformance"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="normative"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+		<valueCode value="4.0.0"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="5"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+		<valueCode value="anonymous"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="fhir"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+		<valueCode value=".status = retired"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+		<valueString value="CanonicalResource"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+	<version value="5.0.0"/>
+	<name value="OperationDefinition"/>
+	<status value="active"/>
+	<date value="2021-01-05T10:01:24+11:00"/>
+	<publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+		</telecom>
+	</contact>
+	<description value="A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction)."/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="OperationDefinition"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+	<derivation value="specialization"/>
+	<differential>
+		<element id="OperationDefinition">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="0,0"/>
+			</extension>
+			<path value="OperationDefinition"/>
+			<short value="Definition of an operation or a named query"/>
+			<definition value="A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<constraint>
+				<key value="cnl-0"/>
+				<severity value="warning"/>
+				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+			</constraint>
+			<constraint>
+				<key value="opd-5"/>
+				<severity value="error"/>
+				<human value="A query operation cannot be defined at the instance level"/>
+				<expression value="(kind = 'query') implies (instance = false)"/>
+				<xpath value="((f:kind/@value = 'query') and (f:/instance = false)) or (not(f:kind/@value = 'query'))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+			</constraint>
+			<constraint>
+				<key value="opd-6"/>
+				<severity value="error"/>
+				<human value="A query operation requires input parameters to have a search type"/>
+				<expression value="(kind = 'query') implies (parameter.all((use = 'in' and searchType.exists()) or (use != 'in')))"/>
+				<xpath value="((f:kind/@value = 'query') and ((f:parameter/f:use/@value = 'in') and (f:parameter/f:searchType))) or (not(f:kind/@value = 'query'))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+			</constraint>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="n/a"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="conformance.behavior"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.url">
+			<path value="OperationDefinition.url"/>
+			<short value="Canonical identifier for this operation definition, represented as a URI (globally unique)"/>
+			<definition value="An absolute URI that is used to identify this operation definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this operation definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the operation definition is stored on different servers."/>
+			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+			<requirements value="Allows the operation definition to be referenced by a single globally unique identifier."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
+			<constraint>
+				<key value="cnl-1"/>
+				<severity value="warning"/>
+				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+				<expression value="url.matches(&#39;([^|#])*&#39;)"/>
+				<xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+			</constraint>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.url"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.version">
+			<path value="OperationDefinition.version"/>
+			<short value="Business version of the operation definition"/>
+			<definition value="The identifier that is used to identify this version of the operation definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the operation definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+			<comment value="There may be different operation definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the operation definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.version"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.version"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.versionAlgorithm[x]">
+			<path value="OperationDefinition.versionAlgorithm[x]"/>
+			<short value="How to compare versions"/>
+			<definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+			<comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<type>
+				<code value="Coding"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<strength value="extensible"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+			</binding>
+		</element>
+		<element id="OperationDefinition.name">
+			<path value="OperationDefinition.name"/>
+			<short value="Name for this operation definition (computer friendly)"/>
+			<definition value="A natural language name identifying the operation definition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+			<requirements value="Support human navigation and code generation."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<condition value="cnl-0"/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.title"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.title">
+			<path value="OperationDefinition.title"/>
+			<short value="Name for this operation definition (human friendly)"/>
+			<definition value="A short, descriptive, user-friendly title for the operation definition."/>
+			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.title"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.status">
+			<path value="OperationDefinition.status"/>
+			<short value="draft | active | retired | unknown"/>
+			<definition value="The status of this operation definition. Enables tracking the life-cycle of the content."/>
+			<comment value="Allows filtering of operation definitions that are appropriate for use versus not."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isModifier value="true"/>
+			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PublicationStatus"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The lifecycle status of an artifact."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.status {different ValueSet}"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.status"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.kind">
+			<path value="OperationDefinition.kind"/>
+			<short value="operation | query"/>
+			<definition value="Whether this is an operation or a named query."/>
+			<comment value="Named queries are invoked differently, and have different capabilities."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="OperationKind"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Whether an operation is a normal operation or a query."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/operation-kind"/>
+			</binding>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.class"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.experimental">
+			<path value="OperationDefinition.experimental"/>
+			<short value="For testing purposes, not real usage"/>
+			<definition value="A Boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+			<comment value="Allows filtering of operation definitions that are appropriate for use versus not."/>
+			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level operation definition."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.experimental"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.class"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.date">
+			<path value="OperationDefinition.date"/>
+			<short value="Date last changed"/>
+			<definition value="The date  (and optionally time) when the operation definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the operation definition changes."/>
+			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the operation definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+			<alias value="Revision Date"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.date"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.recorded"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.publisher">
+			<path value="OperationDefinition.publisher"/>
+			<short value="Name of the publisher (organization or individual)"/>
+			<definition value="The name of the organization or individual that published the operation definition."/>
+			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the operation definition is the organization or individual primarily responsible for the maintenance and upkeep of the operation definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the operation definition. This item SHOULD be populated unless the information is available from context."/>
+			<requirements value="Helps establish the &quot;authority/credibility&quot; of the operation definition.  May also allow for contact."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.publisher"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.witness"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.contact">
+			<path value="OperationDefinition.contact"/>
+			<short value="Contact details for the publisher"/>
+			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+			<comment value="May be a web site, an email address, a telephone number, etc."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.contact"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.description">
+			<path value="OperationDefinition.description"/>
+			<short value="Natural language description of the operation definition"/>
+			<definition value="A free text natural language description of the operation definition from a consumer&#39;s perspective."/>
+			<comment value="This description can be used to capture details such as why the operation definition was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the operation definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the operation definition is presumed to be the predominant language in the place the operation definition was created)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.description"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.useContext">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="OperationDefinition.useContext"/>
+			<short value="The context that the content is intended to support"/>
+			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate operation definition instances."/>
+			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+			<requirements value="Assist in searching for appropriate content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="UsageContext"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.useContext"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.jurisdiction">
+			<path value="OperationDefinition.jurisdiction"/>
+			<short value="Intended jurisdiction for operation definition (if applicable)"/>
+			<definition value="A legal or geographic region in which the operation definition is intended to be used."/>
+			<comment value="It may be possible for the operation definition to be used in jurisdictions other than those for which it was originally designed or intended."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="Jurisdiction"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Countries and regions within which this artifact is targeted for use."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.jurisdiction"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.purpose">
+			<path value="OperationDefinition.purpose"/>
+			<short value="Why this operation definition is defined"/>
+			<definition value="Explanation of why this operation definition is needed and why it has been designed as it has."/>
+			<comment value="This element does not describe the usage of the operation definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this operation definition."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.purpose"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.why[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.copyright">
+			<path value="OperationDefinition.copyright"/>
+			<short value="Use and/or publishing restrictions"/>
+			<definition value="A copyright statement relating to the OperationDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the OperationDefinition."/>
+			<requirements value="Consumers must be able to determine any legal restrictions on the use of the OperationDefinition and/or its content."/>
+			<alias value="License"/>
+			<alias value="Restrictions"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.copyright"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.affectsState">
+			<path value="OperationDefinition.affectsState"/>
+			<short value="Whether content is changed by the operation"/>
+			<definition value="Whether the operation affects state. Side effects such as producing audit trail entries do not count as &#39;affecting  state&#39;."/>
+			<comment value="What http methods can be used for the operation depends on the .affectsState value and whether the input parameters are primitive or complex:&#xA;&#xA;1. Servers SHALL support POST method for all operations.&#xA;&#xA;2. Servers SHALL support the GET method when the operation has affectsState = false and all required parameters for the operation are primitive."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="OperationDefinition.code">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="OperationDefinition.code"/>
+			<short value="Recommended name for operation in search url"/>
+			<definition value="The label that is recommended to be used in the URL for this operation. In some cases, servers may need to use a different CapabilityStatement operation.name to differentiate between multiple SearchParameters that happen to have the same code."/>
+			<comment value="For maximum compatibility, use only lowercase ASCII characters. Note that HL7 will never define multiple operations with the same code. See [Naming Rules &amp; Guidelines](https://confluence.hl7.org/display/FHIR/Guide+to+Designing+Resources#GuidetoDesigningResources-NamingRules&amp;Guidelines) for the internal HL7 rules around codes, which are useful additional advice for all implementers"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="OperationDefinition.comment">
+			<path value="OperationDefinition.comment"/>
+			<short value="Additional information about use"/>
+			<definition value="Additional information about how to use this operation or named query."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="OperationDefinition.base">
+			<path value="OperationDefinition.base"/>
+			<short value="Marks this as a profile of the base"/>
+			<definition value="Indicates that this operation definition is a constraining profile on the base."/>
+			<comment value="A constrained profile can make optional parameters required or not used, introduce new parameters (required or optional), and clarify documentation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.derivedFrom"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.resource">
+			<path value="OperationDefinition.resource"/>
+			<short value="Types this operation applies to"/>
+			<definition value="The types on which this operation can be executed."/>
+			<comment value="If the type is an abstract resource (&quot;Resource&quot; or &quot;DomainResource&quot;) then the operation can be invoked on any concrete specialization."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ResourceType"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="One of the resource types defined as part of this version of FHIR."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.subject[x]"/>
+			</mapping>
+		</element>
+		<element id="OperationDefinition.system">
+			<path value="OperationDefinition.system"/>
+			<short value="Invoke at the system level?"/>
+			<definition value="Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context)."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="OperationDefinition.type">
+			<path value="OperationDefinition.type"/>
+			<short value="Invoke at the type level?"/>
+			<definition value="Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context)."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="OperationDefinition.instance">
+			<path value="OperationDefinition.instance"/>
+			<short value="Invoke on an instance?"/>
+			<definition value="Indicates whether this operation can be invoked on a particular instance of one of the given types."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="OperationDefinition.inputProfile">
+			<path value="OperationDefinition.inputProfile"/>
+			<short value="Validation information for in parameters"/>
+			<definition value="Additional validation information for the in parameters - a single profile that covers all the parameters. The profile is a constraint on the parameters resource as a whole."/>
+			<comment value="If present the profile shall not conflict with what is specified in the parameters in the operation definition (max/min etc.), though it may provide additional constraints. The constraints expressed in the profile apply whether the operation is invoked by a POST wih parameters or not."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+			</type>
+		</element>
+		<element id="OperationDefinition.outputProfile">
+			<path value="OperationDefinition.outputProfile"/>
+			<short value="Validation information for out parameters"/>
+			<definition value="Additional validation information for the out parameters - a single profile that covers all the parameters. The profile is a constraint on the parameters resource."/>
+			<comment value="If present the profile shall not conflict with what is specified in the parameters in the operation definition (max/min etc.), though it may provide additional constraints. The constraints expressed in the profile apply whether the operation is invoked by a POST wih parameters or not."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+			</type>
+		</element>
+		<element id="OperationDefinition.parameter">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="400,0"/>
+			</extension>
+			<path value="OperationDefinition.parameter"/>
+			<short value="Parameters for the operation/query"/>
+			<definition value="The parameters for the operation/query."/>
+			<comment value="Query Definitions only have one output parameter, named &quot;result&quot;. This might not be described, but can be to allow a profile to be defined."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<constraint>
+				<key value="opd-1"/>
+				<severity value="error"/>
+				<human value="Either a type must be provided, or parts"/>
+				<expression value="type.exists() or part.exists()"/>
+				<xpath value="exists(f:type) or exists(f:part)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+			</constraint>
+			<constraint>
+				<key value="opd-2"/>
+				<severity value="error"/>
+				<human value="A search type can only be specified for parameters of type string"/>
+				<expression value="searchType.exists() implies type = &#39;string&#39;"/>
+				<xpath value="not(exists(f:searchType)) or (f:type/@value = &#39;string&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+			</constraint>
+			<constraint>
+				<key value="opd-3"/>
+				<severity value="error"/>
+				<human value="A targetProfile can only be specified for parameters of type Reference or Canonical"/>
+				<expression value="targetProfile.exists() implies (type = &#39;Reference&#39; or type = &#39;canonical&#39;)"/>
+				<xpath value="not(exists(f:targetProfile)) or ((f:type/@value = &#39;Reference&#39;) or (f:type/@value = &#39;canonical&#39;))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+			</constraint>
+			<constraint>
+				<key value="opd-4"/>
+				<severity value="error"/>
+				<human value="SearchParamType can only be specified on in parameters"/>
+				<expression value="(use = 'out') implies searchType.empty()"/>
+				<xpath value="not(exists(f:searchType)) or ((f:use/@value = &#39;in&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+			</constraint>
+		</element>
+		<element id="OperationDefinition.parameter.name">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="OperationDefinition.parameter.name"/>
+			<short value="Name in Parameters.parameter.name or in URL"/>
+			<definition value="The name of used to identify the parameter."/>
+			<comment value="This name must be a token (start with a letter in a..z, and only contain letters, numerals, and underscore. Note that for search parameters (type = string, with a search type), the name may be altered by the search modifiers."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+		</element>
+		<element id="OperationDefinition.parameter.use">
+			<path value="OperationDefinition.parameter.use"/>
+			<short value="in | out"/>
+			<definition value="Whether this is an input or an output parameter."/>
+			<comment value="If a parameter name is used for both an input and an output parameter, the parameter should be defined twice."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="OperationParameterUse"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Whether an operation parameter is an input or an output parameter."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/operation-parameter-use"/>
+			</binding>
+		</element>
+		<element id="OperationDefinition.parameter.scope">
+			<path value="OperationDefinition.parameter.scope"/>
+			<short value="instance | type | system"/>
+			<definition value="If present, indicates that the parameter applies when the operation is being invoked at the specified level."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<meaningWhenMissing value="If no scope is indicated, it is assumed that the parameter is relevant whenever the operation is invoked."/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="OperationParameterScope"/>
+				</extension>
+				<strength value="required"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/operation-parameter-scope"/>
+			</binding>
+		</element>
+		<element id="OperationDefinition.parameter.min">
+			<path value="OperationDefinition.parameter.min"/>
+			<short value="Minimum Cardinality"/>
+			<definition value="The minimum number of times this parameter SHALL appear in the request or response."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="integer"/>
+			</type>
+		</element>
+		<element id="OperationDefinition.parameter.max">
+			<path value="OperationDefinition.parameter.max"/>
+			<short value="Maximum Cardinality (a number or *)"/>
+			<definition value="The maximum number of times this element is permitted to appear in the request or response."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="OperationDefinition.parameter.documentation">
+			<path value="OperationDefinition.parameter.documentation"/>
+			<short value="Description of meaning/use"/>
+			<definition value="Describes the meaning or use of this parameter."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="OperationDefinition.parameter.type">
+			<path value="OperationDefinition.parameter.type"/>
+			<short value="What type this parameter has"/>
+			<definition value="The type for this parameter."/>
+			<comment value="if there is no stated parameter, then the parameter is a multi-part parameter type and must have at least one part defined."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<condition value="opd-1"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="FHIRAllTypes"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="A list of all the types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
+			</binding>
+		</element>
+		<element id="OperationDefinition.parameter.allowedType">
+			<path value="OperationDefinition.parameter.allowedType"/>
+			<short value="Allowed sub-type this parameter can have (if type is abstract)"/>
+			<definition value="Support for polymorphic types. If the parameter type is abstract, this element lists allowed sub-types for the parameter."/>
+			<comment value="In previous versions of FHIR, there was an extension for this: http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<condition value="opd-1"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="FHIRAllTypes"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="A list of all the types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
+			</binding>
+		</element>
+		<element id="OperationDefinition.parameter.targetProfile">
+			<path value="OperationDefinition.parameter.targetProfile"/>
+			<short value="If type is Reference | canonical, allowed targets. If type is 'Resource', then this constrains the allowed reosurce types"/>
+			<definition value="Used when the type is &quot;Reference&quot; or &quot;canonical&quot;, and identifies a profile structure or implementation Guide that applies to the target of the reference this parameter refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide."/>
+			<comment value="Often, these profiles are the base definitions from the spec (e.g. http://hl7.org/fhir/StructureDefinition/Patient)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+			</type>
+		</element>
+		<element id="OperationDefinition.parameter.searchType">
+			<path value="OperationDefinition.parameter.searchType"/>
+			<short value="number | date | string | token | reference | composite | quantity | uri | special"/>
+			<definition value="How the parameter is understood if/when it used as search parameter. This is only used if the parameter is a string."/>
+			<comment value="Parameters that are search parameter usually - but not always - are also defined for use with general searches, and function in the operation to filter the set of resources in scope for the operation just like the do when searching. The searchType describes how the server processes the value. For an example, see the [Evaluate Measure Operation](measure-operation-evaluate-measure.html)"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<condition value="opd-2"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SearchParamType"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Data types allowed to be used for search parameters."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/search-param-type"/>
+			</binding>
+		</element>
+		<element id="OperationDefinition.parameter.binding">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="400,230"/>
+			</extension>
+			<path value="OperationDefinition.parameter.binding"/>
+			<short value="ValueSet details if this is coded"/>
+			<definition value="Binds to a value set if this parameter is coded (code, Coding, CodeableConcept)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="OperationDefinition.parameter.binding.strength">
+			<path value="OperationDefinition.parameter.binding.strength"/>
+			<short value="required | extensible | preferred | example"/>
+			<definition value="Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances."/>
+			<comment value="For further discussion, see [Using Terminologies](terminologies.html)."/>
+			<alias value="conformance"/>
+			<alias value="extensibility"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="BindingStrength"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Indication of the degree of conformance expectations associated with a binding."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/binding-strength"/>
+			</binding>
+		</element>
+		<element id="OperationDefinition.parameter.binding.valueSet">
+			<path value="OperationDefinition.parameter.binding.valueSet"/>
+			<short value="Source of value set"/>
+			<definition value="Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used."/>
+			<comment value="For value sets with a referenceResource, the display can contain the value set description.  The reference may be version-specific or not."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+			</type>
+		</element>
+		<element id="OperationDefinition.parameter.referencedFrom">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="OperationDefinition.parameter.referencedFrom"/>
+			<short value="References to this parameter"/>
+			<definition value="Identifies other resource parameters within the operation invocation that are expected to resolve to this resource."/>
+			<comment value="Resolution applies if the referenced parameter exists."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="OperationDefinition.parameter.referencedFrom.source">
+			<path value="OperationDefinition.parameter.referencedFrom.source"/>
+			<short value="Referencing parameter"/>
+			<definition value="The name of the parameter or dot-separated path of parameter names pointing to the resource parameter that is expected to contain a reference to this resource."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="OperationDefinition.parameter.referencedFrom.sourceId">
+			<path value="OperationDefinition.parameter.referencedFrom.sourceId"/>
+			<short value="Element id of reference"/>
+			<definition value="The id of the element in the referencing resource that is expected to resolve to this resource."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="OperationDefinition.parameter.part">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+				<valueCode value="right"/>
+			</extension>
+			<path value="OperationDefinition.parameter.part"/>
+			<short value="Parts of a nested Parameter"/>
+			<definition value="The parts of a nested Parameter."/>
+			<comment value="Query Definitions only have one output parameter, named &quot;result&quot;. This might not be described, but can be to allow a profile to be defined."/>
+			<min value="0"/>
+			<max value="*"/>
+			<contentReference value="#OperationDefinition.parameter"/>
+			<condition value="opd-1"/>
+		</element>
+		<element id="OperationDefinition.overload">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+				<valueCode value="left"/>
+			</extension>
+			<path value="OperationDefinition.overload"/>
+			<short value="Define overloaded variants for when  generating code"/>
+			<definition value="Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation."/>
+			<comment value="The combinations are suggestions as to which sets of parameters to use together, but the combinations are not intended to be authoritative."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="OperationDefinition.overload.parameterName">
+			<path value="OperationDefinition.overload.parameterName"/>
+			<short value="Name of parameter to include in overload"/>
+			<definition value="Name of parameter to include in overload."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="OperationDefinition.overload.comment">
+			<path value="OperationDefinition.overload.comment"/>
+			<short value="Comments to go on overload"/>
+			<definition value="Comments to go on overload."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+	</differential>
 </StructureDefinition>

@@ -3,15 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="biologicallyderived-productcodes"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>This code system http://hl7.org/fhir/biologicallyderived-product-codes is a subset of the codes defined in https://www.iccbba.org and https://www.isbt128.org.</p>
-    </div>
-  </text>  
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>

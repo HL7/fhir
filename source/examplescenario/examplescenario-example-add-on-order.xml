@@ -31,7 +31,7 @@
   <instance>
     <key value="req0"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="ServiceDefinition"/>
     </structureType>
     <title value="Original Request for 10 procedures"/>
@@ -40,7 +40,7 @@
   <instance>
     <key value="spec1"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="Specimen"/>
     </structureType>
     <title value="Specimen already collected"/>
@@ -49,7 +49,7 @@
   <instance>
     <key value="req1"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="ServiceDefinition"/>
     </structureType>
     <title value="Request for an extra procedure"/>
@@ -58,7 +58,7 @@
   <instance>
     <key value="task1"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="Task"/>
     </structureType>
     <title value="Task"/>
@@ -83,7 +83,7 @@
   <instance>
     <key value="reql1"/>
     <structureType>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <code value="ServiceDefinition"/>
     </structureType>
     <title value="Lab's request for the extra procedure"/>

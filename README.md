@@ -33,7 +33,7 @@ We provide executable script files for Windows (publish.bat) and for a Bash shel
 
 There are multiple options available for publishing:
 
- * `--offline`: use this arg if you are offline and cannot fetch dependencies
+ * `--offline`: use this arg if you are offline and cannot fetch dependencies (doesn't work at the moment, and may never)
 
  * `-nogen`: don't generate the spec, just run the validation. (to use this,
    manually fix things in the publication directory, and then migrate the

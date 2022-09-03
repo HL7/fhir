@@ -118,7 +118,7 @@
     <use value="out"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="A MeasureReport of type data-collection detailing the results of the operation"/>
+    <documentation value="A MeasureReport of type data-exchange detailing the results of the operation"/>
     <type value="MeasureReport"/>
   </parameter>
   <parameter>

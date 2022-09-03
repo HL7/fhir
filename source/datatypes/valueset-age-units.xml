@@ -1,18 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>
-        This value set includes all common UCUM codes used for Age - that it is, all commonly used units which have the same canonical unit as "a" (year)
-      </p>
-      <p> 
-        The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
-     </p>
-    
-    </div>
-  </text>
   <name value="CommonUCUMCodesForAge"/>
   <title value="Common UCUM Codes for Age"/>
   <status value="draft"/>
@@ -23,7 +11,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Unified Code for Units of Measure (UCUM). This value set includes all UCUM codes"/>
+  <description value="Unified Code for Units of Measure (UCUM). This value set includes all common UCUM codes used for Age - that it is, all commonly used units which have the same canonical unit as 'a' (year)"/>
   <copyright value="The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved."/>
   <compose>
     <include>

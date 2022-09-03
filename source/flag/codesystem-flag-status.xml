@@ -3,85 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="flag-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/flag-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">active
-            
-            <a name="flag-status-active"> </a>
-          
-          </td>
-          
-          <td>Active</td>
-          
-          <td>A current flag that should be displayed to a user. A system may use the category to determine which user roles should view the flag.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">inactive
-            
-            <a name="flag-status-inactive"> </a>
-          
-          </td>
-          
-          <td>Inactive</td>
-          
-          <td>The flag no longer needs to be displayed.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="flag-status-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered in Error</td>
-          
-          <td>The flag was added in error and should no longer be displayed.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
   </extension>
@@ -96,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.121"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="FlagStatus"/>
   <title value="FlagStatus"/>
   <status value="draft"/>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Specimen xmlns="http://hl7.org/fhir">
+  <id value="specimenFather"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative</b></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource "denovo-3" </p></div><p><b>identifier</b>: id: 3</p><p><b>status</b>: available</p><p><b>type</b>: Venous blood specimen <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="https://browser.ihtsdotools.org/">SNOMED CT</a>#122555007)</span></p><p><b>subject</b>: <a href="Patient-denovoFather.html">Patient/denovoFather: John Doe</a> " DOE"</p><p><b>receivedTime</b>: 2021-01-01 01:01:01+0000</p><p><b>request</b>: <a href="ServiceRequest-genomicServiceRequest.html">ServiceRequest/genomicServiceRequest</a></p><h3>Collections</h3><table class="grid"><tr><td>-</td><td><b>Collector</b></td><td><b>Collected[x]</b></td><td><b>Quantity</b></td><td><b>Method</b></td></tr><tr><td>*</td><td><a href="Practitioner-practitioner01.html">Practitioner/practitioner01</a> " DOEL"</td><td>2021-01-01 01:01:00+0000</td><td>1 mL</td><td>Line, Venous <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (<a href="http://terminology.hl7.org/3.1.0/CodeSystem-v2-0488.html">specimenCollectionMethod</a>#LNV)</span></td></tr></table></div>
+  </text>
+  <identifier>
+    <system value="http://www.somesystemabc.net/identifiers/specimens"/>
+    <value value="7"/>
+  </identifier>
+  <status value="available"/>
+  <type>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="122555007"/>
+      <display value="Venous blood specimen"/>
+    </coding>
+  </type>
+  <subject>
+    <reference value="Patient/father"/>
+    <display value="John Doe"/>
+  </subject>
+  <receivedTime value="2021-01-01T01:01:01Z"/>
+  <request>
+    <reference value="ServiceRequest/genomicServiceRequest"/>
+  </request>
+  <collection>
+    <collector>
+      <reference value="Practitioner/practitioner01"/>
+    </collector>
+    <collectedDateTime value="2021-01-01T01:01:00Z"/>
+    <quantity>
+      <value value="1"/>
+      <unit value="mL"/>
+    </quantity>
+    <method>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0488"/>
+        <code value="LNV"/>
+      </coding>
+    </method>
+  </collection>
+</Specimen>

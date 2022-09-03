@@ -67,11 +67,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/valueset-status-activityStatusDate"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/valueset-effectiveDate"/>
       </reference>
     </resource>

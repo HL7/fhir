@@ -21,7 +21,7 @@
     <valueCode value="fhir"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".status = off (just turn it off, maybe update the error message)"/>
+    <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Subscription"/>
   <version value="5.0.0"/>
@@ -218,17 +218,17 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRDefinedTypeExt"/>
+          <valueString value="FHIRTypes"/>
         </extension>
         <strength value="extensible"/>
-        <description value="Either a resource or a data type, including logical model types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/defined-types"/>
+        <description value="A type of resource, or a Reference"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
       </binding>
     </element>
     <element id="Subscription.filterBy.filterParameter">
       <path value="Subscription.filterBy.filterParameter"/>
       <short value="Filter label defined in SubscriptionTopic"/>
-      <definition value="The filter label (=key) as defined in the `SubscriptionTopic.canfilterBy.filterParameter`  element."/>
+      <definition value="The filter as defined in the `SubscriptionTopic.canfilterBy.filterParameter` element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -240,6 +240,7 @@
       <path value="Subscription.filterBy.modifier"/>
       <short value="= | eq | ne | gt | lt | ge | le | sa | eb | ap | above | below | in | not-in | of-type"/>
       <definition value="Operator to apply when determining matches (Search Modifiers), from the list of allowed modifiers for this filter in the relevant SubscriptionTopic."/>
+      <comment value="If filterDefinition refers to a SearchParameter, then the modifiers indicated must be allowed by the SearchParameter."/>
       <min value="0"/>
       <max value="1"/>
       <type>
