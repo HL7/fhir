@@ -47,6 +47,11 @@
 	<purpose value="In a catalog of health-related services that use or produce observations and measurements, this resource describes the expected characteristics of these observation / measurements."/>
 	<fhirVersion value="5.0.0"/>
 	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
 		<identity value="v2"/>
 		<uri value="http://hl7.org/v2"/>
 		<name value="HL7 v2 Mapping"/>
