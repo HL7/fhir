@@ -3,71 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="condition-precondition-type"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/condition-precondition-type defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">sensitive
-            
-            <a name="condition-precondition-type-sensitive"> </a>
-          
-          </td>
-          
-          <td>Sensitive</td>
-          
-          <td>The observation is very sensitive for the condition, but may also indicate other conditions.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">specific
-            
-            <a name="condition-precondition-type-specific"> </a>
-          
-          </td>
-          
-          <td>Specific</td>
-          
-          <td>The observation is very specific for this condition, but not particularly sensitive.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
   </extension>
@@ -82,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1440"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ConditionPreconditionType"/>
   <title value="ConditionPreconditionType"/>
   <status value="draft"/>

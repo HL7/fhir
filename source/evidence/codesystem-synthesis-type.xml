@@ -3,141 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="synthesis-type"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/synthesis-type defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">std-MA
-            
-            <a name="synthesis-type-std-MA"> </a>
-          
-          </td>
-          
-          <td>summary data meta-analysis</td>
-          
-          <td>A meta-analysis of the summary data of estimates from individual studies or data sets.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">IPD-MA
-            
-            <a name="synthesis-type-IPD-MA"> </a>
-          
-          </td>
-          
-          <td>individual patient data meta-analysis</td>
-          
-          <td>A meta-analysis of the individual participant data from individual studies or data sets.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">indirect-NMA
-            
-            <a name="synthesis-type-indirect-NMA"> </a>
-          
-          </td>
-          
-          <td>indirect network meta-analysis</td>
-          
-          <td>An indirect meta-analysis derived from 2 or more direct comparisons in a network meta-analysis.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">combined-NMA
-            
-            <a name="synthesis-type-combined-NMA"> </a>
-          
-          </td>
-          
-          <td>combined direct plus indirect network meta-analysis</td>
-          
-          <td>An composite meta-analysis derived from direct comparisons and indirect comparisons in a network meta-analysis.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">range
-            
-            <a name="synthesis-type-range"> </a>
-          
-          </td>
-          
-          <td>range of results</td>
-          
-          <td>A range of results across a body of evidence.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">classification
-            
-            <a name="synthesis-type-classification"> </a>
-          
-          </td>
-          
-          <td>classifcation of results</td>
-          
-          <td>An approach describing a body of evidence by categorically classifying individual studies (eg 3 studies showed beneft and 2 studied found no effect).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">NotApplicable
-            
-            <a name="synthesis-type-NotApplicable"> </a>
-          
-          </td>
-          
-          <td>not applicable</td>
-          
-          <td>Not applicable because the evidence is not from a synthesis but from a single study. Used fo explicitly state that it&#39;s not a synthesis.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -152,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1348"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="SynthesisType"/>
   <title value="SynthesisType"/>
   <status value="draft"/>
@@ -206,6 +73,6 @@
   <concept>
     <code value="NotApplicable"/>
     <display value="not applicable"/>
-    <definition value="Not applicable because the evidence is not from a synthesis but from a single study. Used fo explicitly state that it&#39;s not a synthesis."/>
+    <definition value="Not applicable because the evidence is not from a synthesis but from a single study. Used fo explicitly state that it's not a synthesis."/>
   </concept>
 </CodeSystem>

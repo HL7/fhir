@@ -385,17 +385,11 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="CodeableConcept"/>
+				<code value="boolean"/>
 			</type>
+			<isModifier value="true"/>
+			<isModifierReason value="If true, this element negates the Task. For example, instead of a request to perform a task, it is a request _not_ to perform a task."/>
 			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="TaskCode"/>
-				</extension>
-				<strength value="example"/>
-				<description value="Codes to identify what the task involves.  These will typically be specific to a particular workflow."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/task-code"/>
-			</binding>
 			<mapping>
 				<identity value="workflow"/>
 				<map value="Request.code, Event.code"/>
@@ -731,7 +725,7 @@
 			<short value="Where task occurs"/>
 			<definition value="Principal physical location where the this task is performed."/>
 			<requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
-			<comment value="This should only be specified when the Task to be/being performed happens or is expected to happen primarily within the bounds of a single Location.  Other locations (e.g. source, destination, etc.) would either be reflected on the 'basedOn' Request or be conveyed as distinct Task.input values."  />      
+			<comment value="This should only be specified when the Task to be/being performed happens or is expected to happen primarily within the bounds of a single Location.  Other locations (e.g. source, destination, etc.) would either be reflected on the 'basedOn' Request or be conveyed as distinct Task.input values."  />
 			<min value="0"/>
 			<max value="1"/>
 			<type>

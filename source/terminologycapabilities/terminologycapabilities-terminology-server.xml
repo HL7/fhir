@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <TerminologyCapabilities xmlns="http://hl7.org/fhir">
-	<id value="terminology-server"/>
+	<id value="example-terminology-server"/>
 	<url value="http://hl7.org/fhir/TerminologyCapabilities/terminology-server"/>
 	<name value="ACMETerminologyService—TerminologyCapabilities"/>
 	<title value="ACME Terminology Service — Terminology Capabilities"/>

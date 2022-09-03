@@ -63,6 +63,9 @@ An collection Bundle showing an example of a complex Micro Isolate and Sensitivi
 			<a href="diagnosticreport-example-gingival-mass.html">An example of a presented form anatomic pathology report</a>
 		</li>
 		<li>
+			<a href="diagnosticreport-example-gingival-biopsy.html">An example showing use of supportingInfo</a>
+		</li>
+		<li>
 			<a href="diagnosticreport-example-papsmear.html">An example of a  principally narrative anatomic pathology report</a>
 		</li>
 	</ul>

@@ -3,85 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="conditional-delete-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/conditional-delete-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">not-supported
-            
-            <a name="conditional-delete-status-not-supported"> </a>
-          
-          </td>
-          
-          <td>Not Supported</td>
-          
-          <td>No support for conditional deletes.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">single
-            
-            <a name="conditional-delete-status-single"> </a>
-          
-          </td>
-          
-          <td>Single Deletes Supported</td>
-          
-          <td>Conditional deletes are supported, but only single resources at a time.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">multiple
-            
-            <a name="conditional-delete-status-multiple"> </a>
-          
-          </td>
-          
-          <td>Multiple Deletes Supported</td>
-          
-          <td>Conditional deletes are supported, and multiple resources can be deleted in a single interaction.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -99,7 +22,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.195"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ConditionalDeleteStatus"/>
   <title value="ConditionalDeleteStatus"/>
   <status value="active"/>

@@ -6,7 +6,7 @@
 		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
 	</meta>
 	<text>
-		<status value="generated"/>
+		<status value="additional"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<table class="grid">
 				<tr>

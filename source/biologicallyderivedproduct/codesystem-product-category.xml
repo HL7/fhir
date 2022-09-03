@@ -3,113 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="product-category"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/product-category defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">organ
-            
-            <a name="product-category-organ"> </a>
-          
-          </td>
-          
-          <td>Organ</td>
-          
-          <td>A collection of tissues joined in a structural unit to serve a common function.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">tissue
-            
-            <a name="product-category-tissue"> </a>
-          
-          </td>
-          
-          <td>Tissue</td>
-          
-          <td>An ensemble of similar cells and their extracellular matrix from the same origin that together carry out a specific function.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">fluid
-            
-            <a name="product-category-fluid"> </a>
-          
-          </td>
-          
-          <td>Fluid</td>
-          
-          <td>Body fluid.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">cells
-            
-            <a name="product-category-cells"> </a>
-          
-          </td>
-          
-          <td>Cells</td>
-          
-          <td>Collection of cells.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">biologicalAgent
-            
-            <a name="product-category-biologicalAgent"> </a>
-          
-          </td>
-          
-          <td>BiologicalAgent</td>
-          
-          <td>Biological agent of unspecified type.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -124,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.901"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="BiologicallyDerivedProductCategory"/>
   <title value="BiologicallyDerivedProductCategory"/>
   <status value="draft"/>

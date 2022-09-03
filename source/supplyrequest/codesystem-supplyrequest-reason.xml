@@ -3,71 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="supplyrequest-reason"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/supplyrequest-reason defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">patient-care
-            
-            <a name="supplyrequest-reason-patient-care"> </a>
-          
-          </td>
-          
-          <td>Patient Care</td>
-          
-          <td>The supply has been requested for use in direct patient care.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">ward-stock
-            
-            <a name="supplyrequest-reason-ward-stock"> </a>
-          
-          </td>
-          
-          <td>Ward Stock</td>
-          
-          <td>The supply has been requested for creating or replenishing ward stock.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -82,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1193"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="SupplyRequestReason"/>
   <title value="SupplyRequestReason"/>
   <status value="draft"/>
