@@ -13,9 +13,11 @@
 			  <display value="Cardiac pacemaker implant"/> 
 			</coding> 
 		</type> 
-		<subject> 
-			<reference value="Patient/example"/> 
-		</subject> 
+		<association> 
+      <humanSubject> 
+        <reference value="Patient/example"/> 
+      </humanSubject> 
+		</association> 
 	</Device>
   </contained>
   <status value="completed"/>
@@ -27,9 +29,11 @@
     </coding>
     <text value="Implant Pacemaker"/>
   </code>
-  <subject>
-    <reference value="Patient/example"/>
-  </subject>
+		<association> 
+      <humanSubject> 
+        <reference value="Patient/example"/> 
+      </humanSubject> 
+		</association> 
   <occurrenceDateTime value="2015-04-05"/>
   <performer>
     <actor>
