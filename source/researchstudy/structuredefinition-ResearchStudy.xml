@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects."/>
+  <description value="A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="BRIDG5.1"/>
@@ -80,7 +80,7 @@
       </extension>
       <path value="ResearchStudy"/>
       <short value="Investigation to increase healthcare-related patient-independent knowledge"/>
-      <definition value="A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances."/>
+      <definition value="A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future."/>
       <comment value="Need to make sure we encompass public health studies."/>
       <alias value="Clinical Trial"/>
       <alias value="Study"/>

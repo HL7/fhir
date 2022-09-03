@@ -22,8 +22,8 @@
 <p>
 </p>
 
-<a name="use-case"></a>
-<h3>Use Case</h3>
+<a name="use-cases"></a>
+<h3>Use Cases</h3>
 <p>GenomicStudy.subject and GenomicStudy.analysis.subject can reference a lot of resource types besides Patient such as Group, BiologicallyDerivedProduct, or Substance. In addition, it can provide more details about involved genomic files as inputs or outputs. These various options allow the GenomicStudy resource to cover many use cases besides direct patient care, e.g., research studies that involve multiple patients or environmental samples. Through the following subsections, some of these use cases are described.
 </p>
 <h4>Trio studies</h4>
