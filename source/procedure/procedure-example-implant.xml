@@ -35,10 +35,10 @@
     </coding>
     <text value="Implant Pacemaker"/>
   </code>
-  <occurrenceDateTime value="2015-04-05"/>
   <subject> 
     <reference value="Patient/example"/> 
   </subject> 
+  <occurrenceDateTime value="2015-04-05"/>
   <performer>
     <actor>
       <reference value="Practitioner/example"/>
