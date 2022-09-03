@@ -131,6 +131,13 @@
 				<expression value="codeSystem.select(uri + version.code).isDistinct()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
 			</constraint>
+			<constraint>
+				<key value="tcp-8"/>
+				<severity value="error"/>
+				<human value="A codeSystem element instance may have at most one version.isDefault element with a value of 'true'."/>
+				<expression value="codeSystem.uri.where(codeSystem.version.isDefault = true).count() = codeSystem.uri.where(codeSystem.version.isDefault = true).distinct().count()"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+			</constraint>
 			<mapping>
 				<identity value="rim"/>
 				<map value="n/a"/>
