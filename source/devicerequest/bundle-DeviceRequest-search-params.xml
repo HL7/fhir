@@ -271,14 +271,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceRequest.performer.reference"/>
+          <valueString value="DeviceRequest.performer"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-performer"/>
         <description value="Desired performer for service"/>
         <code value="performer"/>
         <type value="reference"/>
-        <expression value="DeviceRequest.performer.reference"/>
-        <xpath value="f:DeviceRequest/f:performer/f:reference"/>
+        <expression value="DeviceRequest.performer"/>
+        <xpath value="f:DeviceRequest/f:performer"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
