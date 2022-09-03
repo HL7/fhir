@@ -1,175 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="shareablelibrary"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
-  </text>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/shareablelibrary"/>
-  <version value="5.0.0"/>
-  <name value="ShareableLibrary"/>
-  <title value="Shareable Library"/>
-  <status value="draft"/>
-  <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
-  <publisher value="HL7"/>
-  <description value="Enforces the minimum information set for the library metadata required by HL7 and other organizations that share and publish libraries"/>
-  <fhirVersion value="5.0.0"/>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="Library"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Library"/>
-  <derivation value="constraint"/>
-  <differential>
-    <element id="Library">
-      <path value="Library"/>
-      <min value="1"/>
-      <max value="1"/>
-    </element>
-    <element id="Library.extension:knowledgeCapability">
-      <path value="Library.extension"/>
-      <sliceName value="knowledgeCapability"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Extension"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"/>
-      </type>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Library.extension:knowledgeRepresentationLevel">
-      <path value="Library.extension"/>
-      <sliceName value="knowledgeRepresentationLevel"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Extension"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"/>
-      </type>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Library.extension:artifactComment">
-      <path value="Library.extension"/>
-      <sliceName value="artifactComment"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Extension"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"/>
-      </type>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Library.url">
-      <path value="Library.url"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-    </element>
-    <element id="Library.identifier">
-      <path value="Library.identifier"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Library.version">
-      <path value="Library.version"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Library.name">
-      <path value="Library.name"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Library.title">
-      <path value="Library.title"/>
-      <min value="0"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Library.experimental">
-      <path value="Library.experimental"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="Library.date">
-      <path value="Library.date"/>
-      <min value="0"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Library.publisher">
-      <path value="Library.publisher"/>
-      <alias value="steward"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Library.contact">
-      <path value="Library.contact"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Library.description">
-      <path value="Library.description"/>
-      <alias value="scope"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="Library.useContext">
-      <path value="Library.useContext"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Library.jurisdiction">
-      <path value="Library.jurisdiction"/>
-      <mustSupport value="true"/>
-    </element>
-  </differential>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="shareablelibrary"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+	</text>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="3"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="cds"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/shareablelibrary"/>
+	<version value="5.0.0"/>
+	<name value="ShareableLibrary"/>
+	<title value="Shareable Library"/>
+	<status value="draft"/>
+	<experimental value="false"/>
+	<date value="2020-12-28T16:55:11+11:00"/>
+	<publisher value="HL7"/>
+	<description value="Enforces the minimum information set for the library metadata required by HL7 and other organizations that share and publish libraries"/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="Library"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Library"/>
+	<derivation value="constraint"/>
+	<differential>
+		<element id="Library">
+			<path value="Library"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element id="Library.extension:knowledgeCapability">
+			<path value="Library.extension"/>
+			<sliceName value="knowledgeCapability"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Extension"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"/>
+			</type>
+			<mustSupport value="true"/>
+		</element>
+		<element id="Library.extension:knowledgeRepresentationLevel">
+			<path value="Library.extension"/>
+			<sliceName value="knowledgeRepresentationLevel"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Extension"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"/>
+			</type>
+			<mustSupport value="true"/>
+		</element>
+		<element id="Library.extension:artifactComment">
+			<path value="Library.extension"/>
+			<sliceName value="artifactComment"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Extension"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"/>
+			</type>
+			<mustSupport value="true"/>
+		</element>
+		<element id="Library.url">
+			<path value="Library.url"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
+		</element>
+		<element id="Library.identifier">
+			<path value="Library.identifier"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="Library.version">
+			<path value="Library.version"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="Library.name">
+			<path value="Library.name"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="Library.title">
+			<path value="Library.title"/>
+			<min value="0"/>
+			<max value="1"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="Library.experimental">
+			<path value="Library.experimental"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="Library.date">
+			<path value="Library.date"/>
+			<min value="0"/>
+			<max value="1"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="Library.publisher">
+			<path value="Library.publisher"/>
+			<alias value="steward"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="Library.contact">
+			<path value="Library.contact"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="Library.description">
+			<path value="Library.description"/>
+			<alias value="scope"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="Library.useContext">
+			<path value="Library.useContext"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="Library.jurisdiction">
+			<path value="Library.jurisdiction"/>
+			<mustSupport value="true"/>
+		</element>
+	</differential>
 </StructureDefinition>

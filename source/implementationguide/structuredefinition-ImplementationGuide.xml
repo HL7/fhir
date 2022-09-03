@@ -252,6 +252,7 @@
 			<type>
 				<code value="boolean"/>
 			</type>
+			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
 			<isSummary value="true"/>
 			<mapping>
 				<identity value="workflow"/>
