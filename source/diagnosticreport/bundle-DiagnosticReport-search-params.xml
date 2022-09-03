@@ -18,7 +18,7 @@
         <type value="reference"/>
         <expression value="DiagnosticReport.basedOn"/>
         <xpath value="f:DiagnosticReport/f:basedOn"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="DiagnosticReport.category"/>
         <xpath value="f:DiagnosticReport/f:category"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="DiagnosticReport.code"/>
         <xpath value="f:DiagnosticReport/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="token"/>
         <expression value="DiagnosticReport.conclusionCode"/>
         <xpath value="f:DiagnosticReport/f:conclusionCode"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="date"/>
         <expression value="DiagnosticReport.effective"/>
         <xpath value="f:DiagnosticReport/f:effectiveDateTime | f:DiagnosticReport/f:effectivePeriod"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="reference"/>
         <expression value="DiagnosticReport.encounter"/>
         <xpath value="f:DiagnosticReport/f:encounter"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -138,7 +138,7 @@
         <type value="token"/>
         <expression value="DiagnosticReport.identifier"/>
         <xpath value="f:DiagnosticReport/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -158,7 +158,7 @@
         <type value="date"/>
         <expression value="DiagnosticReport.issued"/>
         <xpath value="f:DiagnosticReport/f:issued"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -178,7 +178,7 @@
         <type value="reference"/>
         <expression value="DiagnosticReport.media.link"/>
         <xpath value="f:DiagnosticReport/f:media/f:link"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -198,7 +198,7 @@
         <type value="reference"/>
         <expression value="DiagnosticReport.subject.where(resolve() is Patient)"/>
         <xpath value="f:DiagnosticReport/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -219,7 +219,7 @@
         <type value="reference"/>
         <expression value="DiagnosticReport.performer"/>
         <xpath value="f:DiagnosticReport/f:performer"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -239,7 +239,7 @@
         <type value="reference"/>
         <expression value="DiagnosticReport.result"/>
         <xpath value="f:DiagnosticReport/f:result"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -259,7 +259,7 @@
         <type value="reference"/>
         <expression value="DiagnosticReport.resultsInterpreter"/>
         <xpath value="f:DiagnosticReport/f:resultsInterpreter"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -279,7 +279,7 @@
         <type value="reference"/>
         <expression value="DiagnosticReport.specimen"/>
         <xpath value="f:DiagnosticReport/f:specimen"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -299,7 +299,7 @@
         <type value="token"/>
         <expression value="DiagnosticReport.status"/>
         <xpath value="f:DiagnosticReport/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -319,7 +319,7 @@
         <type value="reference"/>
         <expression value="DiagnosticReport.study"/>
         <xpath value="f:DiagnosticReport/f:study"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -339,7 +339,7 @@
         <type value="reference"/>
         <expression value="DiagnosticReport.subject"/>
         <xpath value="f:DiagnosticReport/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

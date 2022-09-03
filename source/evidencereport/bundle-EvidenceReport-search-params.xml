@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="(EvidenceReport.useContext.value as CodeableConcept)"/>
         <xpath value="f:EvidenceReport/f:useContext/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="quantity"/>
         <expression value="(EvidenceReport.useContext.value as Quantity) | (EvidenceReport.useContext.value as Range)"/>
         <xpath value="f:EvidenceReport/f:useContext/f:valueQuantity | f:EvidenceReport/f:useContext/f:valueRange"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="EvidenceReport.useContext.code"/>
         <xpath value="f:EvidenceReport/f:useContext/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -74,7 +74,7 @@
         <code value="context-type-quantity"/>
         <type value="composite"/>
         <expression value="EvidenceReport.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -98,7 +98,7 @@
         <code value="context-type-value"/>
         <type value="composite"/>
         <expression value="EvidenceReport.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -126,7 +126,7 @@
         <type value="token"/>
         <expression value="EvidenceReport.identifier"/>
         <xpath value="f:EvidenceReport/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -146,7 +146,7 @@
         <type value="string"/>
         <expression value="EvidenceReport.publisher"/>
         <xpath value="f:EvidenceReport/f:publisher"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -166,7 +166,7 @@
         <type value="token"/>
         <expression value="EvidenceReport.status"/>
         <xpath value="f:EvidenceReport/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -186,7 +186,7 @@
         <type value="uri"/>
         <expression value="EvidenceReport.url"/>
         <xpath value="f:EvidenceReport/f:url"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

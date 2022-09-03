@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="Permission.status"/>
         <xpath value="f:Permission/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

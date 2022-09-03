@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="GuidanceResponse.identifier"/>
         <xpath value="f:GuidanceResponse/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="reference"/>
         <expression value="GuidanceResponse.subject.where(resolve() is Patient)"/>
         <xpath value="f:GuidanceResponse/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -59,7 +59,7 @@
         <type value="token"/>
         <expression value="GuidanceResponse.requestIdentifier"/>
         <xpath value="f:GuidanceResponse/f:requestIdentifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -79,7 +79,7 @@
         <type value="reference"/>
         <expression value="GuidanceResponse.subject"/>
         <xpath value="f:GuidanceResponse/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

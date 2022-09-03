@@ -18,7 +18,7 @@
         <type value="date"/>
         <expression value="ImmunizationEvaluation.date"/>
         <xpath value="f:ImmunizationEvaluation/f:date"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="ImmunizationEvaluation.doseStatus"/>
         <xpath value="f:ImmunizationEvaluation/f:doseStatus"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="ImmunizationEvaluation.identifier"/>
         <xpath value="f:ImmunizationEvaluation/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="reference"/>
         <expression value="ImmunizationEvaluation.immunizationEvent"/>
         <xpath value="f:ImmunizationEvaluation/f:immunizationEvent"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="reference"/>
         <expression value="ImmunizationEvaluation.patient"/>
         <xpath value="f:ImmunizationEvaluation/f:patient"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="token"/>
         <expression value="ImmunizationEvaluation.status"/>
         <xpath value="f:ImmunizationEvaluation/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -138,7 +138,7 @@
         <type value="token"/>
         <expression value="ImmunizationEvaluation.targetDisease"/>
         <xpath value="f:ImmunizationEvaluation/f:targetDisease"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

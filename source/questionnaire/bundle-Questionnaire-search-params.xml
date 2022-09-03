@@ -21,7 +21,7 @@
 				<type value="token"/>
 				<expression value="Questionnaire.code"/>
 				<xpath value="f:Questionnaire/f:code"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -44,7 +44,7 @@
 				<type value="token"/>
 				<expression value="Questionnaire.item.code"/>
 				<xpath value="f:Questionnaire/f:item/f:code"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -67,7 +67,7 @@
 				<type value="token"/>
 				<expression value="Questionnaire.code | Questionnaire.item.code"/>
 				<xpath value="f:Questionnaire/f:code | f:Questionnaire/f:item/f:code"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -90,7 +90,7 @@
 				<type value="token"/>
 				<expression value="(Questionnaire.useContext.value as CodeableConcept)"/>
 				<xpath value="f:Questionnaire/f:useContext/f:valueCodeableConcept"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -113,7 +113,7 @@
 				<type value="quantity"/>
 				<expression value="(Questionnaire.useContext.value as Quantity) | (Questionnaire.useContext.value as Range)"/>
 				<xpath value="f:Questionnaire/f:useContext/f:valueQuantity | f:Questionnaire/f:useContext/f:valueRange"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -136,7 +136,7 @@
 				<type value="token"/>
 				<expression value="Questionnaire.useContext.code"/>
 				<xpath value="f:Questionnaire/f:useContext/f:code"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -155,7 +155,7 @@
 				<base value="Questionnaire"/>
 				<type value="composite"/>
 				<expression value="Questionnaire.useContext"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 				<component>
 					<definition value="context-type"/>
 					<expression value="code"/>
@@ -182,7 +182,7 @@
 				<base value="Questionnaire"/>
 				<type value="composite"/>
 				<expression value="Questionnaire.useContext"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 				<component>
 					<definition value="context-type"/>
 					<expression value="code"/>
@@ -213,7 +213,7 @@
 				<type value="date"/>
 				<expression value="Questionnaire.date"/>
 				<xpath value="f:Questionnaire/f:date"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -236,7 +236,7 @@
 				<type value="uri"/>
 				<expression value="Questionnaire.item.definition"/>
 				<xpath value="f:Questionnaire/f:item/f:definition"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -259,7 +259,7 @@
 				<type value="string"/>
 				<expression value="Questionnaire.description"/>
 				<xpath value="f:Questionnaire/f:description"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -282,7 +282,7 @@
 				<type value="date"/>
 				<expression value="Questionnaire.effectivePeriod"/>
 				<xpath value="f:Questionnaire/f:effectivePeriod"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -305,7 +305,7 @@
 				<type value="token"/>
 				<expression value="Questionnaire.identifier"/>
 				<xpath value="f:Questionnaire/f:identifier"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -328,7 +328,7 @@
 				<type value="token"/>
 				<expression value="Questionnaire.jurisdiction"/>
 				<xpath value="f:Questionnaire/f:jurisdiction"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -351,7 +351,7 @@
 				<type value="string"/>
 				<expression value="Questionnaire.name"/>
 				<xpath value="f:Questionnaire/f:name"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -374,7 +374,7 @@
 				<type value="string"/>
 				<expression value="Questionnaire.publisher"/>
 				<xpath value="f:Questionnaire/f:publisher"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -397,7 +397,7 @@
 				<type value="token"/>
 				<expression value="Questionnaire.status"/>
 				<xpath value="f:Questionnaire/f:status"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -420,7 +420,7 @@
 				<type value="token"/>
 				<expression value="Questionnaire.subjectType"/>
 				<xpath value="f:Questionnaire/f:subjectType"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -443,7 +443,7 @@
 				<type value="string"/>
 				<expression value="Questionnaire.title"/>
 				<xpath value="f:Questionnaire/f:title"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -466,7 +466,7 @@
 				<type value="uri"/>
 				<expression value="Questionnaire.url"/>
 				<xpath value="f:Questionnaire/f:url"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>
@@ -489,7 +489,7 @@
 				<type value="token"/>
 				<expression value="Questionnaire.version"/>
 				<xpath value="f:Questionnaire/f:version"/>
-				<xpathUsage value="normal"/>
+				<processingMode value="normal"/>
 			</SearchParameter>
 		</resource>
 	</entry>

@@ -18,7 +18,7 @@
         <type value="date"/>
         <expression value="VisionPrescription.dateWritten"/>
         <xpath value="f:VisionPrescription/f:dateWritten"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="reference"/>
         <expression value="VisionPrescription.encounter"/>
         <xpath value="f:VisionPrescription/f:encounter"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="VisionPrescription.identifier"/>
         <xpath value="f:VisionPrescription/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="reference"/>
         <expression value="VisionPrescription.patient"/>
         <xpath value="f:VisionPrescription/f:patient"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="reference"/>
         <expression value="VisionPrescription.prescriber"/>
         <xpath value="f:VisionPrescription/f:prescriber"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="token"/>
         <expression value="VisionPrescription.status"/>
         <xpath value="f:VisionPrescription/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

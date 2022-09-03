@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="NutritionProduct.instance.identifier"/>
         <xpath value="f:NutritionProduct/f:instance/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="NutritionProduct.status"/>
         <xpath value="f:NutritionProduct/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="NutritionProduct.category"/>
         <xpath value="f:NutritionProduct/f:category"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="token"/>
         <expression value="NutritionProduct.code"/>
         <xpath value="f:NutritionProduct/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

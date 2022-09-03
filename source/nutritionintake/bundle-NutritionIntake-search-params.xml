@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="NutritionIntake.code"/>
         <xpath value="f:NutritionIntake/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="date"/>
         <expression value="NutritionIntake.occurrence"/>
         <xpath value="f:NutritionIntake/f:occurrenceDateTime | f:NutritionIntake/f:occurrencePeriod"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="reference"/>
         <expression value="NutritionIntake.encounter"/>
         <xpath value="f:NutritionIntake/f:encounter"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="token"/>
         <expression value="NutritionIntake.identifier"/>
         <xpath value="f:NutritionIntake/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="token"/>
         <expression value="NutritionIntake.consumedItem.nutritionProduct.concept"/>
         <xpath value="f:NutritionIntake/f:consumedItem/f:nutritionProduct/f:concept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="reference"/>
         <expression value="NutritionIntake.subject.where(resolve() is Patient)"/>
         <xpath value="f:NutritionIntake/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -139,7 +139,7 @@
         <type value="reference"/>
         <expression value="(NutritionIntake.reported as Reference)"/>
         <xpath value="f:NutritionIntake/f:reportedReference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -159,7 +159,7 @@
         <type value="token"/>
         <expression value="NutritionIntake.status"/>
         <xpath value="f:NutritionIntake/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -179,7 +179,7 @@
         <type value="reference"/>
         <expression value="NutritionIntake.subject"/>
         <xpath value="f:NutritionIntake/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
