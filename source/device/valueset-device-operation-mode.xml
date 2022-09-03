@@ -3,29 +3,8 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="device-operation-mode"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <ul>
-        
-        <li>Include all codes defined in 
-          
-          <a href="codesystem-device-operation-mode.html">
-            
-            <code>http://hl7.org/fhir/device-operation-mode</code>
-          
-          </a>
-        
-        </li>
-      
-      </ul>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -40,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="FHIRDeviceOperationMode"/>
   <title value="FHIRDeviceOperationMode"/>
   <status value="draft"/>
@@ -59,5 +38,9 @@
   </contact>
   <description value="The operation mode of the device."/>
   <immutable value="true"/>
-  
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/device-operation-mode"/>
+    </include>
+  </compose>
 </ValueSet>

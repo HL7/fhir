@@ -851,8 +851,8 @@
         <map value="FiveWs.subject"/>
       </mapping>
     </element> -->
-    <element id="Device.operationalState">
-      <path value="Device.operationalState"/>
+    <element id="Device.operation">
+      <path value="Device.operation"/>
       <short value="The details about the device when it is in use to describe the actions, conditions and status"/>
       <definition value="The status of the device itself - whether it is switched on, or activated, etc."/>
       <min value="0"/>
@@ -861,8 +861,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Device.operationalState.status">
-      <path value="Device.operationalState.status"/>
+    <element id="Device.operation.status">
+      <path value="Device.operation.status"/>
       <short value="Device operational condition"/>
       <definition value="The state or condition of the device's operation."/>
       <min value="1"/>
@@ -876,11 +876,11 @@
         </extension>
         <strength value="example"/>
         <description value="Operational status of a device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-operationalstatus"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-operationstatus"/>
       </binding>      
     </element>
-    <element id="Device.operationalState.statusReason">
-      <path value="Device.operationalState.statusReason"/>
+    <element id="Device.operation.statusReason">
+      <path value="Device.operation.statusReason"/>
       <short value="The rationale given for the current operational status"/>
       <definition value="The reasons given for the current operational status - i.e. why is the device switched on etc."/>
       <min value="0"/>
@@ -897,8 +897,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-operation-status-reason"/>
       </binding>
     </element>
-    <element id="Device.operationalState.operator">
-      <path value="Device.operationalState.operator"/>
+    <element id="Device.operation.operator">
+      <path value="Device.operation.operator"/>
       <short value="The individual performing the action enabled by the device"/>
       <definition value="The individual performing the action enabled by the device."/>
       <min value="0"/>
@@ -910,8 +910,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
     </element>
-    <element id="Device.operationalState.mode">
-      <path value="Device.operationalState.mode"/>
+    <element id="Device.operation.mode">
+      <path value="Device.operation.mode"/>
       <short value="The designated condition for performing a task"/>
       <definition value="The designated condition for performing a task with the device."/>
       <min value="0"/>
@@ -921,15 +921,15 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceOperationalStateMode"/>
+          <valueString value="DeviceOperationMode"/>
         </extension>
         <strength value="example"/>
         <description value="Operational mode of a device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-operation-mode"/>
       </binding>
     </element>
-    <element id="Device.operationalState.cycle">
-      <path value="Device.operationalState.cycle"/>
+    <element id="Device.operation.cycle">
+      <path value="Device.operation.cycle"/>
       <short value="The series of occurrences that repeats during the operation of the device"/>
       <definition value="The series of occurrences that repeats during the operation of the device."/>
       <min value="0"/>
@@ -938,8 +938,8 @@
         <code value="Count"/>
       </type>
     </element>
-    <element id="Device.operationalState.duration">
-      <path value="Device.operationalState.duration"/>
+    <element id="Device.operation.duration">
+      <path value="Device.operation.duration"/>
       <short value="A measurement of time during the device's operation (e.g., days, hours, mins, etc)"/>
       <definition value="A measurement of time during the device's operation (e.g., days, hours, mins, etc)."/>
       <min value="0"/>

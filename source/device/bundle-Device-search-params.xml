@@ -271,7 +271,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Device.subject"/>
+          <valueString value="Device.association.humanSubject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Device-patient"/>
         <description value="Patient information, if the resource is affixed to a person"/>
