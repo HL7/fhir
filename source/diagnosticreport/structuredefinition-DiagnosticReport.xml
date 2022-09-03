@@ -601,6 +601,51 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
       </type>
     </element>
+    <element id="DiagnosticReport.supportingInfo">
+      <path value="DiagnosticReport.supportingInfo"/>
+      <short value="Additional information supporting the diagnostic report"/>
+      <definition value="This backbone element contains supporting information that was used in the creation of the report not included in the results already included in the report."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DiagnosticReport.supportingInfo.type">
+      <path value="DiagnosticReport.supportingInfo.type"/>
+      <short value="Supporting information role code"/>
+      <definition value="The code value for the role of the supporting information in the diagnostic report."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiagnosticReportSupportingInfoType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Supporting information role code"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The code value for the role of the supporting information in the diagnostic report."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/diagnosticreport-supportinginfo-type"/>
+      </binding>
+    </element>
+    <element id="DiagnosticReport.supportingInfo.reference">
+      <path value="DiagnosticReport.supportingInfo.reference"/>
+      <short value="Supporting information reference"/>
+      <definition value="The reference for the supporting information in the diagnostic report."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
+      </type>
+    </element>
     <element id="DiagnosticReport.media">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,125"/>
