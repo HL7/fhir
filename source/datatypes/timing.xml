@@ -20,7 +20,8 @@
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>32767</WindowTopX>
   <WindowTopY>32767</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -818,7 +819,7 @@
  </Names>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="3" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:DefaultRowHeight="14.55">
    <Column ss:AutoFitWidth="0" ss:Width="411"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">FHIR Resource-authoring Spreadsheet</Data></Cell>
@@ -837,6 +838,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -847,7 +849,7 @@
     ss:RefersTo="='Data Elements'!R1C1:R109C23" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="109" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s69" ss:Width="226.79999999999998"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="76.8"/>
    <Column ss:StyleID="s68" ss:Width="28.8"/>
@@ -3817,6 +3819,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3856,7 +3859,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="49" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s97" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s97" ss:DefaultRowHeight="14.55">
    <Column ss:Index="2" ss:StyleID="s97" ss:AutoFitWidth="0"
     ss:Width="115.80000000000001"/>
    <Column ss:StyleID="s97" ss:Width="55.800000000000004"/>
@@ -4389,18 +4392,18 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4408,6 +4411,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>4</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4430,7 +4434,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="31" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s110" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s110" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="70.8"/>
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="57"/>
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="109.8"/>
@@ -4668,6 +4672,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4701,7 +4706,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s110" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s110" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="130.80000000000001"/>
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="124.80000000000001"/>
    <Column ss:StyleID="s110" ss:Width="24"/>
@@ -5296,6 +5301,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5329,7 +5335,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="21" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s110" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s110" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="82.8" ss:Span="1"/>
    <Column ss:Index="3" ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="198"/>
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="157.80000000000001"/>
@@ -5587,6 +5593,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -5624,7 +5631,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Profiles!R1C1:R2C4"/>
   </Names>
   <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="41" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s110" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s110" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="280.8"/>
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="252"/>
@@ -5889,6 +5896,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5922,7 +5930,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="41" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s137" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s137" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s137" ss:Width="88.800000000000011"/>
    <Column ss:StyleID="s137" ss:Width="27"/>
    <Column ss:StyleID="s137" ss:Width="327"/>
@@ -6318,6 +6326,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6351,7 +6360,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s110" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s110" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s110" ss:Width="114"/>
    <Column ss:StyleID="s110" ss:AutoFitWidth="0" ss:Width="274.8"/>
    <Column ss:Index="4" ss:StyleID="s110" ss:Width="45"/>
@@ -6861,17 +6870,19 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6879,12 +6890,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>7</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6900,7 +6913,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="61" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s137" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s137" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s137" ss:Width="79.800000000000011"/>
    <Column ss:StyleID="s137" ss:AutoFitWidth="0" ss:Width="34.799999999999997"/>
    <Column ss:StyleID="s137" ss:AutoFitWidth="0" ss:Width="154.79999999999998"/>
@@ -7605,6 +7618,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7638,7 +7652,7 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s137" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s137" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s137" ss:Width="79.800000000000011"/>
    <Column ss:StyleID="s137" ss:AutoFitWidth="0" ss:Width="34.799999999999997"/>
    <Column ss:StyleID="s137" ss:AutoFitWidth="0" ss:Width="154.79999999999998"/>
@@ -8285,6 +8299,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8319,7 +8334,7 @@
     ss:RefersTo="='timing-abbreviation'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s137" ss:DefaultRowHeight="14.4">
+   x:FullRows="1" ss:StyleID="s137" ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s137" ss:Width="79.800000000000011"/>
    <Column ss:StyleID="s137" ss:AutoFitWidth="0" ss:Width="34.799999999999997"/>
    <Column ss:StyleID="s137" ss:AutoFitWidth="0" ss:Width="154.79999999999998"/>
@@ -8914,6 +8929,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
