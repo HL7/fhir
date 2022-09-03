@@ -41,7 +41,7 @@
       <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
-  <description value="The SubscriptionStatus resource describes the state of a Subscription during notifications."/>
+  <description value="The SubscriptionStatus resource describes the state of a Subscription during notifications. It is not persisted."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>

@@ -6,7 +6,7 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="phx"/>
+    <valueCode value="oo"/>
   </extension>
   <url value="http://terminology.hl7.org/CodeSystem/devicedispense-status"/>
   <identifier>

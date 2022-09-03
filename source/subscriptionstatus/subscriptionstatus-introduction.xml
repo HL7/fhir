@@ -7,7 +7,7 @@
       This document contains information about the <code>SubscriptionStatus</code> resource and details specific to options in it.  See <a href="subscriptions.html">Subscriptions</a> for general information about using Subscriptions in FHIR.
     </p>
     <p>
-      The <code>SubscriptionStatus</code> resource is used to convey information about the current state of a <a href="subscription.html">Subscription</a> during client notifications.
+      The <code>SubscriptionStatus</code> resource is used to convey information about the current state of a <a href="subscription.html">Subscription</a> during client notifications. It is not persisted or allowed to be referenced by other resources except as described below.
     </p>
   </div>
 

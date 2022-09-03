@@ -48,6 +48,9 @@
 		<translation lang="en">ActivityGroup</translation>
 		<translation lang="it">GruppoAttivita</translation>
 	</item>
+	<item id="ActorDefinition">
+		<translation lang="en">ActorDefinition</translation>
+	</item>
 	<item id="AdverseEvent">
 		<translation lang="en">AdverseEvent</translation>
 		<translation lang="es">EventoAdverso</translation>
@@ -893,6 +896,9 @@
 		<translation lang="es">OrquestacionDeSolicitudes</translation>
 		<translation lang="zh">请求编排</translation>
 	</item>
+	<item id="Requirements">
+		<translation lang="en">Requirements</translation>
+	</item>
 	<item id="ResearchStudy">
 		<translation lang="en">ResearchStudy</translation>
 		<translation lang="es">EstudioDeInvestigacion</translation>
@@ -1366,6 +1372,9 @@
 		<translation lang="es">Imposible resolver la referencia al recurso %s</translation>
 		<translation lang="fr">Impossible de résourdre la référence locale à la ressource %s</translation>
 		<translation lang="ru">Невозможно определить локальную ссылку на ресурс %s</translation>
+	</item>
+	<item id="MSG_REMOTE_FAIL" ecode="true">
+		<translation lang="en">Unable to resolve local reference to resource %s</translation>
 	</item>
 	<item id="MSG_NO_MATCH" ecode="true">
 		<translation lang="en">No Resource found matching the query "%s"</translation>

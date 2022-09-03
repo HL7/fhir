@@ -89,8 +89,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
       </constraint>
       <constraint>
@@ -169,11 +169,19 @@
     <element id="CapabilityStatement.url">
       <path value="CapabilityStatement.url"/>
       <short value="Canonical identifier for this capability statement, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers."/>
+      <definition value="An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers."/>
       <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the capability statement to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
       <type>
         <code value="uri"/>
       </type>
@@ -741,6 +749,7 @@
       <path value="CapabilityStatement.implementationGuide"/>
       <short value="Implementation guides supported"/>
       <definition value="A list of implementation guides that the server does (or should) support in their entirety."/>
+      <comment value="Note: this is primarily only relevant in terms of ImplementationGuides that don't define specific CapabilityStatements declaring the expectation of distinct roles.  (E.g. generic IGs that establish privacy policies.)  If CapabilityStatements are defined by the IG, then it is better to use CapabilityStatement.instantiates to identify the specific role(s) supported."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1154,7 +1163,7 @@
       <path value="CapabilityStatement.rest.resource.searchInclude"/>
       <short value="_include values supported by the server"/>
       <definition value="A list of _include values supported by the server."/>
-    <comment value="Documenting [`_include`](http://hl7.org/fhir/R4/search.html#revinclude) support helps set conformance expectations for the desired system. Still, it is a level of detail that might not be exposed by production servers or clients when using CapabilityStatement to describe an actual implementation. If this list is empty, the server does not support includes. Support for *iterative* (a.k.a., recursive) `_include` is communicated by listing the iterative includes values supported by the server in the `searchInclude` element of the &quot;root&quot; resource type. For example, to support the following search:&#xA;&#xA;`GET [base]/CarePlan?_include=CarePlan:activity-reference:DeviceRequest&amp;_include:iterate=DeviceRequest:device`&#xA;&#xA;These values would be listed as part of capabilities for &quot;CarePlan&quot;:&#xA;&#xA;&quot;searchInclude&quot; : [&quot;CarePlan:activity-reference:DeviceRequest&quot;,&quot;DeviceRequest:device&quot;],&#xA;"/>
+    <comment value="Documenting [`_include`](http://hl7.org/fhir/R5/search.html#revinclude) support helps set conformance expectations for the desired system. Still, it is a level of detail that might not be exposed by production servers or clients when using CapabilityStatement to describe an actual implementation. If this list is empty, the server does not support includes. Support for *iterative* (a.k.a., recursive) `_include` is communicated by listing the iterative includes values supported by the server in the `searchInclude` element of the &quot;root&quot; resource type. For example, to support the following search:&#xA;&#xA;`GET [base]/CarePlan?_include=CarePlan:activity-reference:DeviceRequest&amp;_include:iterate=DeviceRequest:device`&#xA;&#xA;These values would be listed as part of capabilities for &quot;CarePlan&quot;:&#xA;&#xA;&quot;searchInclude&quot; : [&quot;CarePlan:activity-reference:DeviceRequest&quot;,&quot;DeviceRequest:device&quot;],&#xA;"/>
       <min value="0"/>
       <max value="*"/>
       <type>

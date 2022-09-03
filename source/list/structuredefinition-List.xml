@@ -227,6 +227,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -264,7 +266,7 @@
     <element id="List.date">
       <path value="List.date"/>
       <short value="When the list was prepared"/>
-      <definition value="The date that the list was prepared."/>
+      <definition value="Date list was last reviewed/revised and determined to be 'current'."/>
       <comment value="The actual important date is the date of currency of the resources that were summarized, but it is usually assumed that these are current when the preparation occurs."/>
       <requirements value="Identifies how current the list is which affects relevance."/>
       <min value="0"/>
@@ -405,7 +407,6 @@
         <code value="boolean"/>
       </type>
       <meaningWhenMissing value="List items are generally only treated as deleted when this element explicitly carries a value of true. Systems SHOULD always populate this value when mode is &#39;changes&#39;"/>
-      <condition value="lst-2"/>
       <isModifier value="true"/>
       <isModifierReason value="If deleted is true, then the item included in the list isn&#39;t actually part of the list anymore"/>
       <mapping>

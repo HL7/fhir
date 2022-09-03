@@ -122,6 +122,14 @@
     <type value="code"/>
   </parameter>
   <parameter>
+    <name value="useSupplement"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Supplements to take into account when performing the $lookup operation. The supplements must be for the same CodeSystem. By default, supplements for the code system are not automatically included except where they provide additional designations that may be indicated by, for example, the displayLanguage parameter"/>
+    <type value="canonical"/>
+  </parameter>
+  <parameter>
     <name value="name"/>
     <use value="out"/>
     <min value="1"/>
@@ -173,6 +181,14 @@
       <min value="0"/>
       <max value="1"/>
       <documentation value="A code that details how this designation would be used"/>
+      <type value="Coding"/>
+    </part>
+    <part>
+      <name value="additionalUse"/>
+      <use value="out"/>
+      <min value="0"/>
+      <max value="*"/>
+      <documentation value="Additional codes that detail how this designation would be used (if there is more than one)"/>
       <type value="Coding"/>
     </part>
     <part>
@@ -236,6 +252,14 @@
       <type value="string"/>
     </part>
     <part>
+      <name value="source"/>
+      <use value="out"/>
+      <min value="0"/>
+      <max value="1"/>
+      <documentation value="If information from a supplement is included as a property (e.g. any additional property or property value), then this parameter must assert the url of the supplement."/>
+      <type value="canonical"/>
+    </part>
+    <part>
       <name value="subproperty"/>
       <use value="out"/>
       <min value="0"/>
@@ -285,6 +309,14 @@
         <max value="1"/>
         <documentation value="Human Readable representation of the sub-property value (e.g. display for a code)"/>
         <type value="string"/>
+      </part>
+      <part>
+        <name value="source"/>
+        <use value="out"/>
+        <min value="0"/>
+        <max value="1"/>
+        <documentation value="If information from a supplement is included as a subproperty (e.g. any additional subproperty or subproperty value), then this parameter must assert the url of the supplement."/>
+        <type value="canonical"/>
       </part>
     </part>
   </parameter>

@@ -5911,7 +5911,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/days-of-week</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">valueset-days-of-week</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>

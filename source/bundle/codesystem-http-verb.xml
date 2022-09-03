@@ -3,127 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="http-verb"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/http-verb defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">GET
-            
-            <a name="http-verb-GET"> </a>
-          
-          </td>
-          
-          <td>GET</td>
-          
-          <td>HTTP GET Command.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">HEAD
-            
-            <a name="http-verb-HEAD"> </a>
-          
-          </td>
-          
-          <td>HEAD</td>
-          
-          <td>HTTP HEAD Command.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">POST
-            
-            <a name="http-verb-POST"> </a>
-          
-          </td>
-          
-          <td>POST</td>
-          
-          <td>HTTP POST Command.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">PUT
-            
-            <a name="http-verb-PUT"> </a>
-          
-          </td>
-          
-          <td>PUT</td>
-          
-          <td>HTTP PUT Command.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">DELETE
-            
-            <a name="http-verb-DELETE"> </a>
-          
-          </td>
-          
-          <td>DELETE</td>
-          
-          <td>HTTP DELETE Command.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">PATCH
-            
-            <a name="http-verb-PATCH"> </a>
-          
-          </td>
-          
-          <td>PATCH</td>
-          
-          <td>HTTP PATCH Command.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -141,7 +22,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.625"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="HTTPVerb"/>
   <title value="HTTPVerb"/>
   <status value="active"/>

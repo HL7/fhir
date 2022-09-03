@@ -9,7 +9,7 @@ draw the attention of reviewers and implementers to the following issue:
 </p>
 			<ol>
 				<li>
- We are seeking input from the implementation community on whether to combine DeviceRequest and  <a href="visionprescription.html">VisionPrescription</a> for R4.  The <a href="devicerequest-definitions.html#parameters">parameters</a> element  was added to DeviceRequest for representing custom details for ordering devices.  With this change,  VisionPrescription significantly overlaps  DeviceRequest. To illustrate this, the <a href="devicerequest-left-lens.html">devicerequest-left-lens</a> and <a href="devicerequest-right-lens.html">devicerequest-right-lens</a> examples are based on the <a href="visionprescription-example.html">general glasses example</a> in VisionPrescription.   
+ We are seeking input from the implementation community on whether to combine DeviceRequest and  <a href="visionprescription.html">VisionPrescription</a> for R5.  The <a href="devicerequest-definitions.html#parameters">parameters</a> element  was added to DeviceRequest for representing custom details for ordering devices.  With this change,  VisionPrescription significantly overlaps  DeviceRequest. To illustrate this, the <a href="devicerequest-left-lens.html">devicerequest-left-lens</a> and <a href="devicerequest-right-lens.html">devicerequest-right-lens</a> examples are based on the <a href="visionprescription-example.html">general glasses example</a> in VisionPrescription.   
 </li>
 			</ol>
 [%end-note-np%]

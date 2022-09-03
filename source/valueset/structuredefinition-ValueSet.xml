@@ -88,8 +88,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
       <mapping>
@@ -109,6 +109,14 @@
       <requirements value="Allows the value set to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
       <type>
         <code value="uri"/>
       </type>
@@ -795,6 +803,13 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="vsd-11"/>
+        <severity value="error"/>
+        <human value="Must have a value for concept.designation.use if concept.designation.additionalUse is present"/>
+        <expression value="additionalUse.exists() implies use.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      </constraint>
     </element>
     <element id="ValueSet.compose.include.concept.designation.language">
       <path value="ValueSet.compose.include.concept.designation.language"/>
@@ -831,6 +846,25 @@
       <comment value="If no use is provided, the designation can be assumed to be suitable for general display to a human user."/>
       <min value="0"/>
       <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConceptDesignationUse"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Details of how a designation would be used."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/designation-use"/>
+      </binding>
+    </element>
+    <element id="ValueSet.compose.include.concept.designation.additionalUse">
+      <path value="ValueSet.compose.include.concept.designation.additionalUse"/>
+      <short value="Additional ways how this designation would be used"/>
+      <definition value="Additional codes that detail how this designation would be used, if there is more than one use."/>
+      <comment value="This was added rather than increasing the cardinality of .use to 0..* in order to maintain backward compatibility."/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="Coding"/>
       </type>
@@ -1016,6 +1050,17 @@
         <code value="uri"/>
       </type>
     </element>
+	<element id="ValueSet.expansion.next">
+	  <path value="ValueSet.expansion.next"/>
+	  <short value="Opaque urls for paging through expansion results"/>
+	  <definition value="As per paging Search results, the next URLs are opaque to the client, have no dictated structure, and only the server understands them."/>
+	  <comment value="Clients SHOULD use the next link, if present, to page through expansion results in preference to using the offset and count parameters. Due to the optional nature of the next link, its absence does not necessarily indicate that it is the last page of results. Instead, as the offset and count parameters SHALL be populated when paging, clients can reliably use the count/offset parameters to determine whether the whole expansion is returned."/>
+	  <min value="0"/>
+	  <max value="1"/>
+	  <type>
+	    <code value="uri"/>
+	  </type>
+	</element>		
     <element id="ValueSet.expansion.timestamp">
       <path value="ValueSet.expansion.timestamp"/>
       <short value="Time ValueSet expansion happened"/>

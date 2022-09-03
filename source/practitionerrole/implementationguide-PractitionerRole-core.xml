@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ImplementationGuide xmlns="http://hl7.org/fhir">
+<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/ImplementationGuide.xsd">
   <id value="PractitionerRole-core"/>
   <version value="0.01"/>
   <name value="PractitionerRole HL7 Extensions"/>

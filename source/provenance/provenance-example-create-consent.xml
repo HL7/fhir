@@ -3,7 +3,7 @@
 	<id value="example-create-consent"/>
 
 	<target>
-		<reference value="Consent/consent-example"/>
+		<reference value="Consent/consent-example-basic/_history/1"/>
 	</target>
 	<recorded value="2021-09-10T07:08:21.722+00:00"/>
 	<activity>

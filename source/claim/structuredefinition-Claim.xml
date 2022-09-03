@@ -677,8 +677,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-careteamrole"/>
       </binding>
     </element>
-    <element id="Claim.careTeam.qualification">
-      <path value="Claim.careTeam.qualification"/>
+    <element id="Claim.careTeam.specialty">
+      <path value="Claim.careTeam.specialty"/>
       <short value="Practitioner or provider specialization"/>
       <definition value="The specialization of the practitioner or provider which is applicable for this service."/>
       <requirements value="Need to specify which specialization a practitioner or provider acting under when delivering the product or service."/>
@@ -692,7 +692,6 @@
           <valueString value="ProviderQualification"/>
         </extension>
         <strength value="example"/>
-        <description value="Provider professional qualifications."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/provider-qualification"/>
       </binding>
     </element>
@@ -805,6 +804,9 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <type>
+        <code value="Identifier"/>
       </type>
     </element>
     <element id="Claim.supportingInfo.reason">
@@ -1344,6 +1346,24 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
       </binding>
     </element>
+    <element id="Claim.item.productOrServiceEnd">
+      <path value="Claim.item.productOrServiceEnd"/>
+      <short value="End of a range of codes"/>
+      <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ServiceProduct"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
+      </binding>
+    </element>
     <element id="Claim.item.modifier">
       <path value="Claim.item.modifier"/>
       <short value="Product or service billing modifiers"/>
@@ -1674,6 +1694,24 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
       </binding>
     </element>
+    <element id="Claim.item.detail.productOrServiceEnd">
+      <path value="Claim.item.detail.productOrServiceEnd"/>
+      <short value="End of a range of codes"/>
+      <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ServiceProduct"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
+      </binding>
+    </element>
     <element id="Claim.item.detail.modifier">
       <path value="Claim.item.detail.modifier"/>
       <short value="Service/Product billing modifiers"/>
@@ -1879,6 +1917,24 @@
         </extension>
         <strength value="example"/>
         <description value="Allowable service and product codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
+      </binding>
+    </element>
+    <element id="Claim.item.detail.subDetail.productOrServiceEnd">
+      <path value="Claim.item.detail.subDetail.productOrServiceEnd"/>
+      <short value="End of a range of codes"/>
+      <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ServiceProduct"/>
+        </extension>
+        <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
       </binding>
     </element>

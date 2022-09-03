@@ -106,7 +106,6 @@
       <path value="OperationOutcome.issue.severity"/>
       <short value="fatal | error | warning | information"/>
       <definition value="Indicates whether the issue indicates a variation from successful processing."/>
-      <comment value="This is labeled as &quot;Is Modifier&quot; because applications should not confuse hints and warnings with errors."/>
       <requirements value="Indicates how relevant the issue is to the overall success of the action."/>
       <min value="1"/>
       <max value="1"/>

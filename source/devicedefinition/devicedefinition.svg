@@ -1,0 +1,1835 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n990"
+   version="1.1"
+   width="2240.8"
+   height="338.0"
+   sodipodi:docname="devicedefinition.svg"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview549"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.2437265"
+     inkscape:cx="227.54198"
+     inkscape:cy="248.04488"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="1271"
+     inkscape:window-y="-72"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="n990" />
+  <defs
+     id="defs11">
+    <filter
+       id="shadow1"
+       x="-0.041536051"
+       y="-0.0828125"
+       width="1.1065831"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset2" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix4" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur6" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend8" />
+    </filter>
+  </defs>
+  <g
+     id="n991">
+    <rect
+       id="DeviceDefinition"
+       x="350.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="261.36"
+       height="246.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n992"
+       x1="350.0"
+       y1="28.0"
+       x2="611.36"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n993"
+       x="480.68"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">DeviceDefinition<tspan
+   class="diagram-class-title-link"
+   id="tspan16"> (<a
+   id="n994"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n995"
+       x="356.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n996"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.description"><title
+   id="title19">Additional information to describe the device</title>description</a> : <a
+   id="n997"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1001"
+       x="356.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1002"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.identifier"><title
+   id="title24">Unique instance identifiers assigned to a device by the software, manufacturers, other organizations or owners. For example: handle ID. The identifier is typically valued if the udiDeviceIdentifier, partNumber or modelNumber is not valued and represents a different type of identifier.  However, it is permissible to still include those identifiers in DeviceDefinition.identifier with the appropriate identifier.type</title>identifier</a> : <a
+   id="n1003"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n1007"
+       x="356.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1008"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.partNumber"><title
+   id="title29">The part number or catalog number of the device</title>partNumber</a> : <a
+   id="n1009"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1013"
+       x="356.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1014"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.manufacturer"><title
+   id="title34">A name of the manufacturer  or legal representative e.g. labeler. Whether this is the actual manufacturer or the labeler or responsible depends on implementation and jurisdiction</title>manufacturer</a> : <a
+   id="n1015"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1016"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n1021"
+       x="356.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1022"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.modelNumber"><title
+   id="title40">The model number for the device for example as defined by the manufacturer or labeler, or other agency</title>modelNumber</a> : <a
+   id="n1023"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1027"
+       x="356.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1028"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.specialization"><title
+   id="title45">The capabilities supported on a  device, the standards to which the device conforms for a particular purpose, and used for the communication</title>specialization</a> : <a
+   id="n1029"
+   xlink:href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a> [0..*]</text>
+    <text
+       id="n1033"
+       x="356.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1034"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.safety"><title
+   id="title50">Safety characteristics of the device</title>safety</a> : <a
+   id="n1035"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1036"
+   xlink:href="valueset-device-safety.html"><title
+   id="n1037">null (Strength=Example)</title>DeviceSafety</a>?? »</text>
+    <text
+       id="n1043"
+       x="356.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1044"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.shelfLifeStorage"><title
+   id="title57">Shelf Life and storage information</title>shelfLifeStorage</a> : <a
+   id="n1045"
+   xlink:href="productshelflife.html#ProductShelfLife">ProductShelfLife</a> [0..*]</text>
+    <text
+       id="n1049"
+       x="356.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1050"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.languageCode"><title
+   id="title62">Language code for the human-readable text strings produced by the device (all supported)</title>languageCode</a> : <a
+   id="n1051"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n1055"
+       x="356.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1056"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.owner"><title
+   id="title67">An organization that is responsible for the provision and ongoing maintenance of the device</title>owner</a> : <a
+   id="n1057"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1058"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n1063"
+       x="356.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1064"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.contact"><title
+   id="title73">Contact details for an organization or a particular human that is responsible for the device</title>contact</a> : <a
+   id="n1065"
+   xlink:href="datatypes.html#ContactPoint">ContactPoint</a> [0..*]</text>
+    <text
+       id="n1069"
+       x="356.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1070"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.note"><title
+   id="title78">Descriptive information, usage information or implantation information that is not captured in an existing element</title>note</a> : <a
+   id="n1071"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n1075"
+       x="356.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1076"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.parentDevice"><title
+   id="title83">The parent device it can be part of</title>parentDevice</a> : <a
+   id="n1077"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1078"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a> »</text>
+    <text
+       id="n1083"
+       x="356.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1084"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.productionIdentifierInUDI"><title
+   id="title89">Indicates the production identifier(s) that are expected to appear in the UDI carrier on the device label</title>productionIdentifierInUDI</a> : <a
+   id="n1085"
+   xlink:href="datatypes.html#code">code</a> [0..*] « <a
+   id="n1086"
+   xlink:href="valueset-device-productidentifierinudi.html"><title
+     id="n1087">null (Strength=Required)</title></a></text>
+    <text
+       id="n1088"
+       x="376.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1089"
+   xlink:href="valueset-device-productidentifierinudi.html">DeviceProductionIdentifierInU...</a>! »</text>
+  </g>
+  <g
+     id="n1097"
+     transform="translate(-239.81356,0.40985534)">
+    <rect
+       id="DeviceDefinition.udiDeviceIdentifier"
+       x="950"
+       y="0"
+       rx="4"
+       ry="4"
+       width="150.48"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1098"
+       x1="950"
+       y1="28"
+       x2="1100.48"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1099"
+       x="1025.24"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">UdiDeviceIdentifier</text>
+    <text
+       id="n1100"
+       x="956"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1101"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.udiDeviceIdentifier.deviceIdentifier"><title
+   id="title102">The identifier that is to be associated with every Device that references this DeviceDefintiion for the issuer and jurisdiction provided in the DeviceDefinition.udiDeviceIdentifier</title>deviceIdentifier</a> : <a
+   id="n1102"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n1106"
+       x="956"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1107"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.udiDeviceIdentifier.issuer"><title
+   id="title107">The organization that assigns the identifier algorithm</title>issuer</a> : <a
+   id="n1108"
+   xlink:href="datatypes.html#uri">uri</a> [1..1]</text>
+    <text
+       id="n1112"
+       x="956"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1113"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.udiDeviceIdentifier.jurisdiction"><title
+   id="title112">The jurisdiction to which the deviceIdentifier applies</title>jurisdiction</a> : <a
+   id="n1114"
+   xlink:href="datatypes.html#uri">uri</a> [1..1]</text>
+  </g>
+  <g
+     id="n1118"
+     transform="translate(282.86137,1.3163545)">
+    <rect
+       id="DeviceDefinition.udiDeviceIdentifier.marketDistribution"
+       x="670"
+       y="0"
+       rx="4"
+       ry="4"
+       width="142.56"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1119"
+       x1="670"
+       y1="28"
+       x2="812.56"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1120"
+       x="741.28003"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">MarketDistribution</text>
+    <text
+       id="n1121"
+       x="676"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1122"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.udiDeviceIdentifier.marketDistribution.marketPeriod"><title
+   id="title121">Begin and end dates for the commercial distribution of the device</title>marketPeriod</a> : <a
+   id="n1123"
+   xlink:href="datatypes.html#Period">Period</a> [1..1]</text>
+    <text
+       id="n1127"
+       x="676"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1128"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.udiDeviceIdentifier.marketDistribution.subJurisdiction"><title
+   id="title126">National state or territory to which the marketDistribution recers, typically where the device is commercialized</title>subJurisdiction</a> : <a
+   id="n1129"
+   xlink:href="datatypes.html#uri">uri</a> [1..1]</text>
+  </g>
+  <g
+     id="n1133"
+     transform="translate(-698.14815,2.1578596)">
+    <rect
+       id="DeviceDefinition.deviceName"
+       x="700"
+       y="0"
+       rx="4"
+       ry="4"
+       width="162.8"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1134"
+       x1="700"
+       y1="28"
+       x2="862.79999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1135"
+       x="781.40002"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">DeviceName</text>
+    <text
+       id="n1136"
+       x="706"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1137"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.deviceName.name"><title
+   id="title135">A human-friendly name that is used to refer to the device - depending on the type, it can be the brand name, the common name or alias, or other</title>name</a> : <a
+   id="n1138"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n1142"
+       x="706"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1143"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.deviceName.type"><title
+   id="title140">The type of deviceName.
+RegisteredName | UserFriendlyName | PatientReportedName</title>type</a> : <a
+   id="n1144"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1145"
+   xlink:href="valueset-device-nametype.html"><title
+   id="n1146">null (Strength=Required)</title>DeviceNameType</a>! »</text>
+  </g>
+  <g
+     id="n1152"
+     transform="translate(-798.71709,33.88085)">
+    <rect
+       id="DeviceDefinition.classification"
+       x="800"
+       y="50"
+       rx="4"
+       ry="4"
+       width="193.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1153"
+       x1="800"
+       y1="78"
+       x2="993.59998"
+       y2="78"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1154"
+       x="896.79999"
+       y="70"
+       fill="#000000"
+       class="diagram-class-title">Classification</text>
+    <text
+       id="n1155"
+       x="806"
+       y="92"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1156"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.classification.type"><title
+   id="title151">A classification or risk class of the device model</title>type</a> : <a
+   id="n1157"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1158"
+   xlink:href="valueset-device-type.html"><title
+   id="n1159">null (Strength=Example)</title>DeviceType</a>?? »</text>
+    <text
+       id="n1165"
+       x="806"
+       y="106"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1166"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.classification.justification"><title
+   id="title158">Further information qualifying this classification of the device model</title>justification</a> : <a
+   id="n1167"
+   xlink:href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a> [0..*]</text>
+  </g>
+  <g
+     id="n1171"
+     transform="translate(711.97998,52.100067)">
+    <rect
+       id="DeviceDefinition.hasPart"
+       x="0"
+       y="50"
+       rx="4"
+       ry="4"
+       width="215.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1172"
+       x1="0"
+       y1="78"
+       x2="215.60001"
+       y2="78"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1173"
+       x="107.8"
+       y="70"
+       fill="#000000"
+       class="diagram-class-title">HasPart</text>
+    <text
+       id="n1174"
+       x="6"
+       y="92"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1175"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.hasPart.reference"><title
+   id="title167">Reference to the device that is part of the current device</title>reference</a> : <a
+   id="n1176"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1177"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a> »</text>
+    <text
+       id="n1182"
+       x="6"
+       y="106"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1183"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.hasPart.count"><title
+   id="title173">Number of instances of the component device in the current device</title>count</a> : <a
+   id="n1184"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
+  </g>
+  <g
+     id="n1188"
+     transform="translate(775.3362,96.097318)">
+    <rect
+       id="DeviceDefinition.packaging"
+       x="0"
+       y="100"
+       rx="4"
+       ry="4"
+       width="132"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1189"
+       x1="0"
+       y1="128"
+       x2="132"
+       y2="128"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1190"
+       x="66"
+       y="120"
+       fill="#000000"
+       class="diagram-class-title">Packaging</text>
+    <text
+       id="n1191"
+       x="6"
+       y="142"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1192"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.packaging.identifier"><title
+   id="title182">The business identifier of the packaged medication</title>identifier</a> : <a
+   id="n1193"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n1197"
+       x="6"
+       y="156"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1198"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.packaging.type"><title
+   id="title187">A code that defines the specific type of packaging</title>type</a> : <a
+   id="n1199"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n1203"
+       x="6"
+       y="170"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1204"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.packaging.count"><title
+   id="title192">The number of items contained in the package (devices or sub-packages)</title>count</a> : <a
+   id="n1205"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
+  </g>
+  <g
+     id="n1209"
+     transform="translate(325.35595,-44.868074)">
+    <rect
+       id="DeviceDefinition.packaging.distributor"
+       x="700"
+       y="150"
+       rx="4"
+       ry="4"
+       width="198"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1210"
+       x1="700"
+       y1="178"
+       x2="898"
+       y2="178"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1211"
+       x="799"
+       y="170"
+       fill="#000000"
+       class="diagram-class-title">Distributor</text>
+    <text
+       id="n1212"
+       x="706"
+       y="192"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1213"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.packaging.distributor.name"><title
+   id="title201">Distributor's human-readable name</title>name</a> : <a
+   id="n1214"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1218"
+       x="706"
+       y="206"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1219"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.packaging.distributor.organizationReference"><title
+   id="title206">Distributor as an Organization resource</title>organizationReference</a> : <a
+   id="n1220"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « »</text>
+  </g>
+  <g
+     id="n1224"
+     transform="translate(-124.45189,196.33295)">
+    <rect
+       id="DeviceDefinition.packaging.udiDeviceIdentifier"
+       x="1150"
+       y="0"
+       rx="4"
+       ry="4"
+       width="150.48"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1225"
+       x1="1150"
+       y1="28"
+       x2="1300.48"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1226"
+       x="1225.24"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">UdiDeviceIdentifier</text>
+    <text
+       id="n1227"
+       x="1156"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1228"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.packaging.udiDeviceIdentifier.deviceIdentifier"><title
+   id="title215">Identifier to be associated with every instance for issuer and jurisdiction</title>deviceIdentifier</a> : <a
+   id="n1229"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n1233"
+       x="1156"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1234"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.packaging.udiDeviceIdentifier.issuer"><title
+   id="title220">The organization that assigns the identifier algorithm</title>issuer</a> : <a
+   id="n1235"
+   xlink:href="datatypes.html#uri">uri</a> [1..1]</text>
+    <text
+       id="n1239"
+       x="1156"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1240"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.packaging.udiDeviceIdentifier.jurisdiction"><title
+   id="title225">The jurisdiction to which the deviceIdentifier applies</title>jurisdiction</a> : <a
+   id="n1241"
+   xlink:href="datatypes.html#uri">uri</a> [1..1]</text>
+  </g>
+  <g
+     id="n1245"
+     transform="translate(-276.51589,324.22885)">
+    <rect
+       id="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution"
+       x="1310"
+       y="0"
+       rx="4"
+       ry="4"
+       width="142.56"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1246"
+       x1="1310"
+       y1="28"
+       x2="1452.5601"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1247"
+       x="1381.28"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">MarketDistribution</text>
+    <text
+       id="n1248"
+       x="1316"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1249"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.marketPeriod"><title
+   id="title234">Begin and end dates for the commercial distribution of the device</title>marketPeriod</a> : <a
+   id="n1250"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n1254"
+       x="1316"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1255"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.subJurisdiction"><title
+   id="title239">National state or territory to which the marketDistribution refers, typically where the device is commercialized</title>subJurisdiction</a> : <a
+   id="n1256"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+  </g>
+  <g
+     id="n1260"
+     transform="translate(-369.7056,82.413042)">
+    <rect
+       id="DeviceDefinition.version"
+       x="700"
+       y="200"
+       rx="4"
+       ry="4"
+       width="127.6"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1261"
+       x1="700"
+       y1="228"
+       x2="827.59998"
+       y2="228"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1262"
+       x="763.79999"
+       y="220"
+       fill="#000000"
+       class="diagram-class-title">Version</text>
+    <text
+       id="n1263"
+       x="706"
+       y="242"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1264"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.version.type"><title
+   id="title248">The type of the device version, e.g. manufacturer, approved, internal</title>type</a> : <a
+   id="n1265"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n1269"
+       x="706"
+       y="256"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1270"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.version.component"><title
+   id="title253">The hardware or software module of the device to which the version applies</title>component</a> : <a
+   id="n1271"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n1275"
+       x="706"
+       y="270"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1276"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.version.value"><title
+   id="title258">The version text</title>value</a> : <a
+   id="n1277"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+  </g>
+  <g
+     id="n1281"
+     transform="translate(-922.96024,147.01191)">
+    <rect
+       id="DeviceDefinition.property"
+       x="950"
+       y="240"
+       rx="4"
+       ry="4"
+       width="303.60001"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1282"
+       x1="950"
+       y1="268"
+       x2="1253.6"
+       y2="268"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1283"
+       x="1101.8"
+       y="260"
+       fill="#000000"
+       class="diagram-class-title">Property</text>
+    <text
+       id="n1284"
+       x="956"
+       y="282"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1285"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.property.type"><title
+   id="title267">Code that specifies the property</title>type</a> : <a
+   id="n1286"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1]</text>
+    <text
+       id="n1290"
+       x="956"
+       y="296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1291"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.property.value_x_"><title
+   id="title272">Property value - the data type depends on the property type</title>value[x]</a> : <a
+   id="n1292"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n1293"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n1294"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n1295"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n1296"
+   xlink:href="datatypes.html#boolean">boolean</a>|</text>
+    <text
+       id="n1297"
+       x="976"
+       y="310"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1298"
+   xlink:href="datatypes.html#integer">integer</a>|<a
+   id="n1299"
+   xlink:href="datatypes.html#Range">Range</a>|<a
+   id="n1300"
+   xlink:href="datatypes.html#Attachment">Attachment</a> »</text>
+  </g>
+  <g
+     id="n1312"
+     transform="translate(0.80403524,18.406023)">
+    <rect
+       id="DeviceDefinition.link"
+       x="0"
+       y="250"
+       rx="4"
+       ry="4"
+       width="250.8"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1313"
+       x1="0"
+       y1="278"
+       x2="250.8"
+       y2="278"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1314"
+       x="125.4"
+       y="270"
+       fill="#000000"
+       class="diagram-class-title">Link</text>
+    <text
+       id="n1315"
+       x="6"
+       y="292"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1316"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.link.relation"><title
+   id="title289">The type indicates the relationship of the related device to the device instance</title>relation</a> : <a
+   id="n1317"
+   xlink:href="datatypes.html#Coding">Coding</a> [1..1] « <a
+   id="n1318"
+   xlink:href="valueset-devicedefinition-relationtype.html"><title
+   id="n1319">null (Strength=Extensible)</title>DeviceDefinitionRelationType</a>+ »</text>
+    <text
+       id="n1325"
+       x="6"
+       y="306"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1326"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.link.relatedDevice"><title
+   id="title296">A reference to the linked device</title>relatedDevice</a> : <a
+   id="n1327"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n1328"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a> »</text>
+  </g>
+  <g
+     id="n1333"
+     transform="translate(-174.38658,38.041609)">
+    <rect
+       id="DeviceDefinition.material"
+       x="699.19598"
+       y="244.82422"
+       rx="4"
+       ry="4"
+       width="158.39999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1334"
+       x1="700"
+       y1="268"
+       x2="858.40002"
+       y2="268"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1335"
+       x="779.20001"
+       y="260"
+       fill="#000000"
+       class="diagram-class-title">Material</text>
+    <text
+       id="n1336"
+       x="706"
+       y="282"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1337"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.material.substance"><title
+   id="title306">A substance that the device contains, may contain, or is made of - for example latex - to be used to determine patient compatibility. This is not intended to represent the composition of the device, only the clinically relevant materials</title>substance</a> : <a
+   id="n1338"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1]</text>
+    <text
+       id="n1342"
+       x="706"
+       y="296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1343"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.material.alternate"><title
+   id="title311">Indicates an alternative material of the device</title>alternate</a> : <a
+   id="n1344"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1348"
+       x="706"
+       y="310"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1349"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.material.allergenicIndicator"><title
+   id="title316">Whether the substance is a known or suspected allergen</title>allergenicIndicator</a> : <a
+   id="n1350"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+  </g>
+  <g
+     id="n1354"
+     transform="translate(-741.03533,324.63871)">
+    <rect
+       id="DeviceDefinition.guideline"
+       x="1470"
+       y="0"
+       rx="4"
+       ry="4"
+       width="264"
+       height="134"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1355"
+       x1="1470"
+       y1="28"
+       x2="1734"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1356"
+       x="1602"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Guideline</text>
+    <text
+       id="n1357"
+       x="1476"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1358"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.guideline.useContext"><title
+   id="title325">The circumstances that form the setting for using the device</title>useContext</a> : <a
+   id="n1359"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n1363"
+       x="1476"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1364"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.guideline.usageInstruction"><title
+   id="title330">Detailed written and visual directions for the user on how to use the device</title>usageInstruction</a> : <a
+   id="n1365"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1369"
+       x="1476"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1370"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.guideline.relatedArtifact"><title
+   id="title335">A source of information or reference for this guideline</title>relatedArtifact</a> : <a
+   id="n1371"
+   xlink:href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a> [0..*]</text>
+    <text
+       id="n1375"
+       x="1476"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1376"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.guideline.indication"><title
+   id="title340">A clinical condition for which the device was designed to be used</title>indication</a> : <a
+   id="n1377"
+   xlink:href="types.html#DataType">DataType</a> [0..*] « <a
+   id="n1378"
+   xlink:href="clinicalusedefinition.html#ClinicalUseDefinition">ClinicalUseDefinition</a> »</text>
+    <text
+       id="n1383"
+       x="1476"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1384"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.guideline.contraindication"><title
+   id="title346">A specific situation when a device should not be used because it may cause harm</title>contraindication</a> : <a
+   id="n1385"
+   xlink:href="types.html#DataType">DataType</a> [0..*] « <a
+   id="n1386"
+   xlink:href="clinicalusedefinition.html#ClinicalUseDefinition">ClinicalUseDefinition</a> »</text>
+    <text
+       id="n1391"
+       x="1476"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1392"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.guideline.warning"><title
+   id="title352">Specific hazard alert information that a user needs to know before using the device</title>warning</a> : <a
+   id="n1393"
+   xlink:href="types.html#DataType">DataType</a> [0..*] « <a
+   id="n1394"
+   xlink:href="clinicalusedefinition.html#ClinicalUseDefinition">ClinicalUseDefinition</a> »</text>
+    <text
+       id="n1399"
+       x="1476"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1400"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.guideline.intendedUse"><title
+   id="title358">A description of the general purpose or medical use of the device or its function</title>intendedUse</a> : <a
+   id="n1401"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n1405"
+     transform="translate(1.6080661,170.45548)">
+    <rect
+       id="DeviceDefinition.correctiveAction"
+       x="0"
+       y="0"
+       rx="4"
+       ry="4"
+       width="224.39999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1406"
+       x1="0"
+       y1="28"
+       x2="224.39999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1407"
+       x="112.2"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">CorrectiveAction</text>
+    <text
+       id="n1408"
+       x="6"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1409"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.correctiveAction.recall"><title
+   id="title367">Whether the last corrective action known for this device was a recall</title>recall</a> : <a
+   id="n1410"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
+    <text
+       id="n1414"
+       x="6"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1415"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.correctiveAction.scope"><title
+   id="title372">The scope of the corrective action - whether the action targeted all units of a given device model, or only a specific set of batches identified by lot numbers, or individually identified devices identified by the serial name</title>scope</a> : <a
+   id="n1416"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1417"
+   xlink:href="valueset-device-correctiveactionscope.html"><title
+   id="n1418">null (Strength=Required)</title>DeviceCorrectiveActionScope</a>! »</text>
+    <text
+       id="n1424"
+       x="6"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1425"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.correctiveAction.period"><title
+   id="title379">Start and end dates of the  corrective action</title>period</a> : <a
+   id="n1426"
+   xlink:href="datatypes.html#Period">Period</a> [1..1]</text>
+  </g>
+  <g
+     id="n1430"
+     transform="translate(-1409.6226,387.48727)">
+    <rect
+       id="DeviceDefinition.chargeItem"
+       x="1790"
+       y="0"
+       rx="4"
+       ry="4"
+       width="250.8"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1431"
+       x1="1790"
+       y1="28"
+       x2="2040.8"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1432"
+       x="1915.4"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">ChargeItem</text>
+    <text
+       id="n1433"
+       x="1796"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1434"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.chargeItem.chargeItemCode"><title
+   id="title388">The code or reference for the charge item</title>chargeItemCode</a> : <a
+   id="n1435"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n1436"
+   xlink:href="chargeitemdefinition.html#ChargeItemDefinition">ChargeItemDefinition</a> »</text>
+    <text
+       id="n1441"
+       x="1796"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1442"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.chargeItem.count"><title
+   id="title394">Coefficient applicable to the billing code</title>count</a> : <a
+   id="n1443"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [1..1]</text>
+    <text
+       id="n1447"
+       x="1796"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1448"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.chargeItem.effectivePeriod"><title
+   id="title399">A specific time period in which this charge item applies</title>effectivePeriod</a> : <a
+   id="n1449"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n1453"
+       x="1796"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1454"
+   xlink:href="devicedefinition-definitions.html#DeviceDefinition.chargeItem.useContext"><title
+   id="title404">The context to which this charge item applies</title>useContext</a> : <a
+   id="n1455"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+  </g>
+  <line
+     id="n1459"
+     x1="950.0"
+     y1="37.14523172277786"
+     x2="812.56"
+     y2="33.75714889421045"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1460"
+     points="950.0,37.14523172277786 956.0,41.14523172277786 962.0,37.14523172277786 956.0,33.14523172277786 950.0,37.14523172277786"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-178.58786714996265 950.0 37.14523172277786)" />
+  <rect
+     id="n1461"
+     x="841.5"
+     y="28.0"
+     width="79.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1462"
+     x="881.0"
+     y="38.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1463"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.udiDeviceIdentifier.marketDistribution"><title
+   id="title413">Indicates where and when the device is available on the market</title>marketDistribution</a></text>
+  <text
+     id="n1464"
+     x="827.56"
+     y="29.757148894210452"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1465"
+     x1="611.36"
+     y1="102.84222124283826"
+     x2="950.0"
+     y2="50.605993829881015"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1466"
+     points="611.36,102.84222124283826 617.36,106.84222124283826 623.36,102.84222124283826 617.36,98.84222124283826 611.36,102.84222124283826"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-8.768931058063524 611.36 102.84222124283826)" />
+  <rect
+     id="n1467"
+     x="738.5"
+     y="69.0"
+     width="83.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1468"
+     x="780.0"
+     y="79.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1469"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.udiDeviceIdentifier"><title
+   id="title421">Unique device identifier (UDI) assigned to device label or package.  Note that the Device may include multiple udiCarriers as it either may include just the udiCarrier for the jurisdiction it is sold, or for multiple jurisdictions it could have been sold</title>udiDeviceIdentifier</a></text>
+  <text
+     id="n1470"
+     x="930.0"
+     y="46.605993829881015"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1471"
+     x1="611.36"
+     y1="83.45530726256985"
+     x2="700.0"
+     y2="56.63221601489761"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1472"
+     points="611.36,83.45530726256985 617.36,87.45530726256985 623.36,83.45530726256985 617.36,79.45530726256985 611.36,83.45530726256985"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-16.836186510691846 611.36 83.45530726256985)" />
+  <rect
+     id="n1473"
+     x="633.0"
+     y="63.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1474"
+     x="655.0"
+     y="73.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1475"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.deviceName"><title
+   id="title429">The name or names of the device as given by the manufacturer</title>deviceName</a></text>
+  <text
+     id="n1476"
+     x="680.0"
+     y="52.63221601489761"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1477"
+     x1="611.36"
+     y1="110.12419494376618"
+     x2="800.0"
+     y2="91.53763337498795"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1478"
+     points="611.36,110.12419494376618 617.36,114.12419494376618 623.36,110.12419494376618 617.36,106.12419494376618 611.36,110.12419494376618"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-5.627148769619551 611.36 110.12419494376618)" />
+  <rect
+     id="n1479"
+     x="674.5"
+     y="93.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1480"
+     x="705.0"
+     y="103.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1481"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.classification"><title
+   id="title437">What kind of device or device system this is</title>classification</a></text>
+  <text
+     id="n1482"
+     x="780.0"
+     y="87.53763337498795"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1483"
+     x1="350.0"
+     y1="108.63108774941"
+     x2="215.60000000000002"
+     y2="93.85314310233856"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1484"
+     points="350.0,108.63108774941 356.0,112.63108774941 362.0,108.63108774941 356.0,104.63108774941 350.0,108.63108774941"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-173.72525210553 350.0 108.63108774941)" />
+  <rect
+     id="n1485"
+     x="267.0"
+     y="94.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1486"
+     x="282.0"
+     y="104.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1487"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.hasPart"><title
+   id="title445">A device that is part (for example a component) of the present device</title>hasPart</a></text>
+  <text
+     id="n1488"
+     x="230.60000000000002"
+     y="89.85314310233856"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1489"
+     x1="132.0"
+     y1="142.87175989085947"
+     x2="700.0"
+     y2="176.19236016371076"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1490"
+     points="132.0,142.87175989085947 138.0,146.87175989085947 144.0,142.87175989085947 138.0,138.87175989085947 132.0,142.87175989085947"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(3.3572962713913377 132.0 142.87175989085947)" />
+  <rect
+     id="n1491"
+     x="392.0"
+     y="152.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1492"
+     x="416.0"
+     y="162.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1493"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.packaging.distributor"><title
+   id="title453">An organization that distributes the packaged device</title>distributor</a></text>
+  <text
+     id="n1494"
+     x="680.0"
+     y="172.19236016371076"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1495"
+     x1="1300.48"
+     y1="35.624711612407076"
+     x2="1310.0"
+     y2="35.19764163035119"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1496"
+     points="1300.48,35.624711612407076 1306.48,39.624711612407076 1312.48,35.624711612407076 1306.48,31.624711612407076 1300.48,35.624711612407076"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-2.5685832914610494 1300.48 35.624711612407076)" />
+  <rect
+     id="n1497"
+     x="1265.5"
+     y="28.0"
+     width="79.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1498"
+     x="1305.0"
+     y="38.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1499"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution"><title
+   id="title461">The organization that assigns the identifier algorithm</title>marketDistribution</a></text>
+  <text
+     id="n1500"
+     x="1290.0"
+     y="31.197641630351193"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1501"
+     x1="132.0"
+     y1="133.30661467858252"
+     x2="1150.0"
+     y2="45.490459266415925"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1502"
+     points="132.0,133.30661467858252 138.0,137.30661467858252 144.0,133.30661467858252 138.0,129.30661467858252 132.0,133.30661467858252"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-4.930324253469639 132.0 133.30661467858252)" />
+  <rect
+     id="n1503"
+     x="599.5"
+     y="82.0"
+     width="83.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1504"
+     x="641.0"
+     y="92.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1505"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.packaging.udiDeviceIdentifier"><title
+   id="title469">Unique Device Identifier (UDI) Barcode string on the packaging</title>udiDeviceIdentifier</a></text>
+  <text
+     id="n1506"
+     x="1130.0"
+     y="41.490459266415925"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1507"
+     x1="132.0"
+     y1="114.0"
+     x2="192.0"
+     y2="114.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n1508"
+     x1="192.0"
+     y1="114.0"
+     x2="192.0"
+     y2="164.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n1509"
+     x1="192.0"
+     y1="164.0"
+     x2="132.0"
+     y2="164.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1510"
+     points="132.0,114.0 138.0,118.0 144.0,114.0 138.0,110.0 132.0,114.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 132.0 114.0)" />
+  <rect
+     id="n1511"
+     x="172.5"
+     y="132.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1512"
+     x="192.0"
+     y="142.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1513"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.packaging.packaging"><title
+   id="title479">Allows packages within packages</title>packaging</a></text>
+  <text
+     id="n1514"
+     x="147.0"
+     y="160.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1515"
+     x1="350.0"
+     y1="128.04215298543457"
+     x2="132.0"
+     y2="136.45345808816438"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1516"
+     points="350.0,128.04215298543457 356.0,132.04215298543457 362.0,128.04215298543457 356.0,124.04215298543457 350.0,128.04215298543457"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(177.7903975161409 350.0 128.04215298543457)" />
+  <rect
+     id="n1517"
+     x="221.5"
+     y="125.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1518"
+     x="241.0"
+     y="135.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1519"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.packaging"><title
+   id="title487">Information about the packaging of the device, i.e. how the device is packaged</title>packaging</a></text>
+  <text
+     id="n1520"
+     x="147.0"
+     y="132.45345808816438"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1521"
+     x1="611.36"
+     y1="176.54224357163042"
+     x2="700.0"
+     y2="212.85984741452387"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1522"
+     points="611.36,176.54224357163042 617.36,180.54224357163042 623.36,176.54224357163042 617.36,172.54224357163042 611.36,176.54224357163042"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(22.27990644997268 611.36 176.54224357163042)" />
+  <rect
+     id="n1523"
+     x="640.0"
+     y="187.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1524"
+     x="655.0"
+     y="197.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1525"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.version"><title
+   id="title495">The version of the device or software</title>version</a></text>
+  <text
+     id="n1526"
+     x="680.0"
+     y="208.85984741452387"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1527"
+     x1="611.36"
+     y1="155.82148377125196"
+     x2="950.0"
+     y2="240.87403400309125"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1528"
+     points="611.36,155.82148377125196 617.36,159.82148377125196 623.36,155.82148377125196 617.36,151.82148377125196 611.36,155.82148377125196"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(14.098736567500152 611.36 155.82148377125196)" />
+  <rect
+     id="n1529"
+     x="762.5"
+     y="191.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1530"
+     x="780.0"
+     y="201.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1531"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.property"><title
+   id="title503">The potential, valid configuration settings of a device, e.g., regulation status, time properties</title>property</a></text>
+  <text
+     id="n1532"
+     x="930.0"
+     y="236.87403400309125"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1533"
+     x1="350.0"
+     y1="181.4837874352624"
+     x2="196.90289308176116"
+     y2="250.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1534"
+     points="350.0,181.4837874352624 356.0,185.4837874352624 362.0,181.4837874352624 356.0,177.4837874352624 350.0,181.4837874352624"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(155.88984489919017 350.0 181.4837874352624)" />
+  <rect
+     id="n1535"
+     x="264.5"
+     y="208.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1536"
+     x="273.0"
+     y="218.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1537"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.link"><title
+   id="title511">An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device</title>link</a></text>
+  <text
+     id="n1538"
+     x="196.90289308176116"
+     y="246.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1539"
+     x1="611.36"
+     y1="191.29049979900842"
+     x2="704.5700000000002"
+     y2="240.00000000000003"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1540"
+     points="611.36,191.29049979900842 617.36,195.29049979900842 623.36,191.29049979900842 617.36,187.29049979900842 611.36,191.29049979900842"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(27.590580534482886 611.36 191.29049979900842)" />
+  <rect
+     id="n1541"
+     x="639.5"
+     y="208.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1542"
+     x="657.0"
+     y="218.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1543"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.material"><title
+   id="title519">A substance used to create the material(s) of which the device is made</title>material</a></text>
+  <text
+     id="n1544"
+     x="704.5700000000002"
+     y="236.00000000000003"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1545"
+     x1="611.36"
+     y1="116.4736917204723"
+     x2="1470.0"
+     y2="73.59223058538151"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1546"
+     points="611.36,116.4736917204723 617.36,120.4736917204723 623.36,116.4736917204723 617.36,112.4736917204723 611.36,116.4736917204723"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-2.859041242334644 611.36 116.4736917204723)" />
+  <rect
+     id="n1547"
+     x="1020.5"
+     y="88.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1548"
+     x="1040.0"
+     y="98.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1549"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.guideline"><title
+   id="title527">Information aimed at providing directions for the usage of this model of device</title>guideline</a></text>
+  <text
+     id="n1550"
+     x="1450.0"
+     y="69.59223058538151"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1551"
+     x1="350.0"
+     y1="93.20972644376899"
+     x2="224.4"
+     y2="64.5775075987842"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1552"
+     points="350.0,93.20972644376899 356.0,97.20972644376899 362.0,93.20972644376899 356.0,89.20972644376899 350.0,93.20972644376899"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-167.15810371582785 350.0 93.20972644376899)" />
+  <rect
+     id="n1553"
+     x="252.0"
+     y="71.0"
+     width="70.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1554"
+     x="287.0"
+     y="81.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1555"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.correctiveAction"><title
+   id="title535">Tracking of latest field safety corrective action</title>correctiveAction</a></text>
+  <text
+     id="n1556"
+     x="239.4"
+     y="60.577507598784194"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1557"
+     x1="611.36"
+     y1="115.98653395784545"
+     x2="1790.0"
+     y2="52.73009367681502"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1558"
+     points="611.36,115.98653395784545 617.36,119.98653395784545 623.36,115.98653395784545 617.36,111.98653395784545 611.36,115.98653395784545"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-3.0720603956465107 611.36 115.98653395784545)" />
+  <rect
+     id="n1559"
+     x="1178.0"
+     y="77.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1560"
+     x="1200.0"
+     y="87.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1561"
+       xlink:href="devicedefinition-definitions.html#DeviceDefinition.chargeItem"><title
+   id="title543">Billing code or reference associated with the device</title>chargeItem</a></text>
+  <text
+     id="n1562"
+     x="1770.0"
+     y="48.73009367681502"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

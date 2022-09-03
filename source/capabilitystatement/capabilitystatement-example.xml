@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="example"/>
 	<text>
@@ -108,14 +108,14 @@
 		<!--  zero or more of these - declaration of support for a resource  -->
 		<resource>
 			<type value="Patient"/>
-			<!--  let's assume that HL7 has stood up a profile registry at http://registry.fhir.org
-        - it's likely to have a registry, though this is not decided, nor is a URL decided. 
-        This application simply uses a profile registered directly with HL7. For the simplest 
+			<!--  
+        This application simply uses a profile registered directly with HL7 (an example, not a 
+				profile that actually exists). For the simplest 
         case of a FHIR REST Server, just delete this profile reference. Profile references do 
         not need to be a UUID, though a profile registry could insist that they are  -->
-			<profile value="http://registry.fhir.org/r4/StructureDefinition/7896271d-57f6-4231-89dc-dcc91eab2416"/>
+			<profile value="http://registry.fhir.org/r5/StructureDefinition/7896271d-57f6-4231-89dc-dcc91eab2416"/>
       <!--  this system supports a specific profile for animals -->
-      <supportedProfile value="http://registry.fhir.org/r4/StructureDefinition/00ab9e7a-06c7-4f77-9234-4154ca1e3347"/>
+      <supportedProfile value="http://registry.fhir.org/r5/StructureDefinition/00ab9e7a-06c7-4f77-9234-4154ca1e3347"/>
 			<documentation value="This server does not let the clients create identities."/>
 			<interaction>
 				<code value="read"/>

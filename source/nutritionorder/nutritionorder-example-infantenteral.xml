@@ -49,14 +49,14 @@ edited by Eric Haas Health eData Inc
 			<system value="http://unitsofmeasure.org"/>
 			<code value="cal/[foz_us]"/>
 		</caloricDensity>
-		<routeofAdministration>
+		<routeOfAdministration>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration"/>
 				<code value="PO"/>
 				<display value="Swallow, oral"/>
 				<userSelected value="true"/>
 			</coding>
-		</routeofAdministration>
+		</routeOfAdministration>
 		<administration>
 		<!-- scheduled 4 oz every 3hrs not to exceed 32 oz/day-->
 		<schedule>
