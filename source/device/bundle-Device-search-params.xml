@@ -277,8 +277,8 @@
         <description value="Patient information, if the resource is affixed to a person"/>
         <code value="patient"/>
         <type value="reference"/>
-        <expression value="Device.subject.where(resolve() is Patient)"/>
-        <xpath value="f:Device/f:subject"/>
+        <expression value="Device.association.humanSubject.where(resolve() is Patient)"/>
+        <xpath value="f:Device/f:association/f:humanSubject"/>
         <xpathUsage value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
