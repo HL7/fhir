@@ -97,7 +97,7 @@
 			<constraint>
 				<key value="spd-1"/>
 				<severity value="error"/>
-				<human value="If an expression is present, there SHALL be an processingMode"/>
+				<human value="If an expression is present, there SHALL be a processingMode"/>
 				<expression value="expression.empty() or processingMode.exists()"/>
 				<xpath value="not(exists(f:xpath)) or exists(f:processingMode)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
