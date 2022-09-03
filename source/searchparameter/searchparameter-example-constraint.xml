@@ -13,7 +13,7 @@
 	<type value="reference"/>
 	<expression value="Bundle.entry[0].resource"/>
 	<xpath value="f:Bundle/f:entry[0]/f:resource"/>
-	<xpathUsage value="normal"/>
+	<processingMode value="normal"/>
 	<constraint value="Bundle.type = 'document' and Bundle.entry[0].resource is Composition"/>
 	<target value="Composition"/>
 </SearchParameter>

@@ -45,7 +45,7 @@
 	<type value="token"/>
 	<expression value="id"/>
 	<xpath value="f:*/f:id"/>
-	<xpathUsage value="normal"/>
+	<processingMode value="normal"/>
 </SearchParameter>
 
 
