@@ -40,7 +40,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/search-xpath-usage"/>
+      <system value="http://hl7.org/fhir/search-processingmode"/>
     </include>
   </compose>
 </ValueSet>
