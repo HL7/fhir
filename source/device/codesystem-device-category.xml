@@ -2,6 +2,9 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="device-category"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -12,6 +15,10 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/device-category"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="FHIRDeviceCategory"/>
   <title value="FHIRDeviceCategory"/>
@@ -58,17 +65,11 @@
     <display value="Implantable"/>
     <definition value="A device that is placed into a surgically or naturally formed cavity of the human body."/>
   </concept>
-
   <concept>
     <code value="in-vitro"/>
     <display value="In vitro"/>
     <definition value="Tests done on samples such as blood or tissue that have been taken from the human body."/>
   </concept>
-  <!-- <concept>
-    <code value="patient-use"/>
-    <display value="Patient use"/>
-    <definition value="Devices intended for users in any environment outside of a professional healthcare facility."/>
-  </concept> -->
   <concept>
     <code value="point-of-care"/>
     <display value="Point of Care"/>
