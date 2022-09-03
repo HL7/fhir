@@ -16,7 +16,7 @@
             <coding>
                <system value="http://snomed.info/sct"/>
                <code value="387253001"/>
-               <display value="Salicyclic Acid (substance)"/>
+               <display value="Salicylic Acid (substance)"/>
             </coding>
          </concept>
          </item>

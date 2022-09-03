@@ -3,79 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="transport-intent"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      
-      <p>This code system http://hl7.org/fhir/transport-intent defines the following codes:</p>
-      
-      
-      <table class="codes">
-        
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">
-            
-            
-            <b>Code</b>
-          
-          
-          </td>
-          
-          
-          <td>
-            
-            
-            <b>Display</b>
-          
-          
-          </td>
-          
-          
-          <td>
-            
-            
-            <b>Definition</b>
-          
-          
-          </td>
-        
-        
-        </tr>
-        
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">unknown
-            
-            
-            <a name="transport-intent-unknown"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Unknown</td>
-          
-          
-          <td>The intent is not known.  When dealing with Transport, it&#39;s not always known (or relevant) how the transport was initiated - i.e. whether it was proposed, planned, ordered or just done spontaneously.</td>
-        
-        
-        </tr>
-      
-      
-      </table>
-    
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -90,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="TransportIntent"/>
   <title value="TransportIntent"/>
   <status value="draft"/>
@@ -113,6 +42,6 @@
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The intent is not known.  When dealing with Transport, it&#39;s not always known (or relevant) how the transport was initiated - i.e. whether it was proposed, planned, ordered or just done spontaneously."/>
+    <definition value="The intent is not known.  When dealing with Transport, it's not always known (or relevant) how the transport was initiated - i.e. whether it was proposed, planned, ordered or just done spontaneously."/>
   </concept>
 </CodeSystem>

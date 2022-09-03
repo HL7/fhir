@@ -3,157 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="link-type"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/link-type defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">replaced-by
-            
-            <a name="link-type-replaced-by"> </a>
-          
-          </td>
-          
-          <td>Replaced-by</td>
-          
-          <td>The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains this link.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">replaces
-            
-            <a name="link-type-replaces"> </a>
-          
-          </td>
-          
-          <td>Replaces</td>
-          
-          <td>The patient resource containing this link is the current active patient record. The link points back to an inactive patient resource that has been merged into this resource, and should be consulted to retrieve additional referenced information.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">refer
-            
-            <a name="link-type-refer"> </a>
-          
-          </td>
-          
-          <td>Refer</td>
-          
-          <td>The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">seealso
-            
-            <a name="link-type-seealso"> </a>
-          
-          </td>
-          
-          <td>See also</td>
-          
-          <td>The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.</td>
-        
-        </tr>
-      
-      </table>
-      
-      <p>
-        
-        <b>Additional Language Displays</b>
-      
-      </p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td>
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Nederlands (Dutch, nl)</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>replaced-by</td>
-          
-          <td>Vervangen door</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>replaces</td>
-          
-          <td>Vervangt</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>refer</td>
-          
-          <td>Verwijzing</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>seealso</td>
-          
-          <td>Zie ook</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
@@ -171,7 +22,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.424"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="LinkType"/>
   <title value="LinkType"/>
   <status value="active"/>

@@ -6,7 +6,7 @@
 		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
 	</meta>
 	<text>
-		<status value="generated"/>
+		<status value="additional"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<p>Value set &quot;LOINC Codes for Cholesterol&quot;: This is an example value set that includes 
         all the  codes for serum cholesterol from LOINC v2.36.</p>

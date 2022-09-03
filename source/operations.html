@@ -44,7 +44,7 @@ Operations have the following general properties:
 <ul>
  <li>Each operation has a name</li>
  <li>Each operation has a list of 'in' and 'out' parameters</li>
- <li>Parameters are either resources, data types, or search parameters</li>
+ <li>Parameters are either resources, datatypes, or search parameters</li>
  <li>Operations are subject to the same security constraints and requirements as the RESTful API</li>
  <li>The URIs for the operation end-points are based on the existing RESTful API address scheme</li>
  <li>Operations may make use of all types of resources existing in the repository</li>
@@ -61,7 +61,7 @@ Operations are executed using a URL derived from the FHIR endpoint, where the na
  POST http://fhir.someserver.org/fhir/Patient/1/$everything
 </pre>
 <p>
-When an operation has affectsState = false, and the parameters are all primitive data types with no extensions
+When an operation has affectsState = false, and the parameters are all primitive datatypes with no extensions
 (as is the case with the example above), it may be invoked using GET as well. (Note: A HEAD request can also be used - see <a href="http.html#head">Support for HEAD</a>).
 </p>
 <p>
@@ -173,9 +173,9 @@ For each parameter, the following information is needed:
 <ul>
  <li>Name - the name of the parameter. For implementer convenience, the name should be a valid token in common implementation languages</li>
  <li>Use - In | Out | Both</li>
- <li>Type - a data type or a Resource type</li>
+ <li>Type - a datatype or a Resource type</li>
  <li>Search Type - for simple string parameters, if they are acting as search parameters, what kind of search parameter they are (and what kind of modifiers they have)</li>
- <li>Profile - a <a href="structuredefinition.html">StructureDefinition</a>  that describes additional restrictions about the parameter - only used if the parameter type is a resource or data type</li>
+ <li>Profile - a <a href="structuredefinition.html">StructureDefinition</a>  that describes additional restrictions about the parameter - only used if the parameter type is a resource or datatype</li>
  <li>Documentation - a description of the parameter's use</li>
 </ul>
 <p>

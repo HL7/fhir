@@ -33,6 +33,10 @@
             <reference value="Practitioner/f003"/>
             <display value="M.I.M. Versteegh"/>
         </actor>
+		<period>
+			<start value="2013-03-08T09:00:10+01:00"/>
+			<end value="2013-03-08T09:30:10+01:00"/>
+		</period>
     </performer>
 	<reason>
        <concept>

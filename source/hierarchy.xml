@@ -26,17 +26,17 @@ signatures.html
       </page>
       <page title="Services" filename="servicelist.html"/>
       <page title="Namespace List" filename="ns.html"/>
+      <page title="OID List" filename="oids.html"/>
       <page title="Workgroup List" filename="wglist.html"/>
       <page title="Getting Started" filename="modules.html"/>
-      <!---
       <page title="ANSI Documentation" filename="ansi.html">
+      <!---
         <page title="ANSI FHIR Infrastructure Standard" filename="ansi-infrastructure.html"/>
         <page title="ANSI FHIR Terminology &amp; Conformance Standard" filename="ansi-conformance.html"/>
         <page title="ANSI FHIR Patient Standard" filename="ansi-patient.html"/>
         <page title="ANSI FHIR Observation Standard" filename="ansi-observation.html"/>
-
-      </page>
       -->
+      </page>
       <page title="CI Build Search" filename="search-build.html"/>
       <page title="Ballot Introduction" filename="ballot-intro.html"/>
     </page>
@@ -50,6 +50,7 @@ signatures.html
         <page title="Resource Life Cycles" filename="lifecycle.html"/>
         <page title="References between Resources" filename="references.html">
           <page title="Definitions" filename="references-definitions.html"/>
+          <page title="Profiles and Extensions" filename="references-extras.html"/>
         </page>
         <page title="Narrative" filename="narrative.html">
           <page title="Narrative Example" filename="narrative-example.html"/>
@@ -61,12 +62,12 @@ signatures.html
           <page title="Detailed Description" filename="extensibility-definitions.html"/>
         </page>
         <page title="Resource Definitions" filename="formats.html">
+          <page title="UML Definition" filename="uml.html"/>
           <page title="Resource Formats" filename="resource-formats.html"/>
           <page title="XML format" filename="xml.html"/>
           <page title="JSON format" filename="json.html"/>
           <page title="ND-JSON format" filename="nd-json.html"/>
           <page title="RDF Definition" filename="rdf.html"/>
-          <page title="UML Definition" filename="uml.html"/>
         </page>
         <page title="Change Management and Versioning" filename="versions.html">
           <page title="Timelines" filename="timelines.html"/>
@@ -207,6 +208,8 @@ signatures.html
       <page type="resource" resource="DataElement"/>
       <page type="resource" resource="ImplementationGuide"/>
       <page type="resource" resource="GraphDefinition"/>
+      <page type="resource" resource="ActorDefinition"/>
+      <page type="resource" resource="Requirements"/>
     </page>
 
     <page title="Security and Privacy" filename="secpriv-module.html" icon="secpriv.jpg">
@@ -339,7 +342,7 @@ signatures.html
         <page title="Examples" filename="dosage-examples.html"/>
         <page title="Detailed Descriptions" filename="dosage-definitions.html"/>
         <page title="Dosage Mappings" filename="dosage-mappings.html"/>
-        <page title="Dosage Profiles &amp; Extensions" filename="dosage-extra.html"/>
+        <page title="Dosage Profiles &amp; Extensions" filename="dosage-extras.html"/>
       </page>
       <page type="resource" resource="FormularyItem"/>
     </page>
@@ -379,7 +382,6 @@ signatures.html
       <page type="resource" resource="SupplyDelivery"/>
       <page type="resource" resource="InventoryReport"/>
       <page type="resource" resource="ExampleScenario"/>
-
     </page>
 
     <page title="Financial" filename="financial-module.html" icon="financial.png">

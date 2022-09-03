@@ -3,73 +3,8 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="lipid-ldl-codes"/>
   <meta>
-    <lastUpdated value="2015-06-23T10:59:44.264+10:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This value set contains 2 concepts</p>
-      
-      <h2>LDLCodes</h2>
-      
-      <p>LDL Cholesterol codes - measured or calculated</p>
-      
-      <p>
-        
-        <b>Copyright Statement:</b> This content from LOINC© is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use.
-      
-      </p>
-      
-      <p>This value set includes codes defined in other code systems, using the following rules:</p>
-      
-      <ul>
-        
-        <li>Include these codes as defined in http://loinc.org
-          
-          <table>
-            
-            <tr>
-              
-              <td>
-                
-                <b>Code</b>
-              
-              </td>
-              
-              <td>
-                
-                <b>Display</b>
-              
-              </td>
-            
-            </tr>
-            
-            <tr>
-              
-              <td>18262-6</td>
-              
-              <td>LDL Cholesterol (Calc)</td>
-            
-            </tr>
-            
-            <tr>
-              
-              <td>13457-7</td>
-              
-              <td>LDL Cholesterol (Assay)</td>
-            
-            </tr>
-          
-          </table>
-        
-        </li>
-      
-      </ul>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -78,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
-  <version value="1.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="LDLCodes"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -95,7 +30,7 @@
     </telecom>
   </contact>
   <description value="LDL Cholesterol codes - measured or calculated"/>
-  <copyright value="This content from LOINC&#xA9; is copyright &#xA9; 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
+  <copyright value="This content from LOINC© is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
   <compose>
     <include>
       <system value="http://loinc.org"/>

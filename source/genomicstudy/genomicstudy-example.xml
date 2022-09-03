@@ -20,9 +20,9 @@
     </status>
     <type>
         <coding>
-            <system value="http://www.somesystemabc.net/CodeSystem"/>
-            <code value="denovo"/>
-            <display value="De Novo Mutation Analysis"/>
+            <system value="http://hl7.org/fhir/genomicstudy-type"/>
+            <code value="fam-var-segr"/>
+            <display value="Familial variant segregation"/>
         </coding>
     </type>
     <subject>
@@ -86,10 +86,6 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoChild"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
@@ -144,10 +140,6 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoMother"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
@@ -198,10 +190,6 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoFather"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
@@ -250,10 +238,6 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoChild"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
         <input>  <!-- 0..* Inputs for the analysis event of Mother-->
             <file>
@@ -266,10 +250,6 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoMother"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
         <input>  <!-- 0..* Inputs for the analysis event of Father -->
             <file>
@@ -282,10 +262,6 @@
                  </coding>
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
-            <subject>
-                <reference value="Patient/denovoFather"/>
-            </subject>
-            <!-- <role>0..1 CodeableConcept Role of the subject for this input</role> -->
         </input>
         <performer>  <!-- 0..* Performer for the analysis event -->
             <actor>
