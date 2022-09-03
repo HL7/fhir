@@ -17,7 +17,7 @@
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 <p>
-The following names (URIs) may be used in the <i>system</i> element of the <a href="datatypes.html#Identifier">Identifier</a> data type.
+The following names (URIs) may be used in the <i>system</i> element of the <a href="datatypes.html#Identifier">Identifier</a> datatype.
 If a URI is defined here, it SHALL be used in preference to any other identifying mechanism. If an identifier system is not listed
 here, the correct URI may be determined by working through the following list, in order:
 </p>
@@ -28,7 +28,7 @@ here, the correct URI may be determined by working through the following list, i
  <li>asking on the HL7 vocabulary mailing list</li>
 </ul>
 <p>
-See also the <a href="terminologies-systems.html">list of known coding systems</a> that can be used in the <i>system</i> element of the <a href="datatypes.html#Coding">Coding</a> data type.
+See also the <a href="terminologies-systems.html">list of known coding systems</a> that can be used in the <i>system</i> element of the <a href="datatypes.html#Coding">Coding</a> datatype.
 Additional identifier systems may be registered on the HL7 FHIR registry at <a href="http://hl7.org/fhir/registry">http://hl7.org/fhir/registry</a>.
 </p>
 [%impl-note%]
@@ -42,6 +42,9 @@ institutes formal processes around URIs in vocabulary.
 The URI column indicates the correct value to use in the <a href="datatypes.html#Identifier">Identifier</a>.<code>system</code>. 
 The OID is provided for compatibility with <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>/<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> based systems.
 Note that any URL in <code>http://example.org</code> is reserved for testing and documentation purposes.
+Type is a code from the <a href="http://terminology.hl7.org/CodeSystem-v2-0203.html">Identifier Type</a> 
+code system that SHALL be used in <a href="datatypes-definitions.html#Identifier.type"><code>Identifier.type</code></a> if <code>Identifier.type</code> is 
+present at all when conveying the specified identifier.
 </p>
 
 <table class="grid">

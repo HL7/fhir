@@ -169,6 +169,15 @@
     <display value="Lactate dehydrogenase measurement (procedure)"/>
     <display value="Lactate dehydrogenase level"/>
   </concept>
+  <concept id="11403006" display="Economic deprivation">
+    <display value="Economic deprivation"/>
+    <display value="Pauper"/>
+    <display value="Poverty"/>
+    <display value="Financially poor"/>
+    <display value="Financially poor (finding)"/>
+    <display value="Living in poverty"/>
+    <display value="Severe lack of money"/>
+  </concept>
   <concept id="11424001" display="Ambulance-based care">
     <display value="Ambulance-based care"/>
     <display value="Ambulance-based care (environment)"/>
@@ -190,6 +199,10 @@
   <concept id="11585000" display="Bubo">
     <display value="Bubo"/>
     <display value="Bubo (morphologic abnormality)"/>
+  </concept>
+  <concept id="116154003" display="Patient">
+    <display value="Patient"/>
+    <display value="Patient (person)"/>
   </concept>
   <concept id="116602009" display="Prednisone">
     <display value="Prednisone"/>
@@ -10735,6 +10748,11 @@
     <display value="Madura cattle breed (organism)"/>
     <display value="Madura cattle breed"/>
   </concept>
+  <concept id="133932002" display="Caregiver">
+    <display value="Caregiver"/>
+    <display value="Caregiver (person)"/>
+    <display value="Carer"/>
+  </concept>
   <concept id="134622004" display="Capecitabine 500mg tablet">
     <display value="Capecitabine 500mg tablet"/>
     <display value="Capecitabine 500mg tablet (product)"/>
@@ -11305,6 +11323,11 @@
     <display value="Health profession"/>
     <display value="Healthcare professional (occupation)"/>
   </concept>
+  <concept id="224190007" display="Income sufficient to meet needs">
+    <display value="Income sufficient to meet needs"/>
+    <display value="Adequate finances"/>
+    <display value="Income sufficient to meet needs (finding)"/>
+  </concept>
   <concept id="224363007" display="In work">
     <display value="In work"/>
     <display value="In employment"/>
@@ -11506,6 +11529,10 @@
   <concept id="230456007" display="Status epilepticus">
     <display value="Status epilepticus"/>
     <display value="Status epilepticus (disorder)"/>
+  </concept>
+  <concept id="230993007" display="Worsening">
+    <display value="Worsening"/>
+    <display value="Worsening (qualifier value)"/>
   </concept>
   <concept id="2331003" display="Carbohydrate">
     <display value="Carbohydrate"/>
@@ -11968,6 +11995,13 @@
     <display value="Ruled out"/>
     <display value="Negative (qualifier value)"/>
   </concept>
+  <concept id="260388006" display="No status change">
+    <display value="No status change"/>
+    <display value="No change"/>
+    <display value="No status change (qualifier value)"/>
+    <display value="Unchanged"/>
+    <display value="Id status quo"/>
+  </concept>
   <concept id="260419006" display="Projection">
     <display value="Projection"/>
     <display value="Projection (qualifier value)"/>
@@ -12211,6 +12245,11 @@
     <display value="Amoxicilline"/>
     <display value="Amoxicillin"/>
   </concept>
+  <concept id="277132007" display="Therapeutic procedure">
+    <display value="Therapeutic procedure"/>
+    <display value="Therapeutic procedure (procedure)"/>
+    <display value="Procedure - therapeutic"/>
+  </concept>
   <concept id="278020009" display="Spot urine sample">
     <display value="Spot urine sample"/>
     <display value="Spot urine sample (specimen)"/>
@@ -12372,6 +12411,10 @@
   <concept id="30089001" display="Toggenburg goat">
     <display value="Toggenburg goat"/>
     <display value="Toggenburg goat (organism)"/>
+  </concept>
+  <concept id="301887005" display="Needs assistance at home">
+    <display value="Needs assistance at home"/>
+    <display value="Needs assistance at home (finding)"/>
   </concept>
   <concept id="302188001" display="Bad taste in mouth">
     <display value="Bad taste in mouth"/>
@@ -13012,6 +13055,14 @@
     <display value="Genotype"/>
     <display value="Genotype determination (procedure)"/>
   </concept>
+  <concept id="363787002" display="Observable entity">
+    <display value="Observable entity"/>
+    <display value="Observable entity (observable entity)"/>
+  </concept>
+  <concept id="363788007" display="Clinical history/examination observable">
+    <display value="Clinical history/examination observable (observable entity)"/>
+    <display value="Clinical history/examination observable"/>
+  </concept>
   <concept id="36570001" display="DK pig 31">
     <display value="DK pig 31"/>
     <display value="Dekalb hybrid pig line 31 (organism)"/>
@@ -13215,6 +13266,10 @@
     <display value="Tumour stage finding"/>
     <display value="Tumor stage finding"/>
   </concept>
+  <concept id="385633008" display="Improving">
+    <display value="Improving (qualifier value)"/>
+    <display value="Improving"/>
+  </concept>
   <concept id="385669000" display="Successful">
     <display value="Successful (qualifier value)"/>
     <display value="Successful"/>
@@ -13257,6 +13312,11 @@
     <display value="Pregnancy delivered"/>
     <display value="Delivery"/>
   </concept>
+  <concept id="386229000" display="Caregiver support">
+    <display value="Caregiver support (regime/therapy)"/>
+    <display value="Caregiver support"/>
+    <display value="Carer support"/>
+  </concept>
   <concept id="386617003" display="Digestive system finding">
     <display value="Digestive system finding (finding)"/>
     <display value="Digestive system finding"/>
@@ -13282,6 +13342,15 @@
     <display value="Pyrexial"/>
     <display value="Pyrexia"/>
     <display value="Febrile"/>
+  </concept>
+  <concept id="386806002" display="Impaired cognition">
+    <display value="Impaired cognition (finding)"/>
+    <display value="Impaired cognition"/>
+    <display value="Cognitive impairment"/>
+    <display value="Cognitive disturbance"/>
+    <display value="Cognitive dysfunction"/>
+    <display value="Cognitive decline"/>
+    <display value="Cognitive deficit"/>
   </concept>
   <concept id="386906001" display="Capecitabine">
     <display value="Capecitabine (substance)"/>
@@ -13890,6 +13959,10 @@
     <display value="House dust allergen (substance)"/>
     <display value="House dust allergen"/>
   </concept>
+  <concept id="406546002" display="Relatives involved with care">
+    <display value="Relatives involved with care (finding)"/>
+    <display value="Relatives involved with care"/>
+  </concept>
   <concept id="406660008" display="Galway sheep breed">
     <display value="Galway sheep breed (organism)"/>
     <display value="Galway sheep breed"/>
@@ -14238,6 +14311,10 @@
   <concept id="41329004" display="Polyp">
     <display value="Polyp"/>
     <display value="Polyp (morphologic abnormality)"/>
+  </concept>
+  <concept id="413325006" display="Safe play area">
+    <display value="Safe play area (finding)"/>
+    <display value="Safe play area"/>
   </concept>
   <concept id="413427002" display="Acquired fructose intolerance">
     <display value="Acquired fructose intolerance (disorder)"/>
@@ -14613,6 +14690,10 @@
     <display value="Ischemic stroke"/>
     <display value="Ischaemic stroke"/>
   </concept>
+  <concept id="424553001" display="Uninsured medical expenses">
+    <display value="Uninsured medical expenses (finding)"/>
+    <display value="Uninsured medical expenses"/>
+  </concept>
   <concept id="424705003" display="Bison bison X Simmental hybrid cattle breed">
     <display value="Bison bison X Simmental hybrid cattle breed (organism)"/>
     <display value="Bison bison X Simmental hybrid cattle breed"/>
@@ -14643,6 +14724,10 @@
   <concept id="42602001" display="Minorca chicken">
     <display value="Minorca chicken"/>
     <display value="Minorca chicken (organism)"/>
+  </concept>
+  <concept id="426201006" display="Interpreter not available">
+    <display value="Interpreter not available (finding)"/>
+    <display value="Interpreter not available"/>
   </concept>
   <concept id="426396005" display="Cardiac chest pain">
     <display value="Cardiac chest pain (finding)"/>
@@ -14711,6 +14796,10 @@
     <display value="Iron measurement"/>
     <display value="Iron measurement (procedure)"/>
     <display value="Iron level"/>
+  </concept>
+  <concept id="429577009" display="Patient advocate">
+    <display value="Patient advocate (person)"/>
+    <display value="Patient advocate"/>
   </concept>
   <concept id="429858000" display="Computed tomography (CT) of head and neck">
     <display value="Computed tomography of head and neck (procedure)"/>
@@ -15919,6 +16008,17 @@
     <display value="Leicester sheep"/>
     <display value="Leicester sheep (organism)"/>
   </concept>
+  <concept id="64572001" display="Disease">
+    <display value="Disease"/>
+    <display value="Clinical disease AND/OR syndrome"/>
+    <display value="Disorder"/>
+    <display value="Syndrome"/>
+    <display value="Disease AND/OR syndrome present"/>
+    <display value="Clinical disease AND/OR syndrome present"/>
+    <display value="Disorders"/>
+    <display value="Diseases"/>
+    <display value="Disease (disorder)"/>
+  </concept>
   <concept id="64591001" display="Karakul sheep">
     <display value="Karakul sheep"/>
     <display value="Karakul sheep (organism)"/>
@@ -16187,9 +16287,17 @@
     <display value="Alpine goat"/>
     <display value="Alpine goat (organism)"/>
   </concept>
+  <concept id="704373005" display="Lack of trust">
+    <display value="Lack of trust"/>
+    <display value="Lack of trust (finding)"/>
+  </concept>
   <concept id="704458005" display="Consent declined for examination of gastrointestinal system">
     <display value="Consent declined for examination of gastrointestinal system (finding)"/>
     <display value="Consent declined for examination of gastrointestinal system"/>
+  </concept>
+  <concept id="704489009" display="Lack of family support">
+    <display value="Lack of family support (finding)"/>
+    <display value="Lack of family support"/>
   </concept>
   <concept id="70457009" display="Icelandic horse">
     <display value="Icelandic horse"/>
@@ -16262,6 +16370,10 @@
     <display value="Encephalitis caused by tick-borne encephalitis virus"/>
   </concept>
   <concept id="71341001:272741003=7771000" display="Femur where Laterality = Left"/>
+  <concept id="713458007" display="Lack of access to transportation">
+    <display value="Lack of access to transportation (finding)"/>
+    <display value="Lack of access to transportation"/>
+  </concept>
   <concept id="713835001" display="Declined consent for use of patient data in risk stratification for unplanned hospital admission">
     <display value="Declined consent for use of patient data in risk stratification for unplanned hospital admission"/>
     <display value="Declined consent for use of patient data in risk stratification for unplanned hospital admission (finding)"/>
@@ -16381,6 +16493,14 @@
   <concept id="734163000" display="Care plan">
     <display value="Care plan (record artifact)"/>
     <display value="Care plan"/>
+  </concept>
+  <concept id="73438004" display="Without employment">
+    <display value="Without employment"/>
+    <display value="Out of work"/>
+    <display value="Unemployed"/>
+    <display value="Unemployed (finding)"/>
+    <display value="UE - Unemployed"/>
+    <display value="U/E - Unemployed"/>
   </concept>
   <concept id="73644007" display="Hospital-based outpatient endocrinology clinic">
     <display value="Hospital-based outpatient endocrinology clinic"/>
@@ -16919,6 +17039,10 @@
   <concept id="86694007" display="Hormel miniature pig">
     <display value="Hormel miniature pig"/>
     <display value="Hormel miniature pig (organism)"/>
+  </concept>
+  <concept id="86808004" display="Increased motivation">
+    <display value="Increased motivation"/>
+    <display value="Increased motivation (finding)"/>
   </concept>
   <concept id="86920006" display="Horn dorset">
     <display value="Horn dorset"/>

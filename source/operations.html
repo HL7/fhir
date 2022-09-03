@@ -27,8 +27,10 @@ where named operations are performed with inputs and outputs (<b>E</b>xecute).
 Operations are appropriately used where:
 </p>
 <ul>
- <li>the server needs to play an active role in formulating the content of the response, not merely return existing information</li>
- <li>the intended purpose is to cause side effects such as the modification of existing resources or creation of new resources, or other changes out of scope of the RESTful interface (e.g. merging patient records)</li>
+ <li>The server needs to play an active role in formulating the content of the response, not merely return existing information</li>
+ <li>The intended purpose is to cause <a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">side effects</a> such as 
+     the modification or creation of resources not transmitted as part of the RESTful call (e.g. triggering the generation of an invoice), 
+     or other changes out of scope of the RESTful interface (e.g. merging patient records)</li>
  <li>The task involves business rules to be enforced across multiple different resources and/or</li>
  <li>the task involves updating several resources in a coordinated manner (note: this can also be done by a <a href="http.html#transaction">Transaction</a>, but an operation can be more focused on the task</li>
 </ul>
@@ -42,7 +44,7 @@ Operations have the following general properties:
 <ul>
  <li>Each operation has a name</li>
  <li>Each operation has a list of 'in' and 'out' parameters</li>
- <li>Parameters are either resources, data types, or search parameters</li>
+ <li>Parameters are either resources, datatypes, or search parameters</li>
  <li>Operations are subject to the same security constraints and requirements as the RESTful API</li>
  <li>The URIs for the operation end-points are based on the existing RESTful API address scheme</li>
  <li>Operations may make use of all types of resources existing in the repository</li>
@@ -59,7 +61,7 @@ Operations are executed using a URL derived from the FHIR endpoint, where the na
  POST http://fhir.someserver.org/fhir/Patient/1/$everything
 </pre>
 <p>
-When an operation has affectsState = false, and the parameters are all primitive data types with no extensions
+When an operation has affectsState = false, and the parameters are all primitive datatypes with no extensions
 (as is the case with the example above), it may be invoked using GET as well. (Note: A HEAD request can also be used - see <a href="http.html#head">Support for HEAD</a>).
 </p>
 <p>
@@ -77,12 +79,21 @@ Operations can be invoked on three types of FHIR endpoints:
 The body of the invocation contains a special infrastructure resource called <a href="parameters.html">Parameters</a>,
 which represents a collection of named parameters as &lt;key,value&gt; pairs, where the value may be any
 primitive or complex datatype or even a full Resource. It may also include strings
-formatted as search parameter types.
+formatted as search parameter types. A FHIR operation can take a set of zero or more input parameters; 
+in the case where there is zero parameters, the resource may be omitted, and the body will be empty (see below).
 </p>
 <p>
-Upon completion, the operation returns another <code>Parameters</code> resource, containing one or
-more output parameters. This means that a FHIR operation can take a set of zero or more parameters <i>in</i> and return a set of zero or more
-result parameters <i>out</i>. Both the body of the POST and the returned result are always a Resource.
+Upon completion, the operation returns an HTTP status code indicating what the outcome of 
+performing the operation, and optionally another <code>Parameters</code> resource, containing 
+ne or more output parameters. If there is a single output parameter named 'return' with 
+a maximum cardinality of 1, with a type corresponding to a resource, then the response 
+SHALL be the resource that is the return value, with no wrapping Parameters resource. If there is 
+zero output parameters (possibly because the operation failed), then the resource can be omitted,
+and the body will be empty.
+</p>
+<p>
+Both the body of the POST and the returned result are always a Resource if any body is present,
+except in the case that the server supports multi-part/form-data (see below). 
 </p>
 <p>
 Operations may be invoked using a <code>GET</code>, with parameters as HTTP URL parameters, if:
@@ -92,12 +103,12 @@ Operations may be invoked using a <code>GET</code>, with parameters as HTTP URL 
  <li>and the operation does not <a href="operationdefinition-definitions.html#OperationDefinition.affectsState">affect the state of the server</a></li>
 </ol>
 <p>
-If there is a single output parameter named 'return' then the response MAY be the resource that is the return value, with no Parameters resource.
-These kinds of usage are discussed further below.
-</p>
-<p>
-If the response is a <a href="bundle.html">Bundle</a>, the correct <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> is '<a href="codesystem-bundle-type.html#bundle-type-collection">collection</a>', unless it has <a href="http.html#search">search semantics</a>, such as 
-matching resource counts, and <a href="http.html#paging">page links (next etc)</a>.
+If the response is a <a href="bundle.html">Bundle</a>, the <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> will typically 
+be '<a href="codesystem-bundle-type.html#bundle-type-collection">collection</a>', though it could be one of the other types. For eample, 
+if the operation has <a href="http.html#search">search semantics</a>, such as 
+matching resource counts, and <a href="http.html#paging">page links (next etc) then
+the <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> will typically 
+be '<a href="codesystem-bundle-type.html#bundle-type-search-set">search-set</a>'</a>.
 </p>
 
 
@@ -162,11 +173,10 @@ For each parameter, the following information is needed:
 <ul>
  <li>Name - the name of the parameter. For implementer convenience, the name should be a valid token in common implementation languages</li>
  <li>Use - In | Out | Both</li>
- <li>Type - a data type or a Resource type</li>
- <li>Search Type - for string search parameters, what kind of search parameter they are (and what kind of modifiers they have)</li>
- <li>Profile - a <a href="structuredefinition.html">StructureDefinition</a>  that describes additional restrictions about the parameter - only used if the parameter type is a resource or data type</li>
+ <li>Type - a datatype or a Resource type</li>
+ <li>Search Type - for simple string parameters, if they are acting as search parameters, what kind of search parameter they are (and what kind of modifiers they have)</li>
+ <li>Profile - a <a href="structuredefinition.html">StructureDefinition</a>  that describes additional restrictions about the parameter - only used if the parameter type is a resource or datatype</li>
  <li>Documentation - a description of the parameter's use</li>
- <li>(Optional) Search Type - if the type is a string, and the parameter is being used like a search parameter, which kind of search type applies</li>
 </ul>
 <p>
 Parameters may be nested into multi-part parameters. Each part has the same information as a parameter, except for use, which is taken from
@@ -242,8 +252,10 @@ are repeated by repeating the named parameter. E.g. Observation $stats statistic
 GET [base]/Observation/$stats?subject=Patient/123&amp;code=55284-4&amp;system=http://loinc.org&amp;duration=1&amp;statistic=average&amp;statistic=min&amp;statistic=max&amp;statistic=count
 </pre>
 <p>
-If, when invoking the operation, there is exactly one input parameter of type Resource (irrespective of whether other possible parameters are defined),
-that the operation can also be executed by a POST with that resource as the body of the request (and no parameters on the url).
+If an operation has exactly one input parameter whose type is a FHIR Resource and all other parameters 
+a client intends to submit are <a href="#executing">simple parameters</a>, then the client MAY invoke 
+the operation via POST with the input resource as the request body and additional parameters as query parameters.
+Servers SHALL support this means of invocation of the operation.
 </p>
 
 <p>
@@ -256,7 +268,8 @@ which can be useful when testing an operation using HTML forms.
 <h4>Operation Response</h4>
 
 <p>
-If an operation succeeds, an HTTP Status success code is returned.
+If an operation succeeds, an HTTP Status success code is returned. Servers 
+SHALL return the appropriate status code.
 This will usually be a 2xx code, though it may also be a 303 See Other.
 Other kinds of 3xx codes should be understood to indicate that the
 operation did not proceed, and the client will need to re-issue the
@@ -273,9 +286,8 @@ In general, an operation response uses the same
 there are multiple named <i>out</i> parameters.
 </p>
 <p>
-If there is only one <i>out</i> parameter, which is a Resource with the parameter name
-"return" then the parameter format is
-not used, and the response is simply the resource itself.
+If there is only one <i>out</i> parameter, which is a single Resource with the parameter name
+"return" then the parameter format is not used, and the response is simply the resource itself.
 </p>
 <p>
 The result of an operation is subject to <a href="http.html#mime-type">content negotiation like any other interaction</a>. 

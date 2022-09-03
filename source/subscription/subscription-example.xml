@@ -3,7 +3,7 @@
 	<id value="admission"/>
 	<name value="AdmissionExample"/>
 	<status value="active"/>
-  <topic value="http://example.org/R4/SubscriptionTopic/admission" />
+  <topic value="http://example.org/R5/SubscriptionTopic/admission" />
 	<reason value="subscription for beginning of a clinical encounter for patient 123"/>
 	<filterBy>
 		<resourceType value="http://hl7.org/fhir/StructureDefinition/Encounter"/>

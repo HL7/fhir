@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="PractitionerRole"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -41,8 +41,8 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time."/>
-  <purpose value="Need to track services that a healthcare provider is able to provide at an organization&#39;s location, and the services that they can perform there."/>
+  <description value="A specific set of Roles/Locations/specialties/services that a practitioner may perform, or has performed at an organization during a period of time."/>
+  <purpose value="Need to track services that a healthcare provider is able to provide at an organization's location, and the services that they can perform there."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
@@ -196,7 +196,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".performance[@typeCode &lt;= &#39;PPRF&#39;].ActDefinitionOrEvent.effectiveTime"/>
+        <map value=".performance[@typeCode &lt;= 'PPRF'].ActDefinitionOrEvent.effectiveTime"/>
       </mapping>
       <mapping>
         <identity value="servd"/>
@@ -276,7 +276,7 @@
       <path value="PractitionerRole.specialty"/>
       <short value="Specific specialty of the practitioner"/>
       <definition value="The specialty of a practitioner that describes the functional role they are practicing at a given organization or location."/>
-  	  <comment value="The specialty represents the functional role a practitioner is playing within an organization/location. This role may require the individual have certain qualifications, which would be represented in the Practitioner.qualifications property.  Note that qualifications may or might not relate to or be required by the practicing specialty."/>
+      <comment value="The specialty represents the functional role a practitioner is playing within an organization/location. This role may require the individual have certain qualifications, which would be represented in the Practitioner.qualifications property.  Note that qualifications may or might not relate to or be required by the practicing specialty."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -297,7 +297,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".player.HealthCareProvider[@classCode = &#39;PROV&#39;].code"/>
+        <map value=".player.HealthCareProvider[@classCode = 'PROV'].code"/>
       </mapping>
       <mapping>
         <identity value="servd"/>
@@ -321,7 +321,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".performance.ActDefinitionOrEvent.ServiceDeliveryLocation[@classCode = &#39;SDLOC&#39;]"/>
+        <map value=".performance.ActDefinitionOrEvent.ServiceDeliveryLocation[@classCode = 'SDLOC']"/>
       </mapping>
       <mapping>
         <identity value="servd"/>
@@ -330,8 +330,8 @@
     </element>
     <element id="PractitionerRole.healthcareService">
       <path value="PractitionerRole.healthcareService"/>
-      <short value="The list of healthcare services that this worker provides for this role&#39;s Organization/Location(s)"/>
-      <definition value="The list of healthcare services that this worker provides for this role&#39;s Organization/Location(s)."/>
+      <short value="The list of healthcare services that this worker provides for this role's Organization/Location(s)"/>
+      <definition value="The list of healthcare services that this worker provides for this role's Organization/Location(s)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -344,7 +344,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".player.QualifiedEntity[@classCode = &#39;QUAL&#39;].code"/>
+        <map value=".player.QualifiedEntity[@classCode = 'QUAL'].code"/>
       </mapping>
     </element>
     <element id="PractitionerRole.contact">

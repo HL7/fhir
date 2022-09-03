@@ -7,30 +7,170 @@
 <body>
 [%file newnavbar%]
 
-
-
 <h2>Terminology Service</h2>
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg vocab%]">[%wgt vocab%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
-
 <p>
 This specification includes support for the provision of a terminology service - that is, a
 service that lets healthcare applications make use of codes and value sets without having to become
 experts in the fine details of code system, value set and concept map resources, and the underlying
-code systems and terminological principles. A server that supports all the functionality described here
-can be described as a "FHIR Terminology Service", and SHALL conform to the <a href="capabilitystatement-terminology-server.html">
-Terminology Service Capability Statement</a>. Note that servers can declare that they provide
-terminology services in their capability statement:
+code systems and terminological principles.
 </p>
-<div class="example">
-<pre class="xml">
-&lt;CapabilityStatement xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;!-- snip --&gt;
-  &lt;instantiates value=&quot;http://hl7.org/fhir/CapabilityStatement/terminology-server&quot;/&gt;
-  &lt;!-- snip --&gt;
-&lt;/CapabilityStatement&gt;
-</pre>
-</div>
-
+<a name="conformance"></a>
+<h3>Conformance</h3>
+A server that supports the mandatory functionality described in the following subsections can be described as a "FHIR Terminology Service".
+<a name="restfulapi"></a>
+<h4>RESTful API</h4>
+<p>
+A FHIR terminology service SHALL support:
+</p>
+<ul>
+  <li>the <a href="xml.html">XML</a> and <a href="json.html">JSON</a> FHIR formats.</li>
+  <li>the <a href="http.html#read">READ</a> and <a href="http.html#search">SEARCH</a> interactions for <code>CodeSystem</code>, <code>ValueSet</code> and <code>ConceptMap</code></li>
+  <li>the following elements as search parameters for <code>CodeSystem</code>, <code>ValueSet</code> and <code>ConceptMap</code>
+    <ul>
+      <li><code>url</code></li>
+      <li><code>version</code></li>
+      <li><code>name</code></li>
+      <li><code>title</code></li>
+      <li><code>status</code></li>
+    </ul>
+  </li>
+  <li>the <a href="http.html#capabilities">capabilities interaction</a> with an absent <code>mode</code> parameter or a <code>mode</code> parameter with a value of <code>full</code> returning a <a href="capabilitystatement.html">CapabilityStatement</a> resource which includes the following elements (plus the other requirements for a conformant CapabilityStatement resource instance):
+  <ul>
+    <li><code>url</code></li>
+    <li><code>version</code></li>
+    <li><code>name</code></li>
+    <li><code>title</code></li>
+    <li><code>status</code></li>
+    <li><code>date</code></li>
+    <li><code>description</code></li>
+    <li><code>kind</code> with a fixed value of <code>instance</code></li>
+    <li><code>fhirVersion</code></li>
+  </ul>
+  </li>
+  <li>the <a href="http.html#capabilities">capabilities interaction</a> with a <code>mode</code> parameter with a value of <code>terminology</code> returning a <a href="terminologycapabilities.html">TerminologyCapabilities</a> resource which includes the following elements:
+    <ul>
+      <li><code>url</code></li>
+      <li><code>name</code></li>
+      <li><code>title</code></li>
+      <li><code>status</code></li>
+      <li><code>date</code></li>
+      <li><code>kind</code> with a fixed value of <code>instance</code></li>
+      <li>A <code>codeSystem</code> data element containing each of the following sub elements for each code system supported for terminology services:
+        <ul>
+          <li><code>codeSystem.uri</code></li>
+          <li><code>codeSystem.version</code> (for code systems with a version)</li>
+          <li><code>codeSystem.version.code</code> (for each version)</li>    
+          <li><code>codeSystem.content</code></li>    
+        </ul>
+      </li>
+    </ul>
+    </li>  
+</ul>
+<a name="operations"></a>
+<h4>Terminology Service Operations</h4>
+A FHIR Terminology Service SHALL support the following operations with the associated level and required input parameters:
+<table class="grid">
+  <tr>
+    <td><b>Operation</b></td>
+    <td><b>System Level</b></td>
+    <td><b>Type Level</b></td>
+    <td><b>Instance Level</b></td>
+    <td><b>Required input parameters</b></td>
+  </tr>
+  <tr>
+    <td><a href="codesystem-operation-lookup.html">CodeSystem-lookup</a></td>
+    <td>N/A</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>
+      <ul>
+        <li><code>code</code></li>
+        <li><code>system</code></li>   
+        <li><code>version</code></li>   
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="codesystem-operation-validate-code.html">CodeSystem-validate-code</a></td>
+    <td>N/A</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>
+      <ul>
+        <li><code>code</code></li>
+        <li><code>system</code></li>   
+        <li><code>version</code></li>   
+        <li><code>display</code></li>   
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="codesystem-operation-subsumes.html">CodeSystem-subsumes</a></td>
+    <td>N/A</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>
+      <ul>
+        <li><code>codeA</code></li>
+        <li><code>codeB</code></li>   
+        <li><code>system</code></li>   
+        <li><code>version</code></li>   
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="valueset-operation-expand.html">ValueSet-expand</a></td>
+    <td>N/A</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>
+      <ul>
+        <li><code>url</code></li>
+        <li><code>filter</code></li>
+        <li><code>offset</code></li>   
+        <li><code>count</code></li>   
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="valueset-operation-validate-code.html">ValueSet-validate-code</a></td>
+    <td>N/A</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>
+      <ul>
+        <li><code>url</code></li>
+        <li><code>code</code></li>
+        <li><code>system</code></li>   
+        <li><code>systemVersion</code></li>   
+        <li><code>display</code></li>   
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><a href="conceptmap-operation-translate.html">ConceptMap-translate</a></td>
+    <td>N/A</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>
+      <ul>
+        <li><code>url</code></li>
+        <li><code>sourceCode</code></li>
+        <li><code>system</code></li>   
+        <li><code>targetCode</code></li>   
+        <li><code>targetSystem</code></li>   
+      </ul>
+    </td>
+  </tr>
+</table>
+<a name="examples"></a>
+<h4>CapabilityStatement and TerminologyCapabilities examples</h4>
+The following <a href="capabilitystatement.html">CapabilityStatement</a> and <a href="terminologycapabilities.html">TerminologyCapabilities</a> resources assert the mandatory capabilities described in the previous subsections.
+<ul>
+  <li><a href="capabilitystatement-terminology-server.html">FHIR Terminology Service Capability Statement</a></li>
+  <li><a href="terminologycapabilities-terminology-server.html">FHIR Terminology Service Terminology Capabilities</a>. Note that in this example the code systems referenced in TerminologyCapabilities.codeSystem data elements are examples and support for these should not be considered a mandatory requirement for a FHIR Terminology Service.</li>
+</ul>
 <a name="security"></a>
 <h3>Security</h3>
 <p>
@@ -47,8 +187,6 @@ For a value set maintenance server that allows terminologies to be edited,
 some form of <a href="security.html">authorization and/or authentication would be appropriate</a>.
 This specification does not require any particular approach to security.
 </p>
-
-
 <a name="concepts"></a>
 <h3>Basic Concepts</h3>
 <p>
@@ -263,7 +401,7 @@ combination using <a href="codesystem-operation-lookup.html">the lookup operatio
 purposes. The client passes the server the following information:
 </p>
 <ul>
- <li> the code value (either a code, or a Coding data type)</li>
+ <li> the code value (either a code, or a Coding datatype)</li>
  <li> (Optionally) the id or the url of the code system in which the code is being checked</li>
  <li> (Optionally) a date at which the code information should be returned (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
  <li> (Optionally) a set of properties to return about the code</li>
@@ -386,7 +524,7 @@ The following properties are defined for all code systems:
  </tr>
  <tr>
   <td>lang.X</td>
-  <td>Designations in language X (where X is an IETF Language code, see <a href="http://tools.ietf.org/html/bcp47">BCP-47</a></td>
+  <td>Designations in language X (where X is an IETF Language code, see <a href="https://www.rfc-editor.org/rfc/rfc5646.html">BCP-47</a></td>
  </tr>
  <tr>
   <td>parent</td>
@@ -412,7 +550,7 @@ provides <a href="valueset-operation-validate-code.html">a "validate-code" opera
 </p>
 <ul>
  <li> the value set (either by its URL on the RESTful interface, by its logical identifier <a href="valueset-definitions.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
- <li> the code value (either a code + system, a Coding data type, or a CodeableConcept)</li>
+ <li> the code value (either a code + system, a Coding datatype, or a CodeableConcept)</li>
  <li> (Optionally) a date at which the expansion should be evaluated (usually, and by default, this is the current date/time, but there are circumstances where that is not appropriate)</li>
 </ul>
 <p>

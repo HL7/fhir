@@ -81,7 +81,7 @@
         </component>
         <component>
           <definition value="context-quantity"/>
-          <expression value="value.as(Quantity) | value.as(Range)"/>
+          <expression value="value.ofType(Quantity) | value.ofType(Range)"/>
         </component>
       </SearchParameter>
     </resource>
@@ -105,7 +105,7 @@
         </component>
         <component>
           <definition value="context"/>
-          <expression value="value.as(CodeableConcept)"/>
+          <expression value="value.ofType(CodeableConcept)"/>
         </component>
       </SearchParameter>
     </resource>
@@ -115,7 +115,7 @@
       <SearchParameter>
         <id value="ConceptMap-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.date"/>
@@ -135,13 +135,13 @@
       <SearchParameter>
         <id value="ConceptMap-dependson"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ConceptMap.group.element.target.dependsOn.property"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-dependson"/>
-        <description value="Reference to property mapping depends on"/>
+        <description value="Other properties required for this mapping"/>
         <code value="dependson"/>
         <type value="uri"/>
         <expression value="ConceptMap.group.element.target.dependsOn.property"/>
@@ -155,7 +155,7 @@
       <SearchParameter>
         <id value="ConceptMap-description"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.description"/>
@@ -215,7 +215,7 @@
       <SearchParameter>
         <id value="ConceptMap-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.name"/>
@@ -233,16 +233,16 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ConceptMap-other"/>
+        <id value="ConceptMap-other-map"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ConceptMap.group.unmapped.otherMap"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-other"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-other-map"/>
         <description value="canonical reference to an additional ConceptMap to use for mapping if the source concept is unmapped"/>
-        <code value="other"/>
+        <code value="other-map"/>
         <type value="reference"/>
         <expression value="ConceptMap.group.unmapped.otherMap"/>
         <xpath value="f:ConceptMap/f:group/f:unmapped/f:otherMap"/>
@@ -255,13 +255,13 @@
       <SearchParameter>
         <id value="ConceptMap-product"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ConceptMap.group.element.target.product.property"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-product"/>
-        <description value="Reference to property mapping depends on"/>
+        <description value="Other properties that this mapping also produces"/>
         <code value="product"/>
         <type value="uri"/>
         <expression value="ConceptMap.group.element.target.product.property"/>
@@ -275,7 +275,7 @@
       <SearchParameter>
         <id value="ConceptMap-publisher"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.publisher"/>
@@ -293,16 +293,16 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ConceptMap-source"/>
+        <id value="ConceptMap-source-scope"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ConceptMap.sourceScopeCanonical"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-source"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-source-scope"/>
         <description value="The source value set that contains the concepts that are being mapped"/>
-        <code value="source"/>
+        <code value="source-scope"/>
         <type value="reference"/>
         <expression value="(ConceptMap.sourceScope as canonical)"/>
         <xpath value="f:ConceptMap/f:sourceScopeCanonical"/>
@@ -313,15 +313,35 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="ConceptMap-source-scope-uri"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ConceptMap.sourceScopeUri"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-source-uri"/>
+        <description value="The URI for the source value set that contains the concepts being mapped"/>
+        <code value="source-scope-uri"/>
+        <type value="uri"/>
+        <expression value="(ConceptMap.sourceScope as uri)"/>
+        <xpath value="f:ConceptMap/f:sourceScopeUri"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="ConceptMap-source-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ConceptMap.group.element.code"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-source-code"/>
-        <description value="Identifies element being mapped"/>
+        <description value="Identifies elements being mapped"/>
         <code value="source-code"/>
         <type value="token"/>
         <expression value="ConceptMap.group.element.code"/>
@@ -333,17 +353,17 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ConceptMap-source-system"/>
+        <id value="ConceptMap-source-group-system"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ConceptMap.group.source"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-source-system"/>
         <description value="Source system where concepts to be mapped are defined"/>
-        <code value="source-system"/>
-        <type value="uri"/>
+        <code value="source-group-system"/>
+        <type value="reference"/>
         <expression value="ConceptMap.group.source"/>
         <xpath value="f:ConceptMap/f:group/f:source"/>
         <xpathUsage value="normal"/>
@@ -353,29 +373,9 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ConceptMap-source-uri"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ConceptMap.sourceScopeUri"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-source-uri"/>
-        <description value="The source value set that contains the concepts that are being mapped"/>
-        <code value="source-uri"/>
-        <type value="reference"/>
-        <expression value="(ConceptMap.sourceScope as uri)"/>
-        <xpath value="f:ConceptMap/f:sourceScopeUri"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="ConceptMap-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.status"/>
@@ -393,16 +393,16 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ConceptMap-target"/>
+        <id value="ConceptMap-target-scope"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ConceptMap.targetScopeCanonical"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-target"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-target-scope"/>
         <description value="The target value set which provides context for the mappings"/>
-        <code value="target"/>
+        <code value="target-scope"/>
         <type value="reference"/>
         <expression value="(ConceptMap.targetScope as canonical)"/>
         <xpath value="f:ConceptMap/f:targeScopeCanonical"/>
@@ -413,9 +413,29 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="ConceptMap-target-scope-uri"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ConceptMap.targetScopeUri"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-target-scope-uri"/>
+        <description value="The URI for the target value set that contains the concepts being mapped."/>
+        <code value="target-scope-uri"/>
+        <type value="uri"/>
+        <expression value="(ConceptMap.targetScope as uri)"/>
+        <xpath value="f:ConceptMap/f:targetScopeUri"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="ConceptMap-target-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ConceptMap.group.element.target.code"/>
@@ -433,17 +453,17 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ConceptMap-target-system"/>
+        <id value="ConceptMap-target-group-system"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ConceptMap.group.target"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-target-system"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-target-group-system"/>
         <description value="Target system that the concepts are to be mapped to"/>
-        <code value="target-system"/>
-        <type value="uri"/>
+        <code value="target-group-system"/>
+        <type value="reference"/>
         <expression value="ConceptMap.group.target"/>
         <xpath value="f:ConceptMap/f:group/f:target"/>
         <xpathUsage value="normal"/>
@@ -453,29 +473,9 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ConceptMap-target-uri"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ConceptMap.targetScopeUri"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-target-uri"/>
-        <description value="The target value set which provides context for the mappings"/>
-        <code value="target-uri"/>
-        <type value="reference"/>
-        <expression value="(ConceptMap.targetScope as uri)"/>
-        <xpath value="f:ConceptMap/f:targetScopeUri"/>
-        <xpathUsage value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="ConceptMap-title"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.title"/>
@@ -495,13 +495,13 @@
       <SearchParameter>
         <id value="ConceptMap-url"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.url"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-url"/>
-        <description value="The uri that identifies the concept map"/>
+        <description value="The URI that identifies the concept map"/>
         <code value="url"/>
         <type value="uri"/>
         <expression value="ConceptMap.url"/>
@@ -515,7 +515,7 @@
       <SearchParameter>
         <id value="ConceptMap-version"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.version"/>
@@ -553,6 +553,10 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="ConceptMap-derived-from"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ConceptMap.relatedArtifact.resource"/>
         </extension>
@@ -567,6 +571,10 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="ConceptMap-predecessor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ConceptMap.relatedArtifact.resource"/>
         </extension>
@@ -581,6 +589,10 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="ConceptMap-topic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ConceptMap.topic"/>
         </extension>

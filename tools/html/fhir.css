@@ -19,6 +19,15 @@ blockquote.stu-note {
   border-left-color: #ffa0ff;
 }
 
+span.stu {
+  padding-left: 3px;
+  padding-right: 3px;
+  border: 1px grey solid;
+  font-weight: bold;
+  color: black;
+  background-color: #fff5e6;
+}
+
 .watermark
 {
    background-image: url(watermark.png);
@@ -367,6 +376,15 @@ pre.json             {
 	padding: 5px;
 	width: 650px;
 }
+
+pre.liquid             {
+	border: 1px solid #dcdcdc;
+ 	font-size: 11px;
+        background: #fbf3e3 ; 
+	padding: 5px;
+	width: 650px;
+}
+
 
 pre.rdf             {
 	border: 1px solid #dcdcdc;
@@ -944,4 +962,96 @@ ol.fmmlist li::before {
   content: "FMM " counter(number);
   position: relative;
   left:-25px
+}
+
+.copy-text .btn-copy{
+  visibility: hidden;
+}
+
+.copy-text:hover .btn-copy {
+  visibility: visible;
+}
+
+.btn-copy {
+  height: 14px;
+  width: 17px;
+  background-image: url('icon_clipboard.png');
+  background-size: 22px;
+  padding: 0px 0px; 
+  border-width: 0px;
+  background-color: transparent;
+}
+
+.http-verb-selector::before {
+  content: "\A    ";
+  white-space: pre;
+}
+
+.http-verb-display-get {
+  font-family: monospace;
+  white-space: pre;
+  line-height: 1.4em;
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333333;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+.http-verb-display-post {
+  font-family: monospace;
+  white-space: pre;
+  line-height: 1.4em;
+  display: block;
+  padding: 0px;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333333;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+.example-format-selector::before {
+  content: "\A    ";
+  white-space: pre;
+}
+
+.example-format-display-json {
+  font-family: monospace;
+  white-space: pre;
+  line-height: 1.4em;
+  display: block;
+  margin: 0 0 10px;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333333;
+  border-radius: 4px;
+  border: 1px solid #dcdcdc;
+  background: #EFFFEF ; 
+  padding: 5px;
+  width: 650px;
+}
+
+.example-format-display-xml {
+  font-family: monospace;
+  white-space: pre;
+  line-height: 1.4em;
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333333;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 5px;
+  background: #F0FFFF ; 
+  width: 650px;
 }

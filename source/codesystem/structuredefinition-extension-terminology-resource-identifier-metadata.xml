@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="terminology-resource-identifier-metadata"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/terminology-resource-identifier-metadata"/>
+  <version value="5.0.0"/>
+  <name value="terminologyResourceIdentifierMetadata"/>
+  <title value="Terminology Resource Identifier Metadata"/>
+  <status value="draft"/>
+  <date value="2022-08-28T13:00:00+10:00"/>
+  <publisher value="HL7"/>
+  <description value="Additional metadata in identifier elements for terminology resources."/>
+  <fhirVersion value="5.0.0"/>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="CodeSystem.identifier"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="ValueSet.identifier"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="ConceptMap.identifier"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Additional metadata in identifier elements for terminology resources."/>
+      <definition value="Additional metadata which may be asserted in identifier elements for terminology resources."/>
+	  <comment value="This represents additional metadata values which apply the identifier values in FHIR terminology resources."/>
+      <min value="0"/>
+    </element>
+    <element id="Extension.extension:preferred">
+      <path value="Extension.extension"/>
+      <sliceName value="preferred"/>
+      <short value="Whether this an identifier that should be used"/>
+      <definition value="Indicates whether this identifier is a 'preferred' identifier"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:preferred.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:preferred.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="preferred"/>
+    </element>
+    <element id="Extension.extension:preferred.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Extension.extension:authoritative">
+      <path value="Extension.extension"/>
+      <sliceName value="authoritative"/>
+      <short value="Whether this identifier is considered to be authoritative"/>
+      <definition value="Indicates whether this identifier is an 'authoritative' identifier"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:authoritative.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:authoritative.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="authoritative"/>
+    </element>
+    <element id="Extension.extension:authoritative.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Extension.extension:comment">
+      <path value="Extension.extension"/>
+      <sliceName value="comment"/>
+      <short value="Text to explain the use of the additional metadata values."/>
+      <definition value="Text to explain the use of the additional metadata values."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+    </element>
+    <element id="Extension.extension:comment.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:comment.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="comment"/>
+    </element>
+    <element id="Extension.extension:comment.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/terminology-resource-identifier-metadata"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+	  <min value="0"/>
+      <max value="0"/>
+    </element>
+  </differential>
+</StructureDefinition>

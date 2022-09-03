@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Account"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -400,15 +400,135 @@
         <map value=".holder.guarantorRole.effectiveTime"/>
       </mapping>
     </element>
-    <element id="Account.partOf">
-      <path value="Account.partOf"/>
-      <short value="Reference to a parent Account"/>
-      <definition value="Reference to a parent Account."/>
+    <element id="Account.relatedAccount">
+      <path value="Account.relatedAccount"/>
+      <short value="Other associated accounts related to this account"/>
+      <definition value="Other associated accounts related to this account."/>
       <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Account.relatedAccount.relationship">
+      <path value="Account.relatedAccount.relationship"/>
+      <short value="Relationship of the associated Account"/>
+      <definition value="Relationship of the associated Account."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AccountRelationship"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates the relationship between the accounts"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/account-relationship"/>
+      </binding>
+    </element>
+    <element id="Account.relatedAccount.account">
+      <path value="Account.relatedAccount.account"/>
+      <short value="Reference to an associated Account"/>
+      <definition value="Reference to an associated Account."/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Account"/>
+      </type>
+    </element>
+    <element id="Account.currency">
+      <path value="Account.currency"/>
+      <short value="The base or default currency"/>
+      <definition value="The default currency for the account."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AccountCurrency"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/currencies"/>
+      </binding>
+    </element>
+    <element id="Account.balance">
+      <path value="Account.balance"/>
+      <short value="Calculated account balance(s)"/>
+      <definition value="The calculated account balances - these are calculated and processed by the finance system.&#xD;&#xD;The balances with a `term` that is not current are usually generated/updated by an invoicing or similar process."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Account.balance.aggregate">
+      <path value="Account.balance.aggregate"/>
+      <short value="Who is expected to pay this part of the balance"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AccountAggregate"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Indicates the balance was outstanding at the given age."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/account-aggregate"/>
+      </binding>
+    </element>
+    <element id="Account.balance.term">
+      <path value="Account.balance.term"/>
+      <short value="current | 30 | 60 | 90 | 120"/>
+      <definition value="The term of the account balances - The balance value is the amount that was outstanding for this age."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AccountBalanceTerm"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Indicates the balance was outstanding at the given age."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/account-balance-term"/>
+      </binding>
+    </element>
+    <element id="Account.balance.estimate">
+      <path value="Account.balance.estimate"/>
+      <short value="Estimated balance"/>
+      <definition value="The amount is only an estimated value - this is likely common for `current` term balances, but not with known terms (that were generated by a backend process)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Account.balance.amount">
+      <path value="Account.balance.amount"/>
+      <short value="Calculated amount"/>
+      <definition value="The actual balance value calculated for the age defined in the term property."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
+    <element id="Account.balance.calculatedAt">
+      <path value="Account.calculatedAt"/>
+      <short value="Time the balance amount was calculated"/>
+      <comment value="The total(s) are not typically updated using the restful API but more often by back-end processes included in a typical finance system."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="instant"/>
       </type>
     </element>
   </differential>

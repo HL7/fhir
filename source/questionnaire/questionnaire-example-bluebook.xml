@@ -104,12 +104,12 @@
             <answerBoolean value="true"/>
           </enableWhen>
           <item>
-            <linkId value="vitaminiKDose1"/>
+            <linkId value="vitaminKDose1"/>
             <text value="1st dose"/>
             <type value="dateTime"/>
           </item>
           <item>
-            <linkId value="vitaminiKDose2"/>
+            <linkId value="vitaminKDose2"/>
             <text value="2nd dose"/>
             <type value="dateTime"/>
           </item>

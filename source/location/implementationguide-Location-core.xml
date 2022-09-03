@@ -15,5 +15,10 @@
         <reference value="StructureDefinition/location-boundary-geojson"/>
       </reference>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/location-communication"/>
+      </reference>
+    </resource>
   </definition>
 </ImplementationGuide>

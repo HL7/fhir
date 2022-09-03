@@ -43,7 +43,7 @@
 			<value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
 		</telecom>
 	</contact>
-	<description value="Example of workflow instance."/>
+	<description value="A walkthrough of a workflow showing the interaction between systems and the instances shared, possibly including the evolution of instances over time."/>
 	<fhirVersion value="5.0.0"/>
 	<mapping>
 		<identity value="w5"/>
@@ -77,14 +77,14 @@
 			<definition value="Example of workflow instance."/>
 			<min value="0"/>
 			<max value="*"/>
-<!--			<constraint>
+			<constraint>
 				<key value="cnl-0"/>
 				<severity value="warning"/>
 				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
-			</constraint>-->
+			</constraint>
       <constraint>
         <key value="exs-3"/>
         <severity value="error"/>
@@ -142,7 +142,7 @@
 		<element id="ExampleScenario.url">
 			<path value="ExampleScenario.url"/>
 			<short value="Canonical identifier for this example scenario, represented as a URI (globally unique)"/>
-			<definition value="An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this example scenario is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the example scenario is stored on different servers."/>
+			<definition value="An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this example scenario is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the example scenario is stored on different servers."/>
 			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
 			<requirements value="Allows the example scenario to be referenced by a single globally unique identifier."/>
 			<min value="0"/>
@@ -150,6 +150,14 @@
 			<type>
 				<code value="uri"/>
 			</type>
+			<constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
 			<isSummary value="true"/>
 			<mapping>
 				<identity value="workflow"/>
@@ -189,7 +197,7 @@
 			<path value="ExampleScenario.version"/>
 			<short value="Business version of the example scenario"/>
 			<definition value="The identifier that is used to identify this version of the example scenario when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the example scenario author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-			<comment value="There may be different example scenario instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the example scenario with the format [url]|[version]."/>
+			<comment value="There may be different example scenario instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the example scenario with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -205,6 +213,25 @@
 				<map value="FiveWs.version"/>
 			</mapping>
 		</element>
+    <element id="ExampleScenario.versionAlgorithm[x]">
+      <path value="ExampleScenario.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+    </element>
 		<element id="ExampleScenario.name">
 			<path value="ExampleScenario.name"/>
 			<short value="To be removed?"/>
@@ -281,6 +308,7 @@
 			<type>
 				<code value="boolean"/>
 			</type>
+			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
 			<isSummary value="true"/>
 			<mapping>
 				<identity value="workflow"/>
@@ -472,6 +500,13 @@
         <expression value="%resource.process.descendants().select(operation).where(initiator=%context.key or receiver=%context.key).exists()"/>
         <xpath value="exists(parent::f:ExampleScenario/f:process//f:operation[f:initiator/@value=current()/f:key/@value or f:receiver/@value=current()/f:key/@value])"/>
       </constraint>
+      <constraint>
+        <key value="exs-23"/>
+        <severity value="error"/>
+        <human value="actor.key canot be 'OTHER'"/>
+        <expression value="key != 'OTHER'"/>
+        <xpath value="f:key/@value != 'OTHER'"/>
+      </constraint>
 		</element>
 		<element id="ExampleScenario.actor.key">
 			<path value="ExampleScenario.actor.key"/>
@@ -610,6 +645,7 @@
 			<type>
 				<code value="string"/>
 			</type>
+			<meaningWhenMissing value="If the structureType is a FHIR resource, then the version is the same FHIR version this ExampleScenario is expressed in."/>
 			<condition value="exs-1"/>
 		</element>
 		<element id="ExampleScenario.instance.structureProfile[x]">
@@ -830,7 +866,7 @@
         <xpath value="count(f:alternative/f:title/@value) = count(distinct-values(f:alternative/f:title/@value))"/>
       </constraint>
       <constraint>
-        <key value="exs-16"/>
+        <key value="exs-22"/>
         <severity value="error"/>
         <human value="Can have a process, a workflow, one or more operations or none of these, but cannot have a combination"/>
         <expression value="(process.exists() implies workflow.empty() and operation.empty()) and (workflow.exists() implies operation.empty())"/>
@@ -880,15 +916,15 @@
         <key value="exs-17"/>
         <severity value="error"/>
         <human value="If specified, initiator must be a key of an actor within the ExampleScenario"/>
-        <expression value="initiator.exists() implies %resource.actor.where(key=%context.initiator).exists()"/>
-        <xpath value="not(exists(f:initiator)) or exists(ancestor::f:ExampleScenario/f:actor[f:key/@value=current()/f:initiator/@value])"/>
+        <expression value="initiator.exists() implies initator = 'OTHER' or %resource.actor.where(key=%context.initiator).exists()"/>
+        <xpath value="not(exists(f:initiator)) or f:initiator/@value='OTHER' or exists(ancestor::f:ExampleScenario/f:actor[f:key/@value=current()/f:initiator/@value])"/>
       </constraint>
       <constraint>
         <key value="exs-18"/>
         <severity value="error"/>
         <human value="If specified, receiver must be a key of an actor within the ExampleScenario"/>
-        <expression value="receiver.exists() implies %resource.actor.where(key=%context.receiver).exists()"/>
-        <xpath value="not(exists(f:receiver)) or exists(ancestor::f:ExampleScenario/f:actor[f:key/@value=current()/f:receiver/@value])"/>
+        <expression value="receiver.exists() implies receiver = 'OTHER' or %resource.actor.where(key=%context.receiver).exists()"/>
+        <xpath value="not(exists(f:receiver)) or f:/receiver/@value='OTHER' or exists(ancestor::f:ExampleScenario/f:actor[f:key/@value=current()/f:receiver/@value])"/>
       </constraint>
 		</element>
 		<element id="ExampleScenario.process.step.operation.type">
@@ -919,6 +955,7 @@
 			<path value="ExampleScenario.process.step.operation.initiator"/>
 			<short value="Who starts the operation"/>
 			<definition value="The system that invokes the action/transmits the data."/>
+			<comment value="This must either be the 'key' of one of the actors defined in this scenario or the special keyword 'OTHER' if the initiator is not one of the actors defined for the scenario.  (Multiple references to 'OTHER' don't necessarily indicate the same actor.)"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -929,7 +966,7 @@
 			<path value="ExampleScenario.process.step.operation.receiver"/>
 			<short value="Who receives the operation"/>
 			<definition value="The system on which the action is invoked/receives the data."/>
-			<comment value="In some cases, receiver could be same as sender if representing a local operation"/>
+			<comment value="This must either be the 'key' of one of the actors defined in this scenario or the special keyword 'OTHER' if the receiver is not one of the actors defined for the scenario.  (Multiple references to 'OTHER' don't necessarily indicate the same actor.)  In some cases, receiver could be same as sender if representing a local operation"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

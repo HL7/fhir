@@ -2,50 +2,6 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="device-usage-adherence-code"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
-  </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>This code system http://hl7.org/fhir/device-usage-adherence-code defines the following codes:</p>
-      <table class="codes">
-        <tr>
-          <td style="white-space:nowrap">
-            <b>Code</b>
-          </td>
-          <td>
-            <b>Display</b>
-          </td>
-          <td>
-            <b>Definition</b>
-          </td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">always
-            <a name="device-usage-adherence-code-always"> </a>
-          </td>
-          <td>Always</td>
-          <td>The device is always used.</td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">never
-            <a name="device-usage-adherence-code-never"> </a>
-          </td>
-          <td>Never</td>
-          <td>The device is never used.</td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">sometimes
-            <a name="device-usage-adherence-code-sometimes"> </a>
-          </td>
-          <td>Sometimes</td>
-          <td>The device is sometimes used.</td>
-        </tr>      
-      </table>
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>

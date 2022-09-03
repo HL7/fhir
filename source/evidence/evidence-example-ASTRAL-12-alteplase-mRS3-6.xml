@@ -94,13 +94,13 @@
 			</coding>
 		</directnessMatch>
 	</variableDefinition>
-	<studyType>
+	<studyDesign>
 		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/study-type"/>
-			<code value="series"/>
-			<display value="uncontrolled cohort or case series"/>
+			<system value="http://hl7.org/fhir/research-study-classifiers"/>
+			<code value="SEVCO:01016"/>
+			<display value="Uncontrolled cohort design"/>
 		</coding>
-	</studyType>
+	</studyDesign>
 	<statistic>
 		<description value="5.3% risk"/>
 		<statisticType>

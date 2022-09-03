@@ -1,5 +1,18 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+
+<a name="use"></a>
+<h3>Base Resource</h3>
+
+<p>
+A compartment implicitly always includes the resource that is a 'root' of the   compartment
+e.g. the resource <code>Patient/123</code> is the root resource of the Patient Compartment
+for <code>Patient/123</code>. 
+Thus an operation that retrieves everything within the compartment will include the base 
+resource; a scope that grants access to everything within the compartment will grant access 
+to the resource; etc. 
+</p>
+
 <a name="use"></a>
 <h3>Using Compartments</h3>
 
@@ -97,7 +110,7 @@ with use of the FHIR RESTful API may be limited to accessing records from the
 compartment instance(s) logically associated with their identity. Irrespective of whether
 compartments are being used explicitly or implicitly, servers will need to make arrangements
 to make some resources with no direct link to a patient available to the client (medications, 
-substances, etc.).
+substances, binaries, etc.).
 </p>
 <p>
 Note that resources may cross between compartments, or interlink them. Examples of 

@@ -27,10 +27,10 @@
   <description value="This value set includes the FHIR resource types, along with some other important content class codes"/>
   <compose>
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/formatcodes"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/doc-typecodes"/>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <import value="http://hl7.org/fhir/ValueSet/resource-types"/>
     </include>
     <include>
       <system value="urn:ietf:rfc:3986"/>

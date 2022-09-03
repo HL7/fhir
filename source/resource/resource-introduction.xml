@@ -19,7 +19,7 @@ A resource is an entity that:
  <li>has an identified version that changes if the contents of the resource change</li>
 </ul>
 <p>
-Resources have <a href="formats.html">multiple representations</a>. 
+Resources have <a href="resource-formats.html">multiple representations</a>. 
 </p>
 <!--
 <p>

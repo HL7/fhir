@@ -1,0 +1,44 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="bnc"></a>
+<h2>Scope and Usage</h2>
+
+<!-- TODO: Is there a pattern that this resource does fit? Metadata? Artifact?
+<p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
+ -->
+
+<p>The ActorDefinition Resource an actor that can plays the role of a participant in some kind 
+of described process. Generally, in the scope of FHIR, the process is some kind of data 
+exchange, and ActorDefinition is defined for this purpose.</p>
+
+<p>
+However it's also possible to use actors in descriptions and definitions of clinical business 
+flows, though FHIR itself does not provide a business process description language, nor will it. 
+The intention of the ActorDefinition is that other business process languages will refer the
+actors and in doing so, bring into scope the technical artifacts associated with the actor.
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+
+<p>
+Once defined, Actors may be asociated with <a href="https://build.fhir.org/ig/FHIR/fhir-tools-ig/StructureDefinition-obligation.html">obligations</a> defined in profiles to describe
+expected application behaviour.
+</p>
+<p>
+Actors may also be referenced from <a href="examplescenario.html">ExampleXcenario</a>.
+</p>
+
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+To do
+</p>
+
+</div>
+
+</div>

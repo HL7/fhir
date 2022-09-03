@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuditEvent xmlns="http://hl7.org/fhir">
+	<id value="example-advanced-create"/>
+	<!-- to include elements not typically populated, but for which there are query parameters -->
+	<!-- derived off of example in IHE.BALP IG -->
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/restful-interaction"/>
+			<code value="create"/>
+			<display value="create"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/audit-event-type"/>
+			<code value="rest"/>
+			<display value="Restful Operation"/>
+		</coding>
+	</code>
+	<action value="C"/>
+	<severity value="informational"/>
+	<occurredDateTime value="2020-04-29T09:49:00.000Z"/>
+	<recorded value="2020-04-29T09:49:00.000Z"/>
+	<outcome>
+		<code>
+			<system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
+			<code value="success"/>
+			<display value="Success"/>
+		</code>
+	</outcome>
+	<authorization>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+			<code value="TREAT"/>
+		</coding>
+	</authorization>
+	<basedOn>
+		<reference value="CarePlan/example"/>
+	</basedOn>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+	<encounter>
+		<reference value="Encounter/home"/>
+	</encounter>
+	<agent>
+		<type>
+			<coding>
+				<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+				<code value="110153"/>
+				<display value="Source Role ID"/>
+			</coding>
+		</type>
+		<who>
+			<display value="myMachine.example.org"/>
+		</who>
+		<requestor value="false"/>
+		<networkUri value="urn:ipv6:2001:0db8:85a3:0000:0000:8a2e:0370:7334"/>
+	</agent>
+	<agent>
+		<type>
+			<coding>
+				<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+				<code value="110152"/>
+				<display value="Destination Role ID"/>
+			</coding>
+		</type>
+		<who>
+			<reference value="Device/example"/>
+		</who>
+		<requestor value="false"/>
+		<networkUri value="http://server.example.com/fhir"/>
+	</agent>
+	<agent>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+				<code value="INF"/>
+				<display value="Informant"/>
+			</coding>
+		</type>
+		<who>
+			<display value="Betty Jones"/>
+		</who>
+		<requestor value="true"/>
+	</agent>
+	<source>
+		<site>
+			<identifier>
+				<value value="http://server.example.com"/>
+			</identifier>
+		</site>
+		<observer>
+			<reference value="Device/example"/>
+		</observer>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/security-source-type"/>
+				<code value="4"/>
+				<display value="Application Server"/>
+			</coding>
+		</type>
+	</source>
+	<entity>
+		<what>
+			<reference value="List/example"/>
+		</what>
+		<role>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/object-role"/>
+				<code value="4"/>
+				<display value="Domain Resource"/>
+			</coding>
+		</role>
+	</entity>
+</AuditEvent>

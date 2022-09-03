@@ -148,4 +148,16 @@
       <display value="Gingival Mass"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="An example showing use of supportingInfo"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="diagnosticreport-example-gingival-biopsy"/>
+    </extension>
+    <item>
+      <reference value="DiagnosticReport/gingival-biopsy"/>
+      <display value="Gingival Biopsy"/>
+    </item>
+  </entry>
 </List>

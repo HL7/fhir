@@ -4,7 +4,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareableconceptmap"/>
   </meta>
-  <url value="http://hl7.org/fhir/ConceptMap/example-metadata"/>
+  <url value="http://hl7.org/fhir/ConceptMap/example-metadata-2"/>
   <version value="20220721"/>
 
   <name value="ExampleMetadata"/>
@@ -46,7 +46,7 @@
     <name value="ACME ConceptMap Management"/>
     <telecom>
       <system value="url"/>
-      <value value="http://acme.org/managememnt"/>
+      <value value="http://acme.org/management"/>
     </telecom>
   </editor>
   <reviewer>

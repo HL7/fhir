@@ -11,7 +11,7 @@
   <code value="author"/>
   <base value="ValueSet"/>
   <type value="string"/>
-  <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/valueset-author')"/>
-  <xpath value="f:ValueSet/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/valueset-author&#39;] | /f:#author"/>
+  <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/valueset-author').value"/>
+  <xpath value="f:ValueSet/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/valueset-author&#39;]/f:valueReference | /f:#author"/>
   <xpathUsage value="normal"/>
 </SearchParameter>

@@ -3,71 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="code-search-support"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/code-search-support defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">explicit
-            
-            <a name="code-search-support-explicit"> </a>
-          
-          </td>
-          
-          <td>Explicit Codes</td>
-          
-          <td>The search for code on ValueSet only includes codes explicitly detailed on includes or expansions.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">all
-            
-            <a name="code-search-support-all"> </a>
-          
-          </td>
-          
-          <td>Implicit Codes</td>
-          
-          <td>The search for code on ValueSet only includes all codes based on the expansion of the value set.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
   </extension>
@@ -82,12 +19,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.861"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="CodeSearchSupport"/>
   <title value="CodeSearchSupport"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
+  <date value="2022-08-31T10:21:22+10:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -104,13 +41,18 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/code-search-support"/>
   <content value="complete"/>
   <concept>
-    <code value="explicit"/>
-    <display value="Explicit Codes"/>
-    <definition value="The search for code on ValueSet only includes codes explicitly detailed on includes or expansions."/>
+    <code value="in-compose"/>
+    <display value="In Compose"/>
+    <definition value="The search for code on ValueSet returns ValueSet resources where the code is included in the extensional definition of the ValueSet."/>
   </concept>
   <concept>
-    <code value="all"/>
-    <display value="Implicit Codes"/>
-    <definition value="The search for code on ValueSet only includes all codes based on the expansion of the value set."/>
+    <code value="in-expansion"/>
+    <display value="In Expansion"/>
+    <definition value="The search for code on ValueSet returns ValueSet resources where the code is contained in the  ValueSet expansion."/>
+  </concept>
+  <concept>
+    <code value="in-compose-or-expansion"/>
+    <display value="In Compose Or Expansion"/>
+    <definition value="The search for code on ValueSet returns ValueSet resources where the code is included in the extensional definition or contained in the ValueSet expansion."/>
   </concept>
 </CodeSystem>

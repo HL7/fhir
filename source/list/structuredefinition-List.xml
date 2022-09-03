@@ -69,22 +69,6 @@
       <min value="0"/>
       <max value="*"/>
       <constraint>
-        <key value="lst-3"/>
-        <severity value="error"/>
-        <human value="An entry date can only be used if the mode of the list is &quot;working&quot;"/>
-        <expression value="mode = &#39;working&#39; or entry.date.empty()"/>
-        <xpath value="(f:mode/@value = &#39;working&#39;) or not(exists(f:entry/f:date))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/List"/>
-      </constraint>
-      <constraint>
-        <key value="lst-2"/>
-        <severity value="error"/>
-        <human value="The deleted flag can only be used if the mode of the list is &quot;changes&quot;"/>
-        <expression value="mode = &#39;changes&#39; or entry.deleted.empty()"/>
-        <xpath value="(f:mode/@value = &#39;changes&#39;) or not(exists(f:entry/f:deleted))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/List"/>
-      </constraint>
-      <constraint>
         <key value="lst-1"/>
         <severity value="error"/>
         <human value="A list can only have an emptyReason if it is empty"/>
@@ -138,7 +122,7 @@
         </extension>
         <strength value="required"/>
         <description value="The current state of the list."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/list-status|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/list-status"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -169,7 +153,7 @@
         </extension>
         <strength value="required"/>
         <description value="The processing mode that applies to this list."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/list-mode|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/list-mode"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -243,6 +227,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -280,7 +266,7 @@
     <element id="List.date">
       <path value="List.date"/>
       <short value="When the list was prepared"/>
-      <definition value="The date that the list was prepared."/>
+      <definition value="Date list was last reviewed/revised and determined to be 'current'."/>
       <comment value="The actual important date is the date of currency of the resources that were summarized, but it is usually assumed that these are current when the preparation occurs."/>
       <requirements value="Identifies how current the list is which affects relevance."/>
       <min value="0"/>
@@ -389,7 +375,7 @@
       <path value="List.entry.flag"/>
       <short value="Status/Workflow information about this item"/>
       <definition value="The flag allows the system constructing the list to indicate the role and significance of the item in the list."/>
-      <comment value="The flag can only be understood in the context of the List.code. If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. Deleted can only be used if the List.mode is &quot;changes&quot;."/>
+      <comment value="The flag can only be understood in the context of the List.code. If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true"/>
       <requirements value="This field is present to support various clinical uses of lists, such as a discharge summary medication list, where flags specify whether the medication was added, modified, or deleted from the list."/>
       <min value="0"/>
       <max value="1"/>
@@ -413,7 +399,7 @@
       <path value="List.entry.deleted"/>
       <short value="If this item is actually marked as deleted"/>
       <definition value="True if this item is marked as deleted in the list."/>
-      <comment value="If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. Both flag and deleted can only be used if the List.mode is &quot;changes&quot;. A deleted entry should be displayed in narrative as deleted.  This element is labeled as a modifier because it indicates that an item is (to be) no longer in the list."/>
+      <comment value="If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. A deleted entry should be displayed in narrative as deleted.  This element is labeled as a modifier because it indicates that an item is (to be) no longer in the list."/>
       <requirements value="The flag element may contain codes that an application processing the list does not understand. However there can be no ambiguity if a list item is actually marked as &quot;deleted&quot;."/>
       <min value="0"/>
       <max value="1"/>
@@ -421,7 +407,6 @@
         <code value="boolean"/>
       </type>
       <meaningWhenMissing value="List items are generally only treated as deleted when this element explicitly carries a value of true. Systems SHOULD always populate this value when mode is &#39;changes&#39;"/>
-      <condition value="lst-2"/>
       <isModifier value="true"/>
       <isModifierReason value="If deleted is true, then the item included in the list isn&#39;t actually part of the list anymore"/>
       <mapping>

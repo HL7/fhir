@@ -74,7 +74,7 @@
         <description value="Name of the team, such as crisis assessment team"/>
         <code value="name"/>
         <type value="string"/>
-        <expression value="CareTeam.name | CareTeam.extension(&#39;http://hl7.org/fhir/StructureDefinition/careteam-alias&#39;)"/>
+        <expression value="CareTeam.name | CareTeam.extension(&#39;http://hl7.org/fhir/StructureDefinition/careteam-alias&#39;).value"/>
         <xpath value="f:CareTeam/f:name"/>
         <xpathUsage value="normal"/>
       </SearchParameter>

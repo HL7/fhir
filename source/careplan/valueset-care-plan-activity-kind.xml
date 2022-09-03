@@ -26,7 +26,7 @@
   <description value="Resource types defined as part of FHIR that can be represented as in-line definitions of a care plan activity."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-types"/>
       <concept>
         <code value="Appointment"/>
       </concept>

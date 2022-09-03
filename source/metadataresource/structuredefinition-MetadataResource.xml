@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="MetadataResource"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -94,7 +94,7 @@
       <path value="MetadataResource.approvalDate"/>
       <short value="When the {{title}} was approved by publisher"/>
       <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -156,9 +156,9 @@
       </extension>
       <path value="MetadataResource.topic"/>
       <short value="E.g. Education, Treatment, Assessment, etc."/>
-      <definition value="Descriptive topics related to the content of the {{title}}. Topics provide a high-level categorization of the {{title}} that can be useful for filtering and searching."/>
-      <comment value="This element provides a topical categorization of the {{title}}, as opposed to the more structured context-of-use information provided in the useContext element"/>
-      <requirements value="Repositories must be able to determine how to categorize the {{title}} so that it can be found by topical searches."/>
+      <definition value="Descriptive topics related to the content of the {{title}}. Topics provide a high-level categorization as well as keywords for the {{title}} that can be useful for filtering and searching."/>
+      <comment value="This element provides topical categorization and keywords for the {{title}}, as opposed to the more structured context-of-use information provided in the useContext element"/>
+      <requirements value="Repositories must be able to determine how to categorize the {{title}} so that it can be found by topical and keyword searches."/>
       <min value="0"/>
       <max value="*"/>
       <type>

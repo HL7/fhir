@@ -212,6 +212,23 @@
         <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
     </element>
+    <element id="NutritionOrder.basedOn">
+      <path value="NutritionOrder.basedOn"/> 
+      <short value="What this order fulfills"/> 
+      <definition value="A plan or request that is fulfilled in whole or in part by this nutrition order."/> 
+      <min value="0"/> 
+      <max value="*"/> 
+      <type> 
+        <code value="Reference"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/> 
+      </type> 
+      <mapping> 
+        <identity value="workflow"/> 
+        <map value="Request.basedOn"/> 
+      </mapping> 
+    </element>
     <element id="NutritionOrder.status">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#3720],[#14414]."/>
@@ -296,18 +313,47 @@
         <map value=".moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)"/>
       </mapping>
     </element>
-    <element id="NutritionOrder.patient">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="2/4/2015 EH: [#3707] change subject to patient."/>
-      </extension>
-      <path value="NutritionOrder.patient"/>
-      <short value="The person who requires the diet, formula or nutritional supplement"/>
-      <definition value="The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding."/>
+    <element id="NutritionOrder.priority">
+      <path value="NutritionOrder.priority"/> 
+      <short value="routine | urgent | asap | stat"/> 
+      <definition value="Indicates how quickly the Nutrition Order should be addressed with respect to other
+       requests."/> 
+      <min value="0"/> 
+      <max value="1"/> 
+      <type> 
+        <code value="code"/> 
+      </type> 
+      <binding> 
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NutritionOrderPriority"/> 
+        </extension> 
+        <strength value="required"/> 
+        <description value="Identifies the level of importance to be assigned to actioning the request."/> 
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|5.0.0-cibuild"/> 
+      </binding> 
+      <mapping> 
+        <identity value="workflow"/> 
+        <map value="Request.priority"/> 
+      </mapping> 
+      <mapping> 
+        <identity value="w5"/> 
+        <map value="FiveWs.grade"/> 
+      </mapping> 
+      <mapping> 
+        <identity value="rim"/> 
+        <map value=".priorityCode"/> 
+      </mapping> 
+    </element>
+    <element id="NutritionOrder.subject">
+      <path value="NutritionOrder.subject"/>
+      <short value="Who requires the diet, formula or nutritional supplement"/>
+      <definition value="The person or set of individuals who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -357,6 +403,18 @@
         <identity value="rim"/>
         <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"/>
       </mapping>
+    </element>
+    <element id="NutritionOrder.supportingInformation">
+      <path value="NutritionOrder.supportingInformation"/> 
+      <short value="Information to support fulfilling of the nutrition order"/> 
+      <definition value="Information to support fulfilling (i.e. dispensing or administering) of the nutrition,
+       for example, patient height and weight)."/>
+      <min value="0"/> 
+      <max value="*"/> 
+      <type> 
+        <code value="Reference"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/> 
+      </type> 
     </element>
     <element id="NutritionOrder.dateTime">
       <path value="NutritionOrder.dateTime"/>
@@ -413,6 +471,22 @@
         <identity value="rim"/>
         <map value=".participation[typeCode=AUT].role"/>
       </mapping>
+    </element>
+    <element id="NutritionOrder.performer">
+      <path value="NutritionOrder.performer"/>
+      <short value="Who is desired to perform the administration of what is being ordered"/>
+      <definition value="The specified desired performer of the nutrition order."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
     </element>
     <element id="NutritionOrder.allergyIntolerance">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -489,6 +563,20 @@
         <map value="N/A"/>
       </mapping>
     </element>
+    <element id="NutritionOrder.outsideFoodAllowed">
+      <path value="NutritionOrder.outsideFoodAllowed"/>
+      <short value="Capture when a food item is brought in by the patient and/or family"/>
+      <definition value="This modifier is used to convey whether a food item is allowed to be brought in by the patient and/or family.  If set to true, indicates that the receiving system does not need to supply the food item."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
     <element id="NutritionOrder.oralDiet">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="down"/>
@@ -550,10 +638,20 @@
       </mapping>
     </element>
     <element id="NutritionOrder.oralDiet.schedule">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type  #8181."/>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="down"/>
       </extension>
       <path value="NutritionOrder.oralDiet.schedule"/>
+      <short value="Scheduling information for oral diets"/>
+      <definition value="Schedule information for an oral diet."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="NutritionOrder.oralDiet.schedule.timing">
+      <path value="NutritionOrder.oralDiet.schedule.timing"/>
       <short value="Scheduled frequency of diet"/>
       <definition value="The time period and frequency at which the diet should be given.  The diet should be given for the combination of all schedules if more than one schedule is present."/>
       <alias value="Frequency"/>
@@ -574,6 +672,37 @@
         <identity value="rim"/>
         <map value=".expectedUseTime"/>
       </mapping>
+    </element>
+    <element id="NutritionOrder.oralDiet.schedule.asNeeded">
+      <path value="NutritionOrder.oralDiet.schedule.asNeeded"/>
+      <short value="Take 'as needed'"/>
+      <definition value="Indicates whether the product is only taken when needed within a specific dosing schedule."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="NutritionOrder.oralDiet.schedule.asNeededFor">
+      <path value="NutritionOrder.oralDiet.schedule.asNeededFor"/>
+      <short value="Take 'as needed' for x"/>
+      <definition value="Indicates whether the product is only taken based on a precondition for taking the product."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+			<binding> 
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
+					<valueString value="A coded concept identifying the precondition that should be met or evaluated prior to
+						consuming a nutrition product."/> 
+					</extension> 
+					<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+						<valueString value="OralDietAsNeededReason"/> 
+					</extension> 
+				<strength value="example"/> 
+			  <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/> 
+			</binding> 
     </element>
     <element id="NutritionOrder.oralDiet.nutrient">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
@@ -818,7 +947,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/> 
       </type>
       <isSummary value="true"/>
       <binding>
@@ -868,12 +998,22 @@
       </mapping>
     </element>
     <element id="NutritionOrder.supplement.schedule">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type.  #8181."/>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="down"/>
       </extension>
       <path value="NutritionOrder.supplement.schedule"/>
-      <short value="Scheduled frequency of supplement"/>
-      <definition value="The time period and frequency at which the supplement(s) should be given.  The supplement should be given for the combination of all schedules if more than one schedule is present."/>
+      <short value="Scheduling information for supplements"/>
+      <definition value="Schedule information for a supplement."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="NutritionOrder.supplement.schedule.timing">
+      <path value="NutritionOrder.supplement.schedule.timing"/>
+      <short value="Scheduled frequency of diet"/>
+      <definition value="The time period and frequency at which the supplement should be given.  The supplement should be given for the combination of all schedules if more than one schedule is present."/>
       <alias value="Frequency"/>
       <min value="0"/>
       <max value="*"/>
@@ -886,12 +1026,43 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ODS-2,TQ1-7/8"/>
+        <map value="ODS-2, TQ1-7/8"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".effectiveTime"/>
+        <map value=".expectedUseTime"/>
       </mapping>
+    </element>
+    <element id="NutritionOrder.supplement.schedule.asNeeded">
+      <path value="NutritionOrder.supplement.schedule.asNeeded"/>
+      <short value="Take 'as needed'"/>
+      <definition value="Indicates whether the supplement is only taken when needed within a specific dosing schedule."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="NutritionOrder.supplement.schedule.asNeededFor">
+      <path value="NutritionOrder.supplement.schedule.asNeededFor"/>
+      <short value="Take 'as needed' for x"/>
+      <definition value="Indicates whether the supplement is only taken based on a precondition for taking the supplement."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+			<binding> 
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
+					<valueString value="A coded concept identifying the precondition that should be met or evaluated prior to
+						consuming a supplement."/> 
+					</extension> 
+					<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+						<valueString value="SupplementAsNeededReason"/> 
+					</extension> 
+				<strength value="example"/> 
+			  <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/> 
+			</binding> 
     </element>
     <element id="NutritionOrder.supplement.quantity">
       <path value="NutritionOrder.supplement.quantity"/>
@@ -968,7 +1139,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/> 
       </type>
       <isSummary value="true"/>
       <binding>
@@ -1017,14 +1189,40 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="NutritionOrder.enteralFormula.additiveType">
-      <path value="NutritionOrder.enteralFormula.additiveType"/>
+    <element id="NutritionOrder.enteralFormula.deliveryDevice">
+      <path value="NutritionOrder.enteralFormula.deliveryDevice"/>
+      <short value="Intended type of device for the administration"/>
+      <definition value="The intended type of device that is to be used for the administration of the enteral formula."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+      </type>
+    </element>
+    <element id="NutritionOrder.enteralFormula.additive">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="NutritionOrder.enteralFormula.additive"/>
+      <short value="Components to add to the feeding"/>
+      <definition value="Indicates modular components to be provided in addition or mixed with the base formula."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <condition value="nor-1"/>
+    </element>
+    <element id="NutritionOrder.enteralFormula.additive.type">
+      <path value="NutritionOrder.enteralFormula.additive.type"/>
       <short value="Type of modular component to add to the feeding"/>
       <definition value="Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the base formula."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1051,11 +1249,11 @@
         <map value="N/A (not differentiated from NutritionalFormulaType in HL7 v3)"/>
       </mapping>
     </element>
-    <element id="NutritionOrder.enteralFormula.additiveProductName">
+    <element id="NutritionOrder.enteralFormula.additive.productName">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName."/>
       </extension>
-      <path value="NutritionOrder.enteralFormula.additiveProductName"/>
+      <path value="NutritionOrder.enteralFormula.additive.productName"/>
       <short value="Product or brand name of the modular additive"/>
       <definition value="The product or brand name of the type of modular component to be added to the formula."/>
       <min value="0"/>
@@ -1071,6 +1269,17 @@
         <identity value="rim"/>
         <map value="N/A"/>
       </mapping>
+    </element>
+    <element id="NutritionOrder.enteralFormula.additive.quantity">
+      <path value="NutritionOrder.enteralFormula.additive.quantity"/>
+      <short value="Amount of additive to be given or mixed in"/>
+      <definition value="The amount of additive to be given in addition or to be mixed in with the base formula."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
     </element>
     <element id="NutritionOrder.enteralFormula.caloricDensity">
       <path value="NutritionOrder.enteralFormula.caloricDensity"/>
@@ -1091,8 +1300,8 @@
         <map value=".quantity (caloricDensity)"/>
       </mapping>
     </element>
-    <element id="NutritionOrder.enteralFormula.routeofAdministration">
-      <path value="NutritionOrder.enteralFormula.routeofAdministration"/>
+    <element id="NutritionOrder.enteralFormula.routeOfAdministration">
+      <path value="NutritionOrder.enteralFormula.routeOfAdministration"/>
       <short value="How the formula should enter the patient&#39;s gastrointestinal tract"/>
       <definition value="The route or physiological path of administration into the patient&#39;s gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube."/>
       <min value="0"/>
@@ -1143,15 +1352,25 @@
       </mapping>
     </element>
     <element id="NutritionOrder.enteralFormula.administration.schedule">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type, #6101,#6100, 6111."/>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="down"/>
       </extension>
       <path value="NutritionOrder.enteralFormula.administration.schedule"/>
-      <short value="Scheduled frequency of enteral feeding"/>
-      <definition value="The time period and frequency at which the enteral formula should be delivered to the patient."/>
-      <alias value="Frequency"/>
+      <short value="Scheduling information for enteral formula products"/>
+      <definition value="Schedule information for an enteral formula."/>
       <min value="0"/>
       <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="NutritionOrder.enteralFormula.administration.schedule.timing">
+      <path value="NutritionOrder.enteralFormula.administration.schedule.timing"/>
+      <short value="Scheduled frequency of enteral formula"/>
+      <definition value="The time period and frequency at which the enteral formula should be given.  The enteral formula should be given for the combination of all schedules if more than one schedule is present."/>
+      <alias value="Frequency"/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="Timing"/>
       </type>
@@ -1161,12 +1380,43 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ODS-2,TQ1-7/8"/>
+        <map value="ODS-2, TQ1-7/8"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".effectiveUseTime"/>
+        <map value=".expectedUseTime"/>
       </mapping>
+    </element>
+    <element id="NutritionOrder.enteralFormula.administration.schedule.asNeeded">
+      <path value="NutritionOrder.enteralFormula.administration.schedule.asNeeded"/>
+      <short value="Take 'as needed'"/>
+      <definition value="Indicates whether the enteral formula is only taken when needed within a specific dosing schedule."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="NutritionOrder.enteralFormula.administration.schedule.asNeededFor">
+      <path value="NutritionOrder.enteralFormula.administration.schedule.asNeededFor"/>
+      <short value="Take 'as needed' for x"/>
+      <definition value="Indicates whether the enteral formula is only taken based on a precondition for taking the enteral formula."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+			<binding> 
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
+					<valueString value="A coded concept identifying the precondition that should be met or evaluated prior to
+						consuming a enteral formula."/> 
+					</extension> 
+					<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+						<valueString value="EnteralFormulaAsNeededReason"/> 
+					</extension> 
+				<strength value="example"/> 
+			  <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/> 
+			</binding> 
     </element>
     <element id="NutritionOrder.enteralFormula.administration.quantity">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">

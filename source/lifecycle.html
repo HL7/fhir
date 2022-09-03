@@ -4,256 +4,327 @@
 
 [%settitle Resource Life Cycle Page%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
-[%file newheader%]
+  [%file newheader%]
 </head>
+
 <body>
-[%file newnavbar%]
+  [%file newnavbar%]
 
 
 
 
-<h2>FHIR Life Cycle Page</h2>
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+  <h2>FHIR Life Cycle Page</h2>
+  <table class="colstu">
+    <tr>
+      <td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td>
+      <td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td>
+      <td id="ballot"><a href="versions.html#std-process">Standards Status</a>:
+        <!--!ns!--><a href="versions.html#std-process">Trial Use</a>
+      </td>
+    </tr>
+  </table>
 
-<p>
-This page describes several issues around lifecycle management for
-the resources and the content they contain. Specifically, this page
-describes:
-</p>
-<ul>
- <li><a href="#status">Resource Status</a>: how resource status codes work</li>
- <li><a href="#current">Current List</a>: issues associated with retrieving "current X list" of resources</li>
- <li><a href="#error">Entered in Error</a>: information about how erroneous entry is handled for the resources</li>
-</ul>
+  <p>
+    This page describes several issues around lifecycle management for
+    the resources and the content they contain. Specifically, this page
+    describes:
+  </p>
+  <ul>
+    <li><a href="#status">Resource Status</a>: how resource status codes work</li>
+    <li><a href="#current">Current List</a>: issues associated with retrieving "current X list" of resources</li>
+    <li><a href="#error">Entered in Error</a>: information about how erroneous entry is handled for the resources</li>
+  </ul>
 
-<a name="status"></a>
-<h3>Resource Status</h3>
+  <a name="status"></a>
+  <h3>Resource Status</h3>
 
-<p>Many FHIR resources have a status element that represents the lifecycle state of the resource or the clinical process represented by the resource. Work groups can specify status values appropriate to the individual resource. Although consistency between resources is not the primary objective, it is helpful to users and developers to have well-crafted value sets that cover all possible states (since the value sets are typically required and non-extensible).</p>
+  <p>Many FHIR resources have a status element that represents the lifecycle state of the resource or the clinical
+    process represented by the resource. Work groups can specify status values appropriate to the individual resource.
+    Although consistency between resources is not the primary objective, it is helpful to users and developers to have
+    well-crafted value sets that cover all possible states (since the value sets are typically required and
+    non-extensible).</p>
 
-<p>To understand existing status elements, and to help create extensions and resources involving resource states, we note that status value sets follow one of the following life cycles:</p>
-<ul>
-	<li>Clinical workflow process life cycle</li>
-	<li>Request/Order  life cycle</li>
-	<li>Entity status life cycle</li>
-	<li>Clinical status life cycle</li>
-</ul>
+  <p>To understand existing status elements, and to help create extensions and resources involving resource states, we
+    note that status value sets follow one of the following life cycles:</p>
+  <ul>
+    <li>Clinical workflow process life cycle</li>
+    <li>Request/Order life cycle</li>
+    <li>Entity status life cycle</li>
+    <li>Clinical status life cycle</li>
+  </ul>
 
-<p>
-For additional information about managing resource life cycles, see:
-</p>
-<ul>
- <li><a href="resource.html#id">Resource Identity</a></li>
- <li><a href="resource.html#versions">Technical vs Business Versions</a></li>
- <li><a href="managing.html">Managing Resource Identity</a> (including "Consistent Resource Identification")</li>
-</ul>
+  <p>
+    For additional information about managing resource life cycles, see:
+  </p>
+  <ul>
+    <li><a href="resource.html#id">Resource Identity</a></li>
+    <li><a href="resource.html#versions">Technical vs Business Versions</a></li>
+    <li><a href="managing.html">Managing Resource Identity</a> (including "Consistent Resource Identification")</li>
+  </ul>
 
-<a name="clinical"></a>
-<h3>Clinical Workflow Process Life Cycle</h3>
+  <a name="clinical"></a>
+  <h4>Clinical Workflow Process Life Cycle</h4>
 
-<p>Describes the lifecycle states of complex activities common in healthcare. Typically, these states follow a chronological life cycle that leads from initiation to the conclusion of the action.
-A characteristic (but non-exhaustive) set of states for the clinical workflow process life cycle include:</p>
-<ul>
-	<li>planned - resources for the activity are being allocated but the activity has not begun</li>
-	<li>cancelled - the planned activity did not start and will not take place</li>
-	<li>in-progress - the activity has begun</li>
-	<li>on-hold (suspended) - the activity has been temporarily interrupted</li>
-	<li>stopped (aborted, failed) - the activity has not been completed but no future action is planned</li>
-	<li>completed (finished) - the activity has been completed</li>
-</ul>
-<p>Examples of the clinical workflow life cycle:</p>
-<ul>
- <li>Communication.status: <%sclist Communication.status%></li>
- <li>Encounter.status:  <%sclist Encounter.status%></li>
- <li>Goal.lifecycleStatus: <%sclist Goal.lifecycleStatus%></li>
- <li>MedicationAdministration.status: <%sclist MedicationAdministration.status%></li>
- <li>MedicationDispense.status: <%sclist MedicationDispense.status%></li>
- <li>Procedure.status: <%sclist Procedure.status%></li>
-</ul>
+  <p>Describes the lifecycle states of complex activities common in healthcare. Typically, these states follow a
+    chronological life cycle that leads from initiation to the conclusion of the action.
+    A characteristic (but non-exhaustive) set of states for the clinical workflow process life cycle include:</p>
+  <ul>
+    <li>planned - resources for the activity are being allocated but the activity has not begun</li>
+    <li>cancelled - the planned activity did not start and will not take place</li>
+    <li>in-progress - the activity has begun</li>
+    <li>on-hold (suspended) - the activity has been temporarily interrupted</li>
+    <li>stopped (aborted, failed) - the activity has not been completed but no future action is planned</li>
+    <li>completed (finished) - the activity has been completed</li>
+  </ul>
+  <p>Examples of the clinical workflow life cycle:</p>
+  <ul>
+    <li><a href="communication-definitions.html#Communication.status">Communication.status</a>: <%sclist Communication.status%>
+    </li>
+    <li><a href="encounter-definitions.html#Encounter.status">Encounter.status</a>: <%sclist Encounter.status%>
+    </li>
+    <li><a href="goal-definitions.html#Goal.lifecycleStatus">Goal.lifecycleStatus</a>: <%sclist Goal.lifecycleStatus%>
+    </li>
+    <li><a
+        href="medicationadministration-definitions.html#MedicationAdministration.status">MedicationAdministration.status</a>:
+      <%sclist MedicationAdministration.status%>
+    </li>
+    <li><a href="medicationdispense-definitions.html#MedicationDispense.status">MedicationDispense.status</a>: <%sclist MedicationDispense.status%>
+    </li>
+    <li><a href="procedure-definitions.html#Procedure.status">Procedure.status</a>: <%sclist Procedure.status%>
+    </li>
+  </ul>
 
-<a name="order"></a>
+  <a name="order"></a>
 
-<h3>Request/Order Life Cycle</h3>
+  <h4>Request/Order Life Cycle</h4>
 
-<p>Some resources in FHIR represent orders or requests. The request lifecycle can be generalized in terms of four stages: creating the request, sending the request, receiving acceptance or refusal of the request, and fulfillment of the request. A characteristic (but non-exhaustive) set of states for the request/order pattern include:</p>
+  <p>Some resources in FHIR represent orders or requests. The request lifecycle can be generalized in terms of four
+    stages: creating the request, sending the request, receiving acceptance or refusal of the request, and fulfillment
+    of the request. A characteristic (but non-exhaustive) set of states for the request/order pattern include:</p>
 
-<ul>
- <li>proposed: An actor (e.g. a clinical decision support system) has proposed an action to be requested</li>
- <li>draft: The request is in preliminary form, prior to being requested</li>
- <li>requested: The request has been made</li>
- <li>rejected: The request receiver has declined the request</li>
- <li>accepted: The request receiver has accepted the request</li>
- <li>in-progress: Work to fulfill the request has begun</li>
- <li>on-hold (suspended): Work on the request has been interrupted</li>
- <li>stopped (aborted):  The activity has not been completed but no future action is planned</li>
- <li>completed: Work on the requested task has been completed, and no further action is required</li>
- <li>cancelled: The request has been withdrawn</li>
-</ul>
-<p>Examples of the request/order life cycle:</p>
-<ul>
- <li>CommunicationRequest.status:  <%sclist CommunicationRequest.status%></li>
- <li>DeviceRequest.status: <%sclist DeviceRequest.status%></li>
- <li>MedicationRequest.status: <%sclist MedicationRequest.status%></li>
- <li>ServiceRequest.status: <%sclist ServiceRequest.status%></li>
-</ul>
+  <ul>
+    <li>proposed: An actor (e.g. a clinical decision support system) has proposed an action to be requested</li>
+    <li>draft: The request is in preliminary form, prior to being requested</li>
+    <li>requested: The request has been made</li>
+    <li>rejected: The request receiver has declined the request</li>
+    <li>accepted: The request receiver has accepted the request</li>
+    <li>in-progress: Work to fulfill the request has begun</li>
+    <li>on-hold (suspended): Work on the request has been interrupted</li>
+    <li>stopped (aborted): The activity has not been completed but no future action is planned</li>
+    <li>completed: Work on the requested task has been completed, and no further action is required</li>
+    <li>cancelled: The request has been withdrawn</li>
+  </ul>
+  <p>Examples of the request/order life cycle:</p>
+  <ul>
+    <li><a href="communicationrequest-definitions.html#CommunicationRequest.status">CommunicationRequest.status</a>:
+      <%sclist CommunicationRequest.status%>
+    </li>
+    <li><a href="devicerequest-definitions.html#DeviceRequest.status">DeviceRequest.status</a>: <%sclist DeviceRequest.status%>
+    </li>
+    <li><a href="medicationrequest-definitions.html#MedicationRequest.status">MedicationRequest.status</a>: <%sclist MedicationRequest.status%>
+    </li>
+    <li><a href="servicerequest-definitions.html#ServiceRequest.status">ServiceRequest.status</a>: <%sclist ServiceRequest.status%>
+    </li>
+  </ul>
 
-<a name="entity"></a>
-<h3>Entity Availability Life Cycle</h3>
+  <a name="entity"></a>
+  <h4>Entity Availability Life Cycle</h4>
 
-<p>The entity availability life cycle indicates if the resource, or the entity described by the resource, is ready for use, not yet ready for use, or has been retired from use. A characteristic (but non-exhaustive) set of states for the entity availability life cycle include: </p>
+  <p>The entity availability life cycle indicates if the resource, or the entity described by the resource, is ready for
+    use, not yet ready for use, or has been retired from use. A characteristic (but non-exhaustive) set of states for
+    the entity availability life cycle include: </p>
 
-<ul>
- <li>draft: The entity is being prepared but is not yet in use</li>
- <li>active: The entity is in use</li>
- <li>suspended: The entity is not in use at the moment, but may return to active status</li>
- <li>amended: The entity has undergone a revision but is still active</li>
- <li>retired (superseded): The entity is no longer in use.</li>
-</ul>
-<p>Examples of the entity availability life cycle:</p>
-<ul>
- <li>DiagnosticReport.status: <%sclist DiagnosticReport.status%></li>
- <li>MedicationUsage.status: <%sclist MedicationUsage.status%>. (note: in-progress and completed are states reflecting the administration of the medication)</li>
- <li>DocumentManifest.status: <%sclist DocumentManifest.status%></li>
- <li>CapabilityStatement.status: <%sclist CapabilityStatement.status%></li>
- <li>StructureDefinition.status: <%sclist StructureDefinition.status%></li>
- <li>Questionnaire.status: <%sclist Questionnaire.status%></li>
- <li>DocumentReference.status:  <%sclist DocumentReference.status%></li>
- <li>QuestionnaireResponse.status: <%sclist QuestionnaireResponse.status%></li>
- <li>Flag.status: <%sclist Flag.status%></li>
- <li>Location.status: <%sclist Location.status%></li>
- <li>Organization.active: <%sclist Organization.active%></li>
- <li>Patient.active: <%sclist Patient.active%></li>
-</ul>
-<p></p>
+  <ul>
+    <li>draft: The entity is being prepared but is not yet in use</li>
+    <li>active: The entity is in use</li>
+    <li>suspended: The entity is not in use at the moment, but may return to active status</li>
+    <li>amended: The entity has undergone a revision but is still active</li>
+    <li>retired (superseded): The entity is no longer in use.</li>
+  </ul>
+  <p>Examples of the entity availability life cycle:</p>
+  <ul>
+    <li><a href="diagnosticreport-definitions.html#DiagnosticReport.status">DiagnosticReport.status</a>: <%sclist DiagnosticReport.status%>
+    </li>
+    <li><a href="medicationusage-definitions.html#MedicationUsage.status">MedicationUsage.status</a>: <%sclist MedicationUsage.status%>. (note: in-progress and completed are states reflecting
+        the administration of the medication)</li>
+    <li><a href="documentmanifest-definitions.html#DocumentManifest.status">DocumentManifest.status</a>: <%sclist DocumentManifest.status%>
+    </li>
+    <li><a href="capabilitystatement-definitions.html#CapabilityStatement.status">CapabilityStatement.status</a>:
+      <%sclist CapabilityStatement.status%>
+    </li>
+    <li><a href="structuredefinition-definitions.html#StructureDefinition.status">StructureDefinition.status</a>:
+      <%sclist StructureDefinition.status%>
+    </li>
+    <li><a href="questionnaire-definitions.html#Questionnaire.status">Questionnaire.status</a>: <%sclist Questionnaire.status%>
+    </li>
+    <li><a href="documentreference-definitions.html#DocumentReference.status">DocumentReference.status</a>: <%sclist DocumentReference.status%>
+    </li>
+    <li><a href="questionnaireresponse-definitions.html#QuestionnaireResponse.status">QuestionnaireResponse.status</a>:
+      <%sclist QuestionnaireResponse.status%>
+    </li>
+    <li><a href="flag-definitions.html#Flag.status">Flag.status</a>: <%sclist Flag.status%>
+    </li>
+    <li><a href="location-definitions.html#Location.status">Location.status</a>: <%sclist Location.status%>
+    </li>
+    <li><a href="organization-definitions.html#Organization.active">Organization.active</a>: <%sclist Organization.active%>
+    </li>
+    <li><a href="patient-definitions.html#Patient.active">Patient.active</a>: <%sclist Patient.active%>
+    </li>
+  </ul>
+  <p></p>
 
-<a name="cstatus"></a>
+  <a name="cstatus"></a>
 
-<h3>Clinical Status Life Cycle</h3>
-<p>Clinical status is somewhat different than the previous status values, since it does not deal with workflow or lifecycle. Instead, it indicates how evidence is affecting a clinical interpretation. Here are two examples:</p>
-<ul>
-	<li>AllergyIntolerance.clinicalStatus: <%sclist AllergyIntolerance.clinicalStatus%></li>
-	<li>Condition.clinicalStatus: <%sclist Condition.clinicalStatus%></li>
+  <h4>Clinical Status Life Cycle</h4>
+  <p>Clinical status is somewhat different than the previous status values, since it does not deal with workflow or
+    lifecycle. Instead, it indicates how evidence is affecting a clinical interpretation. Here are two examples:</p>
+  <ul>
+    <li><a
+        href="allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus">AllergyIntolerance.clinicalStatus</a>:
+      <%sclist AllergyIntolerance.clinicalStatus%>
+    </li>
+    <li><a href="condition-definitions.html#Condition.clinicalStatus">Condition.clinicalStatus</a>: <%sclist Condition.clinicalStatus%>
+    </li>
 
-</ul>
+  </ul>
 
-<hr/>
+  <hr />
 
-<a name="current"></a>
-<h3>Current Resource Lists</h3>
+  <a name="current"></a>
+  <h3>Current Resource Lists</h3>
 
-<p>
-Many clinical systems maintain current lists of some kind of resources for a patient. Some of the commonly maintained lists include:
-</p>
-<ul>
- <li>Current Problem List: a list of the problems that are of concern for care of the patient</li>
- <li>Current Medication List: a list of the medications that a patient is known to be on at the current time</li>
-</ul>
-<p>
-Because of the way that resources are used, there is no simple way to determine, from
-examination of a resource, whether it is 'current' or not. Take, as an example, the
-<a href="condition.html">Condition</a> resource. In a typical EHR, condition resources
-might be published on the RESTful interface for the following reasons:
-</p>
-<ul>
- <li>to represent an item in a patient's curated problem list</li>
- <li>to represent a complaint or a diagnosis from an encounter record</li>
- <li>to represent a problem for investigation provided by a diagnostic system as part of a <a href="servicerequest.html">ServiceRequest</a>/<a href="diagnosticreport.html">DiagnosticReport</a> pair</li>
- <li>the resources were received from another system as part of a referral package, and were current for that system when they were received</li>
-</ul>
-<p>
-There is no element on the Condition resource that can convey the difference between these usages. In particular, there can be
-no way to differentiate between current and past resources without having to retrospectively alter resources, which is
-problematic with regard to integrity and digital signatures.
-</p>
-<p>
-One consequence of this is that searching the condition resource for a given patient will return more
-than just the patient's current problems. Though this is somewhat counter-intuitive to some implementers,
-restricting searches on Condition to only include the patient's current curated problem list excludes
-all the other - important - uses of the Condition resource.
-</p>
-<p>
-Determining whether a Condition is an entry on a patient's current problem list is done by checking
-with the Condition resource is referenced from the correct list.
-</p>
-<p>
-On the RESTful API, this is done using the <a href="search.html#current">list search mechanism</a>:
-</p>
-<pre>
+  <p>
+    Many clinical systems maintain current lists of some kind of resources for a patient. Some of the commonly
+    maintained lists include:
+  </p>
+  <ul>
+    <li>Current Problem List: a list of the problems that are of concern for care of the patient</li>
+    <li>Current Medication List: a list of the medications that a patient is known to be on at the current time</li>
+  </ul>
+  <p>
+    Because of the way that resources are used, there is no simple way to determine, from
+    examination of a resource, whether it is 'current' or not. Take, as an example, the
+    <a href="condition.html">Condition</a> resource. In a typical EHR, condition resources
+    might be published on the RESTful interface for the following reasons:
+  </p>
+  <ul>
+    <li>to represent an item in a patient's curated problem list</li>
+    <li>to represent a complaint or a diagnosis from an encounter record</li>
+    <li>to represent a problem for investigation provided by a diagnostic system as part of a <a
+        href="servicerequest.html">ServiceRequest</a>/<a href="diagnosticreport.html">DiagnosticReport</a> pair</li>
+    <li>the resources were received from another system as part of a referral package, and were current for that system
+      when they were received</li>
+  </ul>
+  <p>
+    There is no element on the Condition resource that can convey the difference between these usages. In particular,
+    there can be
+    no way to differentiate between current and past resources without having to retrospectively alter resources, which
+    is
+    problematic with regard to integrity and digital signatures.
+  </p>
+  <p>
+    One consequence of this is that searching the condition resource for a given patient will return more
+    than just the patient's current problems. Though this is somewhat counter-intuitive to some implementers,
+    restricting searches on Condition to only include the patient's current curated problem list excludes
+    all the other - important - uses of the Condition resource.
+  </p>
+  <p>
+    Determining whether a Condition is an entry on a patient's current problem list is done by checking
+    with the Condition resource is referenced from the correct list.
+  </p>
+  <p>
+    On the RESTful API, this is done using the <a href="search.html#current">list search mechanism</a>:
+  </p>
+  <pre>
  GET [base]/AllergyIntolerance?patient=42&amp;_list=$current-allergies
 </pre>
-<p>
-This is a request to fetch all the allergies in the patient 42's "Current Allergy List".
-Note that the server is not required to actually make a resource representation of the current allergy list
-available, though doing so assists clients in their audit/integrity tasks. See
-<a href="list-operation-find.html">List Operation "Find"</a> for further information.
-</p>
-<p>
-In a document, current lists are determined by the code on a Composition section.
-</p>
-<a name="lists"></a>
-<p>
-FHIR defines the following names for functional lists:
-</p>
-<table class="grid">
- <tr>
-  <td><b>List</b></td>
-  <td><b>ResourceType</b></td>
-  <td><b>Description</b></td>
-  <td><b>Possible LOINC codes in documents / sections</b></td>
- </tr>
- <tr>
-  <td>$current-problems</td>
-  <td><a href="condition.html">Condition</a></td>
-  <td>The "Current Problem List" - A list of current and active diagnoses as well as past diagnoses relevant to the current care of the patient</td>
-  <td>46105-3	(Problem conditions Set)</td>
- </tr>
- <tr>
-  <td>$current-medications</td>
-  <td><a href="medicationusage.html">MedicationUsage</a>/ <a href="medicationrequest.html">MedicationRequest</a></td>
-  <td>A list of all medications that the patient is taking. The 'current medications list'
-	  sometimes may include a mix of prescribed and over-the-counter medications - or only some of them. The list may
-	  contain a mix of <a href="medicationrequest.html">prescriptions</a> and more general <a href="medicationusage.html">statements</a>, or only one of the two.
-		The list may also correspond to a formal reconciled medication administration schedule, but more often does not</td>
-  <td>57828-6	(Prescription list), 10160-0 (History of medication)</td>
- </tr>
- <tr>
-  <td>$current-allergies</td>
-  <td><a href="allergyintolerance.html">AllergyIntolerance</a></td>
-  <td>A list of known or suspected propensities to medications, foods, or environmental agents that is provided to help prevent reactions while care is occurring</td>
-  <td>18716-1	(Allergy studies (set)), 52472-8	(Allergies and Adverse Drug Reactions), and 48765-2 (Allergies and adverse reactions Document)</td>
- </tr>
- <tr>
-  <td>$current-drug-allergies</td>
-  <td><a href="allergyintolerance.html">AllergyIntolerance</a></td>
-  <td>A list of known or suspected propensities to medications that is provided to help prevent reactions while care is occurring. This list is a subset of the full allergies list</td>
-  <td>(same as above?)</td>
- </tr>
-</table>
+  <p>
+    This is a request to fetch all the allergies in the patient 42's "Current Allergy List".
+    Note that the server is not required to actually make a resource representation of the current allergy list
+    available, though doing so assists clients in their audit/integrity tasks. See
+    <a href="list-operation-find.html">List Operation "Find"</a> for further information.
+  </p>
+  <p>
+    In a document, current lists are determined by the code on a Composition section.
+  </p>
+  <a name="lists"></a>
+  <p>
+    FHIR defines the following names for functional lists:
+  </p>
+  <table class="grid">
+    <tr>
+      <td><b>List</b></td>
+      <td><b>ResourceType</b></td>
+      <td><b>Description</b></td>
+      <td><b>Possible LOINC codes in documents / sections</b></td>
+    </tr>
+    <tr>
+      <td>$current-problems</td>
+      <td><a href="condition.html">Condition</a></td>
+      <td>The "Current Problem List" - A list of current and active diagnoses as well as past diagnoses relevant to the
+        current care of the patient</td>
+      <td>46105-3 (Problem conditions Set)</td>
+    </tr>
+    <tr>
+      <td>$current-medications</td>
+      <td><a href="medicationusage.html">MedicationUsage</a>/ <a href="medicationrequest.html">MedicationRequest</a>
+      </td>
+      <td>A list of all medications that the patient is taking. The 'current medications list'
+        sometimes may include a mix of prescribed and over-the-counter medications - or only some of them. The list may
+        contain a mix of <a href="medicationrequest.html">prescriptions</a> and more general <a
+          href="medicationusage.html">statements</a>, or only one of the two.
+        The list may also correspond to a formal reconciled medication administration schedule, but more often does not
+      </td>
+      <td>57828-6 (Prescription list), 10160-0 (History of medication)</td>
+    </tr>
+    <tr>
+      <td>$current-allergies</td>
+      <td><a href="allergyintolerance.html">AllergyIntolerance</a></td>
+      <td>A list of known or suspected propensities to medications, foods, or environmental agents that is provided to
+        help prevent reactions while care is occurring</td>
+      <td>18716-1 (Allergy studies (set)), 52472-8 (Allergies and Adverse Drug Reactions), and 48765-2 (Allergies and
+        adverse reactions Document)</td>
+    </tr>
+    <tr>
+      <td>$current-drug-allergies</td>
+      <td><a href="allergyintolerance.html">AllergyIntolerance</a></td>
+      <td>A list of known or suspected propensities to medications that is provided to help prevent reactions while care
+        is occurring. This list is a subset of the full allergies list</td>
+      <td>(same as above?)</td>
+    </tr>
+  </table>
 
-<hr/>
-<a name="error"></a>
-<h3>Entered in Error Summary</h3>
+  <hr />
+  <a name="error"></a>
+  <h3>Entered in Error Summary</h3>
 
-<p>
-The entered-in-error state indicates the resource was created accidentally and
-should be ignored. This state can apply to resources created by manual
-entry. It is usually not associated with the Clinical Workflow Process life cycle,
-but can be associated with the Request/Order and the Entity Availability life cycles.
-</p>
+  <p>
+    The entered-in-error state indicates the resource was created accidentally and
+    should be ignored. This state can apply to resources created by manual
+    entry. It is usually not associated with the Clinical Workflow Process life cycle,
+    but can be associated with the Request/Order and the Entity Availability life cycles.
+  </p>
+  <p>
+    Handling of erroneous data is tightly tied to business processes and thus there are no generic rules for 
+    what to do when data is flagged as erroneous.  Implementation Guides may define additional guidance about 
+    what actions should be taken, such as data redaction, sending of notifications, etc.
+  </p>
 
-<p>
-This table summarizes what is expected to happen for each resource in the case
-that the data it contains is subsequently found to be an erroneous entry.
-</p>
+  <p>
+    This table summarizes what is expected to happen for each resource in the case
+    that the data it contains is subsequently found to be an erroneous entry.
+  </p>
 
-[%enteredInErrorTable%]
+  [%enteredInErrorTable%]
 
-<p>
-Note: Resources that are not listed in this table do not have any explicit documentation with regard to being entered in error.
-</p>
+  <p>
+    Note: Resources that are not listed in this table do not have any explicit documentation with regard to being
+    entered in error.
+  </p>
 
-[%file newfooter%]
+  [%file newfooter%]
 
 </body>
 

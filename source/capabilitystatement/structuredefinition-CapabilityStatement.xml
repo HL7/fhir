@@ -1,1494 +1,1576 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="CapabilityStatement"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-    <valueString value="Foundation.Conformance"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="normative"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-    <valueCode value="4.0.0"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="anonymous"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".status = retired"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="CanonicalResource"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-  <version value="5.0.0"/>
-  <name value="CapabilityStatement"/>
-  <status value="active"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
-    </telecom>
-  </contact>
-  <description value="A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
-  <fhirVersion value="5.0.0"/>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="CapabilityStatement"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-  <derivation value="specialization"/>
-  <differential>
-    <element id="CapabilityStatement">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="230,120"/>
-      </extension>
-      <path value="CapabilityStatement"/>
-      <short value="A statement of system capabilities"/>
-      <definition value="A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
-      <comment value="Applications may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, then a CapabilityStatement describes the system&#39;s support for a particular version of FHIR, and the server will have multiple statements, one for each version."/>
-      <min value="0"/>
-      <max value="*"/>
-      <constraint>
-        <key value="cnl-0"/>
-        <severity value="warning"/>
-        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-      </constraint>
-      <constraint>
-        <key value="cpb-7"/>
-        <severity value="error"/>
-        <human value="The set of documents must be unique by the combination of profile and mode."/>
-        <expression value="document.select(profile&amp;mode).isDistinct()"/>
-        <xpath value="count(f:document[f:mode/@value=&#39;producer&#39;])=count(distinct-values(f:document[f:mode/@value=&#39;producer&#39;]/f:profile/f:reference/@value)) and count(f:document[f:mode/@value=&#39;consumer&#39;])=count(distinct-values(f:document[f:mode/@value=&#39;consumer&#39;]/f:profile/f:reference/@value))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-      </constraint>
-      <constraint>
-        <key value="cpb-16"/>
-        <severity value="error"/>
-        <human value="If kind = requirements, implementation and software must be absent"/>
-        <expression value="(kind!=&#39;requirements&#39;) or (implementation.exists().not() and software.exists().not())"/>
-        <xpath value="not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and not(exists(f:software)))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-      </constraint>
-      <constraint>
-        <key value="cpb-15"/>
-        <severity value="error"/>
-        <human value="If kind = capability, implementation must be absent, software must be present"/>
-        <expression value="(kind != &#39;capability&#39;) or (implementation.exists().not() and software.exists())"/>
-        <xpath value="not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and exists(f:software))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-      </constraint>
-      <constraint>
-        <key value="cpb-3"/>
-        <severity value="error"/>
-        <human value="Messaging end-point is required (and is only permitted) when a statement is for an implementation."/>
-        <expression value="messaging.endpoint.empty() or kind = &#39;instance&#39;"/>
-        <xpath value="not(exists(f:messaging/f:endpoint)) or f:kind/@value = &#39;instance&#39;"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-      </constraint>
-      <constraint>
-        <key value="cpb-14"/>
-        <severity value="error"/>
-        <human value="If kind = instance, implementation must be present and software may be present"/>
-        <expression value="(kind != &#39;instance&#39;) or implementation.exists()"/>
-        <xpath value="not(f:kind/@value=&#39;instance&#39;) or exists(f:implementation)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-      </constraint>
-      <constraint>
-        <key value="cpb-2"/>
-        <severity value="error"/>
-        <human value="A Capability Statement SHALL have at least one of description, software, or implementation element."/>
-        <expression value="(description.count() + software.count() + implementation.count()) &gt; 0"/>
-        <xpath value="count(f:software | f:implementation | f:description) &gt; 0"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-      </constraint>
-      <constraint>
-        <key value="cpb-1"/>
-        <severity value="error"/>
-        <human value="A Capability Statement SHALL have at least one of REST, messaging or document element."/>
-        <expression value="rest.exists() or messaging.exists() or document.exists()"/>
-        <xpath value="exists(f:rest) or exists(f:messaging) or exists(f:document)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-      </constraint>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="conformance.behavior"/>
-      </mapping>
-    </element>
-    <element id="CapabilityStatement.url">
-      <path value="CapabilityStatement.url"/>
-      <short value="Canonical identifier for this capability statement, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-      <requirements value="Allows the capability statement to be referenced by a single globally unique identifier."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.url"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-    </element>
-    <element id="CapabilityStatement.version">
-      <path value="CapabilityStatement.version"/>
-      <short value="Business version of the capability statement"/>
-      <definition value="The identifier that is used to identify this version of the capability statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the capability statement author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different capability statement instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the capability statement with the format [url]|[version]."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.version"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.version"/>
-      </mapping>
-    </element>
-    <element id="CapabilityStatement.name">
-      <path value="CapabilityStatement.name"/>
-      <short value="Name for this capability statement (computer friendly)"/>
-      <definition value="A natural language name identifying the capability statement. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-      <requirements value="Support human navigation and code generation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <condition value="cnl-0"/>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.title">
-      <path value="CapabilityStatement.title"/>
-      <short value="Name for this capability statement (human friendly)"/>
-      <definition value="A short, descriptive, user-friendly title for the capability statement."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.title"/>
-      </mapping>
-    </element>
-    <element id="CapabilityStatement.status">
-      <path value="CapabilityStatement.status"/>
-      <short value="draft | active | retired | unknown"/>
-      <definition value="The status of this capability statement. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of capability statements that are appropriate for use versus not.This is not intended for use with actual capability statements, but where capability statements are used to describe possible or desired systems."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PublicationStatus"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.status"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-    </element>
-    <element id="CapabilityStatement.experimental">
-      <path value="CapabilityStatement.experimental"/>
-      <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this capability statement is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-      <comment value="Allows filtering of capability statements that are appropriate for use versus not."/>
-      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level capability statement."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.experimental"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-    </element>
-    <element id="CapabilityStatement.date">
-      <path value="CapabilityStatement.date"/>
-      <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the capability statement was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the capability statement changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the capability statement. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-      <alias value="Revision Date"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.date"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.recorded"/>
-      </mapping>
-    </element>
-    <element id="CapabilityStatement.publisher">
-      <path value="CapabilityStatement.publisher"/>
-      <short value="Name of the publisher (organization or individual)"/>
-      <definition value="The name of the organization or individual that published the capability statement."/>
-      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the capability statement is the organization or individual primarily responsible for the maintenance and upkeep of the capability statement. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the capability statement. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the capability statement.  May also allow for contact."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.publisher"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.witness"/>
-      </mapping>
-    </element>
-    <element id="CapabilityStatement.contact">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="70,0"/>
-      </extension>
-      <path value="CapabilityStatement.contact"/>
-      <short value="Contact details for the publisher"/>
-      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.contact"/>
-      </mapping>
-    </element>
-    <element id="CapabilityStatement.description">
-      <path value="CapabilityStatement.description"/>
-      <short value="Natural language description of the capability statement"/>
-      <definition value="A free text natural language description of the capability statement from a consumer&#39;s perspective. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP."/>
-      <comment value="This description can be used to capture details such as why the capability statement was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the capability statement as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the capability statement is presumed to be the predominant language in the place the capability statement was created).This does not need to be populated if the description is adequately implied by the software or implementation details."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <condition value="cpb-2"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.description"/>
-      </mapping>
-    </element>
-    <element id="CapabilityStatement.useContext">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="CapabilityStatement.useContext"/>
-      <short value="The context that the content is intended to support"/>
-      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate capability statement instances."/>
-      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-      <requirements value="Assist in searching for appropriate content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="UsageContext"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.useContext"/>
-      </mapping>
-    </element>
-    <element id="CapabilityStatement.jurisdiction">
-      <path value="CapabilityStatement.jurisdiction"/>
-      <short value="Intended jurisdiction for capability statement (if applicable)"/>
-      <definition value="A legal or geographic region in which the capability statement is intended to be used."/>
-      <comment value="It may be possible for the capability statement to be used in jurisdictions other than those for which it was originally designed or intended."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Jurisdiction"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Countries and regions within which this artifact is targeted for use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.jurisdiction"/>
-      </mapping>
-    </element>
-    <element id="CapabilityStatement.purpose">
-      <path value="CapabilityStatement.purpose"/>
-      <short value="Why this capability statement is defined"/>
-      <definition value="Explanation of why this capability statement is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the capability statement. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this capability statement."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.purpose"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.why[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="CapabilityStatement.copyright">
-      <path value="CapabilityStatement.copyright"/>
-      <short value="Use and/or publishing restrictions"/>
-      <definition value="A copyright statement relating to the capability statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the capability statement."/>
-      <requirements value="Consumers must be able to determine any legal restrictions on the use of the capability statement and/or its content."/>
-      <alias value="License"/>
-      <alias value="Restrictions"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.copyright"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="CapabilityStatement.kind">
-      <path value="CapabilityStatement.kind"/>
-      <short value="instance | capability | requirements"/>
-      <definition value="The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase)."/>
-      <requirements value="Allow searching the 3 modes."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <condition value="cpb-15"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="CapabilityStatementKind"/>
-        </extension>
-        <strength value="required"/>
-        <description value="How a capability statement is intended to be used."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/capability-statement-kind"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.instantiates">
-      <path value="CapabilityStatement.instantiates"/>
-      <short value="Canonical URL of another capability statement this implements"/>
-      <definition value="Reference to a canonical URL of another CapabilityStatement that this software implements. This capability statement is a published API description that corresponds to a business service. The server may actually implement a subset of the capability statement it claims to implement, so the capability statement must specify the full capability details."/>
-      <comment value="HL7 defines the following Services: [Terminology Service](terminology-service.html).    &#xA;&#xA;Many [Implementation Guides](http://fhir.org/guides/registry) define additional services."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.imports">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="CapabilityStatement.imports"/>
-      <short value="Canonical URL of another capability statement this adds to"/>
-      <definition value="Reference to a canonical URL of another CapabilityStatement that this software adds to. The capability statement automatically includes everything in the other statement, and it is not duplicated, though the server may repeat the same resources, interactions and operations to add additional details to them."/>
-      <comment value="the contents of any directly or indirectly imported CapabilityStatements SHALL NOT overlap, i.e. they cannot refer to the same rest/resource, operations/name, searchparam/name, interaction/code, messaging/endpoint, document/mode pair.&#xA;&#xA;A capability statement that imports another CapabilityStatement automatically instantiates it too (though this is often not a very useful statement for the kinds of CapabilityStatements that are suitable for importing)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.software">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,100"/>
-      </extension>
-      <path value="CapabilityStatement.software"/>
-      <short value="Software that is covered by this capability statement"/>
-      <definition value="Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <condition value="cpb-2"/>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.software.name">
-      <path value="CapabilityStatement.software.name"/>
-      <short value="A name the software is known by"/>
-      <definition value="Name the software is known by."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.software.version">
-      <path value="CapabilityStatement.software.version"/>
-      <short value="Version covered by this statement"/>
-      <definition value="The version identifier for the software covered by this statement."/>
-      <comment value="If possible, a version should be specified, as statements are likely to be different for different versions of software."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.software.releaseDate">
-      <path value="CapabilityStatement.software.releaseDate"/>
-      <short value="Date this version was released"/>
-      <definition value="Date this version of the software was released."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.implementation">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,200"/>
-      </extension>
-      <path value="CapabilityStatement.implementation"/>
-      <short value="If this describes a specific instance"/>
-      <definition value="Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <condition value="cpb-2"/>
-      <condition value="cpb-15"/>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.implementation.description">
-      <path value="CapabilityStatement.implementation.description"/>
-      <short value="Describes this specific instance"/>
-      <definition value="Information about the specific installation that this capability statement relates to."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.implementation.url">
-      <path value="CapabilityStatement.implementation.url"/>
-      <short value="Base URL for the installation"/>
-      <definition value="An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="url"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.implementation.custodian">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="CapabilityStatement.implementation.custodian"/>
-      <short value="Organization that manages the data"/>
-      <definition value="The organization responsible for the management of the instance and oversight of the data on the server at the specified URL."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.fhirVersion">
-      <path value="CapabilityStatement.fhirVersion"/>
-      <short value="FHIR Version the system supports"/>
-      <definition value="The version of the FHIR specification that this CapabilityStatement describes (which SHALL be the same as the FHIR version of the CapabilityStatement itself). There is no default value."/>
-      <comment value="Servers may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, and the CapabilityStatement is requested from the server, then this fhirVersion will be either the version requested, or the server&#39;s default version."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRVersion"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="All published FHIR Versions."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.format">
-      <path value="CapabilityStatement.format"/>
-      <short value="formats supported (xml | json | ttl | mime type)"/>
-      <definition value="A list of the formats supported by this implementation using their content types."/>
-      <comment value="&quot;xml&quot;, &quot;json&quot; and &quot;ttl&quot; are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here."/>
-      <min value="1"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MimeType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
-        </extension>
-        <strength value="required"/>
-        <description value="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.patchFormat">
-      <path value="CapabilityStatement.patchFormat"/>
-      <short value="Patch formats supported"/>
-      <definition value="A list of the patch formats supported by this implementation using their content types."/>
-      <comment value="At present, the patch mime types application/json-patch+json and application/xml-patch+xml are legal. Generally, if a server supports PATCH, it would be expected to support the patch formats and match the formats it supports, but this is not always possible or necessary."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MimeType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
-        </extension>
-        <strength value="required"/>
-        <description value="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.implementationGuide">
-      <path value="CapabilityStatement.implementationGuide"/>
-      <short value="Implementation guides supported"/>
-      <definition value="A list of implementation guides that the server does (or should) support in their entirety."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.rest">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="250,520"/>
-      </extension>
-      <path value="CapabilityStatement.rest"/>
-      <short value="If the endpoint is a RESTful one"/>
-      <definition value="A definition of the restful capabilities of the solution, if any."/>
-      <comment value="Multiple repetitions allow definition of both client and/or server behaviors or possibly behaviors under different configuration settings (for software or requirements statements)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <condition value="cpb-1"/>
-      <constraint>
-        <key value="cpb-9"/>
-        <severity value="error"/>
-        <human value="A given resource can only be described once per RESTful mode."/>
-        <expression value="resource.select(type).isDistinct()"/>
-        <xpath value="count(f:resource)=count(distinct-values(f:resource/f:type/@value))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-      </constraint>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.rest.mode">
-      <path value="CapabilityStatement.rest.mode"/>
-      <short value="client | server"/>
-      <definition value="Identifies whether this portion of the statement is describing the ability to initiate or receive restful operations."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="RestfulCapabilityMode"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The mode of a RESTful capability statement."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/restful-capability-mode"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.rest.documentation">
-      <path value="CapabilityStatement.rest.documentation"/>
-      <short value="General description of implementation"/>
-      <definition value="Information about the system&#39;s restful capabilities that apply across all applications, such as security."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.security">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="550,380"/>
-      </extension>
-      <path value="CapabilityStatement.rest.security"/>
-      <short value="Information about security of implementation"/>
-      <definition value="Information about security implementation from an interface perspective - what a client needs to know."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.rest.security.cors">
-      <path value="CapabilityStatement.rest.security.cors"/>
-      <short value="Adds CORS Headers (http://enable-cors.org/)"/>
-      <definition value="Server adds CORS headers when responding to requests - this enables Javascript applications to use the server."/>
-      <comment value="The easiest CORS headers to add are Access-Control-Allow-Origin: * &amp; Access-Control-Request-Method: GET, POST, PUT, DELETE. All servers SHOULD support CORS."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.rest.security.service">
-      <path value="CapabilityStatement.rest.security.service"/>
-      <short value="OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates"/>
-      <definition value="Types of security services that are supported/required by the system."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="RestfulSecurityService"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Types of security services used with FHIR."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/restful-security-service"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.rest.security.description">
-      <path value="CapabilityStatement.rest.security.description"/>
-      <short value="General description of how security works"/>
-      <definition value="General description of how security works."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.resource">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="230,640"/>
-      </extension>
-      <path value="CapabilityStatement.rest.resource"/>
-      <short value="Resource served on the REST interface"/>
-      <definition value="A specification of the restful capabilities of the solution for a specific resource type."/>
-      <comment value="Max of one repetition per resource type."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <constraint>
-        <key value="cpb-12"/>
-        <severity value="error"/>
-        <human value="Search parameter names must be unique in the context of a resource."/>
-        <expression value="searchParam.select(name).isDistinct()"/>
-        <xpath value="count(f:searchParam)=count(distinct-values(f:searchParam/f:name/@value))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
-      </constraint>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.rest.resource.type">
-      <path value="CapabilityStatement.rest.resource.type"/>
-      <short value="A resource type that is supported"/>
-      <definition value="A type of resource exposed via the restful interface."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResourceType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="One of the resource types defined as part of this version of FHIR."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.rest.resource.profile">
-      <path value="CapabilityStatement.rest.resource.profile"/>
-      <short value="Base System profile for all uses of resource"/>
-      <definition value="A specification of the profile that describes the solution&#39;s overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
-      <comment value="The profile applies to all  resources of this type - i.e. it is the superset of what is supported by the system."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.rest.resource.supportedProfile">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="CapabilityStatement.rest.resource.supportedProfile"/>
-      <short value="Profiles for use cases supported"/>
-      <definition value="A list of profiles that represent different use cases supported by the system. For a server, &quot;supported by the system&quot; means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
-      <comment value="Supported profiles are different than the profile that applies to a particular resource in .rest.resource.profile. The resource profile is a general statement of what features of the resource are supported overall by the system - the sum total of the facilities it supports. A supported profile is a deeper statement about the functionality of the data and services provided by the server (or used by the client). A typical case is a laboratory system that produces a set of different reports - this is the list of types of data that it publishes. A key aspect of declaring profiles here is the question of how the client converts knowledge that the server publishes this data into working with the data; the client can inspect individual resources to determine whether they conform to a particular profile, but how does it find the ones that do? It does so by searching using the _profile parameter, so any resources listed here must be valid values for the _profile resource (using the identifier in the target profile)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.rest.resource.documentation">
-      <path value="CapabilityStatement.rest.resource.documentation"/>
-      <short value="Additional information about the use of the resource type"/>
-      <definition value="Additional information about the resource type used by the system."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.resource.interaction">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="ResourceInteraction"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-20,470"/>
-      </extension>
-      <path value="CapabilityStatement.rest.resource.interaction"/>
-      <short value="What operations are supported?"/>
-      <definition value="Identifies a restful operation supported by the solution."/>
-      <comment value="In general, a Resource will only appear in a CapabilityStatement if the server actually has some capabilities - e.g. there is at least one interaction supported. However interactions can be omitted to support summarization (_summary = true)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.resource.interaction.code">
-      <path value="CapabilityStatement.rest.resource.interaction.code"/>
-      <short value="read | vread | update | patch | delete | history-instance | history-type | create | search-type"/>
-      <definition value="Coded identifier of the operation, supported by the system resource."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TypeRestfulInteraction"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Operations supported by REST at the type or instance level."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/type-restful-interaction"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.rest.resource.interaction.documentation">
-      <path value="CapabilityStatement.rest.resource.interaction.documentation"/>
-      <short value="Anything special about operation behavior"/>
-      <definition value="Guidance specific to the implementation of this operation, such as &#39;delete is a logical delete&#39; or &#39;updates are only allowed with version id&#39; or &#39;creates permitted from pre-authorized certificates only&#39;."/>
-      <requirements value="REST allows a degree of variability in the implementation of RESTful solutions that is useful for exchange partners to be aware of."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.resource.versioning">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="CapabilityStatement.rest.resource.versioning"/>
-      <short value="no-version | versioned | versioned-update"/>
-      <definition value="This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is &#39;versioned-update&#39;, then the server supports all the versioning features, including using e-tags for version integrity in the API."/>
-      <comment value="If a server supports versionIds correctly, it SHOULD support vread too, but is not required to do so."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResourceVersionPolicy"/>
-        </extension>
-        <strength value="required"/>
-        <description value="How the system supports versioning for a resource."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/versioning-policy"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.rest.resource.readHistory">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="CapabilityStatement.rest.resource.readHistory"/>
-      <short value="Whether vRead can return past versions"/>
-      <definition value="A flag for whether the server is able to return past versions as part of the vRead operation."/>
-      <comment value="It is useful to support the vRead operation for current operations, even if past versions aren&#39;t available."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.resource.updateCreate">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="CapabilityStatement.rest.resource.updateCreate"/>
-      <short value="If update can commit to a new identity"/>
-      <definition value="A flag to indicate that the server allows or needs to allow the client to create new identities on the server (that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server."/>
-      <comment value="Allowing the clients to create new identities on the server means that the system administrator needs to have confidence that the clients do not create clashing identities between them. Obviously, if there is only one client, this won&#39;t happen. While creating identities on the client means that the clients need to be managed, it&#39;s much more convenient for many scenarios if such management can be put in place."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.resource.conditionalCreate">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="CapabilityStatement.rest.resource.conditionalCreate"/>
-      <short value="If allows/uses conditional create"/>
-      <definition value="A flag that indicates that the server supports conditional create."/>
-      <comment value="Conditional Create is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.resource.conditionalRead">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="CapabilityStatement.rest.resource.conditionalRead"/>
-      <short value="not-supported | modified-since | not-match | full-support"/>
-      <definition value="A code that indicates how the server supports conditional read."/>
-      <comment value="Conditional Read is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ConditionalReadStatus"/>
-        </extension>
-        <strength value="required"/>
-        <description value="A code that indicates how the server supports conditional read."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/conditional-read-status"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.rest.resource.conditionalUpdate">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="CapabilityStatement.rest.resource.conditionalUpdate"/>
-      <short value="If allows/uses conditional update"/>
-      <definition value="A flag that indicates that the server supports conditional update."/>
-      <comment value="Conditional Update is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.resource.conditionalDelete">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="CapabilityStatement.rest.resource.conditionalDelete"/>
-      <short value="not-supported | single | multiple - how conditional delete is supported"/>
-      <definition value="A code that indicates how the server supports conditional delete."/>
-      <comment value="Conditional Delete is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ConditionalDeleteStatus"/>
-        </extension>
-        <strength value="required"/>
-        <description value="A code that indicates how the server supports conditional delete."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/conditional-delete-status"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.rest.resource.referencePolicy">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="CapabilityStatement.rest.resource.referencePolicy"/>
-      <short value="literal | logical | resolves | enforced | local"/>
-      <definition value="A set of flags that defines how references are supported."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ReferenceHandlingPolicy"/>
-        </extension>
-        <strength value="required"/>
-        <description value="A set of flags that defines how references are supported."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/reference-handling-policy"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.rest.resource.searchInclude">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="CapabilityStatement.rest.resource.searchInclude"/>
-      <short value="_include values supported by the server"/>
-      <definition value="A list of _include values supported by the server."/>
-      <comment value="If this list is empty, the server does not support includes."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.resource.searchRevInclude">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <path value="CapabilityStatement.rest.resource.searchRevInclude"/>
-      <short value="_revinclude values supported by the server"/>
-      <definition value="A list of _revinclude (reverse include) values supported by the server."/>
-      <comment value="If this list is empty, the server does not support reverse includes."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.resource.searchParam">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="left"/>
-      </extension>
-      <path value="CapabilityStatement.rest.resource.searchParam"/>
-      <short value="Search parameters supported by implementation"/>
-      <definition value="Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation."/>
-      <comment value="The search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.resource.searchParam.name">
-      <path value="CapabilityStatement.rest.resource.searchParam.name"/>
-      <short value="Name of search parameter"/>
-      <definition value="The name of the search parameter used in the interface."/>
-      <comment value="Parameter names cannot overlap with standard parameter names, and standard parameters cannot be redefined."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.resource.searchParam.definition">
-      <path value="CapabilityStatement.rest.resource.searchParam.definition"/>
-      <short value="Source of definition for parameter"/>
-      <definition value="An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [SearchParameter.url](searchparameter-definitions.html#SearchParameter.url)). This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs."/>
-      <comment value="This SHOULD be present, and matches refers to a SearchParameter by its canonical URL. If systems wish to document their support for modifiers, comparators, target resource types, and chained parameters, they should do using a search parameter resource. This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.resource.searchParam.type">
-      <path value="CapabilityStatement.rest.resource.searchParam.type"/>
-      <short value="number | date | string | token | reference | composite | quantity | uri | special"/>
-      <definition value="The type of value a search parameter refers to, and how the content is interpreted."/>
-      <comment value="While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server capability statement.  It SHALL be the same as the type in the search parameter definition."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SearchParamType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Data types allowed to be used for search parameters."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/search-param-type"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.rest.resource.searchParam.documentation">
-      <path value="CapabilityStatement.rest.resource.searchParam.documentation"/>
-      <short value="Server-specific usage"/>
-      <definition value="This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.resource.operation">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="right"/>
-      </extension>
-      <path value="CapabilityStatement.rest.resource.operation"/>
-      <short value="Definition of a resource operation"/>
-      <definition value="Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the operation, and the parameters."/>
-      <comment value="Operations linked from CapabilityStatement.rest.resource.operation must have OperationDefinition.type = true or OperationDefinition.instance = true.    &#xA;&#xA;If an operation that is listed in multiple CapabilityStatement.rest.resource.operation (e.g. for different resource types), then clients should understand that the operation is only supported on the specified resource types, and that may be a subset of those listed in OperationDefinition.resource."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.rest.resource.operation.name">
-      <path value="CapabilityStatement.rest.resource.operation.name"/>
-      <short value="Name by which the operation/query is invoked"/>
-      <definition value="The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called."/>
-      <comment value="The name here SHOULD be the same as the OperationDefinition.code in the referenced OperationDefinition, unless there is a name clash and the OperationDefinition.code cannot be used. The name does not include the &quot;$&quot; portion that is always included in the URL."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.rest.resource.operation.definition">
-      <path value="CapabilityStatement.rest.resource.operation.definition"/>
-      <short value="The defined operation/query"/>
-      <definition value="Where the formal definition can be found. If a server references the base definition of an Operation (i.e. from the specification itself such as ```http://hl7.org/fhir/OperationDefinition/ValueSet-expand```), that means it supports the full capabilities of the operation - e.g. both GET and POST invocation.  If it only supports a subset, it must define its own custom [OperationDefinition](operationdefinition.html#) with a &#39;base&#39; of the original OperationDefinition.  The custom definition would describe the specific subset of functionality supported."/>
-      <comment value="This can be used to build an HTML form to invoke the operation, for instance."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.rest.resource.operation.documentation">
-      <path value="CapabilityStatement.rest.resource.operation.documentation"/>
-      <short value="Specific details about operation behavior"/>
-      <definition value="Documentation that describes anything special about the operation behavior, possibly detailing different behavior for system, type and instance-level invocation of the operation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.interaction">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="SystemInteraction"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="550,490"/>
-      </extension>
-      <path value="CapabilityStatement.rest.interaction"/>
-      <short value="What operations are supported?"/>
-      <definition value="A specification of restful operations supported by the system."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.interaction.code">
-      <path value="CapabilityStatement.rest.interaction.code"/>
-      <short value="transaction | batch | search-system | history-system"/>
-      <definition value="A coded identifier of the operation, supported by the system."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SystemRestfulInteraction"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Operations supported by REST at the system level."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/system-restful-interaction"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.rest.interaction.documentation">
-      <path value="CapabilityStatement.rest.interaction.documentation"/>
-      <short value="Anything special about operation behavior"/>
-      <definition value="Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.rest.searchParam">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="left"/>
-      </extension>
-      <path value="CapabilityStatement.rest.searchParam"/>
-      <short value="Search parameters for searching all resources"/>
-      <definition value="Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation."/>
-      <comment value="Typically, the only search parameters supported for all searches are those that apply to all resources - tags, profiles, text search etc. These search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions."/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#CapabilityStatement.rest.resource.searchParam"/>
-    </element>
-    <element id="CapabilityStatement.rest.operation">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="right"/>
-      </extension>
-      <path value="CapabilityStatement.rest.operation"/>
-      <short value="Definition of a system level operation"/>
-      <definition value="Definition of an operation or a named query together with its parameters and their meaning and type."/>
-      <comment value="CapabilityStatement.rest.operation is for operations invoked at the system level, or for operations that are supported across multiple resource types. Operations linked from CapabilityStatement.rest.operation must have OperationDefinition.system = true, or more than one Operation.resource."/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#CapabilityStatement.rest.resource.operation"/>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.rest.compartment">
-      <path value="CapabilityStatement.rest.compartment"/>
-      <short value="Compartments served/used by system"/>
-      <definition value="An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by its canonical URL ."/>
-      <comment value="At present, the only defined compartments are at [CompartmentDefinition](compartmentdefinition.html)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CompartmentDefinition"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.messaging">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="310,0"/>
-      </extension>
-      <path value="CapabilityStatement.messaging"/>
-      <short value="If messaging is supported"/>
-      <definition value="A description of the messaging capabilities of the solution."/>
-      <comment value="Multiple repetitions allow the documentation of multiple endpoints per solution."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <condition value="cpb-1"/>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.messaging.endpoint">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="570,0"/>
-      </extension>
-      <path value="CapabilityStatement.messaging.endpoint"/>
-      <short value="Where messages should be sent"/>
-      <definition value="An endpoint (network accessible address) to which messages and/or replies are to be sent."/>
-      <alias value="3"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.messaging.endpoint.protocol">
-      <path value="CapabilityStatement.messaging.endpoint.protocol"/>
-      <short value="http | ftp | mllp +"/>
-      <definition value="A list of the messaging transport protocol(s) identifiers, supported by this endpoint."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MessageTransport"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The protocol used for message transport."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/message-transport"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.messaging.endpoint.address">
-      <path value="CapabilityStatement.messaging.endpoint.address"/>
-      <short value="Network address or identifier of the end-point"/>
-      <definition value="The network address of the endpoint. For solutions that do not use network addresses for routing, it can be just an identifier."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="url"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.messaging.reliableCache">
-      <path value="CapabilityStatement.messaging.reliableCache"/>
-      <short value="Reliable Message Cache Length (min)"/>
-      <definition value="Length if the receiver&#39;s reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender)."/>
-      <comment value="If this value is missing then the application does not implement (receiver) or depend on (sender) reliable messaging."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="unsignedInt"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.messaging.documentation">
-      <path value="CapabilityStatement.messaging.documentation"/>
-      <short value="Messaging interface behavior details"/>
-      <definition value="Documentation about the system&#39;s messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.messaging.supportedMessage">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-20,0"/>
-      </extension>
-      <path value="CapabilityStatement.messaging.supportedMessage"/>
-      <short value="Messages supported by this system"/>
-      <definition value="References to message definitions for messages this system can send or receive."/>
-      <comment value="This is a proposed alternative to the messaging.event structure."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.messaging.supportedMessage.mode">
-      <path value="CapabilityStatement.messaging.supportedMessage.mode"/>
-      <short value="sender | receiver"/>
-      <definition value="The mode of this event declaration - whether application is sender or receiver."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="EventCapabilityMode"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The mode of a message capability statement."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/event-capability-mode"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.messaging.supportedMessage.definition">
-      <path value="CapabilityStatement.messaging.supportedMessage.definition"/>
-      <short value="Message supported by this system"/>
-      <definition value="Points to a message definition that identifies the messaging event, message structure, allowed responses, etc."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MessageDefinition"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.document">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-20,300"/>
-      </extension>
-      <path value="CapabilityStatement.document"/>
-      <short value="Document definition"/>
-      <definition value="A document definition."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <condition value="cpb-1"/>
-      <isSummary value="true"/>
-    </element>
-    <element id="CapabilityStatement.document.mode">
-      <path value="CapabilityStatement.document.mode"/>
-      <short value="producer | consumer"/>
-      <definition value="Mode of this document declaration - whether an application is a producer or consumer."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DocumentMode"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Whether the application produces or consumes documents."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/document-mode"/>
-      </binding>
-    </element>
-    <element id="CapabilityStatement.document.documentation">
-      <path value="CapabilityStatement.document.documentation"/>
-      <short value="Description of document support"/>
-      <definition value="A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="CapabilityStatement.document.profile">
-      <path value="CapabilityStatement.document.profile"/>
-      <short value="Constraint on the resources used in the document"/>
-      <definition value="A profile on the document Bundle that constrains which resources are present, and their contents."/>
-      <comment value="The profile is actually on the Bundle."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-  </differential>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="CapabilityStatement"/>
+	<meta>
+		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+		<valueString value="Foundation.Conformance"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="normative"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+		<valueCode value="4.0.0"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="5"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+		<valueCode value="anonymous"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="fhir"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+		<valueCode value=".status = retired"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+		<valueString value="CanonicalResource"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+	<version value="5.0.0"/>
+	<name value="CapabilityStatement"/>
+	<status value="active"/>
+	<date value="2021-01-05T10:01:24+11:00"/>
+	<publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+		</telecom>
+	</contact>
+	<description value="A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server or Client for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="CapabilityStatement"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+	<derivation value="specialization"/>
+	<differential>
+		<element id="CapabilityStatement">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="230,120"/>
+			</extension>
+			<path value="CapabilityStatement"/>
+			<short value="A statement of system capabilities"/>
+			<definition value="A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server or Client for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
+			<comment value="Applications may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, then a CapabilityStatement describes the system&#39;s support for a particular version of FHIR, and the server will have multiple statements, one for each version."/>
+			<min value="0"/>
+			<max value="*"/>
+			<constraint>
+				<key value="cnl-0"/>
+				<severity value="warning"/>
+				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</constraint>
+			<constraint>
+				<key value="cpb-4"/>
+				<severity value="error"/>
+				<human value="There should only be one CapabilityStatement.rest per mode."/>
+				<expression value="rest.mode.isDistinct()"/>
+				<xpath value="count(f:rest/f:mode/@value)=count(distinct-values(f:rest/f:mode/@value))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</constraint>
+			<constraint>
+				<key value="cpb-7"/>
+				<severity value="error"/>
+				<human value="The set of documents must be unique by the combination of profile and mode."/>
+				<expression value="document.select(profile&amp;mode).isDistinct()"/>
+				<xpath value="count(f:document[f:mode/@value=&#39;producer&#39;])=count(distinct-values(f:document[f:mode/@value=&#39;producer&#39;]/f:profile/f:reference/@value)) and count(f:document[f:mode/@value=&#39;consumer&#39;])=count(distinct-values(f:document[f:mode/@value=&#39;consumer&#39;]/f:profile/f:reference/@value))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</constraint>
+			<constraint>
+				<key value="cpb-16"/>
+				<severity value="error"/>
+				<human value="If kind = requirements, implementation and software must be absent"/>
+				<expression value="(kind!=&#39;requirements&#39;) or (implementation.exists().not() and software.exists().not())"/>
+				<xpath value="not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and not(exists(f:software)))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</constraint>
+			<constraint>
+				<key value="cpb-15"/>
+				<severity value="error"/>
+				<human value="If kind = capability, implementation must be absent, software must be present"/>
+				<expression value="(kind != &#39;capability&#39;) or (implementation.exists().not() and software.exists())"/>
+				<xpath value="not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and exists(f:software))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</constraint>
+			<constraint>
+				<key value="cpb-3"/>
+				<severity value="error"/>
+				<human value="Messaging end-point is only permitted when a capability statement is for an implementation."/>
+				<expression value="messaging.endpoint.empty() or kind = &#39;instance&#39;"/>
+				<xpath value="not(exists(f:messaging/f:endpoint)) or f:kind/@value = &#39;instance&#39;"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</constraint>
+			<constraint>
+				<key value="cpb-14"/>
+				<severity value="error"/>
+				<human value="If kind = instance, implementation must be present and software may be present"/>
+				<expression value="(kind != &#39;instance&#39;) or implementation.exists()"/>
+				<xpath value="not(f:kind/@value=&#39;instance&#39;) or exists(f:implementation)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</constraint>
+			<constraint>
+				<key value="cpb-2"/>
+				<severity value="error"/>
+				<human value="A Capability Statement SHALL have at least one of description, software, or implementation element."/>
+				<expression value="(description.count() + software.count() + implementation.count()) &gt; 0"/>
+				<xpath value="count(f:software | f:implementation | f:description) &gt; 0"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</constraint>
+			<constraint>
+				<key value="cpb-1"/>
+				<severity value="error"/>
+				<human value="A Capability Statement SHALL have at least one of REST, messaging or document element."/>
+				<expression value="rest.exists() or messaging.exists() or document.exists()"/>
+				<xpath value="exists(f:rest) or exists(f:messaging) or exists(f:document)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</constraint>
+			<mapping>
+				<identity value="rim"/>
+				<map value="n/a"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="conformance.behavior"/>
+			</mapping>
+		</element>
+		<element id="CapabilityStatement.url">
+			<path value="CapabilityStatement.url"/>
+			<short value="Canonical identifier for this capability statement, represented as a URI (globally unique)"/>
+			<definition value="An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers."/>
+			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+			<requirements value="Allows the capability statement to be referenced by a single globally unique identifier."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
+			<constraint>
+				<key value="cnl-1"/>
+				<severity value="warning"/>
+				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+				<expression value="url.matches(&#39;([^|#])*&#39;)"/>
+				<xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+			</constraint>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.url"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+		</element>
+		<element id="CapabilityStatement.version">
+			<path value="CapabilityStatement.version"/>
+			<short value="Business version of the capability statement"/>
+			<definition value="The identifier that is used to identify this version of the capability statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the capability statement author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+			<comment value="There may be different capability statement instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the capability statement with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.version"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.version"/>
+			</mapping>
+		</element>
+		<element id="CapabilityStatement.versionAlgorithm[x]">
+			<path value="CapabilityStatement.versionAlgorithm[x]"/>
+			<short value="How to compare versions"/>
+			<definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+			<comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<type>
+				<code value="Coding"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<strength value="extensible"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.name">
+			<path value="CapabilityStatement.name"/>
+			<short value="Name for this capability statement (computer friendly)"/>
+			<definition value="A natural language name identifying the capability statement. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+			<requirements value="Support human navigation and code generation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<condition value="cnl-0"/>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.title">
+			<path value="CapabilityStatement.title"/>
+			<short value="Name for this capability statement (human friendly)"/>
+			<definition value="A short, descriptive, user-friendly title for the capability statement."/>
+			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.title"/>
+			</mapping>
+		</element>
+		<element id="CapabilityStatement.status">
+			<path value="CapabilityStatement.status"/>
+			<short value="draft | active | retired | unknown"/>
+			<definition value="The status of this capability statement. Enables tracking the life-cycle of the content."/>
+			<comment value="Allows filtering of capability statements that are appropriate for use versus not.This is not intended for use with actual capability statements, but where capability statements are used to describe possible or desired systems."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isModifier value="true"/>
+			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PublicationStatus"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The lifecycle status of an artifact."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.status"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.status"/>
+			</mapping>
+		</element>
+		<element id="CapabilityStatement.experimental">
+			<path value="CapabilityStatement.experimental"/>
+			<short value="For testing purposes, not real usage"/>
+			<definition value="A Boolean value to indicate that this capability statement is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+			<comment value="Allows filtering of capability statements that are appropriate for use versus not."/>
+			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level capability statement."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.experimental"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.class"/>
+			</mapping>
+		</element>
+		<element id="CapabilityStatement.date">
+			<path value="CapabilityStatement.date"/>
+			<short value="Date last changed"/>
+			<definition value="The date  (and optionally time) when the capability statement was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the capability statement changes."/>
+			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the capability statement. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+			<alias value="Revision Date"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.date"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.recorded"/>
+			</mapping>
+		</element>
+		<element id="CapabilityStatement.publisher">
+			<path value="CapabilityStatement.publisher"/>
+			<short value="Name of the publisher (organization or individual)"/>
+			<definition value="The name of the organization or individual that published the capability statement."/>
+			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the capability statement is the organization or individual primarily responsible for the maintenance and upkeep of the capability statement. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the capability statement. This item SHOULD be populated unless the information is available from context."/>
+			<requirements value="Helps establish the &quot;authority/credibility&quot; of the capability statement.  May also allow for contact."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.publisher"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.witness"/>
+			</mapping>
+		</element>
+		<element id="CapabilityStatement.contact">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="70,0"/>
+			</extension>
+			<path value="CapabilityStatement.contact"/>
+			<short value="Contact details for the publisher"/>
+			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+			<comment value="May be a web site, an email address, a telephone number, etc."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.contact"/>
+			</mapping>
+		</element>
+		<element id="CapabilityStatement.description">
+			<path value="CapabilityStatement.description"/>
+			<short value="Natural language description of the capability statement"/>
+			<definition value="A free text natural language description of the capability statement from a consumer&#39;s perspective. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP."/>
+			<comment value="This description can be used to capture details such as why the capability statement was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the capability statement as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the capability statement is presumed to be the predominant language in the place the capability statement was created).This does not need to be populated if the description is adequately implied by the software or implementation details."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<condition value="cpb-2"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.description"/>
+			</mapping>
+		</element>
+		<element id="CapabilityStatement.useContext">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.useContext"/>
+			<short value="The context that the content is intended to support"/>
+			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate capability statement instances."/>
+			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+			<requirements value="Assist in searching for appropriate content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="UsageContext"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.useContext"/>
+			</mapping>
+		</element>
+		<element id="CapabilityStatement.jurisdiction">
+			<path value="CapabilityStatement.jurisdiction"/>
+			<short value="Intended jurisdiction for capability statement (if applicable)"/>
+			<definition value="A legal or geographic region in which the capability statement is intended to be used."/>
+			<comment value="It may be possible for the capability statement to be used in jurisdictions other than those for which it was originally designed or intended."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="Jurisdiction"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Countries and regions within which this artifact is targeted for use."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.jurisdiction"/>
+			</mapping>
+		</element>
+		<element id="CapabilityStatement.purpose">
+			<path value="CapabilityStatement.purpose"/>
+			<short value="Why this capability statement is defined"/>
+			<definition value="Explanation of why this capability statement is needed and why it has been designed as it has."/>
+			<comment value="This element does not describe the usage of the capability statement. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this capability statement."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.purpose"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.why[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="CapabilityStatement.copyright">
+			<path value="CapabilityStatement.copyright"/>
+			<short value="Use and/or publishing restrictions"/>
+			<definition value="A copyright statement relating to the capability statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the capability statement."/>
+			<requirements value="Consumers must be able to determine any legal restrictions on the use of the capability statement and/or its content."/>
+			<alias value="License"/>
+			<alias value="Restrictions"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.copyright"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="CapabilityStatement.kind">
+			<path value="CapabilityStatement.kind"/>
+			<short value="instance | capability | requirements"/>
+			<definition value="The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase)."/>
+			<requirements value="Allow searching the 3 modes."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<condition value="cpb-15"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="CapabilityStatementKind"/>
+				</extension>
+				<strength value="required"/>
+				<description value="How a capability statement is intended to be used."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/capability-statement-kind"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.instantiates">
+			<path value="CapabilityStatement.instantiates"/>
+			<short value="Canonical URL of another capability statement this implements"/>
+			<definition value="Reference to a canonical URL of another CapabilityStatement that this software implements. This capability statement is a published API description that corresponds to a business service. The server may actually implement a subset of the capability statement it claims to implement, so the capability statement must specify the full capability details."/>
+			<comment value="HL7 defines the following Services: [Terminology Service](terminology-service.html).    &#xA;&#xA;Many [Implementation Guides](http://fhir.org/guides/registry) define additional services."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.imports">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.imports"/>
+			<short value="Canonical URL of another capability statement this adds to"/>
+			<definition value="Reference to a canonical URL of another CapabilityStatement that this software adds to. The capability statement automatically includes everything in the other statement, and it is not duplicated, though the server may repeat the same resources, interactions and operations to add additional details to them."/>
+			<comment value="the contents of any directly or indirectly imported CapabilityStatements SHALL NOT overlap, i.e. they cannot refer to the same rest/resource, operations/name, searchparam/name, interaction/code, messaging/endpoint, document/mode pair.&#xA;&#xA;A capability statement that imports another CapabilityStatement automatically instantiates it too (though this is often not a very useful statement for the kinds of CapabilityStatements that are suitable for importing)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.software">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="0,100"/>
+			</extension>
+			<path value="CapabilityStatement.software"/>
+			<short value="Software that is covered by this capability statement"/>
+			<definition value="Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<condition value="cpb-2"/>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.software.name">
+			<path value="CapabilityStatement.software.name"/>
+			<short value="A name the software is known by"/>
+			<definition value="Name the software is known by."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.software.version">
+			<path value="CapabilityStatement.software.version"/>
+			<short value="Version covered by this statement"/>
+			<definition value="The version identifier for the software covered by this statement."/>
+			<comment value="If possible, a version should be specified, as statements are likely to be different for different versions of software."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.software.releaseDate">
+			<path value="CapabilityStatement.software.releaseDate"/>
+			<short value="Date this version was released"/>
+			<definition value="Date this version of the software was released."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.implementation">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="0,200"/>
+			</extension>
+			<path value="CapabilityStatement.implementation"/>
+			<short value="If this describes a specific instance"/>
+			<definition value="Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<condition value="cpb-2"/>
+			<condition value="cpb-15"/>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.implementation.description">
+			<path value="CapabilityStatement.implementation.description"/>
+			<short value="Describes this specific instance"/>
+			<definition value="Information about the specific installation that this capability statement relates to."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.implementation.url">
+			<path value="CapabilityStatement.implementation.url"/>
+			<short value="Base URL for the installation"/>
+			<definition value="An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="url"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.implementation.custodian">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.implementation.custodian"/>
+			<short value="Organization that manages the data"/>
+			<definition value="The organization responsible for the management of the instance and oversight of the data on the server at the specified URL."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.fhirVersion">
+			<path value="CapabilityStatement.fhirVersion"/>
+			<short value="FHIR Version the system supports"/>
+			<definition value="The version of the FHIR specification that this CapabilityStatement describes (which SHALL be the same as the FHIR version of the CapabilityStatement itself). There is no default value."/>
+			<comment value="Servers may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, and the CapabilityStatement is requested from the server, then this fhirVersion will be either the version requested, or the server&#39;s default version."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="FHIRVersion"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="All published FHIR Versions."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.format">
+			<path value="CapabilityStatement.format"/>
+			<short value="formats supported (xml | json | ttl | mime type)"/>
+			<definition value="A list of the formats supported by this implementation using their content types."/>
+			<comment value="&quot;xml&quot;, &quot;json&quot; and &quot;ttl&quot; are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here."/>
+			<min value="1"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MimeType"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+					<valueCanonical value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+					<valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Common format types for FHIR."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.patchFormat">
+			<path value="CapabilityStatement.patchFormat"/>
+			<short value="Patch formats supported"/>
+			<definition value="A list of the patch formats supported by this implementation using their content types."/>
+			<comment value="At present, the patch mime types application/json-patch+json and application/xml-patch+xml are legal. Generally, if a server supports PATCH, it would be expected to support the patch formats and match the formats it supports, but this is not always possible or necessary."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MimeType"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+					<valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
+				</extension>
+				<strength value="required"/>
+				<description value="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.acceptLanguage">
+			<path value="CapabilityStatement.acceptLanguage"/>
+			<short value="Languages supported"/>
+			<definition value="A list of the languages supported by this implementation that are usefully supported in the ```Accept-Language``` header."/>
+			<comment value="In general, if a server gets a request with an Accept-Language that it doesn't support, it should still reutrn the resource, just in it's default language for the resource."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="Language"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+					<valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+					<valueString value="A human language."/>
+				</extension>
+				<strength value="preferred"/>
+				<description value="IETF language tag"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.implementationGuide">
+			<path value="CapabilityStatement.implementationGuide"/>
+			<short value="Implementation guides supported"/>
+			<definition value="A list of implementation guides that the server does (or should) support in their entirety."/>
+			<comment value="Note: this is primarily only relevant in terms of ImplementationGuides that don't define specific CapabilityStatements declaring the expectation of distinct roles.  (E.g. generic IGs that establish privacy policies.)  If CapabilityStatements are defined by the IG, then it is better to use CapabilityStatement.instantiates to identify the specific role(s) supported."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.rest">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="250,520"/>
+			</extension>
+			<path value="CapabilityStatement.rest"/>
+			<short value="If the endpoint is a RESTful one"/>
+			<definition value="A definition of the restful capabilities of the solution, if any."/>
+			<comment value="Multiple repetitions allow definition of both client and/or server behaviors or possibly behaviors under different configuration settings (for software or requirements statements)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<condition value="cpb-1"/>
+			<constraint>
+				<key value="cpb-9"/>
+				<severity value="error"/>
+				<human value="A given resource can only be described once per RESTful mode."/>
+				<expression value="resource.select(type).isDistinct()"/>
+				<xpath value="count(f:resource)=count(distinct-values(f:resource/f:type/@value))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</constraint>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.rest.mode">
+			<path value="CapabilityStatement.rest.mode"/>
+			<short value="client | server"/>
+			<definition value="Identifies whether this portion of the statement is describing the ability to initiate or receive restful operations."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="RestfulCapabilityMode"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The mode of a RESTful capability statement."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/restful-capability-mode"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.rest.documentation">
+			<path value="CapabilityStatement.rest.documentation"/>
+			<short value="General description of implementation"/>
+			<definition value="Information about the system&#39;s restful capabilities that apply across all applications, such as security."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.security">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="550,380"/>
+			</extension>
+			<path value="CapabilityStatement.rest.security"/>
+			<short value="Information about security of implementation"/>
+			<definition value="Information about security implementation from an interface perspective - what a client needs to know."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.rest.security.cors">
+			<path value="CapabilityStatement.rest.security.cors"/>
+			<short value="Adds CORS Headers (http://enable-cors.org/)"/>
+			<definition value="Server adds CORS headers when responding to requests - this enables Javascript applications to use the server."/>
+			<comment value="The easiest CORS headers to add are Access-Control-Allow-Origin: * &amp; Access-Control-Request-Method: GET, POST, PUT, DELETE. All servers SHOULD support CORS."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.rest.security.service">
+			<path value="CapabilityStatement.rest.security.service"/>
+			<short value="OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates"/>
+			<definition value="Types of security services that are supported/required by the system."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="RestfulSecurityService"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Types of security services used with FHIR."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/restful-security-service"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.rest.security.description">
+			<path value="CapabilityStatement.rest.security.description"/>
+			<short value="General description of how security works"/>
+			<definition value="General description of how security works."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.resource">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="230,640"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource"/>
+			<short value="Resource served on the REST interface"/>
+			<definition value="A specification of the restful capabilities of the solution for a specific resource type."/>
+			<comment value="Max of one repetition per resource type."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<constraint>
+				<key value="cpb-12"/>
+				<severity value="error"/>
+				<human value="Search parameter names must be unique in the context of a resource."/>
+				<expression value="searchParam.select(name).isDistinct()"/>
+				<xpath value="count(f:searchParam)=count(distinct-values(f:searchParam/f:name/@value))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</constraint>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.rest.resource.type">
+			<path value="CapabilityStatement.rest.resource.type"/>
+			<short value="A resource type that is supported"/>
+			<definition value="A type of resource exposed via the restful interface."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ResourceType"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="One of the resource types defined as part of this version of FHIR."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.rest.resource.profile">
+			<path value="CapabilityStatement.rest.resource.profile"/>
+			<short value="System-wide profile"/>
+			<definition value="A system-wide profile that is applied across *all* instances of the resource supported by the system. For example, if declared on Observation, this profile is the &quot;superset&quot; of capabilities for laboratory *and* vitals *and* other domains. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
+			<comment value="All other profiles for this type that are listed in `.rest.resource.supportedProfile` must conform to this profile."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.rest.resource.supportedProfile">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource.supportedProfile"/>
+			<short value="Use-case specific profiles"/>
+			<definition value="A list of profiles representing different use cases the system hosts/produces. A supported profile is a statement about the functionality of the data and services provided by the server (or the client) for supported use cases. For example, a system can define and declare multiple Observation profiles for laboratory observations, vital sign observations, etc. By declaring supported profiles, systems provide a way to determine whether individual resources are conformant. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
+			<comment value="Supported profiles must conform to the resource profile in the `.rest.resource.profile` element if it is present. The resource profile is a system-wide profile applied across *all* instances of the resource supported by the system. A supported profile is a statement about the functionality of the data and services provided by the server (or used by the client) for a particular set of use cases and will not necessarily apply to all data consumed or exposed by the server."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.rest.resource.documentation">
+			<path value="CapabilityStatement.rest.resource.documentation"/>
+			<short value="Additional information about the use of the resource type"/>
+			<definition value="Additional information about the resource type used by the system."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.resource.interaction">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+				<valueString value="ResourceInteraction"/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="-20,470"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource.interaction"/>
+			<short value="What operations are supported?"/>
+			<definition value="Identifies a restful operation supported by the solution."/>
+			<comment value="In general, a Resource will only appear in a CapabilityStatement if the server actually has some capabilities - e.g. there is at least one interaction supported. However interactions can be omitted to support summarization (_summary = true)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.resource.interaction.code">
+			<path value="CapabilityStatement.rest.resource.interaction.code"/>
+			<short value="read | vread | update | patch | delete | history-instance | history-type | create | search-type"/>
+			<definition value="Coded identifier of the operation, supported by the system resource."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="TypeRestfulInteraction"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Operations supported by REST at the type or instance level."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/type-restful-interaction"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.rest.resource.interaction.documentation">
+			<path value="CapabilityStatement.rest.resource.interaction.documentation"/>
+			<short value="Anything special about operation behavior"/>
+			<definition value="Guidance specific to the implementation of this operation, such as &#39;delete is a logical delete&#39; or &#39;updates are only allowed with version id&#39; or &#39;creates permitted from pre-authorized certificates only&#39;."/>
+			<requirements value="REST allows a degree of variability in the implementation of RESTful solutions that is useful for exchange partners to be aware of."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.resource.versioning">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource.versioning"/>
+			<short value="no-version | versioned | versioned-update"/>
+			<definition value="This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is &#39;versioned-update&#39;, then the server supports all the versioning features, including using e-tags for version integrity in the API."/>
+			<comment value="If a server supports versionIds correctly, it SHOULD support vread too, but is not required to do so."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ResourceVersionPolicy"/>
+				</extension>
+				<strength value="required"/>
+				<description value="How the system supports versioning for a resource."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/versioning-policy"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.rest.resource.readHistory">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource.readHistory"/>
+			<short value="Whether vRead can return past versions"/>
+			<definition value="A flag for whether the server is able to return past versions as part of the vRead operation."/>
+			<comment value="It is useful to support the vRead operation for current operations, even if past versions aren&#39;t available."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.resource.updateCreate">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource.updateCreate"/>
+			<short value="If update can commit to a new identity"/>
+			<definition value="A flag to indicate that the server allows or needs to allow the client to create new identities on the server (that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server."/>
+			<comment value="Allowing the clients to create new identities on the server means that the system administrator needs to have confidence that the clients do not create clashing identities between them. Obviously, if there is only one client, this won&#39;t happen. While creating identities on the client means that the clients need to be managed, it&#39;s much more convenient for many scenarios if such management can be put in place."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.resource.conditionalCreate">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource.conditionalCreate"/>
+			<short value="If allows/uses conditional create"/>
+			<definition value="A flag that indicates that the server supports conditional create."/>
+			<comment value="Conditional Create is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.resource.conditionalRead">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource.conditionalRead"/>
+			<short value="not-supported | modified-since | not-match | full-support"/>
+			<definition value="A code that indicates how the server supports conditional read."/>
+			<comment value="Conditional Read is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ConditionalReadStatus"/>
+				</extension>
+				<strength value="required"/>
+				<description value="A code that indicates how the server supports conditional read."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/conditional-read-status"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.rest.resource.conditionalUpdate">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource.conditionalUpdate"/>
+			<short value="If allows/uses conditional update"/>
+			<definition value="A flag that indicates that the server supports conditional update."/>
+			<comment value="Conditional Update is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.resource.conditionalPatch">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource.conditionalPatch"/>
+			<short value="If allows/uses conditional patch"/>
+			<definition value="A flag that indicates that the server supports conditional patch."/>
+			<comment value="Conditional Patch is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.resource.conditionalDelete">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource.conditionalDelete"/>
+			<short value="not-supported | single | multiple - how conditional delete is supported"/>
+			<definition value="A code that indicates how the server supports conditional delete."/>
+			<comment value="Conditional Delete is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ConditionalDeleteStatus"/>
+				</extension>
+				<strength value="required"/>
+				<description value="A code that indicates how the server supports conditional delete."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/conditional-delete-status"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.rest.resource.referencePolicy">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource.referencePolicy"/>
+			<short value="literal | logical | resolves | enforced | local"/>
+			<definition value="A set of flags that defines how references are supported."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ReferenceHandlingPolicy"/>
+				</extension>
+				<strength value="required"/>
+				<description value="A set of flags that defines how references are supported."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/reference-handling-policy"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.rest.resource.searchInclude">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource.searchInclude"/>
+			<short value="_include values supported by the server"/>
+			<definition value="A list of _include values supported by the server."/>
+			<comment value="Documenting [`_include`](http://hl7.org/fhir/R5/search.html#revinclude) support helps set conformance expectations for the desired system. Still, it is a level of detail that might not be exposed by production servers or clients when using CapabilityStatement to describe an actual implementation. If this list is empty, the server does not support includes. Support for *iterative* (a.k.a., recursive) `_include` is communicated by listing the iterative includes values supported by the server in the `searchInclude` element of the &quot;root&quot; resource type. For example, to support the following search:&#xA;&#xA;`GET [base]/CarePlan?_include=CarePlan:activity-reference:DeviceRequest&amp;_include:iterate=DeviceRequest:device`&#xA;&#xA;These values would be listed as part of capabilities for &quot;CarePlan&quot;:&#xA;&#xA;&quot;searchInclude&quot; : [&quot;CarePlan:activity-reference:DeviceRequest&quot;,&quot;DeviceRequest:device&quot;],&#xA;"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.resource.searchRevInclude">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource.searchRevInclude"/>
+			<short value="_revinclude values supported by the server"/>
+			<definition value="A list of _revinclude (reverse include) values supported by the server."/>
+			<comment value="See `CapabilityStatement.rest.resource.searchInclude` comments."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.resource.searchParam">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+				<valueCode value="left"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource.searchParam"/>
+			<short value="Search parameters supported by implementation"/>
+			<definition value="Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation."/>
+			<comment value="The search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.resource.searchParam.name">
+			<path value="CapabilityStatement.rest.resource.searchParam.name"/>
+			<short value="Name for parameter in search url"/>
+			<definition value="The label used for the search parameter in this particular system's API - i.e. the 'name' portion of the name-value pair that will appear as part of the search URL.  This SHOULD be the same as the SearchParameter.code of the defining SearchParameter.  However, it can sometimes differ if necessary to disambiguate when a server supports multiple SearchParameters that happen to share the same code."/>
+			<comment value="Parameter names cannot overlap with standard parameter names, and standard parameters cannot be redefined. There is no correspondence whatsoever between CapabilityStatement's searchParam.name and SearchParameter.name - the latter is used as a class name when generating code for the search parameter."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.resource.searchParam.definition">
+			<path value="CapabilityStatement.rest.resource.searchParam.definition"/>
+			<short value="Source of definition for parameter"/>
+			<definition value="An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [SearchParameter.url](searchparameter-definitions.html#SearchParameter.url)). This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs."/>
+			<comment value="This SHOULD be present, and matches refers to a SearchParameter by its canonical URL. If systems wish to document their support for modifiers, comparators, target resource types, and chained parameters, they should do using a search parameter resource. This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.resource.searchParam.type">
+			<path value="CapabilityStatement.rest.resource.searchParam.type"/>
+			<short value="number | date | string | token | reference | composite | quantity | uri | special"/>
+			<definition value="The type of value a search parameter refers to, and how the content is interpreted."/>
+			<comment value="While this can be looked up from the definition, it is included here as a convenience for systems that autogenerate a query interface based on the server capability statement.  It SHALL be the same as the type in the search parameter definition."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SearchParamType"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Data types allowed to be used for search parameters."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/search-param-type"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.rest.resource.searchParam.documentation">
+			<path value="CapabilityStatement.rest.resource.searchParam.documentation"/>
+			<short value="Server-specific usage"/>
+			<definition value="This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.resource.operation">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+				<valueCode value="right"/>
+			</extension>
+			<path value="CapabilityStatement.rest.resource.operation"/>
+			<short value="Definition of a resource operation"/>
+			<definition value="Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the operation, and the parameters."/>
+			<comment value="Operations linked from CapabilityStatement.rest.resource.operation must have OperationDefinition.type = true or OperationDefinition.instance = true.    &#xA;&#xA;If an operation that is listed in multiple CapabilityStatement.rest.resource.operation (e.g. for different resource types), then clients should understand that the operation is only supported on the specified resource types, and that may be a subset of those listed in OperationDefinition.resource."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.rest.resource.operation.name">
+			<path value="CapabilityStatement.rest.resource.operation.name"/>
+			<short value="Name by which the operation/query is invoked"/>
+			<definition value="The name of the operation or query. For an operation, this name is prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called. This SHOULD be the same as the OperationDefinition.code of the defining OperationDefinition.  However, it can sometimes differ if necessary to disambiguate when a server supports multiple OperationDefinition that happen to share the same code."/>
+			<comment value="The name here SHOULD be the same as the OperationDefinition.code in the referenced OperationDefinition, unless there is a name clash and the OperationDefinition.code cannot be used. The name does not include the &quot;$&quot; portion that is always included in the URL. There is no correspondence whatsoever between CapabilityStatement's operation.name and OperationDefinition.name - the latter is used as a class name when generating code for the operation. HL7 will never define operations that have conflicting names."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.rest.resource.operation.definition">
+			<path value="CapabilityStatement.rest.resource.operation.definition"/>
+			<short value="The defined operation/query"/>
+			<definition value="Where the formal definition can be found. If a server references the base definition of an Operation (i.e. from the specification itself such as ```http://hl7.org/fhir/OperationDefinition/ValueSet-expand```), that means it supports the full capabilities of the operation - e.g. both GET and POST invocation.  If it only supports a subset, it must define its own custom [OperationDefinition](operationdefinition.html#) with a &#39;base&#39; of the original OperationDefinition.  The custom definition would describe the specific subset of functionality supported."/>
+			<comment value="This can be used to build an HTML form to invoke the operation, for instance."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.rest.resource.operation.documentation">
+			<path value="CapabilityStatement.rest.resource.operation.documentation"/>
+			<short value="Specific details about operation behavior"/>
+			<definition value="Documentation that describes anything special about the operation behavior, possibly detailing different behavior for system, type and instance-level invocation of the operation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.interaction">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+				<valueString value="SystemInteraction"/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="550,490"/>
+			</extension>
+			<path value="CapabilityStatement.rest.interaction"/>
+			<short value="What operations are supported?"/>
+			<definition value="A specification of restful operations supported by the system."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.interaction.code">
+			<path value="CapabilityStatement.rest.interaction.code"/>
+			<short value="transaction | batch | search-system | history-system"/>
+			<definition value="A coded identifier of the operation, supported by the system."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SystemRestfulInteraction"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Operations supported by REST at the system level."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/system-restful-interaction"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.rest.interaction.documentation">
+			<path value="CapabilityStatement.rest.interaction.documentation"/>
+			<short value="Anything special about operation behavior"/>
+			<definition value="Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.rest.searchParam">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+				<valueCode value="left"/>
+			</extension>
+			<path value="CapabilityStatement.rest.searchParam"/>
+			<short value="Search parameters for searching all resources"/>
+			<definition value="Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation. This is only for searches executed against the system-level endpoint."/>
+			<comment value="Typically, the only search parameters supported for all searches are those that apply to all resources - tags, profiles, text search etc. These search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions."/>
+			<min value="0"/>
+			<max value="*"/>
+			<contentReference value="#CapabilityStatement.rest.resource.searchParam"/>
+		</element>
+		<element id="CapabilityStatement.rest.operation">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+				<valueCode value="right"/>
+			</extension>
+			<path value="CapabilityStatement.rest.operation"/>
+			<short value="Definition of a system level operation"/>
+			<definition value="Definition of an operation or a named query together with its parameters and their meaning and type."/>
+			<comment value="CapabilityStatement.rest.operation is for operations invoked at the system level, or for operations that are supported across multiple resource types. Operations linked from CapabilityStatement.rest.operation must have OperationDefinition.system = true, or more than one Operation.resource."/>
+			<min value="0"/>
+			<max value="*"/>
+			<contentReference value="#CapabilityStatement.rest.resource.operation"/>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.rest.compartment">
+			<path value="CapabilityStatement.rest.compartment"/>
+			<short value="Compartments served/used by system"/>
+			<definition value="An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by its canonical URL ."/>
+			<comment value="At present, the only defined compartments are at [CompartmentDefinition](compartmentdefinition.html)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CompartmentDefinition"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.messaging">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="310,0"/>
+			</extension>
+			<path value="CapabilityStatement.messaging"/>
+			<short value="If messaging is supported"/>
+			<definition value="A description of the messaging capabilities of the solution."/>
+			<comment value="Multiple repetitions allow the documentation of multiple endpoints per solution."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<condition value="cpb-1"/>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.messaging.endpoint">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="570,0"/>
+			</extension>
+			<path value="CapabilityStatement.messaging.endpoint"/>
+			<short value="Where messages should be sent"/>
+			<definition value="An endpoint (network accessible address) to which messages and/or replies are to be sent."/>
+			<alias value="3"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.messaging.endpoint.protocol">
+			<path value="CapabilityStatement.messaging.endpoint.protocol"/>
+			<short value="http | ftp | mllp +"/>
+			<definition value="A list of the messaging transport protocol(s) identifiers, supported by this endpoint."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="Coding"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="MessageTransport"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The protocol used for message transport."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/message-transport"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.messaging.endpoint.address">
+			<path value="CapabilityStatement.messaging.endpoint.address"/>
+			<short value="Network address or identifier of the end-point"/>
+			<definition value="The network address of the endpoint. For solutions that do not use network addresses for routing, it can be just an identifier."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="url"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.messaging.reliableCache">
+			<path value="CapabilityStatement.messaging.reliableCache"/>
+			<short value="Reliable Message Cache Length (min)"/>
+			<definition value="Length if the receiver&#39;s reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender)."/>
+			<comment value="If this value is missing then the application does not implement (receiver) or depend on (sender) reliable messaging."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="unsignedInt"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.messaging.documentation">
+			<path value="CapabilityStatement.messaging.documentation"/>
+			<short value="Messaging interface behavior details"/>
+			<definition value="Documentation about the system&#39;s messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.messaging.supportedMessage">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="-20,0"/>
+			</extension>
+			<path value="CapabilityStatement.messaging.supportedMessage"/>
+			<short value="Messages supported by this system"/>
+			<definition value="References to message definitions for messages this system can send or receive."/>
+			<comment value="This is a proposed alternative to the messaging.event structure."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.messaging.supportedMessage.mode">
+			<path value="CapabilityStatement.messaging.supportedMessage.mode"/>
+			<short value="sender | receiver"/>
+			<definition value="The mode of this event declaration - whether application is sender or receiver."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EventCapabilityMode"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The mode of a message capability statement."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/event-capability-mode"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.messaging.supportedMessage.definition">
+			<path value="CapabilityStatement.messaging.supportedMessage.definition"/>
+			<short value="Message supported by this system"/>
+			<definition value="Points to a message definition that identifies the messaging event, message structure, allowed responses, etc."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/MessageDefinition"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.document">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="-20,300"/>
+			</extension>
+			<path value="CapabilityStatement.document"/>
+			<short value="Document definition"/>
+			<definition value="A document definition."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<condition value="cpb-1"/>
+			<isSummary value="true"/>
+		</element>
+		<element id="CapabilityStatement.document.mode">
+			<path value="CapabilityStatement.document.mode"/>
+			<short value="producer | consumer"/>
+			<definition value="Mode of this document declaration - whether an application is a producer or consumer."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="DocumentMode"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Whether the application produces or consumes documents."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/document-mode"/>
+			</binding>
+		</element>
+		<element id="CapabilityStatement.document.documentation">
+			<path value="CapabilityStatement.document.documentation"/>
+			<short value="Description of document support"/>
+			<definition value="A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="CapabilityStatement.document.profile">
+			<path value="CapabilityStatement.document.profile"/>
+			<short value="Constraint on the resources used in the document"/>
+			<definition value="A profile on the document Bundle that constrains which resources are present, and their contents."/>
+			<comment value="The profile is actually on the Bundle."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+	</differential>
 </StructureDefinition>

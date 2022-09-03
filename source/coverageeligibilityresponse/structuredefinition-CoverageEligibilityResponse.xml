@@ -290,7 +290,7 @@
         </extension>
         <strength value="required"/>
         <description value="The outcome of the processing."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/eligibility-outcome|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/eligibility-outcome"/>
       </binding>
     </element>
     <element id="CoverageEligibilityResponse.disposition">
@@ -406,7 +406,7 @@
         <severity value="error"/>
         <human value="SHALL contain a category or a billcode but not both."/>
         <expression value="category.exists() xor productOrService.exists()"/>
-        <xpath value="exists(f:category) or exists(f:productOrService)"/>
+        <xpath value="exists(f:category) != exists(f:productOrService)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse"/>
       </constraint>
     </element>

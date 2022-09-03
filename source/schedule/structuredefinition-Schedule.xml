@@ -200,7 +200,7 @@
       <definition value="Further description of the schedule as it would be presented to a consumer while searching."/>
       <comment value="This MAY be used to describe what the schedule is for where it is clearer than just the name of the single actor." />
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="string"/>
       </type>

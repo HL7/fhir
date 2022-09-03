@@ -53,7 +53,7 @@
 	</space>
 	<space>
 		<url>http://loinc.org</url>
-		<columnName>LOINC Code</columnName>
+		<columnName>LOINC Field Name</columnName>
 		<title>LOINC code for the element</title>
 		<id>loinc</id>
 		<sort>2</sort>
@@ -118,7 +118,7 @@
 	</space>
 	<space>
 		<url>http://nema.org/dicom</url>
-		<link>http://nema.org/dicom</link>
+		<link>https://www.dicomstandard.org/current</link>
 		<columnName>DICOM Mapping</columnName>
 		<title>DICOM Tag Mapping</title>
 		<id>dicom</id>

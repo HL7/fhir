@@ -18,13 +18,14 @@
   <compose>
     <!-- CDA specific document types. Use these for IHE published CDA templates -->
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/formatcodes"/>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-HL7FormatCodes"/>
     </include>
     
     <!-- FHIR Resource types -->
     <include>
-      <system value="http://hl7.org/fhir/resource-types"/>
+      <import value="http://hl7.org/fhir/ValueSet/resource-types"/>
     </include>
+
     
     <!-- how to do profile references as codes -->
     <include>

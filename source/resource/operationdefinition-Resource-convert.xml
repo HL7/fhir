@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
-    <valueMarkdown value="While the primary use of this operation is simple - converting a resource from one format to another, there are many potential uses including:&#xA;&#xA;* converting resources from one version to another&#xA;* restructuring information in a resource (e.g. moving method into/out of Observation.code)&#xA;* extracting data from a questionnaire&#xA;* converting CDA documents or v2 messages (as a binary resource) to a bundle (or vice versa) (or even openEHR or openMHealth). &#xA;&#xA;These variants would all be associated with parameters that define and control these kind of conversions, though such parameters are not defined at this time. In the absence of any parameters, simple format conversion is all that will occur.&#xA;&#xA;For this reason, implementers should be aware that:&#xA;&#xA;* the output resource type may be different from the input resource (particularly, it might be a bundle)&#xA;* binary resources may be represented directly using some other content-type (i.e. just post the content directly)&#xA;&#xA;Implementers are encouraged to provide feedback to HL7 about their use of this operation"/>
+    <valueMarkdown value="While the primary use of this operation is simple - converting a resource from one format to another, there are many potential uses including:&#xA;&#xA;* converting resources from one version to another&#xA;* restructuring information in a resource (e.g. moving method into/out of Observation.code)&#xA;* extracting data from a questionnaire&#xA;* converting CDA documents or v2 messages (as a binary resource) to a bundle (or vice versa) (or even openEHR or openMHealth). &#xA;&#xA;These variants would all be associated with parameters that define and control these kind of conversions, though such parameters are not defined at this time. In the absence of any parameters, simple format conversion is all that will occur.&#xA;&#xA;For this reason, implementers should be aware that:&#xA;&#xA;* the `return` resource type may be different from the `resource` parameter resource type (for example, it might be a bundle)&#xA;* binary resources may be represented directly using some other content-type (in other words, just post the content directly)&#xA;&#xA;Implementers are encouraged to provide feedback to HL7 about their use of this operation"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Resource-convert"/>
   <version value="5.0.0"/>
@@ -54,16 +54,16 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="This operation takes a resource in one form, and returns to in another form. Both input and output are a single resource. The primary use of this operation is to convert between formats (e.g. (XML -&gt; JSON or vice versa)"/>
+  <description value="This operation takes a resource in one form, and returns to in another form. Both the `resource` and `return` parameters are a single resource. The primary use of this operation is to convert between formats (e.g. (XML -&gt; JSON or vice versa)"/>
   <affectsState value="false"/>
   <code value="convert"/>
-  <comment value="While the primary use of this operation is simple - converting a resource from one format to another, there are many potential uses including:&#xA;&#xA;* converting resources from one version to another&#xA;* restructuring information in a resource (e.g. moving method into/out of Observation.code)&#xA;* extracting data from a questionnaire&#xA;* converting CDA documents or v2 messages (as a binary resource) to a bundle (or vice versa) (or even openEHR or openMHealth). &#xA;&#xA;These variants would all be associated with parameters that define and control these kind of conversions, though such parameters are not defined at this time. In the absence of any parameters, simple format conversion is all that will occur.&#xA;&#xA;For this reason, implementers should be aware that:&#xA;&#xA;* the output resource type may be different from the input resource (particularly, it might be a bundle)&#xA;* binary resources may be represented directly using some other content-type (i.e. just post the content directly)&#xA;&#xA;Implementers are encouraged to provide feedback to HL7 about their use of this operation"/>
+  <comment value="While the primary use of this operation is simple - converting a resource from one format to another, there are many potential uses including:&#xA;&#xA;* converting resources from one version to another&#xA;* restructuring information in a resource (e.g. moving method into/out of Observation.code)&#xA;* extracting data from a questionnaire&#xA;* converting CDA documents or v2 messages (as a binary resource) to a bundle (or vice versa) (or even openEHR or openMHealth). &#xA;&#xA;These variants would all be associated with parameters that define and control these kind of conversions, though such parameters are not defined at this time. In the absence of any parameters, simple format conversion is all that will occur.&#xA;&#xA;For this reason, implementers should be aware that:&#xA;&#xA;* the `return` parameter resource type may be different from the `resource` parameter resource type (for example, it might be a bundle)&#xA;* binary resources may be represented directly using some other content-type (in other words, just posting the content directly)&#xA;&#xA;Implementers are encouraged to provide feedback to HL7 about their use of this operation"/>
   <resource value="Resource"/>
   <system value="true"/>
   <type value="false"/>
   <instance value="false"/>
   <parameter>
-    <name value="input"/>
+    <name value="resource"/>
     <use value="in"/>
     <min value="1"/>
     <max value="1"/>
@@ -71,7 +71,7 @@
     <type value="Resource"/>
   </parameter>
   <parameter>
-    <name value="output"/>
+    <name value="return"/>
     <use value="out"/>
     <min value="1"/>
     <max value="1"/>

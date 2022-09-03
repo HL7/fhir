@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="ActorDefinition-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="ActorDefinition that contains a series of nested ratings to document the risk of bias assessment of an Evidence resource"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="actordefinition-client"/>
+    </extension>
+    <item>
+      <reference value="ActorDefinition/client"/>
+      <display value="Risk of Bias Example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Certainty Rating of all-cause mortality in meta-analysis of RCTs of heparin for moderately ill patients with COVID-19"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="actordefinition-server"/>
+    </extension>
+    <item>
+      <reference value="ActorDefinition/server"/>
+      <display value="Certainty Rating Example"/>
+    </item>
+  </entry>
+</List>

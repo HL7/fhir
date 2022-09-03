@@ -12,6 +12,7 @@
       </pre>
     </div>
   </text>
+  <questionnaire value="http://hl7.org/fhir/Questionnaire/bb"/>
   <status value="completed"/>
   <subject>
     <reference value="http://hl7.org/fhir/Patient/1"/>
@@ -75,14 +76,14 @@
               <linkId value="vitaminKDose1"/>
               <text value="1st dose"/>
               <answer>
-                <valueDate value="1972-11-30"/>
+                <valueDateTime value="1972-11-30"/>
               </answer>
             </item>
             <item>
               <linkId value="vitaminKDose2"/>
               <text value="2nd dose"/>
               <answer>
-                <valueDate value="1972-12-11"/>
+                <valueDateTime value="1972-12-11"/>
               </answer>
             </item>
           </item>

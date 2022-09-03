@@ -15,7 +15,9 @@
 		<text value="Hepatitis B"/>
 	</vaccineCode>
 	<manufacturer>
-		<reference value="Organization/hl7"/>
+		<reference>
+			<reference value="Organization/hl7"/>
+		</reference>
 	</manufacturer>
 	<lotNumber value="AAJN11K"/>
 	<expirationDate value="2015-02-28"/>
@@ -80,17 +82,17 @@
 			<system value="http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason"/>
 			<code value="partialdose"/>
 		</coding>
-	</subpotentReason>
-	<education>
-		<documentType value="253088698300010311120702"/>
-		<publicationDate value="2012-07-02"/>
-		<presentationDate value="2013-01-10"/>
-	</education>
+	</subpotentReason>		
 	<programEligibility>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"/>
-			<code value="ineligible"/>
-		</coding>
+		<program>
+			<text value="VFC"/>
+		</program>
+		<programStatus>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"/>
+				<code value="uninsured"/>
+			</coding>
+		</programStatus>
 	</programEligibility>
 	<fundingSource>
 		<coding>

@@ -1,1025 +1,1032 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="Evidence"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-    <valueString value="Specialized.Evidence-Based Medicine"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="business"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".status = retired"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="MetadataResource"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
-  <version value="5.0.0"/>
-  <name value="Evidence"/>
-  <status value="draft"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (Clinical Decision Support)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
-    </telecom>
-  </contact>
-  <description value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
-  <fhirVersion value="5.0.0"/>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="Evidence"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
-  <derivation value="specialization"/>
-  <differential>
-    <element id="Evidence">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,40"/>
-      </extension>
-      <path value="Evidence"/>
-      <short value="Single evidence bit"/>
-      <definition value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
-      <min value="0"/>
-      <max value="*"/>
-      <constraint>
-        <key value="cnl-0"/>
-        <severity value="warning"/>
-        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
-      </constraint>
-      <mapping>
-        <identity value="w5"/>
-        <map value="clinical.general"/>
-      </mapping>
-    </element>
-    <element id="Evidence.url">
-      <path value="Evidence.url"/>
-      <short value="Canonical identifier for this evidence, represented as a globally unique URI"/>
-      <definition value="An absolute URI that is used to identify this evidence when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version."/>
-      <requirements value="Allows the evidence to be referenced by a single globally unique identifier."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.url"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-    </element>
-    <element id="Evidence.identifier">
-      <path value="Evidence.identifier"/>
-      <short value="Additional identifier for the summary"/>
-      <definition value="A formal identifier that is used to identify this summary when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-      <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this summary outside of FHIR, where it is not possible to use the logical URI."/>
-      <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="Evidence.version">
-      <path value="Evidence.version"/>
-      <short value="Business version of this summary"/>
-      <definition value="The identifier that is used to identify this version of the summary when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the summary author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author. Considerations for making this decision are found in Technical and Business Versions."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.version"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.version"/>
-      </mapping>
-    </element>
-    <element id="Evidence.name">
-      <path value="Evidence.name"/>
-      <short value="Name for this summary (machine friendly)"/>
-      <definition value="A natural language name identifying the evidence. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <condition value="cnl-0"/>
-    </element>
-    <element id="Evidence.title">
-      <path value="Evidence.title"/>
-      <short value="Name for this summary (human friendly)"/>
-      <definition value="A short, descriptive, user-friendly title for the summary."/>
-      <comment value="In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the meta.source element to indicate where the current master source of the resource can be found."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.title"/>
-      </mapping>
-    </element>
-    <element id="Evidence.citeAs[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="490,150"/>
-      </extension>
-      <path value="Evidence.citeAs[x]"/>
-      <short value="Citation for this evidence"/>
-      <definition value="Citation Resource or display of suggested citation for this evidence."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
-      </type>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="Evidence.status">
-      <path value="Evidence.status"/>
-      <short value="draft | active | retired | unknown"/>
-      <definition value="The status of this summary. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of summarys s that are appropriate for use versus not."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PublicationStatus"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.status"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-    </element>
-    <element id="Evidence.experimental">
-      <path value="Evidence.experimental"/>
-      <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this resource is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <meaningWhenMissing value="False"/>
-    </element>
-    <element id="Evidence.date">
-      <path value="Evidence.date"/>
-      <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the summary was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the summary changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the summary. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-      <alias value="Revision Date"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.date"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.recorded"/>
-      </mapping>
-    </element>
-    <element id="Evidence.useContext">
-      <path value="Evidence.useContext"/>
-      <short value="The context that the content is intended to support"/>
-      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate evidence instances."/>
-      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-      <requirements value="Assist in searching for appropriate content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="UsageContext"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.useContext"/>
-      </mapping>
-    </element>
-    <element id="Evidence.approvalDate">
-      <path value="Evidence.approvalDate"/>
-      <short value="When the summary was approved by publisher"/>
-      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="date"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.approvalDate"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="Evidence.lastReviewDate">
-      <path value="Evidence.lastReviewDate"/>
-      <short value="When the summary was last reviewed"/>
-      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
-      <comment value="If specified, this date follows the original approval date."/>
-      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="date"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.lastReviewDate"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="Evidence.publisher">
-      <path value="Evidence.publisher"/>
-      <short value="Name of the publisher (organization or individual)"/>
-      <definition value="The name of the organization or individual that published the evidence."/>
-      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the evidence is the organization or individual primarily responsible for the maintenance and upkeep of the evidence. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the evidence. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the evidence.  May also allow for contact."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.publisher"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.witness"/>
-      </mapping>
-    </element>
-    <element id="Evidence.contact">
-      <path value="Evidence.contact"/>
-      <short value="Contact details for the publisher"/>
-      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.contact"/>
-      </mapping>
-    </element>
-    <element id="Evidence.author">
-      <path value="Evidence.author"/>
-      <short value="Who authored the content"/>
-      <definition value="An individiual, organization, or device primarily involved in the creation and maintenance of the content."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Evidence.editor">
-      <path value="Evidence.editor"/>
-      <short value="Who edited the content"/>
-      <definition value="An individiual, organization, or device primarily responsible for internal coherence of the content."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-    </element>
-    <element id="Evidence.reviewer">
-      <path value="Evidence.reviewer"/>
-      <short value="Who reviewed the content"/>
-      <definition value="An individiual, organization, or device primarily responsible for review of some aspect of the content."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-    </element>
-    <element id="Evidence.endorser">
-      <path value="Evidence.endorser"/>
-      <short value="Who endorsed the content"/>
-      <definition value="An individiual, organization, or device responsible for officially endorsing the content for use in some setting."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Evidence.relatedArtifact">
-      <path value="Evidence.relatedArtifact"/>
-      <short value="Link or citation to artifact associated with the summary"/>
-      <definition value="Link or citation to artifact associated with the summary."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="RelatedArtifact"/>
-      </type>
-    </element>
-    <element id="Evidence.description">
-      <path value="Evidence.description"/>
-      <short value="Description of the particular summary"/>
-      <definition value="A free text natural language description of the evidence from a consumer&#39;s perspective."/>
-      <comment value="This description can be used to capture details such as why the evidence was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the evidence as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the evidence is presumed to be the predominant language in the place the evidence was created)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.description"/>
-      </mapping>
-    </element>
-    <element id="Evidence.assertion">
-      <path value="Evidence.assertion"/>
-      <short value="Declarative description of the Evidence"/>
-      <definition value="Declarative description of the Evidence."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="Evidence.note">
-      <path value="Evidence.note"/>
-      <short value="Footnotes and/or explanatory notes"/>
-      <definition value="Footnotes and/or explanatory notes."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Annotation"/>
-      </type>
-    </element>
-    <element id="Evidence.variableDefinition">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="490,150"/>
-      </extension>
-      <path value="Evidence.variableDefinition"/>
-      <short value="Evidence variable such as population, exposure, or outcome"/>
-      <definition value="Evidence variable such as population, exposure, or outcome."/>
-      <min value="1"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Evidence.variableDefinition.description">
-      <path value="Evidence.variableDefinition.description"/>
-      <short value="A text description or summary of the variable"/>
-      <definition value="A text description or summary of the variable."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="Evidence.variableDefinition.note">
-      <path value="Evidence.variableDefinition.note"/>
-      <short value="Footnotes and/or explanatory notes"/>
-      <definition value="Footnotes and/or explanatory notes."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Annotation"/>
-      </type>
-    </element>
-    <element id="Evidence.variableDefinition.variableRole">
-      <path value="Evidence.variableDefinition.variableRole"/>
-      <short value="population | subpopulation | exposure | referenceExposure | measuredVariable | confounder"/>
-      <definition value="population | subpopulation | exposure | referenceExposure | measuredVariable | confounder."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="EvidenceVariableRole"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The role that the assertion variable plays."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/variable-role"/>
-      </binding>
-    </element>
-    <element id="Evidence.variableDefinition.observed">
-      <path value="Evidence.variableDefinition.observed"/>
-      <short value="Definition of the actual variable related to the statistic(s)"/>
-      <definition value="Definition of the actual variable related to the statistic(s)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="Evidence.variableDefinition.intended">
-      <path value="Evidence.variableDefinition.intended"/>
-      <short value="Definition of the intended variable related to the Evidence"/>
-      <definition value="Definition of the intended variable related to the Evidence."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
-      </type>
-    </element>
-    <element id="Evidence.variableDefinition.directnessMatch">
-      <path value="Evidence.variableDefinition.directnessMatch"/>
-      <short value="low | moderate | high | exact"/>
-      <definition value="Indication of quality of match between intended variable to actual variable."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="EvidenceDirectness"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The quality of how direct the match is."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/directness"/>
-      </binding>
-    </element>
-    <element id="Evidence.synthesisType">
-      <path value="Evidence.synthesisType"/>
-      <short value="The method to combine studies"/>
-      <definition value="The method to combine studies."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SynthesisType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Types of combining results from a body of evidence (eg. summary data meta-analysis)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/synthesis-type"/>
-      </binding>
-    </element>
-    <element id="Evidence.studyType">
-      <path value="Evidence.studyType"/>
-      <short value="The type of study that produced this evidence"/>
-      <definition value="The type of study that produced this evidence."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="StudyType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The type of study the evidence was derived from."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/study-type"/>
-      </binding>
-    </element>
-    <element id="Evidence.statistic">
-      <path value="Evidence.statistic"/>
-      <short value="Values and parameters for a single statistic"/>
-      <definition value="Values and parameters for a single statistic."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.description">
-      <path value="Evidence.statistic.description"/>
-      <short value="Description of content"/>
-      <definition value="A description of the content value of the statistic."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.note">
-      <path value="Evidence.statistic.note"/>
-      <short value="Footnotes and/or explanatory notes"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Annotation"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.statisticType">
-      <path value="Evidence.statistic.statisticType"/>
-      <short value="Type of statistic, e.g., relative risk"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="StatisticType"/>
-        </extension>
-        <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/statistic-type"/>
-      </binding>
-    </element>
-    <element id="Evidence.statistic.category">
-      <path value="Evidence.statistic.category"/>
-      <short value="Associated category for categorical variable"/>
-      <definition value="When the measured variable is handled categorically, the category element is used to define which category the statistic is reporting."/>
-      <comment value="Simple strings can be used for descriptive purposes. Exact matching to EvidenceVariable.category.name for the Evidence.variableDefinition[variableRole=measuredVariable].observed=Reference(EvidenceVariable) could facilitate validation within datasets."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.quantity">
-      <path value="Evidence.statistic.quantity"/>
-      <short value="Statistic value"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.numberOfEvents">
-      <path value="Evidence.statistic.numberOfEvents"/>
-      <short value="The number of events associated with the statistic"/>
-      <definition value="The number of events associated with the statistic, where the unit of analysis is different from numberAffected, sampleSize.knownDataCount and sampleSize.numberOfParticipants."/>
-      <comment value="When the number of events is the statistic, use Evidence.statistic.quantity and set Evidence.statistic.type.coding.code=C25463 and Evidence.statistic.type.coding.display=Count. When the statistic is an Event Rate (where individual participants may have 2 or more events), use Evidence.statistic.numberOfEvents to record the total number of events rather than the number of participants with events."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="unsignedInt"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.numberAffected">
-      <path value="Evidence.statistic.numberAffected"/>
-      <short value="The number of participants affected"/>
-      <definition value="The number of participants affected where the unit of analysis is the same as sampleSize.knownDataCount and sampleSize.numberOfParticipants."/>
-      <comment value="When the number affected is the statistic, use Evidence.statistic.quantity and set Evidence.statistic.type.coding.code=C25463 and Evidence.statistic.type.coding.display=Count. When the statistic is a Proportion, use Evidence.statistic.numberAffected and enter an integer as the value. When the statistic is an Event Rate (where individual participants may have 2 or more events), use Evidence.statistic.numberAffected to record the number of participants with events rather than the total number of events."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="unsignedInt"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.sampleSize">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="100;100"/>
-      </extension>
-      <path value="Evidence.statistic.sampleSize"/>
-      <short value="Number of samples in the statistic"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.sampleSize.description">
-      <path value="Evidence.statistic.sampleSize.description"/>
-      <short value="Textual description of sample size for statistic"/>
-      <definition value="Human-readable summary of population sample size."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.sampleSize.note">
-      <path value="Evidence.statistic.sampleSize.note"/>
-      <short value="Footnote or explanatory note about the sample size"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Annotation"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.sampleSize.numberOfStudies">
-      <path value="Evidence.statistic.sampleSize.numberOfStudies"/>
-      <short value="Number of contributing studies"/>
-      <definition value="Number of participants in the population."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="unsignedInt"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.sampleSize.numberOfParticipants">
-      <path value="Evidence.statistic.sampleSize.numberOfParticipants"/>
-      <short value="Cumulative number of participants"/>
-      <definition value="A human-readable string to clarify or explain concepts about the sample size."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="unsignedInt"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.sampleSize.knownDataCount">
-      <path value="Evidence.statistic.sampleSize.knownDataCount"/>
-      <short value="Number of participants with known results for measured variables"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="unsignedInt"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.attributeEstimate">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="300;100"/>
-      </extension>
-      <path value="Evidence.statistic.attributeEstimate"/>
-      <short value="An attribute of the Statistic"/>
-      <definition value="A statistical attribute of the statistic such as a measure of heterogeneity."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.attributeEstimate.description">
-      <path value="Evidence.statistic.attributeEstimate.description"/>
-      <short value="Textual description of the attribute estimate"/>
-      <definition value="Human-readable summary of the estimate."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.attributeEstimate.note">
-      <path value="Evidence.statistic.attributeEstimate.note"/>
-      <short value="Footnote or explanatory note about the estimate"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Annotation"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.attributeEstimate.type">
-      <path value="Evidence.statistic.attributeEstimate.type"/>
-      <short value="The type of attribute estimate, e.g., confidence interval or p value"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AttributeEstimateType"/>
-        </extension>
-        <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/attribute-estimate-type"/>
-      </binding>
-    </element>
-    <element id="Evidence.statistic.attributeEstimate.quantity">
-      <path value="Evidence.statistic.attributeEstimate.quantity"/>
-      <short value="The singular quantity of the attribute estimate, for attribute estimates represented as single values; also used to report unit of measure"/>
-      <comment value="Often the p value"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.attributeEstimate.level">
-      <path value="Evidence.statistic.attributeEstimate.level"/>
-      <short value="Level of confidence interval, e.g., 0.95 for 95% confidence interval"/>
-      <definition value="Use 95 for a 95% confidence interval."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.attributeEstimate.range">
-      <path value="Evidence.statistic.attributeEstimate.range"/>
-      <short value="Lower and upper bound values of the attribute estimate"/>
-      <definition value="Lower bound of confidence interval."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Range"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.attributeEstimate.attributeEstimate">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="AttributeEstimateAttributeEstimate"/>
-      </extension>
-      <path value="Evidence.statistic.attributeEstimate.attributeEstimate"/>
-      <short value="A nested attribute estimate; which is the attribute estimate of an attribute estimate"/>
-      <definition value="A nested attribute estimate; which is the attribute estimate of an attribute estimate."/>
-      <comment value="A nested attribute estimate; which is the attribute estimate of an attribute estimate"/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#Evidence.statistic.attributeEstimate"/>
-    </element>
-    <element id="Evidence.statistic.modelCharacteristic">
-      <path value="Evidence.statistic.modelCharacteristic"/>
-      <short value="An aspect of the statistical model"/>
-      <definition value="A component of the method to generate the statistic."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.modelCharacteristic.code">
-      <path value="Evidence.statistic.modelCharacteristic.code"/>
-      <short value="Model specification"/>
-      <definition value="Description of a component of the method to generate the statistic."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="StatisticModelCode"/>
-        </extension>
-        <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/statistic-model-code"/>
-      </binding>
-    </element>
-    <element id="Evidence.statistic.modelCharacteristic.value">
-      <path value="Evidence.statistic.modelCharacteristic.value"/>
-      <short value="Numerical value to complete model specification"/>
-      <definition value="Further specification of the quantified value of the component of the method to generate the statistic."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.modelCharacteristic.variable">
-      <path value="Evidence.statistic.modelCharacteristic.variable"/>
-      <short value="A variable adjusted for in the adjusted analysis"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.modelCharacteristic.variable.variableDefinition">
-      <path value="Evidence.statistic.modelCharacteristic.variable.variableDefinition"/>
-      <short value="Description of the variable"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.modelCharacteristic.variable.handling">
-      <path value="Evidence.statistic.modelCharacteristic.variable.handling"/>
-      <short value="continuous | dichotomous | ordinal | polychotomous"/>
-      <definition value="How the variable is classified for use in adjusted analysis."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="EvidenceVariableHandling"/>
-        </extension>
-        <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/variable-handling"/>
-      </binding>
-    </element>
-    <element id="Evidence.statistic.modelCharacteristic.variable.valueCategory">
-      <path value="Evidence.statistic.modelCharacteristic.variable.valueCategory"/>
-      <short value="Description for grouping of ordinal or polychotomous variables"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.modelCharacteristic.variable.valueQuantity">
-      <path value="Evidence.statistic.modelCharacteristic.variable.valueQuantity"/>
-      <short value="Discrete value for grouping of ordinal or polychotomous variables"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Quantity"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.modelCharacteristic.variable.valueRange">
-      <path value="Evidence.statistic.modelCharacteristic.variable.valueRange"/>
-      <short value="Range of values for grouping of ordinal or polychotomous variables"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Range"/>
-      </type>
-    </element>
-    <element id="Evidence.statistic.modelCharacteristic.attributeEstimate">
-      <path value="Evidence.statistic.modelCharacteristic.attributeEstimate"/>
-      <short value="An attribute of the statistic used as a model characteristic"/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#Evidence.statistic.attributeEstimate"/>
-    </element>
-    <element id="Evidence.certainty">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="490,310"/>
-      </extension>
-      <path value="Evidence.certainty"/>
-      <short value="Certainty or quality of the evidence"/>
-      <definition value="Assessment of certainty, confidence in the estimates, or quality of the evidence."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="Evidence.certainty.description">
-      <path value="Evidence.certainty.description"/>
-      <short value="Textual description of certainty"/>
-      <definition value="Textual description of certainty."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Evidence.certainty.note">
-      <path value="Evidence.certainty.note"/>
-      <short value="Footnotes and/or explanatory notes"/>
-      <definition value="Footnotes and/or explanatory notes."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Annotation"/>
-      </type>
-    </element>
-    <element id="Evidence.certainty.type">
-      <path value="Evidence.certainty.type"/>
-      <short value="Aspect of certainty being rated"/>
-      <definition value="Aspect of certainty being rated."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="EvidenceCertaintyType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The aspect of quality, confidence, or certainty."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/certainty-type"/>
-      </binding>
-    </element>
-    <element id="Evidence.certainty.rating">
-      <path value="Evidence.certainty.rating"/>
-      <short value="Assessment or judgement of the aspect"/>
-      <definition value="Assessment or judgement of the aspect."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="EvidenceCertaintyRating"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The assessment of quality, confidence, or certainty."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/certainty-rating"/>
-      </binding>
-    </element>
-    <element id="Evidence.certainty.rater">
-      <path value="Evidence.certainty.rater"/>
-      <short value="Individual or group who did the rating"/>
-      <definition value="Individual or group who did the rating."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Evidence.certainty.subcomponent">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="955,310"/>
-      </extension>
-      <path value="Evidence.certainty.subcomponent"/>
-      <short value="A domain or subdomain of certainty"/>
-      <definition value="A domain or subdomain of certainty."/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#Evidence.certainty"/>
-    </element>
-  </differential>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="Evidence"/>
+	<meta>
+		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+		<valueString value="Specialized.Evidence-Based Medicine"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="1"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+		<valueCode value="business"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="cds"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+		<valueCode value=".status = retired"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+		<valueString value="MetadataResource"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
+	<version value="5.0.0"/>
+	<name value="Evidence"/>
+	<status value="draft"/>
+	<date value="2021-01-05T10:01:24+11:00"/>
+	<publisher value="Health Level Seven International (Clinical Decision Support)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
+		</telecom>
+	</contact>
+	<description value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="Evidence"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
+	<derivation value="specialization"/>
+	<differential>
+		<element id="Evidence">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="0,40"/>
+			</extension>
+			<path value="Evidence"/>
+			<short value="Single evidence bit"/>
+			<definition value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
+			<min value="0"/>
+			<max value="*"/>
+			<constraint>
+				<key value="cnl-0"/>
+				<severity value="warning"/>
+				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
+			</constraint>
+			<mapping>
+				<identity value="w5"/>
+				<map value="clinical.general"/>
+			</mapping>
+		</element>
+		<element id="Evidence.url">
+			<path value="Evidence.url"/>
+			<short value="Canonical identifier for this evidence, represented as a globally unique URI"/>
+			<definition value="An absolute URI that is used to identify this evidence when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers."/>
+			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version."/>
+			<requirements value="Allows the evidence to be referenced by a single globally unique identifier."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
+			<constraint>
+				<key value="cnl-1"/>
+				<severity value="warning"/>
+				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+				<expression value="url.matches(&#39;([^|#])*&#39;)"/>
+				<xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+			</constraint>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.url"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+		</element>
+		<element id="Evidence.identifier">
+			<path value="Evidence.identifier"/>
+			<short value="Additional identifier for the summary"/>
+			<definition value="A formal identifier that is used to identify this summary when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this summary outside of FHIR, where it is not possible to use the logical URI."/>
+			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="Evidence.version">
+			<path value="Evidence.version"/>
+			<short value="Business version of this summary"/>
+			<definition value="The identifier that is used to identify this version of the summary when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the summary author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+			<comment value="The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author. Considerations for making this decision are found in Technical and Business Versions."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.version"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.version"/>
+			</mapping>
+		</element>
+		<element id="Evidence.name">
+			<path value="Evidence.name"/>
+			<short value="Name for this summary (machine friendly)"/>
+			<definition value="A natural language name identifying the evidence. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<condition value="cnl-0"/>
+		</element>
+		<element id="Evidence.title">
+			<path value="Evidence.title"/>
+			<short value="Name for this summary (human friendly)"/>
+			<definition value="A short, descriptive, user-friendly title for the summary."/>
+			<comment value="In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the meta.source element to indicate where the current master source of the resource can be found."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.title"/>
+			</mapping>
+		</element>
+		<element id="Evidence.citeAs[x]">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="490,150"/>
+			</extension>
+			<path value="Evidence.citeAs[x]"/>
+			<short value="Citation for this evidence"/>
+			<definition value="Citation Resource or display of suggested citation for this evidence."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
+			</type>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="Evidence.status">
+			<path value="Evidence.status"/>
+			<short value="draft | active | retired | unknown"/>
+			<definition value="The status of this summary. Enables tracking the life-cycle of the content."/>
+			<comment value="Allows filtering of summarys s that are appropriate for use versus not."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isModifier value="true"/>
+			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PublicationStatus"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The lifecycle status of an artifact."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.status"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.status"/>
+			</mapping>
+		</element>
+		<element id="Evidence.experimental">
+			<path value="Evidence.experimental"/>
+			<short value="For testing purposes, not real usage"/>
+			<definition value="A Boolean value to indicate that this resource is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+		</element>
+		<element id="Evidence.date">
+			<path value="Evidence.date"/>
+			<short value="Date last changed"/>
+			<definition value="The date  (and optionally time) when the summary was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the summary changes."/>
+			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the summary. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+			<alias value="Revision Date"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.date"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.recorded"/>
+			</mapping>
+		</element>
+		<element id="Evidence.useContext">
+			<path value="Evidence.useContext"/>
+			<short value="The context that the content is intended to support"/>
+			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate evidence instances."/>
+			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+			<requirements value="Assist in searching for appropriate content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="UsageContext"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.useContext"/>
+			</mapping>
+		</element>
+		<element id="Evidence.approvalDate">
+			<path value="Evidence.approvalDate"/>
+			<short value="When the summary was approved by publisher"/>
+			<definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+			<comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="date"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.approvalDate"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="Evidence.lastReviewDate">
+			<path value="Evidence.lastReviewDate"/>
+			<short value="When the summary was last reviewed"/>
+			<definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
+			<comment value="If specified, this date follows the original approval date."/>
+			<requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="date"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.lastReviewDate"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="Evidence.publisher">
+			<path value="Evidence.publisher"/>
+			<short value="Name of the publisher (organization or individual)"/>
+			<definition value="The name of the organization or individual that published the evidence."/>
+			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the evidence is the organization or individual primarily responsible for the maintenance and upkeep of the evidence. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the evidence. This item SHOULD be populated unless the information is available from context."/>
+			<requirements value="Helps establish the &quot;authority/credibility&quot; of the evidence.  May also allow for contact."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.publisher"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.witness"/>
+			</mapping>
+		</element>
+		<element id="Evidence.contact">
+			<path value="Evidence.contact"/>
+			<short value="Contact details for the publisher"/>
+			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.contact"/>
+			</mapping>
+		</element>
+		<element id="Evidence.author">
+			<path value="Evidence.author"/>
+			<short value="Who authored the content"/>
+			<definition value="An individiual, organization, or device primarily involved in the creation and maintenance of the content."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="Evidence.editor">
+			<path value="Evidence.editor"/>
+			<short value="Who edited the content"/>
+			<definition value="An individiual, organization, or device primarily responsible for internal coherence of the content."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+		</element>
+		<element id="Evidence.reviewer">
+			<path value="Evidence.reviewer"/>
+			<short value="Who reviewed the content"/>
+			<definition value="An individiual, organization, or device primarily responsible for review of some aspect of the content."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+		</element>
+		<element id="Evidence.endorser">
+			<path value="Evidence.endorser"/>
+			<short value="Who endorsed the content"/>
+			<definition value="An individiual, organization, or device responsible for officially endorsing the content for use in some setting."/>
+			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="Evidence.relatedArtifact">
+			<path value="Evidence.relatedArtifact"/>
+			<short value="Link or citation to artifact associated with the summary"/>
+			<definition value="Link or citation to artifact associated with the summary."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="RelatedArtifact"/>
+			</type>
+		</element>
+		<element id="Evidence.description">
+			<path value="Evidence.description"/>
+			<short value="Description of the particular summary"/>
+			<definition value="A free text natural language description of the evidence from a consumer&#39;s perspective."/>
+			<comment value="This description can be used to capture details such as why the evidence was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the evidence as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the evidence is presumed to be the predominant language in the place the evidence was created)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.description"/>
+			</mapping>
+		</element>
+		<element id="Evidence.assertion">
+			<path value="Evidence.assertion"/>
+			<short value="Declarative description of the Evidence"/>
+			<definition value="Declarative description of the Evidence."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="Evidence.note">
+			<path value="Evidence.note"/>
+			<short value="Footnotes and/or explanatory notes"/>
+			<definition value="Footnotes and/or explanatory notes."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Annotation"/>
+			</type>
+		</element>
+		<element id="Evidence.variableDefinition">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="490,150"/>
+			</extension>
+			<path value="Evidence.variableDefinition"/>
+			<short value="Evidence variable such as population, exposure, or outcome"/>
+			<definition value="Evidence variable such as population, exposure, or outcome."/>
+			<min value="1"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="Evidence.variableDefinition.description">
+			<path value="Evidence.variableDefinition.description"/>
+			<short value="A text description or summary of the variable"/>
+			<definition value="A text description or summary of the variable."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="Evidence.variableDefinition.note">
+			<path value="Evidence.variableDefinition.note"/>
+			<short value="Footnotes and/or explanatory notes"/>
+			<definition value="Footnotes and/or explanatory notes."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Annotation"/>
+			</type>
+		</element>
+		<element id="Evidence.variableDefinition.variableRole">
+			<path value="Evidence.variableDefinition.variableRole"/>
+			<short value="population | subpopulation | exposure | referenceExposure | measuredVariable | confounder"/>
+			<definition value="population | subpopulation | exposure | referenceExposure | measuredVariable | confounder."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceVariableRole"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The role that the assertion variable plays."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/variable-role"/>
+			</binding>
+		</element>
+		<element id="Evidence.variableDefinition.observed">
+			<path value="Evidence.variableDefinition.observed"/>
+			<short value="Definition of the actual variable related to the statistic(s)"/>
+			<definition value="Definition of the actual variable related to the statistic(s)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="Evidence.variableDefinition.intended">
+			<path value="Evidence.variableDefinition.intended"/>
+			<short value="Definition of the intended variable related to the Evidence"/>
+			<definition value="Definition of the intended variable related to the Evidence."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+			</type>
+		</element>
+		<element id="Evidence.variableDefinition.directnessMatch">
+			<path value="Evidence.variableDefinition.directnessMatch"/>
+			<short value="low | moderate | high | exact"/>
+			<definition value="Indication of quality of match between intended variable to actual variable."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceDirectness"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The quality of how direct the match is."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/directness"/>
+			</binding>
+		</element>
+		<element id="Evidence.synthesisType">
+			<path value="Evidence.synthesisType"/>
+			<short value="The method to combine studies"/>
+			<definition value="The method to combine studies."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SynthesisType"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Types of combining results from a body of evidence (eg. summary data meta-analysis)."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/synthesis-type"/>
+			</binding>
+		</element>
+		<element id="Evidence.studyDesign">
+			<path value="Evidence.studyDesign"/>
+			<short value="The design of the study that produced this evidence"/>
+			<definition value="The design of the study that produced this evidence. The design is described with any number of study design characteristics."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="StudyDesign"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="This is a set of terms for study design characteristics."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/study-design"/>
+			</binding>
+		</element>
+		<element id="Evidence.statistic">
+			<path value="Evidence.statistic"/>
+			<short value="Values and parameters for a single statistic"/>
+			<definition value="Values and parameters for a single statistic."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.description">
+			<path value="Evidence.statistic.description"/>
+			<short value="Description of content"/>
+			<definition value="A description of the content value of the statistic."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.note">
+			<path value="Evidence.statistic.note"/>
+			<short value="Footnotes and/or explanatory notes"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Annotation"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.statisticType">
+			<path value="Evidence.statistic.statisticType"/>
+			<short value="Type of statistic, e.g., relative risk"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="StatisticType"/>
+				</extension>
+				<strength value="extensible"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/statistic-type"/>
+			</binding>
+		</element>
+		<element id="Evidence.statistic.category">
+			<path value="Evidence.statistic.category"/>
+			<short value="Associated category for categorical variable"/>
+			<definition value="When the measured variable is handled categorically, the category element is used to define which category the statistic is reporting."/>
+			<comment value="Simple strings can be used for descriptive purposes. Exact matching to EvidenceVariable.category.name for the Evidence.variableDefinition[variableRole=measuredVariable].observed=Reference(EvidenceVariable) could facilitate validation within datasets."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.quantity">
+			<path value="Evidence.statistic.quantity"/>
+			<short value="Statistic value"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Quantity"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.numberOfEvents">
+			<path value="Evidence.statistic.numberOfEvents"/>
+			<short value="The number of events associated with the statistic"/>
+			<definition value="The number of events associated with the statistic, where the unit of analysis is different from numberAffected, sampleSize.knownDataCount and sampleSize.numberOfParticipants."/>
+			<comment value="When the number of events is the statistic, use Evidence.statistic.quantity and set Evidence.statistic.type.coding.code=C25463 and Evidence.statistic.type.coding.display=Count. When the statistic is an Event Rate (where individual participants may have 2 or more events), use Evidence.statistic.numberOfEvents to record the total number of events rather than the number of participants with events."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="unsignedInt"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.numberAffected">
+			<path value="Evidence.statistic.numberAffected"/>
+			<short value="The number of participants affected"/>
+			<definition value="The number of participants affected where the unit of analysis is the same as sampleSize.knownDataCount and sampleSize.numberOfParticipants."/>
+			<comment value="When the number affected is the statistic, use Evidence.statistic.quantity and set Evidence.statistic.type.coding.code=C25463 and Evidence.statistic.type.coding.display=Count. When the statistic is a Proportion, use Evidence.statistic.numberAffected and enter an integer as the value. When the statistic is an Event Rate (where individual participants may have 2 or more events), use Evidence.statistic.numberAffected to record the number of participants with events rather than the total number of events."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="unsignedInt"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.sampleSize">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+				<valueCode value="100;100"/>
+			</extension>
+			<path value="Evidence.statistic.sampleSize"/>
+			<short value="Number of samples in the statistic"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.sampleSize.description">
+			<path value="Evidence.statistic.sampleSize.description"/>
+			<short value="Textual description of sample size for statistic"/>
+			<definition value="Human-readable summary of population sample size."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.sampleSize.note">
+			<path value="Evidence.statistic.sampleSize.note"/>
+			<short value="Footnote or explanatory note about the sample size"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Annotation"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.sampleSize.numberOfStudies">
+			<path value="Evidence.statistic.sampleSize.numberOfStudies"/>
+			<short value="Number of contributing studies"/>
+			<definition value="Number of participants in the population."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="unsignedInt"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.sampleSize.numberOfParticipants">
+			<path value="Evidence.statistic.sampleSize.numberOfParticipants"/>
+			<short value="Cumulative number of participants"/>
+			<definition value="A human-readable string to clarify or explain concepts about the sample size."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="unsignedInt"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.sampleSize.knownDataCount">
+			<path value="Evidence.statistic.sampleSize.knownDataCount"/>
+			<short value="Number of participants with known results for measured variables"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="unsignedInt"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.attributeEstimate">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+				<valueCode value="300;100"/>
+			</extension>
+			<path value="Evidence.statistic.attributeEstimate"/>
+			<short value="An attribute of the Statistic"/>
+			<definition value="A statistical attribute of the statistic such as a measure of heterogeneity."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.attributeEstimate.description">
+			<path value="Evidence.statistic.attributeEstimate.description"/>
+			<short value="Textual description of the attribute estimate"/>
+			<definition value="Human-readable summary of the estimate."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.attributeEstimate.note">
+			<path value="Evidence.statistic.attributeEstimate.note"/>
+			<short value="Footnote or explanatory note about the estimate"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Annotation"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.attributeEstimate.type">
+			<path value="Evidence.statistic.attributeEstimate.type"/>
+			<short value="The type of attribute estimate, e.g., confidence interval or p value"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="AttributeEstimateType"/>
+				</extension>
+				<strength value="extensible"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/attribute-estimate-type"/>
+			</binding>
+		</element>
+		<element id="Evidence.statistic.attributeEstimate.quantity">
+			<path value="Evidence.statistic.attributeEstimate.quantity"/>
+			<short value="The singular quantity of the attribute estimate, for attribute estimates represented as single values; also used to report unit of measure"/>
+			<comment value="Often the p value"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Quantity"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.attributeEstimate.level">
+			<path value="Evidence.statistic.attributeEstimate.level"/>
+			<short value="Level of confidence interval, e.g., 0.95 for 95% confidence interval"/>
+			<definition value="Use 95 for a 95% confidence interval."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="decimal"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.attributeEstimate.range">
+			<path value="Evidence.statistic.attributeEstimate.range"/>
+			<short value="Lower and upper bound values of the attribute estimate"/>
+			<definition value="Lower bound of confidence interval."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Range"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.attributeEstimate.attributeEstimate">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+				<valueString value="AttributeEstimateAttributeEstimate"/>
+			</extension>
+			<path value="Evidence.statistic.attributeEstimate.attributeEstimate"/>
+			<short value="A nested attribute estimate; which is the attribute estimate of an attribute estimate"/>
+			<definition value="A nested attribute estimate; which is the attribute estimate of an attribute estimate."/>
+			<comment value="A nested attribute estimate; which is the attribute estimate of an attribute estimate"/>
+			<min value="0"/>
+			<max value="*"/>
+			<contentReference value="#Evidence.statistic.attributeEstimate"/>
+		</element>
+		<element id="Evidence.statistic.modelCharacteristic">
+			<path value="Evidence.statistic.modelCharacteristic"/>
+			<short value="An aspect of the statistical model"/>
+			<definition value="A component of the method to generate the statistic."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.modelCharacteristic.code">
+			<path value="Evidence.statistic.modelCharacteristic.code"/>
+			<short value="Model specification"/>
+			<definition value="Description of a component of the method to generate the statistic."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="StatisticModelCode"/>
+				</extension>
+				<strength value="extensible"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/statistic-model-code"/>
+			</binding>
+		</element>
+		<element id="Evidence.statistic.modelCharacteristic.value">
+			<path value="Evidence.statistic.modelCharacteristic.value"/>
+			<short value="Numerical value to complete model specification"/>
+			<definition value="Further specification of the quantified value of the component of the method to generate the statistic."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Quantity"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.modelCharacteristic.variable">
+			<path value="Evidence.statistic.modelCharacteristic.variable"/>
+			<short value="A variable adjusted for in the adjusted analysis"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.modelCharacteristic.variable.variableDefinition">
+			<path value="Evidence.statistic.modelCharacteristic.variable.variableDefinition"/>
+			<short value="Description of the variable"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.modelCharacteristic.variable.handling">
+			<path value="Evidence.statistic.modelCharacteristic.variable.handling"/>
+			<short value="continuous | dichotomous | ordinal | polychotomous"/>
+			<definition value="How the variable is classified for use in adjusted analysis."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceVariableHandling"/>
+				</extension>
+				<strength value="required"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/variable-handling"/>
+			</binding>
+		</element>
+		<element id="Evidence.statistic.modelCharacteristic.variable.valueCategory">
+			<path value="Evidence.statistic.modelCharacteristic.variable.valueCategory"/>
+			<short value="Description for grouping of ordinal or polychotomous variables"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.modelCharacteristic.variable.valueQuantity">
+			<path value="Evidence.statistic.modelCharacteristic.variable.valueQuantity"/>
+			<short value="Discrete value for grouping of ordinal or polychotomous variables"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Quantity"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.modelCharacteristic.variable.valueRange">
+			<path value="Evidence.statistic.modelCharacteristic.variable.valueRange"/>
+			<short value="Range of values for grouping of ordinal or polychotomous variables"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Range"/>
+			</type>
+		</element>
+		<element id="Evidence.statistic.modelCharacteristic.attributeEstimate">
+			<path value="Evidence.statistic.modelCharacteristic.attributeEstimate"/>
+			<short value="An attribute of the statistic used as a model characteristic"/>
+			<min value="0"/>
+			<max value="*"/>
+			<contentReference value="#Evidence.statistic.attributeEstimate"/>
+		</element>
+		<element id="Evidence.certainty">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="490,310"/>
+			</extension>
+			<path value="Evidence.certainty"/>
+			<short value="Certainty or quality of the evidence"/>
+			<definition value="Assessment of certainty, confidence in the estimates, or quality of the evidence."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="Evidence.certainty.description">
+			<path value="Evidence.certainty.description"/>
+			<short value="Textual description of certainty"/>
+			<definition value="Textual description of certainty."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="Evidence.certainty.note">
+			<path value="Evidence.certainty.note"/>
+			<short value="Footnotes and/or explanatory notes"/>
+			<definition value="Footnotes and/or explanatory notes."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Annotation"/>
+			</type>
+		</element>
+		<element id="Evidence.certainty.type">
+			<path value="Evidence.certainty.type"/>
+			<short value="Aspect of certainty being rated"/>
+			<definition value="Aspect of certainty being rated."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceCertaintyType"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The aspect of quality, confidence, or certainty."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/certainty-type"/>
+			</binding>
+		</element>
+		<element id="Evidence.certainty.rating">
+			<path value="Evidence.certainty.rating"/>
+			<short value="Assessment or judgement of the aspect"/>
+			<definition value="Assessment or judgement of the aspect."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceCertaintyRating"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The assessment of quality, confidence, or certainty."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/certainty-rating"/>
+			</binding>
+		</element>
+		<element id="Evidence.certainty.rater">
+			<path value="Evidence.certainty.rater"/>
+			<short value="Individual or group who did the rating"/>
+			<definition value="Individual or group who did the rating."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="Evidence.certainty.subcomponent">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="955,310"/>
+			</extension>
+			<path value="Evidence.certainty.subcomponent"/>
+			<short value="A domain or subdomain of certainty"/>
+			<definition value="A domain or subdomain of certainty."/>
+			<min value="0"/>
+			<max value="*"/>
+			<contentReference value="#Evidence.certainty"/>
+		</element>
+	</differential>
 </StructureDefinition>

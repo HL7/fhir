@@ -2,71 +2,6 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="device-usage-adherence-reason"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
-  </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>This code system http://hl7.org/fhir/device-usage-adherence-reason defines the following codes:</p>
-      <table class="codes">
-        <tr>
-          <td style="white-space:nowrap">
-            <b>Code</b>
-          </td>
-          <td>
-            <b>Display</b>
-          </td>
-          <td>
-            <b>Definition</b>
-          </td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">lost
-            <a name="device-usage-adherence-reason-lost"> </a>
-          </td>
-          <td>Lost</td>
-          <td>The device is lost.</td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">stolen
-            <a name="device-usage-adherence-reason-stolen"> </a>
-          </td>
-          <td>Stolen</td>
-          <td>The device is stolen.</td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">prescribed
-            <a name="device-usage-adherence-reason-prescribed"> </a>
-          </td>
-          <td>Prescribed</td>
-          <td>The device is prescribed.</td>
-        </tr>   
-        <tr>
-          <td style="white-space:nowrap">broken
-            <a name="device-usage-adherence-reason-broken"> </a>
-          </td>
-          <td>Broken</td>
-          <td>The device is broken.</td>
-        </tr>    
-        <tr>
-          <td style="white-space:nowrap">burned
-            <a name="device-usage-adherence-reason-burned"> </a>
-          </td>
-          <td>Burned</td>
-          <td>The device is burned.</td>
-        </tr>    
-        <tr>
-          <td style="white-space:nowrap">forgot
-            <a name="device-usage-adherence-reason-forgot"> </a>
-          </td>
-          <td>Forgot</td>
-          <td>The device is forgotten.</td>
-        </tr>     
-      </table>
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -118,7 +53,7 @@
     <display value="Broken"/>
     <definition value="The device is broken."/>
   </concept>
-   <concept>
+  <concept>
     <code value="burned"/>
     <display value="Burned"/>
     <definition value="The device is burned."/>
