@@ -597,6 +597,24 @@
         <map value=".playedRole[typeCode=MANU].id"/>
       </mapping>
     </element>
+    <element id="Device.category">
+      <path value="Device.category"/>
+      <short value="Indicates a high-level grouping of the device"/>
+      <definition value="Devices may be associated with one or more categories."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Categories of medical devices."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-category"/>
+      </binding>
+    </element>
     <element id="Device.type">
       <path value="Device.type"/>
       <short value="The kind or type of device"/>
