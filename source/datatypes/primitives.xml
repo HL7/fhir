@@ -14,6 +14,7 @@
   
   
   
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -159,7 +160,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">A sequence of Unicode characters</Data></Cell>
-    <Cell><Data ss:Type="String">Note that FHIR strings SHALL NOT exceed 1MB in size</Data></Cell>
+    <Cell><Data ss:Type="String">Note that FHIR strings SHALL NOT exceed 1,048,576 (1024*1024) characters in size</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">[ \r\n\t\S]+</Data></Cell>
@@ -217,7 +218,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -339,7 +339,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
