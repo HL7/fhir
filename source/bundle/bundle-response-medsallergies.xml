@@ -175,7 +175,7 @@
                 <total value="0"/>
                 <link>
                     <relation value="self"/>
-                    <url value="<%test-server%>/MedicationUsage?_format=application/fhir+xml&amp;search-id=804eee4a-0a54-4414-9c07-169952f929&amp;&amp;patient=example&amp;_list=%24current%2Dmedications&amp;_sort=_id"/>
+                    <url value="[%test-server%]/MedicationUsage?_format=application/fhir+xml&amp;search-id=804eee4a-0a54-4414-9c07-169952f929&amp;&amp;patient=example&amp;_list=%24current%2Dmedications&amp;_sort=_id"/>
                 </link>
             </Bundle>
         </resource>
@@ -196,7 +196,7 @@
                 <total value="0"/>
                 <link>
                     <relation value="self"/>
-                    <url value="<%test-server%>/AllergyIntolerance?_format=application/fhir+xml&amp;search-id=b1981f8a-4139-4db6-923d-77d764c990&amp;&amp;patient=example&amp;_list=%24current%2Dallergies&amp;_sort=_id"/>
+                    <url value="[%test-server%]/AllergyIntolerance?_format=application/fhir+xml&amp;search-id=b1981f8a-4139-4db6-923d-77d764c990&amp;&amp;patient=example&amp;_list=%24current%2Dallergies&amp;_sort=_id"/>
                 </link>
             </Bundle>
         </resource>
@@ -217,7 +217,7 @@
                 <total value="0"/>
                 <link>
                     <relation value="self"/>
-                    <url value="<%test-server%>/Condition?_format=application/fhir+xml&amp;search-id=4d097c43-54aa-4157-b500-be22208dd0&amp;&amp;patient=example&amp;_list=%24current%2Dproblems&amp;_sort=_id"/>
+                    <url value="[%test-server%]/Condition?_format=application/fhir+xml&amp;search-id=4d097c43-54aa-4157-b500-be22208dd0&amp;&amp;patient=example&amp;_list=%24current%2Dproblems&amp;_sort=_id"/>
                 </link>
             </Bundle>
         </resource>
@@ -238,7 +238,7 @@
                 <total value="0"/>
                 <link>
                     <relation value="self"/>
-                    <url value="<%test-server%>/MedicationUsage?_format=application/fhir+xml&amp;search-id=31d4af75-cdcf-4f85-9666-4bafadebb5&amp;&amp;patient=example&amp;_sort=_id"/>
+                    <url value="[%test-server%]/MedicationUsage?_format=application/fhir+xml&amp;search-id=31d4af75-cdcf-4f85-9666-4bafadebb5&amp;&amp;patient=example&amp;_sort=_id"/>
                 </link>
             </Bundle>
         </resource>
