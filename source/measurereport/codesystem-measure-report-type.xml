@@ -3,99 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="measure-report-type"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/measure-report-type defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">individual
-            
-            <a name="measure-report-type-individual"> </a>
-          
-          </td>
-          
-          <td>Individual</td>
-          
-          <td>An individual report that provides information on the performance for a given measure with respect to a single subject.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">subject-list
-            
-            <a name="measure-report-type-subject-list"> </a>
-          
-          </td>
-          
-          <td>Subject List</td>
-          
-          <td>A subject list report that includes a listing of subjects that satisfied each population criteria in the measure.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">summary
-            
-            <a name="measure-report-type-summary"> </a>
-          
-          </td>
-          
-          <td>Summary</td>
-          
-          <td>A summary report that returns the number of members in each population criteria for the measure.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">data-collection
-            
-            <a name="measure-report-type-data-collection"> </a>
-          
-          </td>
-          
-          <td>Data Collection</td>
-          
-          <td>A data collection report that contains data-of-interest for the measure.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cqi"/>
   </extension>
@@ -110,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.779"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="MeasureReportType"/>
   <title value="MeasureReportType"/>
   <status value="draft"/>
@@ -147,8 +56,8 @@
     <definition value="A summary report that returns the number of members in each population criteria for the measure."/>
   </concept>
   <concept>
-    <code value="data-collection"/>
-    <display value="Data Collection"/>
-    <definition value="A data collection report that contains data-of-interest for the measure."/>
+    <code value="data-exchange"/>
+    <display value="Data Exchange"/>
+    <definition value="A data exchange report that contains data-of-interest for the measure (i.e. data that is needed to calculate the measure)"/>
   </concept>
 </CodeSystem>

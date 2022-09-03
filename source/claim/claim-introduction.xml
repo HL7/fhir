@@ -18,6 +18,9 @@ The Claim resource may be interpreted differently depending on its intended use 
 				<li>predetermination - where the provision of goods and services is <b>explored</b> to determine what services may be covered and to what amount. Essentially a 'what if' claim.</li>
 			</ul> 
 		</p>
+<p>
+The Claim.type code system provides oral, pharmacy, vision, professional and institutional claim types. Claim types supported are influenced by the requirements of the implementing jurisdiction. 
+The valueset is extensible to accommodate other types of claims as required by the jurisdiction. </p>
 
 		<p>
 The Claim also supports:
@@ -67,7 +70,7 @@ the provider will settle the claim and potentially recover costs against specifi
 	request side of the information exchange is of interest. If, however, both the request and the adjudication information is to be reported then the 
 			<a href="explanationofbenefit.html">ExplanationOfBenefit</a> should be used instead.</p>
 
-		<p>For reporting out to patients or transferring data to patient centered applications, such as patient health Record (PHR) application, the <a href="explanationofbenefit.html">ExplanationOfBenefit</a> 
+		<p>For reporting out to patients or transferring data to patient centered applications, such as Personal Health Record (PHR) application, the <a href="explanationofbenefit.html">ExplanationOfBenefit</a> 
 	should be used instead of the Claim and ClaimResponse resources as those resources may contain provider and payer specific information which is not appropriate for sharing with 
 	the patient.</p>
 		<p>

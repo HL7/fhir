@@ -1,14 +1,14 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="no-fixed-address"/>
   <url value="http://hl7.org/fhir/StructureDefinition/no-fixed-address"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="NoFixedAddress"/>
   <title value="No Fixed Address"/>
   <status value="draft"/>
   <date value="2021-07-05"/>
   <publisher value="HL7"/>
   <description value="This extension applies to the Address data type and is used to indicate that a location address is not a fixed address for an individual."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <kind value="complex-type"/>
   <abstract value="false"/>
   <context>
@@ -18,7 +18,7 @@
   <type value="Extension"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
   <derivation value="constraint"/>
-  <snapshot>
+  <differential>
     <element id="Extension">
       <path value="Extension"/>
       <short value="No fixed address indicator"/>
@@ -49,5 +49,5 @@
       </type>
       <fixedBoolean value="true"/>
     </element>
-  </snapshot>
+  </differential>
 </StructureDefinition>

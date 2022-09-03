@@ -3,113 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="service-referral-method"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/service-referral-method defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">fax
-            
-            <a name="service-referral-method-fax"> </a>
-          
-          </td>
-          
-          <td>Fax</td>
-          
-          <td>Referrals may be accepted by fax.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">phone
-            
-            <a name="service-referral-method-phone"> </a>
-          
-          </td>
-          
-          <td>Phone</td>
-          
-          <td>Referrals may be accepted over the phone from a practitioner.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">elec
-            
-            <a name="service-referral-method-elec"> </a>
-          
-          </td>
-          
-          <td>Secure Messaging</td>
-          
-          <td>Referrals may be accepted via a secure messaging system. To determine the types of secure messaging systems supported, refer to the identifiers collection. Callers will need to understand the specific identifier system used to know that they are able to transmit messages.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">semail
-            
-            <a name="service-referral-method-semail"> </a>
-          
-          </td>
-          
-          <td>Secure Email</td>
-          
-          <td>Referrals may be accepted via a secure email. To send please encrypt with the services public key.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">mail
-            
-            <a name="service-referral-method-mail"> </a>
-          
-          </td>
-          
-          <td>Mail</td>
-          
-          <td>Referrals may be accepted via regular postage (or hand delivered).</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
@@ -124,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1142"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ReferralMethod"/>
   <title value="ReferralMethod"/>
   <status value="draft"/>

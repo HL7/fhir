@@ -1,0 +1,35 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+  <a name="usage"></a>
+  <h2>Usage</h2>
+  <p>
+    The RequestOrchestration resource is used when there are temporal, co-occurrence or other dependencies between
+    one or more steps of an overall workflow.  For example, "do procedure A or procedure B, but not both" or
+    "do procedure A after procedure B" or "Act on this ServiceRequest, then use the value of that observation in
+    the calculation of the dose of this subsequent MedicationRequest".  RequestOrchestrations that define actions
+    (i.e. that are more than just narrative representations) will always reference other Request resources with
+    an <code>intent</code> of "option".
+  </p>
+  <p>
+    Each "option" request can only be interpreted in the context of a RequestOrchestration that references it.  This is
+    because the RequestOrchestration defines the context in which the option request may/should/must occur, including
+    any triggers, timing constraints, choices, sequencing requirements, etc.  Typically such "option" requests
+    will be <a href="references.html#contained">contained</a> resources due to this dependency.  However, in some
+    cases "option" requests may be stand-alone if they are immutable or tightly tied to a
+    <a href="activitydefinition.html">ActivityDefinition</a> such that the option resources can safely be referenced
+    without a risk of their content/intent changing
+  </p>
+  <p>
+    Elements in the "option" requests may include extensions for timing or other elements that allow calculation
+    based on information found in the RequestOrchestration or other referenced "option" resources, as well as to expose
+    elements within the "option" resource for referencing in other "option" resources.  These extensions are:
+  </p>
+  <ul>
+    <li>TODO</li>
+  </ul>
+  <p>
+    The RequestOrchestration and all of its referenced "option" Requests are treated as a single integrated Request whose
+    status is the status of the RequestOrchestration.  If there is a need to manage statuses of the different parts, separately,
+    refer to the guidance <a href="request.html#requestorchestration">here</a>.
+  </p>
+</div>

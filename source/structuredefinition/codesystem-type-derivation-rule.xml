@@ -3,71 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="type-derivation-rule"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/type-derivation-rule defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">specialization
-            
-            <a name="type-derivation-rule-specialization"> </a>
-          
-          </td>
-          
-          <td>Specialization</td>
-          
-          <td>This definition defines a new type that adds additional elements to the base type.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">constraint
-            
-            <a name="type-derivation-rule-constraint"> </a>
-          
-          </td>
-          
-          <td>Constraint</td>
-          
-          <td>This definition adds additional rules to an existing concrete type.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -85,7 +22,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.674"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="TypeDerivationRule"/>
   <title value="TypeDerivationRule"/>
   <status value="active"/>
@@ -109,7 +46,7 @@
   <concept>
     <code value="specialization"/>
     <display value="Specialization"/>
-    <definition value="This definition defines a new type that adds additional elements to the base type."/>
+    <definition value="This definition defines a new type that adds additional elements and optionally additional rules to the base type."/>
   </concept>
   <concept>
     <code value="constraint"/>

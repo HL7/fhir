@@ -34,10 +34,10 @@
     </extension>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
-    <valueMarkdown value="The effect of invoking this operation is to calculate the measure for the given subject, or all subjects if no subject is supplied, and return the results as a MeasureReport resource of the appropriate type. Note that whether or not this operation affects the state of the server depends on whether the server persists the generated MeasureReport. If the MeasureReport is not persisted, this operation can be invoked with GET"/>
+    <valueMarkdown value="The effect of invoking this operation is to calculate the measure for the given subject(s), or all subjects if no subject is supplied. For individual and subject-list reports, the result is a set of Bundles, one for each evaluated subject, where the first entry in each bundle is a MeasureReport resource, and subsequent entries in the Bundle are resources evaluated or created as part of the measure evaluation. For the summary report, the result of this operation is a single bundle with a single MeasureReport of type summary. Note that whether or not this operation affects the state of the server depends on whether the server persists the generated MeasureReport. If the MeasureReport is not persisted, this operation can be invoked with GET"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Measure-evaluate-measure"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="evaluate-measure"/>
   <title value="Evaluate Measure"/>
   <status value="draft"/>
@@ -63,6 +63,40 @@
   <type value="true"/>
   <instance value="true"/>
   <parameter>
+    <name value="measure"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The measure to evaluate. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter is required, or a url (and optionally version) must be supplied."/>
+    <type value="Measure"/>
+  </parameter>
+  <parameter>
+    <name value="url"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The url of the plan measure to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter (and optionally the version), or the measure parameter must be supplied"/>
+    <type value="canonical"/>
+    <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+  </parameter>
+  <parameter>
+    <name value="version"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The version of the measure to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter may only be used if the url parameter is supplied."/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
+    <name value="subject"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Subject for which the measure will be calculated. The subject may be a Patient, Practitioner, PractitionerRole, Organization, Location, Device, or Group. Subjects provided in this parameter will be resolved as the subject of the measure based on the type of the subject. If multiple subjects of the same type are provided, the behavior is implementation-defined"/>
+    <type value="string"/>
+    <searchType value="reference"/>
+  </parameter>
+  <parameter>
     <name value="periodStart"/>
     <use value="in"/>
     <min value="1"/>
@@ -79,15 +113,6 @@
     <type value="date"/>
   </parameter>
   <parameter>
-    <name value="measure"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="The measure to evaluate. This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance"/>
-    <type value="string"/>
-    <searchType value="reference"/>
-  </parameter>
-  <parameter>
     <name value="reportType"/>
     <use value="in"/>
     <min value="0"/>
@@ -96,20 +121,20 @@
     <type value="code"/>
   </parameter>
   <parameter>
-    <name value="subject"/>
+    <name value="provider"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Subject for which the measure will be calculated. If not specified, the measure will be calculated for all subjects that meet the requirements of the measure. If specified, the measure will only be calculated for the referenced subject(s)"/>
+    <documentation value="The provider for which the report will be run. This may be a reference to a Practitioner, PractitionerRole, or Organization. If specified, the measure will be calculated for subjects that have a primary relationship to the identified provider. How this relationship is determined is implementation-specific."/>
     <type value="string"/>
     <searchType value="reference"/>
   </parameter>
   <parameter>
-    <name value="practitioner"/>
+    <name value="location"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Practitioner for which the measure will be calculated. If specified, the measure will be calculated only for subjects that have a primary relationship to the identified practitioner"/>
+    <documentation value="The location for which the report will be run."/>
     <type value="string"/>
     <searchType value="reference"/>
   </parameter>
@@ -124,9 +149,9 @@
   <parameter>
     <name value="return"/>
     <use value="out"/>
-    <min value="1"/>
-    <max value="1"/>
-    <documentation value="The results of the measure calculation. See the MeasureReport resource for a complete description of the output of this operation. Note that implementations may choose to return a MeasureReport with a status of pending to indicate that the report is still being generated. In this case, the client can use a polling method to continually request the MeasureReport until the status is updated to complete"/>
-    <type value="MeasureReport"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="The results of the measure calculation. The result of this operation will be a Bundle for each input subject, where the first entry of the Bundle is a MeasureReport representing the results of the calculation, and subsequent entries in the Bundle are resources created and/or evaluated as part of the calculation. See the MeasureReport resource for a complete description of the output of this operation. Note that implementations may choose to return a MeasureReport with a status of pending to indicate that the report is still being generated. In this case, the client can use a polling method to continually request the MeasureReport until the status is updated to complete"/>
+    <type value="Bundle"/>
   </parameter>
 </OperationDefinition>

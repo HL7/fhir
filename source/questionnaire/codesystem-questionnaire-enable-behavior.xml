@@ -1,88 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
-	<id value="questionnaire-enable-behavior"/>
-	<meta>
-		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-		<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
-	</meta>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			<p>This code system http://hl7.org/fhir/questionnaire-enable-behavior defines the following codes:</p>
-			<table class="codes">
-				<tr>
-					<td style="white-space:nowrap">
-						<b>Code</b>
-					</td>
-					<td>
-						<b>Display</b>
-					</td>
-					<td>
-						<b>Definition</b>
-					</td>
-				</tr>
-				<tr>
-					<td style="white-space:nowrap">all
-            
-            <a name="questionnaire-enable-behavior-all"> </a>
-					</td>
-					<td>All</td>
-					<td>Enable the question when all the enableWhen criteria are satisfied.</td>
-				</tr>
-				<tr>
-					<td style="white-space:nowrap">any
-            
-            <a name="questionnaire-enable-behavior-any"> </a>
-					</td>
-					<td>Any</td>
-					<td>Enable the question when any of the enableWhen criteria are satisfied.</td>
-				</tr>
-			</table>
-		</div>
-	</text>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-		<valueCode value="fhir"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-		<valueCode value="trial-use"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="3"/>
-	</extension>
-	<url value="http://hl7.org/fhir/questionnaire-enable-behavior"/>
-	<identifier>
-		<system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.4.642.1.1008"/>
-	</identifier>
-	<version value="4.6.0"/>
-	<name value="EnableWhenBehavior"/>
-	<title value="EnableWhenBehavior"/>
-	<status value="draft"/>
-	<experimental value="false"/>
-	<date value="2021-01-05T10:01:24+11:00"/>
-	<publisher value="HL7 (FHIR Project)"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-		<telecom>
-			<system value="email"/>
-			<value value="fhir@lists.hl7.org"/>
-		</telecom>
-	</contact>
-	<description value="Controls how multiple enableWhen values are interpreted -  whether all or any must be true."/>
-	<caseSensitive value="true"/>
-	<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-enable-behavior"/>
-	<content value="complete"/>
-	<concept>
-		<code value="all"/>
-		<display value="All"/>
-		<definition value="Enable the question when all the enableWhen criteria are satisfied."/>
-	</concept>
-	<concept>
-		<code value="any"/>
-		<display value="Any"/>
-		<definition value="Enable the question when any of the enableWhen criteria are satisfied."/>
-	</concept>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="questionnaire-enable-behavior"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/questionnaire-enable-behavior"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1008"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="EnableWhenBehavior"/>
+  <title value="EnableWhenBehavior"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Controls how multiple enableWhen values are interpreted -  whether all or any must be true."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-enable-behavior"/>
+  <content value="complete"/>
+  <concept>
+    <code value="all"/>
+    <display value="All"/>
+    <definition value="Enable the question when all the enableWhen criteria are satisfied."/>
+  </concept>
+  <concept>
+    <code value="any"/>
+    <display value="Any"/>
+    <definition value="Enable the question when any of the enableWhen criteria are satisfied."/>
+  </concept>
 </CodeSystem>

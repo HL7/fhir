@@ -21,6 +21,27 @@ When profiling a resource and only one type is specified, the name of the elemen
 <li>The condition element is used to assert that a constraint defined on another element affects the allowed cardinality of this element.</li>
 </ul>
 
+<a name="root"> </a>
+<h3>StructureDefinition Root Elements</h3>
+
+<p>
+The very first element in a snapshot (the one with an element id of just the type name) 
+defines characteristics that apply to the type as a whole.  Some of these characteristics
+affect the constraints that can hold on an element that references the type.  For example, 
+if the root element cardinality is <code>0..1</code>, then an element declared to be of that type 
+cannot have a maximum cardinality greater than 1. (This is often used when defining 
+extensions to indicate that multiple extension repetitions of that type are not allowed 
+within a single element.)
+</p>
+<p>
+In some cases, there can be redundancy between content defined on the root element and 
+that defined on the StructureDefinition itself.  For example, ElementDefinition has
+'definition' while StructureDefinition has 'description'.  These may have the same 
+content put both places, though technically the 'definition' is text that describes 
+what the type 'means', while 'description' is broader and may talk a bit about what 
+the resource/data type/profile is for, in addition to its meaning.
+</p>
+
 <a name="uses"></a>
 <h3>Different Uses for StructureDefinition</h3>
 <p>
@@ -34,6 +55,7 @@ using this basic pattern:
   "url": the identity of this structure definition,
   "kind": (primitive-type | complex-type | resource | logical),
   "type": the type being constrained (if it's a constraint)
+  "abstract" : {true | false},
   "baseDefinition": the structure definition from which this is derived
 }
 </pre>
@@ -48,6 +70,7 @@ This list shows a number of examples, with links to real examples for each:
   "url": "http://hl7.org/fhir/StructureDefinition/Quantity",
   "name": "Quantity",
   "kind": "complex-type",
+  "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element"
 }
 </pre>
@@ -61,6 +84,7 @@ This list shows a number of examples, with links to real examples for each:
   "name": "Money",
   "kind": "complex-type",
   "type": "Quantity",
+  "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Quantity"
 }
 </pre>
@@ -73,6 +97,7 @@ This list shows a number of examples, with links to real examples for each:
   "url": "http://hl7.org/fhir/StructureDefinition/Patient",
   "name": "Patient",
   "kind": "resource",
+  "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DomainResource"
 }
 </pre>
@@ -86,6 +111,7 @@ This list shows a number of examples, with links to real examples for each:
   "name": "Clinical Document Profile for Composition",
   "kind": "resource",
   "type": "Composition",
+  "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Composition"
 }
 </pre>
@@ -97,7 +123,8 @@ This list shows a number of examples, with links to real examples for each:
   "resourceType": "StructureDefinition",
   "url": "http://hl7.org/fhir/StructureDefinition/Extension",
   "name": "Extension",
-  "kind": "datatype",
+  "kind": "complex-type",
+  "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element"
 }
 </pre>
@@ -111,6 +138,7 @@ This list shows a number of examples, with links to real examples for each:
   "name": "Data Absent Reason",
   "kind": "complex-type",
   "type": "Extension",
+  "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension"
 }
 </pre>
@@ -124,15 +152,57 @@ This list shows a number of examples, with links to real examples for each:
   "name": "Race codes used by institution (a subset of meaningful use codes)",
   "kind": "complex-type",
   "type": "Extension",
+  "abstract" : false,
+  "abstract" : false,
   "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
 }
 </pre>
  </li>
 
+
+ <li>A base abstract Resource (see e.g. <a href="resource.html">Resource</a>): <br/>
+<pre class="json" fragment="StructureDefinition">
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://hl7.org/fhir/StructureDefinition/Resource",
+  "name": "Resource",
+  "kind": "resource",
+  "type": "Resource",
+  "abstract" : true,
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/Base"
+}
+</pre>
+ </li>
+ <li>An interface defined in the base specification (see e.g. <a href="canonicalresource.html">CanonicalResource</a>): <br/>
+<pre class="json" fragment="StructureDefinition">
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://hl7.org/fhir/StructureDefinition/CanonicalResource",
+  "name": "CanonicalResource",
+  "kind": "resource",
+  "type": "CanonicalResource",
+  "abstract" : true,
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/DomainResource"
+}
+</pre>
+ </li>
+<li>A logical model (see e.g. <a href="definition.html">Definition</a>): <br/>
+<pre class="json" fragment="StructureDefinition">
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://hl7.org/fhir/StructureDefinition/Definition",
+  "name": "Definition",
+  "kind": "logical",
+  "type": "Definition",
+  "abstract" : false,
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/Base"
+}
+</pre>
+ </li> 
 </ol>
 
 <p>
-On this list, structure definitions of type 1, 3, and 5 can only be defined by the FHIR specification itself. The other kinds of structure definitions
+On this list, structure definitions of type 1, 3, 5 and 8 - 9 can only be defined by the FHIR specification itself. The other kinds of structure definitions
 are (or may be) created by the specification but can also be defined by other implementers.
 </p>
 
@@ -181,7 +251,7 @@ though this object model can only be used with a sub-set of the possible resourc
 </p>
 <p>
 The tooling is also able to generate bi-directional transforms between the
-<a href="formats.html">normal XML format</a> and an XML representation of this
+<a href="xml.html">normal XML format</a> and an XML representation of this
 profiled object model and schema for this profiled XML representation.
 This XML form has extensions promoted into the primary XML form by using the
 extension code as the XML name and sliced lists are renamed to use the

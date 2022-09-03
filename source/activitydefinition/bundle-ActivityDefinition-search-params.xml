@@ -101,7 +101,7 @@
         </component>
         <component>
           <definition value="context-quantity"/>
-          <expression value="value.as(Quantity) | value.as(Range)"/>
+          <expression value="value.ofType(Quantity) | value.ofType(Range)"/>
         </component>
       </SearchParameter>
     </resource>
@@ -125,7 +125,7 @@
         </component>
         <component>
           <definition value="context"/>
-          <expression value="value.as(CodeableConcept)"/>
+          <expression value="value.ofType(CodeableConcept)"/>
         </component>
       </SearchParameter>
     </resource>
@@ -466,6 +466,26 @@
         <type value="token"/>
         <expression value="ActivityDefinition.version"/>
         <xpath value="f:ActivityDefinition/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ActivityDefinition-kind"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ActivityDefinition.kind"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-kind"/>
+        <description value="The kind of activity definition"/>
+        <code value="kind"/>
+        <type value="token"/>
+        <expression value="ActivityDefinition.kind"/>
+        <xpath value="f:ActivityDefinition/f:kind"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

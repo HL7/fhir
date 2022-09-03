@@ -6,8 +6,8 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/measurement-principle"/>
-  <version value="4.6.0"/>
-  <name value="MeasmntPrinciple"/>
+  <version value="5.0.0"/>
+  <name value="MeasurementPrinciple"/>
   <concept>
     <code value="other"/>
     <display value="MSP Other"/>

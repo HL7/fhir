@@ -28,9 +28,9 @@
       <display value="Duplicate Therapy Alert"/>
     </coding>
   </code>
-  <patient>
+  <subject>
     <reference value="Patient/dicom"/>
-  </patient>
+  </subject>
   <identifiedDateTime value="2013-05-08"/>
   <author>
     <reference value="Device/example"/>

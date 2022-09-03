@@ -12,13 +12,13 @@
     <valueCode value="deprecated"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/codesystem-effectiveDate"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="effectiveDate"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
   <description value="This is the first date-time when the value set version becomes active, so this value is present on Inactive value set versions as well. The start Date_time is expected to be as of 0001 UTC of the Effective Date. (deprecated)"/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

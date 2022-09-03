@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
+  <id value="example-eligibility-criteria-adults-with-obesity"/>
+  <identifier>
+    <type>
+      <text value="FEvIR Object Identifier"/>
+    </type>
+    <system value="https://fevir.net"/>
+    <value value="49218"/>
+    <assigner>
+      <display value="Computable Publishing LLC"/>
+    </assigner>
+  </identifier>
+  <title value="StudyEligibilityCriteria: Obese patients ≥ 18 years old"/>  
+  <status value="active"/>
+  <date value="2022-07-24T21:00:00.088Z"/>
+  <publisher value="Computable Publishing LLC"/>
+  <contact>
+    <telecom>
+      <system value="email"/>
+      <value value="support@computablepublishing.com"/>
+    </telecom>
+  </contact>
+  <description value="obese, adult (age ≥18 years old) patients"/>
+  <copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+  <author>
+    <name value="Brian S. Alper"/>
+  </author>
+  <relatedArtifact>
+    <type value="derived-from"/>
+    <label value="data source"/>
+    <citation value="Bariatric surgery and cardiovascular disease: a systematic review and meta-analysis [Journal Article]. Contributors: van Veldhuisen SL, Gorter TM, van Woerden G, de Boer RA, Rienstra M, Hazebroek EJ, van Veldhuisen DJ. In: European heart journal, PMID 35243488. Published March 04, 2022. Available at: https://pubmed.ncbi.nlm.nih.gov/35243488/."/>
+    <document>
+      <url value="https://academic.oup.com/eurheartj/article/43/20/1955/6542137"/>
+    </document>
+  </relatedArtifact>
+  <relatedArtifact>
+    <type value="supported-with"/>
+    <classifier>
+      <text value="Citation Resource for the original article"/>
+    </classifier>
+    <display value="Citation Resource for 2022 Systematic Review of bariatric surgery mortality effect - PMID 35243488"/>
+    <resourceReference>
+      <reference value="Citation/33400"/>
+      <type value="Citation"/>
+      <display value="StudyCitation: 2022 Systematic Review of bariatric surgery mortality effect 35243488"/>
+    </resourceReference>
+  </relatedArtifact>
+  <actual value="true"/>
+  <characteristic>
+    <description value="adult (age ≥18 years old)"/>
+    <exclude value="false"/>
+    <definitionByTypeAndValue>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="424144002"/>
+          <display value="Current chronological age"/>
+        </coding>
+      </type>
+      <valueQuantity>
+        <value value="18"/>
+        <comparator value="&gt;="/>
+        <unit value="year"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="a"/>
+      </valueQuantity>
+    </definitionByTypeAndValue>
+  </characteristic>
+  <characteristic>
+    <description value="obese (Body mass index &gt;= 30 kg/m2)"/>
+    <exclude value="false"/>
+    <definitionByTypeAndValue>
+      <type>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="39156-5"/>
+          <display value="Body mass index (BMI) [Ratio]"/>
+        </coding>
+      </type>
+      <valueQuantity>
+        <value value="30"/>
+        <comparator value="&gt;="/>
+        <unit value="kg/m2"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="kg/m2"/>
+      </valueQuantity>
+    </definitionByTypeAndValue>
+  </characteristic>
+</EvidenceVariable>

@@ -2,130 +2,6 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="concept-map-relationship"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
-  </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/concept-map-relationship defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td>
-            
-            <b>Lvl</b>
-          
-          </td>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>1</td>
-          
-          <td style="white-space:nowrap">related-to
-            
-            <a name="concept-map-relationship-related-to"> </a>
-          
-          </td>
-          
-          <td>Related To</td>
-          
-          <td>The concepts are related to each other, but the exact relationship is not known.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>2</td>
-          
-          <td style="white-space:nowrap">  equivalent
-            
-            <a name="concept-map-relationship-equivalent"> </a>
-          
-          </td>
-          
-          <td>Equivalent</td>
-          
-          <td>The definitions of the concepts mean the same thing.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>2</td>
-          
-          <td style="white-space:nowrap">  source-is-narrower-than-target
-            
-            <a name="concept-map-relationship-source-is-narrower-than-target"> </a>
-          
-          </td>
-          
-          <td>Source Is Narrower Than Target</td>
-          
-          <td>The source concept is narrower in meaning than the target concept.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>2</td>
-          
-          <td style="white-space:nowrap">  source-is-broader-than-target
-            
-            <a name="concept-map-relationship-source-is-broader-than-target"> </a>
-          
-          </td>
-          
-          <td>Source Is Broader Than Target</td>
-          
-          <td>The source concept is broader in meaning than the target concept.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>1</td>
-          
-          <td style="white-space:nowrap">not-related-to
-            
-            <a name="concept-map-relationship-not-related-to"> </a>
-          
-          </td>
-          
-          <td>Not Related To</td>
-          
-          <td>This is an explicit assertion that the target concept is not related to the source concept.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -140,7 +16,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1409"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ConceptMapRelationship"/>
   <title value="ConceptMapRelationship"/>
   <status value="draft"/>

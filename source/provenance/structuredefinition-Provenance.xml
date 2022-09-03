@@ -23,7 +23,7 @@
     <valueCode value="Provenance are recorded, there is no update or delete. "/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Provenance"/>
   <status value="draft"/>
   <date value="2021-04-07T08:58:31.578+11:00"/>
@@ -41,7 +41,7 @@
     </telecom>
   </contact>
   <description value="Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -76,9 +76,6 @@
     <element id="Provenance">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Sources of requirements: v2 EVN, Control Act, CDA, W3C provenance, ATNA."/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,0"/>
       </extension>
       <path value="Provenance"/>
       <short value="Who, What, When for a set of resources"/>
@@ -419,9 +416,9 @@
       </mapping>
     </element>
     <element id="Provenance.agent">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,200"/>
-      </extension>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+			<valueCode value="right"/>
+		</extension>
       <path value="Provenance.agent"/>
       <short value="Actor involved"/>
       <definition value="An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place."/>
@@ -444,7 +441,7 @@
         <key value="prov-2"/>
         <severity value="error"/>
         <human value="If who is a PractitionerRole, onBehalfOf can't reference the same Practitioner"/>
-        <expression value="who.resolve().as(PractitionerRole).practitioner.resolve().exists() and onBehalfOf.resolve().as(Practitioner).exists() implies who.resolve().practitioner.resolve() != onBehalfOf.resolve()"/>
+        <expression value="who.resolve().ofType(PractitionerRole).practitioner.resolve().exists() and onBehalfOf.resolve().ofType(Practitioner).exists() implies who.resolve().practitioner.resolve() != onBehalfOf.resolve()"/>
         <xpath value="true()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
       </constraint>
@@ -452,7 +449,7 @@
         <key value="prov-3"/>
         <severity value="error"/>
         <human value="If who is an organization, onBehalfOf can't be a PractitionerRole within that organization"/>
-        <expression value="who.resolve().as(Organization).exists() and onBehalfOf.resolve().as(PractitionerRole).organization.resolve().exists() implies who.resolve() != onBehalfOf.resolve().organization.resolve()"/>
+        <expression value="who.resolve().ofType(Organization).exists() and onBehalfOf.resolve().ofType(PractitionerRole).organization.resolve().exists() implies who.resolve() != onBehalfOf.resolve().organization.resolve()"/>
         <xpath value="true()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
       </constraint>
@@ -596,9 +593,9 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
       </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="440,30"/>
-      </extension>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+			<valueCode value="right"/>
+		</extension>
       <path value="Provenance.entity"/>
       <short value="An entity used in this activity"/>
       <definition value="An entity used in this activity."/>

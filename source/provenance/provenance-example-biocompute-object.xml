@@ -55,16 +55,20 @@
 		</div>
 	</text>
 	<target>
-		<reference value="MolecularSequence/example"/>
+		<reference value="MolecularSequence/example/_history/1"/>
 	</target>
 	<occurredPeriod>
 		<start value="2017-06-06"/>
 	</occurredPeriod>
 	<recorded value="2016-06-09T08:12:14+10:00"/>
 	<activity>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-DataOperation"/>
+			<code value="CREATE"/>
+			<display value="create"/>
+		</coding>
 		<text value="antiviral resistance detection"/>
 	</activity>
-
 	<agent>
 		<type>
 			<coding>

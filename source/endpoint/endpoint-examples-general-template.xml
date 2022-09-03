@@ -19,8 +19,10 @@
         </text>
         <status value="[%status%]"/>
         <connectionType>
-           <system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type" />
-           <code value="[%connectionType%]" />
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type" />
+            <code value="[%connectionType%]" />
+          </coding>
         </connectionType>
         <name value="[%name%]"/>
         <managingOrganization>
@@ -32,7 +34,7 @@
         </method>-->
         <payloadType>
           <coding>
-              <!--<system value="http://hl7.org/fhir/resource-types" />-->
+              <!--<system value="http://hl7.org/fhir/fhir-types" />-->
             <code value="[%payloadType%]" />
           </coding>
         </payloadType>

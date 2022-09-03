@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="type-characteristics-code"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/type-characteristics-code"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="TypeCharacteristicCodes"/>
+  <title value="Type Characteristic Codes"/>
+  <status value="active"/>
+  <caseSensitive value="true"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <concept>
+    <code value="has-target"/>
+    <display value="Has Target"/>
+    <definition value="The type is reference to external content else where that can have a type. This is associated with the use of ElementDefinition.type.targetProfile"/>
+  </concept>
+  <concept>
+    <code value="has-range"/>
+    <display value="Has Range"/>
+    <definition value="The type has a value domain that is a range, and can be associated with allowable min/max values on it's ElementDefinitions"/>
+    <concept>
+      <code value="is-continuous"/>
+      <display value="Is Continuous"/>
+      <definition value="The type is a continuous distribution. These types have issues associated with precision and equality, and can have a specified number of max decimal places (via an extension)"/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="has-length"/>
+    <display value="Has Length"/>
+    <definition value="The type has variable length and be constrained by it's length. In principle, any type can be constrained by the number of characters to represent it, but this is not meaningful for numbers or attachments"/>
+  </concept>
+  <concept>
+    <code value="has-size"/>
+    <display value="Has Size"/>
+    <definition value="The type can be constrained by the number of bytes it takes to represent the content. This is usually applied to content that is compressed or interpreted, and there's no fixed relationship between the number of bytes of content, and the number of characters it represents"/>
+  </concept>
+  <concept>
+    <code value="can-bind"/>
+    <display value="Can Bind"/>
+    <definition value="The type can be bound to a terminology. Note that a classic binding has system|version|code|display, but not all bindable types carry all four of these, and how they are bound varies, so an additional extension is required to enable tools to work with this content"/>
+  </concept>
+  <concept>
+    <code value="has-units"/>
+    <display value="Has Units"/>
+    <definition value="The content has units of measure (UCUM, by implication) and it may be useful to constrain the units by some valueset"/>
+  </concept>
+  <concept>
+    <code value="do-translations"/>
+    <display value="Do Translations"/>
+    <definition value="The content is uncontrolled human readable text that may make sense to translate"/>
+  </concept>
+</CodeSystem>

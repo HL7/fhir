@@ -3,99 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="published-in-type"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/published-in-type defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">D020492
-            
-            <a name="published-in-type-D020492"> </a>
-          
-          </td>
-          
-          <td>Periodical</td>
-          
-          <td>Publication intended to be issued on an ongoing basis, generally more frequently than annually, containing separate articles, stories, or writings.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">D019991
-            
-            <a name="published-in-type-D019991"> </a>
-          
-          </td>
-          
-          <td>Database</td>
-          
-          <td>A structured file of information or a set of logically related data stored and retrieved using computer-based means.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">D001877
-            
-            <a name="published-in-type-D001877"> </a>
-          
-          </td>
-          
-          <td>Book</td>
-          
-          <td>Non-periodical written or printed works consisting of sheets of pages fastened or bound together within covers.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">D064886
-            
-            <a name="published-in-type-D064886"> </a>
-          
-          </td>
-          
-          <td>Dataset</td>
-          
-          <td>Works consisting of organized collections of data, which have been stored permanently in a formalized manner suitable for communication, interpretation, or processing.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -110,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="PublishedInType"/>
   <title value="PublishedInType"/>
   <status value="draft"/>

@@ -9,7 +9,7 @@
     <valueCode value="phx"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/medication-intended-performer-role"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Medication Intended Performer Role"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>

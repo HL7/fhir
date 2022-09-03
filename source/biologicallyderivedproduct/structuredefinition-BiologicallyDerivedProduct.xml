@@ -24,7 +24,7 @@
     <valueCode value=".verificationStatus = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="BiologicallyDerivedProduct"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A biological material originating from a biological entity intended to be transplanted or infused into another (possibly the same) biological entity."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -113,9 +113,9 @@
       <short value="A code that identifies the kind of this biologically derived product"/>
       <definition value="A codified value that systematically supports characterization and classification of medical products of human origin inclusive of processing conditions such as additives, volumes and handling conditions."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="1"/> 
       <type>
-        <code value="Coding"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -123,8 +123,12 @@
         </extension>
         <strength value="example"/>
         <description value="Biologically-derived Product Codes"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-productcodes"/>
       </binding>
+      <mapping>
+        <identity value="ISBT128Code"/>
+        <map value="Product Description Code. Required for ISBT 128 labeled products"/>
+      </mapping>
     </element>
      <element id="BiologicallyDerivedProduct.parent">
       <path value="BiologicallyDerivedProduct.parent"/>
@@ -355,7 +359,7 @@
         </extension>
         <strength value="example"/>
         <description value="Biologically Derived Product Property Type Codes"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-property-type-codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproduct-property-type-codes"/>
       </binding>
     </element>
     <element id="BiologicallyDerivedProduct.property.value[x]">

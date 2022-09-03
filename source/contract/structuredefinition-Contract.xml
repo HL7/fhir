@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Contract"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Contract"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -122,7 +122,7 @@
       <path value="Contract.version"/>
       <short value="Business edition"/>
       <definition value="An edition identifier used for business purposes to label business significant variants."/>
-      <comment value="Note -  This is a business versionId, not a resource version id (see discussion http://build.fhir.org/resource.html#versions) &#xD;Comments - There may be different contract instances that have the same identifier but different versions. The version can be appended to the url in a reference to allow a reference to a particular business version of the plan definition with the format [url]|[version]."/>
+      <comment value="Note -  This is a business versionId, not a resource version id (see discussion http://build.fhir.org/resource.html#versions) &#xD;Comments - There may be different contract instances that have the same identifier but different versions. The version can be appended to the url in a reference to allow a reference to a particular business version of the plan definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <requirements value="The identifier that is used to identify this version of the contract when it is referenced in a specification, model, design, instance, or contract derivative. This is an arbitrary value managed by the contract author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
       <min value="0"/>
       <max value="1"/>

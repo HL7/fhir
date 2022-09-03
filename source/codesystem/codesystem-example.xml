@@ -6,7 +6,7 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <text>
-    <status value="generated"/>
+    <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>CodeSystem &quot;ACME Codes for Cholesterol&quot;: This is an example code system that includes 
         all the codes for serum cholesterol defined by ACME inc.</p>

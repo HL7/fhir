@@ -21,7 +21,7 @@
     <valueCode value="cds"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ArtifactAssessment"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ArtifactAssessment"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -39,7 +39,7 @@
     </telecom>
   </contact>
   <description value="This Resource provides one or more comments, classifiers or ratings about a Resource and supports attribution and rights management metadata for the added content."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -189,7 +189,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="dateTime"/>
+        <code value="date"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -213,7 +213,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="dateTime"/>
+        <code value="date"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -271,7 +271,7 @@
           <valueString value="InformationType"/>
         </extension>
         <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-information-type|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-information-type"/>
       </binding>
     </element>
     <element id="ArtifactAssessment.content.summary">
@@ -387,7 +387,7 @@
           <valueString value="WorkflowStatus"/>
         </extension>
         <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-workflow-status|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-workflow-status"/>
       </binding>
     </element>
     <element id="ArtifactAssessment.disposition">
@@ -405,7 +405,7 @@
           <valueString value="Disposition"/>
         </extension>
         <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-disposition|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifactassessment-disposition"/>
       </binding>
     </element>
   </differential>

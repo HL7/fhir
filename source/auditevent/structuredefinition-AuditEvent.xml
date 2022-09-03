@@ -23,7 +23,7 @@
     <valueCode value="Audit Events are recorded, there is no update or delete. "/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AuditEvent"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="AuditEvent"/>
   <status value="draft"/>
   <date value="2021-04-07T09:58:31.578+11:00"/>
@@ -41,7 +41,7 @@
     </telecom>
   </contact>
   <description value="A record of an event relevant for purposes such as operations, privacy, security, maintenance, and performance analysis."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -325,6 +325,9 @@
       </mapping>
     </element>
     <element id="AuditEvent.outcome">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
       <path value="AuditEvent.outcome"/>
       <short value="Whether the event succeeded or failed"/>
       <definition value="Indicates whether the event succeeded or failed. A free text descripiton can be given in outcome.text."/>
@@ -810,9 +813,6 @@
     </element>
 
     <element id="AuditEvent.agent.network[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="right"/>
-      </extension>
       <path value="AuditEvent.agent.network[x]"/>
       <short value="This agent network location for the activity"/>
       <comment value="When remote network endpoint is known, another agent representing the remote agent would indicate the remote network endpoint used. Convention is to indicate data flowing from Source to Destination. The convention for Search, given data flows both ways (query parameters vs results), is to have the Source as the initiator of the Search Transaction, and the Destination the responder to the Search transaction."/>
@@ -882,7 +882,7 @@
     </element>
     <element id="AuditEvent.source">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="up"/>
+        <valueCode value="right"/>
       </extension>
       <path value="AuditEvent.source"/>
       <short value="Audit Event Reporter"/>

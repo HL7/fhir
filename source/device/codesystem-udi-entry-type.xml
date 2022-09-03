@@ -3,141 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="udi-entry-type"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/udi-entry-type defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">barcode
-            
-            <a name="udi-entry-type-barcode"> </a>
-          
-          </td>
-          
-          <td>Barcode</td>
-          
-          <td>a barcodescanner captured the data from the device label.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">rfid
-            
-            <a name="udi-entry-type-rfid"> </a>
-          
-          </td>
-          
-          <td>RFID</td>
-          
-          <td>An RFID chip reader captured the data from the device label.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">manual
-            
-            <a name="udi-entry-type-manual"> </a>
-          
-          </td>
-          
-          <td>Manual</td>
-          
-          <td>The data was read from the label by a person and manually entered. (e.g.  via a keyboard).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">card
-            
-            <a name="udi-entry-type-card"> </a>
-          
-          </td>
-          
-          <td>Card</td>
-          
-          <td>The data originated from a patient&#39;s implant card and was read by an operator.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">self-reported
-            
-            <a name="udi-entry-type-self-reported"> </a>
-          
-          </td>
-          
-          <td>Self Reported</td>
-          
-          <td>The data originated from a patient source and was not directly scanned or read from a label or card.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">electronic-transmission
-            
-            <a name="udi-entry-type-electronic-transmission"> </a>
-          
-          </td>
-          
-          <td>Electronic Transmission</td>
-          
-          <td>The UDI information was received electronically from the device through a communication protocol, such as the IEEE 11073 20601 version 4 exchange protocol over Bluetooth or USB.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">unknown
-            
-            <a name="udi-entry-type-unknown"> </a>
-          
-          </td>
-          
-          <td>Unknown</td>
-          
-          <td>The method of data capture has not been determined.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -152,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.212"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="UDIEntryType"/>
   <title value="UDIEntryType"/>
   <status value="draft"/>
@@ -191,7 +58,7 @@
   <concept>
     <code value="card"/>
     <display value="Card"/>
-    <definition value="The data originated from a patient&#39;s implant card and was read by an operator."/>
+    <definition value="The data originated from a patient's implant card and was read by an operator."/>
   </concept>
   <concept>
     <code value="self-reported"/>

@@ -3,85 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="testscript-scope-conformance-codes"/>
   <meta>
-    <lastUpdated value="2021-01-25T17:01:24-04:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/testscript-conformance-level-codes defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">required
-            
-            <a name="testscript-scope-conformance-codes-request"> </a>
-          
-          </td>
-          
-          <td>Required</td>
-          
-          <td>All tests are expected to pass. Warning statuses are permitted. This is the default value.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">optional
-            
-            <a name="testscript-scope-conformance-codes-optional"> </a>
-          
-          </td>
-          
-          <td>Optional</td>
-          
-          <td>All tests are expected to pass but non-pass statuses may be allowed.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">strict
-            
-            <a name="testscript-scope-conformance-codes-strict"> </a>
-          
-          </td>
-          
-          <td>Strict</td>
-          
-          <td>All tests are expected to pass. Warnings are treated as a failure.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -96,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1535"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="TestScriptScopeConformanceType"/>
   <title value="TestScriptScopeConformanceType"/>
   <status value="draft"/>

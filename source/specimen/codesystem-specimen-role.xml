@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="specimen-role"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/specimen-role"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="SpecimenRole"/>
+  <title value="SpecimenRole"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Codes providing the combined status of the specimen."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/specimen-role"/>
+  <content value="complete"/>
+  <concept>
+    <code value="b"/>
+    <display value="Blind Sample"/>
+    <definition value="Used to test the validity of the measurement process, where the composition of the sample is unknown except to the person submitting it."/>
+  </concept>
+  <concept>
+    <code value="c"/>
+    <display value="Calibrator"/>
+    <definition value="Used for initial setting of calibration of the instrument."/>
+  </concept>
+  <concept>
+    <code value="e"/>
+    <display value="Electronic QC"/>
+    <definition value="Used with manufactured reference providing signals that simulate QC results."/>
+  </concept>
+  <concept>
+    <code value="f"/>
+    <display value="Filler Organization Proficiency"/>
+    <definition value="Specimen used for testing proficiency of the organization performing the testing (Filler)."/>
+  </concept>
+  <concept>
+    <code value="o"/>
+    <display value="Operator Proficiency"/>
+    <definition value="Specimen used for testing Operator Proficiency."/>
+  </concept>
+  <concept>
+    <code value="p"/>
+    <display value="Patient"/>
+    <definition value="Used for any patient sample."/>
+  </concept>
+  <concept>
+    <code value="q"/>
+    <display value="Control specimen"/>
+    <definition value="Used when specimen is the control specimen (either positive or negative)."/>
+  </concept>
+  <concept>
+    <code value="r"/>
+    <display value="Replicate (of patient sample as a control)"/>
+    <definition value="Used when a patient sample is re-run as a control for a repeat test."/>
+  </concept>
+  <concept>
+    <code value="v"/>
+    <display value="Verifying Calibrator"/>
+    <definition value="Used for periodic calibration checks."/>
+  </concept>
+</CodeSystem>

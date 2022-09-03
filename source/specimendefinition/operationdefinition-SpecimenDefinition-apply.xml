@@ -37,7 +37,7 @@
     <valueMarkdown value="The result of this operation is a Specimen resource based on the definition of the specimen as described in the SpecimenDefinition resource and the supplied parameters."/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/SpecimenDefinition-apply"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="apply"/>
   <title value="Apply"/>
   <status value="draft"/>

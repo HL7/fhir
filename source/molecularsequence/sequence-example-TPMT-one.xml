@@ -1,9 +1,9 @@
 <MolecularSequence xmlns="http://hl7.org/fhir">
     <id value="example-TPMT-one"/>
     <type value="dna"/>
-    <patient>
+    <subject>
         <reference value="Patient/example"/>
-    </patient>
+    </subject>
     <relative>
       <coordinateSystem>
           <coding>

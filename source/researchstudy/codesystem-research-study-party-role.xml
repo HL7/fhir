@@ -20,7 +20,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1684"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ResearchStudyPartyRole"/>
   <title value="Research Study Party Role"/>
   <status value="draft"/>
@@ -75,6 +75,11 @@
     <code value="recruitment-contact"/>
     <display value="recruitment-contact"/>
     <definition value="recruitment-contact"/>
+  </concept>
+  <concept>
+    <code value="general-contact"/>
+    <display value="general-contact"/>
+    <definition value="general-contact"/>
   </concept>
   <concept>
     <code value="sub-investigator"/>

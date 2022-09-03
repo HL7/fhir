@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Coverage"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Coverage"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -43,7 +43,7 @@
   </contact>
   <description value="Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment."/>
   <purpose value="Coverage provides a link between covered parties (patients) and the payors of their healthcare costs (both insurance and self-pay)."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -105,9 +105,9 @@
     </element>
     <element id="Coverage.identifier">
       <path value="Coverage.identifier"/>
-      <short value="Business Identifier for the coverage"/>
-      <definition value="A unique identifier assigned to this coverage."/>
-      <comment value="The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Certificate number, Personal Health Number or Case ID. May be constructed as the concatenation of the Coverage.SubscriberID and the Coverage.dependant."/>
+      <short value="Business identifier(s) for this coverage"/>
+      <definition value="The identifier of the coverage as issued by the insurer."/>
+      <comment value="The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Certificate number, Personal Health Number or Case ID. May be constructed as the concatenation of the Coverage.SubscriberID and the Coverage.dependant. Note that not all insurers issue unique member IDs therefore searches may result in multiple responses."/>
       <requirements value="Allows coverages to be distinguished and referenced."/>
       <min value="0"/>
       <max value="*"/>
@@ -126,10 +126,6 @@
       <mapping>
         <identity value="cdanetv4"/>
         <map value="C02"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="IN1-2"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -485,8 +481,8 @@
     <element id="Coverage.insurer">
       <path value="Coverage.insurer"/>
       <short value="Issuer of the policy"/>
-      <definition value="The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements."/>
-      <comment value="May provide multiple identifiers such as insurance company identifier or business identifier (BIN number).&#xA;For selfpay it may provide multiple paying persons and/or organizations."/>
+      <definition value="The program or plan underwriter, payor, insurance company."/>
+      <comment value="May provide multiple identifiers such as insurance company identifier or business identifier (BIN number)."/>
       <requirements value="Need to identify the issuer to target for claim processing and for coordination of benefit processing."/>
       <min value="0"/>
       <max value="1"/>
@@ -553,6 +549,10 @@
       <mapping>
         <identity value="v2"/>
         <map value="IN1-8"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-2"/>
       </mapping>
       <mapping>
         <identity value="cpha3pharm"/>
@@ -651,6 +651,79 @@
         <strength value="extensible"/>
         <description value="The types of services to which patient copayments are specified."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/coverage-copay-type"/>
+      </binding>
+    </element>
+    <element id="Coverage.costToBeneficiary.category">
+      <path value="Coverage.costToBeneficiary.category"/>
+      <short value="Benefit classification"/>
+      <definition value="Code to identify the general type of benefits under which products and services are provided."/>
+      <comment value="Examples include Medical Care, Periodontics, Renal Dialysis, Vision Coverage."/>
+      <requirements value="Needed to convey the category of service or product for which eligibility is sought."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BenefitCategory"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
+      </binding>
+    </element>
+    <element id="Coverage.costToBeneficiary.network">
+      <path value="Coverage.costToBeneficiary.network"/>
+      <short value="In or out of network"/>
+      <definition value="Is a flag to indicate whether the benefits refer to in-network providers or out-of-network providers."/>
+      <requirements value="Needed as in or out of network providers are treated differently under the coverage."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BenefitNetwork"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/benefit-network"/>
+      </binding>
+    </element>
+    <element id="Coverage.costToBeneficiary.unit">
+      <path value="Coverage.costToBeneficiary.unit"/>
+      <short value="Individual or family"/>
+      <definition value="Indicates if the benefits apply to an individual or to the family."/>
+      <requirements value="Needed for the understanding of the benefits."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BenefitUnit"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/benefit-unit"/>
+      </binding>
+    </element>
+    <element id="Coverage.costToBeneficiary.term">
+      <path value="Coverage.costToBeneficiary.term"/>
+      <short value="Annual or lifetime"/>
+      <definition value="The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual visits'."/>
+      <requirements value="Needed for the understanding of the benefits."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BenefitTerm"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/benefit-term"/>
       </binding>
     </element>
     <element id="Coverage.costToBeneficiary.value[x]">

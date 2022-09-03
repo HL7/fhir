@@ -9,8 +9,6 @@
 <body>
 [%file newnavbar%]
 
-
-
 [%profilesheader base%]
 
 <h2>Profiling FHIR</h2>
@@ -59,17 +57,17 @@ FHIR defines a cascade of artifacts for this purpose:
  <tr>
   <td>Package</td>
   <td>A group of related adaptations that are published as a group within an Implementation Guide</td>
-  <td><a href="http://hl7.org/fhir/us/core/capstmnts.html">US Core Capability Statements</a></td>
+  <td><a href="http://hl7.org/fhir/us/core/STU5.0.1/capability-statements.html">US Core Capability Statements</a></td>
  </tr>
  <tr>
   <td>Conformance Resource</td>
   <td>A single resource in a package that makes rules about how an implementation works. These are described below</td>
-   <td><a href="http://hl7.org/fhir/us/core/ValueSet-us-core-problem.html">DAF Problem Value Set</a></td>
+   <td><a href="http://hl7.org/fhir/us/core/STU5.0.1/ValueSet-us-core-condition-code.html">US Core Condition Codes Value Set</a></td>
  </tr>
  <tr>
   <td>Profile</td>
   <td>A set of constraints on a resource represented as a structure definition with derivation = <code>constraint</code></td>
-   <td><a href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-medicationrequest.html">DAF Medication Request</a></td>
+   <td><a href="http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-medicationrequest.html">US Core Medication Request</a></td>
  </tr>
 </table>
 <p>
@@ -88,11 +86,11 @@ resources are known as the conformance resources. These conformance resources al
  <li>Indicate that <a href="http.html">some API calls</a> are not used for a particular situation, and provide additional details about how API calls are used (<a href="capabilitystatement.html">Capability Statement</a>)</li>
  <li>Add additional <a href="operations.html">operations</a> or <a href="search.html">search parameters</a> not in the base specification
    (using the <a href="operationdefinition.html">OperationDefinition</a> resource or the <a href="searchparameter.html">SearchParameter</a> Resource)</li>
- <li>Define how a particular structure (Resource, Extension or Data Type) is used (<a href="structuredefinition.html">StructureDefinition</a> Resource):
+ <li>Define how a particular structure (Resource, Extension or Datatype) is used (<a href="structuredefinition.html">StructureDefinition</a> Resource):
     <ul>
       <li>Describe how existing elements in resources are used</li>
       <li>Identify existing elements that are not used</li>
-      <li>Define extensions that can be used in resources or data types</li>
+      <li>Define extensions that can be used in resources or datatypes</li>
     </ul>
  </li>
  <li>Mix custom and standard terminologies and choose which codes from these to use for a particular coded element(<a href="valueset.html">Value Set</a> and StructureDefinition Resources)</li>
@@ -159,16 +157,15 @@ a resource conforms to a particular profile or not is a straight
 forward operation (one option is to use the <a href="downloads.html">provided tools for this</a>),
 but this is a very inefficient way - the decision support system has to receive
 and process 100 times as many resources as it uses. To help a consumer
-find the correct set of reports for a use-case, a producer of
-resources also SHALL, for any profile declared in <code>CapabilityStatement.rest.resource.supportedProfile</code>:
+find the correct set of reports for a use case, a producer of
+resources may:
 </p>
 <ol>
- <li><a href="resource.html#meta">Mark resources</a> with profile assertions documenting the profile(s) they conform to (this enables indexing by the profile)</li>
- <li>(if a server) support searching by the <a href="search.html#profile">_profile parameter</a> for the declared profiles</li>
+ <li><a href="resource.html#meta">declare</a> with profile assertions documenting the profile(s) they conform to (this enables indexing by the profile)</li>
+ <li> search for the declared profiles by the <a href="search.html#profile">_profile</a> search parameter, if the search parameter is supported.</li>
 </ol>
 <p>
-Beyond these requirements, a producer of resources SHOULD ensure that any resource instance that would reasonably be expected
-to conform to the declared profiles SHOULD be published in this form.
+To communicate which profiles will be declared, the producer SHOULD use the standard <a href="extension-capabilitystatement-declared-profile.html">Declared Profile</a> extension on the CapabilityStatement.
 </p>
 
 [%stu-note%]
@@ -267,7 +264,7 @@ What StructureDefinitions can do when they are constraining existing resources a
 </p>
 <ul>
  <li>Profiles cannot break the rules established in the base specification (e.g. cardinality as described above)</li>
- <li>Profiles cannot specify default values or meanings for elements defined in the base specification (note that data types and resources do not define default values at all, but default values may be defined for <a href="structuredefinition.html#logical">logical models</a></li>
+ <li>Profiles cannot specify default values or meanings for elements defined in the base specification (note that datatypes and resources do not define default values at all, but default values may be defined for <a href="structuredefinition.html#logical">logical models</a></li>
  <li>Profiles cannot change the name of elements defined in the base specification, or add new elements</li>
  <li>It must be safe to process a resource without knowing the profile</li>
 </ul>
@@ -293,7 +290,7 @@ see <a href="resource.html#implicitRules">Restricted Understanding of Resources<
 <a name="using"></a>
 <h3>Using StructureDefinitions</h3>
 <p>
-A "constraint" StructureDefinition specifies a set of restrictions on the content of a FHIR resource or data type,
+A "constraint" StructureDefinition specifies a set of restrictions on the content of a FHIR resource or datatype,
 or an additional set of constraints on an existing profile.
 A given structure definition is identified by its canonical URL, which SHOULD be the URL at which it
 is published. The following kinds of statements can be made about how an element is used, using a
@@ -310,6 +307,9 @@ series of <a href="elementdefinition.html">Element Definitions</a>:
  <li>Providing refined definitions, comments/usage notes and examples for the elements defined in a Resource to reflect the usage of the element within the context of the Profile</li>
  <li>Providing more specific or additional mappings (e.g. to <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> or <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>) for the resource when used in a particular context</li>
  <li>Declaring that one or more elements in the structure must be 'supported' (see below)</li>
+ <li>Restricting / clarifying a mapping by providing a new mapping with the same identity, which means that the new mapping replaces a mapping with the same identity
+    in the element being profiled
+ </li>
 </ul>
 <p>
 Any changed definitions SHALL be restrictions that are consistent with the
@@ -359,7 +359,7 @@ StructureDefinitions may contain a differential statement, a snapshot
 statement or both.
 </p>
 <p>Differential statements describe only the differences that they make
-relative to the structure definition they constrain (which is most often the base FHIR resource or data type).
+relative to the structure definition they constrain (which is most often the base FHIR resource or datatype).
 For example, a profile may make a single element mandatory (cardinality 1..1).
 In the example of a differential structure, it will contain a single element
 with the path of the element being made mandatory, and a cardinality statement.
@@ -505,18 +505,24 @@ Further notes about the use of the different discriminator types:
 </p>
 <table class="codes">
  <tr><td>value</td><td>
-   This is the most commonly used discriminator type: to decide based on the value of an element. 
-   Elements used like this are mostly primitive types- <code>code</code>, <code>uri</code>. 
-   Typical example: slice on the value of <code>Patient.telecom.system</code>, for values phone, email etc.
+   This is the most commonly used discriminator type: to decide based on the value of an element as 
+   specified by a fixed value, a pattern value, or a required value set binding. 
+   Typical example: slice on the value of <code>Patient.telecom.system</code>, for values phone, email,
+   or slice on the value of <code>Observation.code</code>, for values LOINC codes 1234-5, 4235-8 etc.
+   There are <a href="elementdefinition-examples.html#pattern-examples">some examples of slicing</a> based on discriminator-type <code>value</code> with patterns.
  </td></tr>
  <tr><td>pattern</td><td>
-  This is mostly used with elements of type <code>CodeableConcept</code> where the elements are distinguished by the presence of a particular code
-  but other codes are expected to be present, and are irrelevant for the slice matching process. 
-  Typical example: slice on the value of <code>Observation.code</code>, for values LOINC codes 1234-5, 4235-8 etc
+  This code means the same as value, and is retained for backwards compatibility reasons
  </td></tr>
  <tr><td>exists</td><td>
-   This is not used commonly - it only has 2 values, so not much discrimination power. It's mainly used as an adjunct slicing criteria along with other discriminators.
+   This is not used commonly - it only has 2 values, so not much discrimination power. 
+   It's mainly used as an adjunct slicing criteria along with other discriminators.
    Elements used like this are mostly complex backbone elements. 
+   The slices are differentiated by the presence or absence of the nominated element. 
+   There SHALL be no more than two slices. The slices are differentiated by the fact 
+   that one must have a max of 0 and the other must have a min of 1 (or more).  The 
+   order in which the slices are declared doesn't matter. 
+
    Typical example: slice on the pattern of Observation.code and the presence of Observation.component.   
  </td></tr>
  <tr><td>type</td><td>
@@ -532,6 +538,12 @@ Further notes about the use of the different discriminator types:
    to the others). Implementers should use this only where absolutely required. 
    Typical example: slice on the type of <code>Composition.section.entry().resolve()</code> for the profiles Current-Clinical-Condition, Past-Medical-Event, etc
  </td></tr>
+ <tr><td>position</td><td>
+  Used to match slices based on their index. This is only possible if all but the last slice have a 
+  fixed cardinality where <code>min</code> &gt; 0 and <code>min</code> = <code>max</code>. The 
+  last slice MAY have <code>min</code> != <code>max</code>. 
+  Typical example: slice on Practitioner.name to require that the first name be the usual name for the practitioner, and it must be present
+</td></tr>
 </table>
 
 <p>
@@ -601,21 +613,35 @@ Some examples of discriminators:
  <tr>  <td>List.entry</td> <td>profile</td> <td>item.resolve()</td> <td>Entries are differentiated by a profile tag on the target of the reference, as specified by a structure definition in the profile</td> </tr>
  <tr>  <td>List.entry</td> <td>value</td> <td>item.extension('http://acme.org/extensions/test').value</td> <td>Entries are differentiated by the value of the code element in the extension with the designated URL</td> </tr>
  <tr>  <td>List.entry.extension</td> <td>value</td> <td>url</td> <td>Extensions are differentiated by the value of their url property (usually how extensions are sliced)</td> </tr>
- <tr>  <td>List.entry</td> <td>type, value</td> <td>item.resolve(), item.resolve().value</td> <td>Extensions are differentiated by the combination of the type of the referenced resource, and, if it has one, the code element of that resource. This would be
+ <tr>  <td>List.entry</td> <td>type, value</td> <td>item.resolve(), item.resolve().value</td> <td>Entries are differentiated by the combination of the type of the referenced resource, and, if it has one, the code element of that resource. This would be
    appropriate for where a List might be composed of a Condition, and set of observations, each differentiated by its name - the condition has no name, so that is evaluated as a null in the discriminator set</td> </tr>
- <tr>  <td>Observation.value[x]</td> <td>type</td> <td>$this</td> <td>Different constraints (e.g. "must support", usage notes, vocabulary bindings, etc.) are asserted for different supported types for the multi-typed element Observation.value[x]</td> </tr>
+ <tr>  <td>EndPoint.header</td> <td>value</td> <td>value</td> <td>Slicing a primitive field by value, e.g. to specify a set list of headers in a profile</td> </tr>
+  <tr>  <td>Observation.value[x]</td> <td>type</td> <td>$this</td> <td>Different constraints (e.g. "must support", usage notes, vocabulary bindings, etc.) are asserted for different supported types for the multi-typed element Observation.value[x]</td> </tr>
 </table>
 <p>
-Note that discriminator types of type and profile can also be used where a repeating element contains a resource directly (e.g.
-<a href="domainresource-definitions.html#DomainResource.contained">DomainResource.contained</a>, <a href="bundle-definitions.html#Bundle.entry">Bundle.entry</a>, <a href="parameters-definitions.html#Parameters.parameter.resource">Parameters.parameter.resource</a>).
+Notes:
 </p>
-<p>
-The <a href="profiling-examples.html">examples of slicing and discriminators</a> show exactly how this and other typical uses of slicing are represented in profiles.
-</p>
-<p>
-Note that extensions are always sliced by the <code>url</code> element, though they may be resliced on additional elements where required.
-</p>
-
+<ul>
+ <li>The discriminator types of type and profile can also be used where a repeating element contains a resource directly (e.g.
+  <a href="domainresource-definitions.html#DomainResource.contained">DomainResource.contained</a>, <a href="bundle-definitions.html#Bundle.entry">Bundle.entry</a>, <a href="parameters-definitions.html#Parameters.parameter.resource">Parameters.parameter.resource</a>).
+ </li>
+ <li>
+  The <a href="profiling-examples.html">examples of slicing and discriminators</a> show exactly how this and other typical uses of slicing are represented in profiles.
+ </li>
+ <li> 
+  Note that extensions are always sliced by the <code>url</code> element, though they may be resliced on additional elements where required.
+ </li>
+ <li>
+  With regard to the use of <code>resolve()</code>, any elements that are specified in the discriminator 
+  path beyond the resolve() function (e.g. 'name' in item.resolve().name) are referring to the corresponding 
+  element in the resource identified by the <code>reference</code>, as constrained by the 
+  applicable <code>targetProfile</code> (regardless of the discrinator type), and it is in the 
+  profile that the <code>targetProfile</code> refers to where a fixed value or pattern for the element 
+  must be declared. The targetProfile itself is declared in the element in the slice that immediately 
+  precedes the resolve() function in the discriminator path (e.g. 'item' in item.resolve().name), and that 
+  element is the final element that the slice declares.
+ </li>
+</ul>
 <a name="slice-cardinality"></a>
 <h3>Slice Cardinality</h3>
 <p>
@@ -651,6 +677,117 @@ default slice makes no rules about the identifier.system (which is the slicing d
 but fixes the cardinality of type to 1..1 in the @default slice.
 </p>
 
+<a name="partial"></a>
+<h3>Profiling portions of a resource</h3>
+<p>
+In all the examples above, a profile is applied to an entire resource,
+and re-useability is at the scope of the entire resource. It is possible, 
+however, to apply a profile at the point of a particular element in a 
+resource. A common case where this would be useful is for section templates
+in a profile on Composition, where it is common to have a set of rules for 
+the content of a section that are used across multiple different documents 
+(profiles on Composition). This is supported by the 
+<a href="extension-elementdefinition-profile-element.html">profile-element</a>
+extension.
+</p>
+<p>
+The profile-element extension is an instruction to a validator to apply
+the profile starting at the nominated element (by it's ID). To use this, 
+a profile author would first define a profile on Composition section:
+</p>
+<pre>
+  &lt;StructureDefinition xmlns=&quot;http://hl7.org/fhir&quot;&gt; 
+    ...
+    &lt;url value=&quot;http://hl7.org/fhir/example/StructureDefinition/document-section-library&quot;&gt;
+    &lt;!-- this profile is &apos;abstract&apos; - it defines a library of sections, 
+     so it doesn&apos;t make sense to use it as a profile directly --&gt;
+    &lt;abstract value=&quot;true&quot;/&gt;
+    &lt;!-- this profile applies rules to the Composition resource --&gt;
+    &lt;type value=&quot;Composition&quot;/&gt;
+    &lt;baseDefinition value=&quot;http://hl7.org/fhir/StructureDefinition/Composition&quot;/&gt;
+    &lt;derivation value=&quot;constraint&quot;/&gt;
+    &lt;differential&gt;
+        &lt;!-- set up slicing on Composition.section - by section.code in this case. 
+          This slicing is never used anywhere since this library is abstract,
+          but it&apos;s needed for presenting the library coherently 
+          e.g. in an implementation guide
+        --&gt;  
+        &lt;element&gt;
+        &lt;path value=&quot;Composition.section&quot;/&gt;
+        &lt;slicing&gt;  
+          &lt;discriminator&gt; 
+            &lt;type value=&quot;value&quot;/&gt;
+            &lt;path value=&quot;code&quot;/&gt;
+          &lt;/discriminator&gt;
+          &lt;description value=&quot;Slice by .section.code when using this section library&quot;/&gt;
+          &lt;ordered value=&quot;true&quot;/&gt;
+          &lt;rules value=&quot;closed&quot;/&gt;
+         &lt;/slicing&gt;
+      &lt;/element&gt;
+
+      &lt;!-- 
+        a set of rules on a composition section
+        The value of the id is fixed by the rules on 
+        StructureDefinition/ElementDefinition
+      --&gt;
+      &lt;element id=&quot;Composition.section:codeB&quot;&gt; 
+        &lt;path value=&quot;Composition.section&quot;/&gt;
+        &lt;sliceName value=&quot;codeB&quot;/&gt;
+      &lt;/element&gt;
+      &lt;!-- simple rules for example: 
+         there will be a title and the code will at least contain code-b --&gt;
+      &lt;element&gt;
+        &lt;path value=&quot;Composition.section.title&quot;/&gt;
+        &lt;min value=&quot;1&quot;/&gt;
+      &lt;/element&gt;
+      &lt;element&gt;
+        &lt;path value=&quot;Composition.section.code&quot;/&gt;
+        &lt;min value=&quot;1&quot;/&gt;
+        &lt;patternCodeableConcept&gt;
+          &lt;coding&gt;
+            &lt;system value=&quot;http://hl7.org/fhir/test/CodeSystem/imaginary&quot;/&gt;
+            &lt;code value=&quot;code-b&quot;/&gt;
+          &lt;/coding&gt;
+        &lt;/patternCodeableConcept&gt;
+      &lt;/element&gt;
+   ...   
+</pre>
+<p>
+Then to apply the section level profile to an element:
+</p>
+<pre>
+  &lt;element&gt;
+    &lt;!-- Slice on Composition.section by the code.
+     It&apos;s not necessary to slice to use this extension,
+    but it normally be necessary to achieve the desired outcome
+    --&gt;  
+    &lt;path value=&quot;Composition.section&quot;/&gt;
+    &lt;slicing&gt;  
+      &lt;discriminator&gt; 
+        &lt;type value=&quot;pattern&quot;/&gt;
+        &lt;path value=&quot;code&quot;/&gt;
+      &lt;/discriminator&gt;
+      &lt;description value=&quot;Slice by .section.code&quot;/&gt;
+      &lt;ordered value=&quot;true&quot;/&gt;
+      &lt;rules value=&quot;closed&quot;/&gt;
+     &lt;/slicing&gt;
+  &lt;/element&gt;
+  &lt;element&gt;
+     &lt;!-- first slice --&gt;  
+    &lt;path value=&quot;Composition.section&quot;/&gt;
+    &lt;sliceName value=&quot;code-B&quot;/&gt;
+    &lt;min value=&quot;1&quot;/&gt;
+    &lt;type&gt;
+      &lt;code value=&quot;BackboneElement&quot;/&gt; 
+      &lt;!-- the extension says where in the referenced profile to start --&gt;
+      &lt;profile value=&quot;http://hl7.org/fhir/example/StructureDefinition/document-section-library&quot;&gt;
+        &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element&quot;&gt;
+          &lt;valueString value=&quot;Composition.section:codeB&quot;/&gt;
+        &lt;/extension&gt;
+      &lt;/profile&gt;
+    &lt;/type&gt;
+  &lt;/element&gt;  
+</pre>
 <a name="reslicing"></a>
 <h3>Re-profiling and Re-slicing</h3>
 <p>
@@ -719,7 +856,7 @@ in a resource.
 </p>
 <p>
 The extension definition also defines the context where the extension can be used (usually
-a particular path or a data type) and then defines the extension element using the same details used to
+a particular path or a datatype) and then defines the extension element using the same details used to
 profile the structural elements that are part of resources. This means that a single extension
 can be defined once and used on different resources and/or datatypes, e.g. one would only have to
 define an extension for "hair color" once, and then specify that it can be used on both Patient and Practitioner.
@@ -814,7 +951,7 @@ constraining profile does, it cannot make codes valid that are invalid in the ba
 <a name="mustsupport"></a>
 <h3>Must Support</h3>
 <p>
-One of the properties that can be declared on profiles but not on resource or data type definitions is 'mustSupport'.
+One of the properties that can be declared on profiles but not on resource or datatype definitions is 'mustSupport'.
 This is a boolean property.  If true, it means that systems claiming to conform to a given profile must "support" the element.
 This is distinct from cardinality.  It is possible to have an element with a minimum cardinality of "0", but still expect systems
 to support the element.
@@ -877,7 +1014,7 @@ When this specification describes a profile, the profile is presented in 5 diffe
 <table class="grid">
  <tr><td>Text Summary</td><td>This presents a short summary human readable summary of the profile - a combination of the author's summary, and some automatically generated summary content</td></tr>
  <tr><td>Differential Table</td><td>This is a view of the differential statement (<a href="#snapshot">see above</a>). For context, additional information not in the differential is also shown partially transparent</td></tr>
- <tr><td>Snapshot Table</td><td>This is a view of the snapshot produced by the profile (<a href="#snapshot">see above</a>). The information is a comprehensive view of what the profile means</td></tr>
+ <tr><td>Full Structure</td><td>This is a view of the snapshot produced by the profile (<a href="#snapshot">see above</a>). The information is a comprehensive view of what the profile means, though inherited constraints are not presented</td></tr>
  <tr><td>XML Template</td><td>An example of what the profile looks like in XML format</td></tr>
  <tr><td>JSON Template</td><td>An example of what the profile looks like in JSON format</td></tr>
 </table>
@@ -918,11 +1055,19 @@ Each profile can be thought of in terms of the set of instances that conform to 
  <li>Identical sets: the set of resources that conform to A is the same as the set of resource that conform to B and the set of resources that don't conform to A is the same as the set of resources that don't conform to B</li>
 </ol>
 <p>
-Profiles can be compared to determine their compatibility.
-One such comparison can be found (Todo: bring this into the build)
-between <a href="http://hl7.org/fhir/us/daf">DAF</a> and <a href="http://hl7.org/fhir/us/qicore">QICore</a>.
-Note that this comparison is generated by tooling under ongoing development, and is purely draft
-content to demonstrate the idea of profile comparison.
+The following guidance for designing profiles will maintain broader compatibility of resource instances across diverse
+profiles and minimize non-overlapping profiles of a given resource type:
+</p>
+<ul>
+  <li>Omit elements from the profile if they are not required for a specific use case. Profile authors are discouraged
+    from prohibiting the element (min= 0).</li>
+  <li>When profiling coded values, profile authors are encouraged to allow additional Codings in an instance, and use <a
+      href="terminologies.html#extensible">extensible</a> and <a href="terminologies.html#preferred">preferred</a>
+        bindings instead of <a href="terminologies.html#required">required</a> bindings when possible.</li>
+</ul>
+
+<p>
+Profiles can be compared to determine their compatibility. See <a href="https://confluence.hl7.org/display/FHIR/Comparing+Profiles">Comparing Profiles</a> on the HL7 Confluence page.
 </p>
 
 [%file newfooter%]

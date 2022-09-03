@@ -3,85 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="definition-topic"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/definition-topic defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">treatment
-            
-            <a name="definition-topic-treatment"> </a>
-          
-          </td>
-          
-          <td>Treatment</td>
-          
-          <td>The definition is related to treatment of the patient.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">education
-            
-            <a name="definition-topic-education"> </a>
-          
-          </td>
-          
-          <td>Education</td>
-          
-          <td>The definition is related to education of the patient.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">assessment
-            
-            <a name="definition-topic-assessment"> </a>
-          
-          </td>
-          
-          <td>Assessment</td>
-          
-          <td>The definition is related to assessment of the patient.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -96,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1244"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="DefinitionTopic"/>
   <title value="DefinitionTopic"/>
   <status value="draft"/>

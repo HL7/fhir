@@ -31,11 +31,13 @@ contains:
 </p>
 <ul>
   <li>a package.json file that describes the package</li>
-  <li>a set of FHIR resources in <a href="json.html">JSON</a> format</li>
-  <li>an .index.json file that contains key information from the JSON resources for quick access</li>
+  <li>0 or more FHIR resources in <a href="json.html">JSON</a> format</li>
+  <li>0 or more FHIR resources in an <code>examples</code> folder below the package folder that contains 
+      examples in <a href="json.html">JSON</a> format for the profiles included </li>
+  <li>an .index.json file in both folders that contains key information from the JSON resources for quick access</li>
 </ul>
 <p>
-Packages may contain additional folders and files but their use is not defined
+Packages may contain additional folders below the <code>package</code> folder and files but their use is not defined
 by this specification. 
 </p>
 <p>
@@ -78,7 +80,7 @@ specification, and defines some additional FHIR specific properties.
       This x here means that it should a package resolver should accept the package with the highest found patch number:
 <pre class="json">
 "dependencies": {
-  "hl7.fhir.r4.core": "4.0.x"
+  "hl7.fhir.r5.core": "5.0.x"
 }
 </pre>
     A dependency on a core package is required, and this dependency defines the basic 
@@ -120,9 +122,15 @@ specification, and defines some additional FHIR specific properties.
     <td>optional</td>
     <td>A URL with the syntax <code>{system}#{code}</code>, from the <a href="valueset-jurisdiction.html">Jurisdiction</a> ValueSet. This value is provided to help users find the right package in the package registry</td>
   </tr>
+  <tr>
+    <td><b>fhirVersions</b></td>
+    <td>optional</td>
+    <td>An array of the FHIR Versions used by the package. Most packages only use one version. In some older packages, this was named fhir-version-list. The value of this property can be determined by inspecting the package</td>
+  </tr>
 </table>
 
-<h4>Example</h4>
+<a name="example-pck"></a>
+<h4>Example Package File</h4>
 
 <p>
 This is the package.json file to the US Core Implementation Guide.

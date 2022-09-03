@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+
+<!-- template-liquid.html -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<%file newheader%>
+</head>
+<body>
+<%file newnavbar%>
+
+<div class="col-12">
+
+<h2>Best Practice Narrative for [%type%]</h2>
+
+<table class="colsi"><tr><td><a href="<%wg%>"><%wgt%></a> Work Group</td><td><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>: Informative</td><!--!ns!--><td><%complinks%></td></tr></table>
+
+<p>
+This is a liquid template using the <a href="https://confluence.hl7.org/display/FHIR/FHIR+Liquid+Profile">FHIR Liquid Dialect</a> 
+that specifies a best practice for presenting the contents of the [%type%] resource for human consumption. There is no 
+expectation that implementations will use this particular template, just
+the the committee provides this as a statement of what they regard as 
+best practice for presenting the resource. 
+</p>
+
+<p>
+Any [%type%] examples are rendered with this template in this specification.
+</p>
+
+<%liquid%>
+
+<%liquid-notes%>
+
+</div>
+
+<%file newfooter%>
+    
+</body>
+</html>

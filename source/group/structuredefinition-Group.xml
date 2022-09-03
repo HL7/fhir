@@ -24,7 +24,7 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Group"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Group"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn&#39;t an Organization."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -141,9 +141,9 @@
         <valueString value="Do we need &quot;mixed&quot; groups?"/>
       </extension>
       <path value="Group.type"/>
-      <short value="person | animal | practitioner | device | medication | substance"/>
+      <short value="person | animal | practitioner | device | medication | substance | bodystructure"/>
       <definition value="Identifies the broad classification of the kind of resources the group includes."/>
-      <comment value="Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, Device, Medication or Substance for the other types.)."/>
+      <comment value="Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, Device, Medication, Substance or BodyStructure for the other types.)."/>
       <requirements value="Identifies what type of resources the group is made up of."/>
       <min value="1"/>
       <max value="1"/>
@@ -182,7 +182,7 @@
       <binding>
         <strength value="required"/>
         <description value="The basis for membership in a group"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/group-membership-basis|4.6.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/group-membership-basis"/>
       </binding>
     </element>
     <element id="Group.code">
@@ -417,6 +417,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
     </element>
     <element id="Group.member.period">

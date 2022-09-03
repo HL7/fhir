@@ -15,7 +15,7 @@
 		<valueInteger value="1"/>
 	</extension>
 	<url value="http://hl7.org/fhir/ValueSet/examplescenario-resource-type"/>
-	<version value="4.6.0"/>
+	<version value="5.0.0"/>
 	<name value="ExampleScenarioResourceType"/>
 	<title value="Example Scenario Resource Type"/>
 	<status value="draft"/>
@@ -25,9 +25,10 @@
 	<description value="Types of resource structures that can be passed in or out of exchange operations.  Not necessarily FHIR."/>
 	<immutable value="true"/>
 	<compose>
-		<include>
-			<system value="	http://hl7.org/fhir/resource-types"/>
-		</include>
+    <include>
+      <import value="http://hl7.org/fhir/ValueSet/resource-types"/>
+    </include>
+
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v2-0354"/>
     </include>

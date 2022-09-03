@@ -21,7 +21,7 @@
     <valueCode value="ii"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ImagingSelection"/>
   <status value="draft"/>
   <date value="2022-06-29T08:58:31+11:00"/>
@@ -39,7 +39,7 @@
     </telecom>
   </contact>
   <description value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation UID or a Segmentation Number, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -67,9 +67,6 @@
   <derivation value="specialization"/>
   <differential>
     <element id="ImagingSelection">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,0"/>
-      </extension>
       <path value="ImagingSelection"/>
       <short value="A selection of DICOM SOP instances and/or frames"/>
       <definition value="A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation UID or a Segmentation Number, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource."/>
@@ -198,6 +195,9 @@
       </mapping>
     </element>
     <element id="ImagingSelection.performer">
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+            <valueCode value="right" />
+        </extension>
       <path value="ImagingSelection.performer"/>
       <short value="Selector of the instances (human or machine)"/>
       <definition value="Selector of the instances – human or machine."/>
@@ -490,6 +490,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ImagingSelection.instance">
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+            <valueCode value="down" />
+        </extension>
       <path value="ImagingSelection.instance"/>
       <short value="The selected instances"/>
       <definition value="Each imaging selection includes one or more selected DICOM SOP instances."/>
@@ -602,6 +605,9 @@
       </example>
     </element>
     <element id="ImagingSelection.instance.imageRegion">
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+            <valueCode value="right" />
+        </extension>
       <path value="ImagingSelection.instance.imageRegion"/>
       <short value="A specific 2D region in a DICOM image / frame"/>
       <definition value="Each imaging selection instance or frame list might includes an image region, specified by a region type and a set of 2D coordinates.&#xA;
@@ -657,6 +663,12 @@
       </mapping>
     </element>
     <element id="ImagingSelection.imageRegion">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+            <valueString value="imageRegion" />
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+            <valueCode value="right" />
+        </extension>
       <path value="ImagingSelection.imageRegion"/>
       <short value="A specific 3D region in a DICOM frame of reference"/>
       <definition value="Each imaging selection might includes a 3D image region, specified by a region type and a set of 3D coordinates."/>

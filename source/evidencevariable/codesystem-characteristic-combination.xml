@@ -3,148 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="characteristic-combination"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/characteristic-combination defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">all-of
-            
-            <a name="characteristic-combination-all-of"> </a>
-          
-          </td>
-          
-          <td>All of</td>
-          
-          <td>Combine characteristics with AND.</td>
-        
-        </tr>
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">any-of
-            
-            <a name="characteristic-combination-any-of"> </a>
-          
-          </td>
-          
-          <td>Any of</td>
-          
-          <td>Combine characteristics with OR.</td>
-        
-        </tr>
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">at-least
-            
-            <a name="characteristic-combination-at-least"> </a>
-          
-          </td>
-          
-          <td>At least</td>
-          
-          <td>Meet at least the threshold number of characteristics for definition.</td>
-        
-        </tr>
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">at-most
-            
-            <a name="characteristic-combination-at-most"> </a>
-          
-          </td>
-          
-          <td>At most</td>
-          
-          <td>Meet at most the threshold number of characteristics for definition.</td>
-        
-        </tr>
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">statistical
-            
-            <a name="characteristic-combination-statistical"> </a>
-          
-          </td>
-          
-          <td>Statistical</td>
-          
-          <td>Combine characteristics statistically. Use method to specify the statistical method.</td>
-        
-        </tr>
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">net-effect
-            
-            <a name="characteristic-combination-net-effect"> </a>
-          
-          </td>
-          
-          <td>Net effect</td>
-          
-          <td>Combine characteristics by addition of benefits and subtraction of harms.</td>
-        
-        </tr>
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">dataset
-            
-            <a name="characteristic-combination-dataset"> </a>
-          
-          </td>
-          
-          <td>Dataset</td>
-          
-          <td>Combine characteristics as a collection used as the dataset.</td>
-        
-        </tr>
-		
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -159,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1528"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="CharacteristicCombination"/>
   <title value="CharacteristicCombination"/>
   <status value="draft"/>

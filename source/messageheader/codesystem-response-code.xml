@@ -3,85 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="response-code"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/response-code defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">ok
-            
-            <a name="response-code-ok"> </a>
-          
-          </td>
-          
-          <td>OK</td>
-          
-          <td>The message was accepted and processed without error.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">transient-error
-            
-            <a name="response-code-transient-error"> </a>
-          
-          </td>
-          
-          <td>Transient Error</td>
-          
-          <td>Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">fatal-error
-            
-            <a name="response-code-fatal-error"> </a>
-          
-          </td>
-          
-          <td>Fatal Error</td>
-          
-          <td>The message was rejected because of a problem with the content. There is no point in re-sending without change. The response narrative SHALL describe the issue.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="inm"/>
   </extension>
@@ -96,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.381"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ResponseType"/>
   <title value="ResponseType"/>
   <status value="draft"/>

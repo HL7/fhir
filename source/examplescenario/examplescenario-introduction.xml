@@ -4,19 +4,30 @@
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 <p>
-Todo
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+This resource is expected to be used in implementation guides or other specifications to provide examples for how certain workflows would manifest.
+It can be used to show how instances would evolve over time as well as the interplay of systems over time to accomplish a particular end-state.  It
+will frequently be used to generate sequence diagrams, but also provides further information about all of the entities within the sequence diagrams,
+including the instances shared as part of the exchange.
+</p>
+<p>
+This resource is most useful when documenting more complex flows rather than simple RESTful invocations or other request-response pairs.
 </p>
 </div>
 
-<!-- (recommended): 
+
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
+<a href="plandefinition.html">PlanDefinitions</a> also describe actors and sequences of interactions between them, including alternatives.  
+However, PlanDefinition defines what's allowed, while ExampleScenario represents a potential pathway through what's allowed.  While an ExampleScenario
+can define alternatives, it doesn't call out all of them.  Instead, it highlights the path(s) of interest to help a reader understand what's possible
+or how a particular scenario might work.
+
+Any resource can be an 'example' in a specification.  This resource is specifically about highlighting how those examples come together in a workflow - 
+who exchanges them and under what circumstances.
 </p>
 </div>
--->
+
 
 <!-- (optional):
 <div>

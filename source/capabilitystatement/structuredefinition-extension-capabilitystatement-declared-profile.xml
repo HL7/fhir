@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="capabilitystatement-declared-profile"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/capabilitystatement-declared-profile"/>
+  <version value="0.1.0"/>
+  <name value="DeclaredProfile"/>
+  <title value="Declared Profile"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2022-08-19"/>
+  <publisher value="HL7"/>
+  <description value="This extension identifies a profile the system will recognize if it is declared in [`meta.profile`](resource.html#profile-tags). If the system supports the [`_profile`](search.html#profile) search parameter, it will be capable of searching on the profile. The system may support validation against the profile."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.resource"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Declarable profile"/>
+      <definition value="This extension identifies a profile the system will recognize if it is declared in [`meta.profile`](resource.html#profile-tags). If the system supports the [`_profile`](search.html#profile) search parameter, it will be capable of searching on the profile. The system may support validation against the profile."/>
+      <comment value="For example, on the Patient Resource  you could use this to state support for searching by Patient.name and Patient.gender is required."/>
+      <min value="0"/>
+      <max value="*"/>
+      <isModifier value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="capabilitystatement-declared-profile"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
