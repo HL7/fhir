@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
-  <LastSaved>2022-08-17T12:02:53Z</LastSaved>
+  <LastSaved>2022-08-30T06:09:05Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -18,6 +18,7 @@
   
   
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -119,7 +120,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="156" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="158" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="198.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="98.0"/>
@@ -145,6 +146,9 @@
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ActorDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AdverseEvent</Data></Cell>
@@ -597,6 +601,9 @@
     <Cell ss:Index="4"><Data ss:Type="String">{def}</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Requirements</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ResearchStudy</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -686,7 +693,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MolecularSequence</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">GenomicStudy</Data></Cell>
@@ -794,7 +801,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Index="151">
+   <Row ss:AutoFitHeight="0" ss:Index="153">
     <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -829,7 +836,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>30</TopRowBottomPane>
+   <TopRowBottomPane>74</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
