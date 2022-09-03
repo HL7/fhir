@@ -764,7 +764,7 @@
     <element id="Device.property.type">
       <path value="Device.property.type"/>
       <short value="Code that specifies the property being represented"/>
-      <definition value="Code that specifies the property being represented. No codes are specified but the MDC codes are an example: https://build.fhir.org/mdc.html."/>
+      <definition value="Code that specifies the property being represented. No codes are specified but the MDC codes are an example: https://terminology.hl7.org/MDC.html."/>
       <min value="1"/>
       <max value="1"/>
       <type>
