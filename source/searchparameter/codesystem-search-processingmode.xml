@@ -53,10 +53,6 @@
   <concept>
     <code value="other"/>
     <display value="Other"/>
-<<<<<<< HEAD:source/searchparameter/codesystem-search-processingmode.xml
-    <definition value="The interpretation of the expression statement is unknown (and can&#39;t be automated)."/>
-=======
     <definition value="The interpretation of the xpath statement is unknown (and can't be automated)."/>
->>>>>>> b891f846391537a4e951d5b11ab3edc809da8dcf:source/searchparameter/codesystem-search-xpath-usage.xml
   </concept>
 </CodeSystem>
