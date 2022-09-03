@@ -509,12 +509,10 @@
       <short value="Unique Device Identifier (UDI) Barcode string on the packaging"/>
       <definition value="Unique Device Identifier (UDI) Barcode string on the packaging."/>
       <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
+			<max value="*"/>
+			<contentReference value="#DeviceDefinition.udiDeviceIdentifier"/>
     </element>
-    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.deviceIdentifier">
+    <!-- <element id="DeviceDefinition.packaging.udiDeviceIdentifier.deviceIdentifier">
       <path value="DeviceDefinition.packaging.udiDeviceIdentifier.deviceIdentifier"/>
       <short value="Identifier to be associated with every instance for issuer and jurisdiction"/>
       <definition value="Identifier to be associated with every instance for issuer and jurisdiction."/>
@@ -574,7 +572,7 @@
       <type>
         <code value="uri"/>
       </type>
-    </element>
+    </element> -->
 
     <element id="DeviceDefinition.packaging.packaging">
       <path value="DeviceDefinition.packaging.packaging"/>
