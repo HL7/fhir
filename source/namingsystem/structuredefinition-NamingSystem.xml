@@ -380,14 +380,11 @@
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="IdentifierType"/>
+          <valueString value="NamingSystemIdentifierSystemType"/>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
-				</extension>
-				<strength value="extensible"/>
+        <strength value="preferred"/>
 				<description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/identifier-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/namingsystem-identifier-system-type"/>
 			</binding>
 		</element>
 		<element id="NamingSystem.description">

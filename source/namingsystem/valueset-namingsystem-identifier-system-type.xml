@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="genomicstudy-methodtype"/>
+  <id value="namingsystem-identifier-system-type"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -9,42 +9,35 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
       <ul>
-        
-        <li>Include major method category, method category, and primary test methodology codes defined in 
-          
-          <a href="http://terminology.hl7.org/3.1.0/CodeSystem-GTR.html">
-            
-            <code>http://terminology.hl7.org/3.1.0/CodeSystem-GTR.html</code>
-          
+        <li>Include all codes defined in 
+          <a href="http://terminology.hl7.org/2.0.0/CodeSystem-v2-0203.html">
+            <code>http://terminology.hl7.org/2.0.0/CodeSystem-v2-0203.html</code>
           </a>
-        
         </li>
-      
       </ul>
-    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cg"/>
+    <valueCode value="vocab"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/genomicstudy-methodtype"/>
+  <url value="http://hl7.org/fhir/ValueSet/namingsystem-identifier-system-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+    <value value="urn:oid:2.16.840.1.113883.11.21013"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
-  <name value="GenomicStudyMethodType"/>
-  <title value="GenomicStudyMethodType"/>
+  <version value="4.6.0"/>
+  <name value="NamingSystemIdentifierSystemType"/>
+  <title value="NamingSystemIdentifierSystemType"/>
   <status value="draft"/>
-  <date value="2022-08-16T13:55:11-05:00"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -56,11 +49,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The method type of the GenomicStudy analysis."/>
-  <immutable value="false"/>
+  <description value="Identifies the style of unique identifier used to identify a namespace."/>
+  <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/genomicstudy-methodtype"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
     </include>
   </compose>
 </ValueSet>
