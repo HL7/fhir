@@ -126,6 +126,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="RecommendationEligibilityCriteria: Eligibility Criteria for Bariatric Surgery (ADA Recommendation 8.16)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-eligibility-criteria-ada-rec-bariatric"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-eligibility-criteria-ada-rec-bariatric"/>
+      <display value="RecommendationEligibilityCriteria: Eligibility Criteria for Bariatric Surgery (ADA Recommendation 8.16)"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="StudyEligibilityCriteria: Obese patients ≥ 18 years old"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
