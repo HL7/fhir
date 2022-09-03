@@ -102,6 +102,11 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/codesystem-authoritativeSource"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/codesystem-alternate"/>
       </reference>
     </resource>
