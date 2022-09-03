@@ -86,6 +86,10 @@
 				<source value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
 			</constraint>
 			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition"/>
+			</mapping>
+			<mapping>
 				<identity value="rim"/>
 				<map value="N/A"/>
 			</mapping>
@@ -196,6 +200,10 @@
 			</type>
 			<condition value="cnl-0"/>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.name"/>
+			</mapping>
 			<mapping>
 				<identity value="rim"/>
 				<map value="N/A"/>

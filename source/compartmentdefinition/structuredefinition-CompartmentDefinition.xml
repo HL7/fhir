@@ -1,490 +1,446 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="CompartmentDefinition"/>
-	<meta>
-		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-	</meta>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-		<valueString value="Foundation.Conformance"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-		<valueCode value="trial-use"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="1"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-		<valueCode value="anonymous"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-		<valueCode value="fhir"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-		<valueCode value=".status = retired"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-		<valueString value="CanonicalResource"/>
-	</extension>
-	<url value="http://hl7.org/fhir/StructureDefinition/CompartmentDefinition"/>
-	<version value="5.0.0"/>
-	<name value="CompartmentDefinition"/>
-	<status value="draft"/>
-	<date value="2021-01-05T10:01:24+11:00"/>
-	<publisher value="Health Level Seven International (FHIR Infrastructure)"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
-		</telecom>
-	</contact>
-	<description value="A compartment definition that defines how resources are accessed on a server."/>
-	<fhirVersion value="5.0.0"/>
-	<mapping>
-		<identity value="v2"/>
-		<uri value="http://hl7.org/v2"/>
-		<name value="HL7 v2 Mapping"/>
-	</mapping>
-	<mapping>
-		<identity value="rim"/>
-		<uri value="http://hl7.org/v3"/>
-		<name value="RIM Mapping"/>
-	</mapping>
-	<mapping>
-		<identity value="w5"/>
-		<uri value="http://hl7.org/fhir/fivews"/>
-		<name value="FiveWs Pattern Mapping"/>
-	</mapping>
-	<mapping>
-		<identity value="workflow"/>
-		<uri value="http://hl7.org/fhir/workflow"/>
-		<name value="Workflow Pattern"/>
-	</mapping>
-	<mapping>
-		<identity value="objimpl"/>
-		<uri value="http://hl7.org/fhir/object-implementation"/>
-		<name value="Object Implementation Information"/>
-	</mapping>
-	<kind value="resource"/>
-	<abstract value="false"/>
-	<type value="CompartmentDefinition"/>
-	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-	<derivation value="specialization"/>
-	<differential>
-		<element id="CompartmentDefinition">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-				<valueCode value="0,0"/>
-			</extension>
-			<path value="CompartmentDefinition"/>
-			<short value="Compartment Definition for a resource"/>
-			<definition value="A compartment definition that defines how resources are accessed on a server."/>
-			<comment value="In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content."/>
-			<min value="0"/>
-			<max value="*"/>
-			<constraint>
-				<key value="cnl-0"/>
-				<severity value="warning"/>
-				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/CompartmentDefinition"/>
-			</constraint>
-			<mapping>
-				<identity value="v2"/>
-				<map value="n/a"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="n/a"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="conformance.behavior"/>
-			</mapping>
-		</element>
-		<element id="CompartmentDefinition.url">
-			<path value="CompartmentDefinition.url"/>
-			<short value="Canonical identifier for this compartment definition, represented as a URI (globally unique)"/>
-			<definition value="An absolute URI that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this compartment definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the compartment definition is stored on different servers."/>
-			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-			<requirements value="Allows the compartment definition to be referenced by a single globally unique identifier."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="uri"/>
-			</type>
-			<constraint>
-				<key value="cnl-1"/>
-				<severity value="warning"/>
-				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-				<expression value="url.matches(&#39;([^|#])*&#39;)"/>
-				<xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-			</constraint>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.url"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.identifier"/>
-			</mapping>
-		</element>
-		<element id="CompartmentDefinition.version">
-			<path value="CompartmentDefinition.version"/>
-			<short value="Business version of the compartment definition"/>
-			<definition value="The identifier that is used to identify this version of the compartment definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the compartment definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-			<comment value="There may be different compartment definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the compartment definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.version"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.version"/>
-			</mapping>
-		</element>
-		<element id="CompartmentDefinition.versionAlgorithm[x]">
-			<path value="CompartmentDefinition.versionAlgorithm[x]"/>
-			<short value="How to compare versions"/>
-			<definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
-			<comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<type>
-				<code value="Coding"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
-			</binding>
-		</element>
-		<element id="CompartmentDefinition.name">
-			<path value="CompartmentDefinition.name"/>
-			<short value="Name for this compartment definition (computer friendly)"/>
-			<definition value="A natural language name identifying the compartment definition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly.This is often the same as the code for the parameter, but does not need to be."/>
-			<requirements value="Support human navigation and code generation."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<condition value="cnl-0"/>
-			<isSummary value="true"/>
-		</element>
-		<element id="CompartmentDefinition.title">
-			<path value="CompartmentDefinition.title"/>
-			<short value="Name for this compartment definition (human friendly)"/>
-			<definition value="A short, descriptive, user-friendly title for the capability statement."/>
-			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.title"/>
-			</mapping>
-		</element>
-		<element id="CompartmentDefinition.status">
-			<path value="CompartmentDefinition.status"/>
-			<short value="draft | active | retired | unknown"/>
-			<definition value="The status of this compartment definition. Enables tracking the life-cycle of the content."/>
-			<comment value="Allows filtering of compartment definitions that are appropriate for use versus not."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<isModifier value="true"/>
-			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="PublicationStatus"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
-				</extension>
-				<strength value="required"/>
-				<description value="The lifecycle status of an artifact."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-			</binding>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.status"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.status"/>
-			</mapping>
-		</element>
-		<element id="CompartmentDefinition.experimental">
-			<path value="CompartmentDefinition.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this compartment definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of compartment definitions that are appropriate for use versus not."/>
-			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level compartment definition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.experimental"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.class"/>
-			</mapping>
-		</element>
-		<element id="CompartmentDefinition.date">
-			<path value="CompartmentDefinition.date"/>
-			<short value="Date last changed"/>
-			<definition value="The date  (and optionally time) when the compartment definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes."/>
-			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the compartment definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-			<alias value="Revision Date"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="dateTime"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.date"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.recorded"/>
-			</mapping>
-		</element>
-		<element id="CompartmentDefinition.publisher">
-			<path value="CompartmentDefinition.publisher"/>
-			<short value="Name of the publisher (organization or individual)"/>
-			<definition value="The name of the organization or individual that published the compartment definition."/>
-			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the compartment definition is the organization or individual primarily responsible for the maintenance and upkeep of the compartment definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the compartment definition. This item SHOULD be populated unless the information is available from context."/>
-			<requirements value="Helps establish the &quot;authority/credibility&quot; of the compartment definition.  May also allow for contact."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.publisher"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.witness"/>
-			</mapping>
-		</element>
-		<element id="CompartmentDefinition.contact">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-				<valueCode value="350,60"/>
-			</extension>
-			<path value="CompartmentDefinition.contact"/>
-			<short value="Contact details for the publisher"/>
-			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-			<comment value="May be a web site, an email address, a telephone number, etc."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.contact"/>
-			</mapping>
-		</element>
-		<element id="CompartmentDefinition.description">
-			<path value="CompartmentDefinition.description"/>
-			<short value="Natural language description of the compartment definition"/>
-			<definition value="A free text natural language description of the compartment definition from a consumer&#39;s perspective."/>
-			<comment value="This description can be used to capture details such as why the compartment definition was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the compartment definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the compartment definition is presumed to be the predominant language in the place the compartment definition was created)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.description"/>
-			</mapping>
-		</element>
-		<element id="CompartmentDefinition.useContext">
-			<path value="CompartmentDefinition.useContext"/>
-			<short value="The context that the content is intended to support"/>
-			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate compartment definition instances."/>
-			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-			<requirements value="Assist in searching for appropriate content."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="UsageContext"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.useContext"/>
-			</mapping>
-		</element>
-		<element id="CompartmentDefinition.purpose">
-			<path value="CompartmentDefinition.purpose"/>
-			<short value="Why this compartment definition is defined"/>
-			<definition value="Explanation of why this compartment definition is needed and why it has been designed as it has."/>
-			<comment value="This element does not describe the usage of the compartment definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this compartment definition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.purpose"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.why[x]"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="CompartmentDefinition.code">
-			<path value="CompartmentDefinition.code"/>
-			<short value="Patient | Encounter | RelatedPerson | Practitioner | Device"/>
-			<definition value="Which compartment this definition describes."/>
-			<comment value="Only the specification can define the compartments that can exist. Servers can choose to support them."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CompartmentType"/>
-				</extension>
-				<strength value="required"/>
-				<description value="Which type a compartment definition describes."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/compartment-type"/>
-			</binding>
-		</element>
-		<element id="CompartmentDefinition.search">
-			<path value="CompartmentDefinition.search"/>
-			<short value="Whether the search syntax is supported"/>
-			<definition value="Whether the search syntax is supported,."/>
-			<comment value="Servers may define and use compartments to manage logical access without implementing the compartment related syntax."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="CompartmentDefinition.resource">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-				<valueCode value="350,260"/>
-			</extension>
-			<path value="CompartmentDefinition.resource"/>
-			<short value="How a resource is related to the compartment"/>
-			<definition value="Information about how a resource is related to the compartment."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="CompartmentDefinition.resource.code">
-			<path value="CompartmentDefinition.resource.code"/>
-			<short value="Name of resource type"/>
-			<definition value="The name of a resource supported by the server."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ResourceType"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
-				</extension>
-				<strength value="required"/>
-				<description value="One of the resource types defined as part of this version of FHIR."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
-			</binding>
-		</element>
-		<element id="CompartmentDefinition.resource.param">
-			<path value="CompartmentDefinition.resource.param"/>
-			<short value="Search Parameter Name, or chained parameters"/>
-			<definition value="The name of a search parameter that represents the link to the compartment. More than one may be listed because a resource may be linked to a compartment in more than one way,."/>
-			<comment value="If no search parameters are listed, then the resource is not linked to the compartment."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="CompartmentDefinition.resource.documentation">
-			<path value="CompartmentDefinition.resource.documentation"/>
-			<short value="Additional documentation about the resource and compartment"/>
-			<definition value="Additional documentation about the resource and compartment."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="CompartmentDefinition.resource.startParam">
-			<path value="CompartmentDefinition.resource.startParam"/>
-			<short value="Search Param for interpreting $everything.start"/>
-			<definition value="Search Parameter for mapping requests made with $everything.start (e.g. on [Patient.$everything](patient-operation-everything.html))."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="uri"/>
-			</type>
-		</element>
-		<element id="CompartmentDefinition.resource.endParam">
-			<path value="CompartmentDefinition.resource.endParam"/>
-			<short value="Search Param for interpreting $everything.end"/>
-			<definition value="Search Parameter for mapping requests made with $everything.end (e.g. on [Patient.$everything](patient-operation-everything.html))."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="uri"/>
-			</type>
-		</element>
-	</differential>
+  <id value="CompartmentDefinition"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Foundation.Conformance"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="anonymous"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = retired"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+    <valueString value="CanonicalResource"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/CompartmentDefinition"/>
+  <version value="5.0.0"/>
+  <name value="CompartmentDefinition"/>
+  <status value="draft"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A compartment definition that defines how resources are accessed on a server."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="CompartmentDefinition"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="CompartmentDefinition">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="CompartmentDefinition"/>
+      <short value="Compartment Definition for a resource"/>
+      <definition value="A compartment definition that defines how resources are accessed on a server."/>
+      <comment value="In FHIR, search is not performed directly on a resource (by XML or JSON path), but on a named parameter that maps into the resource content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="cnl-0"/>
+        <severity value="warning"/>
+        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CompartmentDefinition"/>
+      </constraint>
+      <mapping>
+        <identity value="v2"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="conformance.behavior"/>
+      </mapping>
+    </element>
+    <element id="CompartmentDefinition.url">
+      <path value="CompartmentDefinition.url"/>
+      <short value="Canonical identifier for this compartment definition, represented as a URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this compartment definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this compartment definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the compartment definition is stored on different servers."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+      <requirements value="Allows the compartment definition to be referenced by a single globally unique identifier."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="CompartmentDefinition.version">
+      <path value="CompartmentDefinition.version"/>
+      <short value="Business version of the compartment definition"/>
+      <definition value="The identifier that is used to identify this version of the compartment definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the compartment definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+      <comment value="There may be different compartment definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the compartment definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.version"/>
+      </mapping>
+    </element>
+    <element id="CompartmentDefinition.versionAlgorithm[x]">
+      <path value="CompartmentDefinition.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+    </element>
+    <element id="CompartmentDefinition.name">
+      <path value="CompartmentDefinition.name"/>
+      <short value="Name for this compartment definition (computer friendly)"/>
+      <definition value="A natural language name identifying the compartment definition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly.This is often the same as the code for the parameter, but does not need to be."/>
+      <requirements value="Support human navigation and code generation."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="cnl-0"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="CompartmentDefinition.title">
+      <path value="CompartmentDefinition.title"/>
+      <short value="Name for this compartment definition (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the capability statement."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="CompartmentDefinition.status">
+      <path value="CompartmentDefinition.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The status of this compartment definition. Enables tracking the life-cycle of the content."/>
+      <comment value="Allows filtering of compartment definitions that are appropriate for use versus not."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="CompartmentDefinition.experimental">
+      <path value="CompartmentDefinition.experimental"/>
+      <short value="For testing purposes, not real usage"/>
+      <definition value="A Boolean value to indicate that this compartment definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+      <comment value="Allows filtering of compartment definitions that are appropriate for use versus not."/>
+      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level compartment definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="CompartmentDefinition.date">
+      <path value="CompartmentDefinition.date"/>
+      <short value="Date last changed"/>
+      <definition value="The date  (and optionally time) when the compartment definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the compartment definition changes."/>
+      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the compartment definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <alias value="Revision Date"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="CompartmentDefinition.publisher">
+      <path value="CompartmentDefinition.publisher"/>
+      <short value="Name of the publisher (organization or individual)"/>
+      <definition value="The name of the organization or individual that published the compartment definition."/>
+      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the compartment definition is the organization or individual primarily responsible for the maintenance and upkeep of the compartment definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the compartment definition. This item SHOULD be populated unless the information is available from context."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the compartment definition.  May also allow for contact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.witness"/>
+      </mapping>
+    </element>
+    <element id="CompartmentDefinition.contact">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="350,60"/>
+      </extension>
+      <path value="CompartmentDefinition.contact"/>
+      <short value="Contact details for the publisher"/>
+      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="CompartmentDefinition.description">
+      <path value="CompartmentDefinition.description"/>
+      <short value="Natural language description of the compartment definition"/>
+      <definition value="A free text natural language description of the compartment definition from a consumer&#39;s perspective."/>
+      <comment value="This description can be used to capture details such as why the compartment definition was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the compartment definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the compartment definition is presumed to be the predominant language in the place the compartment definition was created)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="CompartmentDefinition.useContext">
+      <path value="CompartmentDefinition.useContext"/>
+      <short value="The context that the content is intended to support"/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate compartment definition instances."/>
+      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+      <requirements value="Assist in searching for appropriate content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="CompartmentDefinition.purpose">
+      <path value="CompartmentDefinition.purpose"/>
+      <short value="Why this compartment definition is defined"/>
+      <definition value="Explanation of why this compartment definition is needed and why it has been designed as it has."/>
+      <comment value="This element does not describe the usage of the compartment definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this compartment definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="CompartmentDefinition.code">
+      <path value="CompartmentDefinition.code"/>
+      <short value="Patient | Encounter | RelatedPerson | Practitioner | Device"/>
+      <definition value="Which compartment this definition describes."/>
+      <comment value="Only the specification can define the compartments that can exist. Servers can choose to support them."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CompartmentType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Which type a compartment definition describes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/compartment-type"/>
+      </binding>
+    </element>
+    <element id="CompartmentDefinition.search">
+      <path value="CompartmentDefinition.search"/>
+      <short value="Whether the search syntax is supported"/>
+      <definition value="Whether the search syntax is supported,."/>
+      <comment value="Servers may define and use compartments to manage logical access without implementing the compartment related syntax."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="CompartmentDefinition.resource">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="350,260"/>
+      </extension>
+      <path value="CompartmentDefinition.resource"/>
+      <short value="How a resource is related to the compartment"/>
+      <definition value="Information about how a resource is related to the compartment."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="CompartmentDefinition.resource.code">
+      <path value="CompartmentDefinition.resource.code"/>
+      <short value="Name of resource type"/>
+      <definition value="The name of a resource supported by the server."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResourceType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="One of the resource types defined as part of this version of FHIR."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+      </binding>
+    </element>
+    <element id="CompartmentDefinition.resource.param">
+      <path value="CompartmentDefinition.resource.param"/>
+      <short value="Search Parameter Name, or chained parameters"/>
+      <definition value="The name of a search parameter that represents the link to the compartment. More than one may be listed because a resource may be linked to a compartment in more than one way,."/>
+      <comment value="If no search parameters are listed, then the resource is not linked to the compartment."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="CompartmentDefinition.resource.documentation">
+      <path value="CompartmentDefinition.resource.documentation"/>
+      <short value="Additional documentation about the resource and compartment"/>
+      <definition value="Additional documentation about the resource and compartment."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="CompartmentDefinition.resource.startParam">
+      <path value="CompartmentDefinition.resource.startParam"/>
+      <short value="Search Param for interpreting $everything.start"/>
+      <definition value="Search Parameter for mapping requests made with $everything.start (e.g. on [Patient.$everything](patient-operation-everything.html))."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="CompartmentDefinition.resource.endParam">
+      <path value="CompartmentDefinition.resource.endParam"/>
+      <short value="Search Param for interpreting $everything.end"/>
+      <definition value="Search Parameter for mapping requests made with $everything.end (e.g. on [Patient.$everything](patient-operation-everything.html))."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+  </differential>
 </StructureDefinition>

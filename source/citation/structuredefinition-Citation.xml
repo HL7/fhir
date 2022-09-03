@@ -1,1606 +1,1550 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="Citation"/>
-	<meta>
-		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-	</meta>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-		<valueString value="Specialized.Evidence-Based Medicine"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-		<valueCode value="trial-use"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="0"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-		<valueCode value="business"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-		<valueCode value="cds"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-		<valueCode value=".status = retired"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-		<valueString value="MetadataResource"/>
-	</extension>
-	<url value="http://hl7.org/fhir/StructureDefinition/Citation"/>
-	<version value="5.0.0"/>
-	<name value="Citation"/>
-	<status value="draft"/>
-	<date value="2021-01-05T10:01:24+11:00"/>
-	<publisher value="Health Level Seven International (Clinical Decision Support)"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
-		</telecom>
-	</contact>
-	<description value="The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources."/>
-	<fhirVersion value="5.0.0"/>
-	<mapping>
-		<identity value="w5"/>
-		<uri value="http://hl7.org/fhir/fivews"/>
-		<name value="FiveWs Pattern Mapping"/>
-	</mapping>
-	<mapping>
-		<identity value="workflow"/>
-		<uri value="http://hl7.org/fhir/workflow"/>
-		<name value="Workflow Pattern"/>
-	</mapping>
-	<mapping>
-		<identity value="objimpl"/>
-		<uri value="http://hl7.org/fhir/object-implementation"/>
-		<name value="Object Implementation Information"/>
-	</mapping>
-	<mapping>
-		<identity value="rim"/>
-		<uri value="http://hl7.org/v3"/>
-		<name value="RIM Mapping"/>
-	</mapping>
-	<kind value="resource"/>
-	<abstract value="false"/>
-	<type value="Citation"/>
-	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
-	<derivation value="specialization"/>
-	<differential>
-		<element id="Citation">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-				<valueCode value="0,40"/>
-			</extension>
-			<path value="Citation"/>
-			<short value="A description of identification, location, or contributorship of a publication (article or artifact)"/>
-			<definition value="The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources."/>
-			<min value="0"/>
-			<max value="*"/>
-			<constraint>
-				<key value="cnl-0"/>
-				<severity value="warning"/>
-				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Citation"/>
-			</constraint>
-			<mapping>
-				<identity value="w5"/>
-				<map value="clinical.general"/>
-			</mapping>
-		</element>
-		<element id="Citation.url">
-			<path value="Citation.url"/>
-			<short value="Canonical identifier for this citation, represented as a globally unique URI"/>
-			<definition value="An absolute URI that is used to identify this citation when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers."/>
-			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version."/>
-			<requirements value="Allows the citation to be referenced by a single globally unique identifier."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="uri"/>
-			</type>
-			<constraint>
-				<key value="cnl-1"/>
-				<severity value="warning"/>
-				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-				<expression value="url.matches(&#39;([^|#])*&#39;)"/>
-				<xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-			</constraint>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.url"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.identifier"/>
-			</mapping>
-		</element>
-		<element id="Citation.identifier">
-			<path value="Citation.identifier"/>
-			<short value="Identifier for the Citation resource itself"/>
-			<definition value="A formal identifier that is used to identify this citation when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-			<comment value="May include DOI, PMID, PMCID, etc. This element will contain unique identifiers that support de-duplication of citations. This identifier can be valid for only one citation resource."/>
-			<requirements value="Allows externally provided and/or usable identifiers to be associated with this citation."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Identifier"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.identifier"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.identifier"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="Citation.version">
-			<path value="Citation.version"/>
-			<short value="Business version of the citation"/>
-			<definition value="The identifier that is used to identify this version of the citation when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the citation author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-			<comment value="There may be different citation instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the citation with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.version"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.version"/>
-			</mapping>
-		</element>
-		<element id="Citation.name">
-			<path value="Citation.name"/>
-			<short value="Name for this citation (computer friendly)"/>
-			<definition value="A natural language name identifying the citation. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-			<requirements value="Support human navigation and code generation."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<condition value="cnl-0"/>
-			<isSummary value="true"/>
-		</element>
-		<element id="Citation.title">
-			<path value="Citation.title"/>
-			<short value="Name for this citation (human friendly)"/>
-			<definition value="A short, descriptive, user-friendly title for the citation."/>
-			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.title"/>
-			</mapping>
-		</element>
-		<element id="Citation.status">
-			<path value="Citation.status"/>
-			<short value="draft | active | retired | unknown"/>
-			<definition value="The status of this summary. Enables tracking the life-cycle of the content."/>
-			<comment value="Allows filtering of summarys s that are appropriate for use versus not."/>
-			<requirements value="Allows filtering of citations that are appropriate for use versus not."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<isModifier value="true"/>
-			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="PublicationStatus"/>
-				</extension>
-				<strength value="required"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-			</binding>
-		</element>
-		<element id="Citation.experimental">
-			<path value="Citation.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this citation is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of citations that are appropriate for use versus not."/>
-			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level citation."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.experimental"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.class"/>
-			</mapping>
-		</element>
-		<element id="Citation.date">
-			<path value="Citation.date"/>
-			<short value="Date last changed"/>
-			<definition value="The date  (and optionally time) when the citation was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the citation changes."/>
-			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the citation. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-			<alias value="Revision Date"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="dateTime"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.date"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.recorded"/>
-			</mapping>
-		</element>
-		<element id="Citation.publisher">
-			<path value="Citation.publisher"/>
-			<short value="The publisher of the Citation, not the publisher of the article or artifact being cited"/>
-			<definition value="The name of the organization or individual that published the citation."/>
-			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the citation is the organization or individual primarily responsible for the maintenance and upkeep of the citation. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the citation. This item SHOULD be populated unless the information is available from context."/>
-			<requirements value="Helps establish the &quot;authority/credibility&quot; of the citation.  May also allow for contact."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.publisher"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.witness"/>
-			</mapping>
-		</element>
-		<element id="Citation.contact">
-			<path value="Citation.contact"/>
-			<short value="Contact details for the publisher of the Citation Resource"/>
-			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-			<comment value="May be a web site, an email address, a telephone number, etc."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.contact"/>
-			</mapping>
-		</element>
-		<element id="Citation.description">
-			<path value="Citation.description"/>
-			<short value="Natural language description of the citation"/>
-			<definition value="A free text natural language description of the citation from a consumer&#39;s perspective."/>
-			<comment value="This description can be used to capture details such as why the citation was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the citation as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the citation is presumed to be the predominant language in the place the citation was created)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.description"/>
-			</mapping>
-		</element>
-		<element id="Citation.useContext">
-			<path value="Citation.useContext"/>
-			<short value="The context that the Citation Resource content is intended to support"/>
-			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate citation instances."/>
-			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-			<requirements value="Assist in searching for appropriate content."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="UsageContext"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.useContext"/>
-			</mapping>
-		</element>
-		<element id="Citation.jurisdiction">
-			<path value="Citation.jurisdiction"/>
-			<short value="Intended jurisdiction for citation (if applicable)"/>
-			<definition value="A legal or geographic region in which the citation is intended to be used."/>
-			<comment value="It may be possible for the citation to be used in jurisdictions other than those for which it was originally designed or intended."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="Jurisdiction"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-			</binding>
-		</element>
-		<element id="Citation.purpose">
-			<path value="Citation.purpose"/>
-			<short value="Why this citation is defined"/>
-			<definition value="Explanation of why this citation is needed and why it has been designed as it has."/>
-			<comment value="This element does not describe the usage of the citation. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this citation."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.purpose"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.why[x]"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="Citation.copyright">
-			<path value="Citation.copyright"/>
-			<short value="Use and/or publishing restrictions for the Citation, not for the cited artifact"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="Citation.approvalDate">
-			<path value="Citation.approvalDate"/>
-			<short value="When the citation was approved by publisher"/>
-			<definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-			<comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="date"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.approvalDate"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="Citation.lastReviewDate">
-			<path value="Citation.lastReviewDate"/>
-			<short value="When the citation was last reviewed"/>
-			<definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
-			<comment value="If specified, this date follows the original approval date."/>
-			<requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="date"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.lastReviewDate"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="Citation.effectivePeriod">
-			<path value="Citation.effectivePeriod"/>
-			<short value="When the citation is expected to be used"/>
-			<definition value="The period during which the citation content was or is planned to be in active use."/>
-			<comment value="The effective period for a citation  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
-			<requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the citation are or are expected to be used instead."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Period"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.effectivePeriod"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="Citation.author">
-			<path value="Citation.author"/>
-			<short value="Who authored the Citation"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-		</element>
-		<element id="Citation.editor">
-			<path value="Citation.editor"/>
-			<short value="Who edited the Citation"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-		</element>
-		<element id="Citation.reviewer">
-			<path value="Citation.reviewer"/>
-			<short value="Who reviewed the Citation"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-		</element>
-		<element id="Citation.endorser">
-			<path value="Citation.endorser"/>
-			<short value="Who endorsed the Citation"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-		</element>
-		<element id="Citation.summary">
-			<path value="Citation.summary"/>
-			<short value="A human-readable display of the citation"/>
-			<definition value="A human-readable display of the citation."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.summary.style">
-			<path value="Citation.summary.style"/>
-			<short value="Format for display of the citation"/>
-			<definition value="Format for display of the citation."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CitationSummaryStyle"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/citation-summary-style"/>
-			</binding>
-		</element>
-		<element id="Citation.summary.text">
-			<path value="Citation.summary.text"/>
-			<short value="The human-readable display of the citation"/>
-			<definition value="The human-readable display of the citation."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="Citation.classification">
-			<path value="Citation.classification"/>
-			<short value="The assignment to an organizing scheme"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.classification.type">
-			<path value="Citation.classification.type"/>
-			<short value="The kind of classifier (e.g. publication type, keyword)"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CitationClassificationType"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/citation-classification-type"/>
-			</binding>
-		</element>
-		<element id="Citation.classification.classifier">
-			<path value="Citation.classification.classifier"/>
-			<short value="The specific classification value"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CitationArtifactClassifier"/>
-				</extension>
-				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
-			</binding>
-		</element>
-		<element id="Citation.note">
-			<path value="Citation.note"/>
-			<short value="Used for general notes and annotations not coded elsewhere"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Annotation"/>
-			</type>
-		</element>
-		<element id="Citation.currentState">
-			<path value="Citation.currentState"/>
-			<short value="The status of the citation"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CitationStatusType"/>
-				</extension>
-				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/citation-status-type"/>
-			</binding>
-		</element>
-		<element id="Citation.statusDate">
-			<path value="Citation.statusDate"/>
-			<short value="An effective date or period for a status of the citation"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.statusDate.activity">
-			<path value="Citation.statusDate.activity"/>
-			<short value="Classification of the status"/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CitationStatusType"/>
-				</extension>
-				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/citation-status-type"/>
-			</binding>
-		</element>
-		<element id="Citation.statusDate.actual">
-			<path value="Citation.statusDate.actual"/>
-			<short value="Either occurred or expected"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-		</element>
-		<element id="Citation.statusDate.period">
-			<path value="Citation.statusDate.period"/>
-			<short value="When the status started and/or ended"/>
-			<comment value="For an instance, place the same value in both start and end elements."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="Period"/>
-			</type>
-		</element>
-		<element id="Citation.relatedArtifact">
-			<path value="Citation.relatedArtifact"/>
-			<short value="Artifact related to the Citation Resource"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="RelatedArtifact"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact">
-			<path value="Citation.citedArtifact"/>
-			<short value="The article or artifact being described"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.identifier">
-			<path value="Citation.citedArtifact.identifier"/>
-			<short value="May include DOI, PMID, PMCID, etc."/>
-			<definition value="A formal identifier that is used to identify this citation when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-			<comment value="May include DOI, PMID, PMCID, etc. This element will contain unique identifiers that support de-duplication of citations. This identifier can be valid for only one citation resource."/>
-			<requirements value="Allows externally provided and/or usable identifiers to be associated with this citation."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Identifier"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="Citation.citedArtifact.relatedIdentifier">
-			<path value="Citation.citedArtifact.relatedIdentifier"/>
-			<short value="May include trial registry identifiers"/>
-			<definition value="A formal identifier that is used to identify things closely related to this citation."/>
-			<comment value="May include trial registry identifiers, e.g. NCT04372602 from clinicaltrials.gov. This identifier can be valid for multiple citation resources."/>
-			<requirements value="Allows externally provided and/or usable identifiers to be associated with this citation."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Identifier"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="Citation.citedArtifact.dateAccessed">
-			<path value="Citation.citedArtifact.dateAccessed"/>
-			<short value="When the cited artifact was accessed"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="dateTime"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="Citation.citedArtifact.version">
-			<path value="Citation.citedArtifact.version"/>
-			<short value="The defined version of the cited artifact"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.version.value">
-			<path value="Citation.citedArtifact.version.value"/>
-			<short value="The version number or other version identifier"/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.version.baseCitation">
-			<path value="Citation.citedArtifact.version.baseCitation"/>
-			<short value="Citation for the main version of the cited artifact"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.currentState">
-			<path value="Citation.citedArtifact.currentState"/>
-			<short value="The status of the cited artifact"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CitedArtifactStatusType"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-status-type"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.statusDate">
-			<path value="Citation.citedArtifact.statusDate"/>
-			<short value="An effective date or period for a status of the cited artifact"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.statusDate.activity">
-			<path value="Citation.citedArtifact.statusDate.activity"/>
-			<short value="Classification of the status"/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CitedArtifactStatusType"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-status-type"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.statusDate.actual">
-			<path value="Citation.citedArtifact.statusDate.actual"/>
-			<short value="Either occurred or expected"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.statusDate.period">
-			<path value="Citation.citedArtifact.statusDate.period"/>
-			<short value="When the status started and/or ended"/>
-			<comment value="For an instance, place the same value in both start and end elements."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="Period"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.title">
-			<path value="Citation.citedArtifact.title"/>
-			<short value="The title details of the article or artifact"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.title.type">
-			<path value="Citation.citedArtifact.title.type"/>
-			<short value="The kind of title"/>
-			<definition value="Used to express the reason or specific aspect for the title."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="TitleType"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/title-type"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.title.language">
-			<path value="Citation.citedArtifact.title.language"/>
-			<short value="Used to express the specific language"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="Language"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-					<valueString value="A human language."/>
-				</extension>
-				<strength value="preferred"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.title.text">
-			<path value="Citation.citedArtifact.title.text"/>
-			<short value="The title of the article or artifact"/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.abstract">
-			<path value="Citation.citedArtifact.abstract"/>
-			<short value="Summary of the article or artifact"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.abstract.type">
-			<path value="Citation.citedArtifact.abstract.type"/>
-			<short value="The kind of abstract"/>
-			<definition value="Used to express the reason or specific aspect for the abstract."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CitedArtifactAbstractType"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-abstract-type"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.abstract.language">
-			<path value="Citation.citedArtifact.abstract.language"/>
-			<short value="Used to express the specific language"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="Language"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-					<valueString value="A human language."/>
-				</extension>
-				<strength value="preferred"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.abstract.text">
-			<path value="Citation.citedArtifact.abstract.text"/>
-			<short value="Abstract content"/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.abstract.copyright">
-			<path value="Citation.citedArtifact.abstract.copyright"/>
-			<short value="Copyright notice for the abstract"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.part">
-			<path value="Citation.citedArtifact.part"/>
-			<short value="The component of the article or artifact"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.part.type">
-			<path value="Citation.citedArtifact.part.type"/>
-			<short value="The kind of component"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CitedArtifactPartType"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-part-type"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.part.value">
-			<path value="Citation.citedArtifact.part.value"/>
-			<short value="The specification of the component"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.part.baseCitation">
-			<path value="Citation.citedArtifact.part.baseCitation"/>
-			<short value="The citation for the full article or artifact"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.relatesTo">
-			<path value="Citation.citedArtifact.relatesTo"/>
-			<short value="The artifact related to the cited artifact"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.relatesTo.type">
-			<path value="Citation.citedArtifact.relatesTo.type"/>
-			<short value="documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | documents | specification-of | created-with | cite-as | reprint | reprint-of"/>
-			<definition value="The type of relationship to the related artifact."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="RelatedArtifactTypeExpanded"/>
-				</extension>
-				<strength value="required"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/related-artifact-type-expanded"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.relatesTo.classifier">
-			<path value="Citation.citedArtifact.relatesTo.classifier"/>
-			<short value="Additional classifiers"/>
-			<definition value="Provides additional classifiers of the related artifact."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CitationArtifactClassifier"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.relatesTo.label">
-			<path value="Citation.citedArtifact.relatesTo.label"/>
-			<short value="Short label"/>
-			<definition value="A short label that can be used to reference the citation from elsewhere in the containing artifact, such as a footnote index."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.relatesTo.display">
-			<path value="Citation.citedArtifact.relatesTo.display"/>
-			<short value="Brief description of the related artifact"/>
-			<definition value="A brief description of the document or knowledge resource being referenced, suitable for display to a consumer."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.relatesTo.citation">
-			<path value="Citation.citedArtifact.relatesTo.citation"/>
-			<short value="Bibliographic citation for the artifact"/>
-			<definition value="A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format."/>
-			<comment value="Additional structured information about citations should be captured as extensions."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.relatesTo.document">
-			<path value="Citation.citedArtifact.relatesTo.document"/>
-			<short value="What document is being referenced"/>
-			<definition value="The document being referenced, represented as an attachment. This is exclusive with the resource element."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Attachment"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.relatesTo.resource">
-			<path value="Citation.citedArtifact.relatesTo.resource"/>
-			<short value="What artifact is being referenced"/>
-			<definition value="The related artifact, such as a library, value set, profile, or other knowledge resource."/>
-			<comment value="If the type is predecessor, this is a reference to the succeeding knowledge resource. If the type is successor, this is a reference to the prior knowledge resource"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="canonical"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.relatesTo.resourceReference">
-			<path value="Citation.citedArtifact.relatesTo.resourceReference"/>
-			<short value="What artifact, if not a conformance resource"/>
-			<definition value="The related artifact, if the artifact is not a canonical resource, or a resource reference to a canonical resource."/>
-			<comment value="If both resource and resourceReference are present, they SHOULD be consistent and reference the same resource. Although relatedArtifact is intended to support references to definitional resources, there are cases where non-definitional resources can be definitional (such as Location where the kind is mode). Related artifacts SHOULD be used to reference definitional resources, and profiles SHOULD be used to make that explicit for particular use cases."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Reference"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm">
-			<path value="Citation.citedArtifact.publicationForm"/>
-			<short value="If multiple, used to represent alternative forms of the article that are not separate citations"/>
-			<comment value="A common use is a journal article with a publication date and pagination for a print version and a different publication date for the online version of the same article."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.publishedIn">
-			<path value="Citation.citedArtifact.publicationForm.publishedIn"/>
-			<short value="The collection the cited article or artifact is published in"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.publishedIn.type">
-			<path value="Citation.citedArtifact.publicationForm.publishedIn.type"/>
-			<short value="Kind of container (e.g. Periodical, database, or book)"/>
-			<comment value="Journals and newspapers are coded as Periodical."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="PublishedInType"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/published-in-type"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.publishedIn.identifier">
-			<path value="Citation.citedArtifact.publicationForm.publishedIn.identifier"/>
-			<short value="Journal identifiers include ISSN, ISO Abbreviation and NLMuniqueID; Book identifiers include ISBN"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Identifier"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.publishedIn.title">
-			<path value="Citation.citedArtifact.publicationForm.publishedIn.title"/>
-			<short value="Name of the database or title of the book or journal"/>
-			<comment value="ClinicalTrials.gov is a name of a database."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.publishedIn.publisher">
-			<path value="Citation.citedArtifact.publicationForm.publishedIn.publisher"/>
-			<short value="Name of the publisher"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.publishedIn.publisherLocation">
-			<path value="Citation.citedArtifact.publicationForm.publishedIn.publisherLocation"/>
-			<short value="Geographic location of the publisher"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.citedMedium">
-			<path value="Citation.citedArtifact.publicationForm.citedMedium"/>
-			<short value="Internet or Print"/>
-			<definition value="Describes the form of the medium cited. Common codes are &quot;Internet&quot; or &quot;Print&quot;."/>
-			<comment value="National Library of Medicine uses the codes &quot;Internet&quot; or &quot;Print&quot;."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CitedMedium"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/cited-medium"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.volume">
-			<path value="Citation.citedArtifact.publicationForm.volume"/>
-			<short value="Volume number of journal in which the article is published"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.issue">
-			<path value="Citation.citedArtifact.publicationForm.issue"/>
-			<short value="Issue, part or supplement of journal in which the article is published"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.publicationDateYear">
-			<path value="Citation.citedArtifact.publicationForm.publicationDateYear"/>
-			<short value="Year on which the issue of the journal was published"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.publicationDateMonth">
-			<path value="Citation.citedArtifact.publicationForm.publicationDateMonth"/>
-			<short value="Month on which the issue of the journal was published"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.publicationDateDay">
-			<path value="Citation.citedArtifact.publicationForm.publicationDateDay"/>
-			<short value="Day on which the issue of the journal was published"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.publicationDateSeason">
-			<path value="Citation.citedArtifact.publicationForm.publicationDateSeason"/>
-			<short value="Season on which the issue of the journal was published"/>
-			<definition value="Spring, Summer, Fall/Autumn, Winter."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.publicationDateText">
-			<path value="Citation.citedArtifact.publicationForm.publicationDateText"/>
-			<short value="Text representation of the date of which the issue of the journal was published"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.articleDate">
-			<path value="Citation.citedArtifact.publicationForm.articleDate"/>
-			<short value="The date the article was added to the database, or the date the article was released"/>
-			<definition value="The date the article was added to the database, or the date the article was released (which may differ from the journal issue publication date)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="dateTime"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.lastRevisionDate">
-			<path value="Citation.citedArtifact.publicationForm.lastRevisionDate"/>
-			<short value="The date the article was last revised or updated in the database"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="dateTime"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.language">
-			<path value="Citation.citedArtifact.publicationForm.language"/>
-			<short value="Language in which this form of the article is published"/>
-			<comment value="Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="Language"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-					<valueString value="A human language."/>
-				</extension>
-				<strength value="preferred"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.accessionNumber">
-			<path value="Citation.citedArtifact.publicationForm.accessionNumber"/>
-			<short value="Entry number or identifier for inclusion in a database"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.pageString">
-			<path value="Citation.citedArtifact.publicationForm.pageString"/>
-			<short value="Used for full display of pagination"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.firstPage">
-			<path value="Citation.citedArtifact.publicationForm.firstPage"/>
-			<short value="Used for isolated representation of first page"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.lastPage">
-			<path value="Citation.citedArtifact.publicationForm.lastPage"/>
-			<short value="Used for isolated representation of last page"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.pageCount">
-			<path value="Citation.citedArtifact.publicationForm.pageCount"/>
-			<short value="Number of pages or screens"/>
-			<definition value="Actual or approximate number of pages or screens."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.publicationForm.copyright">
-			<path value="Citation.citedArtifact.publicationForm.copyright"/>
-			<short value="Copyright notice for the full article or artifact"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.webLocation">
-			<path value="Citation.citedArtifact.webLocation"/>
-			<short value="Used for any URL for the article or artifact cited"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.webLocation.classifier">
-			<path value="Citation.citedArtifact.webLocation.classifier"/>
-			<short value="Code the reason for different URLs, e.g. abstract and full-text"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ArtifactUrlClassifier"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/artifact-url-classifier"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.webLocation.url">
-			<path value="Citation.citedArtifact.webLocation.url"/>
-			<short value="The specific URL"/>
-			<comment value="Persistent URLs, like doi, are preferred."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="uri"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.classification">
-			<path value="Citation.citedArtifact.classification"/>
-			<short value="The assignment to an organizing scheme"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.classification.type">
-			<path value="Citation.citedArtifact.classification.type"/>
-			<short value="The kind of classifier (e.g. publication type, keyword)"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CitedArtifactClassificationType"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-classification-type"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.classification.classifier">
-			<path value="Citation.citedArtifact.classification.classifier"/>
-			<short value="The specific classification value"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CitationArtifactClassifier"/>
-				</extension>
-				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.classification.artifactAssessment">
-			<path value="Citation.citedArtifact.classification.artifactAssessment"/>
-			<short value="Complex or externally created classification&#xA;"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ArtifactAssessment"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.contributorship">
-			<path value="Citation.citedArtifact.contributorship"/>
-			<short value="Attribution of authors and other contributors"/>
-			<definition value="This element is used to list authors and other contributors, their contact information, specific contributions, and summary statements."/>
-			<requirements value="Need to support individualized and collective attribution of authorship and contributorship to people and groups."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.complete">
-			<path value="Citation.citedArtifact.contributorship.complete"/>
-			<short value="Indicates if the list includes all authors and/or contributors"/>
-			<comment value="If list is incomplete &quot;et al&quot; can be appended to Contributorship.summary.value for display purposes."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.entry">
-			<path value="Citation.citedArtifact.contributorship.entry"/>
-			<short value="An individual entity named in the list"/>
-			<definition value="An individual entity named in the author list or contributor list."/>
-			<comment value="Used to report contributorship in individualized ways."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.entry.contributor">
-			<path value="Citation.citedArtifact.contributorship.entry.contributor"/>
-			<short value="The identity of the individual entity"/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.entry.forenameInitials">
-			<path value="Citation.citedArtifact.contributorship.entry.forenameInitials"/>
-			<short value="Initials for forename"/>
-			<comment value="This element is used in Medline based citations, but not supported fully by FHIR HumanName datatype."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.entry.affiliation">
-			<path value="Citation.citedArtifact.contributorship.entry.affiliation"/>
-			<short value="Organizational affiliation"/>
-			<definition value="Organization affiliated with the entity."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.entry.contributionType">
-			<path value="Citation.citedArtifact.contributorship.entry.contributionType"/>
-			<short value="The specific contribution"/>
-			<definition value="This element identifies the specific nature of an individual’s contribution with respect to the cited work."/>
-			<comment value="The CreDiT taxonomy provides a way to encode contribution information inside article XML files. The purpose of CRediT is to provide transparency in contributions to scholarly published work, to enable improved systems of attribution, credit, and accountability."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ArtifactContributionType"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/artifact-contribution-type"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.entry.role">
-			<path value="Citation.citedArtifact.contributorship.entry.role"/>
-			<short value="The role of the contributor (e.g. author, editor, reviewer)"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ContributorRole"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/contributor-role"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.entry.contributionInstance">
-			<path value="Citation.citedArtifact.contributorship.entry.contributionInstance"/>
-			<short value="Contributions with accounting for time or number"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.entry.contributionInstance.type">
-			<path value="Citation.citedArtifact.contributorship.entry.contributionInstance.type"/>
-			<short value="The specific contribution"/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ArtifactContributionInstanceType"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/artifact-contribution-instance-type"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.entry.contributionInstance.time">
-			<path value="Citation.citedArtifact.contributorship.entry.contributionInstance.time"/>
-			<short value="The time that the contribution was made"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="dateTime"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.entry.correspondingContact">
-			<path value="Citation.citedArtifact.contributorship.entry.correspondingContact"/>
-			<short value="Indication of which contributor is the corresponding contributor for the role"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.entry.rankingOrder">
-			<path value="Citation.citedArtifact.contributorship.entry.rankingOrder"/>
-			<short value="Ranked order of contribution"/>
-			<definition value="Provides a numerical ranking to represent the degree of contributorship relative to other contributors, such as 1 for first author and 2 for second author."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="positiveInt"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.summary">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-				<valueString value="ContributorshipSummary"/>
-			</extension>
-			<path value="Citation.citedArtifact.contributorship.summary"/>
-			<short value="Used to record a display of the author/contributor list without separate coding for each list member"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.summary.type">
-			<path value="Citation.citedArtifact.contributorship.summary.type"/>
-			<short value="Either authorList or contributorshipStatement"/>
-			<definition value="Used most commonly to express an author list or a contributorship statement."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ContributorSummaryType"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-type"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.summary.style">
-			<path value="Citation.citedArtifact.contributorship.summary.style"/>
-			<short value="The format for the display string"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ContributorSummaryStyle"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-style"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.summary.source">
-			<path value="Citation.citedArtifact.contributorship.summary.source"/>
-			<short value="Used to code the producer or rule for creating the display string"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ContributorSummarySource"/>
-				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-source"/>
-			</binding>
-		</element>
-		<element id="Citation.citedArtifact.contributorship.summary.value">
-			<path value="Citation.citedArtifact.contributorship.summary.value"/>
-			<short value="The display string for the author list, contributor list, or contributorship statement"/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="Citation.citedArtifact.note">
-			<path value="Citation.citedArtifact.note"/>
-			<short value="Any additional information or content for the article or artifact"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Annotation"/>
-			</type>
-		</element>
-	</differential>
+  <id value="Citation"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Evidence-Based Medicine"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = retired"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+    <valueString value="MetadataResource"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Citation"/>
+  <version value="5.0.0"/>
+  <name value="Citation"/>
+  <status value="draft"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="Health Level Seven International (Clinical Decision Support)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Citation"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Citation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,40"/>
+      </extension>
+      <path value="Citation"/>
+      <short value="A description of identification, location, or contributorship of a publication (article or artifact)"/>
+      <definition value="The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources."/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="cnl-0"/>
+        <severity value="warning"/>
+        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Citation"/>
+      </constraint>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.general"/>
+      </mapping>
+    </element>
+    <element id="Citation.url">
+      <path value="Citation.url"/>
+      <short value="Canonical identifier for this citation, represented as a globally unique URI"/>
+      <definition value="An absolute URI that is used to identify this citation when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version."/>
+      <requirements value="Allows the citation to be referenced by a single globally unique identifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="Citation.identifier">
+      <path value="Citation.identifier"/>
+      <short value="Identifier for the Citation resource itself"/>
+      <definition value="A formal identifier that is used to identify this citation when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+      <comment value="May include DOI, PMID, PMCID, etc. This element will contain unique identifiers that support de-duplication of citations. This identifier can be valid for only one citation resource."/>
+      <requirements value="Allows externally provided and/or usable identifiers to be associated with this citation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="Citation.version">
+      <path value="Citation.version"/>
+      <short value="Business version of the citation"/>
+      <definition value="The identifier that is used to identify this version of the citation when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the citation author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+      <comment value="There may be different citation instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the citation with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.version"/>
+      </mapping>
+    </element>
+    <element id="Citation.name">
+      <path value="Citation.name"/>
+      <short value="Name for this citation (computer friendly)"/>
+      <definition value="A natural language name identifying the citation. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <requirements value="Support human navigation and code generation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="cnl-0"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Citation.title">
+      <path value="Citation.title"/>
+      <short value="Name for this citation (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the citation."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Citation.status">
+      <path value="Citation.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The status of this summary. Enables tracking the life-cycle of the content."/>
+      <comment value="Allows filtering of summarys s that are appropriate for use versus not."/>
+      <requirements value="Allows filtering of citations that are appropriate for use versus not."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+    </element>
+    <element id="Citation.experimental">
+      <path value="Citation.experimental"/>
+      <short value="For testing purposes, not real usage"/>
+      <definition value="A Boolean value to indicate that this citation is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+      <comment value="Allows filtering of citations that are appropriate for use versus not."/>
+      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level citation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="Citation.date">
+      <path value="Citation.date"/>
+      <short value="Date last changed"/>
+      <definition value="The date  (and optionally time) when the citation was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the citation changes."/>
+      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the citation. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <alias value="Revision Date"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="Citation.publisher">
+      <path value="Citation.publisher"/>
+      <short value="The publisher of the Citation, not the publisher of the article or artifact being cited"/>
+      <definition value="The name of the organization or individual that published the citation."/>
+      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the citation is the organization or individual primarily responsible for the maintenance and upkeep of the citation. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the citation. This item SHOULD be populated unless the information is available from context."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the citation.  May also allow for contact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.witness"/>
+      </mapping>
+    </element>
+    <element id="Citation.contact">
+      <path value="Citation.contact"/>
+      <short value="Contact details for the publisher of the Citation Resource"/>
+      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Citation.description">
+      <path value="Citation.description"/>
+      <short value="Natural language description of the citation"/>
+      <definition value="A free text natural language description of the citation from a consumer&#39;s perspective."/>
+      <comment value="This description can be used to capture details such as why the citation was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the citation as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the citation is presumed to be the predominant language in the place the citation was created)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Citation.useContext">
+      <path value="Citation.useContext"/>
+      <short value="The context that the Citation Resource content is intended to support"/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate citation instances."/>
+      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+      <requirements value="Assist in searching for appropriate content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Citation.jurisdiction">
+      <path value="Citation.jurisdiction"/>
+      <short value="Intended jurisdiction for citation (if applicable)"/>
+      <definition value="A legal or geographic region in which the citation is intended to be used."/>
+      <comment value="It may be possible for the citation to be used in jurisdictions other than those for which it was originally designed or intended."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
+    </element>
+    <element id="Citation.purpose">
+      <path value="Citation.purpose"/>
+      <short value="Why this citation is defined"/>
+      <definition value="Explanation of why this citation is needed and why it has been designed as it has."/>
+      <comment value="This element does not describe the usage of the citation. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this citation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="Citation.copyright">
+      <path value="Citation.copyright"/>
+      <short value="Use and/or publishing restrictions for the Citation, not for the cited artifact"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Citation.approvalDate">
+      <path value="Citation.approvalDate"/>
+      <short value="When the citation was approved by publisher"/>
+      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="Citation.lastReviewDate">
+      <path value="Citation.lastReviewDate"/>
+      <short value="When the citation was last reviewed"/>
+      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
+      <comment value="If specified, this date follows the original approval date."/>
+      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="Citation.effectivePeriod">
+      <path value="Citation.effectivePeriod"/>
+      <short value="When the citation is expected to be used"/>
+      <definition value="The period during which the citation content was or is planned to be in active use."/>
+      <comment value="The effective period for a citation  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+      <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the citation are or are expected to be used instead."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="Citation.author">
+      <path value="Citation.author"/>
+      <short value="Who authored the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="Citation.editor">
+      <path value="Citation.editor"/>
+      <short value="Who edited the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="Citation.reviewer">
+      <path value="Citation.reviewer"/>
+      <short value="Who reviewed the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="Citation.endorser">
+      <path value="Citation.endorser"/>
+      <short value="Who endorsed the Citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="Citation.summary">
+      <path value="Citation.summary"/>
+      <short value="A human-readable display of the citation"/>
+      <definition value="A human-readable display of the citation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.summary.style">
+      <path value="Citation.summary.style"/>
+      <short value="Format for display of the citation"/>
+      <definition value="Format for display of the citation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitationSummaryStyle"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/citation-summary-style"/>
+      </binding>
+    </element>
+    <element id="Citation.summary.text">
+      <path value="Citation.summary.text"/>
+      <short value="The human-readable display of the citation"/>
+      <definition value="The human-readable display of the citation."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Citation.classification">
+      <path value="Citation.classification"/>
+      <short value="The assignment to an organizing scheme"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.classification.type">
+      <path value="Citation.classification.type"/>
+      <short value="The kind of classifier (e.g. publication type, keyword)"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitationClassificationType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/citation-classification-type"/>
+      </binding>
+    </element>
+    <element id="Citation.classification.classifier">
+      <path value="Citation.classification.classifier"/>
+      <short value="The specific classification value"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitationArtifactClassifier"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
+      </binding>
+    </element>
+    <element id="Citation.note">
+      <path value="Citation.note"/>
+      <short value="Used for general notes and annotations not coded elsewhere"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+    </element>
+    <element id="Citation.currentState">
+      <path value="Citation.currentState"/>
+      <short value="The status of the citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitationStatusType"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/citation-status-type"/>
+      </binding>
+    </element>
+    <element id="Citation.statusDate">
+      <path value="Citation.statusDate"/>
+      <short value="An effective date or period for a status of the citation"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.statusDate.activity">
+      <path value="Citation.statusDate.activity"/>
+      <short value="Classification of the status"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitationStatusType"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/citation-status-type"/>
+      </binding>
+    </element>
+    <element id="Citation.statusDate.actual">
+      <path value="Citation.statusDate.actual"/>
+      <short value="Either occurred or expected"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Citation.statusDate.period">
+      <path value="Citation.statusDate.period"/>
+      <short value="When the status started and/or ended"/>
+      <comment value="For an instance, place the same value in both start and end elements."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="Citation.relatedArtifact">
+      <path value="Citation.relatedArtifact"/>
+      <short value="Artifact related to the Citation Resource"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact">
+      <path value="Citation.citedArtifact"/>
+      <short value="The article or artifact being described"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.identifier">
+      <path value="Citation.citedArtifact.identifier"/>
+      <short value="May include DOI, PMID, PMCID, etc."/>
+      <definition value="A formal identifier that is used to identify this citation when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+      <comment value="May include DOI, PMID, PMCID, etc. This element will contain unique identifiers that support de-duplication of citations. This identifier can be valid for only one citation resource."/>
+      <requirements value="Allows externally provided and/or usable identifiers to be associated with this citation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Citation.citedArtifact.relatedIdentifier">
+      <path value="Citation.citedArtifact.relatedIdentifier"/>
+      <short value="May include trial registry identifiers"/>
+      <definition value="A formal identifier that is used to identify things closely related to this citation."/>
+      <comment value="May include trial registry identifiers, e.g. NCT04372602 from clinicaltrials.gov. This identifier can be valid for multiple citation resources."/>
+      <requirements value="Allows externally provided and/or usable identifiers to be associated with this citation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Citation.citedArtifact.dateAccessed">
+      <path value="Citation.citedArtifact.dateAccessed"/>
+      <short value="When the cited artifact was accessed"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Citation.citedArtifact.version">
+      <path value="Citation.citedArtifact.version"/>
+      <short value="The defined version of the cited artifact"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.version.value">
+      <path value="Citation.citedArtifact.version.value"/>
+      <short value="The version number or other version identifier"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.version.baseCitation">
+      <path value="Citation.citedArtifact.version.baseCitation"/>
+      <short value="Citation for the main version of the cited artifact"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.currentState">
+      <path value="Citation.citedArtifact.currentState"/>
+      <short value="The status of the cited artifact"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitedArtifactStatusType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-status-type"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.statusDate">
+      <path value="Citation.citedArtifact.statusDate"/>
+      <short value="An effective date or period for a status of the cited artifact"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.statusDate.activity">
+      <path value="Citation.citedArtifact.statusDate.activity"/>
+      <short value="Classification of the status"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitedArtifactStatusType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-status-type"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.statusDate.actual">
+      <path value="Citation.citedArtifact.statusDate.actual"/>
+      <short value="Either occurred or expected"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.statusDate.period">
+      <path value="Citation.citedArtifact.statusDate.period"/>
+      <short value="When the status started and/or ended"/>
+      <comment value="For an instance, place the same value in both start and end elements."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.title">
+      <path value="Citation.citedArtifact.title"/>
+      <short value="The title details of the article or artifact"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.title.type">
+      <path value="Citation.citedArtifact.title.type"/>
+      <short value="The kind of title"/>
+      <definition value="Used to express the reason or specific aspect for the title."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TitleType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/title-type"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.title.language">
+      <path value="Citation.citedArtifact.title.language"/>
+      <short value="Used to express the specific language"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Language"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A human language."/>
+        </extension>
+        <strength value="preferred"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.title.text">
+      <path value="Citation.citedArtifact.title.text"/>
+      <short value="The title of the article or artifact"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.abstract">
+      <path value="Citation.citedArtifact.abstract"/>
+      <short value="Summary of the article or artifact"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.abstract.type">
+      <path value="Citation.citedArtifact.abstract.type"/>
+      <short value="The kind of abstract"/>
+      <definition value="Used to express the reason or specific aspect for the abstract."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitedArtifactAbstractType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-abstract-type"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.abstract.language">
+      <path value="Citation.citedArtifact.abstract.language"/>
+      <short value="Used to express the specific language"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Language"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A human language."/>
+        </extension>
+        <strength value="preferred"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.abstract.text">
+      <path value="Citation.citedArtifact.abstract.text"/>
+      <short value="Abstract content"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.abstract.copyright">
+      <path value="Citation.citedArtifact.abstract.copyright"/>
+      <short value="Copyright notice for the abstract"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.part">
+      <path value="Citation.citedArtifact.part"/>
+      <short value="The component of the article or artifact"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.part.type">
+      <path value="Citation.citedArtifact.part.type"/>
+      <short value="The kind of component"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitedArtifactPartType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-part-type"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.part.value">
+      <path value="Citation.citedArtifact.part.value"/>
+      <short value="The specification of the component"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.part.baseCitation">
+      <path value="Citation.citedArtifact.part.baseCitation"/>
+      <short value="The citation for the full article or artifact"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo">
+      <path value="Citation.citedArtifact.relatesTo"/>
+      <short value="The artifact related to the cited artifact"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.type">
+      <path value="Citation.citedArtifact.relatesTo.type"/>
+      <short value="documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | documents | specification-of | created-with | cite-as | reprint | reprint-of"/>
+      <definition value="The type of relationship to the related artifact."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RelatedArtifactTypeExpanded"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/related-artifact-type-expanded"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.classifier">
+      <path value="Citation.citedArtifact.relatesTo.classifier"/>
+      <short value="Additional classifiers"/>
+      <definition value="Provides additional classifiers of the related artifact."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitationArtifactClassifier"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.label">
+      <path value="Citation.citedArtifact.relatesTo.label"/>
+      <short value="Short label"/>
+      <definition value="A short label that can be used to reference the citation from elsewhere in the containing artifact, such as a footnote index."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.display">
+      <path value="Citation.citedArtifact.relatesTo.display"/>
+      <short value="Brief description of the related artifact"/>
+      <definition value="A brief description of the document or knowledge resource being referenced, suitable for display to a consumer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.citation">
+      <path value="Citation.citedArtifact.relatesTo.citation"/>
+      <short value="Bibliographic citation for the artifact"/>
+      <definition value="A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format."/>
+      <comment value="Additional structured information about citations should be captured as extensions."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.document">
+      <path value="Citation.citedArtifact.relatesTo.document"/>
+      <short value="What document is being referenced"/>
+      <definition value="The document being referenced, represented as an attachment. This is exclusive with the resource element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.resource">
+      <path value="Citation.citedArtifact.relatesTo.resource"/>
+      <short value="What artifact is being referenced"/>
+      <definition value="The related artifact, such as a library, value set, profile, or other knowledge resource."/>
+      <comment value="If the type is predecessor, this is a reference to the succeeding knowledge resource. If the type is successor, this is a reference to the prior knowledge resource"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.relatesTo.resourceReference">
+      <path value="Citation.citedArtifact.relatesTo.resourceReference"/>
+      <short value="What artifact, if not a conformance resource"/>
+      <definition value="The related artifact, if the artifact is not a canonical resource, or a resource reference to a canonical resource."/>
+      <comment value="If both resource and resourceReference are present, they SHOULD be consistent and reference the same resource. Although relatedArtifact is intended to support references to definitional resources, there are cases where non-definitional resources can be definitional (such as Location where the kind is mode). Related artifacts SHOULD be used to reference definitional resources, and profiles SHOULD be used to make that explicit for particular use cases."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm">
+      <path value="Citation.citedArtifact.publicationForm"/>
+      <short value="If multiple, used to represent alternative forms of the article that are not separate citations"/>
+      <comment value="A common use is a journal article with a publication date and pagination for a print version and a different publication date for the online version of the same article."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.publishedIn">
+      <path value="Citation.citedArtifact.publicationForm.publishedIn"/>
+      <short value="The collection the cited article or artifact is published in"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.publishedIn.type">
+      <path value="Citation.citedArtifact.publicationForm.publishedIn.type"/>
+      <short value="Kind of container (e.g. Periodical, database, or book)"/>
+      <comment value="Journals and newspapers are coded as Periodical."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublishedInType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/published-in-type"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.publishedIn.identifier">
+      <path value="Citation.citedArtifact.publicationForm.publishedIn.identifier"/>
+      <short value="Journal identifiers include ISSN, ISO Abbreviation and NLMuniqueID; Book identifiers include ISBN"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.publishedIn.title">
+      <path value="Citation.citedArtifact.publicationForm.publishedIn.title"/>
+      <short value="Name of the database or title of the book or journal"/>
+      <comment value="ClinicalTrials.gov is a name of a database."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.publishedIn.publisher">
+      <path value="Citation.citedArtifact.publicationForm.publishedIn.publisher"/>
+      <short value="Name of the publisher"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.publishedIn.publisherLocation">
+      <path value="Citation.citedArtifact.publicationForm.publishedIn.publisherLocation"/>
+      <short value="Geographic location of the publisher"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.citedMedium">
+      <path value="Citation.citedArtifact.publicationForm.citedMedium"/>
+      <short value="Internet or Print"/>
+      <definition value="Describes the form of the medium cited. Common codes are &quot;Internet&quot; or &quot;Print&quot;."/>
+      <comment value="National Library of Medicine uses the codes &quot;Internet&quot; or &quot;Print&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitedMedium"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/cited-medium"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.volume">
+      <path value="Citation.citedArtifact.publicationForm.volume"/>
+      <short value="Volume number of journal in which the article is published"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.issue">
+      <path value="Citation.citedArtifact.publicationForm.issue"/>
+      <short value="Issue, part or supplement of journal in which the article is published"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateYear">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateYear"/>
+      <short value="Year on which the issue of the journal was published"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateMonth">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateMonth"/>
+      <short value="Month on which the issue of the journal was published"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateDay">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateDay"/>
+      <short value="Day on which the issue of the journal was published"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateSeason">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateSeason"/>
+      <short value="Season on which the issue of the journal was published"/>
+      <definition value="Spring, Summer, Fall/Autumn, Winter."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateText">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateText"/>
+      <short value="Text representation of the date of which the issue of the journal was published"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.articleDate">
+      <path value="Citation.citedArtifact.publicationForm.articleDate"/>
+      <short value="The date the article was added to the database, or the date the article was released"/>
+      <definition value="The date the article was added to the database, or the date the article was released (which may differ from the journal issue publication date)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.lastRevisionDate">
+      <path value="Citation.citedArtifact.publicationForm.lastRevisionDate"/>
+      <short value="The date the article was last revised or updated in the database"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.language">
+      <path value="Citation.citedArtifact.publicationForm.language"/>
+      <short value="Language in which this form of the article is published"/>
+      <comment value="Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Language"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A human language."/>
+        </extension>
+        <strength value="preferred"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.accessionNumber">
+      <path value="Citation.citedArtifact.publicationForm.accessionNumber"/>
+      <short value="Entry number or identifier for inclusion in a database"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.pageString">
+      <path value="Citation.citedArtifact.publicationForm.pageString"/>
+      <short value="Used for full display of pagination"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.firstPage">
+      <path value="Citation.citedArtifact.publicationForm.firstPage"/>
+      <short value="Used for isolated representation of first page"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.lastPage">
+      <path value="Citation.citedArtifact.publicationForm.lastPage"/>
+      <short value="Used for isolated representation of last page"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.pageCount">
+      <path value="Citation.citedArtifact.publicationForm.pageCount"/>
+      <short value="Number of pages or screens"/>
+      <definition value="Actual or approximate number of pages or screens."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.publicationForm.copyright">
+      <path value="Citation.citedArtifact.publicationForm.copyright"/>
+      <short value="Copyright notice for the full article or artifact"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.webLocation">
+      <path value="Citation.citedArtifact.webLocation"/>
+      <short value="Used for any URL for the article or artifact cited"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.webLocation.classifier">
+      <path value="Citation.citedArtifact.webLocation.classifier"/>
+      <short value="Code the reason for different URLs, e.g. abstract and full-text"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ArtifactUrlClassifier"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-url-classifier"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.webLocation.url">
+      <path value="Citation.citedArtifact.webLocation.url"/>
+      <short value="The specific URL"/>
+      <comment value="Persistent URLs, like doi, are preferred."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.classification">
+      <path value="Citation.citedArtifact.classification"/>
+      <short value="The assignment to an organizing scheme"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.classification.type">
+      <path value="Citation.citedArtifact.classification.type"/>
+      <short value="The kind of classifier (e.g. publication type, keyword)"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitedArtifactClassificationType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/cited-artifact-classification-type"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.classification.classifier">
+      <path value="Citation.citedArtifact.classification.classifier"/>
+      <short value="The specific classification value"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CitationArtifactClassifier"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/citation-artifact-classifier"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.classification.artifactAssessment">
+      <path value="Citation.citedArtifact.classification.artifactAssessment"/>
+      <short value="Complex or externally created classification&#xA;"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ArtifactAssessment"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.contributorship">
+      <path value="Citation.citedArtifact.contributorship"/>
+      <short value="Attribution of authors and other contributors"/>
+      <definition value="This element is used to list authors and other contributors, their contact information, specific contributions, and summary statements."/>
+      <requirements value="Need to support individualized and collective attribution of authorship and contributorship to people and groups."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.complete">
+      <path value="Citation.citedArtifact.contributorship.complete"/>
+      <short value="Indicates if the list includes all authors and/or contributors"/>
+      <comment value="If list is incomplete &quot;et al&quot; can be appended to Contributorship.summary.value for display purposes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.entry">
+      <path value="Citation.citedArtifact.contributorship.entry"/>
+      <short value="An individual entity named in the list"/>
+      <definition value="An individual entity named in the author list or contributor list."/>
+      <comment value="Used to report contributorship in individualized ways."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.entry.contributor">
+      <path value="Citation.citedArtifact.contributorship.entry.contributor"/>
+      <short value="The identity of the individual entity"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.entry.forenameInitials">
+      <path value="Citation.citedArtifact.contributorship.entry.forenameInitials"/>
+      <short value="Initials for forename"/>
+      <comment value="This element is used in Medline based citations, but not supported fully by FHIR HumanName datatype."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.entry.affiliation">
+      <path value="Citation.citedArtifact.contributorship.entry.affiliation"/>
+      <short value="Organizational affiliation"/>
+      <definition value="Organization affiliated with the entity."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.entry.contributionType">
+      <path value="Citation.citedArtifact.contributorship.entry.contributionType"/>
+      <short value="The specific contribution"/>
+      <definition value="This element identifies the specific nature of an individual’s contribution with respect to the cited work."/>
+      <comment value="The CreDiT taxonomy provides a way to encode contribution information inside article XML files. The purpose of CRediT is to provide transparency in contributions to scholarly published work, to enable improved systems of attribution, credit, and accountability."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ArtifactContributionType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-contribution-type"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.entry.role">
+      <path value="Citation.citedArtifact.contributorship.entry.role"/>
+      <short value="The role of the contributor (e.g. author, editor, reviewer)"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContributorRole"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contributor-role"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.entry.contributionInstance">
+      <path value="Citation.citedArtifact.contributorship.entry.contributionInstance"/>
+      <short value="Contributions with accounting for time or number"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.entry.contributionInstance.type">
+      <path value="Citation.citedArtifact.contributorship.entry.contributionInstance.type"/>
+      <short value="The specific contribution"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ArtifactContributionInstanceType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-contribution-instance-type"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.entry.contributionInstance.time">
+      <path value="Citation.citedArtifact.contributorship.entry.contributionInstance.time"/>
+      <short value="The time that the contribution was made"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.entry.correspondingContact">
+      <path value="Citation.citedArtifact.contributorship.entry.correspondingContact"/>
+      <short value="Indication of which contributor is the corresponding contributor for the role"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.entry.rankingOrder">
+      <path value="Citation.citedArtifact.contributorship.entry.rankingOrder"/>
+      <short value="Ranked order of contribution"/>
+      <definition value="Provides a numerical ranking to represent the degree of contributorship relative to other contributors, such as 1 for first author and 2 for second author."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.summary">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="ContributorshipSummary"/>
+      </extension>
+      <path value="Citation.citedArtifact.contributorship.summary"/>
+      <short value="Used to record a display of the author/contributor list without separate coding for each list member"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.summary.type">
+      <path value="Citation.citedArtifact.contributorship.summary.type"/>
+      <short value="Either authorList or contributorshipStatement"/>
+      <definition value="Used most commonly to express an author list or a contributorship statement."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContributorSummaryType"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-type"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.summary.style">
+      <path value="Citation.citedArtifact.contributorship.summary.style"/>
+      <short value="The format for the display string"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContributorSummaryStyle"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-style"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.summary.source">
+      <path value="Citation.citedArtifact.contributorship.summary.source"/>
+      <short value="Used to code the producer or rule for creating the display string"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContributorSummarySource"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/contributor-summary-source"/>
+      </binding>
+    </element>
+    <element id="Citation.citedArtifact.contributorship.summary.value">
+      <path value="Citation.citedArtifact.contributorship.summary.value"/>
+      <short value="The display string for the author list, contributor list, or contributorship statement"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Citation.citedArtifact.note">
+      <path value="Citation.citedArtifact.note"/>
+      <short value="Any additional information or content for the article or artifact"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+    </element>
+  </differential>
 </StructureDefinition>

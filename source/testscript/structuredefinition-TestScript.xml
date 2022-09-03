@@ -89,6 +89,10 @@
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition"/>
+			</mapping>
+			<mapping>
 				<identity value="rim"/>
 				<map value="n/a"/>
 			</mapping>
@@ -207,6 +211,10 @@
 			</type>
 			<condition value="cnl-0"/>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.name"/>
+			</mapping>
 		</element>
 		<element id="TestScript.title">
 			<path value="TestScript.title"/>

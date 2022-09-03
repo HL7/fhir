@@ -116,10 +116,6 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.url"/>
-      </mapping>
-      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
@@ -169,10 +165,6 @@
       <mapping>
         <identity value="cda"/>
         <map value=".versionNumber"/>
-      </mapping>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.version"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -418,10 +410,6 @@
         <code value="UsageContext"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.useContext"/>
-      </mapping>
     </element>
     <element id="Composition.author">
       <path value="Composition.author"/>

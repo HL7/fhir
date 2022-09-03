@@ -86,6 +86,10 @@
 				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
 			</constraint>
 			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition"/>
+			</mapping>
+			<mapping>
 				<identity value="v2"/>
 				<map value="OM2&#xA;OM3&#xA;OMC"/>
 			</mapping>
@@ -110,6 +114,10 @@
 				<code value="uri"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.url"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.identifier">
 			<path value="ObservationDefinition.identifier"/>
@@ -123,6 +131,10 @@
 				<code value="Identifier"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow.identifier"/>
+				<map value="Definition"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.version">
 			<path value="ObservationDefinition.version"/>
@@ -135,6 +147,10 @@
 				<code value="string"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="version"/>
+				<map value="Definition"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.name">
 			<path value="ObservationDefinition.name"/>
@@ -149,6 +165,10 @@
 			</type>
 			<condition value="cnl-0"/>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.name"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.title">
 			<path value="ObservationDefinition.title"/>
@@ -160,6 +180,10 @@
 				<code value="string"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.title"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.status">
 			<path value="ObservationDefinition.status"/>
@@ -182,6 +206,10 @@
 				<description value="Codes identifying the state of an ObservationDefinition."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
 			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.status"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.experimental">
 			<path value="ObservationDefinition.experimental"/>
@@ -195,6 +223,10 @@
 			</type>
 			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.experimental"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.date">
 			<path value="ObservationDefinition.date"/>
@@ -208,6 +240,10 @@
 				<code value="dateTime"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow.date"/>
+				<map value="Definition"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.publisher">
 			<path value="ObservationDefinition.publisher"/>
@@ -223,6 +259,10 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.publisher"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.contact">
 			<path value="ObservationDefinition.contact"/>
@@ -235,6 +275,10 @@
 				<code value="ContactDetail"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.contact"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.description">
 			<path value="ObservationDefinition.description"/>
@@ -246,6 +290,10 @@
 			<type>
 				<code value="markdown"/>
 			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.description"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.useContext">
 			<path value="ObservationDefinition.useContext"/>
@@ -259,6 +307,10 @@
 				<code value="UsageContext"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.useContext"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.jurisdiction">
 			<path value="ObservationDefinition.jurisdiction"/>
@@ -279,6 +331,10 @@
 				<description value="Codes for country, country subdivision and region for indicating where a resource is intended to be used."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
 			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.jurisdiction"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.purpose">
 			<path value="ObservationDefinition.purpose"/>
@@ -290,6 +346,10 @@
 			<type>
 				<code value="markdown"/>
 			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.purpose"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.copyright">
 			<path value="ObservationDefinition.copyright"/>
@@ -303,6 +363,10 @@
 			<type>
 				<code value="markdown"/>
 			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.copyright"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.approvalDate">
 			<path value="ObservationDefinition.approvalDate"/>
@@ -314,6 +378,10 @@
 			<type>
 				<code value="date"/>
 			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.approvalDate"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.lastReviewDate">
 			<path value="ObservationDefinition.lastReviewDate"/>
@@ -325,6 +393,10 @@
 			<type>
 				<code value="date"/>
 			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.lastReviewDate"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.effectivePeriod">
 			<path value="ObservationDefinition.effectivePeriod"/>
@@ -337,6 +409,10 @@
 				<code value="Period"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.effectivePeriod"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.derivedFromCanonical">
 			<path value="ObservationDefinition.derivedFromCanonical"/>
