@@ -14,6 +14,12 @@
 			</coding> 
 		</type> 
 		<association> 
+      <status> 
+        <coding>
+          <system value="http://hl7.org/fhir/device-association-status"/>
+          <code value="implanted"/>
+        </coding>
+      </status>
       <humanSubject> 
         <reference value="Patient/example"/> 
       </humanSubject> 
@@ -29,12 +35,10 @@
     </coding>
     <text value="Implant Pacemaker"/>
   </code>
-		<association> 
-      <humanSubject> 
-        <reference value="Patient/example"/> 
-      </humanSubject> 
-		</association> 
   <occurrenceDateTime value="2015-04-05"/>
+  <subject> 
+    <reference value="Patient/example"/> 
+  </subject> 
   <performer>
     <actor>
       <reference value="Practitioner/example"/>
