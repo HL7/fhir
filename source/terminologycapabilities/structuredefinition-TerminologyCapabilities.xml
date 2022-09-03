@@ -96,7 +96,7 @@
 			<constraint>
 				<key value="tcp-2"/>
 				<severity value="error"/>
-				<human value="A Capability Statement SHALL have at least one of description, software, or implementation element."/>
+				<human value="A Terminology Capability statement SHALL have at least one of description, software, or implementation element"/>
 				<expression value="(description.count() + software.count() + implementation.count()) &gt; 0"/>
 				<xpath value="count(f:software | f:implementation | f:description) &gt; 0"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
@@ -115,6 +115,20 @@
 				<human value="If kind = capability, implementation must be absent, software must be present"/>
 				<expression value="(kind != &#39;capability&#39;) or (implementation.exists().not() and software.exists())"/>
 				<xpath value=" not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and exists(f:software))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+			</constraint>
+			<constraint>
+				<key value="tcp-6"/>
+				<severity value="error"/>
+				<human value="Each instance of the codeSystem element must represent a distinct code system."/>
+				<expression value="codeSystem.uri.isDistinct()"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+			</constraint>
+			<constraint>
+				<key value="tcp-7"/>
+				<severity value="error"/>
+				<human value="Each version.code element must be distinct for a particular code system."/>
+				<expression value="codeSystem.select(uri + version.code).isDistinct()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
 			</constraint>
 			<mapping>
