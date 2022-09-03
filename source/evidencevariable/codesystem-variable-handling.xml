@@ -3,99 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="variable-handling"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/variable-handling defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">continuous
-            
-            <a name="variable-handling-continuous"> </a>
-          
-          </td>
-          
-          <td>continuous variable</td>
-          
-          <td>A continuous variable is one for which, within the limits the variable ranges, any value is possible (from STATO http://purl.obolibrary.org/obo/STATO_0000251).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">dichotomous
-            
-            <a name="variable-handling-dichotomous"> </a>
-          
-          </td>
-          
-          <td>dichotomous variable</td>
-          
-          <td>A dichotomous variable is a categorical variable which is defined to have only 2 categories or possible values (from STATO http://purl.obolibrary.org/obo/STATO_0000090).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">ordinal
-            
-            <a name="variable-handling-ordinal"> </a>
-          
-          </td>
-          
-          <td>ordinal variable</td>
-          
-          <td>An ordinal variable is a categorical variable where the discrete possible values are ordered or correspond to an implicit ranking (from STATO http://purl.obolibrary.org/obo/STATO_0000228).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">polychotomous
-            
-            <a name="variable-handling-polychotomous"> </a>
-          
-          </td>
-          
-          <td>polychotomous variable</td>
-          
-          <td>A polychotomous variable is a categorical variable which is defined to have minimally 2 categories or possible values. (from STATO  http://purl.obolibrary.org/obo/STATO_0000087).  Suggestion to limit code use to situations when neither dichotomous nor ordinal variables apply.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -110,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="EvidenceVariableHandling"/>
   <title value="EvidenceVariableHandling"/>
   <status value="draft"/>

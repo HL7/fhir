@@ -90,7 +90,7 @@
 		If a topic requires more granularity than interactions provide, a topic can provide state-change tests using either <a href="fhirpath.html">FHIRPath</a> or query (<a href="search.html">Search</a>) definitions.
 	</p>
 	<p>
-		Computable Definitions serve two purposes when defining topics. First, some server implementers may be able to use computable definitions directly or with minimal changes. In this scenario, the benifit of a computable definition is quite large (e.g., user-defined Subscription Topics, high portability, etc.). Second, implementers that do not use computable definitions directly will be able to read definitions during their implementation in order to precisley understand what is being defined.
+		Computable Definitions serve two purposes when defining topics. First, some server implementers may be able to use computable definitions directly or with minimal changes. In this scenario, the benefit of a computable definition is quite large (e.g., user-defined Subscription Topics, high portability, etc.). Second, implementers that do not use computable definitions directly will be able to read definitions during their implementation in order to precisely understand what is being defined.
 	</p>
 
 		<a name="query-criteria" />
@@ -161,13 +161,13 @@
       As described in <a href="#filters-param-name">Filter Parameter</a>, parameters backed by full Search Parameter definitions SHALL contain a link to the canonical URL in this element and other parameters SHOULD contain a useful URI in this element.
     </p>
 
-		<a name="filters-modifer"/>
+		<a name="filters-modifier"/>
 		<h4>Modifier</h4>
 		<p>
-			The element <code>canFilterBy.modifier</code> contains a search modifier used when evaluating a change.  Allowed search parameters are pulled from <a href="search.html">Search</a>, with the addition of <code>=</code> to show simple equality (e.g., no modifier). Note that modifiers are only valid for specific types of data (e.g., a modifer of <code>sa</code> (starts after) has no meaning when applied to a string).
+			The element <code>canFilterBy.modifier</code> contains a search modifier used when evaluating a change.  Allowed search parameters are pulled from <a href="search.html">Search</a>, with the addition of <code>=</code> to show simple equality (e.g., no modifier). Note that modifiers are only valid for specific types of data (e.g., a modifier of <code>sa</code> (starts after) has no meaning when applied to a string).
 		</p>
 		<p>
-			If a search modifier is not provided, it is defaulted to <code>=</code> (no modifer).
+			If a search modifier is not provided, it is defaulted to <code>=</code> (no modifier).
 		</p>
     <p>
       If a filter parameter is a defined Search Parameter, the list of allowed modifiers SHALL be a strict subset of the modifiers defined on the Search Parameter.

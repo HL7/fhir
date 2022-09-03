@@ -40,6 +40,46 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Resource-_in"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Resource.id"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_in"/>
+        <description value="Allows for the retrieval of resources that are active members of a CareTeam, Group, or List"/>
+        <code value="_in"/>
+        <type value="reference"/>
+        <expression value="Resource.id"/>
+        <xpath value="f:Resource/f:id"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Resource-_language"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Resource.language"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_language"/>
+        <description value="Language of the resource content"/>
+        <code value="_language"/>
+        <type value="token"/>
+        <expression value="Resource.language"/>
+        <xpath value="f:Resource/f:language"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Resource-_lastUpdated"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
@@ -163,6 +203,36 @@
         <type value="token"/>
         <expression value="Resource.meta.tag"/>
         <xpath value="f:Resource/f:meta/f:tag"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Resource-_type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_type"/>
+        <description value="A resource type filter"/>
+        <code value="_type"/>
+        <type value="special"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Resource-_text"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_text"/>
+        <description value="Text search against the narrative"/>
+        <code value="_text"/>
+        <type value="string"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

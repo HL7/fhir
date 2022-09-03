@@ -131,31 +131,51 @@
 		</concept>
 	</concept>
 	<concept>
+		<code value="research-study-focus-type"/>
+		<display value="Research Study Focus Type"/>
+		<concept>
+			<code value="medication"/>
+			<display value="Medication"/>
+			<definition value=""/>
+		</concept>
+		<concept>
+			<code value="device"/>
+			<display value="Device"/>
+			<definition value=""/>
+		</concept>
+		<concept>
+			<code value="intervention"/>
+			<display value="Intervention"/>
+			<definition value=""/>
+		</concept>
+		<concept>
+			<code value="factor"/>
+			<display value="Factor"/>
+			<definition value=""/>
+		</concept>
+	</concept>
+	<concept>
 		<code value="research-study-classifier"/>
 		<display value="Research Study Classifier"/>
 		<concept>
-			<code value="research-study-focus-type"/>
-			<display value="Research Study Focus Type"/>
-			<concept>
-				<code value="medication"/>
-				<display value="Medication"/>
-				<definition value=""/>
-			</concept>
-			<concept>
-				<code value="device"/>
-				<display value="Device"/>
-				<definition value=""/>
-			</concept>
-			<concept>
-				<code value="intervention"/>
-				<display value="Intervention"/>
-				<definition value=""/>
-			</concept>
-			<concept>
-				<code value="factor"/>
-				<display value="Factor"/>
-				<definition value=""/>
-			</concept>
+			<code value="fda-regulated-drug"/>
+			<display value="FDA regulated drug"/>
+			<definition value="A medication regulated by the U.S. Food and Drug Administration."/>
+		</concept>
+		<concept>
+			<code value="fda-regulated-device"/>
+			<display value="FDA regulated device"/>
+			<definition value="A medical device regulated by the U.S. Food and Drug Administration."/>
+		</concept>
+		<concept>
+			<code value="mpg-paragraph-23b"/>
+			<display value="MPG Paragraph 23b"/>
+			<definition value="Research regulated by a specific German legal requirement (Medizinproduktegesetz MPG Paragraph 23b)."/>
+		</concept>
+		<concept>
+			<code value="irb-exempt"/>
+			<display value="IRB-exempt"/>
+			<definition value="Human subjects research that is excempt from oversight and monitoring by an institutional review board (IRB)."/>
 		</concept>
 	</concept>
 	<concept>
@@ -168,6 +188,22 @@
 		<concept>
 			<code value="fda"/>
 			<display value="FDA"/>
+		</concept>
+		<concept>
+			<code value="government"/>
+			<display value="Government"/>
+		</concept>
+		<concept>
+			<code value="nonprofit"/>
+			<display value="Nonprofit"/>
+		</concept>
+		<concept>
+			<code value="academic"/>
+			<display value="Academic"/>
+		</concept>
+		<concept>
+			<code value="industry"/>
+			<display value="Industry"/>
 		</concept>
 	</concept>
 	<concept>

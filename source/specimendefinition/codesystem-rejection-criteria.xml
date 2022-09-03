@@ -3,113 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="rejection-criteria"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/rejection-criteria defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">hemolized
-            
-            <a name="rejection-criteria-hemolized"> </a>
-          
-          </td>
-          
-          <td>hemolized specimen</td>
-          
-          <td>blood specimen hemolized.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">insufficient
-            
-            <a name="rejection-criteria-insufficient"> </a>
-          
-          </td>
-          
-          <td>insufficient specimen volume</td>
-          
-          <td>insufficient quantity of specimen.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">broken
-            
-            <a name="rejection-criteria-broken"> </a>
-          
-          </td>
-          
-          <td>broken specimen container</td>
-          
-          <td>specimen container broken.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">clotted
-            
-            <a name="rejection-criteria-clotted"> </a>
-          
-          </td>
-          
-          <td>specimen clotted</td>
-          
-          <td>specimen clotted.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">wrong-temperature
-            
-            <a name="rejection-criteria-wrong-temperature"> </a>
-          
-          </td>
-          
-          <td>specimen temperature inappropriate</td>
-          
-          <td>specimen temperature inappropriate.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -124,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1260"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="RejectionCriterion"/>
   <title value="RejectionCriterion"/>
   <status value="draft"/>

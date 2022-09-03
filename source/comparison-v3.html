@@ -19,18 +19,18 @@
 <a name="v3"></a>
 <p>
 <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> was intended to be the next generation of HL7's messaging standards.  It introduced
-a common Reference Information Model (RIM), data type model and set of vocabulary as well as
+a common Reference Information Model (RIM), datatype model and set of vocabulary as well as
 a formal standards development methodology.  In addition, it introduced the use of
 "documents" as an alternative architecture to messaging for sharing healthcare information
 (see <a href="comparison-cda.html">the CDA comparison</a>).  While nominally covering both, the term "v3" is
-typically used to refer to "v3 messaging".  The data types used as a basis for v3 have
+typically used to refer to "v3 messaging".  The datatypes used as a basis for v3 have
 also been adopted by ISO as ISO 21090.  The HL7 RIM has also
 been adopted as an ISO standard.
 </p>
 <p>
 v3 messaging has been adopted by a number of large projects, particularly in the
 electronic health record area, though it has not achieved the market penetration of
-<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>.  The HL7 RIM and the ISO 21090 data types have also been
+<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>.  The HL7 RIM and the ISO 21090 datatypes have also been
 used by other SDOs and projects that have not leveraged the full HL7 v3 methodology.
 Most of the comments and guidance provided here will apply to those solutions as well.
 </p>
@@ -40,11 +40,11 @@ Most of the comments and guidance provided here will apply to those solutions as
 <b>Reference model:</b> The use of the HL7 RIM is a core aspect
 of the HL7 v3 methodology and it is front and center in the specification and the wire
 format.  All data elements in HL7 v3 instances are derived from either the RIM or the ISO
-data types.  In FHIR, this is true of most resources and data type elements, but not all.
+datatypes.  In FHIR, this is true of most resources and datatype elements, but not all.
 Some resources (<a href="structuredefinition.html">StructureDefinition</a>, <a href="capabilitystatement.html">CapabilityStatement</a>,
 <a href="valueset.html">ValueSet</a>, etc.) deal with content that is outside the RIM's scope.  And in a few circumstances, adjustments have been made in
-the FHIR data types that are not yet supported in the HL7 v3 data types model.  The expectation
-is that these changes will be supported in the next version of the v3 data types model.  The
+the FHIR datatypes that are not yet supported in the HL7 v3 datatypes model.  The expectation
+is that these changes will be supported in the next version of the v3 datatypes model.  The
 main difference is that the serialization format of FHIR is not driven by the RIM
 mappings.  This results in considerably more concise and intuitive instances.  It is possible
 to implement FHIR with absolutely no knowledge of the HL7 RIM.
@@ -55,7 +55,7 @@ meaning of instances.  Examples include <i>classCode</i>, <i>moodCode</i>, <i>de
 etc.
 The allowed codes for these attributes are strictly controlled by HL7.  FHIR also has attributes
 that are limited to codes defined in the FHIR specification - those using the <a href="datatypes.html#code">code</a>
-data type.  However, these are generally limited to attributes with business meaning - status, contact types, etc.
+datatype.  However, these are generally limited to attributes with business meaning - status, contact types, etc.
 </p>
 <p>Both FHIR and v3 make use of value sets to define the sets of codes that can be used for
 attributes within particular contexts.  However, in FHIR, a <a href="valueset.html">ValueSet</a>
@@ -114,9 +114,9 @@ is fully self-contained.
 <p>
 <b>Null flavors:</b> In healthcare, it's quite common for data to be unknown, unavailable, have an exceptional
 value or otherwise fall outside the bounds of a "normal" value.  To deal with this, v3 introduced the
-concept of "null flavor" on almost every attribute and data type property in its models.  These coded null flavors
+concept of "null flavor" on almost every attribute and datatype property in its models.  These coded null flavors
 could be sent in place of or in addition to the data that would typically be sent for the attribute, association or
-data type property.  Examples include the ideas of "Unknown", "Not asked", "Positive infinity", "Trace amount",
+datatype property.  Examples include the ideas of "Unknown", "Not asked", "Positive infinity", "Trace amount",
 "Masked", "Other", etc.  Unless an element was explicitly marked as "mandatory" - meaning no null flavors were
 permitted - these null flavors could appear anywhere.
 </p>
@@ -129,7 +129,7 @@ to those relevant to that element.
 <h3>v3 Interoperability Considerations</h3>
 <a name="v3-interoperability"></a>
 <p>
-<b>Using RIM mappings:</b> Most resource elements and data type properties include mappings to the RIM.  These
+<b>Using RIM mappings:</b> Most resource elements and datatype properties include mappings to the RIM.  These
 mappings serve two purposes.  They help to define FHIR semantics in terms of HL7's reference models, helping to
 ensure that the Work Groups defining the data elements have a good and consistent understanding of the meaning of
 every element.  They also provide guidance for implementers of v3 specifications that may be looking to migrate

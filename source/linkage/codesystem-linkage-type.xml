@@ -3,85 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="linkage-type"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/linkage-type defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">source
-            
-            <a name="linkage-type-source"> </a>
-          
-          </td>
-          
-          <td>Source of Truth</td>
-          
-          <td>The resource represents the &quot;source of truth&quot; (from the perspective of this Linkage resource) for the underlying event/condition/etc.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">alternate
-            
-            <a name="linkage-type-alternate"> </a>
-          
-          </td>
-          
-          <td>Alternate Record</td>
-          
-          <td>The resource represents an alternative view of the underlying event/condition/etc.  The resource may still be actively maintained, even though it is not considered to be the source of truth.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">historical
-            
-            <a name="linkage-type-historical"> </a>
-          
-          </td>
-          
-          <td>Historical/Obsolete Record</td>
-          
-          <td>The resource represents an obsolete record of the underlying event/condition/etc.  It is not expected to be actively maintained.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
   </extension>
@@ -96,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.315"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="LinkageType"/>
   <title value="LinkageType"/>
   <status value="draft"/>
