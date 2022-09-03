@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="fhir-types"/> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-special-status">
+    <valueString value="This Code System is normative - it is generated based on the information defined in this
+     specification. The definition will remain fixed  across versions, but the actual contents
+     will change from version to version"/> 
+  </extension> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/> 
+  </extension> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="4.0.0"/> 
+  </extension> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/> 
+  </extension> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/> 
+  </extension> 
+  <url value="http://hl7.org/fhir/fhir-types"/> 
+  <version value="5.0.0-cibuild"/> 
+  <name value="FHIRTypes"/> 
+  <title value="All FHIR Types"/> 
+  <status value="active"/> 
+  <experimental value="false"/> 
+  <date value="2022-08-26T13:43:27+10:00"/> 
+  <publisher value="HL7 (FHIR Project)"/> 
+  <contact> 
+    <telecom> 
+      <system value="url"/> 
+      <value value="http://hl7.org/fhir"/> 
+    </telecom> 
+    <telecom> 
+      <system value="email"/> 
+      <value value="fhir@lists.hl7.org"/> 
+    </telecom> 
+  </contact> 
+  <description value="One of the types defined as part of this version of FHIR."/> 
+  <caseSensitive value="true"/> 
+  <content value="complete"/> 
+  <property> 
+    <code value="abstract-type"/> 
+    <uri value="http://hl7.org/fhir/concept-properties#abstract-type"/> 
+    <type value="boolean"/> 
+  </property> 
+  <property> 
+    <code value="kind"/> 
+    <uri value="http://hl7.org/fhir/concept-properties#kind"/> 
+    <type value="code"/> 
+  </property> 
+  <property> 
+    <code value="interface"/> 
+    <uri value="http://hl7.org/fhir/concept-properties#interface"/> 
+    <type value="boolean"/> 
+  </property> 
+  <!-- filled in by the build -->
+</CodeSystem> 

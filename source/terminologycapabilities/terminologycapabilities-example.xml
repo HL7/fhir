@@ -44,5 +44,5 @@
 		<description value="Acme Terminology Server"/>
 		<url value="http://example.org/tx"/>
 	</implementation>
-  <codeSearch value="explicit"/>
+  <codeSearch value="in-compose-or-expansion"/>
 </TerminologyCapabilities>

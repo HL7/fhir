@@ -3,141 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="http-operations"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/http-operations defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">delete
-            
-            <a name="http-operations-delete"> </a>
-          
-          </td>
-          
-          <td>DELETE</td>
-          
-          <td>HTTP DELETE operation.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">get
-            
-            <a name="http-operations-get"> </a>
-          
-          </td>
-          
-          <td>GET</td>
-          
-          <td>HTTP GET operation.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">options
-            
-            <a name="http-operations-options"> </a>
-          
-          </td>
-          
-          <td>OPTIONS</td>
-          
-          <td>HTTP OPTIONS operation.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">patch
-            
-            <a name="http-operations-patch"> </a>
-          
-          </td>
-          
-          <td>PATCH</td>
-          
-          <td>HTTP PATCH operation.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">post
-            
-            <a name="http-operations-post"> </a>
-          
-          </td>
-          
-          <td>POST</td>
-          
-          <td>HTTP POST operation.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">put
-            
-            <a name="http-operations-put"> </a>
-          
-          </td>
-          
-          <td>PUT</td>
-          
-          <td>HTTP PUT operation.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">head
-            
-            <a name="http-operations-head"> </a>
-          
-          </td>
-          
-          <td>HEAD</td>
-          
-          <td>HTTP HEAD operation.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -152,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.717"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="TestScriptRequestMethodCode"/>
   <title value="TestScriptRequestMethodCode"/>
   <status value="draft"/>

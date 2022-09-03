@@ -146,6 +146,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="MeasureReport-location"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MeasureReport.location"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MeasureReport-location"/>
+        <description value="The location to return measure report results for"/>
+        <code value="location"/>
+        <type value="reference"/>
+        <expression value="MeasureReport.location"/>
+        <xpath value="f:MeasureReport/f:location"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="MeasureReport-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>

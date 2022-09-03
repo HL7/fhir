@@ -160,4 +160,16 @@
       <display value="meas-eval"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Named Query of Patients based on risk assessments"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="operationdefinition-example-query-high-risk"/>
+    </extension>
+    <item>
+      <reference value="OperationDefinition/example-query-high-risk"/>
+      <display value="example-query-high-risk"/>
+    </item>
+  </entry>
 </List>

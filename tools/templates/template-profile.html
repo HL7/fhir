@@ -18,7 +18,7 @@
 </table>
 
 <p>
-The official URL for this profile is:
+The canonical URL for this profile is:
 </p>
 <pre>
 <%profileurl%>
@@ -47,8 +47,8 @@ Formal Views of Profile Content
 <div id="tabs">
  <ul>
   <li><a href="#tabs-summ">Text Summary</a></li>
-  <li><a href="#tabs-diff">Differential Table</a></li>
-  <li><a href="#tabs-snap">Snapshot Table</a></li>
+  <li><a href="#tabs-diff">Differential View</a></li>
+  <li><a href="#tabs-snap">Full Structure</a></li>
   <li><a href="#tabs-xml">XML Template</a></li>
   <li><a href="#tabs-json">JSON Template</a></li>
   <li><a href="#tabs-all">All</a></li>
@@ -56,18 +56,18 @@ Formal Views of Profile Content
  
  <div id="tabs-summ">
   <div id="tbl-summ">
-   <p>This structure is derived from <%base-link%>.</p>
    <div id="tbl-diff-inner">
-     <%summary%> 
+    <p>This structure is derived from <%base-link%>.</p>
+    <%summary%> 
    </div>
   </div>
  </div>
   
  <div id="tabs-diff">
   <div id="tbl-diff">
-   <p>This structure is derived from <%base-link%>.</p>
    <div id="tbl-diff-inner">
-     <%profile-structure-table-diff%> 
+    <p>This indicates the differences between this profile and the base <%base-link%> structure.</p>
+    <%profile-structure-table-diff%> 
    </div>
   </div>
  </div>
@@ -75,6 +75,7 @@ Formal Views of Profile Content
  <div id="tabs-snap">
   <div id="tbl-snap">
    <div id="tbl-snap-inner">
+    <p>This provides the consolidated view (aka snapshot) of the profile after applying the changes in this profile to the base <%base-link%> structure.</p>
     <%profile-structure-table%>
    </div>
   </div>
@@ -106,7 +107,7 @@ Formal Views of Profile Content
 
  <div id="all-tbl-diff">
    <p><b>Differential View</b></p>
-   <p>This structure is derived from <%base-link%>.</p>
+   <p>This indicates the differences between this profile and the base <%base-link%> structure.</p>
    <div id="all-tbl-diff-inner">
      <%profile-structure-table-diff%> 
    </div>
@@ -114,6 +115,7 @@ Formal Views of Profile Content
   <div id="all-tbl-snap">
    <p><b>Snapshot View</b></p>
    <div id="all-tbl-snap-inner">
+    <p>This provides the consolidated view (aka snapshot) of the profile after applying the changes in this profile to the base <%base-link%> structure.</p>
     <%profile-structure-table%>
    </div>
   </div>

@@ -3,85 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="search-entry-mode"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/search-entry-mode defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">match
-            
-            <a name="search-entry-mode-match"> </a>
-          
-          </td>
-          
-          <td>Match</td>
-          
-          <td>This resource matched the search specification.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">include
-            
-            <a name="search-entry-mode-include"> </a>
-          
-          </td>
-          
-          <td>Include</td>
-          
-          <td>This resource is returned because it is referred to from another resource in the search set.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">outcome
-            
-            <a name="search-entry-mode-outcome"> </a>
-          
-          </td>
-          
-          <td>Outcome</td>
-          
-          <td>An OperationOutcome that provides additional information about the processing of a search.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -99,7 +22,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.623"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="SearchEntryMode"/>
   <title value="SearchEntryMode"/>
   <status value="active"/>
@@ -116,7 +39,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Why an entry is in the result set - whether it&#39;s included as a match or because of an _include requirement, or to convey information or warning information about the search process."/>
+  <description value="Why an entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/search-entry-mode"/>
   <content value="complete"/>

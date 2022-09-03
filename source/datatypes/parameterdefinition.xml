@@ -972,7 +972,7 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">FHIRAllTypes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">FHIRTypes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5591,7 +5591,7 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">Whether the parameter is input or output</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/operation-parameter-use" ss:StyleID="s146"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/operation-parameter-use</Data></Cell>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">valueset-operation-parameter-use</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>

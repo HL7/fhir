@@ -47,7 +47,7 @@
       <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
+  <description value="A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server or Client for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -81,7 +81,7 @@
       </extension>
       <path value="CapabilityStatement"/>
       <short value="A statement of system capabilities"/>
-      <definition value="A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
+      <definition value="A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server or Client for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
       <comment value="Applications may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, then a CapabilityStatement describes the system&#39;s support for a particular version of FHIR, and the server will have multiple statements, one for each version."/>
       <min value="0"/>
       <max value="*"/>
@@ -89,8 +89,16 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+      </constraint>
+      <constraint>
+        <key value="cpb-4"/>
+        <severity value="error"/>
+        <human value="There should only be one CapabilityStatement.rest per mode."/>
+        <expression value="rest.mode.isDistinct()"/>
+        <xpath value="count(f:rest/f:mode/@value)=count(distinct-values(f:rest/f:mode/@value))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
       </constraint>
       <constraint>
@@ -120,7 +128,7 @@
       <constraint>
         <key value="cpb-3"/>
         <severity value="error"/>
-        <human value="Messaging end-point is required (and is only permitted) when a statement is for an implementation."/>
+        <human value="Messaging end-point is only permitted when a capability statement is for an implementation."/>
         <expression value="messaging.endpoint.empty() or kind = &#39;instance&#39;"/>
         <xpath value="not(exists(f:messaging/f:endpoint)) or f:kind/@value = &#39;instance&#39;"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
@@ -161,11 +169,19 @@
     <element id="CapabilityStatement.url">
       <path value="CapabilityStatement.url"/>
       <short value="Canonical identifier for this capability statement, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers."/>
+      <definition value="An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers."/>
       <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the capability statement to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
       <type>
         <code value="uri"/>
       </type>
@@ -183,7 +199,7 @@
       <path value="CapabilityStatement.version"/>
       <short value="Business version of the capability statement"/>
       <definition value="The identifier that is used to identify this version of the capability statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the capability statement author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different capability statement instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the capability statement with the format [url]|[version]."/>
+      <comment value="There may be different capability statement instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the capability statement with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -198,6 +214,25 @@
         <identity value="w5"/>
         <map value="FiveWs.version"/>
       </mapping>
+    </element>
+    <element id="CapabilityStatement.versionAlgorithm[x]">
+      <path value="CapabilityStatement.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+      <isSummary value="true"/>
     </element>
     <element id="CapabilityStatement.name">
       <path value="CapabilityStatement.name"/>
@@ -626,8 +661,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version"/>
       </binding>
     </element>
-
-
     <element id="CapabilityStatement.format">
       <path value="CapabilityStatement.format"/>
       <short value="formats supported (xml | json | ttl | mime type)"/>
@@ -657,8 +690,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
       </binding>
     </element>
-
-
     <element id="CapabilityStatement.patchFormat">
       <path value="CapabilityStatement.patchFormat"/>
       <short value="Patch formats supported"/>
@@ -685,10 +716,40 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
       </binding>
     </element>
+    <element id="CapabilityStatement.acceptLanguage">
+      <path value="CapabilityStatement.acceptLanguage"/>
+      <short value="Languages supported"/>
+      <definition value="A list of the languages supported by this implementation that are usefully supported in the ```Accept-Language``` header."/>
+      <comment value="In general, if a server gets a request with an Accept-Language that it doesn't support, it should still reutrn the resource, just in it's default language for the resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+     <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Language"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
+          <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A human language."/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="IETF language tag"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+      </binding>
+    </element>
     <element id="CapabilityStatement.implementationGuide">
       <path value="CapabilityStatement.implementationGuide"/>
       <short value="Implementation guides supported"/>
       <definition value="A list of implementation guides that the server does (or should) support in their entirety."/>
+      <comment value="Note: this is primarily only relevant in terms of ImplementationGuides that don't define specific CapabilityStatements declaring the expectation of distinct roles.  (E.g. generic IGs that establish privacy policies.)  If CapabilityStatements are defined by the IG, then it is better to use CapabilityStatement.instantiates to identify the specific role(s) supported."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -855,9 +916,9 @@
     </element>
     <element id="CapabilityStatement.rest.resource.profile">
       <path value="CapabilityStatement.rest.resource.profile"/>
-      <short value="Base System profile for all uses of resource"/>
-      <definition value="A specification of the profile that describes the solution&#39;s overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
-      <comment value="The profile applies to all  resources of this type - i.e. it is the superset of what is supported by the system."/>
+      <short value="System-wide profile"/>
+      <definition value="A system-wide profile that is applied across *all* instances of the resource supported by the system. For example, if declared on Observation, this profile is the &quot;superset&quot; of capabilities for laboratory *and* vitals *and* other domains. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
+      <comment value="All other profiles for this type that are listed in `.rest.resource.supportedProfile` must conform to this profile."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -871,10 +932,10 @@
         <valueCode value="trial-use"/>
       </extension>
       <path value="CapabilityStatement.rest.resource.supportedProfile"/>
-      <short value="Profiles for use cases supported"/>
-      <definition value="A list of profiles that represent different use cases supported by the system. For a server, &quot;supported by the system&quot; means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
-      <comment value="Supported profiles are different than the profile that applies to a particular resource in .rest.resource.profile. The resource profile is a general statement of what features of the resource are supported overall by the system - the sum total of the facilities it supports. A supported profile is a deeper statement about the functionality of the data and services provided by the server (or used by the client). A typical case is a laboratory system that produces a set of different reports - this is the list of types of data that it publishes. A key aspect of declaring profiles here is the question of how the client converts knowledge that the server publishes this data into working with the data; the client can inspect individual resources to determine whether they conform to a particular profile, but how does it find the ones that do? It does so by searching using the _profile parameter, so any resources listed here must be valid values for the _profile resource (using the identifier in the target profile)."/>
-      <min value="0"/>
+      <short value="Use-case specific profiles"/>
+      <definition value="A list of profiles representing different use cases the system hosts/produces. A supported profile is a statement about the functionality of the data and services provided by the server (or the client) for supported use cases. For example, a system can define and declare multiple Observation profiles for laboratory observations, vital sign observations, etc. By declaring supported profiles, systems provide a way to determine whether individual resources are conformant. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
+      <comment value="Supported profiles must conform to the resource profile in the `.rest.resource.profile` element if it is present. The resource profile is a system-wide profile applied across *all* instances of the resource supported by the system. A supported profile is a statement about the functionality of the data and services provided by the server (or used by the client) for a particular set of use cases and will not necessarily apply to all data consumed or exposed by the server."/>
+         <min value="0"/>
       <max value="*"/>
       <type>
         <code value="canonical"/>
@@ -1038,6 +1099,20 @@
         <code value="boolean"/>
       </type>
     </element>
+    <element id="CapabilityStatement.rest.resource.conditionalPatch">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="CapabilityStatement.rest.resource.conditionalPatch"/>
+      <short value="If allows/uses conditional patch"/>
+      <definition value="A flag that indicates that the server supports conditional patch."/>
+      <comment value="Conditional Patch is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
     <element id="CapabilityStatement.rest.resource.conditionalDelete">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
@@ -1088,7 +1163,7 @@
       <path value="CapabilityStatement.rest.resource.searchInclude"/>
       <short value="_include values supported by the server"/>
       <definition value="A list of _include values supported by the server."/>
-      <comment value="If this list is empty, the server does not support includes."/>
+    <comment value="Documenting [`_include`](http://hl7.org/fhir/R5/search.html#revinclude) support helps set conformance expectations for the desired system. Still, it is a level of detail that might not be exposed by production servers or clients when using CapabilityStatement to describe an actual implementation. If this list is empty, the server does not support includes. Support for *iterative* (a.k.a., recursive) `_include` is communicated by listing the iterative includes values supported by the server in the `searchInclude` element of the &quot;root&quot; resource type. For example, to support the following search:&#xA;&#xA;`GET [base]/CarePlan?_include=CarePlan:activity-reference:DeviceRequest&amp;_include:iterate=DeviceRequest:device`&#xA;&#xA;These values would be listed as part of capabilities for &quot;CarePlan&quot;:&#xA;&#xA;&quot;searchInclude&quot; : [&quot;CarePlan:activity-reference:DeviceRequest&quot;,&quot;DeviceRequest:device&quot;],&#xA;"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1102,7 +1177,7 @@
       <path value="CapabilityStatement.rest.resource.searchRevInclude"/>
       <short value="_revinclude values supported by the server"/>
       <definition value="A list of _revinclude (reverse include) values supported by the server."/>
-      <comment value="If this list is empty, the server does not support reverse includes."/>
+      <comment value="See `CapabilityStatement.rest.resource.searchInclude` comments."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1125,9 +1200,9 @@
     </element>
     <element id="CapabilityStatement.rest.resource.searchParam.name">
       <path value="CapabilityStatement.rest.resource.searchParam.name"/>
-      <short value="Name of search parameter"/>
-      <definition value="The name of the search parameter used in the interface."/>
-      <comment value="Parameter names cannot overlap with standard parameter names, and standard parameters cannot be redefined."/>
+      <short value="Name for parameter in search url"/>
+      <definition value="The label used for the search parameter in this particular system's API - i.e. the 'name' portion of the name-value pair that will appear as part of the search URL.  This SHOULD be the same as the SearchParameter.code of the defining SearchParameter.  However, it can sometimes differ if necessary to disambiguate when a server supports multiple SearchParameters that happen to share the same code."/>
+      <comment value="Parameter names cannot overlap with standard parameter names, and standard parameters cannot be redefined. There is no correspondence whatsoever between CapabilityStatement's searchParam.name and SearchParameter.name - the latter is used as a class name when generating code for the search parameter."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1196,8 +1271,8 @@
     <element id="CapabilityStatement.rest.resource.operation.name">
       <path value="CapabilityStatement.rest.resource.operation.name"/>
       <short value="Name by which the operation/query is invoked"/>
-      <definition value="The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called."/>
-      <comment value="The name here SHOULD be the same as the OperationDefinition.code in the referenced OperationDefinition, unless there is a name clash and the OperationDefinition.code cannot be used. The name does not include the &quot;$&quot; portion that is always included in the URL."/>
+      <definition value="The name of the operation or query. For an operation, this name is prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called. This SHOULD be the same as the OperationDefinition.code of the defining OperationDefinition.  However, it can sometimes differ if necessary to disambiguate when a server supports multiple OperationDefinition that happen to share the same code."/>
+      <comment value="The name here SHOULD be the same as the OperationDefinition.code in the referenced OperationDefinition, unless there is a name clash and the OperationDefinition.code cannot be used. The name does not include the &quot;$&quot; portion that is always included in the URL. There is no correspondence whatsoever between CapabilityStatement's operation.name and OperationDefinition.name - the latter is used as a class name when generating code for the operation. HL7 will never define operations that have conflicting names."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1278,7 +1353,7 @@
       </extension>
       <path value="CapabilityStatement.rest.searchParam"/>
       <short value="Search parameters for searching all resources"/>
-      <definition value="Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation."/>
+      <definition value="Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation. This is only for searches executed against the system-level endpoint."/>
       <comment value="Typically, the only search parameters supported for all searches are those that apply to all resources - tags, profiles, text search etc. These search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions."/>
       <min value="0"/>
       <max value="*"/>

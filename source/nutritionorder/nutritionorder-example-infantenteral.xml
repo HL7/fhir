@@ -7,10 +7,10 @@ edited by Eric Haas Health eData Inc
 		<value value="123"/>
 	</identifier>
 	<status value="active"/><intent value="order"/>
-	<patient>
+	<subject>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>
-	</patient>
+	</subject>
 	<encounter>
 		<reference value="Encounter/example"/>
 		<display value="Inpatient"/>
@@ -22,39 +22,45 @@ edited by Eric Haas Health eData Inc
 	</orderer>
 	<enteralFormula>
 		<baseFormulaType>
+			<concept>
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="412414007"/>
 				<display value="infant formula + iron"/>
 			</coding>
+		</concept>
 		</baseFormulaType>
 		<baseFormulaProductName value="Acme Infant Formula + Iron"/>
-
-		<additiveType>
+		<additive>
+		<type>
+			<concept>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/entformula-additive"/>
 				<code value="carbohydrate"/>
 				<display value="Carbohydrate"/>
 			</coding>
-		</additiveType>
-		<additiveProductName value="Acme High Carbohydrate Additive"/>
+		</concept>
+		</type>
+		<productName value="Acme High Carbohydrate Additive"/>
+	</additive>
 		<caloricDensity>
 			<value value="20"/>
 			<unit value="calories per ounce"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="cal/[foz_us]"/>
 		</caloricDensity>
-		<routeofAdministration>
+		<routeOfAdministration>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration"/>
 				<code value="PO"/>
 				<display value="Swallow, oral"/>
 				<userSelected value="true"/>
 			</coding>
-		</routeofAdministration>
+		</routeOfAdministration>
 		<administration>
 		<!-- scheduled 4 oz every 3hrs not to exceed 32 oz/day-->
 		<schedule>
+			<timing>
 			<repeat>
 			<boundsPeriod>
 			  <start value="2014-09-17"/>
@@ -63,6 +69,7 @@ edited by Eric Haas Health eData Inc
 				<period value="3"/>
 				<periodUnit value="h"/>
 			</repeat>
+		</timing>
 		</schedule>
 		<quantity>
 			<value value="4"/>

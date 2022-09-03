@@ -12,7 +12,7 @@
 
 <p>Note that systems will likely vary widely in the degree of support they provide for the <code>$apply</code> operation. In particular, the fact that a system supports applying definitions of one category, does not imply that it supports applying definitions for all categories. For example, a service focused on medication order sets may have sophisticated support for MedicationRequest activities, but no support at all for the ServiceRequest activities.</p>
 
-<p>The following diagram illustrates the relationship between the PlanDefinition and ActivityDefinition resources, as well as a typical application to CarePlan, RequestGroup, and Request resources:</p>
+<p>The following diagram illustrates the relationship between the PlanDefinition and ActivityDefinition resources, as well as a typical application to CarePlan, RequestOrchestration, and Request resources:</p>
 
 <img src="action-and-activity-definition.png" alt="relationship-between-action-and-activity-definition"/>
 

@@ -2,186 +2,6 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="biologicallyderived-product-property-type-codes"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
-  </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      
-      
-      <p>This code system http://hl7.org/fhir/biologicallyderived-product-property-type-codes is a subset of the codes defined in http://terminology.hl7.org/CodeSystem/ib</p>
-      
-  
-      
-      <table class="codes">
-        
-        
-        
-        <tr>
-          
-          
-          
-          <td style="white-space:nowrap">
-            
-            
-            
-            <b>Code</b>
-          
-          
-          
-          </td>
-          
-          
-          
-          <td>
-            
-            
-            
-            <b>Display</b>
-          
-          
-          
-          </td>
-          
-          
-          
-          <td>
-            
-            
-            
-            <b>Definition</b>
-          
-          
-          
-          </td>
-        
-        
-        
-        </tr>
-        
-        
-        
-        <tr>
-          
-          
-          
-          <td style="white-space:nowrap">CollectionType
-            
-            
-            
-            <a name="product-property-type-code-collection-type"> </a>
-          
-          
-          
-          </td>
-          
-          
-          
-          <td>Collection Type</td>
-          
-          
-          
-          <td>See https://www.isbt128.org/uri/CollectionType</td>
-        
-        
-        
-        </tr>
-        
-        
-        
-        <tr>
-          
-          
-          
-          <td style="white-space:nowrap">ABORhD
-            
-            
-            
-            <a name="product-property-type-code-aborh"> </a>
-          
-          
-          
-          </td>
-          
-          
-          
-          <td>ABO RhD	</td>
-          
-          
-          
-          <td>See https://www.isbt128.org/uri/ABORhD</td>
-        
-        
-        
-        </tr>
-        
-        
-        
-        <tr>
-          
-          
-          
-          <td style="white-space:nowrap">SingleEuropeanCode
-            
-            
-            
-            <a name="product-property-type-code-single-european-code"> </a>
-          
-          
-          
-          </td>
-          
-          
-          
-          <td>Single European Code</td>
-          
-          
-          
-          <td>See https://www.isbt128.org/uri/SingleEuropeanCode</td>
-        
-        
-        
-        </tr>
-        
-        
-        
-        <tr>
-          
-          
-          
-          <td style="white-space:nowrap">RedCellAntigen
-            
-            
-            
-            <a name="product-property-type-code-red-cell-antigen"> </a>
-          
-          
-          
-          </td>
-          
-          
-          
-          <td>Red Cell Antigen</td>
-          
-          
-          
-          <td>See https://www.isbt128.org/uri/RedCellAntigen</td>
-        
-        
-        
-        </tr>
-   
-  
-      
-      </table>
-    
-    
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -192,10 +12,6 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/biologicallyderived-product-property-type-codes"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="BiologicallyDerivedProductPropertyTypeCodes"/>
   <title value="BiologicallyDerivedProductPropertyTypeCodes"/>
@@ -213,27 +29,27 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Biologically Derived Product Property Type Code."/>
+  <description value="Biologically Derived Product Property Type Code.       <p>This code system http://hl7.org/fhir/biologicallyderived-product-property-type-codes is a subset of the codes defined in http://terminology.hl7.org/CodeSystem/ib</p>/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-property-type-codes"/>
   <content value="example"/>
   <concept>
-    <code value="CollectionType"/>
-    <display value="CollectionType"/>
+    <code value="collectiontype"/>
+    <display value="Collection Type"/>
     <definition value="See https://www.isbt128.org/uri/CollectionType"/>
   </concept>
   <concept>
-    <code value="ABORhD"/>
+    <code value="aborhd"/>
     <display value="ABORhD"/>
     <definition value="See https://www.isbt128.org/uri/ABORhD"/>
   </concept>
   <concept>
-    <code value="SingleEuropeanCode"/>
-    <display value="SingleEuropeanCode"/>
+    <code value="singleeuropeancode"/>
+    <display value="Single European Code"/>
     <definition value="See https://www.isbt128.org/uri/SingleEuropeanCode"/>
   </concept>
   <concept>
-    <code value="RedCellAntigen"/>
+    <code value="redcellantigen"/>
     <display value="Red Cell Antigen"/>
     <definition value="See https://www.isbt128.org/uri/RedCellAntigen"/>
   </concept>

@@ -1,9 +1,65 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<a name="defined"></a>
-<h3>Operations defined as part of this Specification</h3>
+<a name="renaming"></a>
+<a name="code"></a>
+<h3>OperationDefinition Code</h3>
 
-<%operationslist%>
+<p>
+Operations are invoked by their code, not their name. The name is descriptive, for code generation, 
+e.g. <code>ValueSetExpansion</code>, while the code is what is used in a URL e.g. 
+<code>http://example.org/fhir/ValueSet/$expand</code>. When defining operations, 
+for maximum compatibility, use only lowercase ASCII characters. 
+See <a href="https://confluence.hl7.org/display/FHIR/Guide+to+Designing+Resources#GuidetoDesigningResources-NamingRules&amp;Guidelines">Naming Rules &amp; Guidelines</a> 
+for the internal HL7 rules around codes, which are useful additional advice for all implementers.
+</p>
+<p>
+It is possible for two different organizations to create different operation definitions with the same code or, perhaps more likely, to define equivalent operations that have the 
+same code but incompatible approaches in their parameter lists. Note that HL7 will never define multiple operations with the same code. 
+</p>
+<p>
+It is also possible, though unlikely, that a server will be required to support both of 
+these operations. If this is the case, the server is able to do this by giving one of them
+a new code and referring to it by definition in the capability statement. To illustrate
+this, assume that two different organizations, "orgA" and "orgB", both define an operation 
+with a code <code>dothis</code>, and the definitions are incompatible. OrgA publishes its operation
+definition at http://orga.com/fhir/dothis.xml, and OrgB publishes its operation at 
+http://fhir.orgb.com/meta/OperationDefinition/dothis. The server is able to implement
+both. Its capability statement will say:
+</p>
+<pre class="xml">
+&lt;CapabilityStatement xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;!-- snip --&gt;
+  &lt;rest&gt;
+    &lt;!-- snip --&gt;
+    &lt;operation&gt;
+      &lt;name value=&quot;dothis&quot;/&gt;
+      &lt;definition&gt;
+        &lt;reference value=&quot;http://orga.com/fhir/dothis.xml&quot;/&gt;
+      &lt;/definition&gt;
+    &lt;/operation&gt;
+    &lt;operation&gt;
+      &lt;name value=&quot;dothis2&quot;/&gt;
+      &lt;definition&gt;
+        &lt;reference value=&quot;http://fhir.orgb.com/meta/OperationDefinition/dothis&quot;/&gt;
+      &lt;/definition&gt;
+    &lt;/operation&gt;
+    &lt;!-- snip --&gt;
+  &lt;/rest&gt;
+  &lt;!-- snip --&gt;
+&lt;/CapabilityStatement&gt;
+</pre>
+<p>
+If a general purpose cross server client is looking for the implementation of the 
+http://fhir.orgb.com/meta/OperationDefinition/dothis operation and wants to be
+robust against this name clash problem, instead of simply executing the $dothis
+operation, it can look at the server's <a href="capabilitystatement.html">CapabilityStatement</a> for the underlying
+definition URI and then execute with the name given in the capability statement.
+</p>
+<p>
+Note to implementers: it would be more consistent if CapabilityStatement.rest.operation.name was 
+actually called "code", since it relates to OperationDefinition.code, but the confusion this 
+can cause wasn't appreciated until the resource was normative. 
+</p>
 
 <a name="desc"></a>
 <h3>Describing Operation Parameters</h3>
@@ -142,53 +198,6 @@ Some operations can take either form; in that case, two distinct parameters
 must be defined: one for a resource as a direct parameter, and one for a reference.
 </p>
 
-<a name="renaming"></a>
-<h3>Renaming OperationDefinition.name</h3>
-
-<p>
-It is possible for two different organizations to create different operation definitions with the same name or, perhaps more likely, to define equivalent operations that have the 
-same name but incompatible approaches in their parameter lists. 
-</p>
-<p>
-It is also possible, though unlikely, that a server will be required to support both of 
-these operations. If this is the case, the server is able to do this by giving one of them
-a new name and referring to it by definition in the capability statement. To illustrate
-this, assume that two different organizations, "orgA" and "orgB", both define an operation 
-called "dothis", and the definitions are incompatible. OrgA publishes its operation
-definition at http://orga.com/fhir/dothis.xml, and OrgB publishes its operation at 
-http://fhir.orgb.com/meta/OperationDefinition/dothis. The server is able to implement
-both. Its capability statement will say:
-</p>
-<pre class="xml">
-&lt;CapabilityStatement xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;!-- snip --&gt;
-  &lt;rest&gt;
-    &lt;!-- snip --&gt;
-    &lt;operation&gt;
-      &lt;name value=&quot;dothis&quot;/&gt;
-      &lt;definition&gt;
-        &lt;reference value=&quot;http://orga.com/fhir/dothis.xml&quot;/&gt;
-      &lt;/definition&gt;
-    &lt;/operation&gt;
-    &lt;operation&gt;
-      &lt;name value=&quot;dothis2&quot;/&gt;
-      &lt;definition&gt;
-        &lt;reference value=&quot;http://fhir.orgb.com/meta/OperationDefinition/dothis&quot;/&gt;
-      &lt;/definition&gt;
-    &lt;/operation&gt;
-    &lt;!-- snip --&gt;
-  &lt;/rest&gt;
-  &lt;!-- snip --&gt;
-&lt;/CapabilityStatement&gt;
-</pre>
-<p>
-If a general purpose cross server client is looking for the implementation of the 
-http://fhir.orgb.com/meta/OperationDefinition/dothis operation and wants to be
-robust against this name clash problem, instead of simply executing the $dothis
-operation, it can look at the server's <a href="capabilitystatement.html">CapabilityStatement</a> for the underlying
-definition URI and then execute the name given in the capability statement.
-</p>
-
 <a name="system"></a>
 <h3>Determining System Compatibility</h3>
 
@@ -219,5 +228,11 @@ For this reason, highly technical documentation should go in <code>OperationDefi
 <p>
 It is anticipated that this would be used to automate development processes, rather than to generate end-user forms: such users will usually need more support than can be offered in a generated form.
 </p>
+
+<a name="defined"></a>
+<h3>Operations defined as part of this Specification</h3>
+
+<%operationslist%>
+
 
 </div>

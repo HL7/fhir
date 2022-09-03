@@ -170,11 +170,19 @@
     <type value="boolean"/>
   </parameter>
   <parameter>
+    <name value="useSupplement"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="The supplement must be used when performing an expansion. Use of this parameter should result in $expand behaving the same way as if the supplements were included in the value set definition using the [supplement extension](extension-valueset-supplement.html)"/>
+    <type value="canonical"/>
+  </parameter>
+  <parameter>
     <name value="excludeNested"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Controls whether or not the value set expansion nests codes or not (i.e. ValueSet.expansion.contains.contains)"/>
+    <documentation value="Controls whether or not the value set expansion may nest codes or not (i.e. ValueSet.expansion.contains.contains). If excludeNested is set to true, the expansion MUST be flat (no nesting). If excludeNested is set to false (default),  however, nesting is possible but not required"/>
     <type value="boolean"/>
   </parameter>
   <parameter>
@@ -182,7 +190,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Controls whether or not the value set expansion is assembled for a user interface use or not. Value sets intended for User Interface might include [&#39;abstract&#39; codes](codesystem.html#status) or have nested contains with items with no code or abstract = true, with the sole purpose of helping a user navigate through the list efficiently, where as a value set not generated for UI use might be flat, and only contain the selectable codes in the value set. The exact implications of &#39;for UI&#39; depend on the code system, and what properties it exposes for a terminology server to use. In the FHIR Specification itself, the value set expansions are generated with excludeNotForUI = false, and the expansions used when generated schema / code etc, or performing validation, are all excludeNotForUI = true."/>
+    <documentation value="Controls whether or not the value set expansion might include&#13;&#10;&#13;&#10;* codes from the CodeSystem with a notSelectable property set to true as specified in [status](codesystem.html#status)] and in [Concept Properties](codesystem-concept-properties.html)&#13;&#10;* nested contains with no code (see [Contains](valueset-definitions.html#ValueSet.expansion.contains.code))&#13;&#10;* nested contains in the ValueSet with [abstract = true](valueset-definitions.html#ValueSet.expansion.contains.abstract)&#13;&#10;&#13;&#10;One purpose of such concepts is helping a user navigate through the list efficiently. If excludeNotForUI is set to true, the concepts as described above will be excluded from the expansion. If excludeNotForUI is set to false (default), all concepts as described above may be part of the expansion. In the FHIR Specification itself, the value set expansions are generated with excludeNotForUI = false, and the expansions used when generating schema / code etc, or performing validation, are all excludeNotForUI = true."/>
     <type value="boolean"/>
   </parameter>
   <parameter>
@@ -206,7 +214,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="A request to return a particular property in the expansion. May be either a code from the code system definition (convenient) or a the formal URI that refers to the property. Note that property names can clash, so using a URI is recommended. The special value &#39;*&#39; means all properties known to the server"/>
+    <documentation value="A request to return a particular property in the expansion. The returned property may include subproperties. May be either a code from the code system definition (convenient) or a the formal URI that refers to the property. Note that property names can clash, so using a URI is recommended. The special value &#39;*&#39; means all properties and their sub-properties known to the server"/>
     <type value="string"/>
   </parameter>
   <parameter>

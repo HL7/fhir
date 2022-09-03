@@ -3,137 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="cited-medium"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/cited-medium defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">internet
-            
-            <a name="cited-medium-internet"> </a>
-          
-          </td>
-          
-          <td>Internet</td>
-          
-          <td>Online publication in a periodic release. Used to match NLM JournalIssue CitedMedium code for online version.</td>
-        
-        </tr>
-
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">print
-            
-            <a name="cited-medium-print"> </a>
-          
-          </td>
-          
-          <td>Print</td>
-          
-          <td>Print publication in a periodic release. Used to match NLM JournalIssue CitedMedium code for print version.</td>
-        
-        </tr>
-
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">offline-digital-storage
-            
-            <a name="cited-medium-offline-digital-storage"> </a>
-          
-          </td>
-          
-          <td>Offline Digital Storage</td>
-          
-          <td>Publication in a physical device for electronic data storage, organized in issues for periodic release.</td>
-        
-        </tr>
-
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">internet-without-issue
-            
-            <a name="cited-medium-internet-without-issue"> </a>
-          
-          </td>
-          
-          <td>Internet without issue</td>
-          
-          <td>Online publication without any periodic release. Used for article specific publication date which could be the same as or different from journal issue publication date.</td>
-        
-        </tr>
-
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">print-without-issue
-            
-            <a name="cited-medium-print-without-issue"> </a>
-          
-          </td>
-          
-          <td>Print without issue</td>
-          
-          <td>Print publication without any periodic release.</td>
-        
-        </tr>
-
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">offline-digital-storage-without-issue
-            
-            <a name="cited-medium-offline-digital-storage-without-issue"> </a>
-          
-          </td>
-          
-          <td>Offline Digital Storage without issue</td>
-          
-          <td>Publication in a physical device for electronic data storage, without any periodic release.</td>
-        
-        </tr>
-
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -148,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1489"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="CitedMedium"/>
   <title value="CitedMedium"/>
   <status value="draft"/>

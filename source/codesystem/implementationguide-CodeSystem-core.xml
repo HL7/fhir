@@ -102,6 +102,11 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/codesystem-authoritativeSource"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/codesystem-alternate"/>
       </reference>
     </resource>
@@ -113,6 +118,11 @@
     <resource>
       <reference>
         <reference value="StructureDefinition/codesystem-properties-mode"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/terminology-resource-identifier-metadata"/>
       </reference>
     </resource>
     <resource>

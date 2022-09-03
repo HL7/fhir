@@ -3,99 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="composition-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/composition-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">preliminary
-            
-            <a name="composition-status-preliminary"> </a>
-          
-          </td>
-          
-          <td>Preliminary</td>
-          
-          <td>This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">final
-            
-            <a name="composition-status-final"> </a>
-          
-          </td>
-          
-          <td>Final</td>
-          
-          <td>This version of the composition is complete and verified by an appropriate person and no further work is planned. Any subsequent updates would be on a new version of the composition.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">amended
-            
-            <a name="composition-status-amended"> </a>
-          
-          </td>
-          
-          <td>Amended</td>
-          
-          <td>The composition content or the referenced resources have been modified (edited or added to) subsequent to being released as &quot;final&quot; and the composition is complete and verified by an authorized person.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="composition-status-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered in Error</td>
-          
-          <td>The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sd"/>
   </extension>
@@ -110,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.242"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="CompositionStatus"/>
   <title value="CompositionStatus"/>
   <status value="draft"/>
@@ -132,8 +41,7 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/composition-status"/>
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
-
- <concept> 
+  <concept>
     <code value="registered"/>
     <display value="Registered"/>
     <definition value="The existence of the report is registered, but there is nothing yet available."/>
@@ -148,7 +56,6 @@
       <definition value="Verified early results are available, but not all results are final."/>
     </concept>
   </concept>
-
   <concept>
     <code value="final"/>
     <display value="Final"/>

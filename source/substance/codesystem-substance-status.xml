@@ -6,84 +6,8 @@
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/substance-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">active
-            
-            <a name="substance-status-active"> </a>
-          
-          </td>
-          
-          <td>Active</td>
-          
-          <td>The substance is considered for use or reference.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">inactive
-            
-            <a name="substance-status-inactive"> </a>
-          
-          </td>
-          
-          <td>Inactive</td>
-          
-          <td>The substance is considered for reference, but not for use.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="substance-status-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered in Error</td>
-          
-          <td>The substance was entered in error.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="oo"/>
+    <valueCode value="brr"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>

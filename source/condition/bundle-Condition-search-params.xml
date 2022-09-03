@@ -16,7 +16,7 @@
         <description value="Abatement as age or age range"/>
         <code value="abatement-age"/>
         <type value="quantity"/>
-        <expression value="Condition.abatement.as(Age) | Condition.abatement.as(Range)"/>
+        <expression value="Condition.abatement.ofType(Age) | Condition.abatement.ofType(Range)"/>
         <xpath value="f:Condition/f:abatementAge | f:Condition/f:abatementRange"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
@@ -36,7 +36,7 @@
         <description value="Date-related abatements (dateTime and period)"/>
         <code value="abatement-date"/>
         <type value="date"/>
-        <expression value="Condition.abatement.as(dateTime) | Condition.abatement.as(Period)"/>
+        <expression value="Condition.abatement.ofType(dateTime) | Condition.abatement.ofType(Period)"/>
         <xpath value="f:Condition/f:abatementDateTime | f:Condition/f:abatementPeriod"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
@@ -56,7 +56,7 @@
         <description value="Abatement as a string"/>
         <code value="abatement-string"/>
         <type value="string"/>
-        <expression value="Condition.abatement.as(string)"/>
+        <expression value="Condition.abatement.ofType(string)"/>
         <xpath value="f:Condition/f:abatementString"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
@@ -264,7 +264,7 @@
         <description value="Onsets as age or age range"/>
         <code value="onset-age"/>
         <type value="quantity"/>
-        <expression value="Condition.onset.as(Age) | Condition.onset.as(Range)"/>
+        <expression value="Condition.onset.ofType(Age) | Condition.onset.ofType(Range)"/>
         <xpath value="f:Condition/f:onsetAge | f:Condition/f:onsetRange"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
@@ -284,7 +284,7 @@
         <description value="Date related onsets (dateTime and Period)"/>
         <code value="onset-date"/>
         <type value="date"/>
-        <expression value="Condition.onset.as(dateTime) | Condition.onset.as(Period)"/>
+        <expression value="Condition.onset.ofType(dateTime) | Condition.onset.ofType(Period)"/>
         <xpath value="f:Condition/f:onsetDateTime | f:Condition/f:onsetPeriod"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
@@ -304,7 +304,7 @@
         <description value="Onsets as a string"/>
         <code value="onset-info"/>
         <type value="string"/>
-        <expression value="Condition.onset.as(string)"/>
+        <expression value="Condition.onset.ofType(string)"/>
         <xpath value="f:Condition/f:onsetString"/>
         <xpathUsage value="normal"/>
       </SearchParameter>

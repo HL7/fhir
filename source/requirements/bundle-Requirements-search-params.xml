@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="Requirements-search-params"/>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-context"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueCodeableConcept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-context"/>
+        <description value="A use context assigned to the requirements"/>
+        <code value="context"/>
+        <type value="token"/>
+        <expression value="(Requirements.useContext.value as CodeableConcept)"/>
+        <xpath value="f:Requirements/f:useContext/f:valueCodeableConcept"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-context-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-context-quantity"/>
+        <description value="A quantity- or range-valued use context assigned to the requirements"/>
+        <code value="context-quantity"/>
+        <type value="quantity"/>
+        <expression value="(Requirements.useContext.value as Quantity) | (Requirements.useContext.value as Range)"/>
+        <xpath value="f:Requirements/f:useContext/f:valueQuantity | f:Requirements/f:useContext/f:valueRange"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-context-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.useContext.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-context-type"/>
+        <description value="A type of use context assigned to the requirements"/>
+        <code value="context-type"/>
+        <type value="token"/>
+        <expression value="Requirements.useContext.code"/>
+        <xpath value="f:Requirements/f:useContext/f:code"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-context-type-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-context-type-quantity"/>
+        <description value="A use context type and quantity- or range-based value assigned to the requirements"/>
+        <code value="context-type-quantity"/>
+        <type value="composite"/>
+        <expression value="Requirements.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context-quantity"/>
+          <expression value="value.ofType(Quantity) | value.ofType(Range)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-context-type-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-context-type-value"/>
+        <description value="A use context type and value assigned to the requirements"/>
+        <code value="context-type-value"/>
+        <type value="composite"/>
+        <expression value="Requirements.useContext"/>
+        <xpathUsage value="normal"/>
+        <component>
+          <definition value="context-type"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="context"/>
+          <expression value="value.ofType(CodeableConcept)"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.date"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-date"/>
+        <description value="The requirements publication date"/>
+        <code value="date"/>
+        <type value="date"/>
+        <expression value="Requirements.date"/>
+        <xpath value="f:Requirements/f:date"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-description"/>
+        <description value="The description of the requirements"/>
+        <code value="description"/>
+        <type value="string"/>
+        <expression value="Requirements.description"/>
+        <xpath value="f:Requirements/f:description"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-identifier"/>
+        <description value="External identifier for the requirements"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="Requirements.identifier"/>
+        <xpath value="f:Requirements/f:identifier"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-jurisdiction"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.jurisdiction"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-jurisdiction"/>
+        <description value="Intended jurisdiction for the requirements"/>
+        <code value="jurisdiction"/>
+        <type value="token"/>
+        <expression value="Requirements.jurisdiction"/>
+        <xpath value="f:Requirements/f:jurisdiction"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-name"/>
+        <description value="Computationally friendly name of the requirements"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="Requirements.name"/>
+        <xpath value="f:Requirements/f:name"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-publisher"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.publisher"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-publisher"/>
+        <description value="Name of the publisher of the requirements"/>
+        <code value="publisher"/>
+        <type value="string"/>
+        <expression value="Requirements.publisher"/>
+        <xpath value="f:Requirements/f:publisher"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-status"/>
+        <description value="The current status of the requirements"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="Requirements.status"/>
+        <xpath value="f:Requirements/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-title"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.title"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-title"/>
+        <description value="The human-friendly name of the requirements"/>
+        <code value="title"/>
+        <type value="string"/>
+        <expression value="Requirements.title"/>
+        <xpath value="f:Requirements/f:title"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-url"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-url"/>
+        <description value="The uri that identifies the requirements"/>
+        <code value="url"/>
+        <type value="uri"/>
+        <expression value="Requirements.url"/>
+        <xpath value="f:Requirements/f:url"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.version"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-version"/>
+        <description value="The business version of the requirements"/>
+        <code value="version"/>
+        <type value="token"/>
+        <expression value="Requirements.version"/>
+        <xpath value="f:Requirements/f:version"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-derived-from"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.derivedFrom"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-derived-from"/>
+        <name value="ActorDefinition_DerivedFrom"/>
+        <description value="The requirements these are derived from"/>
+        <code value="derived-from"/>
+        <type value="reference"/>
+        <expression value="Requirements.derivedFrom"/>
+        <xpath value="f:Requirements/f:derivedFrom"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Requirements-actor"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-actor"/>
+        <name value="ActorDefinition_Actor"/>
+        <description value="An actor these requirements are for"/>
+        <code value="actor"/>
+        <type value="reference"/>
+        <expression value="Requirements.actor"/>
+        <xpath value="f:Requirements/f:actor"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+</Bundle>

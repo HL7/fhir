@@ -3,165 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="task-status-reason"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      
-      <p>This code system http://hl7.org/fhir/task-status-reason defines the following codes:</p>
-      
-      
-      <table class="codes">
-        
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">
-            
-            
-            <b>Code</b>
-          
-          
-          </td>
-          
-          
-          <td>
-            
-            
-            <b>Display</b>
-          
-          
-          </td>
-          
-          
-          <td>
-            
-            
-            <b>Definition</b>
-          
-          
-          </td>
-        
-        
-        </tr>
-        
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">missing
-            
-            
-            <a name="task-status-reason-missing"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Missing</td>
-          
-          
-          <td>An item nessary for task completion is missing.</td>
-        
-        
-        </tr>
-        
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">misidentified
-            
-            
-            <a name="task-status-misidentified"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Misidentified</td>
-          
-          
-          <td>Something related to the task was misidentified.</td>
-        
-        
-        </tr>
-        
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">equipment-issue
-            
-            
-            <a name="task-status-equipment-issue"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Equipment-issue</td>
-          
-          
-          <td>A piece of equipment necessary for completion of the task is malfunctioning.</td>
-        
-        
-        </tr>
-        
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">environmental-issue
-            
-            
-            <a name="task-status-environmental-issue"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Environmental-issue</td>
-          
-          
-          <td>Something in the environment is preventing task completion.</td>
-        
-        
-        </tr>
-        
-        
-        <tr>
-          
-          
-          <td style="white-space:nowrap">personnel-issue 
-            
-            
-            <a name="task-status-personnel-issue"> </a>
-          
-          
-          </td>
-          
-          
-          <td>Personnel-issue</td>
-          
-          
-          <td>Key personnel necessary for task completion are not present.</td>
-        
-        
-        </tr>
-        
-       
-      
-      
-      </table>
-    
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -176,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="TaskStatusReason"/>
   <title value="TaskStatusReason"/>
   <status value="draft"/>
@@ -197,7 +40,7 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/task-status-reason"/>
   <content value="complete"/>
-  <concept> 
+  <concept>
     <code value="missing"/>
     <display value="Missing"/>
     <definition value="An item nessary for task completion is missing."/>

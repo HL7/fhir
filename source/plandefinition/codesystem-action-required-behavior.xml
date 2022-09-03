@@ -3,85 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="action-required-behavior"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/action-required-behavior defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">must
-            
-            <a name="action-required-behavior-must"> </a>
-          
-          </td>
-          
-          <td>Must</td>
-          
-          <td>An action with this behavior must be included in the actions processed by the end user; the end user SHALL NOT choose not to include this action.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">could
-            
-            <a name="action-required-behavior-could"> </a>
-          
-          </td>
-          
-          <td>Could</td>
-          
-          <td>An action with this behavior may be included in the set of actions processed by the end user.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">must-unless-documented
-            
-            <a name="action-required-behavior-must-unless-documented"> </a>
-          
-          </td>
-          
-          <td>Must Unless Documented</td>
-          
-          <td>An action with this behavior must be included in the set of actions processed by the end user, unless the end user provides documentation as to why the action was not included.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -96,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.804"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ActionRequiredBehavior"/>
   <title value="ActionRequiredBehavior"/>
   <status value="draft"/>

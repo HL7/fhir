@@ -162,7 +162,7 @@
 				</component>
 				<component>
 					<definition value="context-quantity"/>
-					<expression value="value.as(Quantity) | value.as(Range)"/>
+					<expression value="value.ofType(Quantity) | value.ofType(Range)"/>
 				</component>
 			</SearchParameter>
 		</resource>
@@ -189,7 +189,7 @@
 				</component>
 				<component>
 					<definition value="context"/>
-					<expression value="value.as(CodeableConcept)"/>
+					<expression value="value.ofType(CodeableConcept)"/>
 				</component>
 			</SearchParameter>
 		</resource>
