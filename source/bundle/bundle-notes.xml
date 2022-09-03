@@ -75,7 +75,7 @@ information:
 <p>
 A change history (type = "history") consists of a series of 
 0 or more entries. Each entry element SHALL contain a request element that describes the change
-that was made and, if the method is a POST or PUT, a resource that represents the state of the 
+that was made and, if the method is a POST, PATCH, or PUT, a resource that represents the state of the 
 resource at the conclusion of the operation. A response element SHALL also be present so that consumers
 can access the <code>location</code> header. See <a href="http.html#history">History</a> for further information.
 </p>
@@ -138,25 +138,25 @@ may be additional contents, as specified by the subscription responsible for gen
 <h2>Resource URL &amp; Uniqueness rules in a bundle</h2>
 
 <p>
-Except for transactions and batches, each entry in a <code>Bundle</code> must have a <code>fullUrl</code> 
+Except for transactions and batches, each entry in a <code>Bundle</code> SHALL must have a <code>fullUrl</code> 
 which is the identity of the resource in the entry. Note that this is not a versioned reference to the resource, but its 
 identity. Where a resource is not assigned a persistent identity that can be used
-in the Bundle, a UUID should be used (urn:uuid:...).
+in the Bundle, a UUID SHALL be used in fullUrl (urn:uuid:...).
 </p>
 <p>
-For transactions and batches, entries MAY not have fullURLs when the entry.request.method = POST, 
+For transactions and batches, entries MAY omit fullURLs when the entry.request.method = POST, 
 and the resource has no identity. Note that even in this case, there may still be a fullURL in a 
 transaction on a POST so that relationships between resources can be represented (see <a href="http.html#transaction">Transactions</a>).
 </p>
 <p>
-A given version of a resource SHALL only appear once in each Bundle. There might, however, 
+A given version of a resource SHALL only appear once in each Bundle. There MAY, however, 
 be multiple versions of a single resource present in a single bundle. This would be expected
 in Bundles of type <code>history</code>, and also might be necessitated by closely tracking
 Provenance. 
 </p>
 <p>
 Note that the meaning of an unversioned reference to a resource that appears multiple times 
-is potentially ambiguous, though processors may have additional informaton to help resolve 
+is potentially ambiguous, though processors may have additional information to help resolve 
 this (e.g. change order in a history bundle).
 </p>
 <p>
