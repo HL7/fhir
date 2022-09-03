@@ -171,6 +171,60 @@
         <code value="uri"/>
       </type>
     </element>
+
+    <element id="DeviceDefinition.regulatoryIdentifier">
+      <path value="DeviceDefinition.regulatoryIdentifier"/>
+      <short value="Regulatory identifier of the device"/>
+      <definition value="Identifier associated with the regulatory documentation (certificates, technical documentation, post-market surveillance documentation and reports) of a set of device models sharing the same intended purpose, risk class and essential design and manufacturing characteristics. One example is the Basic UDI-DI in Europe"/>
+      <comment value="This should not be used for regulatory authorization numbers which are to be captured elsewhere."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+
+    <element id="DeviceDefinition.regulatoryIdentifier.type">
+      <path value="DeviceDefinition.regulatoryIdentifier.type"/>
+      <short value="basic | master | license"/>
+      <definition value="the type of identifier itself"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.regulatoryIdentifier.deviceIdentifier">
+      <path value="DeviceDefinition.regulatoryIdentifier.deviceIdentifier"/>
+      <short value="The identifier itself"/>
+      <definition value="Tthe identifier itself"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.regulatoryIdentifier.issuer">
+      <path value="DeviceDefinition.regulatoryIdentifier.issuer"/>
+      <short value="The organization that issued this identifier"/>
+      <definition value="The organization that issued this identifier"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.regulatoryIdentifier.jurisdiction">
+      <path value="DeviceDefinition.regulatoryIdentifier.jurisdiction"/>
+      <short value="The jurisdiction to which the deviceIdentifier applies"/>
+      <definition value="The jurisdiction to which the deviceIdentifier applies"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    
     <element id="DeviceDefinition.partNumber">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="W5 note what = what.productidentification."/>
