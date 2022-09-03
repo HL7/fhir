@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="device-operational-state-mode"/>
+  <id value="device-operation-mode"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -14,9 +14,9 @@
         
         <li>Include all codes defined in 
           
-          <a href="codesystem-device-operational-state-mode.html">
+          <a href="codesystem-device-operation-mode.html">
             
-            <code>http://hl7.org/fhir/device-operational-state-mode</code>
+            <code>http://hl7.org/fhir/device-operation-mode</code>
           
           </a>
         
@@ -35,14 +35,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="2"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/device-operational-state-mode"/>
+  <url value="http://hl7.org/fhir/ValueSet/device-operation-mode"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="FHIRDeviceOperationalStateMode"/>
-  <title value="FHIRDeviceOperationalStateMode"/>
+  <name value="FHIRDeviceOperationMode"/>
+  <title value="FHIRDeviceOperationMode"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-03-28T16:55:11+11:00"/>
