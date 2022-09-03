@@ -75,7 +75,7 @@ information:
 <p>
 A change history (type = "history") consists of a series of 
 0 or more entries. Each entry element SHALL contain a request element that describes the change
-that was made and, if the method is a POST or PUT, a resource that represents the state of the 
+that was made and, if the method is a POST, PATCH, or PUT, a resource that represents the state of the 
 resource at the conclusion of the operation. A response element SHALL also be present so that consumers
 can access the <code>location</code> header. See <a href="http.html#history">History</a> for further information.
 </p>
