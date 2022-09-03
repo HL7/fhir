@@ -44,7 +44,8 @@
 				<value value="2048"/>
 			</origin>
 			<!-- period in ms = 1000/frequency -->
-			<period value="10"/>
+			<interval value="10"/>
+			<intervalUnit value="ms"/>
 			<!--  factor.value -->
 			<factor value="1.612"/>
 			<!--  voltage-min -->
@@ -70,7 +71,8 @@
 				<value value="2048"/>
 			</origin>
 			<!-- period in ms = 1000/frequency -->
-			<period value="10"/>
+			<interval value="10"/>
+			<intervalUnit value="ms"/>
 			<!--  factor.value -->
 			<factor value="1.612"/>
 			<!--  voltage-min -->
@@ -96,7 +98,8 @@
 				<value value="2048"/>
 			</origin>
 			<!-- period in ms = 1000/frequency -->
-			<period value="10"/>
+			<interval value="10"/>
+			<intervalUnit value="ms"/>
 			<!--  factor.value -->
 			<factor value="1.612"/>
 			<!--  voltage-min -->
