@@ -3,99 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="allergy-intolerance-category"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/allergy-intolerance-category defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">food
-            
-            <a name="allergy-intolerance-category-food"> </a>
-          
-          </td>
-          
-          <td>Food</td>
-          
-          <td>Any substance consumed to provide nutritional support for the body.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">medication
-            
-            <a name="allergy-intolerance-category-medication"> </a>
-          
-          </td>
-          
-          <td>Medication</td>
-          
-          <td>Substances administered to achieve a physiological effect.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">environment
-            
-            <a name="allergy-intolerance-category-environment"> </a>
-          
-          </td>
-          
-          <td>Environment</td>
-          
-          <td>Any substances that are encountered in the environment, including any substance not already classified as food, medication, or biologic.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">biologic
-            
-            <a name="allergy-intolerance-category-biologic"> </a>
-          
-          </td>
-          
-          <td>Biologic</td>
-          
-          <td>A preparation that is synthesized from living organisms or their products, especially a human or animal protein, such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Examples of biologic medications include: vaccines; allergenic extracts, which are used for both diagnosis and treatment (for example, allergy shots); gene therapies; cellular therapies.  There are other biologic products, such as tissues, which are not typically associated with allergies.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
   </extension>
@@ -110,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.134"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="AllergyIntoleranceCategory"/>
   <title value="AllergyIntoleranceCategory"/>
   <status value="draft"/>

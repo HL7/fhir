@@ -6,8 +6,8 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/measurement-principle"/>
-  <version value="4.6.0"/>
-  <name value="MeasmntPrinciple"/>
+  <version value="5.0.0"/>
+  <name value="MeasurementPrinciple"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/measurement-principle"/>

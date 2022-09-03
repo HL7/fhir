@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Subscription-get-ws-binding-token"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="get-ws-binding-token"/>
   <title value="Get a binding token for use in a websocket connection"/>
   <status value="draft"/>

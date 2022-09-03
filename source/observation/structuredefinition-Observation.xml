@@ -27,7 +27,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Observation"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -46,7 +46,7 @@
   </contact>
   <description value="Measurements and simple assertions made about a patient, device or other subject."/>
   <purpose value="Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -155,7 +155,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX.21  For OBX segments from systems without OBX-21 support a combination of ORC/OBR and OBX must be negotiated between trading partners to uniquely identify the OBX segment. Depending on how V2 has been implemented each of these may be an option: 1) OBR-3 + OBX-3 + OBX-4 or 2) OBR-3 + OBR-4 + OBX-3 + OBX-4 or 2) some other way to uniquely ID the OBR/ORC + OBX-3 + OBX-4."/>
+        <map value="OBX-21  For OBX segments from systems without OBX-21 support a combination of ORC/OBR and OBX must be negotiated between trading partners to uniquely identify the OBX segment. Depending on how V2 has been implemented each of these may be an option: 1) OBR-3 + OBX-3 + OBX-4 or 2) OBR-3 + OBR-4 + OBX-3 + OBX-4 or 3) some other way to uniquely ID the OBR/ORC + OBX-3 + OBX-4."/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -311,6 +311,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -624,7 +625,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBR.22 (or MSH.7), or perhaps OBX-19 (depends on who observation made)"/>
+        <map value="OBR-22 (or MSH-7), or perhaps OBX-19 (depends on who observation made)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -661,7 +662,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX.15 / (Practitioner)  OBX-16,  PRT-5:PRT-4=&#39;RO&#39; /  (Device)  OBX-18 , PRT-10:PRT-4=&#39;EQUIP&#39; / (Organization)  OBX-23,  PRT-8:PRT-4=&#39;PO&#39;"/>
+        <map value="OBX-15 / (Practitioner)  OBX-16,  PRT-5:PRT-4=&#39;RO&#39; /  (Device)  OBX-18 , PRT-10:PRT-4=&#39;EQUIP&#39; / (Organization)  OBX-23,  PRT-8:PRT-4=&#39;PO&#39;"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -723,7 +724,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX.2, OBX.5, OBX.6"/>
+        <map value="OBX-2, OBX-5, OBX-6"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -819,7 +820,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="NTE.3 (partner NTE to OBX, or sometimes another (child?) OBX)"/>
+        <map value="NTE-3 (partner NTE to OBX, or sometimes another (child?) OBX)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -938,7 +939,20 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
+
+<constraint>
+        <key value="obs-9"/>
+        <severity value="error"/>
+        <human value="If Observation.specimen is a reference to Group, the group can only have specimens"/>
+        <expression value="reference = 'Group' implies member.entity.resolve() is Specimen"/>
+        <xpath value="starts-with(f:member/f:entity/f:reference/@value, &#39;Specimen/&#39;) or contains(f:member/f:entity/f:reference/@value, &#39;/Specimen/&#39;) or not(f:specimen/@value = 'Specimen')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </constraint>
+
+
+
       <mapping>
         <identity value="sct-concept"/>
         <map value="&lt; 123038009 |Specimen|"/>
@@ -1012,7 +1026,7 @@
       </constraint>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX.7"/>
+        <map value="OBX-7"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1239,6 +1253,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -1368,7 +1383,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX.2, OBX.5, OBX.6"/>
+        <map value="OBX-2, OBX-5, OBX-6"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1462,7 +1477,7 @@
       <contentReference value="#Observation.referenceRange"/>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX.7"/>
+        <map value="OBX-7"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

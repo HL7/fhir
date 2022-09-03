@@ -24,7 +24,8 @@ is handled is a bit different from an application API. This page describes:
  <li><a href="#maturity">The FHIR Maturity Model</a></li>
  <li><a href="#versions">How FHIR versions work</a></li>
  <li><a href="#change">The rules for inter-version change once an artifact is Normative</a></li>
- <li><a href="#stu">Managing Change during the development process</a></li>
+ <li><a href="#studev">Managing Change during the development process</a></li>
+ <li><a href="#extensions">Extensions for converting between versions</a></li>
  <li><a href="#plans">Plans for future releases</a></li>
 </ul>
 <p>
@@ -53,7 +54,7 @@ different aspects of the specification.  They are as follows:
     </tr>
     <tr>
       <th style="background-color: #e6ffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><a name="normative"></a>Normative</th>
-      <td>This content been approved by the <a href="ansi.html">ANSI standards process</a>.  It has been subject to review and production implementation in a wide variety of environments.
+      <td>This content been approved by the <!-- <a href="ansi.html">ANSI standards process</a>-->.  It has been subject to review and production implementation in a wide variety of environments.
       The content is considered to be stable and has been 'locked', subjecting it to FHIR
       <a href="#change">Inter-version Compatibility Rules</a>.  While changes are possible, they are
       expected to be infrequent and are tightly constrained.
@@ -139,7 +140,7 @@ normative resources in future versions - they will undergo a period of trial use
 Note: it is also possible that some resources in the future will be labeled as 'trial use', but
 contain some elements labeled as 'normative'. There is no resource like this in this specification,
 though all Trial Use resources contain normative content from <a href="resource.html">Resource</a>
-and <a href="domainresource.html">DomainResource</a>, and the <a href="datatypes.html">Data types</a>.
+and <a href="domainresource.html">DomainResource</a>, and the <a href="datatypes.html">Datatypes</a>.
 </p>
 
 <p>
@@ -194,7 +195,7 @@ For further information, and discussion, see the <a href="https://confluence.hl7
 <p>
 The maturity model is significantly influenced by the degree and type of implementation activity using an artifact.
 For this reason, we encourage implementers to <a href="http://fhir.org/implementations/usage">register their implementations</a>.
-A detailed analysis of the basis for the maturity metrics for FHIR artifacts can be found <a href="https://docs.google.com/spreadsheets/d/18HfXF7mUCUV7jACCG0oejFp6D-ibtvbmcgywNhn76lw">here</a>.
+A detailed analysis of the basis for the maturity metrics for FHIR artifacts can be found <a href="http://hl7.org/fhir/maturity-metrics">here</a>.
 </p>
 
 
@@ -235,6 +236,7 @@ Each FHIR version is identified by a string composed from 4 parts: major.minor.p
        <li>FHIR Release 2 (DSTU) was version 1</li>
        <li>FHIR Release 3 (STU) was version 3 (skipped '2' to align the major numbers at implementer request)</li>
        <li>FHIR Release 4 (Normative + STU) is version 4</li>
+       <li>FHIR Release 5 (STU) is version 5</li>
      </ul>
    </td>
   </tr>
@@ -372,14 +374,14 @@ The following rules apply once an artifact in the FHIR core specification or in 
     <tr>
       <td>Artifacts (resources, profiles, code systems, etc.)</td>
       <td>
-      New artifacts including new resources and data types may be introduced.  Existing artifacts will not have any computable identifiers (e.g. resource names) changed.  Artifacts may be <a href="#deprecation">deprecated</a>
+      New artifacts including new resources and datatypes may be introduced.  Existing artifacts will not have any computable identifiers (e.g. resource names) changed.  Artifacts may be <a href="#deprecation">deprecated</a>
       </td>
     </tr>
     <tr>
       <td>Elements</td>
       <td>
        New optional elements and/or content (e.g. XML attributes, etc.) may be introduced
-      at any location in resource and data type structures provided they do not constitute "isModifier" elements.  However, the names, path
+      at any location in resource and datatype structures provided they do not constitute "isModifier" elements.  However, the names, path
       and meaning of previously existing data elements will not be changed.
       This means there will be no change to resource names and no changes to names assigned to slices and
       other elements within profiles.
@@ -453,17 +455,18 @@ The following rules apply once an artifact in the FHIR core specification or in 
       </td>
     </tr>
     <tr>
-      <td>Data Types</td>
+      <td>Datatypes</td>
       <td>
-      Except as described in the preceding paragraph, Data types will not be removed or changed except as allowed above for elements.  New data types may be introduced.  Types declared on existing elements will not be
+      Except as described in the preceding paragraph, Datatypes will not be removed or changed except as allowed above for elements.  New datatypes may be introduced.  Types declared on existing elements will not be
       removed or changed, except for the special case that <code>string</code> may be changed to <code>markdown</code>.
-      Additional data types may be added to elements which are already expressed as a choice of data types only if those elements are optional (minimum cardinality = 0).
+      Additional datatypes may be added to elements which are already expressed as a choice of datatypes only if those elements are optional (minimum cardinality = 0).
       </td>
     </tr>
     <tr>
       <td>Value Constraints</td>
       <td>
-        The allowed list of Data types may be extended, but not constrained. Invariants, regular expressions, fixed values and patterns will not be added, removed but may be relaxed.
+        The allowed list of Datatypes will not be added, removed or changed. Invariants, regular expressions, fixed values and patterns will not be added, removed or changed in a way that could invalidate previous 
+        instances.  New warning or best practice invariants may be added. 'Error' invariants may be added that are tied to newly introduced elements or codes, or existing rules in the specification narrative.
       </td>
     </tr>
     <tr>
@@ -505,7 +508,7 @@ The following rules apply once an artifact in the FHIR core specification or in 
       Profile structure, extension definitions and search criteria definitions will not be removed or have their
       URIs changed.  New profile structures, extension definitions and search criteria definitions may be
       introduced.  Profiles may have their statuses changed to "retired".  Profiles referenced by data elements
-      for structures or data types may be replaced
+      for structures or datatypes may be replaced
       with a reference to a distinct profile that is "compatible" with the previously referenced profile according
       to these forward and backward compatibility rules.
       </td>
@@ -528,7 +531,10 @@ The following rules apply once an artifact in the FHIR core specification or in 
     <tr>
       <td>References</td>
       <td>
-      Where one conformance resource points to another (e.g. CapabilityStatement to profile, profile to profiles, profile to value set, etc.), the reference may change to point to a newer version of the conformance resource or to a distinct conformance resource so long as the content of the newly referenced resource adheres to the compatibility rules with respect to the previously referenced version.
+      Where one conformance resource points to another (e.g. CapabilityStatement to profile, profile to profiles, profile to value set, etc.), 
+      the reference may change to point to a newer version of the conformance resource or to a distinct conformance resource so long as the 
+      content of the newly referenced resource adheres to the compatibility rules with respect to the previously referenced version.
+      We will add the sentence: Additional resources or profiles can also be added to the list of available targets for a reference.
       </td>
     </tr>
 	<tr>
@@ -578,13 +584,13 @@ Additional discussion on inter-versioning issues can be found here:
 </p>
 
 
-<a name="stu"></a>
+<a name="studev"></a>
 <h3>Managing Change during the development process</h3>
 
 <p>
 Regardless of the degree of prior implementation, all aspects of the FHIR specification are potentially subject to change while an artifact has a
 status of <i>Draft</i> or <i>Trial Use</i>.  These changes may be minor (clarifications of definitions, etc.) or major (refactoring of
-resources, changes to serialization rules, eliminating or adding data types, etc.)  There is no commitment to backward or forward compatibility
+resources, changes to serialization rules, eliminating or adding datatypes, etc.)  There is no commitment to backward or forward compatibility
 during the trial use process until content is normative.  Changes will not be made without cause, however the interests of long-term
 implementability will generally trump the impact on early adopters when determining what changes should be made.  This balance will
 shift more towards early adopters as maturity levels increase.  I.e. Impact on existing implementations will be weighted more highly
@@ -664,7 +670,7 @@ This technique can be used with all versions of FHIR, including R2 and R3:
 </tr>
 <tr>
   <td><a href="http://hl7.org/fhir/r4b">FHIR R4B</a> (only STU changes)</td>
-  <td>4.3 (once published)</td>
+  <td>4.3</td>
 </tr>
 <tr>
   <td><a href="http://hl7.org/fhir/r5">FHIR R5</a> (this version)</td>
@@ -672,7 +678,7 @@ This technique can be used with all versions of FHIR, including R2 and R3:
 </tr>
 </table>
 <p>
-Note that this extension framework only applies back to DSTU2.
+Note that this extension framework only applies back to DSTU2; older versions than that are not supported.
 The [Path] is actually the ElementDefinition.id from the relevant
 StructureDefinition for the element. This leads to URLs like the
 following:
@@ -688,36 +694,126 @@ Implementers should be aware of the following issues when using these extensions
 <ul>
  <li>Implementations should always use the correct element for data when one exists. The version <a href="diff.html">differences</a> and <a href="r3maps.html">maps</a> (and their equivalent for other versions) can help</li>
  <li>There is no way to represent the few special elements that have the type "Resource" in extensions, so these are not defined (e.g. <code>Bundle.entry.resource</code>, <code>DomainResource.contained</code>, etc)</li>
- <li>Where complex data types have no equivalent in an earlier version, use a complex extension, containing extensions also following this pattern. Follow the same pattern for any elements not found in data types in earlier versions </li>
- <li>This table shows the data type mapping across versions. The mapping table SHALL be used.</li>
+ <li>Where complex datatypes have no equivalent in an earlier version, use a complex extension, 
+  where the name of the child properties is the name of the complex extension components, and each of these subextensions
+  are extensions that also follow this pattern (see example below).</li>
+ <li>This same pattern applies for any new elements not found in datatypes in earlier versions,
+  and for additional children where there is a cardinality increase in the referenced (subsequent) version</li>
+ <li>If the change between versions is that the subsequent version allows a type that is not allowed in the 
+  previous version, then whenever the type is allowed, it should be found in the element, but if it is not,
+  then it should be in an extension with the URL of the subsequent version e.g. 
+  <code>http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.value</code> for types
+  allowed in Observation.value in R5 that were not allowed in an earlier version
+ </li>
+ <li>It is always an error to use a cross version extension in the same version e.g.
+  the extension <code>http://hl7.org/fhir/5.0/StructureDefinition/extension-...</code> could
+  never appear in an R5 instance.
+ </li>
+ <li>
+  If the data element being referenced has <code>targetProfile</code> elements that refer to resources, 
+  only those targetProfile resources that have URLs that exist in the referencing version can exist.  
+  If a resource has been renamed, it can't be used in the prior release (note: this is because there's no 
+  computable way of determining what names would be allowed); the  <a href="extension-alternate-reference.html">alternate-reference</a>
+  and <a href="extension-alternate-canonical.html">alternate-canonical</a> extensions may be used in this context. E.g. if converting 
+  from a version that supports 3 target types when the target version only supports 2 target types, any repetition that referred to 
+  the non-supported type would be represented as a reference or canonical instance where the content would just be the alternate extension (and a display, since something must be provided).
+ </li>
+ <li>
+  When converting a data type to a target version where that type does not exist (i.e it's either a simple type that
+  will use the mapping table below, or a complex type that will be converted to a set of child extensions), if the 
+  converted element is a choice, there will be a <a href="extension-_datatype.html">child extension _datatype</a>   
+  added to the element that will contain the name of the complex type in the source version.
+ </li>
+ <li>
+The extension mechanism carries no information about cardinalities.  If converting from the extension
+mechanism to 'core' elements when up-converting or down-converting the resource, the conversion process 
+will need to know the max occurs for the element in the target version (e.g. to know whether the element 
+should be a JSON array or not).
+
+ </li>
+ <li>
+  The vocabulary bindings can be to a specific value set version, but the expansions of those value sets 
+  will be based on the context of the version of FHIR being used, NOT the version of core the extension 
+  definition is taken from
+ </li>
+ <li>If the referenced type includes target resources that are not supported in the adopting version, those resources will be removed.  If the result is that NO target resources are allowed, then the inter-version extension is not permitted</li>
+ <li>Where mapping simple types, the type conversions are shown in the table below. The mapping table SHALL be used</li>
 </ul>
 <p>
-This table shows the mapping between primitive data types across versions:
+This table shows the mapping between primitive datatypes across versions:
 </p>
 
 <table class="grid">
- <tr>    <td>R4</td>  <td>R3</td>  <td>DSTU2</td> </tr>
- <tr>    <td>base64Binary</td>  <td>base64Binary</td>  <td>base64Binary</td> </tr>
- <tr>    <td>boolean</td>  <td>boolean</td>  <td>boolean</td> </tr>
- <tr>    <td>canonical</td>  <td><i>(uri)</i></td>  <td><i>(uri)</i></td> </tr>
- <tr>    <td>code</td>  <td>code</td>  <td>code</td> </tr>
- <tr>    <td>date</td>  <td>date</td>  <td>date</td> </tr>
- <tr>    <td>dateTime</td>  <td>dateTime</td>  <td>dateTime</td> </tr>
- <tr>    <td>decimal</td>  <td>decimal</td>  <td>decimal</td> </tr>
- <tr>    <td>id</td>  <td>id</td>  <td>id</td> </tr>
- <tr>    <td>instant</td>  <td>instant</td>  <td>instant</td> </tr>
- <tr>    <td>integer</td>  <td>integer</td>  <td>integer</td> </tr>
- <tr>    <td>markdown</td>  <td>markdown</td>  <td>markdown</td> </tr>
- <tr>    <td>oid</td>  <td>oid</td>  <td>oid</td> </tr>
- <tr>    <td>positiveInt</td>  <td>positiveInt</td>  <td>positiveInt</td> </tr>
- <tr>    <td>string</td>  <td>string</td>  <td>string</td> </tr>
- <tr>    <td>time</td>  <td>time</td>  <td>time</td> </tr>
- <tr>    <td>unsignedInt</td>  <td>unsignedInt</td>  <td>unsignedInt</td> </tr>
- <tr>    <td>uri</td>  <td>uri</td>  <td>uri</td> </tr>
- <tr>    <td>url</td>  <td><i>(uri)</i></td>  <td><i>(uri)</i></td> </tr>
- <tr>    <td>uuid</td>  <td>uuid</td>  <td><i>(id)</i></td> </tr>
+ <tr> <td>R5</td>           <td>R4</td>             <td>R3</td>            <td>DSTU2</td> </tr>
+ <tr> <td>base64Binary</td> <td>base64Binary</td>   <td>base64Binary</td>  <td>base64Binary</td> </tr>
+ <tr> <td>boolean</td>      <td>boolean</td>        <td>boolean</td>       <td>boolean</td> </tr>
+ <tr> <td>canonical</td>    <td>canonical</td>      <td><i>(uri)</i></td>  <td><i>(uri)</i></td> </tr>
+ <tr> <td>code</td>         <td>code</td>           <td>code</td>          <td>code</td> </tr>
+ <tr> <td>date</td>         <td>date</td>           <td>date</td>          <td>date</td> </tr>
+ <tr> <td>dateTime</td>     <td>dateTime</td>       <td>dateTime</td>      <td>dateTime</td> </tr>
+ <tr> <td>decimal</td>      <td>decimal</td>        <td>decimal</td>       <td>decimal</td> </tr>
+ <tr> <td>id</td>           <td>id</td>             <td>id</td>            <td>id</td> </tr>
+ <tr> <td>instant</td>      <td>instant</td>        <td>instant</td>       <td>instant</td> </tr>
+ <tr> <td>integer</td>      <td>integer</td>        <td>integer</td>       <td>integer</td> </tr>
+ <tr> <td>markdown</td>     <td>markdown</td>       <td>markdown</td>      <td>markdown</td> </tr>
+ <tr> <td>oid</td>          <td>oid</td>            <td>oid</td>           <td>oid</td> </tr>
+ <tr> <td>positiveInt</td>  <td>positiveInt</td>    <td>positiveInt</td>   <td>positiveInt</td> </tr>
+ <tr> <td>string</td>       <td>string</td>         <td>string</td>        <td>string</td> </tr>
+ <tr> <td>time</td>         <td>time</td>           <td>time</td>          <td><i>string</i></td>  </tr>
+ <tr> <td>time</td>         <td>unsignedInt</td>    <td>unsignedInt</td>   <td>unsignedInt</td> </tr>
+ <tr> <td>uri</td>          <td>uri</td>            <td>uri</td>           <td>uri</td> </tr>
+ <tr> <td>url</td>          <td>url</td>            <td><i>(uri)</i></td>  <td><i>(uri)</i></td> </tr>
+ <tr> <td>uuid</td>         <td>uuid</td>           <td>uuid</td>          <td><i>(uri)</i></td> </tr>
+ <tr> <td>integer64</td>    <td><i>string</i></td>  <td><i>string</i></td> <td><i>string</i></td> </tr>
 </table>
 
+<p><b>Example of a complex extension</b></p>
+<p>
+Example of <code>ValueSet.expansion.contains.property.subProperty</code> added in R5:
+</p>
+<pre class="json" fragment="ValueSet">
+{
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "contains" : [{
+      "property" : [{
+        "code" : "prop-code",
+        "valueString" : "prop-value",
+        "subProperty" : [{
+          "code" : "sub-prop-code",
+          "valueCode" : "sub-prop-value"
+        }]
+      }]
+    }]
+  }
+}
+</pre>
+<p>
+In R4, this would look like:
+</p>
+<pre class="json" fragment="ValueSet">
+{
+  "resourceType" : "ValueSet",
+  "expansion" : {
+    "contains" : [{
+      "property" : [{
+        "code" : "prop-code",
+        "valueString" : "prop-value",
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-ValueSet.expansion.contains.property.subProperty",
+          "extension" : [{
+            "url" :"code",
+            "valueCode" : "sub-prop-code"
+          },{
+            "url" : "value",
+            "valueCode" : "sub-prop-value"
+          }]
+        }]
+      }]
+    }]
+  }
+}
+</pre>
 <p>
 Formal Definitions for extensions:
 </p>
@@ -733,23 +829,33 @@ Formal Definitions for extensions:
 		<td style="background-color: #EEEEEE">n/a</td>
 		<td>hl7.fhir.extensions.r2:3.0.1 <a href="http://hl7.org/fhir/1.0/extensions/3.0/package.tgz"><img src="npm16.png"/></a></td>
 		<td>hl7.fhir.extensions.r2:4.0.1 <a href="http://hl7.org/fhir/1.0/extensions/4.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td>hl7.fhir.extensions.r2:5.0.0 <a href="http://hl7.org/fhir/1.0/extensions/5.0/package.tgz"><img src="npm16.png"/></a></td>
 	</tr>
   <tr>
 	  <td>R3 Extensions:</td>
 		<td>hl7.fhir.extensions.r3:1.0.2 <a href="http://hl7.org/fhir/3.0/extensions/1.0/package.tgz"><img src="npm16.png"/></a></td>
-		<td style="background-color: #EEEEEE">n/a`</td>
+		<td style="background-color: #EEEEEE">n/a</td>
 		<td>hl7.fhir.extensions.r3:4.0.1 <a href="http://hl7.org/fhir/3.0/extensions/4.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td>hl7.fhir.extensions.r3:5.0.0 <a href="http://hl7.org/fhir/3.0/extensions/5.0/package.tgz"><img src="npm16.png"/></a></td>
 	</tr>
   <tr>
 	  <td>R4 Extensions:</td>
 		<td>hl7.fhir.extensions.r4:1.0.2 <a href="http://hl7.org/fhir/4.0/extensions/1.0/package.tgz"><img src="npm16.png"/></a></td>
 		<td>hl7.fhir.extensions.r4:3.0.1 <a href="http://hl7.org/fhir/4.0/extensions/3.0/package.tgz"><img src="npm16.png"/></a></td>
 		<td style="background-color: #EEEEEE">n/a</td>
+		<td>hl7.fhir.extensions.r4:5.0.0 <a href="http://hl7.org/fhir/4.0/extensions/5.0/package.tgz"><img src="npm16.png"/></a></td>
+	</tr>
+  <tr>
+	  <td>R5 Extensions:</td>
+		<td>hl7.fhir.extensions.r4:1.0.2 <a href="http://hl7.org/fhir/4.0/extensions/1.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td>hl7.fhir.extensions.r4:3.0.1 <a href="http://hl7.org/fhir/4.0/extensions/3.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td>hl7.fhir.extensions.r4:4.0.1 <a href="http://hl7.org/fhir/4.0/extensions/4.0/package.tgz"><img src="npm16.png"/></a></td>
+		<td style="background-color: #EEEEEE">n/a</td>
 	</tr>
 </table>
 
 <p>
-Note for balloters: these packages will be created when R4 is finalized. Until then, these are broken links.
+Note for balloters: the R5 packages will be created when R5 is finalized. Until then, these are broken links.
 </p>
 
 <a name="plans"></a>
@@ -760,7 +866,7 @@ This next release will include additional clarifications, resources, profiles an
 implementation experience and ongoing development work.
 It will also incorporate fixes for issues raised with the <a href="http://hl7.org/fhir-issues">FHIR issue tracker</a>.  It may be useful for implementers
 of the STU to review the candidate current release (at <a href="http://build.fhir.org">http://build.fhir.org</a>) to get a sense of what changes are
-likely coming and perhaps to find more robust definitions and guidance than are available in the this release.  Some implementers who are dependent
+likely coming and perhaps to find more robust definitions and guidance than are available in this release.  Some implementers who are dependent
 on content that exists in a draft release may choose to implement based on a particular snapshot of the development release, though in doing so, they
 will limit their potential communication partners.
 </p>

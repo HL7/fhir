@@ -3,85 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="message-significance-category"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/message-significance-category defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">consequence
-            
-            <a name="message-significance-category-consequence"> </a>
-          
-          </td>
-          
-          <td>Consequence</td>
-          
-          <td>The message represents/requests a change that should not be processed more than once; e.g., making a booking for an appointment.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">currency
-            
-            <a name="message-significance-category-currency"> </a>
-          
-          </td>
-          
-          <td>Currency</td>
-          
-          <td>The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">notification
-            
-            <a name="message-significance-category-notification"> </a>
-          
-          </td>
-          
-          <td>Notification</td>
-          
-          <td>The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="inm"/>
   </extension>
@@ -96,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.189"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="MessageSignificanceCategory"/>
   <title value="MessageSignificanceCategory"/>
   <status value="draft"/>

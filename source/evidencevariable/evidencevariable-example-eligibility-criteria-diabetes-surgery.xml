@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
+  <id value="example-eligibility-criteria-diabetes-surgery"/>
+  <identifier>
+    <type>
+      <text value="FEvIR Object Identifier"/>
+    </type>
+    <system value="https://fevir.net"/>
+    <value value="32120"/>
+    <assigner>
+      <display value="Computable Publishing LLC"/>
+    </assigner>
+  </identifier>
+  <title value="StudyEligibilityCriteria: Eligibility Criteria for Bariatric Surgery Randomized Trial (Diabetes Surgery Study)"/>
+  <status value="active"/>
+  <publisher value="Computable Publishing LLC"/>
+  <contact>
+    <telecom>
+      <system value="email"/>
+      <value value="support@computablepublishing.com"/>
+    </telecom>
+  </contact>
+  <description value="Inclusion Criteria:    Age 30 to 67 years at eligibility visit.    Diagnosed with T2DM at least 6 months prior to enrollment, under the active care of a doctor for at least the six months prior to enrollment, and HbA1c ≥ 8.0%.    Body Mass Index (BMI) ≥ 30.0 kg/m2 and ≤ 39.9 kg/m2 at eligibility visit.    Willingness to accept random assignment to either treatment group.    Expect to live or work within approximately one hour&apos;s traveling time from the study clinic for the duration of the two-year trial.    Willingness to comply with the follow-up protocol and successful completion of the run-in.    Written informed consent. ///// Exclusion Criteria:   Cardiovascular event (myocardial infarction, acute coronary syndrome, coronary artery angioplasty or bypass, stroke) in the past six months.    Current evidence of congestive heart failure, angina pectoris, or symptomatic peripheral vascular disease.    Cardiac stress test indicating that surgery or IMM would not be safe.    Pulmonary embolus or thrombophlebitis in the past six months.    Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years.    Significant anemia (hemoglobin 1.0 g or more below normal range) or history of coagulopathy.    Serum creatinine ≥ 1.5 mg/dl.    HbA1c &gt; 14.0%."/>
+  <copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+  <effectivePeriod>
+    <start value="2008-02"/>
+    <end value="2016-12"/>
+  </effectivePeriod>
+  <author>
+    <name value="Brian S. Alper"/>
+  </author>
+  <actual value="true"/>
+  <characteristic>
+    <description value="Age 30 to 67 years at eligibility visit."/>
+    <exclude value="false"/>
+    <definitionByTypeAndValue>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="397669002"/>
+          <display value="Age"/>
+        </coding>
+      </type>
+      <valueRange>
+        <low>
+          <value value="30"/>
+          <unit value="years"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="a"/>
+        </low>
+        <high>
+          <value value="67"/>
+          <unit value="years"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="a"/>
+        </high>
+      </valueRange>
+    </definitionByTypeAndValue>
+    <timeFromEvent>
+      <description value="at eligibility visit"/>
+      <eventId value="EligibilityVisit"/>
+      <quantity>
+        <value value="0"/>
+      </quantity>
+    </timeFromEvent>
+  </characteristic>
+  <characteristic>
+    <description value="Diagnosed with T2DM at least 6 months prior to enrollment, under the active care of a doctor for at least the six months prior to enrollment, and HbA1c ≥ 8.0%."/>
+    <exclude value="false"/>
+    <definitionByCombination>
+      <code value="all-of"/>
+      <characteristic>
+        <description value="Diagnosed with T2DM at least 6 months prior to enrollment"/>
+        <exclude value="false"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="64572001"/>
+              <display value="Disease (disorder)"/>
+            </coding>
+            <coding>
+              <system value="http://hl7.org/fhir/resource-types"/>
+              <code value="Condition"/>
+              <display value="Condition"/>
+            </coding>
+          </type>
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="44054006"/>
+              <display value="Diabetes mellitus type 2 (disorder)"/>
+            </coding>
+          </valueCodeableConcept>
+        </definitionByTypeAndValue>
+        <timeFromEvent>
+          <description value="at least 6 months prior to enrollment"/>
+          <eventId value="EligibilityVisit"/>
+          <quantity>
+            <value value="-6"/>
+            <comparator value="&lt;="/>
+            <unit value="months"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mo"/>
+          </quantity>
+        </timeFromEvent>
+      </characteristic>
+      <characteristic>
+        <description value="under the active care of a doctor for at least the six months prior to enrollment"/>
+        <note>
+          <text value="assumption that active care means active care of type 2 diabetes mellitus"/>
+        </note>
+        <exclude value="false"/>
+        <definitionCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="305450004"/>
+            <display value="Under care of doctor (finding)"/>
+          </coding>
+          <text value="under the active care of a doctor"/>
+        </definitionCodeableConcept>
+        <timeFromEvent>
+          <description value="for at least the six months prior to enrollment"/>
+          <note>
+            <text value="presence throughout the range is equivalent to &apos;for at least the six months prior to&apos;"/>
+          </note>
+          <eventCodeableConcept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="450332002"/>
+              <display value="Assessment of eligibility for clinical trial"/>
+            </coding>
+          </eventCodeableConcept>
+          <range>
+            <low>
+              <value value="-6"/>
+              <unit value="months"/>
+              <system value="http://unitsofmeasure.org"/>
+              <code value="mo"/>
+            </low>
+            <high>
+              <value value="0"/>
+              <unit value="months"/>
+              <system value="http://unitsofmeasure.org"/>
+              <code value="mo"/>
+            </high>
+          </range>
+        </timeFromEvent>
+      </characteristic>
+      <characteristic>
+        <description value="HbA1c ≥ 8.0%"/>
+        <note>
+          <text value="assumption that this is the last recorded HbA1c before the enrollment visit, but not explicitly stated in the short-phrase Eligibility Criteria"/>
+        </note>
+        <exclude value="false"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://loinc.org"/>
+              <code value="59261-8"/>
+              <display value="Hemoglobin A1c/Hemoglobin.total in Blood"/>
+            </coding>
+          </type>
+          <valueQuantity>
+            <value value="8"/>
+            <comparator value="&gt;="/>
+            <unit value="%"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="%"/>
+          </valueQuantity>
+        </definitionByTypeAndValue>
+      </characteristic>
+    </definitionByCombination>
+  </characteristic>
+  <characteristic>
+    <description value="Body Mass Index (BMI) ≥ 30.0 kg/m2 and ≤ 39.9 kg/m2 at eligibility visit."/>
+    <exclude value="false"/>
+    <definitionByTypeAndValue>
+      <type>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="39156-5"/>
+          <display value="Body mass index (BMI) [Ratio]"/>
+        </coding>
+      </type>
+      <valueRange>
+        <low>
+          <value value="30"/>
+          <unit value="kg/m2"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="kg/m2"/>
+        </low>
+        <high>
+          <value value="39.9"/>
+          <unit value="kg/m2"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="kg/m2"/>
+        </high>
+      </valueRange>
+    </definitionByTypeAndValue>
+    <timeFromEvent>
+      <description value="at eligibility visit"/>
+      <eventId value="EligibilityVisit"/>
+      <quantity>
+        <value value="0"/>
+      </quantity>
+    </timeFromEvent>
+  </characteristic>
+  <characteristic>
+    <description value="Willingness to accept random assignment to either treatment group."/>
+    <exclude value="false"/>
+  </characteristic>
+  <characteristic>
+    <description value="Expect to live or work within approximately one hour&apos;s traveling time from the study clinic for the duration of the two-year trial."/>
+    <exclude value="false"/>
+  </characteristic>
+  <characteristic>
+    <description value="Willingness to comply with the follow-up protocol and successful completion of the run-in."/>
+    <exclude value="false"/>
+  </characteristic>
+  <characteristic>
+    <linkId value="EligibilityVisit"/>
+    <description value="Written informed consent."/>
+    <note>
+      <text value="The example used here acknowledges attainment of the written informed consent at the eligibility visit (which is also the time of enrollment) so is referencing this characteristic with the linkId EligibilityVisit to be used as a reference point from timeFromEvent in the specification of other characteristics."/>
+    </note>
+    <exclude value="false"/>
+    <timeFromEvent>
+      <eventCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="450332002"/>
+          <display value="Assessment of eligibility for clinical trial (procedure)"/>
+        </coding>
+      </eventCodeableConcept>
+    </timeFromEvent>
+  </characteristic>
+  <characteristic>
+    <description value="Cardiovascular event (myocardial infarction, acute coronary syndrome, coronary artery angioplasty or bypass, stroke) in the past six months."/>
+    <exclude value="true"/>
+    <definitionByCombination>
+      <code value="any-of"/>
+      <characteristic>
+        <description value="myocardial infarction"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="64572001"/>
+              <display value="Disease (disorder)"/>
+            </coding>
+            <coding>
+              <system value="http://hl7.org/fhir/resource-types"/>
+              <code value="Condition"/>
+              <display value="Condition"/>
+            </coding>
+          </type>
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="22298006"/>
+              <display value="Myocardial infarction (disorder)"/>
+            </coding>
+          </valueCodeableConcept>
+        </definitionByTypeAndValue>
+      </characteristic>
+      <characteristic>
+        <description value="acute coronary syndrome"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="64572001"/>
+              <display value="Disease (disorder)"/>
+            </coding>
+            <coding>
+              <system value="http://hl7.org/fhir/resource-types"/>
+              <code value="Condition"/>
+              <display value="Condition"/>
+            </coding>
+          </type>
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="394659003"/>
+              <display value="Acute coronary syndrome (disorder)"/>
+            </coding>
+          </valueCodeableConcept>
+        </definitionByTypeAndValue>
+      </characteristic>
+      <characteristic>
+        <description value="coronary artery angioplasty or bypass"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="71388002"/>
+              <display value="Procedure (procedure)"/>
+            </coding>
+          </type>
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="81266008"/>
+              <display value="Heart revascularization (procedure)"/>
+            </coding>
+          </valueCodeableConcept>
+        </definitionByTypeAndValue>
+      </characteristic>
+      <characteristic>
+        <description value="stroke"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="64572001"/>
+              <display value="Disease (disorder)"/>
+            </coding>
+            <coding>
+              <system value="http://hl7.org/fhir/resource-types"/>
+              <code value="Condition"/>
+              <display value="Condition"/>
+            </coding>
+          </type>
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="230690007"/>
+              <display value="Cerebrovascular accident (disorder)"/>
+            </coding>
+          </valueCodeableConcept>
+        </definitionByTypeAndValue>
+      </characteristic>
+    </definitionByCombination>
+    <timeFromEvent>
+      <description value="in the past six months"/>
+      <note>
+        <text value="occurrence within the range is equivalent to &apos;in the past six months&apos;"/>
+      </note>
+      <eventId value="EligibilityVisit"/>
+      <range>
+        <low>
+          <value value="-6"/>
+          <unit value="months"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mo"/>
+        </low>
+        <high>
+          <value value="0"/>
+          <unit value="months"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mo"/>
+        </high>
+      </range>
+    </timeFromEvent>
+  </characteristic>
+  <characteristic>
+    <description value="Current evidence of congestive heart failure, angina pectoris, or symptomatic peripheral vascular disease."/>
+    <note>
+      <text value="This may be possible to encode as presence of Disease(disorder) without &apos;in remission&apos;"/>
+    </note>
+    <exclude value="true"/>
+  </characteristic>
+  <characteristic>
+    <description value="Cardiac stress test indicating that surgery or IMM would not be safe."/>
+    <exclude value="true"/>
+  </characteristic>
+  <characteristic>
+    <description value="Pulmonary embolus in the past six months."/>
+    <exclude value="true"/>
+    <definitionByTypeAndValue>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="64572001"/>
+          <display value="Disease (disorder)"/>
+        </coding>
+        <coding>
+          <system value="http://hl7.org/fhir/resource-types"/>
+          <code value="Condition"/>
+          <display value="Condition"/>
+        </coding>
+      </type>
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="59282003"/>
+          <display value="Pulmonary embolism (disorder)"/>
+        </coding>
+      </valueCodeableConcept>
+    </definitionByTypeAndValue>
+    <timeFromEvent>
+      <description value="in the past six months"/>
+      <note>
+        <text value="occurrence within the range is equivalent to &apos;in the past six months&apos;"/>
+      </note>
+      <eventId value="EligibilityVisit"/>
+      <range>
+        <low>
+          <value value="-6"/>
+          <unit value="months"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mo"/>
+        </low>
+        <high>
+          <value value="0"/>
+          <unit value="months"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mo"/>
+        </high>
+      </range>
+    </timeFromEvent>
+  </characteristic>
+  <characteristic>
+    <description value="Thrombophlebitis in the past six months."/>
+    <exclude value="true"/>
+    <definitionByTypeAndValue>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="64572001"/>
+          <display value="Disease (disorder)"/>
+        </coding>
+        <coding>
+          <system value="http://hl7.org/fhir/resource-types"/>
+          <code value="Condition"/>
+          <display value="Condition"/>
+        </coding>
+      </type>
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="64156001"/>
+          <display value="Thrombophlebitis (disorder)"/>
+        </coding>
+      </valueCodeableConcept>
+    </definitionByTypeAndValue>
+    <timeFromEvent>
+      <description value="in the past six months"/>
+	  <note>
+        <text value="occurrence within the range is equivalent to &apos;in the past six months&apos;"/>
+      </note>
+      <eventId value="EligibilityVisit"/>
+      <range>
+        <low>
+          <value value="-6"/>
+          <unit value="months"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mo"/>
+        </low>
+        <high>
+          <value value="0"/>
+          <unit value="months"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mo"/>
+        </high>
+      </range>
+    </timeFromEvent>
+  </characteristic>
+  <characteristic>
+    <description value="Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years."/>
+    <exclude value="true"/>
+    <definitionByCombination>
+      <code value="all-of"/>
+      <characteristic>
+        <description value="Cancer of any kind"/>
+        <exclude value="false"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="64572001"/>
+              <display value="Disease (disorder)"/>
+            </coding>
+            <coding>
+              <system value="http://hl7.org/fhir/resource-types"/>
+              <code value="Condition"/>
+              <display value="Condition"/>
+            </coding>
+          </type>
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="363346000"/>
+              <display value="Malignant neoplastic disease (disorder)"/>
+            </coding>
+          </valueCodeableConcept>
+        </definitionByTypeAndValue>
+      </characteristic>
+      <characteristic>
+        <description value="(except basal cell skin cancer)"/>
+        <exclude value="true"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="64572001"/>
+              <display value="Disease (disorder)"/>
+            </coding>
+            <coding>
+              <system value="http://hl7.org/fhir/resource-types"/>
+              <code value="Condition"/>
+              <display value="Condition"/>
+            </coding>
+          </type>
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="254701007"/>
+              <display value="Basal cell carcinoma of skin (disorder)"/>
+            </coding>
+          </valueCodeableConcept>
+        </definitionByTypeAndValue>
+      </characteristic>
+      <characteristic>
+        <description value="(except cancer in situ)"/>
+        <exclude value="true"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="64572001"/>
+              <display value="Disease (disorder)"/>
+            </coding>
+            <coding>
+              <system value="http://hl7.org/fhir/resource-types"/>
+              <code value="Condition"/>
+              <display value="Condition"/>
+            </coding>
+          </type>
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="109355002"/>
+              <display value="Carcinoma in situ (disorder)"/>
+            </coding>
+          </valueCodeableConcept>
+        </definitionByTypeAndValue>
+      </characteristic>
+      <characteristic>
+        <description value="unless documented to be disease-free for five years"/>
+        <exclude value="true"/>
+        <definitionCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="395100000"/>
+            <display value="No evidence of cancer found (situation)"/>
+          </coding>
+        </definitionCodeableConcept>
+        <timeFromEvent>
+          <description value="for five years"/>
+          <note>
+            <text value="presence throughout the range is equivalent to &apos;for five years"/>
+          </note>
+          <eventId value="EligibilityVisit"/>
+          <range>
+            <low>
+              <value value="-5"/>
+              <unit value="years"/>
+              <system value="http://unitsofmeasure.org"/>
+              <code value="a"/>
+            </low>
+            <high>
+              <value value="0"/>
+              <unit value="years"/>
+              <system value="http://unitsofmeasure.org"/>
+              <code value="a"/>
+            </high>
+          </range>
+        </timeFromEvent>
+      </characteristic>
+    </definitionByCombination>
+  </characteristic>
+  <characteristic>
+    <description value="History of coagulopathy"/>
+    <exclude value="true"/>
+  </characteristic>
+  <characteristic>
+    <description value="Significant anemia (hemoglobin 1.0 g or more below normal range)"/>
+    <exclude value="true"/>
+    <definitionByTypeAndValue>
+      <type>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="718-7"/>
+          <display value="Hemoglobin [Mass/volume] in Blood"/>
+        </coding>
+      </type>
+      <valueQuantity>
+        <value value="-1"/>
+        <comparator value="&lt;="/>
+        <unit value="g/dL"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="g/dL"/>
+      </valueQuantity>
+      <offset>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/characteristic-offset"/>
+          <code value="LNL"/>
+          <display value="Lower Normal Limit"/>
+        </coding>
+      </offset>
+    </definitionByTypeAndValue>
+  </characteristic>
+  <characteristic>
+    <description value="Serum creatinine ≥ 1.5 mg/dl"/>
+    <exclude value="true"/>
+    <definitionByTypeAndValue>
+      <type>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="2160-0"/>
+          <display value="Creatinine [Mass/volume] in Serum or Plasma"/>
+        </coding>
+      </type>
+      <valueQuantity>
+        <value value="1.5"/>
+        <comparator value="&gt;="/>
+        <unit value="mg/dl"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mg/dL"/>
+      </valueQuantity>
+    </definitionByTypeAndValue>
+  </characteristic>
+  <characteristic>
+    <description value="HbA1c ≥ 14.0%"/>
+    <exclude value="true"/>
+    <definitionByTypeAndValue>
+      <type>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="59261-8"/>
+          <display value="Hemoglobin A1c/Hemoglobin.total in Blood"/>
+        </coding>
+      </type>
+      <valueQuantity>
+        <value value="14"/>
+        <comparator value="&gt;="/>
+        <unit value="%"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="%"/>
+      </valueQuantity>
+    </definitionByTypeAndValue>
+  </characteristic>
+</EvidenceVariable>

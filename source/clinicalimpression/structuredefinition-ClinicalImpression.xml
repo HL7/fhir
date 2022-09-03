@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="ClinicalImpression"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ClinicalImpression"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="ClinicalImpression"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -41,8 +41,8 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient&#39;s condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called &quot;ClinicalImpression&quot; rather than &quot;ClinicalAssessment&quot; to avoid confusion with the recording of assessment tools such as Apgar score."/>
-  <fhirVersion value="4.6.0"/>
+  <description value="A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called &quot;ClinicalImpression&quot; rather than &quot;ClinicalAssessment&quot; to avoid confusion with the recording of assessment tools such as Apgar score."/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -75,7 +75,7 @@
       </extension>
       <path value="ClinicalImpression"/>
       <short value="A clinical assessment performed when planning treatments and management strategies for a patient"/>
-      <definition value="A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient&#39;s condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called &quot;ClinicalImpression&quot; rather than &quot;ClinicalAssessment&quot; to avoid confusion with the recording of assessment tools such as Apgar score."/>
+      <definition value="A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called &quot;ClinicalImpression&quot; rather than &quot;ClinicalAssessment&quot; to avoid confusion with the recording of assessment tools such as Apgar score."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -320,7 +320,7 @@
     <element id="ClinicalImpression.previous">
       <path value="ClinicalImpression.previous"/>
       <short value="Reference to last assessment"/>
-      <definition value="A reference to the last assessment that was conducted on this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient&#39;s conditions changes."/>
+      <definition value="A reference to the last assessment that was conducted on this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes."/>
       <comment value="It is always likely that multiple previous assessments exist for a patient. The point of quoting a previous assessment is that this assessment is relative to it (see resolved)."/>
       <min value="0"/>
       <max value="1"/>
@@ -333,7 +333,7 @@
       <path value="ClinicalImpression.problem"/>
       <short value="Relevant impressions of patient state"/>
       <definition value="A list of the relevant problems/conditions for a patient."/>
-      <comment value="e.g. The patient is a pregnant, has congestive heart failure, has an &#x200E;Adenocarcinoma, and is allergic to penicillin."/>
+      <comment value="e.g. The patient is a pregnant, has congestive heart failure, has an ‎Adenocarcinoma, and is allergic to penicillin."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -350,6 +350,26 @@
         <identity value="v2"/>
         <map value="PRB-3 / IAM-7"/>
       </mapping>
+    </element>
+    <element id="ClinicalImpression.changePattern">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#36197"/>
+      </extension>
+      <path value="ClinicalImpression.changePattern"/>
+      <short value="Change in the status/pattern of a subject's condition since previously assessed, such as worsening, improving, or no change"/>
+      <definition value="Change in the status/pattern of a subject's condition since previously assessed, such as worsening, improving, or no change.  It is a subjective assessment of the direction of the change."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ClinicalImpressionChangePattern"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/clinicalimpression-change-pattern"/>
+      </binding>
     </element>
     <element id="ClinicalImpression.protocol">
       <path value="ClinicalImpression.protocol"/>
@@ -477,7 +497,7 @@
       <path value="ClinicalImpression.note"/>
       <short value="Comments made about the ClinicalImpression"/>
       <definition value="Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear."/>
-      <comment value="Don&#39;t use this element for content that should more properly appear as one of the specific elements of the impression."/>
+      <comment value="Don't use this element for content that should more properly appear as one of the specific elements of the impression."/>
       <min value="0"/>
       <max value="*"/>
       <type>

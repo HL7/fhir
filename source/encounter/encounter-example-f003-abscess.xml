@@ -14,13 +14,6 @@
 			<display value="ambulatory"/>
 		</coding>
 	</class>
-	<type>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="270427003"/>
-			<display value="Patient-initiated encounter"/>
-		</coding>
-	</type>
 	<priority>
 		<coding>
 			<system value="http://snomed.info/sct"/>
@@ -28,10 +21,20 @@
 			<display value="Non-urgent ear, nose and throat admission"/>
 		</coding>
 	</priority>
+	<type>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="270427003"/>
+			<display value="Patient-initiated encounter"/>
+		</coding>
+	</type>
 	<subject>
 		<reference value="Patient/f001"/>
 		<display value="P. van de Heuvel"/>
 	</subject>
+	<serviceProvider>
+		<reference value="Organization/f001"/>
+	</serviceProvider>
 	<participant>
 		<actor>
 			<reference value="Practitioner/f001"/>
@@ -53,7 +56,7 @@
       </coding>
     </concept>
 	</reason>
-	<hospitalization>
+	<admission>
 		<preAdmissionIdentifier>
 			<use value="official"/>
 			<system value="http://www.bmc.nl/zorgportal/identifiers/pre-admissions"/>
@@ -85,8 +88,5 @@
 				<display value="Discharge to home"/>
 			</coding>
 		</dischargeDisposition>
-	</hospitalization>
-	<serviceProvider>
-		<reference value="Organization/f001"/>
-	</serviceProvider>
+	</admission>
 </Encounter>

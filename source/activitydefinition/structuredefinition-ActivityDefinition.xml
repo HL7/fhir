@@ -1,1221 +1,1278 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="ActivityDefinition"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-    <valueString value="Specialized.Definitional Artifacts"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="anonymous"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".status = retired"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="MetadataResource"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-  <version value="4.6.0"/>
-  <name value="ActivityDefinition"/>
-  <status value="draft"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (Clinical Decision Support)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
-    </telecom>
-  </contact>
-  <description value="This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context."/>
-  <fhirVersion value="4.6.0"/>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="ActivityDefinition"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
-  <derivation value="specialization"/>
-  <differential>
-    <element id="ActivityDefinition">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Although there is currently only one definitional resource defined (ActivityDefinition), the concept is general, and this was a deliberate design decision to avoid the overhead of defining and maintaining a different definitional resource for every category of request. We anticipate that as the use cases of ActivityDefinition require more specialized elements to be added, the resource may be split."/>
-      </extension>
-      <path value="ActivityDefinition"/>
-      <short value="The definition of a specific activity to be taken, independent of any particular patient or context"/>
-      <definition value="This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context."/>
-      <min value="0"/>
-      <max value="*"/>
-      <constraint>
-        <key value="cnl-0"/>
-        <severity value="warning"/>
-        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-      </constraint>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="Act[classCode=ACT; moodCode=DEFN]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="clinical.general"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.url">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="Event.identifier"/>
-      </extension>
-      <path value="ActivityDefinition.url"/>
-      <short value="Canonical identifier for this activity definition, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this activity definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the activity definition is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-      <requirements value="Allows the activity definition to be referenced by a single globally unique identifier."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.url"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".identifier[scope=BUSN;reliability=ISS]"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.identifier">
-      <path value="ActivityDefinition.identifier"/>
-      <short value="Additional identifier for the activity definition"/>
-      <definition value="A formal identifier that is used to identify this activity definition when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-      <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this activity definition outside of FHIR, where it is not possible to use the logical URI."/>
-      <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.version">
-      <path value="ActivityDefinition.version"/>
-      <short value="Business version of the activity definition"/>
-      <definition value="The identifier that is used to identify this version of the activity definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the activity definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets."/>
-      <comment value="There may be different activity definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the activity definition with the format [url]|[version]."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.version"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.version"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.name">
-      <path value="ActivityDefinition.name"/>
-      <short value="Name for this activity definition (computer friendly)"/>
-      <definition value="A natural language name identifying the activity definition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-      <requirements value="Support human navigation and code generation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <condition value="cnl-0"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.title">
-      <path value="ActivityDefinition.title"/>
-      <short value="Name for this activity definition (human friendly)"/>
-      <definition value="A short, descriptive, user-friendly title for the activity definition."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.title"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".title"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.subtitle">
-      <path value="ActivityDefinition.subtitle"/>
-      <short value="Subordinate title of the activity definition"/>
-      <definition value="An explanatory or alternate title for the activity definition giving additional information about its content."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.status">
-      <path value="ActivityDefinition.status"/>
-      <short value="draft | active | retired | unknown"/>
-      <definition value="The status of this activity definition. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of activity definitions that are appropriate for use versus not."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PublicationStatus"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status|4.6.0"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.status {different ValueSet}"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".status"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.experimental">
-      <path value="ActivityDefinition.experimental"/>
-      <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this activity definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-      <comment value="Allows filtering of activity definitions that are appropriate for use versus not."/>
-      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level activity definition."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.experimental"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.subject[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="As part of R4, the subject element was introduced in all the knowledge resources to support content expressed on resources other than patient, such as Location, Organization, and even Encounter and Procedure.&#xA;The subject element was expanded in R4B to support a canonical reference to the new product definition resources."/>
-      </extension>
-      <path value="ActivityDefinition.subject[x]"/>
-      <short value="Type of individual the activity definition is intended for"/>
-      <definition value="A code, group definition, or canonical reference that describes  or identifies the intended subject of the activity being defined.  Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource."/>
-      <comment value="Note that the choice of canonical for the subject element was introduced in R4B to support pharmaceutical quality use cases. To ensure as much backwards-compatibility as possible, it is recommended to only use the new canonical type with these use cases."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-      </type>
-      <type>
-        <code value="canonical"/>
-      </type>
-      <meaningWhenMissing value="Patient"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubjectType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The possible types of subjects for an activity (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subject-type"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.subject"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?) { only applies for subject Patient? }"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.date">
-      <path value="ActivityDefinition.date"/>
-      <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the activity definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the activity definition changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the activity definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-      <alias value="Revision Date"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.date"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.recorded"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=AUT].time"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.publisher">
-      <path value="ActivityDefinition.publisher"/>
-      <short value="Name of the publisher (organization or individual)"/>
-      <definition value="The name of the organization or individual that published the activity definition."/>
-      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the activity definition is the organization or individual primarily responsible for the maintenance and upkeep of the activity definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the activity definition. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the activity definition.  May also allow for contact."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.publisher {as string instead of CodeableConcept}"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.witness"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=AUT].role"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.contact">
-      <path value="ActivityDefinition.contact"/>
-      <short value="Contact details for the publisher"/>
-      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.contact"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=CALLBCK].role"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.description">
-      <path value="ActivityDefinition.description"/>
-      <short value="Natural language description of the activity definition"/>
-      <definition value="A free text natural language description of the activity definition from a consumer&#39;s perspective."/>
-      <comment value="This description can be used to capture details such as why the activity definition was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the activity definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the activity definition is presumed to be the predominant language in the place the activity definition was created)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.description"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".text"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.useContext">
-      <path value="ActivityDefinition.useContext"/>
-      <short value="The context that the content is intended to support"/>
-      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate activity definition instances."/>
-      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-      <requirements value="Assist in searching for appropriate content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="UsageContext"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.useContext"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.jurisdiction">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Jurisdiction was originally modeled as a type of useContext, but was broken out as a separate element for ease of reference."/>
-      </extension>
-      <path value="ActivityDefinition.jurisdiction"/>
-      <short value="Intended jurisdiction for activity definition (if applicable)"/>
-      <definition value="A legal or geographic region in which the activity definition is intended to be used."/>
-      <comment value="It may be possible for the activity definition to be used in jurisdictions other than those for which it was originally designed or intended."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Jurisdiction"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Countries and regions within which this artifact is targeted for use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.jurisdiction"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.purpose">
-      <path value="ActivityDefinition.purpose"/>
-      <short value="Why this activity definition is defined"/>
-      <definition value="Explanation of why this activity definition is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the activity definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this activity definition."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.purpose"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.why[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".reasonCode.text"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.usage">
-      <path value="ActivityDefinition.usage"/>
-      <short value="Describes the clinical usage of the activity definition"/>
-      <definition value="A detailed description of how the activity definition is used from a clinical perspective."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.copyright">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="There is ongoing discussion about the uses of copyright, particularly around modeling information such as license, copyright, and disclaimers."/>
-      </extension>
-      <path value="ActivityDefinition.copyright"/>
-      <short value="Use and/or publishing restrictions"/>
-      <definition value="A copyright statement relating to the activity definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the activity definition."/>
-      <requirements value="Consumers must be able to determine any legal restrictions on the use of the activity definition and/or its content."/>
-      <alias value="License"/>
-      <alias value="Restrictions"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.copyright"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.approvalDate">
-      <path value="ActivityDefinition.approvalDate"/>
-      <short value="When the activity definition was approved by publisher"/>
-      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="date"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.approvalDate"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.lastReviewDate">
-      <path value="ActivityDefinition.lastReviewDate"/>
-      <short value="When the activity definition was last reviewed"/>
-      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
-      <comment value="If specified, this date follows the original approval date."/>
-      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="date"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.lastReviewDate"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;; subsetCode=&quot;RECENT&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;review&quot;].effectiveTime"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.effectivePeriod">
-      <path value="ActivityDefinition.effectivePeriod"/>
-      <short value="When the activity definition is expected to be used"/>
-      <definition value="The period during which the activity definition content was or is planned to be in active use."/>
-      <comment value="The effective period for a activity definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
-      <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the activity definition are or are expected to be used instead."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.effectivePeriod"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.topic">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Topic was originally modeled as a type of useContext, but was broken out as a separate element for ease of reference."/>
-      </extension>
-      <path value="ActivityDefinition.topic"/>
-      <short value="E.g. Education, Treatment, Assessment, etc."/>
-      <definition value="Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching."/>
-      <requirements value="Repositories must be able to determine how to categorize the activity definition so that it can be found by topical searches."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DefinitionTopic"/>
-        </extension>
-        <strength value="example"/>
-        <description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.author">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Author was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
-      </extension>
-      <path value="ActivityDefinition.author"/>
-      <short value="Who authored the content"/>
-      <definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=AUT]"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.editor">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Editor was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
-      </extension>
-      <path value="ActivityDefinition.editor"/>
-      <short value="Who edited the content"/>
-      <definition value="An individual or organization primarily responsible for internal coherence of the content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=AUT] { not a great match, but there does not appear to be an editor concept in V3 participation }"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.reviewer">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Reviewer was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
-      </extension>
-      <path value="ActivityDefinition.reviewer"/>
-      <short value="Who reviewed the content"/>
-      <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.endorser">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Endorser was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
-      </extension>
-      <path value="ActivityDefinition.endorser"/>
-      <short value="Who endorsed the content"/>
-      <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.relatedArtifact">
-      <path value="ActivityDefinition.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc."/>
-      <definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
-      <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
-      <requirements value="Activity definitions must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="RelatedArtifact"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.library">
-      <path value="ActivityDefinition.library"/>
-      <short value="Logic used by the activity definition"/>
-      <definition value="A reference to a Library resource containing any formal logic used by the activity definition."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=USE].target[classCode=GROUPER,moodCode=EVN]"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.kind">
-      <path value="ActivityDefinition.kind"/>
-      <short value="Kind of resource"/>
-      <definition value="A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource."/>
-      <comment value="May determine what types of extensions are permitted."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActivityDefinitionKind"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The kind of activity the definition is describing."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-resource-types|4.6.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".classCode"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.profile">
-      <path value="ActivityDefinition.profile"/>
-      <short value="What profile the resource needs to conform to"/>
-      <definition value="A profile to which the target of the activity definition is expected to conform."/>
-      <requirements value="Allows profiles to be used to describe the types of activities that can be performed within a workflow, protocol, or order set."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".templateId"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.code">
-      <path value="ActivityDefinition.code"/>
-      <short value="Detail type of activity"/>
-      <definition value="Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter."/>
-      <comment value="Tends to be less relevant for activities involving particular products."/>
-      <requirements value="Allows matching performed to planned as well as validation against protocols."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActivityDefinitionType"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Detailed type of the activity; e.g. CBC."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".code"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.intent">
-      <path value="ActivityDefinition.intent"/>
-      <short value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
-      <definition value="Indicates the level of authority/intentionality associated with the activity and where the request should fit into the workflow chain."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="RequestIntent"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Codes indicating the degree of authority/intentionality associated with a request."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-intent|4.6.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".moodCode { of the realized Activity }"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.priority">
-      <path value="ActivityDefinition.priority"/>
-      <short value="routine | urgent | asap | stat"/>
-      <definition value="Indicates how quickly the activity  should be addressed with respect to other requests."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="RequestPriority"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Identifies the level of importance to be assigned to actioning the request."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|4.6.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".priority { of the realized activity }"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.doNotPerform">
-      <path value="ActivityDefinition.doNotPerform"/>
-      <short value="True if the activity should not be performed"/>
-      <definition value="Set this to true if the definition is to indicate that a particular activity should NOT be performed. If true, this element should be interpreted to reinforce a negative coding. For example NPO as a code with a doNotPerform of true would still indicate to NOT perform the action."/>
-      <comment value="This element is not intended to be used to communicate a decision support response to cancel an order in progress. That should be done with the &quot;remove&quot; type of a PlanDefinition or RequestGroup."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="If true this element negates the specified action. For Example,  instead of a request for a procedure, it is a request for the procedure to not occur."/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".negationInd { of the realized activity }"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.timing[x]">
-      <path value="ActivityDefinition.timing[x]"/>
-      <short value="When activity is to occur"/>
-      <definition value="The timing or frequency upon which the described activity is to occur."/>
-      <comment value="The intent of the timing element is to provide timing when the action should be performed. As a definitional resource, this timing is interpreted as part of an apply operation so that the timing of the result actions in a CarePlan or RequestGroup, for example, would be specified by evaluating the timing definition in the context of the apply and setting the resulting timing on the appropriate elements of the target resource. If the timing is an Age, the activity is expected to be performed when the subject is the given Age. When the timing is a Duration, the activity is expected to be performed within the specified duration from the apply. When the timing is a Range, it may be a range of Ages or Durations, providing a range for the expected timing of the resulting activity. When the timing is a Timing, it is establishing a schedule for the timing of the resulting activity."/>
-      <requirements value="Allows prompting for activities and detection of missed planned activities."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Timing"/>
-      </type>
-      <type>
-        <code value="Age"/>
-      </type>
-      <type>
-        <code value="Range"/>
-      </type>
-      <type>
-        <code value="Duration"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.location">
-      <path value="ActivityDefinition.location"/>
-      <short value="Where it should happen"/>
-      <definition value="Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc."/>
-      <comment value="May reference a specific clinical location or may just identify a type of location."/>
-      <requirements value="Helps in planning of activity."/>
-      <alias value="facility"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=LOC].role"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.participant">
-      <path value="ActivityDefinition.participant"/>
-      <short value="Who should participate in the action"/>
-      <definition value="Indicates who should participate in performing the action described."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=PFM]"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.participant.type">
-      <path value="ActivityDefinition.participant.type"/>
-      <short value="careteam | device | group | healthcareservice | location | organization | patient | practitioner | practitionerrole | relatedperson"/>
-      <definition value="The type of participant in the action."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActivityParticipantType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The type of participant in the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type|4.6.0"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".role.classCode"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.participant.typeReference">
-      <path value="ActivityDefinition.participant.typeReference"/>
-      <short value="Who or what can participate"/>
-      <definition value="The type of participant in the action."/>
-      <comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".role.classCode"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.participant.role">
-      <path value="ActivityDefinition.participant.role"/>
-      <short value="E.g. Nurse, Surgeon, Parent, etc."/>
-      <definition value="The role the participant should play in performing the described action."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActivityParticipantRole"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Defines roles played by participants for the action."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/action-participant-role"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".role.code"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.participant.function">
-      <path value="ActivityDefinition.participant.function"/>
-      <short value="E.g. Author, Reviewer, Witness, etc."/>
-      <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActionParticipantFunction"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-function"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".role.code"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.product[x]">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Elements here deliberately lean towards medication and service requests, as some of the most commonly needed activity types."/>
-      </extension>
-      <path value="ActivityDefinition.product[x]"/>
-      <short value="What&#39;s administered/supplied"/>
-      <definition value="Identifies the food, drug or other product being consumed or supplied in the activity."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
-      </type>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ActivityProduct"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Code describing the type of substance or medication."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=CSM].role"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.quantity">
-      <path value="ActivityDefinition.quantity"/>
-      <short value="How much is administered/consumed/supplied"/>
-      <definition value="Identifies the quantity expected to be consumed at once (per dose, per meal, etc.)."/>
-      <alias value="dose"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".quantity {for classCode=SPLY}"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.dosage">
-      <path value="ActivityDefinition.dosage"/>
-      <short value="Detailed dosage instructions"/>
-      <definition value="Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources."/>
-      <comment value="If a dosage instruction is used, the definition should not specify timing or quantity."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Dosage"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM; moodCode=DEFN]"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.bodySite">
-      <path value="ActivityDefinition.bodySite"/>
-      <short value="What part of body to perform on"/>
-      <definition value="Indicates the sites on the subject&#39;s body where the procedure should be performed (I.e. the target sites)."/>
-      <comment value="Only used if not implicit in the code found in ServiceRequest.type."/>
-      <requirements value="Knowing where the procedure is made is important for tracking if multiple sites are possible."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite"/>
-        </extension>
-        <strength value="example"/>
-        <description value="A code that identifies the anatomical location."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".targetSiteCode {for classCode=PROC, SBADM}"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.specimenRequirement">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="These requirements are used for lab catalogs. See also SpecimenDefinition and ObservationDefinition."/>
-      </extension>
-      <path value="ActivityDefinition.specimenRequirement"/>
-      <short value="What specimens are required to perform this action"/>
-      <definition value="Defines specimen requirements for the action to be performed, such as required specimens for a lab test."/>
-      <requirements value="Needed to represent lab order definitions."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.observationRequirement">
-      <path value="ActivityDefinition.observationRequirement"/>
-      <short value="What observations are required to perform this action"/>
-      <definition value="Defines observation requirements for the action to be performed, such as body weight or surface area."/>
-      <requirements value="Needed to represent observation definitions."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.observationResultRequirement">
-      <path value="ActivityDefinition.observationResultRequirement"/>
-      <short value="What observations must be produced by this action"/>
-      <definition value="Defines the observations that are expected to be produced by the action."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.transform">
-      <path value="ActivityDefinition.transform"/>
-      <short value="Transform to apply the template"/>
-      <definition value="A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input."/>
-      <comment value="Note that if both a transform and dynamic values are specified, the dynamic values will be applied to the result of the transform."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.dynamicValue">
-      <path value="ActivityDefinition.dynamicValue"/>
-      <short value="Dynamic aspects of the definition"/>
-      <definition value="Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient&#39;s weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the request resource that would contain the result."/>
-      <comment value="Dynamic values are applied in the order in which they are defined in the ActivityDefinition. Note that if both a transform and dynamic values are specified, the dynamic values will be applied to the result of the transform."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.dynamicValue.path">
-      <path value="ActivityDefinition.dynamicValue.path"/>
-      <short value="The path to the element to be set dynamically"/>
-      <definition value="The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression. The specified path SHALL be a FHIRPath resolveable on the specified target type of the ActivityDefinition, and SHALL consist only of identifiers, constant indexers, and a restricted subset of functions. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details)."/>
-      <comment value="The path attribute contains a [Simple FHIRPath Subset](fhirpath.html#simple) that allows path traversal, but not calculation."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.dynamicValue.expression">
-      <path value="ActivityDefinition.dynamicValue.expression"/>
-      <short value="An expression that provides the dynamic value for the customization"/>
-      <definition value="An expression specifying the value of the customized element."/>
-      <comment value="The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Expression"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-  </differential>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="ActivityDefinition"/>
+	<meta>
+		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+		<valueString value="Specialized.Definitional Artifacts"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="3"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+		<valueCode value="anonymous"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="cds"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+		<valueCode value=".status = retired"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+		<valueString value="MetadataResource"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+	<version value="5.0.0"/>
+	<name value="ActivityDefinition"/>
+	<status value="draft"/>
+	<date value="2021-01-05T10:01:24+11:00"/>
+	<publisher value="Health Level Seven International (Clinical Decision Support)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
+		</telecom>
+	</contact>
+	<description value="This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context."/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="ActivityDefinition"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
+	<derivation value="specialization"/>
+	<differential>
+		<element id="ActivityDefinition">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Although there is currently only one definitional resource defined (ActivityDefinition), the concept is general, and this was a deliberate design decision to avoid the overhead of defining and maintaining a different definitional resource for every category of request. We anticipate that as the use cases of ActivityDefinition require more specialized elements to be added, the resource may be split."/>
+			</extension>
+			<path value="ActivityDefinition"/>
+			<short value="The definition of a specific activity to be taken, independent of any particular patient or context"/>
+			<definition value="This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context."/>
+			<min value="0"/>
+			<max value="*"/>
+			<constraint>
+				<key value="cnl-0"/>
+				<severity value="warning"/>
+				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+			</constraint>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="Act[classCode=ACT; moodCode=DEFN]"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="clinical.general"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.url">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+				<valueCode value="Event.identifier"/>
+			</extension>
+			<path value="ActivityDefinition.url"/>
+			<short value="Canonical identifier for this activity definition, represented as a URI (globally unique)"/>
+			<definition value="An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this activity definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the activity definition is stored on different servers."/>
+			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+			<requirements value="Allows the activity definition to be referenced by a single globally unique identifier."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
+			<constraint>
+				<key value="cnl-1"/>
+				<severity value="warning"/>
+				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+				<expression value="url.matches(&#39;([^|#])*&#39;)"/>
+				<xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+			</constraint>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.url"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".identifier[scope=BUSN;reliability=ISS]"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.identifier">
+			<path value="ActivityDefinition.identifier"/>
+			<short value="Additional identifier for the activity definition"/>
+			<definition value="A formal identifier that is used to identify this activity definition when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this activity definition outside of FHIR, where it is not possible to use the logical URI."/>
+			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.version">
+			<path value="ActivityDefinition.version"/>
+			<short value="Business version of the activity definition"/>
+			<definition value="The identifier that is used to identify this version of the activity definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the activity definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets."/>
+			<comment value="There may be different activity definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the activity definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.version"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.version"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.name">
+			<path value="ActivityDefinition.name"/>
+			<short value="Name for this activity definition (computer friendly)"/>
+			<definition value="A natural language name identifying the activity definition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+			<requirements value="Support human navigation and code generation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<condition value="cnl-0"/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.title">
+			<path value="ActivityDefinition.title"/>
+			<short value="Name for this activity definition (human friendly)"/>
+			<definition value="A short, descriptive, user-friendly title for the activity definition."/>
+			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.title"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".title"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.subtitle">
+			<path value="ActivityDefinition.subtitle"/>
+			<short value="Subordinate title of the activity definition"/>
+			<definition value="An explanatory or alternate title for the activity definition giving additional information about its content."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.status">
+			<path value="ActivityDefinition.status"/>
+			<short value="draft | active | retired | unknown"/>
+			<definition value="The status of this activity definition. Enables tracking the life-cycle of the content."/>
+			<comment value="Allows filtering of activity definitions that are appropriate for use versus not."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isModifier value="true"/>
+			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PublicationStatus"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The lifecycle status of an artifact."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.status {different ValueSet}"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.status"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".status"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.experimental">
+			<path value="ActivityDefinition.experimental"/>
+			<short value="For testing purposes, not real usage"/>
+			<definition value="A Boolean value to indicate that this activity definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+			<comment value="Allows filtering of activity definitions that are appropriate for use versus not."/>
+			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level activity definition."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.experimental"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.class"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.subject[x]">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="As part of R4, the subject element was introduced in all the knowledge resources to support content expressed on resources other than patient, such as Location, Organization, and even Encounter and Procedure.&#xA;The subject element was expanded in R4B to support a canonical reference to the new product definition resources."/>
+			</extension>
+			<path value="ActivityDefinition.subject[x]"/>
+			<short value="Type of individual the activity definition is intended for"/>
+			<definition value="A code, group definition, or canonical reference that describes  or identifies the intended subject of the activity being defined.  Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource."/>
+			<comment value="Note that the choice of canonical for the subject element was introduced in R4B to support pharmaceutical quality use cases. To ensure as much backwards-compatibility as possible, it is recommended to only use the new canonical type with these use cases."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
+			</type>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+			</type>
+			<meaningWhenMissing value="Patient"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SubjectType"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The possible types of subjects for an activity (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.subject"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?) { only applies for subject Patient? }"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.date">
+			<path value="ActivityDefinition.date"/>
+			<short value="Date last changed"/>
+			<definition value="The date  (and optionally time) when the activity definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the activity definition changes."/>
+			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the activity definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+			<alias value="Revision Date"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.date"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.recorded"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=AUT].time"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.publisher">
+			<path value="ActivityDefinition.publisher"/>
+			<short value="Name of the publisher (organization or individual)"/>
+			<definition value="The name of the organization or individual that published the activity definition."/>
+			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the activity definition is the organization or individual primarily responsible for the maintenance and upkeep of the activity definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the activity definition. This item SHOULD be populated unless the information is available from context."/>
+			<requirements value="Helps establish the &quot;authority/credibility&quot; of the activity definition.  May also allow for contact."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.publisher {as string instead of CodeableConcept}"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.witness"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=AUT].role"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.contact">
+			<path value="ActivityDefinition.contact"/>
+			<short value="Contact details for the publisher"/>
+			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+			<comment value="May be a web site, an email address, a telephone number, etc."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.contact"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=CALLBCK].role"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.description">
+			<path value="ActivityDefinition.description"/>
+			<short value="Natural language description of the activity definition"/>
+			<definition value="A free text natural language description of the activity definition from a consumer&#39;s perspective."/>
+			<comment value="This description can be used to capture details such as why the activity definition was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the activity definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the activity definition is presumed to be the predominant language in the place the activity definition was created)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.description"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".text"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.useContext">
+			<path value="ActivityDefinition.useContext"/>
+			<short value="The context that the content is intended to support"/>
+			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate activity definition instances."/>
+			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+			<requirements value="Assist in searching for appropriate content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="UsageContext"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.useContext"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.jurisdiction">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Jurisdiction was originally modeled as a type of useContext, but was broken out as a separate element for ease of reference."/>
+			</extension>
+			<path value="ActivityDefinition.jurisdiction"/>
+			<short value="Intended jurisdiction for activity definition (if applicable)"/>
+			<definition value="A legal or geographic region in which the activity definition is intended to be used."/>
+			<comment value="It may be possible for the activity definition to be used in jurisdictions other than those for which it was originally designed or intended."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="Jurisdiction"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Countries and regions within which this artifact is targeted for use."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.jurisdiction"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.purpose">
+			<path value="ActivityDefinition.purpose"/>
+			<short value="Why this activity definition is defined"/>
+			<definition value="Explanation of why this activity definition is needed and why it has been designed as it has."/>
+			<comment value="This element does not describe the usage of the activity definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this activity definition."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.purpose"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.why[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".reasonCode.text"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.usage">
+			<path value="ActivityDefinition.usage"/>
+			<short value="Describes the clinical usage of the activity definition"/>
+			<definition value="A detailed description of how the activity definition is used from a clinical perspective."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.copyright">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="There is ongoing discussion about the uses of copyright, particularly around modeling information such as license, copyright, and disclaimers."/>
+			</extension>
+			<path value="ActivityDefinition.copyright"/>
+			<short value="Use and/or publishing restrictions"/>
+			<definition value="A copyright statement relating to the activity definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the activity definition."/>
+			<requirements value="Consumers must be able to determine any legal restrictions on the use of the activity definition and/or its content."/>
+			<alias value="License"/>
+			<alias value="Restrictions"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.copyright"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.approvalDate">
+			<path value="ActivityDefinition.approvalDate"/>
+			<short value="When the activity definition was approved by publisher"/>
+			<definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+			<comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="date"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.approvalDate"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.lastReviewDate">
+			<path value="ActivityDefinition.lastReviewDate"/>
+			<short value="When the activity definition was last reviewed"/>
+			<definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
+			<comment value="If specified, this date follows the original approval date."/>
+			<requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="date"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.lastReviewDate"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;; subsetCode=&quot;RECENT&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;review&quot;].effectiveTime"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.effectivePeriod">
+			<path value="ActivityDefinition.effectivePeriod"/>
+			<short value="When the activity definition is expected to be used"/>
+			<definition value="The period during which the activity definition content was or is planned to be in active use."/>
+			<comment value="The effective period for a activity definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+			<requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the activity definition are or are expected to be used instead."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Period"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.effectivePeriod"/>
+			</mapping>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.topic">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Topic was originally modeled as a type of useContext, but was broken out as a separate element for ease of reference."/>
+			</extension>
+			<path value="ActivityDefinition.topic"/>
+			<short value="E.g. Education, Treatment, Assessment, etc."/>
+			<definition value="Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching."/>
+			<requirements value="Repositories must be able to determine how to categorize the activity definition so that it can be found by topical searches."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="DefinitionTopic"/>
+				</extension>
+				<strength value="example"/>
+				<description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.author">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Author was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+			</extension>
+			<path value="ActivityDefinition.author"/>
+			<short value="Who authored the content"/>
+			<definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=AUT]"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.editor">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Editor was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+			</extension>
+			<path value="ActivityDefinition.editor"/>
+			<short value="Who edited the content"/>
+			<definition value="An individual or organization primarily responsible for internal coherence of the content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=AUT] { not a great match, but there does not appear to be an editor concept in V3 participation }"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.reviewer">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Reviewer was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+			</extension>
+			<path value="ActivityDefinition.reviewer"/>
+			<short value="Who reviewed the content"/>
+			<definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.endorser">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Endorser was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+			</extension>
+			<path value="ActivityDefinition.endorser"/>
+			<short value="Who endorsed the content"/>
+			<definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=VRF] {not clear whether VRF best corresponds to reviewer or endorser}"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.relatedArtifact">
+			<path value="ActivityDefinition.relatedArtifact"/>
+			<short value="Additional documentation, citations, etc."/>
+			<definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
+			<comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
+			<requirements value="Activity definitions must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="RelatedArtifact"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.library">
+			<path value="ActivityDefinition.library"/>
+			<short value="Logic used by the activity definition"/>
+			<definition value="A reference to a Library resource containing any formal logic used by the activity definition."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=USE].target[classCode=GROUPER,moodCode=EVN]"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.kind">
+			<path value="ActivityDefinition.kind"/>
+			<short value="Kind of resource"/>
+			<definition value="A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource."/>
+			<comment value="May determine what types of extensions are permitted."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActivityDefinitionKind"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The kind of activity the definition is describing."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/request-resource-types"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".classCode"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.profile">
+			<path value="ActivityDefinition.profile"/>
+			<short value="What profile the resource needs to conform to"/>
+			<definition value="A profile to which the target of the activity definition is expected to conform."/>
+			<requirements value="Allows profiles to be used to describe the types of activities that can be performed within a workflow, protocol, or order set."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".templateId"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.code">
+			<path value="ActivityDefinition.code"/>
+			<short value="Detail type of activity"/>
+			<definition value="Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter."/>
+			<comment value="Tends to be less relevant for activities involving particular products."/>
+			<requirements value="Allows matching performed to planned as well as validation against protocols."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActivityDefinitionType"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Detailed type of the activity; e.g. CBC."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".code"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.intent">
+			<path value="ActivityDefinition.intent"/>
+			<short value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+			<definition value="Indicates the level of authority/intentionality associated with the activity and where the request should fit into the workflow chain."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="RequestIntent"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Codes indicating the degree of authority/intentionality associated with a request."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/request-intent"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".moodCode { of the realized Activity }"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.priority">
+			<path value="ActivityDefinition.priority"/>
+			<short value="routine | urgent | asap | stat"/>
+			<definition value="Indicates how quickly the activity  should be addressed with respect to other requests."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="RequestPriority"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Identifies the level of importance to be assigned to actioning the request."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".priority { of the realized activity }"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.doNotPerform">
+			<path value="ActivityDefinition.doNotPerform"/>
+			<short value="True if the activity should not be performed"/>
+			<definition value="Set this to true if the definition is to indicate that a particular activity should NOT be performed. If true, this element should be interpreted to reinforce a negative coding. For example NPO as a code with a doNotPerform of true would still indicate to NOT perform the action."/>
+			<comment value="This element is not intended to be used to communicate a decision support response to cancel an order in progress. That should be done with the &quot;remove&quot; type of a PlanDefinition or RequestOrchestration."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<isModifier value="true"/>
+			<isModifierReason value="If true this element negates the specified action. For Example,  instead of a request for a procedure, it is a request for the procedure to not occur."/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".negationInd { of the realized activity }"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.timing[x]">
+			<path value="ActivityDefinition.timing[x]"/>
+			<short value="When activity is to occur"/>
+			<definition value="The timing or frequency upon which the described activity is to occur."/>
+			<comment value="The intent of the timing element is to provide timing when the action should be performed. As a definitional resource, this timing is interpreted as part of an apply operation so that the timing of the result actions in a CarePlan or RequestOrchestration, for example, would be specified by evaluating the timing definition in the context of the apply and setting the resulting timing on the appropriate elements of the target resource. If the timing is an Age, the activity is expected to be performed when the subject is the given Age. When the timing is a Duration, the activity is expected to be performed within the specified duration from the apply. When the timing is a Range, it may be a range of Ages or Durations, providing a range for the expected timing of the resulting activity. When the timing is a Timing, it is establishing a schedule for the timing of the resulting activity."/>
+			<requirements value="Allows prompting for activities and detection of missed planned activities."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Timing"/>
+			</type>
+			<type>
+				<code value="Age"/>
+			</type>
+			<type>
+				<code value="Range"/>
+			</type>
+			<type>
+				<code value="Duration"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".effectiveTime"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.asNeeded[x]">
+			<path value="ActivityDefinition.asNeeded[x]"/>
+			<short value="Preconditions for service"/>
+			<definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ProcedureAsNeededReason"/>
+				</extension>
+				<strength value="example"/>
+				<description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=&quot;Assertion&quot;].value"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.location">
+			<path value="ActivityDefinition.location"/>
+			<short value="Where it should happen"/>
+			<definition value="Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc."/>
+			<comment value="May reference a specific clinical location or may just identify a type of location."/>
+			<requirements value="Helps in planning of activity."/>
+			<alias value="facility"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableReference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=LOC].role"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.participant">
+			<path value="ActivityDefinition.participant"/>
+			<short value="Who should participate in the action"/>
+			<definition value="Indicates who should participate in performing the action described."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=PFM]"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.participant.type">
+			<path value="ActivityDefinition.participant.type"/>
+			<short value="careteam | device | group | healthcareservice | location | organization | patient | practitioner | practitionerrole | relatedperson"/>
+			<definition value="The type of participant in the action."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActivityParticipantType"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The type of participant in the activity."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-participant-type"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".role.classCode"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.participant.typeCanonical">
+			<path value="ActivityDefinition.participant.typeCanonical"/>
+			<short value="Who or what can participate"/>
+			<definition value="The type of participant in the action."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".role.classCode"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.participant.typeReference">
+			<path value="ActivityDefinition.participant.typeReference"/>
+			<short value="Who or what can participate"/>
+			<definition value="The type of participant in the action."/>
+			<comment value="When this element is a reference, it SHOULD be a reference to a definitional resource (for example, a location type, rather than a specific location)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".role.classCode"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.participant.role">
+			<path value="ActivityDefinition.participant.role"/>
+			<short value="E.g. Nurse, Surgeon, Parent, etc."/>
+			<definition value="The role the participant should play in performing the described action."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActivityParticipantRole"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Defines roles played by participants for the action."/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/action-participant-role"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".role.code"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.participant.function">
+			<path value="ActivityDefinition.participant.function"/>
+			<short value="E.g. Author, Reviewer, Witness, etc."/>
+			<definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionParticipantFunction"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-participant-function"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".role.code"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.product[x]">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Elements here deliberately lean towards medication and service requests, as some of the most commonly needed activity types."/>
+			</extension>
+			<path value="ActivityDefinition.product[x]"/>
+			<short value="What&#39;s administered/supplied"/>
+			<definition value="Identifies the food, drug or other product being consumed or supplied in the activity."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Ingredient"/>
+			</type>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActivityProduct"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Code describing the type of substance or medication."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".participation[typeCode=CSM].role"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.quantity">
+			<path value="ActivityDefinition.quantity"/>
+			<short value="How much is administered/consumed/supplied"/>
+			<definition value="Identifies the quantity expected to be consumed at once (per dose, per meal, etc.)."/>
+			<alias value="dose"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Quantity"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".quantity {for classCode=SPLY}"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.dosage">
+			<path value="ActivityDefinition.dosage"/>
+			<short value="Detailed dosage instructions"/>
+			<definition value="Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources."/>
+			<comment value="If a dosage instruction is used, the definition should not specify timing or quantity."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Dosage"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM; moodCode=DEFN]"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.bodySite">
+			<path value="ActivityDefinition.bodySite"/>
+			<short value="What part of body to perform on"/>
+			<definition value="Indicates the sites on the subject&#39;s body where the procedure should be performed (I.e. the target sites)."/>
+			<comment value="Only used if not implicit in the code found in ServiceRequest.type."/>
+			<requirements value="Knowing where the procedure is made is important for tracking if multiple sites are possible."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="BodySite"/>
+				</extension>
+				<strength value="example"/>
+				<description value="A code that identifies the anatomical location."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value=".targetSiteCode {for classCode=PROC, SBADM}"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.specimenRequirement">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="These requirements are used for lab catalogs. See also SpecimenDefinition and ObservationDefinition."/>
+			</extension>
+			<path value="ActivityDefinition.specimenRequirement"/>
+			<short value="What specimens are required to perform this action"/>
+			<definition value="Defines specimen requirements for the action to be performed, such as required specimens for a lab test."/>
+			<requirements value="Needed to represent lab order definitions."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.observationRequirement">
+			<path value="ActivityDefinition.observationRequirement"/>
+			<short value="What observations are required to perform this action"/>
+			<definition value="Defines observation requirements for the action to be performed, such as body weight or surface area."/>
+			<requirements value="Needed to represent observation definitions."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.observationResultRequirement">
+			<path value="ActivityDefinition.observationResultRequirement"/>
+			<short value="What observations must be produced by this action"/>
+			<definition value="Defines the observations that are expected to be produced by the action."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.transform">
+			<path value="ActivityDefinition.transform"/>
+			<short value="Transform to apply the template"/>
+			<definition value="A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input."/>
+			<comment value="Note that if both a transform and dynamic values are specified, the dynamic values will be applied to the result of the transform."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.dynamicValue">
+			<path value="ActivityDefinition.dynamicValue"/>
+			<short value="Dynamic aspects of the definition"/>
+			<definition value="Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient&#39;s weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the request resource that would contain the result."/>
+			<comment value="Dynamic values are applied in the order in which they are defined in the ActivityDefinition. Note that if both a transform and dynamic values are specified, the dynamic values will be applied to the result of the transform."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.dynamicValue.path">
+			<path value="ActivityDefinition.dynamicValue.path"/>
+			<short value="The path to the element to be set dynamically"/>
+			<definition value="The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression. The specified path SHALL be a FHIRPath resolveable on the specified target type of the ActivityDefinition, and SHALL consist only of identifiers, constant indexers, and a restricted subset of functions. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details)."/>
+			<comment value="The path attribute contains a [Simple FHIRPath Subset](fhirpath.html#simple) that allows path traversal, but not calculation."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="ActivityDefinition.dynamicValue.expression">
+			<path value="ActivityDefinition.dynamicValue.expression"/>
+			<short value="An expression that provides the dynamic value for the customization"/>
+			<definition value="An expression specifying the value of the customized element."/>
+			<comment value="The expression may be inlined, or may be a reference to a named expression within a logic library referenced by the library element."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="Expression"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+	</differential>
 </StructureDefinition>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<SearchParameter xmlns="http://hl7.org/fhir">
+	<id value="example-constraint"/>
+	<url value="http://hl7.org/fhir/SearchParameter/example-constraint"/>
+	<name value="example-constraint"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+	<description value="Search Composition Bundle"/>
+	<code value="example-constraint"/>
+	<base value="Bundle"/>
+	<type value="reference"/>
+	<expression value="Bundle.entry[0].resource"/>
+	<xpath value="f:Bundle/f:entry[0]/f:resource"/>
+	<xpathUsage value="normal"/>
+	<constraint value="Bundle.type = 'document' and Bundle.entry[0].resource is Composition"/>
+	<target value="Composition"/>
+</SearchParameter>
+
+

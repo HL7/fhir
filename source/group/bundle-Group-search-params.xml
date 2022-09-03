@@ -5,19 +5,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Group-actual"/>
+        <id value="Group-membership"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Group.actual"/>
+          <valueString value="Group.membership"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Group-actual"/>
-        <description value="Descriptive or actual"/>
-        <code value="actual"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-membership"/>
+        <description value="Definitional or enumerated group"/>
+        <code value="membership"/>
         <type value="token"/>
-        <expression value="Group.actual"/>
-        <xpath value="f:Group/f:actual"/>
+        <expression value="Group.membership"/>
+        <xpath value="f:Group/f:membership"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -63,6 +63,21 @@
           <definition value="value"/>
           <expression value="(value as CodeableConcept) | (value as boolean)"/>
         </component>
+      </SearchParameter>
+  </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Group-characteristic-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-characteristic-reference"/>
+        <description value="An entity referenced in a characteristic"/>
+        <code value="characteristic-reference"/>
+        <type value="reference"/>
+        <expression value="(Group.characteristic.value as Reference)"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -202,6 +217,26 @@
         <type value="token"/>
         <expression value="(Group.characteristic.value as CodeableConcept) | (Group.characteristic.value as boolean)"/>
         <xpath value="f:Group/f:characteristic/f:valueCodeableConcept | f:Group/f:characteristic/f:valueBoolean | f:Group/f:characteristic/f:valueQuantity | f:Group/f:characteristic/f:valueRange | f:Group/f:characteristic/f:valueReference"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Group-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Group.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-name"/>
+        <description value="A portion of the Group&#39;s name"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="Group.name"/>
+        <xpath value="f:Group/f:name"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

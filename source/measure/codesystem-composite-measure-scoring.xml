@@ -3,99 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="composite-measure-scoring"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/composite-measure-scoring defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">opportunity
-            
-            <a name="composite-measure-scoring-opportunity"> </a>
-          
-          </td>
-          
-          <td>Opportunity</td>
-          
-          <td>Opportunity scoring combines the scores from component measures by combining the numerators and denominators for each component.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">all-or-nothing
-            
-            <a name="composite-measure-scoring-all-or-nothing"> </a>
-          
-          </td>
-          
-          <td>All-or-nothing</td>
-          
-          <td>All-or-nothing scoring includes an individual in the numerator of the composite measure if they are in the numerators of all of the component measures in which they are in the denominator.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">linear
-            
-            <a name="composite-measure-scoring-linear"> </a>
-          
-          </td>
-          
-          <td>Linear</td>
-          
-          <td>Linear scoring gives an individual a score based on the number of numerators in which they appear.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">weighted
-            
-            <a name="composite-measure-scoring-weighted"> </a>
-          
-          </td>
-          
-          <td>Weighted</td>
-          
-          <td>Weighted scoring gives an individual a score based on a weighted factor for each component numerator in which they appear.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cqi"/>
   </extension>
@@ -110,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.1235"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="CompositeMeasureScoring"/>
   <title value="CompositeMeasureScoring"/>
   <status value="draft"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Appointment"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,7 +24,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Appointment"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -80,28 +80,28 @@
       <definition value="A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)."/>
       <min value="0"/>
       <max value="*"/>
-			<constraint>
-				<key value="app-5"/>
-				<severity value="error"/>
-				<human value="The start must be less than or equal to the end"/>
+      <constraint>
+        <key value="app-5"/>
+        <severity value="error"/>
+        <human value="The start must be less than or equal to the end"/>
         <expression value="start.exists() implies start &lt;= end"/>
         <xpath value="f:start &lt;= f:end or not(start.exists() and end.exists())"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
       <constraint>
         <key value="app-4"/>
         <severity value="error"/>
-        <human value="Cancellation reason is only used for appointments that have been cancelled, or no-show"/>
-        <expression value="cancellationReason.exists() implies (status=&#39;no-show&#39; or status=&#39;cancelled&#39;)"/>
-        <xpath value="not(exists(f:cancellationReason)) or f:status/@value=(&#39;no-show&#39;, &#39;cancelled&#39;)"/>
+        <human value="Cancellation reason is only used for appointments that have been cancelled, or noshow"/>
+        <expression value="cancellationReason.exists() implies (status='noshow' or status='cancelled')"/>
+        <xpath value="not(exists(f:cancellationReason)) or f:status/@value=('noshow', 'cancelled')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
       <constraint>
         <key value="app-3"/>
         <severity value="error"/>
         <human value="Only proposed or cancelled appointments can be missing start/end dates"/>
-        <expression value="(start.exists() and end.exists()) or (status in (&#39;proposed&#39; | &#39;cancelled&#39; | &#39;waitlist&#39;))"/>
-        <xpath value="((exists(f:start) and exists(f:end)) or (f:status/@value=&#39;proposed&#39;) or (f:status/@value=&#39;cancelled&#39;) or (f:status/@value=&#39;waitlist&#39;))"/>
+        <expression value="(start.exists() and end.exists()) or (status in ('proposed' | 'cancelled' | 'waitlist'))"/>
+        <xpath value="((exists(f:start) and exists(f:end)) or (f:status/@value='proposed') or (f:status/@value='cancelled') or (f:status/@value='waitlist'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
       <constraint>
@@ -112,13 +112,27 @@
         <xpath value="((exists(f:start) and exists(f:end)) or (not(exists(f:start)) and not(exists(f:end))))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
+      <constraint>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+          <valueBoolean value="true"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
+          <valueMarkdown value="For a recurring series of appointments, the originating appointment should have the recurrenceTemplate defining the details of the overall recurrence.  Each occurence should refer back to the originatingAppointment as the single source of truth for the details of the recurrence."/>
+        </extension>
+        <key value="app-6"/>
+        <severity value="warning"/>
+        <human value="An appointment may have an originatingAppointment or recurrenceTemplate, but not both"/>
+        <expression value="originatingAppointment.exists().not() or recurrenceTemplate.exists().not()"/>
+        <xpath value="((not(exists(f:originatingAppointment)) or not(exists(f:recurrenceTemplate))))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Request"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="Act[@moodCode &lt;= &#39;INT&#39;]"/>
+        <map value="Act[@moodCode &lt;= 'INT']"/>
       </mapping>
       <mapping>
         <identity value="ical"/>
@@ -164,7 +178,7 @@
       <path value="Appointment.status"/>
       <short value="proposed | pending | booked | arrived | fulfilled | cancelled | noshow | entered-in-error | checked-in | waitlist"/>
       <definition value="The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status."/>
-      <comment value="If the Appointment&#39;s status is &quot;cancelled&quot; then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE.&#xA;&#xA;This element is labeled as a modifier because the status contains the code entered-in-error that mark the Appointment as not currently valid."/>
+      <comment value="If the Appointment's status is &quot;cancelled&quot; then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE.&#xA;&#xA;This element is labeled as a modifier because the status contains the code entered-in-error that mark the Appointment as not currently valid."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -456,11 +470,25 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[@typeCode = &#39;SPRT&#39;].observation"/>
+        <map value=".inboundRelationship[@typeCode = 'SPRT'].observation"/>
       </mapping>
       <mapping>
         <identity value="ical"/>
         <map value="ATTACH"/>
+      </mapping>
+    </element>
+    <element id="Appointment.virtualService">
+      <path value="Appointment.virtualService"/>
+      <short value="Connection details of a virtual service (e.g. conference call)"/>
+      <comment value="There are two types of virtual meetings that often exist:&#xD;&#xD;* a persistent, virtual meeting room that can only be used for a single purpose at a time, &#xD;* and a dynamic virtual meeting room that is generated on demand for a specific purpose.&#xD;&#xD;Implementers may consider using Location.virtualService for persistent meeting rooms.&#xD;&#xD;If each participant would have a different meeting link, an extension using the VirtualServiceContactDetail  can be applied to the Appointment.participant BackboneElement."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="VirtualServiceDetail"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
       </mapping>
     </element>
     <element id="Appointment.supportingInformation">
@@ -483,11 +511,51 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[@typeCode = &#39;SPRT&#39;].observation"/>
+        <map value=".inboundRelationship[@typeCode = 'SPRT'].observation"/>
       </mapping>
       <mapping>
         <identity value="ical"/>
         <map value="ATTACH"/>
+      </mapping>
+    </element>
+    <element id="Appointment.previousAppointment">
+      <path value="Appointment.previousAppointment"/>
+      <short value="The previous appointment in a series"/>
+      <definition value="The previous appointment in a series of related appointments."/>
+      <comment value="This property is intended for use when representing a series of related appointments.  For example, in a nuclear medicine procedure, where there is an appointment for the injection of the isotopes, and then a subsequent appointment for the scan, the scan appointment would refer to the injection appointment via Appointment.previousAppointment.  For representing recurring appointments, see the guidance on recurring vs. series appointments."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Appointment.originatingAppointment">
+      <path value="Appointment.originatingAppointment"/>
+      <short value="The originating appointment in a recurring set of appointments"/>
+      <definition value="The originating appointment in a recurring set of related appointments."/>
+      <comment value="This property is intended for use when representing a recurring set of related appointments.&#xD;&#xD;For example, a patient undergoing physical therapy may have a recurring appointment every Tuesday and Thursday.  Each occurrence of the set will refer to the originating appointment, which contains the recurring template information.  For representing appointment series, see the guidance on recurring vs. series appointments."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
       </mapping>
     </element>
     <element id="Appointment.start">
@@ -570,7 +638,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".activityTime[@xsi:type = (&#39;SXPR_TS&#39;, &#39;PIVL_TS&#39;)].width"/>
+        <map value=".activityTime[@xsi:type = ('SXPR_TS', 'PIVL_TS')].width"/>
       </mapping>
       <mapping>
         <identity value="ical"/>
@@ -580,7 +648,7 @@
     <element id="Appointment.slot">
       <path value="Appointment.slot"/>
       <short value="The slots that this appointment is filling"/>
-      <definition value="The slots from the participants&#39; schedules that will be filled by the appointment."/>
+      <definition value="The slots from the participants' schedules that will be filled by the appointment."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -589,7 +657,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[@typeCode = &#39;REFR&#39;].act[@classCode = &#39;ACT&#39;][@moodCode = &#39;SLOT&#39;]"/>
+        <map value=".outboundRelationship[@typeCode = 'REFR'].act[@classCode = 'ACT'][@moodCode = 'SLOT']"/>
       </mapping>
     </element>
     <element id="Appointment.account">
@@ -651,7 +719,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".subjectOf.observation[@moodCode = &#39;EVN&#39;][code = &#39;annotation&#39;].value"/>
+        <map value=".subjectOf.observation[@moodCode = 'EVN'][code = 'annotation'].value"/>
       </mapping>
       <mapping>
         <identity value="ical"/>
@@ -676,7 +744,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".subjectOf.observation[@moodCode = &#39;EVN&#39;][code = &#39;annotation&#39;].value"/>
+        <map value=".subjectOf.observation[@moodCode = 'EVN'][code = 'annotation'].value"/>
       </mapping>
       <mapping>
         <identity value="ical"/>
@@ -693,9 +761,9 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -703,7 +771,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[@typeCode = &#39;FLFS&#39;].act[@classCode &lt; &#39;ActCareProvisionRequestType&#39;][@moodCode = &#39;RQO&#39;]"/>
+        <map value=".outboundRelationship[@typeCode = 'FLFS'].act[@classCode &lt; 'ActCareProvisionRequestType'][@moodCode = 'RQO']"/>
       </mapping>
     </element>
     <element id="Appointment.subject">
@@ -816,8 +884,8 @@
     </element>
     <element id="Appointment.participant.actor">
       <path value="Appointment.participant.actor"/>
-      <short value="Person, Location/HealthcareService or Device"/>
-      <definition value="A Person, Location/HealthcareService or Device that is participating in the appointment."/>
+      <short value="The individual, device, location, or service participating in the appointment"/>
+      <definition value="The individual, device, location, or service participating in the appointment."/>
       <comment value="Where a CareTeam is provided, this does not imply that the entire team is included, just a single member from the group with the appropriate role. Where multiple members are required, please include the CareTeam the required number of times."/>
       <min value="0"/>
       <max value="1"/>
@@ -922,8 +990,350 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".activityTime[@xsi:type = (&#39;SXPR_TS&#39;, &#39;PIVL_TS&#39;)]"/>
+        <map value=".activityTime[@xsi:type = ('SXPR_TS', 'PIVL_TS')]"/>
       </mapping>
+    </element>
+    <element id="Appointment.recurrenceId">
+      <path value="Appointment.recurrenceId"/>
+      <short value="The sequence number in the recurrence"/>
+      <definition value="The sequence number that identifies a specific appointment in a recurring pattern."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Appointment.occurrenceChanged">
+      <path value="Appointment.occurrenceChanged"/>
+      <short value="Indicates that this appointment varies from a recurrence pattern"/>
+      <definition value="This appointment varies from the recurring pattern."/>
+      <comment value="For example, if a patient has physical therapy appointments every Tuesday and Thursday, but due to a national holiday, an single occurrence was rescheduled to a different day, while the rest of the recurring series remained on Tuesday / Thursday."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Appointment.recurrenceTemplate ">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="Appointment.recurrenceTemplate"/>
+      <short value="Details of the recurrence pattern/template used to generate occurrences"/>
+      <definition value="The details of the recurrence pattern or template that is used to generate recurring appointments."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Appointment.recurrenceTemplate.timezone">
+      <path value="Appointment.recurrenceTemplate.timezone"/>
+      <short value="The timezone of the occurrences"/>
+      <definition value="The timezone of the recurring appointment occurrences."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="IANATimezone"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
+          <valueString value="IANA Timezones (BCP 175)."/>
+        </extension>
+        <strength value="required"/>
+        <description value="IANA Timezones (BCP 175)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/timezones"/>
+      </binding>
+      <mapping>
+        <identity value="ical"/>
+        <map value="TZID"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Appointment.recurrenceTemplate.recurrenceType">
+      <path value="Appointment.recurrenceTemplate.recurrenceType"/>
+      <short value="The frequency of the recurrence"/>
+      <definition value="How often the appointment series should recur."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AppointmentRecurrenceType"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="IANA Timezones (BCP 175)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/appointment-recurrrence-type"/>
+      </binding>
+      <mapping>
+        <identity value="ical"/>
+        <map value="FREQ"/>
+      </mapping>
+    </element>
+    <element id="Appointment.recurrenceTemplate.lastOccurrenceDate">
+      <path value="Appointment.recurrenceTemplate.lastOccurrenceDate"/>
+      <short value="The date when the recurrence should end"/>
+      <definition value="Recurring appointments will not occur after this date."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="ical"/>
+        <map value="UNTIL"/>
+      </mapping>
+    </element>
+    <element id="Appointment.recurrenceTemplate.occurrenceCount">
+      <path value="Appointment.recurrenceTemplate.occurrenceCount"/>
+      <short value="The number of planned occurrences"/>
+      <definition value="How many appointments are planned in the recurrence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <mapping>
+        <identity value="ical"/>
+        <map value="COUNT"/>
+      </mapping>
+    </element>
+    <element id="Appointment.recurrenceTemplate.occurrenceDate">
+      <path value="Appointment.recurrenceTemplate.occurrenceDate"/>
+      <short value="Specific dates for a recurring set of appointments (no template)"/>
+      <definition value="The list of specific dates that will have appointments generated."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="ical"/>
+        <map value="RDATE"/>
+      </mapping>
+    </element>
+    <element id="Appointment.recurrenceTemplate.weeklyTemplate">
+      <path value="Appointment.recurrenceTemplate.weeklyTemplate"/>
+      <short value="Information about weekly recurring appointments"/>
+      <definition value="Information about weekly recurring appointments."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Appointment.recurrenceTemplate.weeklyTemplate.monday">
+      <path value="Appointment.recurrenceTemplate.weeklyTemplate.monday"/>
+      <short value="Recurs on Mondays"/>
+      <definition value="Indicates that recurring appointments should occur on Mondays."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Appointment.recurrenceTemplate.weeklyTemplate.tuesday">
+      <path value="Appointment.recurrenceTemplate.weeklyTemplate.tuesday"/>
+      <short value="Recurs on Tuesday"/>
+      <definition value="Indicates that recurring appointments should occur on Tuesdays."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Appointment.recurrenceTemplate.weeklyTemplate.wednesday">
+      <path value="Appointment.recurrenceTemplate.weeklyTemplate.wednesday"/>
+      <short value="Recurs on Wednesday"/>
+      <definition value="Indicates that recurring appointments should occur on Wednesdays."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Appointment.recurrenceTemplate.weeklyTemplate.thursday">
+      <path value="Appointment.recurrenceTemplate.weeklyTemplate.thursday"/>
+      <short value="Recurs on Thursday"/>
+      <definition value="Indicates that recurring appointments should occur on Thursdays."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Appointment.recurrenceTemplate.weeklyTemplate.friday">
+      <path value="Appointment.recurrenceTemplate.weeklyTemplate.friday"/>
+      <short value="Recurs on Friday"/>
+      <definition value="Indicates that recurring appointments should occur on Fridays."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Appointment.recurrenceTemplate.weeklyTemplate.saturday">
+      <path value="Appointment.recurrenceTemplate.weeklyTemplate.saturday"/>
+      <short value="Recurs on Saturday"/>
+      <definition value="Indicates that recurring appointments should occur on Saturdays."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Appointment.recurrenceTemplate.weeklyTemplate.sunday">
+      <path value="Appointment.recurrenceTemplate.weeklyTemplate.sunday"/>
+      <short value="Recurs on Sunday"/>
+      <definition value="Indicates that recurring appointments should occur on Sundays."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Appointment.recurrenceTemplate.weeklyTemplate.weekInterval">
+      <path value="Appointment.recurrenceTemplate.weeklyTemplate.weekInterval"/>
+      <short value="Recurs every nth week"/>
+      <definition value="The interval defines if the recurrence is every nth week. The default is every week, so it is expected that this value will be 2 or more.&#xD;&#xD;e.g. For recurring every second week this interval would be 2, or every third week the interval would be 3."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="Appointment.recurrenceTemplate.monthlyTemplate">
+      <path value="Appointment.recurrenceTemplate.monthlyTemplate"/>
+      <short value="Information about monthly recurring appointments"/>
+      <definition value="Information about monthly recurring appointments."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Appointment.recurrenceTemplate.monthlyTemplate.dayOfMonth">
+      <path value="Appointment.recurrenceTemplate.monthlyTemplate.dayOfMonth"/>
+      <short value="Recurs on a specific day of the month"/>
+      <definition value="Indicates that appointments in the series of recurring appointments should occur on a specific day of the month."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="Appointment.recurrenceTemplate.monthlyTemplate.nthWeekOfMonth">
+      <path value="Appointment.recurrenceTemplate.monthlyTemplate.nthWeekOfMonth"/>
+      <short value="Indicates which week of the month the appointment should occur"/>
+      <definition value="Indicates which week within a month the appointments in the series of recurring appointments should occur on."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="WeekOfMonth"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The set of weeks in a month."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/week-of-month"/>
+      </binding>
+    </element>
+    <element id="Appointment.recurrenceTemplate.monthlyTemplate.dayOfWeek">
+      <path value="Appointment.recurrenceTemplate.monthlyTemplate.dayOfWeek"/>
+      <short value="Indicates which day of the week the appointment should occur"/>
+      <definition value="Indicates which day of the week the recurring appointments should occur each nth week."/>
+      <comment value="This property is intended to be used with Appointment.recurrenceTemplate.monthly.nthWeek."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DaysOfWeek"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The days of the week."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/days-of-week"/>
+      </binding>
+    </element>
+    <element id="Appointment.recurrenceTemplate.monthlyTemplate.monthInterval">
+      <path value="Appointment.recurrenceTemplate.monthlyTemplate.monthInterval"/>
+      <short value="Recurs every nth month"/>
+      <definition value="Indicates that recurring appointments should occur every nth month."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="Appointment.recurrenceTemplate.yearlyTemplate">
+      <path value="Appointment.recurrenceTemplate.yearlyTemplate"/>
+      <short value="Information about yearly recurring appointments"/>
+      <definition value="Information about yearly recurring appointments."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Appointment.recurrenceTemplate.yearlyTemplate.yearInterval">
+      <path value="Appointment.recurrenceTemplate.yearlyTemplate.yearInterval"/>
+      <short value="Recurs every nth year"/>
+      <definition value="Appointment recurs every nth year."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="Appointment.recurrenceTemplate.excludingDate">
+      <path value="Appointment.recurrenceTemplate.excludingDate"/>
+      <short value="Any dates that should be excluded from the series"/>
+      <definition value="Any dates, such as holidays, that should be excluded from the recurrence."/>
+      <comment value="excludingDate is an alternative to excludingRecurrenceId.  You may say either that 12/25/XXXX should be excluded using excludingDate, or you may indicate the recurrenceId of the appointment that would fall on the excluded date in the excludingRecurrenceId property."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="ical"/>
+        <map value="EXDATE"/>
+      </mapping>
+    </element>
+    <element id="Appointment.recurrenceTemplate.excludingRecurrenceId">
+      <path value="Appointment.recurrenceTemplate.excludingRecurrenceId"/>
+      <short value="Any recurrence IDs that should be excluded from the recurrence"/>
+      <definition value="Any dates, such as holidays, that should be excluded from the recurrence."/>
+      <comment value="excludingRecurrenceId is an alternative to excludingDate.  You may say either that 12/25/XXXX should be excluded using excludingDate, or you may indicate the recurrenceId of the appointment that would fall on the excluded date in the excludingRecurrenceId property."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
     </element>
   </differential>
 </StructureDefinition>

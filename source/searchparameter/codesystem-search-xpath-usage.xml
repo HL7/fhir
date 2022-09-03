@@ -3,85 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="search-xpath-usage"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/search-xpath-usage defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">normal
-            
-            <a name="search-xpath-usage-normal"> </a>
-          
-          </td>
-          
-          <td>Normal</td>
-          
-          <td>The search parameter is derived directly from the selected nodes based on the type definitions.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">phonetic
-            
-            <a name="search-xpath-usage-phonetic"> </a>
-          
-          </td>
-          
-          <td>Phonetic</td>
-          
-          <td>The search parameter is derived by a phonetic transform from the selected nodes.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">other
-            
-            <a name="search-xpath-usage-other"> </a>
-          
-          </td>
-          
-          <td>Other</td>
-          
-          <td>The interpretation of the xpath statement is unknown (and can&#39;t be automated).</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -96,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.636"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="XPathUsageType"/>
   <title value="XPathUsageType"/>
   <status value="draft"/>
@@ -130,6 +53,6 @@
   <concept>
     <code value="other"/>
     <display value="Other"/>
-    <definition value="The interpretation of the xpath statement is unknown (and can&#39;t be automated)."/>
+    <definition value="The interpretation of the xpath statement is unknown (and can't be automated)."/>
   </concept>
 </CodeSystem>

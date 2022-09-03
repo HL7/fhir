@@ -48,6 +48,9 @@
 		<translation lang="en">ActivityGroup</translation>
 		<translation lang="it">GruppoAttivita</translation>
 	</item>
+	<item id="ActorDefinition">
+		<translation lang="en">ActorDefinition</translation>
+	</item>
 	<item id="AdverseEvent">
 		<translation lang="en">AdverseEvent</translation>
 		<translation lang="es">EventoAdverso</translation>
@@ -445,6 +448,9 @@
 		<translation lang="zh">基因分析</translation>
 		<translation lang="fr">AnalyseGénétique</translation>
 		<translation lang="it">AnalisiGenetica</translation>
+	</item>
+	<item id="GenomicStudy">
+		<translation lang="en">GenomicStudy</translation>
 	</item>
 	<item id="Goal">
 		<translation lang="en">Goal</translation>
@@ -884,11 +890,14 @@
 		<translation lang="zh">汇款</translation>
 		<translation lang="fr">Remise</translation>
 	</item>
-	<item id="RequestGroup">
-		<translation lang="en">RequestGroup</translation>
-		<translation lang="it">GruppoDiRichieste</translation>
-		<translation lang="es">GrupoDeSolicitudes</translation>
-		<translation lang="zh">请求分组</translation>
+	<item id="RequestOrchestration">
+		<translation lang="en">RequestOrchestration</translation>
+		<translation lang="it">OrchestrazioneDiRichieste</translation>
+		<translation lang="es">OrquestacionDeSolicitudes</translation>
+		<translation lang="zh">请求编排</translation>
+	</item>
+	<item id="Requirements">
+		<translation lang="en">Requirements</translation>
 	</item>
 	<item id="ResearchStudy">
 		<translation lang="en">ResearchStudy</translation>
@@ -1363,6 +1372,9 @@
 		<translation lang="es">Imposible resolver la referencia al recurso %s</translation>
 		<translation lang="fr">Impossible de résourdre la référence locale à la ressource %s</translation>
 		<translation lang="ru">Невозможно определить локальную ссылку на ресурс %s</translation>
+	</item>
+	<item id="MSG_REMOTE_FAIL" ecode="true">
+		<translation lang="en">Unable to resolve local reference to resource %s</translation>
 	</item>
 	<item id="MSG_NO_MATCH" ecode="true">
 		<translation lang="en">No Resource found matching the query "%s"</translation>

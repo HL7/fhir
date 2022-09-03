@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="imagingselection-2dgraphictype"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="ii"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="ii"/>
+  </extension>
+  <url value="http://hl7.org/fhir/imagingselection-2dgraphictype"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="ImagingSelection2DGraphicType"/>
+  <title value="ImagingSelection2DGraphicType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The type of coordinates describing a 2D image region."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/imagingselection-2dgraphictype"/>
+  <content value="complete"/>
+  <concept>
+    <code value="point"/>
+    <display value="POINT"/>
+    <definition value="A single location denoted by a single (x,y) pair."/>
+  </concept>
+  <concept>
+    <code value="polyline"/>
+    <display value="POLYLINE"/>
+    <definition value="A series of connected line segments with ordered vertices denoted by (x,y) triplets; the points need not be coplanar."/>
+  </concept>
+  <concept>
+    <code value="interpolated"/>
+    <display value="INTERPOLATED"/>
+    <definition value="An n-tuple list of (x,y) pair end points between which some form of implementation dependent curved lines are to be drawn. The rendered line shall pass through all the specified points."/>
+  </concept>
+  <concept>
+    <code value="circle"/>
+    <display value="CIRCLE"/>
+    <definition value="Two points shall be present; the first point is to be interpreted as the center and the second point as a point on the circumference of a circle, some form of implementation dependent representation of which is to be drawn."/>
+  </concept>
+  <concept>
+    <code value="ellipse"/>
+    <display value="ELLIPSE"/>
+    <definition value="An ellipse defined by four (x,y) pairs, the first two pairs specifying the endpoints of the major axis and the second two pairs specifying the endpoints of the minor axis."/>
+  </concept>
+</CodeSystem>

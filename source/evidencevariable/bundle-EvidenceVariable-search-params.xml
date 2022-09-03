@@ -16,8 +16,8 @@
         <description value="What resource is being referenced"/>
         <code value="composed-of"/>
         <type value="reference"/>
-        <expression value="EvidenceVariable.relatedArtifact.where(type=&#39;composed-of&#39;).resource"/>
-        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value=&#39;composed-of&#39;]/f:resource"/>
+        <expression value="EvidenceVariable.relatedArtifact.where(type='composed-of').resource"/>
+        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value='composed-of']/f:resource"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -101,7 +101,7 @@
         </component>
         <component>
           <definition value="context-quantity"/>
-          <expression value="value.as(Quantity) | value.as(Range)"/>
+          <expression value="value.ofType(Quantity) | value.ofType(Range)"/>
         </component>
       </SearchParameter>
     </resource>
@@ -125,7 +125,7 @@
         </component>
         <component>
           <definition value="context"/>
-          <expression value="value.as(CodeableConcept)"/>
+          <expression value="value.ofType(CodeableConcept)"/>
         </component>
       </SearchParameter>
     </resource>
@@ -164,8 +164,8 @@
         <description value="What resource is being referenced"/>
         <code value="depends-on"/>
         <type value="reference"/>
-        <expression value="EvidenceVariable.relatedArtifact.where(type=&#39;depends-on&#39;).resource"/>
-        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value=&#39;depends-on&#39;]/f:resource"/>
+        <expression value="EvidenceVariable.relatedArtifact.where(type='depends-on').resource"/>
+        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value='depends-on']/f:resource"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -184,8 +184,8 @@
         <description value="What resource is being referenced"/>
         <code value="derived-from"/>
         <type value="reference"/>
-        <expression value="EvidenceVariable.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
-        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
+        <expression value="EvidenceVariable.relatedArtifact.where(type='derived-from').resource"/>
+        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value='derived-from']/f:resource"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -264,8 +264,8 @@
         <description value="What resource is being referenced"/>
         <code value="predecessor"/>
         <type value="reference"/>
-        <expression value="EvidenceVariable.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
-        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
+        <expression value="EvidenceVariable.relatedArtifact.where(type='predecessor').resource"/>
+        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value='predecessor']/f:resource"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -324,8 +324,8 @@
         <description value="What resource is being referenced"/>
         <code value="successor"/>
         <type value="reference"/>
-        <expression value="EvidenceVariable.relatedArtifact.where(type=&#39;successor&#39;).resource"/>
-        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value=&#39;successor&#39;]/f:resource"/>
+        <expression value="EvidenceVariable.relatedArtifact.where(type='successor').resource"/>
+        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value='successor']/f:resource"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

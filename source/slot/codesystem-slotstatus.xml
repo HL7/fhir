@@ -3,113 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="slotstatus"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/slotstatus defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">busy
-            
-            <a name="slotstatus-busy"> </a>
-          
-          </td>
-          
-          <td>Busy</td>
-          
-          <td>Indicates that the time interval is busy because one  or more events have been scheduled for that interval.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">free
-            
-            <a name="slotstatus-free"> </a>
-          
-          </td>
-          
-          <td>Free</td>
-          
-          <td>Indicates that the time interval is free for scheduling.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">busy-unavailable
-            
-            <a name="slotstatus-busy-unavailable"> </a>
-          
-          </td>
-          
-          <td>Busy (Unavailable)</td>
-          
-          <td>Indicates that the time interval is busy and that the interval cannot be scheduled.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">busy-tentative
-            
-            <a name="slotstatus-busy-tentative"> </a>
-          
-          </td>
-          
-          <td>Busy (Tentative)</td>
-          
-          <td>Indicates that the time interval is busy because one or more events have been tentatively scheduled for that interval.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="slotstatus-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered in error</td>
-          
-          <td>This instance should not have been part of this patient&#39;s medical record.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
@@ -124,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.483"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="SlotStatus"/>
   <title value="SlotStatus"/>
   <status value="draft"/>
@@ -168,6 +63,6 @@
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in error"/>
-    <definition value="This instance should not have been part of this patient&#39;s medical record."/>
+    <definition value="This instance should not have been part of this patient's medical record."/>
   </concept>
 </CodeSystem>

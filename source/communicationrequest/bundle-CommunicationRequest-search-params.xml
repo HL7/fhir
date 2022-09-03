@@ -176,7 +176,7 @@
         <description value="When scheduled"/>
         <code value="occurrence"/>
         <type value="date"/>
-        <expression value="CommunicationRequest.occurrence.as(dateTime) | CommunicationRequest.occurrence.as(Period)"/>
+        <expression value="CommunicationRequest.occurrence.ofType(dateTime) | CommunicationRequest.occurrence.ofType(Period)"/>
         <xpath value="f:CommunicationRequest/f:occurrenceDateTime | f:CommunicationRequest/f:occurrencePeriod"/>
         <xpathUsage value="normal"/>
       </SearchParameter>

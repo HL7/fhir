@@ -53,7 +53,7 @@
 	</space>
 	<space>
 		<url>http://loinc.org</url>
-		<columnName>LOINC Code</columnName>
+		<columnName>LOINC Field Name</columnName>
 		<title>LOINC code for the element</title>
 		<id>loinc</id>
 		<sort>2</sort>
@@ -118,7 +118,7 @@
 	</space>
 	<space>
 		<url>http://nema.org/dicom</url>
-		<link>http://nema.org/dicom</link>
+		<link>https://www.dicomstandard.org/current</link>
 		<columnName>DICOM Mapping</columnName>
 		<title>DICOM Tag Mapping</title>
 		<id>dicom</id>
@@ -263,7 +263,7 @@
 		<url>http://www.pharmacists.ca/</url>
 		<link>http://www.pharmacists.ca/</link>
 		<columnName>CPhA3 (Pharmacy) Mapping</columnName>
-		<title>Canadian Pharmacy Associaiton eclaims standard</title>
+		<title>Canadian Pharmacy Association eclaims standard</title>
 		<id>cpha3pharm</id>
 		<sort>21</sort>
 		<publish>true</publish>
@@ -462,6 +462,15 @@
 		<title>ISO/IEEE 11073-10207</title>
 		<id>BICEPS</id>
 		<sort>43</sort>
+		<publish>true</publish>
+	</space>
+	<space>
+		<url>http://hl7.org/fhir/consent</url>
+    <link>http://hl7.org/fhir/consent.html</link>
+		<columnName>Consent Mapping</columnName>
+		<title>FHIR Consent Mapping</title>
+		<id>fhirconsent</id>
+		<sort>44</sort>
 		<publish>true</publish>
 	</space>
 	<space>

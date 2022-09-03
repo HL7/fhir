@@ -73,6 +73,14 @@
 		</identifier>
 	</facility>
 
+	<diagnosisRelatedGroup>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/ex-diagnosisrelatedgroup"/>
+			<code value="400"/>
+			<display value="Head trauma - concussion"/>
+		</coding>
+	</diagnosisRelatedGroup>
+	
 	<careTeam>
 		<sequence value="1"/>
 		<provider>
@@ -85,12 +93,12 @@
 				<code value="primary"/>
 			</coding>
 		</role>
-		<qualification>
+		<specialty>
 			<coding>
 				<system value="http://example.org/fhir/CodeSystem/provider-qualification"/>
 				<code value="physician"/>
 			</coding>
-		</qualification>
+		</specialty>
 	</careTeam>
 
 	<supportingInfo>
@@ -134,13 +142,7 @@
 				<code value="admitting"/>
 			</coding>
 		</type>
-		<packageCode>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/ex-diagnosisrelatedgroup"/>
-				<code value="400"/>
-				<display value="Head trauma - concussion"/>
-			</coding>
-		</packageCode>
+
 	</diagnosis>
 
 	<insurance>

@@ -34,9 +34,6 @@ Resource Content
   <ul>
     <li><a href="#tabs-struc">Structure</a></li>
     <li><a href="#tabs-uml">UML</a></li>
-    <li><a href="#tabs-xml">XML</a></li>
-    <li><a href="#tabs-json">JSON</a></li>
-    <li><a href="#tabs-ttl">Turtle</a></li>
     <li><a href="#tabs-all">All</a></li>
   </ul>
   <div id="tabs-struc">
@@ -47,41 +44,14 @@ Resource Content
       </div>
     </div>
   </div>
-  <div id="tabs-uml"> 
-  
+  <div id="tabs-uml">
+
     <div id="uml">
       <p><b>UML Diagram</b> (<a href="formats.html#uml">Legend</a>)</p>
       <div id="uml-inner">
         <%svg A%>
       </div>
     </div>
-  </div>
-  <div id="tabs-xml">
-    <div id="xml">
-      <p><b>XML Template</b></p>
-      <div id="xml-inner">
-        <%xml%>
-      </div>
-    </div>
-  </div>
-  <div id="tabs-json">
-    <div id="json">
-      <p><b>JSON Template</b></p>
-      <div id="json-inner">
-        <%json%>
-      </div>
-    </div>
-
-  </div>
-  <div id="tabs-ttl">
-
-<div id="ttl">
-<p><b>Turtle Template</b></p>
- <div id="json-inner">
-  <%ttl%>
- </div>
-</div>
-
   </div>
   <div id="tabs-all">
     <div id="tbl">
@@ -92,7 +62,7 @@ Resource Content
       </div>
     </div>
 
- 
+
     <div id="uml">
       <a name="uml"></a>
       <p><b>UML Diagram</b> (<a href="formats.html#uml">Legend</a>)</p>
@@ -100,33 +70,14 @@ Resource Content
         <%svg B%>
       </div>
     </div>
-    <div id="xml">
-      <a name="xml"></a>
-      <p><b>XML Template</b></p>
-      <div id="xml-inner">
-        <%xml%>
-      </div>
-    </div>
-
-<div id="json2">
-      <a name="json"></a>
-      <p><b>JSON Template</b></p>
-      <div id="json-inner">
-        <%json%>
-      </div>
-    </div>  
-  
-<div id="ttl2">
-<a name="ttl"></a>
-<p><b>Turtle Template</b></p>
- <div id="ttl-inner">
-  <%ttl%>
- </div>
-</div>
-  
   </div>
 </div>
-  
+
+<p>&nbsp;</p>
+<p>Additional definitions:
+Master Definition <a href="<%name%>.profile.xml.html">XML</a> + <a href="<%name%>.profile.json.html">JSON</a> + <a href="<%name%>.shex.html">ShEx</a>,
+the <a href="<%name%>.xlsx">spreadsheet version</a> &amp; the <a href="<%name%>-dependencies.html">dependency analysis</a>,
+Resource Representation <a href="xml.html">XML</a> + <a href="json.html">JSON</a> + <a href="rdf.html">Turtle</a></p>
 
 <a name="tx"></a>
 <%tx%>
@@ -150,24 +101,24 @@ Resource Content
 <script>
  try {
    var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
- } catch(exception){ 
+ } catch(exception){
  }
  if (!currentTabIndex)
    currentTabIndex = '0';
 
 $( '#tabs' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
-<%othertabs setup%>     
-     
+<%othertabs setup%>
+
 function store(currentTab) {
   document.activeElement.blur();
   try {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
-  } catch(exception){ 
+  } catch(exception){
   }
   $( '#tabs' ).tabs('option', 'active', currentTab);
-<%othertabs store%>     
-}     
+<%othertabs store%>
+}
 </script>
-    
+
 </body>
 </html>

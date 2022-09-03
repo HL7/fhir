@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Transport"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Transport"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="Record of transport."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
@@ -497,7 +497,6 @@
       <type>
         <code value="dateTime"/>
       </type>
-      <condition value="inv-1"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Request.authoredOn"/>
@@ -522,7 +521,6 @@
       <type>
         <code value="dateTime"/>
       </type>
-      <condition value="inv-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -631,7 +629,7 @@
     <element id="Transport.location">
       <path value="Transport.location"/>
       <short value="Where transport occurs"/>
-      <definition value="Principal physical location where the this transport is performed."/>
+      <definition value="Principal physical location where this transport is performed."/>
       <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
       <min value="0"/>
       <max value="1"/>

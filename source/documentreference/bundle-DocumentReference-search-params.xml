@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
   <id value="DocumentReference-search-params"/>
   <entry>
     <resource>
@@ -350,14 +350,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DocumentReference.content.identifier,DocumentReference.identifier"/>
+          <valueString value="DocumentReference.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-identifier"/>
         <description value="Identifier of the attachment binary"/>
         <code value="identifier"/>
         <type value="token"/>
-        <expression value="DocumentReference.content.identifier | DocumentReference.identifier"/>
-        <xpath value="f:DocumentReference/f:content/f:identifier | f:DocumentReference/f:identifier"/>
+        <expression value="DocumentReference.identifier"/>
+        <xpath value="f:DocumentReference/f:identifier"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>

@@ -10,7 +10,7 @@ version dependent. This significantly complicates implementation based on the co
 safety can be assured, so changing the meaning of an existing code SHOULD be avoided whenever possible. It is preferable to assign a new identifier to a code system
 when any concepts in it have a significant change in meaning (for example, the German diagnostic classification code system
 ICD10GM2009 has a different <i>system</i> to ICD10GM2008), but this also can have substantial impact on implementation, so
-is often not practical - for instance, <a href="snomedct.html">SNOMED CT</a> has a complex version release framework, which
+is often not practical - for instance, <a href="http://snomed.org">SNOMED CT</a> has a complex version release framework, which
 may lead to variations in meaning of concepts, but there is only one identifier for SNOMED CT.
 </p>
 <p>
@@ -198,15 +198,17 @@ basic property URIs are defined:
       <li>deprecated - planned to be removed from use</li>
       <li>retired - still present for historical reasons, but no longer allowed to be used</li>
      </ul>
-     The HL7 defined code systems (whether defined by the FHIR project, the V3 framework, or the V2 standard) 
-     all use this property to define their status. HL7 uses "active" (and considers this the default status), and deprecated and retired (= inactive)
    </td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#retirementDate : date</td><td>Date Concept was retired</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#inactive : boolean</td><td>True if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false. Note that the status property may also be used to indicate that a concept is inactive</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#effectiveDate : date</td><td>The date at which the concept was status was last changed</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#deprecationDate : date</td><td>Date Concept was deprecated</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#retirementDate : date</td><td>Date Concept was retired</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#notSelectable : boolean</td><td>This concept is a grouping concept and not intended to be used in the normal use of the code system (though may be used for filters etc.). This is also known as 'Abstract'</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#parent : code</td><td>An immediate parent of the concept in the hierarchy</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#child : code</td><td>An immediate child of the concept in the hierarchy</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#notSelectable : boolean</td><td>This concept is a grouping concept and not intended to be used in
-   the normal use of the code system (though may be used for filters etc.). This is also known as 'Abstract'</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#partOf : code</td><td>The concept identified in this property (by it's code) contains this concept as a component</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#synonym : code</td><td>This property contains an alternative code that may be used to identify this concept instead of the primary code</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#comment : code</td><td>A string that provides additional detail pertinent to the use or understanding of the concept</td></tr>
 </table>
 <p>
 The parent and child properties are used when performing concept lookup (using the <a href="codesystem-operations.html#lookup">$lookup</a> operation),
@@ -282,6 +284,66 @@ The following filters are defined for all code systems:
    <td>[string,string...]</td>
    <td>Includes all codes that have a property value equal to one of the specified strings, where [property] is the code for any <a href="#properties">defined property</a></td>
    <td>The values cannot include ",", since it is being used as a delimiter</td>
+ </tr>
+</table>
+
+<blockquote class="stu-note">
+<p>
+<strong>Note: </strong>Ballot feedback is sought in relation to the additional concept filters for code systems supporting is-a relationships included in the table below, which has been added for R5.
+</p>
+</blockquote>
+<p>
+The following filters are defined for all code systems that support "is-a" relationships between concepts. (The filters can be used regardless of whether the "is-a" relationships are conveyed as concept properties or as concept nesting):
+</p>
+<table class="grid">
+ <tr>
+   <th>Property Name</th>
+   <th>Operation</th>
+   <th>Value</th>
+   <th>Definition</th>
+   <th>Notes</th>
+ </tr>
+ <tr>
+   <td>concept</td>
+   <td>is-a</td>
+   <td>[string] concept code</td>
+   <td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (include descendant codes and self).</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td>concept</td>
+   <td>descendent-of</td>
+   <td>[string] concept code</td>
+   <td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself i.e. include descendant codes only).</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td>concept</td>
+   <td>is-not-a</td>
+   <td>[string] concept code</td>
+   <td>The specified property of the code does not have an is-a relationship with the provided value.</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td>concept</td>
+   <td>generalizes</td>
+   <td>[string] concept code</td>
+   <td>Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (i.e. include ancestor codes and self).</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td>concept</td>
+   <td>child-of</td>
+   <td>[string] concept code</td>
+   <td>Only concepts with a direct hierarchical relationship to the index code and no other concepts. This does not include the index code in the output.</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td>concept</td>
+   <td>descendent-leaf</td>
+   <td>[string] concept code</td>
+   <td>Includes concept ids that have a transitive is-a relationship with the concept Id provided as the value, but which do not have any concept ids with transitive is-a relationships with themselves.</td>
+   <td></td>
  </tr>
 </table>
 

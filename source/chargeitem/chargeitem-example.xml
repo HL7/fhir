@@ -22,9 +22,9 @@
 	<subject>
 		<reference value="Patient/example"/>
 	</subject>
-	<context>
+	<encounter>
 		<reference value="Encounter/example"/>
-	</context>
+	</encounter>
 	<occurrencePeriod>
 		<start value ="2017-01-25T08:00:00+01:00"/>
 		<end value ="2017-01-25T12:35:00+01:00"/>
@@ -68,12 +68,17 @@
 	<quantity>
 		<value value= "1"/>
 	</quantity> 
-	<factorOverride value="0.8"/>
-	<priceOverride>
-	    <value value="40"/>
-        <currency value="EUR"/>
-	</priceOverride>
-	<overrideReason value= "Patient is Cardiologist's golf buddy, so he gets a 20% discount!"/>
+	<totalPriceComponent>
+		<type value="base"/>
+		<factor value="0.8"/>
+		<amount>
+			<value value="40"/>
+			<currency value="EUR"/>
+		</amount>
+	</totalPriceComponent>
+	<overrideReason>
+		<text value= "Patient is Cardiologist's golf buddy, so he gets a 20% discount!"/>
+	</overrideReason>
 	<enterer>
 		<reference value="Practitioner/example"/>
 	</enterer>
@@ -90,7 +95,9 @@
 			</coding>
 	</reason>
 	<service>
-		<reference value="Procedure/example"/>
+		<reference>
+			<reference value="Procedure/example"/>
+		</reference>
 	</service>
 	<account>
 		<reference value="Account/example"/>

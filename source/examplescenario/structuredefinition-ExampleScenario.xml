@@ -1,798 +1,1077 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="ExampleScenario"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-    <valueString value="Foundation.Conformance"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="anonymous"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".status = retired"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="CanonicalResource"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
-  <version value="4.6.0"/>
-  <name value="ExampleScenario"/>
-  <status value="draft"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
-    </telecom>
-  </contact>
-  <description value="Example of workflow instance."/>
-  <fhirVersion value="4.6.0"/>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="ExampleScenario"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-  <derivation value="specialization"/>
-  <differential>
-    <element id="ExampleScenario">
-      <path value="ExampleScenario"/>
-      <short value="Example of workflow instance"/>
-      <definition value="Example of workflow instance."/>
-      <min value="0"/>
-      <max value="*"/>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="ExampleScenario"/>
+	<meta>
+		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+		<valueString value="Foundation.Conformance"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="0"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+		<valueCode value="anonymous"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="fhir"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+		<valueCode value=".status = retired"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+		<valueString value="CanonicalResource"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
+	<version value="5.0.0"/>
+	<name value="ExampleScenario"/>
+	<status value="draft"/>
+	<date value="2021-01-05T10:01:24+11:00"/>
+	<publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+		</telecom>
+	</contact>
+	<description value="A walkthrough of a workflow showing the interaction between systems and the instances shared, possibly including the evolution of instances over time."/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="ExampleScenario"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+	<derivation value="specialization"/>
+	<differential>
+		<element id="ExampleScenario">
+			<path value="ExampleScenario"/>
+			<short value="Example of workflow instance"/>
+			<definition value="Example of workflow instance."/>
+			<min value="0"/>
+			<max value="*"/>
+			<constraint>
+				<key value="cnl-0"/>
+				<severity value="warning"/>
+				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
+			</constraint>
       <constraint>
-        <key value="cnl-0"/>
-        <severity value="warning"/>
-        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){0,254}&#39;)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
+        <key value="exs-3"/>
+        <severity value="error"/>
+        <human value="Must have actors if status is active or required"/>
+        <expression value="status='active' or status='retired' implies actor.exists()"/>
+        <xpath value="not(f:status/@value = ('active','retired')) or exists(f:actor)"/>
       </constraint>
-      <mapping>
-        <identity value="w5"/>
-        <map value="infrastructure.information"/>
-      </mapping>
-    </element>
-    <element id="ExampleScenario.url">
-      <path value="ExampleScenario.url"/>
-      <short value="Canonical identifier for this example scenario, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this example scenario is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the example scenario is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-      <requirements value="Allows the example scenario to be referenced by a single globally unique identifier."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.url"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-    </element>
-    <element id="ExampleScenario.identifier">
-      <path value="ExampleScenario.identifier"/>
-      <short value="Additional identifier for the example scenario"/>
-      <definition value="A formal identifier that is used to identify this example scenario when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-      <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this example scenario outside of FHIR, where it is not possible to use the logical URI."/>
-      <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="ExampleScenario.version">
-      <path value="ExampleScenario.version"/>
-      <short value="Business version of the example scenario"/>
-      <definition value="The identifier that is used to identify this version of the example scenario when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the example scenario author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different example scenario instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the example scenario with the format [url]|[version]."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.version"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.version"/>
-      </mapping>
-    </element>
-    <element id="ExampleScenario.name">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
-        <valueString value="&amp; A name should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a name."/>
-      </extension>
-      <path value="ExampleScenario.name"/>
-      <short value="Name for this example scenario (computer friendly)"/>
-      <definition value="A natural language name identifying the example scenario. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-      <requirements value="Support human navigation and code generation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <condition value="cnl-0"/>
-      <isSummary value="true"/>
-    </element>
-    <element id="ExampleScenario.status">
-      <path value="ExampleScenario.status"/>
-      <short value="draft | active | retired | unknown"/>
-      <definition value="The status of this example scenario. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of example scenarios that are appropriate for use versus not."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PublicationStatus"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.status"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-    </element>
-    <element id="ExampleScenario.experimental">
-      <path value="ExampleScenario.experimental"/>
-      <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-      <comment value="Allows filtering of example scenarios that are appropriate for use versus not."/>
-      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level example scenario."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.experimental"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-    </element>
-    <element id="ExampleScenario.date">
-      <path value="ExampleScenario.date"/>
-      <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the example scenario was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the &#39;content logical definition&#39;)."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the example scenario. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-      <alias value="Revision Date"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.date"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.recorded"/>
-      </mapping>
-    </element>
-    <element id="ExampleScenario.publisher">
-      <path value="ExampleScenario.publisher"/>
-      <short value="Name of the publisher (organization or individual)"/>
-      <definition value="The name of the organization or individual that published the example scenario."/>
-      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the example scenario is the organization or individual primarily responsible for the maintenance and upkeep of the example scenario. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the example scenario. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the example scenario.  May also allow for contact."/>
+      <constraint>
+        <key value="exs-4"/>
+        <severity value="error"/>
+        <human value="Must have processes if status is active or required"/>
+        <expression value="status='active' or status='retired' implies process.exists()"/>
+        <xpath value="not(f:status/@value = ('active','retired')) or exists(f:process)"/>
+      </constraint>
+      <constraint>
+        <key value="exs-6"/>
+        <severity value="error"/>
+        <human value="Actor keys must be unique"/>
+        <expression value="actor.key.count() = actor.key.distinct().count()"/>
+        <xpath value="count(f:actor/f:key/@value) = count(distinct-values(f:actor/f:key/@value))"/>
+      </constraint>
+      <constraint>
+        <key value="exs-7"/>
+        <severity value="error"/>
+        <human value="Actor titles must be unique"/>
+        <expression value="actor.title.count() = actor.title.distinct().count()"/>
+        <xpath value="count(f:actor/f:title/@value) = count(distinct-values(f:actor/f:title/@value))"/>
+      </constraint>
+      <constraint>
+        <key value="exs-8"/>
+        <severity value="error"/>
+        <human value="Instance keys must be unique"/>
+        <expression value="instance.key.count() = instance.key.distinct().count()"/>
+        <xpath value="count(f:instance/f:key/@value) = count(distinct-values(f:instance/f:key/@value))"/>
+      </constraint>
+      <constraint>
+        <key value="exs-9"/>
+        <severity value="error"/>
+        <human value="Instance titles must be unique"/>
+        <expression value="instance.title.count() = instance.title.distinct().count()"/>
+        <xpath value="count(f:instance/f:title/@value) = count(distinct-values(f:instance/f:title/@value))"/>
+      </constraint>
+      <constraint>
+        <key value="exs-12"/>
+        <severity value="error"/>
+        <human value="Process titles must be unique"/>
+        <expression value="process.title.count() = process.title.distinct().count()"/>
+        <xpath value="count(f:process/f:title/@value) = count(distinct-values(f:process/f:title/@value))"/>
+      </constraint>      
+			<mapping>
+				<identity value="w5"/>
+				<map value="infrastructure.information"/>
+			</mapping>
+		</element>
+		<element id="ExampleScenario.url">
+			<path value="ExampleScenario.url"/>
+			<short value="Canonical identifier for this example scenario, represented as a URI (globally unique)"/>
+			<definition value="An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this example scenario is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the example scenario is stored on different servers."/>
+			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+			<requirements value="Allows the example scenario to be referenced by a single globally unique identifier."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
+			<constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.url"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+		</element>
+		<element id="ExampleScenario.identifier">
+			<path value="ExampleScenario.identifier"/>
+			<short value="Additional identifier for the example scenario"/>
+			<definition value="A formal identifier that is used to identify this example scenario when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this example scenario outside of FHIR, where it is not possible to use the logical URI."/>
+			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="ExampleScenario.version">
+			<path value="ExampleScenario.version"/>
+			<short value="Business version of the example scenario"/>
+			<definition value="The identifier that is used to identify this version of the example scenario when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the example scenario author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+			<comment value="There may be different example scenario instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the example scenario with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.version"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.version"/>
+			</mapping>
+		</element>
+    <element id="ExampleScenario.versionAlgorithm[x]">
+      <path value="ExampleScenario.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.publisher"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.witness"/>
-      </mapping>
-    </element>
-    <element id="ExampleScenario.contact">
-      <path value="ExampleScenario.contact"/>
-      <short value="Contact details for the publisher"/>
-      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
-      <min value="0"/>
-      <max value="*"/>
       <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.contact"/>
-      </mapping>
-    </element>
-    <element id="ExampleScenario.useContext">
-      <path value="ExampleScenario.useContext"/>
-      <short value="The context that the content is intended to support"/>
-      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate example scenario instances."/>
-      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-      <requirements value="Assist in searching for appropriate content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="UsageContext"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.useContext"/>
-      </mapping>
-    </element>
-    <element id="ExampleScenario.jurisdiction">
-      <path value="ExampleScenario.jurisdiction"/>
-      <short value="Intended jurisdiction for example scenario (if applicable)"/>
-      <definition value="A legal or geographic region in which the example scenario is intended to be used."/>
-      <comment value="It may be possible for the example scenario to be used in jurisdictions other than those for which it was originally designed or intended."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
+        <code value="Coding"/>
       </type>
       <isSummary value="true"/>
       <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Jurisdiction"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
         <strength value="extensible"/>
-        <description value="Countries and regions within which this artifact is targeted for use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.jurisdiction"/>
-      </mapping>
-    </element>
-    <element id="ExampleScenario.purpose">
-      <path value="ExampleScenario.purpose"/>
-      <short value="The purpose of the example, e.g. to illustrate a scenario"/>
-      <definition value="What the example scenario resource is created for. This should not be used to show the business purpose of the scenario itself, but the purpose of documenting a scenario."/>
-      <comment value="This element does not describe the usage of the example scenario. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this example scenario."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.purpose"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.why[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="ExampleScenario.copyright">
-      <path value="ExampleScenario.copyright"/>
-      <short value="Use and/or publishing restrictions"/>
-      <definition value="A copyright statement relating to the example scenario and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the example scenario."/>
-      <comment value="nullFrequently, the copyright differs between the value set and the codes that are included. The copyright statement should clearly differentiate between these when required."/>
-      <requirements value="Consumers must be able to determine any legal restrictions on the use of the example scenario and/or its content."/>
-      <alias value="License"/>
-      <alias value="Restrictions"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.copyright"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="ExampleScenario.actor">
-      <path value="ExampleScenario.actor"/>
-      <short value="Actor participating in the resource"/>
-      <definition value="Actor participating in the resource."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.actor.actorId">
-      <path value="ExampleScenario.actor.actorId"/>
-      <short value="ID or acronym of the actor"/>
-      <definition value="ID or acronym of actor."/>
-      <comment value="should this be called ID or acronym?"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.actor.type">
-      <path value="ExampleScenario.actor.type"/>
-      <short value="person | entity"/>
-      <definition value="The type of actor - person or system."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ExampleScenarioActorType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The type of actor - system or human."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/examplescenario-actor-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
       </binding>
     </element>
-    <element id="ExampleScenario.actor.name">
-      <path value="ExampleScenario.actor.name"/>
-      <short value="The name of the actor as shown in the page"/>
-      <definition value="The name of the actor as shown in the page."/>
-      <comment value="Cardinality: is name and description 1..1?"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.actor.description">
-      <path value="ExampleScenario.actor.description"/>
-      <short value="The description of the actor"/>
-      <definition value="The description of the actor."/>
-      <comment value="Cardinality: is name and description 1..1?"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.instance">
-      <path value="ExampleScenario.instance"/>
-      <short value="Each resource and each version that is present in the workflow"/>
-      <definition value="Each resource and each version that is present in the workflow."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.instance.resourceId">
-      <path value="ExampleScenario.instance.resourceId"/>
-      <short value="The id of the resource for referencing"/>
-      <definition value="The id of the resource for referencing."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.instance.type">
-      <path value="ExampleScenario.instance.type"/>
-      <short value="The type of the resource"/>
-      <definition value="The type of the resource."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRResourceType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The type of resource."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+		<element id="ExampleScenario.name">
+			<path value="ExampleScenario.name"/>
+			<short value="To be removed?"/>
+			<definition value="Temporarily retained for tooling purposes."/>
+			<comment value="Not needed as code will never be generated from one of these"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.name"/>
+			</mapping>
+		</element>
+		<element id="ExampleScenario.title">
+			<path value="ExampleScenario.title"/>
+			<short value="Name for this example scenario (human friendly)"/>
+			<definition value="A short, descriptive, user-friendly title for the ExampleScenario."/>
+			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.title"/>
+			</mapping>
+		</element>
+		<element id="ExampleScenario.status">
+			<path value="ExampleScenario.status"/>
+			<short value="draft | active | retired | unknown"/>
+			<definition value="The status of this example scenario. Enables tracking the life-cycle of the content."/>
+			<comment value="Allows filtering of example scenarios that are appropriate for use versus not."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isModifier value="true"/>
+			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PublicationStatus"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The lifecycle status of an artifact."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.status"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.status"/>
+			</mapping>
+		</element>
+		<element id="ExampleScenario.experimental">
+			<path value="ExampleScenario.experimental"/>
+			<short value="For testing purposes, not real usage"/>
+			<definition value="A Boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+			<comment value="Allows filtering of example scenarios that are appropriate for use versus not."/>
+			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level example scenario."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.experimental"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.class"/>
+			</mapping>
+		</element>
+		<element id="ExampleScenario.date">
+			<path value="ExampleScenario.date"/>
+			<short value="Date last changed"/>
+			<definition value="The date  (and optionally time) when the example scenario was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the &#39;content logical definition&#39;)."/>
+			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the example scenario. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+			<alias value="Revision Date"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.date"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.recorded"/>
+			</mapping>
+		</element>
+		<element id="ExampleScenario.publisher">
+			<path value="ExampleScenario.publisher"/>
+			<short value="Name of the publisher (organization or individual)"/>
+			<definition value="The name of the organization or individual that published the example scenario."/>
+			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the example scenario is the organization or individual primarily responsible for the maintenance and upkeep of the example scenario. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the example scenario. This item SHOULD be populated unless the information is available from context."/>
+			<requirements value="Helps establish the &quot;authority/credibility&quot; of the example scenario.  May also allow for contact."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.publisher"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.witness"/>
+			</mapping>
+		</element>
+		<element id="ExampleScenario.contact">
+			<path value="ExampleScenario.contact"/>
+			<short value="Contact details for the publisher"/>
+			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+			<comment value="May be a web site, an email address, a telephone number, etc."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.contact"/>
+			</mapping>
+		</element>
+		<element id="ExampleScenario.description">
+			<path value="ExampleScenario.description"/>
+			<short value="Natural language description of the ExampleScenario"/>
+			<definition value="A free text natural language description of the ExampleScenario from a consumer's perspective."/>
+			<comment value="This description can be used to capture details such as why the ExampleScenario was built. It is not a rendering of the ExampleScenario as conveyed in the 'text' field of the resource itself."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.description"/>
+			</mapping>
+		</element>
+		<element id="ExampleScenario.useContext">
+			<path value="ExampleScenario.useContext"/>
+			<short value="The context that the content is intended to support"/>
+			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate example scenario instances."/>
+			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+			<requirements value="Assist in searching for appropriate content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="UsageContext"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.useContext"/>
+			</mapping>
+		</element>
+		<element id="ExampleScenario.jurisdiction">
+			<path value="ExampleScenario.jurisdiction"/>
+			<short value="Intended jurisdiction for example scenario (if applicable)"/>
+			<definition value="A legal or geographic region in which the example scenario is intended to be used."/>
+			<comment value="It may be possible for the example scenario to be used in jurisdictions other than those for which it was originally designed or intended."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="Jurisdiction"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Countries and regions within which this artifact is targeted for use."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.jurisdiction"/>
+			</mapping>
+		</element>
+		<element id="ExampleScenario.purpose">
+			<path value="ExampleScenario.purpose"/>
+			<short value="The purpose of the example, e.g. to illustrate a scenario"/>
+			<definition value="What the example scenario resource is created for. This should not be used to show the business purpose of the scenario itself, but the purpose of documenting a scenario."/>
+			<comment value="This element does not describe the usage of the example scenario. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this example scenario."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.purpose"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.why[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="ExampleScenario.copyright">
+			<path value="ExampleScenario.copyright"/>
+			<short value="Use and/or publishing restrictions"/>
+			<definition value="A copyright statement relating to the example scenario and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the example scenario."/>
+			<comment value="nullFrequently, the copyright differs between the value set and the codes that are included. The copyright statement should clearly differentiate between these when required."/>
+			<requirements value="Consumers must be able to determine any legal restrictions on the use of the example scenario and/or its content."/>
+			<alias value="License"/>
+			<alias value="Restrictions"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.copyright"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="ExampleScenario.actor">
+			<path value="ExampleScenario.actor"/>
+			<short value="Individual involved in exchange"/>
+			<definition value="A system or person who shares or receives an instance within the scenario."/>
+			<requirements value="This is optional to allow for ExampleScenarios that are still draft"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<condition value="exs-3"/>
+      <constraint>
+        <key value="exs-19"/>
+        <severity value="warning"/>
+        <human value="Actor should be referenced in at least one operation"/>
+        <expression value="%resource.process.descendants().select(operation).where(initiator=%context.key or receiver=%context.key).exists()"/>
+        <xpath value="exists(parent::f:ExampleScenario/f:process//f:operation[f:initiator/@value=current()/f:key/@value or f:receiver/@value=current()/f:key/@value])"/>
+      </constraint>
+      <constraint>
+        <key value="exs-23"/>
+        <severity value="error"/>
+        <human value="actor.key canot be 'OTHER'"/>
+        <expression value="key != 'OTHER'"/>
+        <xpath value="f:key/@value != 'OTHER'"/>
+      </constraint>
+		</element>
+		<element id="ExampleScenario.actor.key">
+			<path value="ExampleScenario.actor.key"/>
+			<short value="ID or acronym of the actor"/>
+			<definition value="A unique string within the scenario that is used to reference the actor."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.actor.type">
+			<path value="ExampleScenario.actor.type"/>
+			<short value="person | system"/>
+			<definition value="The category of actor - person or system."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ExampleScenarioActorType"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The type of actor - system or human."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/examplescenario-actor-type"/>
+			</binding>
+		</element>
+		<element id="ExampleScenario.actor.title">
+			<path value="ExampleScenario.actor.title"/>
+			<short value="Label for actor when rendering"/>
+			<definition value="The human-readable name for the actor used when rendering the scenario."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.actor.description">
+			<path value="ExampleScenario.actor.description"/>
+			<short value="Details about actor"/>
+			<definition value="An explanation of who/what the actor is and its role in the scenario."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.instance">
+			<path value="ExampleScenario.instance"/>
+			<short value="Data used in the scenario"/>
+			<definition value="A single data collection that is shared as part of the scenario."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+      <constraint>
+        <key value="exs-1"/>
+        <severity value="error"/>
+        <human value="StructureVersion is required if structureType is not FHIR (but may still be present even if FHIR)"/>
+        <expression value="structureType.exists() and structureType.memberOf('http://hl7.org/fhir/ValueSet/resource-types').not() implies structureVersion.exists()"/>
+        <xpath value="true()"/>
+      </constraint>
+      <constraint>
+        <key value="exs-2"/>
+        <severity value="error"/>
+        <human value="instance.content is only allowed if there are no instance.versions"/>
+        <expression value="instance.content.exists() implies instance.version.empty()"/>
+        <xpath value="not(exists(f:content)) or not(exists(f:version))"/>
+      </constraint>
+      <constraint>
+        <key value="exs-10"/>
+        <severity value="error"/>
+        <human value="Version keys must be unique within an instance"/>
+        <expression value="version.key.count() = version.key.distinct().count()"/>
+        <xpath value="count(f:version/f:key/@value) = count(distinct-values(f:version/f:key/@value))"/>
+      </constraint>
+      <constraint>
+        <key value="exs-11"/>
+        <severity value="error"/>
+        <human value="Version titles must be unique within an instance"/>
+        <expression value="version.title.count() = version.title.distinct().count()"/>
+        <xpath value="count(f:version/f:title/@value) = count(distinct-values(f:version/f:title/@value))"/>
+      </constraint>
+      <constraint>
+        <key value="exs-20"/>
+        <severity value="warning"/>
+        <human value="Instance should be referenced in at least one location"/>
+        <expression value="%resource.process.descendants().select(instanceReference).where($this=%context.key).exists()"/>
+        <xpath value="exists(parent::f:ExampleScenario/f:process//f:instanceReference[@value=current()/f:key/@value])"/>
+      </constraint>
+      <constraint>
+        <key value="exs-21"/>
+        <severity value="warning"/>
+        <human value="Instance version should be referenced in at least one operation"/>
+        <expression value="version.exists() implies version.key.intersect(%resource.process.descendants().where(instanceReference = %context.key).versionReference).exists()"/>
+        <xpath value="not(f:version) or not(exists(f:version/f:key/@value parent::f:ExampleScenario/f:process//*[f:instanceReference/@value=current()/f:key/@value]/f:versionReference/@value))"/>
+      </constraint>
+		</element>
+		<element id="ExampleScenario.instance.key">
+			<path value="ExampleScenario.instance.key"/>
+			<short value="ID or acronym of the instance"/>
+			<definition value="A unique string within the scenario that is used to reference the instance."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.instance.structureType">
+			<path value="ExampleScenario.instance.structureType"/>
+			<short value="Data structure for example"/>
+			<definition value="A code indicating the kind of data structure (FHIR resource or some other standard) this is an instance of."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="Coding"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="InstanceType"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="The structure that defines the instance"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/examplescenario-instance-type"/>
+			</binding>
+		</element>
+		<element id="ExampleScenario.instance.structureVersion">
+			<path value="ExampleScenario.instance.structureVersion"/>
+			<short value="E.g. 4.0.1"/>
+			<definition value="Conveys the version of the data structure instantiated.  I.e. what release of FHIR, X12, OpenEHR, etc. is instance compliant with."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<meaningWhenMissing value="If the structureType is a FHIR resource, then the version is the same FHIR version this ExampleScenario is expressed in."/>
+			<condition value="exs-1"/>
+		</element>
+		<element id="ExampleScenario.instance.structureProfile[x]">
+			<path value="ExampleScenario.instance.structureProfile[x]"/>
+			<short value="Rules instance adheres to"/>
+			<definition value="Refers to a profile, template or other ruleset the instance adheres to."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+			</type>
+			<type>
+				<code value="uri"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.instance.title">
+			<path value="ExampleScenario.instance.title"/>
+			<short value="Label for instance"/>
+			<definition value="A short descriptive label the instance to be used in tables or diagrams."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.instance.description">
+			<path value="ExampleScenario.instance.description"/>
+			<short value="Human-friendly description of the instance"/>
+			<definition value="An explanation of what the instance contains and what it's for."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.instance.content">
+			<path value="ExampleScenario.instance.content"/>
+			<short value="Example instance data"/>
+			<definition value="Points to an instance (typically an example) that shows the data that would corespond to this instance."/>
+			<comment value="If not conveying FHIR data or not using the same version of FHIR as this ExampleScenario instance, the reference must be to a Binary."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.instance.version">
+			<path value="ExampleScenario.instance.version"/>
+			<short value="Snapshot of instance that changes"/>
+			<definition value="Represents the instance as it was at a specific time-point."/>
+			<comment value="Not used if an instance doesn't change"/>
+			<requirements value="Allows representing the 'same' instance as it evolves throughout the scenario."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.instance.version.key">
+			<path value="ExampleScenario.instance.version.key"/>
+			<short value="ID or acronym of the version"/>
+			<definition value="A unique string within the instance that is used to reference the version of the instance."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.instance.version.description">
+			<path value="ExampleScenario.instance.version.description"/>
+			<short value="Details about version"/>
+			<definition value="An explanation of what this specific version of the instance contains and represents."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.instance.version.content">
+			<path value="ExampleScenario.instance.version.content"/>
+			<short value="Example instance version data"/>
+			<definition value="Points to an instance (typically an example) that shows the data that would flow at this point in the scenario."/>
+			<comment value="If not conveying FHIR data or not using the same version of FHIR as this ExampleScenario instance, the reference must be to a Binary."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.instance.containedInstance">
+			<path value="ExampleScenario.instance.containedInstance"/>
+			<short value="Resources contained in the instance"/>
+			<definition value="References to other instances that can be found within this instance (e.g. the observations contained in a bundle)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+      <constraint>
+        <key value="exs-14"/>
+        <severity value="error"/>
+        <human value="InstanceReference must be a key of an instance defined in the ExampleScenario"/>
+        <expression value="%resource.instance.where(key=%context.instanceReference).exists()"/>
+        <xpath value="exists(ancestor::f:ExampleScenario/f:instance[f:key/@value=current()/f:instanceReference/@value])"/>
+      </constraint>
+      <constraint>
+        <key value="exs-15"/>
+        <severity value="error"/>
+        <human value="versionReference must be specified if the referenced instance defines versions"/>
+        <expression value="versionReference.empty() implies %resource.instance.where(key=%context.instanceReference).version.empty()"/>
+        <xpath value="exists(f:versionReference) or not(exists(ancestor::f:ExampleScenario/f:instance[f:key/@value=current()/f:instanceReference/@value]/f:version))"/>
+      </constraint>
+      <constraint>
+        <key value="exs-16"/>
+        <severity value="error"/>
+        <human value="versionReference must be a key of a version within the instance pointed to by instanceReference"/>
+        <expression value="versionReference.exists() implies %resource.instance.where(key=%context.instanceReference).version.where(key=%context.versionReference).exists()"/>
+        <xpath value="not(exists(f:versionReference)) or exists(ancestor::f:ExampleScenario/f:instance[f:key/@value=current()/f:instanceReference/@value]/f:version[f:key/@value=current()/f:versionReference/@value]))"/>
+      </constraint>
+		</element>
+		<element id="ExampleScenario.instance.containedInstance.instanceReference">
+			<path value="ExampleScenario.instance.containedInstance.instanceReference"/>
+			<short value="Key of contained instance"/>
+			<definition value="A reference to the key of an instance found within this one."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.instance.containedInstance.versionReference">
+			<path value="ExampleScenario.instance.containedInstance.versionReference"/>
+			<short value="Key of contained instance version"/>
+			<definition value="A reference to the key of a specific version of an instance in this instance."/>
+			<comment value="Required if the referenced instance has versions"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process">
+			<path value="ExampleScenario.process"/>
+			<short value="Major process within scenario"/>
+			<definition value="A group of operations that represents a significant step within a scenario."/>
+			<comment value="Some scenarios might describe only one process."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<condition value="exs-4"/>
+      <constraint>
+        <key value="exs-5"/>
+        <severity value="error"/>
+        <human value="Processes must have steps if ExampleScenario status is active or required"/>
+        <expression value="%resource.status='active' or %resource.status='retired' implies step.exists()"/>
+        <xpath value="not(parent::*/f:status/@value = ('active','retired')) or exists(f:step)"/>
+      </constraint>
+		</element>
+		<element id="ExampleScenario.process.title">
+			<path value="ExampleScenario.process.title"/>
+			<short value="Label for procss"/>
+			<definition value="A short descriptive label the process to be used in tables or diagrams."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="ExampleScenario.process.description">
+			<path value="ExampleScenario.process.description"/>
+			<short value="Human-friendly description of the process"/>
+			<definition value="An explanation of what the process represents and what it does."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process.preConditions">
+			<path value="ExampleScenario.process.preConditions"/>
+			<short value="Status before process starts"/>
+			<definition value="Description of the initial state of the actors, environment and data before the process starts."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process.postConditions">
+			<path value="ExampleScenario.process.postConditions"/>
+			<short value="Status after successful completion"/>
+			<definition value="Description of the final state of the actors, environment and data after the process has been successfully completed."/>
+			<comment value="Alternate steps might not result in all post conditions holding"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process.step">
+			<path value="ExampleScenario.process.step"/>
+			<short value="Event within of the process"/>
+			<definition value="A significant action that occurs as part of the process."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<condition value="exs-5"/>
+      <constraint>
+        <key value="exs-13"/>
+        <severity value="error"/>
+        <human value="Alternative titles must be unique within a step"/>
+        <expression value="alternative.title.count() = alternative.title.distinct().count()"/>
+        <xpath value="count(f:alternative/f:title/@value) = count(distinct-values(f:alternative/f:title/@value))"/>
+      </constraint>
+      <constraint>
+        <key value="exs-22"/>
+        <severity value="error"/>
+        <human value="Can have a process, a workflow, one or more operations or none of these, but cannot have a combination"/>
+        <expression value="(process.exists() implies workflow.empty() and operation.empty()) and (workflow.exists() implies operation.empty())"/>
+        <xpath value="(not(exists(f:process)) or not(exists(f:workflow) or exists(f:operation))) and (not(exists(f:workflow) or not(exists(f:operation)))"/>
+      </constraint>
+		</element>
+		<element id="ExampleScenario.process.step.number">
+			<path value="ExampleScenario.process.step.number"/>
+			<short value="Sequential number of the step"/>
+			<definition value="The sequential number of the step, e.g. 1.2.5."/>
+			<comment value="If step numbers are simultaneous, they will be the same.  Numbers don't have to be numeric.  E.g. '2c)' is a valid step number"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process.step.process">
+			<path value="ExampleScenario.process.step.process"/>
+			<short value="Step is nested process"/>
+			<definition value="Indicates that the step is a complex sub-process with its own steps."/>
+			<min value="0"/>
+			<max value="1"/>
+			<contentReference value="#ExampleScenario.process"/>
+		</element>
+		<element id="ExampleScenario.process.step.workflow">
+			<path value="ExampleScenario.process.step.workflow"/>
+			<short value="Step is nested workflow"/>
+			<definition value="Indicates that the step is defined by a seaparate scenario instance."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process.step.operation">
+			<path value="ExampleScenario.process.step.operation"/>
+			<short value="Step is simple action"/>
+			<definition value="The step represents a single operation invoked on receiver by sender."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+      <constraint>
+        <key value="exs-17"/>
+        <severity value="error"/>
+        <human value="If specified, initiator must be a key of an actor within the ExampleScenario"/>
+        <expression value="initiator.exists() implies initator = 'OTHER' or %resource.actor.where(key=%context.initiator).exists()"/>
+        <xpath value="not(exists(f:initiator)) or f:initiator/@value='OTHER' or exists(ancestor::f:ExampleScenario/f:actor[f:key/@value=current()/f:initiator/@value])"/>
+      </constraint>
+      <constraint>
+        <key value="exs-18"/>
+        <severity value="error"/>
+        <human value="If specified, receiver must be a key of an actor within the ExampleScenario"/>
+        <expression value="receiver.exists() implies receiver = 'OTHER' or %resource.actor.where(key=%context.receiver).exists()"/>
+        <xpath value="not(exists(f:receiver)) or f:/receiver/@value='OTHER' or exists(ancestor::f:ExampleScenario/f:actor[f:key/@value=current()/f:receiver/@value])"/>
+      </constraint>
+		</element>
+		<element id="ExampleScenario.process.step.operation.type">
+			<path value="ExampleScenario.process.step.operation.type"/>
+			<short value="Kind of action"/>
+			<definition value="The standardized type of action (FHIR or otherwise)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Coding"/>
+			</type>
+			<binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/testscript-operation-codes"/>
       </binding>
-    </element>
-    <element id="ExampleScenario.instance.name">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
-        <valueString value="Should name and description be 1..1?"/>
-      </extension>
-      <path value="ExampleScenario.instance.name"/>
-      <short value="A short name for the resource instance"/>
-      <definition value="A short name for the resource instance."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.instance.description">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
-        <valueString value="Should name and description be 1..1?"/>
-      </extension>
-      <path value="ExampleScenario.instance.description"/>
-      <short value="Human-friendly description of the resource instance"/>
-      <definition value="Human-friendly description of the resource instance."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.instance.version">
-      <path value="ExampleScenario.instance.version"/>
-      <short value="A specific version of the resource"/>
-      <definition value="A specific version of the resource."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.instance.version.versionId">
-      <path value="ExampleScenario.instance.version.versionId"/>
-      <short value="The identifier of a specific version of a resource"/>
-      <definition value="The identifier of a specific version of a resource."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.instance.version.description">
-      <path value="ExampleScenario.instance.version.description"/>
-      <short value="The description of the resource version"/>
-      <definition value="The description of the resource version."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.instance.containedInstance">
-      <path value="ExampleScenario.instance.containedInstance"/>
-      <short value="Resources contained in the instance"/>
-      <definition value="Resources contained in the instance (e.g. the observations contained in a bundle)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.instance.containedInstance.resourceId">
-      <path value="ExampleScenario.instance.containedInstance.resourceId"/>
-      <short value="Each resource contained in the instance"/>
-      <definition value="Each resource contained in the instance."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.instance.containedInstance.versionId">
-      <path value="ExampleScenario.instance.containedInstance.versionId"/>
-      <short value="A specific version of a resource contained in the instance"/>
-      <definition value="A specific version of a resource contained in the instance."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process">
-      <path value="ExampleScenario.process"/>
-      <short value="Each major process - a group of operations"/>
-      <definition value="Each major process - a group of operations."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.title">
-      <path value="ExampleScenario.process.title"/>
-      <short value="The diagram title of the group of operations"/>
-      <definition value="The diagram title of the group of operations."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="ExampleScenario.process.description">
-      <path value="ExampleScenario.process.description"/>
-      <short value="A longer description of the group of operations"/>
-      <definition value="A longer description of the group of operations."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.preConditions">
-      <path value="ExampleScenario.process.preConditions"/>
-      <short value="Description of initial status before the process starts"/>
-      <definition value="Description of initial status before the process starts."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.postConditions">
-      <path value="ExampleScenario.process.postConditions"/>
-      <short value="Description of final status after the process ends"/>
-      <definition value="Description of final status after the process ends."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.step">
-      <path value="ExampleScenario.process.step"/>
-      <short value="Each step of the process"/>
-      <definition value="Each step of the process."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.step.process">
-      <path value="ExampleScenario.process.step.process"/>
-      <short value="Nested process"/>
-      <definition value="Nested process."/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#ExampleScenario.process"/>
-    </element>
-    <element id="ExampleScenario.process.step.pause">
-      <path value="ExampleScenario.process.step.pause"/>
-      <short value="If there is a pause in the flow"/>
-      <definition value="If there is a pause in the flow."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.step.operation">
-      <path value="ExampleScenario.process.step.operation"/>
-      <short value="Each interaction or action"/>
-      <definition value="Each interaction or action."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.step.operation.number">
-      <path value="ExampleScenario.process.step.operation.number"/>
-      <short value="The sequential number of the interaction"/>
-      <definition value="The sequential number of the interaction, e.g. 1.2.5."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.step.operation.type">
-      <path value="ExampleScenario.process.step.operation.type"/>
-      <short value="The type of operation - CRUD"/>
-      <definition value="The type of operation - CRUD."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.step.operation.name">
-      <path value="ExampleScenario.process.step.operation.name"/>
-      <short value="The human-friendly name of the interaction"/>
-      <definition value="The human-friendly name of the interaction."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.step.operation.initiator">
-      <path value="ExampleScenario.process.step.operation.initiator"/>
-      <short value="Who starts the transaction"/>
-      <definition value="Who starts the transaction."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.step.operation.receiver">
-      <path value="ExampleScenario.process.step.operation.receiver"/>
-      <short value="Who receives the transaction"/>
-      <definition value="Who receives the transaction."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.step.operation.description">
-      <path value="ExampleScenario.process.step.operation.description"/>
-      <short value="A comment to be inserted in the diagram"/>
-      <definition value="A comment to be inserted in the diagram."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.step.operation.initiatorActive">
-      <path value="ExampleScenario.process.step.operation.initiatorActive"/>
-      <short value="Whether the initiator is deactivated right after the transaction"/>
-      <definition value="Whether the initiator is deactivated right after the transaction."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.step.operation.receiverActive">
-      <path value="ExampleScenario.process.step.operation.receiverActive"/>
-      <short value="Whether the receiver is deactivated right after the transaction"/>
-      <definition value="Whether the receiver is deactivated right after the transaction."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.step.operation.request">
-      <path value="ExampleScenario.process.step.operation.request"/>
-      <short value="Each resource instance used by the initiator"/>
-      <definition value="Each resource instance used by the initiator."/>
-      <min value="0"/>
-      <max value="1"/>
-      <contentReference value="#ExampleScenario.instance.containedInstance"/>
-    </element>
-    <element id="ExampleScenario.process.step.operation.response">
-      <path value="ExampleScenario.process.step.operation.response"/>
-      <short value="Each resource instance used by the responder"/>
-      <definition value="Each resource instance used by the responder."/>
-      <min value="0"/>
-      <max value="1"/>
-      <contentReference value="#ExampleScenario.instance.containedInstance"/>
-    </element>
-    <element id="ExampleScenario.process.step.alternative">
-      <path value="ExampleScenario.process.step.alternative"/>
-      <short value="Alternate non-typical step action"/>
-      <definition value="Indicates an alternative step that can be taken instead of the operations on the base step in exceptional/atypical circumstances."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.step.alternative.title">
-      <path value="ExampleScenario.process.step.alternative.title"/>
-      <short value="Label for alternative"/>
-      <definition value="The label to display for the alternative that gives a sense of the circumstance in which the alternative should be invoked."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.step.alternative.description">
-      <path value="ExampleScenario.process.step.alternative.description"/>
-      <short value="A human-readable description of each option"/>
-      <definition value="A human-readable description of the alternative explaining when the alternative should occur rather than the base step."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="ExampleScenario.process.step.alternative.step">
-      <path value="ExampleScenario.process.step.alternative.step"/>
-      <short value="What happens in each alternative option"/>
-      <definition value="What happens in each alternative option."/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#ExampleScenario.process.step"/>
-    </element>
-    <element id="ExampleScenario.workflow">
-      <path value="ExampleScenario.workflow"/>
-      <short value="Another nested workflow"/>
-      <definition value="Another nested workflow."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
-      </type>
-    </element>
-  </differential>
+		</element>
+		<element id="ExampleScenario.process.step.operation.title">
+			<path value="ExampleScenario.process.step.operation.title"/>
+			<short value="Label for step"/>
+			<definition value="A short descriptive label the step to be used in tables or diagrams."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process.step.operation.initiator">
+			<path value="ExampleScenario.process.step.operation.initiator"/>
+			<short value="Who starts the operation"/>
+			<definition value="The system that invokes the action/transmits the data."/>
+			<comment value="This must either be the 'key' of one of the actors defined in this scenario or the special keyword 'OTHER' if the initiator is not one of the actors defined for the scenario.  (Multiple references to 'OTHER' don't necessarily indicate the same actor.)"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process.step.operation.receiver">
+			<path value="ExampleScenario.process.step.operation.receiver"/>
+			<short value="Who receives the operation"/>
+			<definition value="The system on which the action is invoked/receives the data."/>
+			<comment value="This must either be the 'key' of one of the actors defined in this scenario or the special keyword 'OTHER' if the receiver is not one of the actors defined for the scenario.  (Multiple references to 'OTHER' don't necessarily indicate the same actor.)  In some cases, receiver could be same as sender if representing a local operation"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process.step.operation.description">
+			<path value="ExampleScenario.process.step.operation.description"/>
+			<short value="Human-friendly description of the operation"/>
+			<definition value="An explanation of what the operation represents and what it does."/>
+			<comment value="This should contain information not already present in the process step.  It's more of a description of what the operation in general does - if not already evident from the operation.type"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process.step.operation.initiatorActive">
+			<path value="ExampleScenario.process.step.operation.initiatorActive"/>
+			<short value="Initiator stays active?"/>
+			<definition value="If false, the initiator is deactivated right after the operation."/>
+			<comment value="De-activation of an actor means they have no further role until such time as they are the recipient of an operation."/>
+			<requirements value="The notion of 'activation' in a flow diagram is used to indicate 'who has responsibility/is still doing work'."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process.step.operation.receiverActive">
+			<path value="ExampleScenario.process.step.operation.receiverActive"/>
+			<short value="Receiver stays active?"/>
+			<definition value="If false, the receiver is deactivated right after the operation."/>
+			<comment value="De-activation of an actor means they have no further role until such time as they are the recipient of an operation."/>
+			<requirements value="The notion of 'activation' in a flow diagram is used to indicate 'who has responsibility/is still doing work'."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process.step.operation.request">
+			<path value="ExampleScenario.process.step.operation.request"/>
+			<short value="Instance transmitted on invocation"/>
+			<definition value="A reference to the instance that is transmitted from requester to receiver as part of the invocation of the operation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<contentReference value="#ExampleScenario.instance.containedInstance"/>
+		</element>
+		<element id="ExampleScenario.process.step.operation.response">
+			<path value="ExampleScenario.process.step.operation.response"/>
+			<short value="Instance transmitted on invocation response"/>
+			<definition value="A reference to the instance that is transmitted from receiver to requester as part of the operation's synchronous response (if any)."/>
+<!--			<comment value="Multiple responses can sometimes exist for a single operation.  E.g. the 'accept acknowledgement' and the 'application acknowledgement' for a single v2 request message."/>-->
+			<min value="0"/>
+			<max value="1"/>
+			<contentReference value="#ExampleScenario.instance.containedInstance"/>
+		</element>
+		<element id="ExampleScenario.process.step.alternative">
+			<path value="ExampleScenario.process.step.alternative"/>
+			<short value="Alternate non-typical step action"/>
+			<definition value="Indicates an alternative step that can be taken instead of the sub-process, scenario or operation.  E.g. to represent non-happy-path/exceptional/atypical circumstances."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process.step.alternative.title">
+			<path value="ExampleScenario.process.step.alternative.title"/>
+			<short value="Label for alternative"/>
+			<definition value="The label to display for the alternative that gives a sense of the circumstance in which the alternative should be invoked."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process.step.alternative.description">
+			<path value="ExampleScenario.process.step.alternative.description"/>
+			<short value="Human-readable description of option"/>
+			<definition value="A human-readable description of the alternative explaining when the alternative should occur rather than the base step."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="ExampleScenario.process.step.alternative.step">
+			<path value="ExampleScenario.process.step.alternative.step"/>
+			<short value="Alternative action(s)"/>
+			<definition value="Indicates the operation, sub-process or scenario that happens if the alternative option is selected."/>
+			<min value="0"/>
+			<max value="*"/>
+			<contentReference value="#ExampleScenario.process.step"/>
+		</element>
+		<element id="ExampleScenario.process.step.pause">
+			<path value="ExampleScenario.process.step.pause"/>
+			<short value="Pause in the flow?"/>
+			<definition value="If true, indicates that, following this step, there is a pause in the flow and the subsequent step will occur at some later time (triggered by some event)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+	</differential>
 </StructureDefinition>

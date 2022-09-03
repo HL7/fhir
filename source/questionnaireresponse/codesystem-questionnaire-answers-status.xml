@@ -1,69 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="questionnaire-answers-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>This code system http://hl7.org/fhir/questionnaire-answers-status defines the following codes:</p>
-      <table class="codes">
-        <tr>
-          <td style="white-space:nowrap">
-            <b>Code</b>
-          </td>
-          <td>
-            <b>Display</b>
-          </td>
-          <td>
-            <b>Definition</b>
-          </td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">in-progress
-            
-            <a name="questionnaire-answers-status-in-progress"> </a>
-          </td>
-          <td>In Progress</td>
-          <td>This QuestionnaireResponse has been partially filled out with answers but changes or additions are still expected to be made to it.</td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">completed
-            
-            <a name="questionnaire-answers-status-completed"> </a>
-          </td>
-          <td>Completed</td>
-          <td>This QuestionnaireResponse has been filled out with answers and the current content is regarded as definitive.</td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">amended
-            
-            <a name="questionnaire-answers-status-amended"> </a>
-          </td>
-          <td>Amended</td>
-          <td>This QuestionnaireResponse has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.</td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="questionnaire-answers-status-entered-in-error"> </a>
-          </td>
-          <td>Entered in Error</td>
-          <td>This QuestionnaireResponse was entered in error and voided.</td>
-        </tr>
-        <tr>
-          <td style="white-space:nowrap">stopped
-            
-            <a name="questionnaire-answers-status-stopped"> </a>
-          </td>
-          <td>Stopped</td>
-          <td>This QuestionnaireResponse has been partially filled out with answers but has been abandoned. It is unknown whether changes or additions are expected to be made to it.</td>
-        </tr>
-      </table>
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -78,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.448"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="QuestionnaireResponseStatus"/>
   <title value="QuestionnaireResponseStatus"/>
   <status value="draft"/>

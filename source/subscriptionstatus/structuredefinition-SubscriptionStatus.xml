@@ -24,7 +24,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SubscriptionStatus"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="SubscriptionStatus"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -41,8 +41,8 @@
       <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
-  <description value="The SubscriptionStatus resource describes the state of a Subscription during notifications."/>
-  <fhirVersion value="4.6.0"/>
+  <description value="The SubscriptionStatus resource describes the state of a Subscription during notifications. It is not persisted."/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

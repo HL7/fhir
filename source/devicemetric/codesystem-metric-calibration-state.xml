@@ -3,99 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="metric-calibration-state"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/metric-calibration-state defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">not-calibrated
-            
-            <a name="metric-calibration-state-not-calibrated"> </a>
-          
-          </td>
-          
-          <td>Not Calibrated</td>
-          
-          <td>The metric has not been calibrated.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">calibration-required
-            
-            <a name="metric-calibration-state-calibration-required"> </a>
-          
-          </td>
-          
-          <td>Calibration Required</td>
-          
-          <td>The metric needs to be calibrated.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">calibrated
-            
-            <a name="metric-calibration-state-calibrated"> </a>
-          
-          </td>
-          
-          <td>Calibrated</td>
-          
-          <td>The metric has been calibrated.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">unspecified
-            
-            <a name="metric-calibration-state-unspecified"> </a>
-          
-          </td>
-          
-          <td>Unspecified</td>
-          
-          <td>The state of calibration of this metric is unspecified.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="dev"/>
   </extension>
@@ -110,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.653"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="DeviceMetricCalibrationState"/>
   <title value="DeviceMetricCalibrationState"/>
   <status value="draft"/>

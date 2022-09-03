@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="genomicstudy-dataformat"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cg"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/genomicstudy-dataformat"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="GenomicStudyDataFormat"/>
+  <title value="GenomicStudyDataFormat"/>
+  <status value="draft"/>
+  <date value="2022-08-17T14:49:24-05:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The data format relevant to genomics. These formats and relevant codes were pulled from [Integrative Genomics Viewer Documentation](https://software.broadinstitute.org/software/igv/FileFormats) by Broad Institute."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-dataformat"/>
+   <content value="complete"/>
+  <concept>
+    <code value="bam"/>
+    <display value="BAM"/>
+  </concept>
+  <concept>
+    <code value="bed"/>
+    <display value="BED"/>
+  </concept>
+  <concept>
+    <code value="bedpe"/>
+    <display value="BEDPE"/>
+  </concept>
+  <concept>
+    <code value="bedgraph"/>
+    <display value="BedGraph"/>
+  </concept>
+  <concept>
+    <code value="bigbed"/>
+    <display value="bigBed"/>
+  </concept>
+  <concept>
+    <code value="bigWig"/>
+    <display value="bigWig"/>
+  </concept>
+  <concept>
+    <code value="birdsuite-files"/>
+    <display value="Birdsuite-Files"/>
+  </concept>
+  <concept>
+    <code value="broadpeak"/>
+    <display value="broadPeak"/>
+  </concept>
+  <concept>
+    <code value="cbs"/>
+    <display value="CBS"/>
+  </concept>
+  <concept>
+    <code value="chemical-reactivity-probing-profiles"/>
+    <display value="Chemical-Reactivity-Probing-Profiles"/>
+  </concept>
+  <concept>
+    <code value="chrom-sizes"/>
+    <display value="chrom-sizes"/>
+  </concept>
+  <concept>
+    <code value="cn"/>
+    <display value="CN"/>
+  </concept>
+  <concept>
+    <code value="custom-file-formats"/>
+    <display value="Custom-File-Formats"/>
+  </concept>
+  <concept>
+    <code value="cytoband"/>
+    <display value="Cytoband"/>
+  </concept>
+  <concept>
+    <code value="fasta"/>
+    <display value="FASTA"/>
+  </concept>
+  <concept>
+    <code value="gct"/>
+    <display value="GCT"/>
+  </concept>
+  <concept>
+    <code value="cram"/>
+    <display value="CRAM"/>
+  </concept>
+  <concept>
+    <code value="genepred"/>
+    <display value="genePred"/>
+  </concept>
+  <concept>
+    <code value="gff-gtf"/>
+    <display value="GFF/GTF"/>
+  </concept>
+  <concept>
+    <code value="gistic"/>
+    <display value="GISTIC"/>
+  </concept>
+  <concept>
+    <code value="goby"/>
+    <display value="Goby"/>
+  </concept>
+  <concept>
+    <code value="gwas"/>
+    <display value="GWAS"/>
+  </concept>
+  <concept>
+    <code value="igv"/>
+    <display value="IGV"/>
+  </concept>
+  <concept>
+    <code value="loh"/>
+    <display value="LOH"/>
+  </concept>
+  <concept>
+    <code value="maf-multiple-alignment-format"/>
+    <display value="MAF-Multiple Alignment Format"/>
+  </concept>
+  <concept>
+    <code value="maf-mutation-annotation-format"/>
+    <display value="MAF-Mutation-Annotation-Format"/>
+  </concept>
+  <concept>
+    <code value="merged-bam-file"/>
+    <display value="Merged BAM File"/>
+  </concept>
+  <concept>
+    <code value="mut"/>
+    <display value="MUT"/>
+  </concept>
+  <concept>
+    <code value="narrowpeak"/>
+    <display value="narrowPeak"/>
+  </concept>
+  <concept>
+    <code value="psl"/>
+    <display value="PSL"/>
+  </concept>
+  <concept>
+    <code value="res"/>
+    <display value="RES"/>
+  </concept>
+  <concept>
+    <code value="rna-secondary-structure-formats"/>
+    <display value="RNA-Secondary-Structure-Formats"/>
+  </concept>
+  <concept>
+    <code value="sam"/>
+    <display value="SAM"/>
+  </concept>
+  <concept>
+    <code value="sample-info-attributes-file"/>
+    <display value="Sample-Info-Attributes-file"/>
+  </concept>
+  <concept>
+    <code value="seg"/>
+    <display value="SEG"/>
+  </concept>
+  <concept>
+    <code value="tdf"/>
+    <display value="TDF"/>
+  </concept>
+  <concept>
+    <code value="track-line"/>
+    <display value="Track Line"/>
+  </concept>
+  <concept>
+    <code value="type-line"/>
+    <display value="Type Line"/>
+  </concept>
+  <concept>
+    <code value="vcf"/>
+    <display value="VCF"/>
+  </concept>
+  <concept>
+    <code value="wig"/>
+    <display value="WIG"/>
+  </concept>
+</CodeSystem>

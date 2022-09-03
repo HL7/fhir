@@ -16,12 +16,17 @@ services.
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource overlaps with others such as <a href="devicedispense.html">DeviceDispense</a> and <a href="medicationdispense.html">Medicationdispense</a>.
-The <b>SupplyDelivery</b> resource may be used for medications and devices when handling them generically (as any other supply).  For
-example, when processing bulk orders, etc.  However, when the medication, device or other aspects of the resource are important,
-(e.g. in a <a href="medicationrequest.html">MedicationRequest</a> or when identifying a device as a performer), the
-more detailed resource must be used.
+This resource overlaps with others such as <a href="devicedispense.html">DeviceDispense</a> and <a href="medicationdispense.html">Medicationdispense</a>. 
+The <b>SupplyDelivery</b> resource may be used for medications, biologically derived products, and devices when handling them generically (as any other supply). 
+For example, when processing bulk orders, etc. However, when the medication, biologically derived product, device or other aspects of the resource are important, 
+(e.g. in a <a href="medicationrequest.html">MedicationRequest</a> or when identifying a device as a performer), the more detailed resource must be used.
 </p>
+
+<p>
+To determine the purchase date, a search of DeviceRequest, SupplyRequest, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done , as the context of the use case actually determines which date of either resource is considered the purchase date.
+</p>
+
+
 </div>
 
 </div>

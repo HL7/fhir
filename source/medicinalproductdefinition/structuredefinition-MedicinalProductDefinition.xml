@@ -23,7 +23,7 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="MedicinalProductDefinition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -41,7 +41,7 @@
     </telecom>
   </contact>
   <description value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs, to support prescribing, adverse events management etc.)."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="idmp"/>
     <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
@@ -505,13 +505,14 @@
     </element>
     <element id="MedicinalProductDefinition.comprisedOf">
       <path value="MedicinalProductDefinition.comprisedOf"/>
-      <short value="A medicinal manufactured item that this product consists of, such as a tablet or capsule"/>
-      <definition value="A medicinal manufactured item that this product consists of, such as a tablet or capsule. Used as a direct link when the item's packaging is not being recorded (see also PackagedProductDefinition.package.containedItem.item)."/>
+      <short value="Types of medicinal manufactured items and/or devices that this product consists of, such as tablets, capsule, or syringes"/>
+      <definition value="Types of medicinal manufactured items and/or devices that this product consists of, such as tablets, capsule, or syringes. Used as a direct link when the item's packaging is not being recorded (see also PackagedProductDefinition.package.containedItem.item)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -803,11 +804,11 @@
         <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asNamedEntity.code"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.name.namePart">
+    <element id="MedicinalProductDefinition.name.part">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="50,315"/> <!-- 50,292 -->
       </extension>
-      <path value="MedicinalProductDefinition.name.namePart"/>
+      <path value="MedicinalProductDefinition.name.part"/>
       <short value="Coding words or phrases of the name"/>
       <definition value="Coding words or phrases of the name."/>
       <min value="0"/>
@@ -825,8 +826,8 @@
         <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.name.suffix"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.name.namePart.part">
-      <path value="MedicinalProductDefinition.name.namePart.part"/>
+    <element id="MedicinalProductDefinition.name.part.part">
+      <path value="MedicinalProductDefinition.name.part.part"/>
       <short value="A fragment of a product name"/>
       <definition value="A fragment of a product name."/>
       <min value="1"/>
@@ -844,8 +845,8 @@
         <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.name.suffix"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.name.namePart.type">
-      <path value="MedicinalProductDefinition.name.namePart.type"/>
+    <element id="MedicinalProductDefinition.name.part.type">
+      <path value="MedicinalProductDefinition.name.part.type"/>
       <short value="Identifying type for this part of the name (e.g. strength part)"/>
       <definition value="Identifying type for this part of the name (e.g. strength part)."/>
       <min value="1"/>
@@ -871,11 +872,11 @@
         <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asNamedEntity.code"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.name.countryLanguage">
+    <element id="MedicinalProductDefinition.name.usage">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="30,70"/> <!-- was 50,42 -->
       </extension>
-      <path value="MedicinalProductDefinition.name.countryLanguage"/>
+      <path value="MedicinalProductDefinition.name.usage"/>
       <short value="Country and jurisdiction where the name applies"/>
       <definition value="Country and jurisdiction where the name applies, and associated language."/>
       <min value="0"/>
@@ -893,8 +894,8 @@
         <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asNamedEntity"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.name.countryLanguage.country">
-      <path value="MedicinalProductDefinition.name.countryLanguage.country"/>
+    <element id="MedicinalProductDefinition.name.usage.country">
+      <path value="MedicinalProductDefinition.name.usage.country"/>
       <short value="Country code for where this name applies"/>
       <definition value="Country code for where this name applies."/>
       <min value="1"/>
@@ -920,8 +921,8 @@
         <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asNamedEntity.assigningTerritory.code"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.name.countryLanguage.jurisdiction">
-      <path value="MedicinalProductDefinition.name.countryLanguage.jurisdiction"/>
+    <element id="MedicinalProductDefinition.name.usage.jurisdiction">
+      <path value="MedicinalProductDefinition.name.usage.jurisdiction"/>
       <short value="Jurisdiction code for where this name applies"/>
       <definition value="Jurisdiction code for where this name applies. A jurisdiction may be a sub- or supra-national entity (e.g. a state or a geographic region)."/>
       <min value="0"/>
@@ -947,8 +948,8 @@
         <map value="ManufacturedProduct[classCode='MANU'].manufacturedProduct.asNamedEntity.assigningTerritory.code"/>
       </mapping>
     </element>
-    <element id="MedicinalProductDefinition.name.countryLanguage.language">
-      <path value="MedicinalProductDefinition.name.countryLanguage.language"/>
+    <element id="MedicinalProductDefinition.name.usage.language">
+      <path value="MedicinalProductDefinition.name.usage.language"/>
       <short value="Language code for this name"/>
       <definition value="Language code for this name."/>
       <min value="1"/>

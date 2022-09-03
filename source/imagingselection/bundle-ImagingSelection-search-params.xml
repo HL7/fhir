@@ -125,6 +125,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="ImagingSelection-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingSelection.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-status"/>
+        <description value="The imaging selection status"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="ImagingSelection.status"/>
+        <xpath value="f:ImagingSelection/f:status"/>
+        <xpathUsage value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="ImagingSelection-derived-from"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -155,7 +175,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/ImagingSelection-derived-from"/>
         <description value="The DICOM Study Instance UID from which the images were selected"/>
         <code value="study-uid"/>
-        <type value="uri"/>
+        <type value="token"/>
         <expression value="ImagingSelection.studyUid"/>
         <xpath value="f:ImagingSelection/f:studyUid"/>
         <xpathUsage value="normal"/>

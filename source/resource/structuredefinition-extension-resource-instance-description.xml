@@ -9,14 +9,14 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/resource-instance-description"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="resource-instance-description"/>
   <title value="resource instance description"/>
   <status value="draft"/>
   <date value="2022-05-13T16:10:11-04:00"/>
   <publisher value="HL7"/>
   <description value="A natural language description for non-conformance and non-terminology resource instances that is represented in the resource for publication use."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

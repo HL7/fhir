@@ -3,99 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="contributor-summary-source"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/contributor-summary-source defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">publisher-data
-            
-            <a name="contributor-summary-source-publisher-data"> </a>
-          
-          </td>
-          
-          <td>Publisher provided</td>
-          
-          <td>Data copied by machine from publisher data.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">article-copy
-            
-            <a name="contributor-summary-source-article-copy"> </a>
-          
-          </td>
-          
-          <td>Copied from article</td>
-          
-          <td>Data copied by human from article text.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">citation-manager
-            
-            <a name="contributor-summary-source-citation-manager"> </a>
-          
-          </td>
-          
-          <td>Reported by citation manager</td>
-          
-          <td>Data copied by machine from citation manager data.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">custom
-            
-            <a name="contributor-summary-source-custom"> </a>
-          
-          </td>
-          
-          <td>custom format</td>
-          
-          <td>Custom format (may be described in text note).</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -110,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ContributorSummarySource"/>
   <title value="ContributorSummarySource"/>
   <status value="draft"/>

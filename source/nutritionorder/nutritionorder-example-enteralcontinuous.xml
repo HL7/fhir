@@ -7,10 +7,10 @@ editor Eric Haas Health eData Inc
 		<value value="123"/>
 	</identifier>
 	<status value="active"/><intent value="order"/>
-	<patient>
+	<subject>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>
-	</patient>
+	</subject>
 	<encounter>
 		<reference value="Encounter/example"/>
 		<display value="Inpatient"/>
@@ -22,11 +22,13 @@ editor Eric Haas Health eData Inc
 	</orderer>
 	<enteralFormula>
 		<baseFormulaType>
+			<concept>
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="6547210000124112"/>
 				<display value="Diabetic specialty enteral formula"/>
 			</coding>
+		</concept>
 		</baseFormulaType>
 		<baseFormulaProductName value=" Acme Diabetes Formula"/>
 		
@@ -36,22 +38,24 @@ editor Eric Haas Health eData Inc
 			<system value="http://unitsofmeasure.org"/>
 			<code value="cal/mL"/>
 		</caloricDensity>
-		<routeofAdministration>
+		<routeOfAdministration>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration"/>
 				<code value="NGT"/>
 				<display value="Instillation, nasogastric tube"/>
 			</coding>
 		<!--step up rate of tube feeding by 20 ml/hr every 4 hours -->
-		</routeofAdministration>
+		</routeOfAdministration>
 		<administration>
 			
 			<schedule>
+				<timing>
 			<repeat>
 				<boundsPeriod>
 				  <start value="2014-09-17T07:00:00Z"/>
 				</boundsPeriod>
 			</repeat>
+		</timing>
 			</schedule>
 			<rateQuantity>
 				<value value="60"/>
@@ -62,11 +66,13 @@ editor Eric Haas Health eData Inc
 		</administration>
 		<administration>	
 			<schedule>
+				<timing>
 			<repeat>
 				<boundsPeriod>
 				  <start value="2014-09-17T11:00:00Z"/>
 				</boundsPeriod>
 			</repeat>
+		</timing>
 			</schedule>
 			<rateQuantity>
 				<value value="80"/>
@@ -77,11 +83,13 @@ editor Eric Haas Health eData Inc
 		</administration>
 		<administration>		
 			<schedule>
+				<timing>
 			<repeat>
 				<boundsPeriod>
 				  <start value="2014-09-17T15:00:00Z"/>
 				</boundsPeriod>
 			</repeat>
+		</timing>
 			</schedule>
 			<rateQuantity>
 				<value value="100"/>

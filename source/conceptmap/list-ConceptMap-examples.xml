@@ -64,4 +64,52 @@
       <display value="CDS Hooks Indicator"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Concept Map Metadata"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="conceptmap-example-metadata"/>
+    </extension>
+    <item>
+      <reference value="ConceptMap/example-metadata"/>
+      <display value="Metadata"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Concept Map Metadata v2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="conceptmap-example-metadata-2"/>
+    </extension>
+    <item>
+      <reference value="ConceptMap/example-metadata-2"/>
+      <display value="Metadata v2"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Concept Map with priorities"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="conceptmap-example-priority"/>
+    </extension>
+    <item>
+      <reference value="ConceptMap/example-priority"/>
+      <display value="Map with priorities"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Concept Map Message ADT A04 to Bundle"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="conceptmap-message-adt-a04-to-bundle"/>
+    </extension>
+    <item>
+      <reference value="ConceptMap/message-adt-a04-to-bundle"/>
+      <display value="Message ADT A04 to Bundle"/>
+    </item>
+  </entry>
 </List>

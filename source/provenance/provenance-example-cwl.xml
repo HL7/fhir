@@ -56,7 +56,7 @@
 		</div>
 	</text>
 	<target>
-		<reference value="MolecularSequence/example-pgx-1"/>
+		<reference value="MolecularSequence/example-pgx-1/_history/1"/>
 	</target>
 	<occurredPeriod>
 		<start value="2016-11-30"/>
@@ -64,6 +64,11 @@
 	<recorded value="2016-12-01T08:12:14+10:00"/>
 
 	<activity>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-DataOperation"/>
+			<code value="CREATE"/>
+			<display value="create"/>
+		</coding>
 		<text value="profiling Short Tandem Repeats (STRs) from high throughput sequencing data."/>
 	</activity>
 	<agent> 

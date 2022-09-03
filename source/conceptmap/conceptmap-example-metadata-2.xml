@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ConceptMap xmlns="http://hl7.org/fhir">
+  <id value="example-metadata-2"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareableconceptmap"/>
+  </meta>
+  <url value="http://hl7.org/fhir/ConceptMap/example-metadata-2"/>
+  <version value="20220721"/>
+
+  <name value="ExampleMetadata"/>
+  <title value="Metadata Example"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2022-07-21"/>
+  <publisher value="FHIR (Example)"/>
+  <contact>
+    <name value="FHIR project team"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This is an example concept map that illustrates usage of the metadata resource elements introduced in R5"/>
+
+  <approvalDate value="2021-07-21"/>
+  <lastReviewDate value="2022-07-21"/>
+  <effectivePeriod>
+    <start value="2022-08-01"/>
+    <end value="2023-07-31"/>
+  </effectivePeriod>
+  <topic>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/definition-topic"/>
+      <code value="treatment"/>
+      <display value="Treatment"/>
+    </coding>
+  </topic>
+  <author>
+    <name value="ACME ConceptMap Development"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://acme.org/development"/>
+    </telecom>
+  </author>
+  <editor>
+    <name value="ACME ConceptMap Management"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://acme.org/management"/>
+    </telecom>
+  </editor>
+  <reviewer>
+    <name value="Society for Creative ConceptMap Review"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://example.org/sccr"/>
+    </telecom>
+  </reviewer>
+  <endorser>
+    <name value="National Foundation for ConceptMap Quality"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://example.org/nfcq"/>
+    </telecom>
+  </endorser>
+  <relatedArtifact>
+    <type value="derived-from"/>
+    <resource value="http://hl7.org/fhir/ConceptMap/example"/>
+  </relatedArtifact>
+  <relatedArtifact>
+    <type value="predecessor"/>
+    <resource value="http://hl7.org/fhir/ConceptMap/example-metadata|20210701"/>
+  </relatedArtifact>
+  
+  <sourceScopeUri value="http://hl7.org/fhir/ValueSet/address-use"/>
+  <targetScopeUri value="http://terminology.hl7.org/ValueSet/v3-AddressUse"/>
+  <group>
+    <source value="http://hl7.org/fhir/address-use"/>
+    <target value="http://terminology.hl7.org/CodeSystem/v3-AddressUse"/>
+    <element>
+      <code value="home"/>
+      <display value="home"/>
+      <target>
+        <code value="H"/>
+        <display value="home"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="work"/>
+      <display value="work"/>
+      <target>
+        <code value="WP"/>
+        <display value="work place"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="temp"/>
+      <display value="temp"/>
+      <target>
+        <code value="TMP"/>
+        <display value="temporary address"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="old"/>
+      <display value="old"/>
+      <target>
+        <code value="BAD"/>
+        <display value="bad address"/>
+        <relationship value="not-related-to"/>
+        <comment value="In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old"/>
+      </target>
+    </element>
+    <!-- for all other codes, we map to 'temp' and specify that the relationaship between source code and 'temp' is 'related-to'. This is a silly thing to do in reality, but it serves the purpose here -->
+    <unmapped>
+      <mode value="fixed"/>
+      <code value="temp"/>
+      <display value="temp"/>
+      <relationship value="related-to"/>
+    </unmapped>
+  </group>
+</ConceptMap>

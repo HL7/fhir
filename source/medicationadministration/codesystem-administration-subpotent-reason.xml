@@ -13,13 +13,14 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="AdministrationSubPotentReason"/>
   <title value="Administration SubPotent Reason"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication administration process."/>
   <caseSensitive value="true"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
     <code value="partialdose"/>

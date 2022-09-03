@@ -25,7 +25,7 @@
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/proposed-order"/>
   <url value="http://hl7.org/fhir/StructureDefinition/Device"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="Device"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -44,7 +44,7 @@
   </contact>
   <description value="This resource describes the properties (regulated, has real time clock, etc.), adminstrative (manufacturer name, model number, serial number, firmware, etc), and type (knee replacement, blood pressure cuff, MRI, etc.) of a physical unit (these values do not change much within a given module, for example the serail number, manufacturer name, and model number). An actual unit may consist of several modules in a distinct hierarchy and these are represented by multiple Device resources and bound through the 'parent' element."/>
   <purpose value="Allows institutions to track their devices."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -296,8 +296,8 @@
     </element>
     <element id="Device.status">
       <path value="Device.status"/>
-      <short value="The status of the Device Record"/>
-      <definition value="Status of the Device record. This is not the status of the device like availability."/>
+      <short value="active | inactive | entered-in-error"/>
+      <definition value="The Device record status. This is not the status of the device like availability."/>
       <comment value="This element is labeled as a modifier because the status contains the codes inactive and entered-in-error that mark the device (record)as not currently valid."/>
       <min value="0"/>
       <max value="1"/>
@@ -312,7 +312,7 @@
           <valueString value="FHIRDeviceStatus"/>
         </extension>
         <strength value="required"/>
-        <description value="The availability status of the device."/>
+        <description value="The record status of the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-status"/>
       </binding>
       <mapping>
@@ -328,22 +328,22 @@
         <map value="Participant.active"/>
       </mapping>
     </element>
-    <element id="Device.statusReason">
-      <path value="Device.statusReason"/>
-      <short value="discarded | obsolete | removed"/>
-      <definition value="Reason for the status of the Device record. For example, why is the record not active."/>
+    <element id="Device.availabilityStatus">
+      <path value="Device.availabilityStatus"/>
+      <short value="lost | damaged | destroyed | available"/>
+      <definition value="The availability of the device."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableConcept"/> 
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRDeviceStatusReason"/>
+          <valueString value="FHIRDeviceAvailabilityStatus"/>
         </extension>
         <strength value="extensible"/>
         <description value="The availability status reason of the device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-status-reason"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-availability-status"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -642,6 +642,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FHIRDeviceVersionType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The type of version indicated for the device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-versiontype"/>
+      </binding>
     </element>
     <element id="Device.version.component">
       <path value="Device.version.component"/>
@@ -695,13 +703,21 @@
     </element>
     <element id="Device.specialization.systemType">
       <path value="Device.specialization.systemType"/>
-      <short value="Code that specifies the property being represented"/>
-      <definition value="Code that specifies the property being represented. No codes are specified but the MDC codes are an example: https://build.fhir.org/mdc.html."/>
+      <short value="Code that specifies the system within which the specialization is indicated"/>
+      <definition value="Code that specifies the system that identifies the specialization that the device is adhering to."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FHIRDeviceSpecializationSystemType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The type of version indicated for the device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-specialization-systemtype"/>
+      </binding>
     </element>
     <element id="Device.specialization.version">
         <path value="Device.specialization.version"/>
@@ -754,10 +770,18 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DevicePropertyType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Device property type."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-property-type"/>
+      </binding>
     </element>
     <element id="Device.property.value[x]">
       <path value="Device.property.value[x]"/>
-      <short value="Property value - as a code, quantity, boolean, string or attachmment"/>
+      <short value="Property value - as a code, quantity, boolean, string or attachment"/>
       <definition value="Property value - can be a code, quantity, boolean, string or attachment."/>
       <comment value="The string is used for properties that are intrinsically text, such as warning text, or assemlby instructions. CodeableConcept.text also supports unencoded text but should be used where the characteristic is a concept that might be coded but there is no assigned code for the present value. For example, a security class can be a code like 'Class 1' but in some cases may contain a string like 'Depending on the settings' - in this case the property is normally coded but this is an exception"/>
       <min value="1"/>
@@ -914,18 +938,19 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-operational-state-mode"/>
       </binding>
     </element>
-    <element id="Device.associationState">
-      <path value="Device.associationState"/>
-      <short value="Current state of the device"/>
+    <element id="Device.association">
+      <path value="Device.association"/>
+      <short value="Current association of the device"/>
       <definition value="The details about the device when it is affixed or inside of a patient."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
+       <isSummary value="true"/>
     </element>
-    <element id="Device.associationState.status">
-      <path value="Device.associationState.status"/>
+    <element id="Device.association.status">
+      <path value="Device.association.status"/>
       <short value="Device useage state"/>
       <definition value="The state of the usage or application of the device."/>
       <min value="1"/>
@@ -933,17 +958,18 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceAssociationState"/>
+          <valueString value="DeviceAssociationStatus"/>
         </extension>
         <strength value="example"/>
         <description value="Association status of a device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-associationstatus"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-association-status"/>
       </binding>      
     </element>
-    <element id="Device.associationState.statusReason">
-      <path value="Device.associationState.statusReason"/>
+    <element id="Device.association.statusReason">
+      <path value="Device.association.statusReason"/>
       <short value="The reasons given for the current association status"/>
       <definition value="The reasons given for the current association status - i.e. why is the device explanted, or attached to the patient, etc."/>
       <min value="0"/>
@@ -952,8 +978,8 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="Device.associationState.humanSubject">
-      <path value="Device.associationState.humanSubject"/>
+    <element id="Device.association.humanSubject">
+      <path value="Device.association.humanSubject"/>
       <short value="The individual associated with the device"/>
       <definition value="The individual to whom the device is affixed or inserted in their body."/>
       <min value="0"/>
@@ -963,6 +989,23 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
       </type>
     </element>
+    <element id="Device.association.bodyStructure">
+      <path value="Device.association.bodyStructure"/>
+      <short value="Current anatomical location of device in/on humanSubject"/>
+      <definition value="The current anatomical location of the device in/on the humanSubject where it is attached or placed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.where[x]"/>
+      </mapping>
+    </element>
+    
     <element id="Device.owner">
       <path value="Device.owner"/>
       <short value="Organization responsible for device"/>
@@ -1099,18 +1142,19 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="Device.link">
-      <path value="Device.link"/>
-      <short value="An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device"/>
-      <definition value="An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device."/>
+    <element id="Device.gateway">
+      <path value="Device.gateway"/>
+      <short value="Linked device acting as a communication/data collector, translator or controller"/>
+      <definition value="The linked device acting as a communication/data collector, translator or controller for the current device (e.g., mobile phone application that relays a blood pressure device's data)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
     </element>
-    <element id="Device.link.relation">
-      <path value="Device.link.relation"/>
+    <!-- <element id="Device.gateway.relation">
+      <path value="Device.gateway.relation"/>
       <short value="The type indicates the relationship of the related device to the device instance"/>
       <definition value="The type indicates the relationship of the related device to the device instance."/>
       <min value="1"/>
@@ -1127,17 +1171,17 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-relationtype"/>
       </binding>
     </element>
-    <element id="Device.link.relatedDevice">
-      <path value="Device.link.relatedDevice"/>
-      <short value="A reference to the linked device"/>
-      <definition value="A reference to the linked device."/>
+    <element id="Device.gateway.relatedDevice">
+      <path value="Device.gateway.relatedDevice"/>
+      <short value="Reference to the gateway device"/>
+      <definition value="A reference to the gateway device."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
-    </element>
+    </element> -->
 
     <element id="Device.note">
       <path value="Device.note"/>
@@ -1158,7 +1202,7 @@
       <short value="Safety Characteristics of Device"/>
       <definition value="Provides additional safety characteristics about a medical device.  For example devices containing latex."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="*"/> 
       <type>
         <code value="CodeableConcept"/>
       </type>

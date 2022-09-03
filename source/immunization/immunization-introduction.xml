@@ -20,10 +20,16 @@ Additionally, the Immunization resource is expected to cover key concepts relate
 Administration of vaccines is intended to be handled using the <b>Immunization</b> resource.  <a href="medicationadministration.html">MedicationAdministration</a> is intended for tracking the administration of non-vaccine medications.  Some systems treat immunizations in the same way as any other medication administration.  Such systems SHOULD use an immunization resource to represent these.  If systems need to use a <a href="medicationadministration.html">MedicationAdministration</a> resource to capture vaccinations for workflow or other reasons, they SHOULD also expose an equivalent <b>Immunization</b> instance.
 </p>
 <p>
-While the <b>Immunization</b> and <b>MedicationAdministration</b> resources are distinct, they are both able to capture specific details of the administered product. Immunization.manufacturer, Immunization.lotNumber and Immunization.expirationDate are all used to capture data about the administered vaccine. Similarly, Medicationadministrative.medication references a <a href="medication.html">Medication</a> resource which is used to identify the administered product. Medication.manufacturer, Medication.batch.lotNumber and Medication.batch.expirationDate are all analogous to the Immunization resource elements and are similarly used to capture details of the administered product.
+While the <b>Immunization</b> and <b>MedicationAdministration</b> resources are distinct, they are both able to capture specific details of the administered product. The Immunization resource uses Immunization.vaccineCode to indicate the nature  of the vaccine administered to the patient. The Immunization.administeredProduct may additionally be used to identify the specific product used (either as a coded value or as a reference to a Medication resource). The Immunization resource also contains data about the administered vaccine including the manufacturer, lot number and expiration date. However, the data elements contained within Immunization are expected to only be used when Immunization.administeredProduct does not reference a Medication resource which contains the same information about the product.
+</p>
+<p>
+Similarly, MedicationAdministrative.medication references a <a href="medication.html">Medication</a> resource which is used to identify the administered product. Medication.marketingAuthorizationHolder, Medication.batch.lotNumber and Medication.batch.expirationDate are all analogous to the Immunization resource elements and are similarly used to capture details of the administered product.
 </p>
 <p>
 Immunization.reaction may be an indication of an allergy or intolerance. If this is deemed to be the case, a separate AllergyIntolerance resource instance should be created to indicate it, as most systems will not query against past Immunization.reaction.
+</p>
+<p>
+Some workflows may require documenting that specific educational materials were presented to the patient (or other responsible party) at the time of or before the immunization event. Conveyance of this information should be accomplished using the <a href="communication.html">Communication</a> resource. This resource can be linked to an Immunization resource and indicate the timing and nature of the educational material provided. The Communication resource may be a standalone resource or may be contained within the Immunization resource as appropriate. Feedback on this approach is welcome.
 </p>
 </div>
 

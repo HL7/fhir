@@ -90,7 +90,7 @@ A Questionnaire is built out of two components, Questionnaire and item:</p>
         'question' items which do.  </li>
       <li><b>question</b> items ask a specific question to which an answer may be given.  There isn't a single
         <code>type</code> for question items. Instead, the type conveys the data type of the answer for the question.  If an item isn't a 'display' or a 'group', 
-        then it's a question which allows a particular type of answer to be gathered. Questions may also have nested content - groups and/or
+        then it is a question which allows a particular type of answer to be gathered. Questions may also have nested content - groups and/or
         other questions. This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
         depending on the answers of a parent question; e.g. a question "Did the patient receive treatment in the past six months?" would contain a nested
         group of questions asking for further details about the treatment. See an <a href="questionnaire-example-bluebook.xml.html">example</a> from
@@ -123,6 +123,18 @@ Behavior of parent 'question' items (i.e. questions with child groups or questio
 child items are also readOnly.  However, if a question is disabled, all descendant items are also disabled.  Similarly, a 'hidden' question, would hide child elements as well.
 </p>
 
+<p>
+<img src="QuestionnaireItems.svg" alt="A diagram showing a Questionnaire with multiple nested groups and items and the corresponding QuestionnaireResponse"/>
+</p>
+
+<a name="linkId"> </a>
+<h3>LinkIds</h3>
+<p>
+Questions and their responses are tied together by their linkIds.  LinkIds are unique across all items in a Questionnaire, but can sometimes appear multiple times within a
+<a href="questionnaireresponse.html">QuestionnaireResponse</a>.  The diagram on the right shows a Questionnaire with a hierarchy of group and question items, some marked as
+'repeats'=true, and others false and with similar variation in 'required'=true and false.  It also shows a hypothetical QuestionnaireResponse that is valid against that
+questionnaire with appropriate nesting of items and answers and linkIds showing the alignment between the Questionnaire and QuestionnaireResponse items.
+</p>
 
 <a name="identifiers"> </a>
 <h3>Identifiers within Questionnaire</h3>
@@ -190,7 +202,7 @@ of a fragment identifier, the first/root element definition in the target is the
 The definitions may also be used to automatically pre-populate answers, or extract data from a corresponding pre-existing <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource.
 </p>
 <p>
-Note that LOINC codes <a href="loinc.html#dataelements">implicitly</a> define logical models whose elements can be considered question definitions.
+Note that LOINC codes <a href="https://terminology.hl7.org/LOINC.html">implicitly</a> define logical models whose elements can be considered question definitions.
 </p>
 <p>
 NOTE: Even if a standard question definition is provided<!--s are referenced using <code>concept</code> or the <code>deReference</code> extension-->, information such as the question text,
@@ -277,7 +289,7 @@ and when referenced by full URL, do not need to be provided as part of the quest
 <h3>Handling Boolean Answers</h3>
 <p>
 In a questionnaire response, a question of type 'boolean' can have 3 possible states - unanswered, answered true, and answered false.  Users will generally need to be able to toggle through all three states.  If a default
-value is specified and the element is mandatory, a simple control with only true and false options will suffice.  However, if a three-state selection is required,
+value is specified and the element is mandatory, a simple control with only true and false options (e.g. traditional check-box) will suffice.  However, if a three-state selection is required,
 the typical controls used in HTML and other rendering technologies for booleans might not be appropriate.  E.g. a checkbox that can only convey 'true' or 'false' will not be able to differentiate 'unanswered' and thus is generally not
 appropriate.  If a tri-state control is available, that would work well.  Alternatively, a set of radio buttons allow choices of true, false or "no answer" could also work.
 </p>

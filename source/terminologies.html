@@ -61,7 +61,7 @@ The general pattern for representing coded elements is using the following four 
 </table>
 <div class="example">
 <p>
-The <a href="datatypes.html#Coding">Coding</a> data type represents this pattern. This example shows a LOINC code with the 
+The <a href="datatypes.html#Coding">Coding</a> datatype represents this pattern. This example shows a LOINC code with the 
 LOINC system, the version of LOINC used for the definition, and the display assigned by LOINC:
 </p> 
 <pre class="json">  
@@ -75,12 +75,12 @@ LOINC system, the version of LOINC used for the definition, and the display assi
 </div>
 <a name="type-list"> </a>
 <table class="grid">
- <tr><td colspan="2">When codes are carried in resources, one of several different data types is used:</td></tr>
+ <tr><td colspan="2">When codes are carried in resources, one of several different datatypes is used:</td></tr>
  <tr><td><a href="datatypes.html#code">code</a><a name="code"></a></td><td>The instance represents the <i>code</i> only. The <i>system</i> is implicit - it is defined as part of the definition of the element, and not carried in the instance. </td></tr>
- <tr><td><a href="datatypes.html#Coding">Coding</a><a name="Coding"></a></td><td>A data type that has a <i>code</i> and a <i>system</i> element that identifies where the definition of the code comes from</td></tr>
+ <tr><td><a href="datatypes.html#Coding">Coding</a><a name="Coding"></a></td><td>A datatype that has a <i>code</i> and a <i>system</i> element that identifies where the definition of the code comes from</td></tr>
  <tr><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a><a name="CodeableConcept"></a></td><td>A type that represents a concept by plain text and/or one or more <code>coding</code> elements (See the <a href="datatypes.html#CodeableConcept">datatype notes</a> for a discussion of code translations and using text in CodeableConcept)</td></tr>
  <tr><td><a href="references.html#CodeableReference">CodeableReference</a><a name="CodeableReference"></a></td><td>A type that can have either a reference to another resource, or a to a concept using a <a href="datatypes.html#CodeableConcept">CodeableConcept</a></td></tr>
- <tr><td colspan="2">In addition, the following data types also carry coded values, or content that can be treated as a code and bound to a valueset:</td></tr>
+ <tr><td colspan="2">In addition, the following datatypes also carry coded values, or content that can be treated as a code and bound to a valueset:</td></tr>
  <tr><td><a href="datatypes.html#Quantity">Quantity</a><a name="Quantity"></a></td><td>The instance has <i>system</i> and <i>code</i> elements for carrying a code for the type of unit, and these can be bound to a value set</td></tr>
  <tr><td><a href="datatypes.html#string">string</a><a name="string"></a></td><td>The instance carries a string. In some cases, applications may wish to control the set of valid strings for a particular element, so the string value can be treated as a coded element (like <code>code</code>)</td></tr>
  <tr><td><a href="datatypes.html#uri">uri</a><a name="uri"></a></td><td>Like <code>string</code>, URIs can be treated as a coded element</td></tr>
@@ -89,15 +89,15 @@ LOINC system, the version of LOINC used for the definition, and the display assi
 Notes:
 </p>
 <ul>
- <li>Generally, the choice of data type is dictated by the resource itself. When choosing a data type for an <a href="extensibility.html">extension</a>,
-see the FHIR Confluence pages for <a href="https://confluence.hl7.org/display/FHIR/Guide+to+Designing+Resources#Choice+of+coding+data+type">advice about data type choice</a>.</li>
+ <li>Generally, the choice of datatype is dictated by the resource itself. When choosing a datatype for an <a href="extensibility.html">extension</a>,
+see the FHIR Confluence pages for <a href="https://confluence.hl7.org/display/FHIR/Guide+to+Designing+Resources#Choice+of+coding+data+type">advice about datatype choice</a>.</li>
  <li><a href="#strings">See below</a> for more information about binding the types <a href="datatypes.html#string">string</a> and <a href="datatypes.html#uri">uri</a> to a value set.</li>
 </ul>
 
 <a name="valuesets"></a>
 <h2>Coded Values, Code Systems, and Value Sets</h2>
 <p>
-The set of coded values that is allowed in an element is known as a <a href="valueset.html">"value set"</a>. Anywhere these data types are used, the
+The set of coded values that is allowed in an element is known as a <a href="valueset.html">"value set"</a>. Anywhere these datatypes are used, the
 specification "binds" a value set to the element, and for the types code, Coding, and CodeableConcept, always does.
 </p>
 <ul>
@@ -119,12 +119,12 @@ and the concept identifier (e.g. code) is unique. Note that code system version 
 necessary to achieve uniqueness when the code system does not follow concept permanence rules. 
 </p>
 <p>
-In the case of the mixed list example from the previous paragraph, there are two code systems: <a href="loinc.html">LOINC</a> (http://loinc.org) 
+In the case of the mixed list example from the previous paragraph, there are two code systems: <a href="https://terminology.hl7.org/LOINC.html">LOINC</a> (http://loinc.org) 
 and a local one with the uri: http://example.com/codesystems/additional-test-codes. 
 The value set definition includes concept identifier (codes) from each of the two code systems. 
 The value set is given a uri as an identifier (e.g. "http://example.com/fhir/ValueSet/test-codes"). 
 The value set uri is not the same as the code system uri. Concepts are always identified by <code>code</code> and <code>system</code>, 
-except for the simple data type <a href="datatypes.html#code">code</a> where the code system is fixed in a specification 
+except for the simple datatype <a href="datatypes.html#code">code</a> where the code system is fixed in a specification 
 (e.g. core specification, implementation guide, profile) and not represented explicitly.
 </p>
 <p>
@@ -222,7 +222,7 @@ defining the correct URI to use:
    with a <a href="codesystem.html">CodeSystem resource</a>, but some other human or computable definition is allowed</li>
  <li>HTTP addresses should be permalinks which may re-direct to the current correct content</li>
  <li>A scope of the code system URI and the correct usage of codes and displays in its namespace will be clearly defined by HTA.
-   See examples for <a href="http://build.fhir.org/snomedct.html">SNOMED CT</a>, <a href="http://build.fhir.org/rxnorm.html">RxNorm</a>, <a href="http://build.fhir.org/loinc.html">LOINC</a>, <a href="http://build.fhir.org/ndc.html">NDC</a></li>
+   See examples for <a href="https://terminology.hl7.org/SNOMEDCT.html">SNOMED CT</a>, <a href="https://terminology.hl7.org/RxNorm.html">RxNorm</a>, <a href="https://terminology.hl7.org/LOINC.html">LOINC</a>, and <a href="https://terminology.hl7.org/NDC.html">NDC</a></li>
  <li>All code systems internal to HL7 use <a href="http://terminology.hl7.org/">Terminology.hl7.org</a> as the base. Generally, allocation of URLs is hierarchical, and most care is required in choosing the Base URL.
   <ul>
    <li>The url pattern is:  terminology.hl7.org/CodeSystem/xxxxxx/xxxxxxx</li>
@@ -241,7 +241,7 @@ All code systems define a set of concepts, assign specific codes to them, and pr
 guide implementers in the correct use and understanding of the codes. Many code systems define relationships
 between the different concepts - is-a, part-of, classifies-with, and many other relationships. These 
 features are represented in the <a href="codesystem.html">CodeSystem</a> resource, and exchanged using 
-one of the code data types described above. 
+one of the code datatypes described above. 
 </p>
 <p>
 Some code systems define rules for how complex expressions can be built using 
@@ -250,11 +250,11 @@ the basic concepts defined by the code system. This is sometimes referred to as
 for expressions are:
 </p>
 <ul>
- <li><a href="snomedct.html">SNOMED CT</a></li>
- <li><a href="ucum.html">UCUM</a></li>
+ <li><a href="http://www.snomed.org">SNOMED CT</a></li>
+ <li><a href="http://ucum.org/ucum.html">UCUM</a></li>
  <li><a href="http://tools.ietf.org/html/bcp13">Mime Types</a></li>
  <li><a href="http://tools.ietf.org/html/bcp47">Language</a></li>
- <li><a href="icd.html">ICD-[X]</a></li>
+ <li><a href="http://www.who.int/standards/classifications/classification-of-diseases">ICD-[X]</a></li>
 </ul>
 <p>
 There are many others. Any expression defined by the code system is still regarded as a 'code'
@@ -403,8 +403,8 @@ the value set and must handle the error appropriately.
 <p>
 The value set URL is allowed to be a URI such as a UUID (e.g. urn:uuid:c0e0d027-1250-4278-8f44-33a49dc67916).
 These value sets can never be accessed directly, and must come from a terminology server. Note
-that this specification defines many value sets that have a logical URL that is not resolvable
-(examples for <a href="snomedct.html#implicit">SNOMED CT</a>, <a href="rxnorm.html#implicit">RxNorm</a>, <a href="loinc.html#implicit">LOINC</a>)
+that HL7 Terminology defines many value sets that have a logical URL that is not resolvable
+(examples for <a href="https://terminology.hl7.org/SNOMEDCT.html">SNOMED CT</a>, <a href="https://terminology.hl7.org/RxNorm.html">RxNorm</a>, and <a href="https://terminology.hl7.org/LOINC.html">LOINC</a>)
 </p>
 <p>
 Using a logical reference which is a direct reference to the authoritative value set
@@ -442,7 +442,7 @@ of the value set and use that. Note that this applies to all <a href="references
 <a name="unbound"></a>
 <h4>Unbound</h4>
 <p>
-Note that as a matter of ongoing development, a few elements that have coded data types are not bound to
+Note that as a matter of ongoing development, a few elements that have coded datatypes are not bound to
 any value set at all. Bindings are to be provided for these elements.
 </p>
 
@@ -451,13 +451,13 @@ any value set at all. Bindings are to be provided for these elements.
 
 <h3>Binding Strengths</h3>
 <p>
-Almost all the elements that have a coded data type are bound to a value set. The bindings
+Almost all the elements that have a coded datatype are bound to a value set. The bindings
 are associated with various degrees of flexibility as to how closely the value set should be
 followed:
 </p>
 <%linkcodelist http://hl7.org/fhir/binding-strength%>
 <p>
-The precise conformance criteria for 'required' and 'extensible' binding strengths vary by the data type to which they are applied, as described in the paragraphs below.
+The precise conformance criteria for 'required' and 'extensible' binding strengths vary by the datatype to which they are applied, as described in the paragraphs below.
 </p>
 <p>
 Irrespective of the binding strength, when a <a href="structuredefinition.html">StructureDefinition</a> is used
@@ -481,10 +481,10 @@ If the binding strength is required, the data element SHALL contain one of the v
 Required binding strength is used for elements where the value needs to be strictly controlled so the element can be interpreted with confidence. Required binding strength SHALL be used for elements with type code.
 </p>
 <p>
-In the base FHIR specification, required binding strength is typically only used with the 'code' data type. In profiles, it may be used more broadly when there is agreement within a context of use that a specified set of codes are the only ones that can be used.
+In the base FHIR specification, required binding strength is typically only used with the 'code' datatype. In profiles, it may be used more broadly when there is agreement within a context of use that a specified set of codes are the only ones that can be used.
 </p>
 <p>
-The following rules apply when required bindings are used with the <a href="datatypes.html#CodeableConcept">CodeableConcept</a> data type:
+The following rules apply when required bindings are used with the <a href="datatypes.html#CodeableConcept">CodeableConcept</a> datatype:
 </p>
 <ul>
  <li>at least one Coding element SHALL be present</li>
@@ -499,7 +499,7 @@ all the elements.
 Note: when a binding is applied to a <a href="references.html#CodeableReference">CodeableReference</a>, these rules also apply to it's <code>concept</code> property.
 </p>
 <p>
-The following  rules apply when required bindings are used with the <a href="datatypes.html#code">code</a> data type:
+The following  rules apply when required bindings are used with the <a href="datatypes.html#code">code</a> datatype:
 </p>
 <ul>
  <li>The codes in the value set expansion must be distinct independent of the code system. </li>
@@ -551,8 +551,8 @@ used instead. The alternate concept can have any level of specificity in an <cod
   <ul>
    <li>The code that is used in the instance SHALL be taken from one of the applicable concepts from the 
    value set and SHOULD be the closest more general available match for the intended element instance meaning. 
-   If the data type is Coding then the only concept that can be sent is the applicable concept from the value set.</li>
-   <li>If the data type is CodeableConcept, a more specific code that is not in the extensibly bound value set 
+   If the datatype is Coding then the only concept that can be sent is the applicable concept from the value set.</li>
+   <li>If the datatype is CodeableConcept, a more specific code that is not in the extensibly bound value set 
    that more completely represents the intended meaning <b>MAY</b> be included in the instance as an additional Coding, 
    but it cannot be used <b>instead</b> of the code from the value set expansion. This helps ensure that systems know 
    which codes they should expect to receive and build logic for, and it facilitates interoperability.</li>
@@ -593,7 +593,7 @@ difficult but important subject of Extensible bindings.
 are not required to do so to be considered conformant.</i>
 </p>
 <p>
-If the data type is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then one of the Coding values SHOULD
+If the datatype is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then one of the Coding values SHOULD
 be from the specified value set, but another code and/or text can be used in its place.
 </p>
 <p>
@@ -650,15 +650,14 @@ If no MIN value set is specified, then there is no guidance for implementers reg
 
 
 <a name="max"></a>
-<h3>Max Value Set</h3>
+<h3>Maximum Value Set</h3>
 <p>
-When binding a ValueSet to an element, values may be limited by declaring a maximum value set with the extension:
-maxValueSet http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet
+When binding a ValueSet to an element, values may be limited by declaring a maximum value set with the <a href="extension-elementdefinition-maxvalueset.html">maxiumumValueSet extension</a>.
 </p>
-<ul>
- <li>When the binding strength is extensible or preferred, and a maximum ValueSet is defined,
- any codes provided beyond the bound value set must be in the expansion of the maxValueSet.</li>
-</ul>
+<p>
+A binding may be further constrained to declare a value set for use when the binding strength is 'extensible' or 'preferred'. This value set is the value set from which additional codes can be taken from. This defines a 'required' binding over the top of the 'extensible' binding.
+</p>
+
 
 <a name="other"></a>
 <h2>Other notes</h2>
@@ -671,6 +670,7 @@ may be sealed by defining a simple list of enumerated codes, or it may include
 codes by their properties, along with a non-version specific reference to an
 underlying code system, in which case the list of valid concepts may change over time.
 </li>
+<li><a href="extension-elementdefinition-minvalueset.html">Extension minValueSet</a> may be used to define the minimum value set that is required for conformance. </li>
 </ul>
 <a name="strings"></a>
 <h3>Binding String Values</h3>

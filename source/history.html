@@ -13,7 +13,7 @@ notes:
 * location should be resource name, or title of the page on which cahgnes are made
 
 
-* Major, Data types, rename Contact to ContactPoint
+* Major, Datatypes, rename Contact to ContactPoint
 
 -->
 
@@ -93,9 +93,9 @@ notes: do not list revision in the version
 	<tr>
 		<td>4.6.0<a name="v4.6.0"></a></td>
 		<td>
-      Draft Ballot for R5 - May 2020 Ballot (Apr 14-20 2020). Significant changes:
+      Draft Ballot for R5 - May 2021 Ballot (Apr 14-20 2021). Significant changes:
       <ul>
-        <li>Add <a href="datatypes.html#RatioRange">RatioRange</a> data type</li>
+        <li>Add <a href="datatypes.html#RatioRange">RatioRange</a> datatype</li>
         <li>Rename DeviceUseStatement to <a href="deviceusage.html">DeviceUsage</a></li>
         <li>New resources <a href="inventoryreport.html">InventoryReport</a>, <a href="citation.html">Citation</a>, <a href="evidencereport.html">EvidenceReport</a>, ClinicalUseIssue</li>
         <li>Updates for <a href="subscription.html">subscriptions</a>, <a href="medication-definition-module.html">medication definitions</a>, and <a href="evidence.html">evidence based medicine</a></li>
@@ -128,7 +128,7 @@ notes: do not list revision in the version
 		<td>
       1st Milestone for R5 - Sydney Connectathon Stable Version. Significant changes:
       <ul>
-       <li>Rework the abstact data types (new types <a href="types.html#Base">Base</a>, <a href="types.html#DataType">DataType</a>, <a href="types.html#BackboneType">BackboneType</a>), 
+       <li>Rework the abstact datatypes (new types <a href="types.html#Base">Base</a>, <a href="types.html#DataType">DataType</a>, <a href="types.html#BackboneType">BackboneType</a>), 
         and introduce <a href="canonicalresource.html">CanonicalResource</a> and <a href="metadataresource.html">MetadataResource</a> interfaces</li>
        <li>Major upgrade to <a href="subscription.html">Subscription</a> resource and the pub/sub patterns</li>
       </ul>
@@ -245,10 +245,10 @@ notes: do not list revision in the version
        <tr><td>Enhance/extend rules around changes between versions</td><td>FHIR-I: [%GF#13089%]</td> <td>[%diff versions.html#rules Version Management Policy%]</td></tr> 
        <tr><td>Add fhirVersion parameter to application/fhir mime type</td> <td>FHIR-I: [%GF#16165%]</td> <td>[%diff http.html#version-parameter RESTful API%]</td></tr>
        <tr><td>Add the $versions operation</td><td>FHIR-I: [%GF#17009%]</td> <td>[%diff capabilitystatement-operations.html Capability Statement Operations%]</td></tr> 
-       <tr><td>Allow exponential form for decimals (with corresponding consequences for precision)</td> <td>FHIR-I: [%GF#16874%]</td> <td>[%diff datatypes.html#decimal Data Types%], [%diff xml.html#decimal XML%]</td></tr>
+       <tr><td>Allow exponential form for decimals (with corresponding consequences for precision)</td> <td>FHIR-I: [%GF#16874%]</td> <td>[%diff datatypes.html#decimal Datatypes%], [%diff xml.html#decimal XML%]</td></tr>
        <tr><td>Describe use of exponential form when searching numbers (+ clarifications for precision)</td> <td>FHIR-I: [%GF#16369%]</td> <td>[%diff search.html#decimal Search%]</td></tr>
        <tr><td>Remove support for operations on historical resources <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#17258%]</td> <td>[%diff operations.html Operations%]</td></tr>
-       <tr><td>Change Money Type to make it simpler <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16297%]</td> <td>[%diff datatypes.html#Money Data Types%]</td></tr>
+       <tr><td>Change Money Type to make it simpler <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16297%]</td> <td>[%diff datatypes.html#Money Datatypes%]</td></tr>
        <tr><td>Change ElementDefinition.binding.valueSet to only be of type canonical <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16055%]</td> <td>[%diff elementdefinition.html Element Definition%]</td></tr>
        <tr><td>Remove restriction on Bundle containing multiple versions of the same resource <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#17085%]</td> <td>[%diff bundle.html Bundle%]</td></tr>
        <tr><td>Rename Binary.content to Binary.data and exclude it from summary (which makes it optional) <b style="color: maroon">Breaking change!</b></td> <td>FHIR-I: [%GF#16998%], [%GF#16898%]</td> <td>[%diff binary.html Binary Resource%]</td></tr> 
@@ -306,7 +306,7 @@ notes: do not list revision in the version
       <p><b>Release R4 Ballot #1</b>: Apr 3, 2018. R4 ballot #1. Major changes from R3:</p>
       <ul>
        <li>Mark all content with a standards status - Normative, Trial use, Draft, or external</li>
-       <li>Many minor &amp; major changes to data types, resources, operations</li>
+       <li>Many minor &amp; major changes to datatypes, resources, operations</li>
        <li>New Resources:      
        <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>,
        <a href="eventdefinition.html">EventDefinition</a>,
@@ -346,7 +346,7 @@ notes: do not list revision in the version
       <p><b>Release R4 Draft</b>: Dec 21, 2017. R4 draft ballot. Major changes:</p>
       <ul>
        <li>Ensure that all pages have a standards status, and enforce standards status throughout. Add dependency analysis</li>
-       <li>Many minor changes to data types, resources, operations</li>
+       <li>Many minor changes to datatypes, resources, operations</li>
        <li>New Resources: <a href="specimendefinition.html">SpecimenDefinition</a>, <a href="observationdefinition.html">ObservationDefinition</a>, 
           <a href="examplescenario.html">ExampleScenario</a>, <a href="terminologycapabilities.html">TerminologyCapabilities</a>, UserSession, <a href="invoice.html">Invoice</a>, 
           <a href="insuranceplan.html">InsurancePlan</a>, OccupationalData, <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <a href="verificationresult.html">VerificationResult</a>, 
@@ -454,7 +454,7 @@ notes: do not list revision in the version
           </ul>
         </li>
         <li>Formats: No change to XML + JSON formats. Add <a href="rdf.html">Turtle Format</a>, and related validation tools</li>
-        <li>For Data Types and Resources, there is <a href="diff.html">formal difference</a> analysis from DSTU2 (also found throughout the specification), and <code>transforms between DSTU 2 and STU 3</code>
+        <li>For Datatypes and Resources, there is <a href="diff.html">formal difference</a> analysis from DSTU2 (also found throughout the specification), and <code>transforms between DSTU 2 and STU 3</code>
         are provided for many resources</li>
       </ul>
     </td>
@@ -627,10 +627,10 @@ notes: do not list revision in the version
         <li><a href="http.html">RESTful API</a>: add batch, several clarifications around versioning &amp; transactional integrity, changed Bundle URL resolution rules</li>
         <li><a href="search.html">Search</a>: changed the way &lt;&gt; etc.works, added _list parameter, changed rules around contained and included resources</li>
         <li>Formats: added a <a href="xml.html">note about whitespace in XML</a>, added <a href="xml.html#schema-gen">code generation schemas</a></li>
-        <li>Data Types:
+        <li>Datatypes:
           <ul>
-            <li>New data types: <a href="datatypes.html#markdown">markdown</a>, <a href="datatypes.html#Annotation">Annotation</a>, </li>
-            <li>changed data types: <a href="datatypes.html#Coding">Coding</a>, <a href="datatypes.html#Quantity">Quantity</a>, <a href="datatypes.html#Signature">Signature</a>, <a href="datatypes.html#Timing">Timing</a>, <a href="datatypes.html#Address">Address</a>, <a href="datatypes.html#ContactPoint">ContactPoint</a></li>
+            <li>New datatypes: <a href="datatypes.html#markdown">markdown</a>, <a href="datatypes.html#Annotation">Annotation</a>, </li>
+            <li>changed datatypes: <a href="datatypes.html#Coding">Coding</a>, <a href="datatypes.html#Quantity">Quantity</a>, <a href="datatypes.html#Signature">Signature</a>, <a href="datatypes.html#Timing">Timing</a>, <a href="datatypes.html#Address">Address</a>, <a href="datatypes.html#ContactPoint">ContactPoint</a></li>
             <li>changes to <a href="elementdefinition.html">ElementDefinition</a>: add base, make type.profile repeat, remove invariant.name and replace with invariant.requirements, remove binding.name, add min/max value</li>
           </ul>
         </li>
@@ -660,14 +660,14 @@ notes: do not list revision in the version
         <li>All spaces removed</li>
         <li>Extensive content changes not noted here</li>
       </ul>
-      <p><b>New Data Types</b></p>
+      <p><b>New Datatypes</b></p>
       <ul>
         <li><a href="datatypes.html#unsignedInt">unsignedInt</a></li>
         <li><a href="datatypes.html#positiveInt">positiveInt</a></li>
         <li><a href="datatypes.html#Signature">Signature</a></li>
         <li><a href="resource.html#Meta">Meta</a></li>
       </ul>
-      <p><b>Changed Data Types</b></p>
+      <p><b>Changed Datatypes</b></p>
       <ul>
         <li><a href="datatypes.html#Coding">Coding</a> - remove valueSet property  </li>
         <li><a href="datatypes.html#Attachment">Attachment</a> - add creation</li>
@@ -870,12 +870,12 @@ notes: do not list revision in the version
        <a href="questionnaire.html">Questionnaire</a> in response to feedback from the Connectathon.</li>
        <li>Added DataElement (now <a href="structuredefinition.html">StructureDefinition</a>) resource (has been previously discussed as ObservationDefinition)</li>
        <li>Defined <a href="subscription.html">Subscription</a> resource for evaluation</li>
-       <li>Add <a href="datatypes.html#time">time</a> data type</li>
+       <li>Add <a href="datatypes.html#time">time</a> datatype</li>
        <li>Define RPC-type <a href="operations.html">operations</a> on the RESTful interface, and add <a href="operationdefinition.html">Operation Definition</a></li>
        <li>Defined operations on several resources including <a href="conceptmap.html">ConceptMap</a>, <a href="questionnaire.html">Questionnaire</a> and <a href="valueset.html">ValueSet</a></li>
        <li><a href="capabilitystatement.html">Conformance</a> (now CapabilityStatement): Change Conformance.rest.operation to Conformance.rest.interaction and Conformance.rest.resource.operation to Conformance.rest.resource.interaction, and add Conformance.rest.operation to point to <a href="operationdefinition.html">Operation Definition</a></li>
        <li>Profile: add Profile.url, Profile.structure.snapshot and Profile.structure.differential, and remove query definition (now in OperationDefinition)</li>
-       <li>Add pages for <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>, and <a href="snomedct.html">SNOMED CT</a></li>
+       <li>Add pages for LOINC, RxNorm, and SNOMED CT</li>
        <li>Significant rework for <a href="conceptmap.html">ConceptMap</a> so it can be used to map between structures as well as value sets</li>
        <li>Add <a href="detectedissue.html">Contraindication</a> and <a href="riskassessment.html">Risk Assessment</a> and added examples to other resources in support of these</li>
        <li>Add Referral Request</li>

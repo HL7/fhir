@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Provenance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/provenance.xsd">
+	<id value="example-import"/>
+	<target>
+		<reference value="Condition/example"/>
+	</target>
+	<target>
+		<reference value="Condition/example2"/>
+	</target>
+	<target>
+		<reference value="Encounter/example"/>
+	</target>
+	<target>
+		<reference value="Immunization/example"/>
+	</target>
+	<recorded value="2015-06-27T08:39:24+10:00"/>
+    <policy value="urn:ihe:pcc:qedm:2017:document-provenance-policy"/>
+	<activity>
+		<coding>
+        <system value="http://hl7.org/fhir/w3c-provenance-activity-type" />
+        <code value="Derivation" />
+		</coding>
+	</activity>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+	<agent id="a1">
+		<type>
+			<coding>
+          <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/>
+          <code value="assembler"/>
+			</coding>
+		</type>
+		<who>
+			<display  value="Device/software"/>
+		</who>
+	</agent>
+	<!-- information extract from a DICOM document, could be anything (e.g. CDA) -->
+	<entity>
+		<role value="source"/>
+		<what>
+			<reference value="DocumentReference/example"/>    
+		</what>
+	</entity>
+</Provenance>

@@ -19,6 +19,8 @@
             <value value="+31715262169"/>
             <use value="work"/>
         </telecom>
+        <gender value="female" />
+        <birthDate value="1967-11-05"/>
         <address>
             <use value="work"/>
             <line value="Walvisbaai 3"/>    
@@ -26,8 +28,6 @@
             <postalCode value="2333ZA"/>
             <country value="NLD"/>
         </address>
-        <gender value="female" />
-        <birthDate value="1967-11-05"/>
         <!--    <photo>    
         <reference value="Media/CE-204.bmp"/>
         <display value="Picture_Carla_Espinosa"/>

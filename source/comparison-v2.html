@@ -36,7 +36,7 @@ documents, REST and other service models).  Refer to the <a href="messageheader.
 roughly correspond to FHIR's idea of <a href="resource.html">resources</a>.  However, HL7 v2
 segments can't be independently manipulated.  Additionally, not all segments have the characteristics
 of independent identity held by FHIR resources.  Due to differences in scope and approach to
-extensibility, HL7 v2 segments and data types are frequently cluttered with data elements that are not
+extensibility, HL7 v2 segments and datatypes are frequently cluttered with data elements that are not
 used by (or even understood by) the majority of implementations.
 </p>
 <p>
@@ -61,14 +61,14 @@ independently.  The <a href="medicationrequest.html">MedicationRequest</a> resou
 all of the aspects of the above segments, with the exception of some of the workflow aspects of ORC which
 is handled by the <a href="task.html">Task</a> resource.  The <a href="medicationrequest.html">MedicationRequest</a>
 resource is itself complex, having nested structures for dosage instructions, dispensing instructions, etc.
-that are not simple data types.
+that are not simple datatypes.
 </p>
 <p>
 <b>Extensibility:</b> HL7 v2 provides an extensibility mechanism through the use of "Z-segments".
 The meaning of these extensions is opaque without prior manual explanation by the sender.  Extensions
 are supposed to be restricted to data elements that do not affect the meaning of the "standard" segments.
 FHIR <a href="extensibility.html">Extensions</a>, on the other hand, can appear at any level (including
-within data types).  <a href="extensibility.html#modifierExtension">ModifierExtensions</a> may be used
+within datatypes).  <a href="extensibility.html#modifierExtension">ModifierExtensions</a> may be used
 in circumstances where an extension can change the meaning of other elements (e.g. the introduction
 of a negation indicator on a record).  Finally, the meaning of FHIR extensions is discoverable by resolving
 the URI that defines the extension.  The URI approach also ensures that extensions created by independent

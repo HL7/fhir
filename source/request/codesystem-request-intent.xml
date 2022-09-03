@@ -6,7 +6,7 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/request-intent"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="RequestIntent"/>
   <concept>
     <code value="proposal"/>
@@ -26,11 +26,11 @@
   <concept>
     <code value="order"/>
     <display value="Order"/>
-    <definition value="The request represents a request/demand and authorization for action by a Practitioner."/>
+    <definition value="The request represents a request/demand and authorization for action by the requestor."/>
     <concept>
       <code value="original-order"/>
       <display value="Original Order"/>
-      <definition value="The request represents an original authorization for action."/>
+      <definition value="The request represents an original authorization for action. Original orders should not have a 'based on' link to any other orders, though they might reference plans or proposals."/>
     </concept>
     <concept>
       <code value="reflex-order"/>
@@ -40,17 +40,17 @@
     <concept>
       <code value="filler-order"/>
       <display value="Filler Order"/>
-      <definition value="The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller&#39;s intention to act upon a submitted order."/>
-      <concept>
-        <code value="instance-order"/>
-        <display value="Instance Order"/>
-        <definition value="An order created in fulfillment of a broader order that represents the authorization for a single activity occurrence.  E.g. The administration of a single dose of a drug."/>
-      </concept>
+      <definition value="The request represents the view of an authorization instantiated by a fulfilling system.  It expresses the details of the fulfiller's intention to act upon a submitted order. Filler orders should have a 'based on' link to another order. Filler orders will generally represent the full scope and timing of the original order, though not always. (Also see 'instance-order'.)"/>
+    </concept>
+    <concept>
+      <code value="instance-order"/>
+      <display value="Instance Order"/>
+      <definition value="An order created in fulfillment of a broader order that represents the authorization for a single activity occurrence. E.g. The administration of a single dose of a drug. Instance orders might be defined by either placing or filling systems. Instance orders should have a 'based on' link to another order."/>
     </concept>
   </concept>
   <concept>
     <code value="option"/>
     <display value="Option"/>
-    <definition value="The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.  Refer to [[[RequestGroup]]] for additional information on how this status is used."/>
+    <definition value="The request represents a component or option for a RequestOrchestration that establishes timing, conditionality and/or other constraints among a set of requests.  Refer to [[[RequestOrchestration]]] for additional information on how this status is used."/>
   </concept>
 </CodeSystem>

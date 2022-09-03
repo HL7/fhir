@@ -3,21 +3,8 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="research-study-reason-stopped"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <ul>
-        <li>Include all codes defined in 
-          <a href="codesystem-research-study-reason-stopped.html">
-            <code>http://terminology.hl7.org/CodeSystem/research-study-reason-stopped</code>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="brr"/>
   </extension>
@@ -32,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.825"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ResearchStudyReasonStopped"/>
   <title value="ResearchStudyReasonStopped"/>
   <status value="draft"/>
@@ -54,11 +41,11 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/research-study-classifiers"/>
-	  <filter>
-	    <property value="concept"/>
-	    <op value="descendent-of"/>
-	    <value value="research-study-reason-stopped"/>
-	  </filter>
+      <filter>
+        <property value="concept"/>
+        <op value="descendent-of"/>
+        <value value="research-study-reason-stopped"/>
+      </filter>
     </include>
   </compose>
 </ValueSet>

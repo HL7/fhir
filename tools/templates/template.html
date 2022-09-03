@@ -30,6 +30,12 @@ Resource Content
 <a name="def"></a>
 <a name="<%name%>"></a>
 <a name="<%title%>"></a>
+<a name="tt-tree"></a>
+<a name="tt-uml"></a>
+<a name="tt-xml"></a>
+<a name="tt-json"></a>
+<a name="tt-ttl"></a>
+<a name="tt-all"></a>
 
 <div id="tabs">
   <ul>
@@ -38,7 +44,7 @@ Resource Content
     <li><a href="#tabs-xml">XML</a></li>
     <li><a href="#tabs-json">JSON</a></li>
     <li><a href="#tabs-ttl">Turtle</a></li>
-    <li><a href="#tabs-diff">R3 Diff</a></li>
+    <li><a href="#tabs-diff">R4 Diff</a></li>
     <li><a href="#tabs-all">All</a></li>
   </ul>
   <div id="tabs-struc">
@@ -94,7 +100,7 @@ Resource Content
   <div id="tabs-diff">
 
 <div id="vdiff">
-<p><b>Changes since R3</b></p>
+<p><b>Changes since R4</b></p>
  <div id="diff-inner">
   <%diff-analysis%>
   <p>
@@ -149,7 +155,7 @@ Resource Content
 </div>
 
 <div id="vdiff2">
-<p><b>Changes since Release 3</b></p>
+<p><b>Changes since Release 4</b></p>
  <div id="diff-inner2">
   <%diff-analysis%>
   <p>
@@ -163,10 +169,11 @@ Resource Content
 </div>
 
 <p>&nbsp;</p>
-<p>[%res-ext-link%]alternate definitions:
-Master Definition <a href="<%name%>.profile.xml.html">XML</a> + <a href="<%name%>.profile.json.html">JSON</a>,
-<a href="xml.html">XML</a> <a href="<%name%>.xsd">Schema</a>/<a href="<%name%>.sch">Schematron</a> + <a href="json.html">JSON</a> 
-<a href="<%name%>.schema.json.html">Schema</a>, <a href="<%name%>.shex.html">ShEx</a> (for <a href="rdf.html">Turtle</a>) [%ext-link%], the <a href="<%name%>.xlsx">spreadsheet version</a> &amp; the <a href="<%name%>-dependencies.html">dependency analysis</a> a</p>
+<p>Additional definitions: Master Definition <a href="<%name%>.profile.xml.html">XML</a> + <a href="<%name%>.profile.json.html">JSON</a>,
+<a href="xml.html">XML</a> <a href="<%name%>.xsd">Schema</a>/<a href="<%name%>.sch">Schematron</a> + <a href="json.html">JSON</a>
+<a href="<%name%>.schema.json.html">Schema</a>, <a href="<%name%>.shex.html">ShEx</a> (for <a href="rdf.html">Turtle</a>) [%ext-link%], the <a href="<%name%>.xlsx">spreadsheet version</a> &amp; the <a href="<%name%>-dependencies.html">dependency analysis</a></p>
+
+<%liquid-link%>
 
 <a name="tx"></a>
 <%tx%>
@@ -189,9 +196,23 @@ Master Definition <a href="<%name%>.profile.xml.html">XML</a> + <a href="<%name%
 <script src="jquery-ui.min.js"> </script>
 <script>
 try {
-  var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
-}
-catch(exception){
+  var currentTabIndex = null;
+  if (window.location.hash == '#tt-tree') {
+    currentTabIndex = 0;
+  } else if (window.location.hash == '#tt-uml') {
+    currentTabIndex = 1;
+  } else if (window.location.hash == '#tt-xml') {
+    currentTabIndex = 2;
+  } else if (window.location.hash == '#tt-json') {
+    currentTabIndex = 3;
+  } else if (window.location.hash == '#tt-ttl') {
+    currentTabIndex = 4;
+  } else if (window.location.hash == '#tt-all') {
+    currentTabIndex = 5;
+  } else {
+    currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+  }
+} catch(exception) {
 }
 
 if (!currentTabIndex)

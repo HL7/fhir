@@ -24,7 +24,7 @@
     <valueCode value="n/a - this resource is not expected to be stored"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="OperationOutcome"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
@@ -42,7 +42,7 @@
     </telecom>
   </contact>
   <description value="A collection of error, warning, or information messages that result from a system action."/>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
@@ -106,7 +106,6 @@
       <path value="OperationOutcome.issue.severity"/>
       <short value="fatal | error | warning | information"/>
       <definition value="Indicates whether the issue indicates a variation from successful processing."/>
-      <comment value="This is labeled as &quot;Is Modifier&quot; because applications should not confuse hints and warnings with errors."/>
       <requirements value="Indicates how relevant the issue is to the overall success of the action."/>
       <min value="1"/>
       <max value="1"/>
@@ -135,6 +134,7 @@
       <path value="OperationOutcome.issue.code"/>
       <short value="Error or warning code"/>
       <definition value="Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide its own code for the error in the details element."/>
+      <comment value="Code values should align with the severity.  For example, a code of ```forbidden``` generally wouldn't make sense with a severity of ```information``` or ```warning```.  Similarly, a code of ```informational``` would generally not make sense with a severity of ```fatal``` or ```error```.  However, there are no strict rules about what severities must be used with which codes.  For example, ```code-invalid``` might be a ```warning``` or ```error```, depending on the context"/>
       <requirements value="Expresses the issue in a human and computer-friendly way, allowing the requesting system to behave differently based on the type of issue.&#xA;&#xA;The required element provides a base level of computable interoperability across all systems for processing an outcome, allowing systems to respond appropriately regardless of the internal system error codes returned."/>
       <min value="1"/>
       <max value="1"/>

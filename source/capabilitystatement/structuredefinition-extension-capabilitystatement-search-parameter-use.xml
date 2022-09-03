@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="capabilitystatement-search-parameter-use"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/capabilitystatement-search-parameter-use"/>
+  <version value="4.6.0"/>
+  <name value="search-parameter-use"/>
+  <title value="Search Parameter Use"/>
+  <status value="draft"/>
+  <date value="2022-08-12"/>
+  <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/special/committees/fhir.htm"/>
+    </telecom>
+  </contact>
+  <description value="This extension defines if a search parameter is only allowed in certain contexts"/>
+  <fhirVersion value="5.0.0-cibuild"/>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="CapabilityStatement.rest.resource"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Search context a search parameter allowed to be used"/>
+      <definition value="This extension defines if a search parameter is only allowed in certain contexts: standalone, _include, or _revInclude, by setting each one to either true or false."/>
+      <comment value="For example, A search parameter has allow-standalone=false, allow-include=true and allow-revinclude=true. This means server does not support using such search parameter in a standalone search but client can use this parameter in _include and _revInclude searches."/>
+      <min value="0"/>
+      <max value="1"/>
+      <isModifier value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Extension.extension:allow-standalone">
+      <path value="Extension.extension"/>
+      <sliceName value="required"/>
+      <short value="If this search parameter can use used in standalone search."/>
+      <definition value="Indicate is this search parameter can use used in standalone search."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Extension.extension:allow-standalone.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:allow-standalone.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="allow-standalone"/>
+    </element>
+    <element id="Extension.extension:allow-standalone.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Extension.extension:allow-include">
+      <path value="Extension.extension"/>
+      <sliceName value="allow-include"/>
+      <short value="If this search parameter can use used in _include search."/>
+      <definition value="Indicate is this search parameter can use used in _include search."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Extension.extension:allow-include.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:allow-include.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="allow-include"/>
+    </element>
+    <element id="Extension.extension:allow-include.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Extension.extension:allow-revinclude">
+      <path value="Extension.extension"/>
+      <sliceName value="allow-revinclude"/>
+      <short value="If this search parameter can use used in _revinclude search."/>
+      <definition value="Indicate is this search parameter can use used in _revinclude search."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+      </type>
+      <isModifier value="false"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Extension.extension:allow-revinclude.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:allow-revinclude.url">
+      <path value="Extension.extension.url"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <fixedUri value="allow-revinclude"/>
+    </element>
+    <element id="Extension.extension:allow-revinclude.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/capabilitystatement-search-parameter-use"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="0"/>
+      <max value="0"/>
+    </element>
+  </differential>
+</StructureDefinition>

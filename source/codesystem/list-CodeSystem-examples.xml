@@ -52,4 +52,40 @@
       <display value="Supplement"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Code System Supplement 2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="codesystem-example-supplement-2"/>
+    </extension>
+    <item>
+      <reference value="CodeSystem/example-supplement-2"/>
+      <display value="Supplement 2"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Code System Metadata"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="codesystem-example-metadata"/>
+    </extension>
+    <item>
+      <reference value="CodeSystem/example-metadata"/>
+      <display value="Metadata"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example Code System Metadata v2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="codesystem-example-metadata-2"/>
+    </extension>
+    <item>
+      <reference value="CodeSystem/example-metadata-2"/>
+      <display value="Metadata v2"/>
+    </item>
+  </entry>
 </List>

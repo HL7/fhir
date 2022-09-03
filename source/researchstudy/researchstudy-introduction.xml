@@ -3,33 +3,32 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
-  [%stu-note%]
-In terms of scope and usage, the  BR and RR workgroup wish to
-draw the attention of reviewers and implementers to the following issue:
+ <blockquote class="stu-note"><p><b>Ballot Questions:</b>
+In terms of scope and usage, the BR&amp;R workgroup wish to
+draw the attention of reviewers and implementers to the following topics:
 </p>
 			<ol>
-				<li>
- This is a major restructuring of the resource.  We are seeking input from the implementation community on the appropriateness of these changes
-</li>
+				<li>The resource has been refined and revised to remove duplication in few areas. We are seeking input from the community on the appropriateness of these changes.</li>
+				<li>One major topic that the WG has discussed is the scope of this resource. One proposal under consideration is that the ResearchStudy resource would be a base resource that supports all kinds of research. Use case specific profiles would be developed in the near future to support a) Regulated Clinical Trial Profile, b) Basic Research Study Profile, etc. Below is an illustration of the proposal under consideration.<br/>
+				<img src="researchstudy-profile-proposal.png" alt="Image showing the relationship between resources representing people" width="584px" />
+				</li>
+				<li>WG seeks input in how research study sites should be represented in FHIR. There are two proposals under consideration. Option 1: Develop a ResearchStudySite Profile of ResearchStudy resource, Option 2: Develop a NEW FHIR resource called ResearchStudySite. For now, the WG is doing analysis to see if the profile option (Option 1) would work. All input is welcome.</li>
 			</ol>
-[%end-note-np%]
+</blockquote>
 
-<p>This resource is an <a href="workflow.html#definition">
+<p>This resource is a <a href="workflow.html#definition">
         <em>definition resource</em>
       </a> from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</p>
-    <p>A research study is a scientific way to improve or develop new methods of health care. Studies are designed to answer specific questions on how to prevent, diagnose, or treat diseases and disorders. The ResearchStudy resource describes essential information about the study, including the purpose, objective, sponsor, investigator, therapy, condition being studied, schedule of activities, and other key items.</p>
+    <p>A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge. This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances.</p>
+	<p>For clinical trials -- A research study is a scientific way to improve or develop new methods of health care. Studies are designed to answer specific questions on how to prevent, diagnose, or treat diseases and disorders. The ResearchStudy resource describes essential information about the study, including the purpose, objective, sponsor, investigator, therapy, condition being studied, schedule of activities, and other key items.</p>
     <p>Uses for the ResearchStudy resource include:</p>
     <ul>
-      <li>Registering a clinical trial in trial registry such as clinicaltrials.gov
-      </li>
-      <li>Communicating study protocol information between study stakeholders
-      </li>
-      <li>Supporting study set up of sites, forms
-	  </li>
-      <li>Grouping Observation resources by study
-      </li>
-      <li>Setting up a Schedule of Activities for the study and its subjects
-	  </li>
+      <li>Registering a clinical trial in trial registry such as clinicaltrials.gov</li>
+      <li>Communicating study protocol information between study stakeholders</li>
+      <li>Supporting study set up of sites, forms</li>
+      <li>Grouping Observation resources by study</li>
+      <li>Setting up a Schedule of Activities for the study and its subjects</li>
+	  <li>Specifying Study information in support of Genomic, Proteomic and Stability studies</li>
       </ul>
 
   <h3>Extensions</h3>
@@ -41,11 +40,9 @@ draw the attention of reviewers and implementers to the following issue:
 <p>Some studies need to find sites according to specific criteria - for example site has a freezer capable of very low temperatures and a centrifuge.</p>
 
   <p>
-    <b>Deprecated Extension: RelatesTo</b>
+    <b>Extension: StudyRegistration</b>
   </p>
-<p>Many clinical studies have a component sub-study and the partOf attribute should be used for this. There may also be documents such as a PDF of the protocol or consent forms or more complex relations to other studies people organizations or artefacts and these should be linked using relatedAretfact. 
-
-In the May 2021 release the <a href="http://hl7.org/fhir/2021May/extension-researchstudy-relatesto.html">relatesTo</a> extension was created.  Since then the RelatesTo datatype has been enhanced and the relatedAretfact now provides all the functionality that was in the extension.  This extension has now been removed.  Since there are already (March 2022) some known uses of the extension a link to the previous definition is provided above for reference.  Implementers should now stop using the extension.</p>
+<p>Used to separate study registration activities from study progress status.</p>
 
 </div>
 

@@ -49,7 +49,7 @@
     <code value="314079002"/>
     <display value="Hyperlipidemia screening test (procedure)"/>
   </keyword>
-  <fhirVersion value="4.6.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="m1"/>
     <uri value="https://www.rcpa.edu.au/getattachment/0961c6d1-ec80-4500-8dc0-de516500e05b/Lipid-and-lipoprotein-testing.aspx"/>

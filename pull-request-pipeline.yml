@@ -8,6 +8,8 @@ pr:
 variables:
 - group: ZULIP_VAR_GROUP
 - group: SSH_UPLOAD
+- name: CI_BRANCH_DIRECTORY
+  value: $[ replace(variables['System.PullRequest.SourceBranch'], '/', '_') ]
 
 jobs:
 - job: setupEnvironment
@@ -16,26 +18,41 @@ jobs:
     displayName: 'Download java sdk'
     inputs:
       targetType: 'inline'
-      script: 'wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/8u262-b10/openlogic-openjdk-8u262-b10-linux-x64.tar.gz -O $(Build.ArtifactStagingDirectory)/java8.tar.gz'
+      script: 'wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/11.0.15+10/openlogic-openjdk-11.0.15+10-linux-x64.tar.gz -O $(Build.ArtifactStagingDirectory)/java11.tar.gz'
   - task: JavaToolInstaller@0
     inputs:
-      versionSpec: "8"
+      versionSpec: "11"
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
-      jdkFile: "$(Build.ArtifactStagingDirectory)/java8.tar.gz"
+      jdkFile: "$(Build.ArtifactStagingDirectory)/java11.tar.gz"
       jdkDestinationDirectory: ""
   - task: Bash@3
     inputs:
       targetType: 'inline'
       script: |
         echo JAVA_HOME set to -> $JAVA_HOME
-        echo JAVA_HOME_8_X64 set to -> $JAVA_HOME_8_X64
+        echo JAVA_HOME_11_X64 set to -> $JAVA_HOME_11_X64
         echo which java returns
         which java
 
 - job: buildAndPublishSpecification
+  dependsOn: setupEnvironment
   steps:
+  # This task reports the CI_BRANCH_DIRECTORY variable for re-use in caching and
+  # directory naming.
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |    
+        echo "CI_BRANCH_DIRECTORY: $(CI_BRANCH_DIRECTORY)"
+
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
+  - task: Cache@2
+    inputs:
+      key: tx-cache | $(CI_BRANCH_DIRECTORY)
+      path: $(HOME)/.fhir/tx-cache/HL7/fhir/$(CI_BRANCH_DIRECTORY)
+    displayName: Cache terminology cache directory
+
   - task: Gradle@2
     inputs:
       gradleWrapperFile: 'gradlew'
@@ -57,45 +74,33 @@ jobs:
       script: |
         cd publish
         chmod 400 $(Agent.TempDirectory)/deploy.rsa
-        TARGET_DIRECTORY=$(echo "$(System.PullRequest.SourceBranch)" | sed -r 's/\//_/g')
-        echo "Publishing to target $TARGET_DIRECTORY"
-        tar czf - * | ssh -o "StrictHostKeyChecking=no" -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish $TARGET_DIRECTORY || true
+        echo "Publishing to target $(CI_BRANCH_DIRECTORY)"
+        tar czf - * | ssh -o "StrictHostKeyChecking=no" -i $(Agent.TempDirectory)/deploy.rsa -p 2222 $(BUILD_FHIR_ORG_USERNAME)@build.fhir.org ./publish $(CI_BRANCH_DIRECTORY) || true
 
-# In the case of a successful build and subsequent publish, we trigger a message to the committers/notifications channel
-# on Zulip (chat.fhir.org) to let users know that the build is available.
-- job: successNotification
-  dependsOn: buildAndPublishSpecification
-  condition: succeeded()
-  timeoutInMinutes: 5
-  steps:
+  # In the case of a successful build and subsequent publish, we trigger a message to the committers/notifications channel
+  # on Zulip (chat.fhir.org) to let users know that the build is available.
   - task: Bash@3
+    condition: succeeded()
     inputs:
       targetType: 'inline'
       script: |
-        TARGET_DIRECTORY=$(echo "$(System.PullRequest.SourceBranch)" | sed -r 's/\//_/g')
         curl -X POST https://chat.fhir.org/api/v1/messages \
             -u $(ZULIP_BOT_EMAIL):$(ZULIP_BOT_API_KEY) \
             -d "type=stream" \
             -d "to=$(ZULIP_STREAM_ID_COMMITTERS)" \
             -d "subject=FHIR Build Status" \
-            -d $"content=PR Build success for branch $TARGET_DIRECTORY :thumbs_up:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildNumber)&_a=summary&view=logs)
-            Published webpage can be viewed [here](https://build.fhir.org/branches/$TARGET_DIRECTORY)
+            -d $"content=PR Build success for branch $(CI_BRANCH_DIRECTORY) :thumbs_up:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildId)&view=results)
+            Published webpage can be viewed [here](https://build.fhir.org/branches/$(CI_BRANCH_DIRECTORY))
             "
-
-- job: failureNotification
-  dependsOn: buildAndPublishSpecification
-  condition: failed()
-  timeoutInMinutes: 5
-  steps:
   - task: Bash@3
+    condition: failed()
     inputs:
       targetType: 'inline'
       script: |
-        TARGET_DIRECTORY=$(echo "$(System.PullRequest.SourceBranch)" | sed -r 's/\//_/g')
         curl -X POST https://chat.fhir.org/api/v1/messages \
             -u $(ZULIP_BOT_EMAIL):$(ZULIP_BOT_API_KEY) \
             -d "type=stream" \
             -d "to=$(ZULIP_STREAM_ID_COMMITTERS)" \
             -d "subject=FHIR Build Status" \
-            -d $"content=Build failed for branch $TARGET_DIRECTORY :thumbs_down:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildNumber)&_a=summary&view=logs)
+            -d $"content=Build failed for branch $(CI_BRANCH_DIRECTORY) :thumbs_down:! [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildId)&view=results)
             "

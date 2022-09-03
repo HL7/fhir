@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="example"/>
 	<text>
@@ -69,13 +69,20 @@
 	</implementation>
 	<!--  while the FHIR infrastructure is turning over prior to development, a version is 
     required.   -->
-	<fhirVersion value="4.6.0"/>
+	<fhirVersion value="5.0.0"/>
 	<!--  this system can do either xml or json. (Listing both implies full support for either, with interconversion)  -->
 	<format value="xml"/>
 	<format value="json"/>
 	<!--  this system can perform the patch operation with either xml or json. (Listing both implies full support for either)  -->
 	<patchFormat value="application/xml-patch+xml"/>
 	<patchFormat value="application/json-patch+json"/>
+	<!--
+		This server supports english and spanish - that is, these are the languages it is useful to ask for content in
+		Some resources mayb contain other languages, and only some kinds of resources may have content that changes 
+		when asking for a particular language
+	 -->
+	<acceptLanguage value="en"/>
+	<acceptLanguage value="es"/>
 	<!--  this system supports the US Lab implementation guide  -->
 	<implementationGuide value="http://hl7.org/fhir/us/lab"/>
 	<!--  in a real capability statement, it's unlikely that a single capability statement 
@@ -101,14 +108,14 @@
 		<!--  zero or more of these - declaration of support for a resource  -->
 		<resource>
 			<type value="Patient"/>
-			<!--  let's assume that HL7 has stood up a profile registry at http://registry.fhir.org
-        - it's likely to have a registry, though this is not decided, nor is a URL decided. 
-        This application simply uses a profile registered directly with HL7. For the simplest 
+			<!--  
+        This application simply uses a profile registered directly with HL7 (an example, not a 
+				profile that actually exists). For the simplest 
         case of a FHIR REST Server, just delete this profile reference. Profile references do 
         not need to be a UUID, though a profile registry could insist that they are  -->
-			<profile value="http://registry.fhir.org/r4/StructureDefinition/7896271d-57f6-4231-89dc-dcc91eab2416"/>
+			<profile value="http://registry.fhir.org/r5/StructureDefinition/7896271d-57f6-4231-89dc-dcc91eab2416"/>
       <!--  this system supports a specific profile for animals -->
-      <supportedProfile value="http://registry.fhir.org/r4/StructureDefinition/00ab9e7a-06c7-4f77-9234-4154ca1e3347"/>
+      <supportedProfile value="http://registry.fhir.org/r5/StructureDefinition/00ab9e7a-06c7-4f77-9234-4154ca1e3347"/>
 			<documentation value="This server does not let the clients create identities."/>
 			<interaction>
 				<code value="read"/>
@@ -137,10 +144,11 @@
 			<conditionalCreate value="true"/>
 			<conditionalRead value="full-support"/>
 			<conditionalUpdate value="false"/>
+			<conditionalPatch value="false"/>
 			<!-- 0..1 If allows/uses conditional update -->
 			<conditionalDelete value="not-supported"/>
-			<searchInclude value="Organization"/>
-			<searchRevInclude value="Person"/>
+			<searchInclude value="Patient:organization"/>
+			<searchRevInclude value="Person:patient"/>
 			<searchParam>
 				<name value="identifier"/>
 				<definition value="http://hl7.org/fhir/SearchParameter/Patient-identifier"/>

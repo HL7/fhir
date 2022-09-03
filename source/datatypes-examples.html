@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-[%settitle Data Type Examples%]
+[%settitle Datatype Examples%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -11,10 +11,10 @@
 
 
 <%dtheader examples%>
-<h2>Data Type Examples</h2>
+<h2>Datatype Examples</h2>
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
-<p>This page includes additional examples of the data types, based on common usages and questions</p>
+<p>This page includes additional examples of the datatypes, based on common usages and questions</p>
 
 <p><b>Table of Contents</b></p>
 <div class="row">
@@ -1317,6 +1317,40 @@ postal union</a> examples.
 </pre>
 </div>
 
+<p>
+Some of the extensions that provide further analysis 
+of the parts of the address require duplication of 
+address content. 
+</p>
+<pre class="xml" fragment="Address">
+&lt;address&gt;
+  &lt;line value=&quot;Care of: Dr Smith&quot;&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-careOf&quot;&gt;
+      &lt;valueString value=&quot;Dr. Smith&quot;/&gt;
+    &lt;/extension&gt;
+  &lt;/line&gt;
+  &lt;line value=&quot;123 Somewhere Street NW&quot;&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber&quot;&gt;
+      &lt;valueString value=&quot;123&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase&quot;&gt;
+      &lt;valueString value=&quot;Somewhere&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase&quot;&gt;
+      &lt;valueString value=&quot;Street&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase&quot;&gt;
+      &lt;valueString value=&quot;NW&quot;/&gt;
+    &lt;/extension&gt;
+  &lt;/line&gt;
+&lt;/address&gt;
+</pre>
+<p>
+In some case, this may mean that the extension repeats the full value of the address line. 
+However, this is not a given for all lines of the specified type in all jurisdictions, and 
+thus the convention of repeating the 'part' of the line that applies in the extension, 
+even if it might be the whole line.
+</p>
 
 <a name="ContactPoint"></a>
 <a name="contactpoint"></a>
@@ -1340,7 +1374,7 @@ See also <a href="datatypes.html#ContactPoint">Base Definition</a>, <a href="dat
 </div>
 
 <p>
-In ISO 21090, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> and other <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> specifications, the TEL data type requires that the telephone number be represented as a formal URI in <a href="http://www.ietf.org/rfc/rfc3966.txt">RFC 3166</a> syntax. 
+In ISO 21090, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> and other <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> specifications, the TEL datatype requires that the telephone number be represented as a formal URI in <a href="http://www.ietf.org/rfc/rfc3966.txt">RFC 3166</a> syntax. 
 Many CDA documents violate this rule, since the telephone numbers are not collected from the user in conformance with the underlying rules (particularly around extensions, notes about use, etc.), so
 the base FHIR type does not require the phone number to be conformant. An ISO 21090 extension can be used to convey this if desired:
 </p>

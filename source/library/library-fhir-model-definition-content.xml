@@ -1887,7 +1887,7 @@
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Annotation"/>
         </ns4:element>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="RequestGroup" retrievable="true" baseType="FHIR.DomainResource">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="RequestOrchestration" retrievable="true" baseType="FHIR.DomainResource">
         <ns4:element name="identifier">
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Identifier"/>
         </ns4:element>
@@ -1922,7 +1922,7 @@
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Annotation"/>
         </ns4:element>
         <ns4:element name="action">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RequestGroup.Action"/>
+            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RequestOrchestration.Action"/>
         </ns4:element>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="EffectEvidenceSynthesis.Certainty" retrievable="false" baseType="FHIR.BackboneElement">
@@ -3765,7 +3765,7 @@
         <ns4:element name="value" elementType="FHIR.string"/>
         <ns4:element name="display" elementType="FHIR.string"/>
     </ns4:typeInfo>
-    
+
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="CompartmentDefinition" retrievable="true" baseType="FHIR.DomainResource">
         <ns4:element name="url" elementType="FHIR.uri"/>
         <ns4:element name="version" elementType="FHIR.string"/>
@@ -5727,7 +5727,7 @@
         <ns4:element name="date" elementType="FHIR.dateTime"/>
         <ns4:element name="species" elementType="FHIR.CodeableConcept"/>
     </ns4:typeInfo>
-    
+
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="InsurancePlan.SpecificCost" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="category" elementType="FHIR.CodeableConcept"/>
         <ns4:element name="benefit">
@@ -5840,7 +5840,7 @@
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="ProvenanceEntityRole" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" elementType="System.String"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="RequestGroup.Condition" retrievable="false" baseType="FHIR.BackboneElement">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="RequestOrchestration.Condition" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="kind" elementType="FHIR.ActionConditionKind"/>
         <ns4:element name="description" elementType="FHIR.string"/>
         <ns4:element name="language" elementType="FHIR.string"/>
@@ -9184,7 +9184,7 @@
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="GuideParameterCode" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" elementType="System.String"/>
     </ns4:typeInfo>
-    
+
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="Coverage.CostToBeneficiary" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="type" elementType="FHIR.CodeableConcept"/>
         <ns4:element name="value">
@@ -9574,7 +9574,7 @@
         <ns4:element name="CapabilityStatement" elementType="FHIR.CapabilityStatement"/>
         <ns4:element name="CarePlan" elementType="FHIR.CarePlan"/>
         <ns4:element name="CareTeam" elementType="FHIR.CareTeam"/>
-        
+
         <ns4:element name="ChargeItem" elementType="FHIR.ChargeItem"/>
         <ns4:element name="ChargeItemDefinition" elementType="FHIR.ChargeItemDefinition"/>
         <ns4:element name="Claim" elementType="FHIR.Claim"/>
@@ -9672,7 +9672,7 @@
         <ns4:element name="Questionnaire" elementType="FHIR.Questionnaire"/>
         <ns4:element name="QuestionnaireResponse" elementType="FHIR.QuestionnaireResponse"/>
         <ns4:element name="RelatedPerson" elementType="FHIR.RelatedPerson"/>
-        <ns4:element name="RequestGroup" elementType="FHIR.RequestGroup"/>
+        <ns4:element name="RequestOrchestration" elementType="FHIR.RequestOrchestration"/>
         <ns4:element name="ResearchDefinition" elementType="FHIR.ResearchDefinition"/>
         <ns4:element name="ResearchElementDefinition" elementType="FHIR.ResearchElementDefinition"/>
         <ns4:element name="ResearchStudy" elementType="FHIR.ResearchStudy"/>
@@ -10231,7 +10231,7 @@
         <ns4:element name="meaning" elementType="FHIR.ConsentDataMeaning"/>
         <ns4:element name="reference" elementType="FHIR.Reference"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="RequestGroup.RelatedAction" retrievable="false" baseType="FHIR.BackboneElement">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="RequestOrchestration.RelatedAction" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="actionId" elementType="FHIR.id"/>
         <ns4:element name="relationship" elementType="FHIR.ActionRelationshipType"/>
         <ns4:element name="offset">
@@ -10330,7 +10330,7 @@
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.ElementDefinition"/>
         </ns4:element>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="RequestGroup.Action" retrievable="false" baseType="FHIR.BackboneElement">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="RequestOrchestration.Action" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="prefix" elementType="FHIR.string"/>
         <ns4:element name="title" elementType="FHIR.string"/>
         <ns4:element name="description" elementType="FHIR.string"/>
@@ -10343,10 +10343,10 @@
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RelatedArtifact"/>
         </ns4:element>
         <ns4:element name="condition">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RequestGroup.Condition"/>
+            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RequestOrchestration.Condition"/>
         </ns4:element>
         <ns4:element name="relatedAction">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RequestGroup.RelatedAction"/>
+            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RequestOrchestration.RelatedAction"/>
         </ns4:element>
         <ns4:element name="timing">
             <ns4:elementTypeSpecifier xsi:type="ns4:ChoiceTypeSpecifier">
@@ -10369,7 +10369,7 @@
         <ns4:element name="cardinalityBehavior" elementType="FHIR.ActionCardinalityBehavior"/>
         <ns4:element name="resource" elementType="FHIR.Reference"/>
         <ns4:element name="action">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RequestGroup.Action"/>
+            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.RequestOrchestration.Action"/>
         </ns4:element>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="MedicationRequest.Substitution" retrievable="false" baseType="FHIR.BackboneElement">

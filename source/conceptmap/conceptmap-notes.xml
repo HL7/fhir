@@ -26,26 +26,38 @@ the meaning of an <code>unmatched</code> target whether or not there is a stated
 </p>
 
 <a name="dependencies"> </a>
-<h2>Mapping Dependencies</h2>
+<h2>target.dependsOn and target.product</h2>
 
 <p>
 In the simple case, a mapping is made from one code to another. E.g. from "home address" in one code system to "address - home" in another. 
 But in other cases, the mapping is not a simple one to one mapping. A typical example might be mapping between 
-a radiology imaging request that has 2 elements: modality, and body site, and another radiology imaging request that 
-pre-coordinates both of these into a single code modality+body site. In this case, it is not possible to map from 
-one code to another. Instead, the mapping might contain entries like this:
+EHR diagnosis codes whose interpretation depends on the field they occur in in the source data: diagnosis, history, or family history.
+Furthermore, the target EHR might distinguish diagnosis codes depending on the subject: patient or family.
+In this case, it is not possible to map just from one code to another. Instead, the mapping might contain entries like this:
 </p>
-<table class="grid">
- <tr><td><b>Source Concept</b></td><td><b>DependsOn.property</b></td><td><b>DependsOn Concept</b></td><td><b>Target Concept</b></td></tr>
- <tr><td>X-Ray</td><td>Bodysite</td><td>Chest</td><td>Chest-XRay</td></tr>
+<table class="grid" style="width:100%">
+ <tr><td colspan="3"><b>Source Concept Details</b></td><td><b>Relationship</b></td><td colspan="3"><b>Target Concept Details</b></td></tr>
+ <tr><td colspan="2"><b>Code</b> from <tt>http://example.com/ehr/codes</tt></td><td><b>field</b> (dependsOn)</td><td></td><td colspan="2"><b>Code</b> from <tt>http://snomed.info/sct</tt></td><td><b>subject</b> (product)</td></tr>
+ <tr><td style="border-right-width: 0px">diab</td><td style="border-left-width: 0px">Diabetes</td><td>diagnosis</td><td><a href="codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td style="border-right-width: 0px">73211009</td><td style="border-left-width: 0px">Diabetes mellitus</td><td>patient</td></tr>
+ <tr><td style="border-right-width: 0px">diab</td><td style="border-left-width: 0px">Diabetes</td><td>history</td><td><a href="codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td style="border-right-width: 0px">161445009</td><td style="border-left-width: 0px">H/O: diabetes mellitus</td><td>patient</td></tr>
+ <tr><td style="border-right-width: 0px">diab</td><td style="border-left-width: 0px">Diabetes</td><td>family</td><td><a href="codesystem-concept-map-relationship.html#equivalent" title="equivalent">is equivalent to</a></td><td style="border-right-width: 0px">161445009</td><td style="border-left-width: 0px">H/O: Diabetes mellitus</td><td>family</td></tr>
 </table>
 <p>
-When attempting to translate the source to the target, an application must also provide a value for the element 
-identified in <code>dependsOn.property</code> so that the correct mapping can be performed. To support the reverse
-operation, <code>product</code> is the converse, and works in reverse.
+When attempting to translate the source to the target, an application SHOULD also provide a value for the element(s)
+identified in <code>dependsOn.property</code> so that the correct mapping can be performed. 
 </p>
 <p>
-To see a real example of a mapping with dependencies, check the <a href="conceptmap-example-specimen-type.html">Specimen Type Mapping</a>.
+All dependsOn and product values are included in the output of $translate.
+</p>
+<p>
+Interpretation and use of these values is based on the definition of the associated property.
+</p>
+<p>
+The use of valueCode implies the CodeSystem is known from the property definition.  
+</p>
+<p>
+To see real examples of mappings with dependencies, check <a href="conceptmap-example-specimen-type.html">Specimen Type Mapping</a>
+and <a href="conceptmap-message-adt-a04-to-bundle.html">Message ADT A04 to Bundle Mapping</a>.
 </p>
 
 <a name="unmapped"></a>
@@ -62,7 +74,7 @@ for a concept:
 <table class="grid">
   <tr><td style="white-space:nowrap">provided</td><td>Use the code source as provided in the <a href="conceptmap-operation-translate.html">$translate</a> request. This is especially useful for translations between versions of the same code system, where only a few codes have changed</td></tr>
   <tr><td style="white-space:nowrap">fixed</td><td>Use the code (and display) explicitly provided in the <code>group.unmapped</code>. This is useful when there's a fall back general code - especially for classifications</td></tr>
-  <tr><td style="white-space:nowrap">other-map</td><td>Use the map identified by the canonical URL in <code>url</code>. This is useful when a published concept map needs to be varied for a few specific cases on an institutional bass - the
+  <tr><td style="white-space:nowrap">other-map</td><td>Use the map identified by the canonical URL in <code>otherMap</code>. This is useful when a published concept map needs to be varied for a few specific cases on an institutional basis - the
     institution can create a simple concept that expresses their special cases, and then refer to the general purpose mappings</td></tr>
 </table>
 <p>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="example-metadata"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <url value="http://hl7.org/fhir/CodeSystem/example-metadata"/>
+  <version value="20210721"/>
+
+  <name value="ExampleMetadata"/>
+  <title value="Metadata Example"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2021-07-21"/>
+  <publisher value="FHIR (Example)"/>
+  <contact>
+    <name value="FHIR project team"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This is an example code system that illustrates usage of the metadata resource elements introduced in R5"/>
+
+  <approvalDate value="2021-07-21"/>
+  <lastReviewDate value="2022-07-21"/>
+  <effectivePeriod>
+    <start value="2021-08-01"/>
+    <end value="2022-07-31"/>
+  </effectivePeriod>
+  <topic>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/definition-topic"/>
+      <code value="treatment"/>
+      <display value="Treatment"/>
+    </coding>
+  </topic>
+  <author>
+    <name value="ACME CodeSystem Development"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://acme.org/development"/>
+    </telecom>
+  </author>
+  <editor>
+    <name value="ACME CodeSystem Management"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://acme.org/management"/>
+    </telecom>
+  </editor>
+  <reviewer>
+    <name value="Society for Creative Codesystem Review"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://example.org/sccr"/>
+    </telecom>
+  </reviewer>
+  <endorser>
+    <name value="National Foundation for CodeSystem Quality"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://example.org/nfcq"/>
+    </telecom>
+  </endorser>
+  <relatedArtifact>
+    <type value="derived-from"/>
+    <resource value="http://hl7.org/fhir/CodeSystem/example"/>
+  </relatedArtifact>
+  
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  
+  <concept>
+    <code value="A"/>
+    <display value="A"/>
+    <definition value="A"/>
+  </concept>
+  <concept>
+    <code value="B"/>
+    <display value="B"/>
+    <definition value="B"/>
+  </concept>
+  <concept>
+    <code value="C"/>
+    <display value="C"/>
+    <definition value="C"/>
+  </concept>
+</CodeSystem>

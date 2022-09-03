@@ -15,5 +15,10 @@
         <reference value="StructureDefinition/practitioner-animalSpecies"/>
       </reference>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/practitioner-job-title"/>
+      </reference>
+    </resource>
   </definition>
 </ImplementationGuide>
