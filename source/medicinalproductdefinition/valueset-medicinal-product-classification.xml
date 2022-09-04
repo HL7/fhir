@@ -11,8 +11,7 @@
   <url value="http://hl7.org/fhir/ValueSet/medicinal-product-classification"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <!--value value="urn:oid:2.16.840.1.113883.4.642.3.1684"/-->
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.3021"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1684"/>
   </identifier>
   <version value="4.3.0-CIBUILD"/>
   <name value="ProductClassification"/>
