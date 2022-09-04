@@ -22,7 +22,6 @@
   <name value="GenomicStudyMethodType"/>
   <title value="GenomicStudyMethodType"/>
   <status value="draft"/>
-  <experimental value="true"/>
   <date value="2022-08-16T16:49:24-05:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
@@ -38,7 +37,7 @@
   <description value="The method type of the GenomicStudy analysis. These method types and relevant codes were pulled from [National Library of Medicine-Genetic Testing Registry](https://www.ncbi.nlm.nih.gov/gtr/) (NCBI-GTR) values of describing different testing methods on various levels: [major method category](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Major_method_category.txt), [method category](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Method_category.txt), and [primary methodology](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Primary_test_methodology.txt)"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-methodtype"/>
-  <content value="example"/>
+  <content value="complete"/>
   <concept>
     <code value="biochemical-genetics"/>
     <display value="Biochemical Genetics"/>

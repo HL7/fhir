@@ -185,7 +185,7 @@
     <step>
       <number value="2"/>
       <operation>
-        <title value="Query Administration Requests"/>
+        <title value="Query administration orders"/>
         <initiator value="MAP"/>
         <receiver value="OP"/>
         <description value="Query for medication administration orders,\n- For today's shifts\n- For today's patients"/>
@@ -225,12 +225,12 @@
     </step>
     <step>
       <alternative>
-        <title value="Patient took drugs"/>
+        <title value="Patient took meds"/>
         <description value="Invoke if patient took medications"/>
         <step>
           <number value="6a"/>
           <operation>
-            <title value="Register Meds taken"/>
+            <title value="Register meds taken"/>
             <initiator value="Nurse"/>
             <receiver value="MAP"/>
             <initiatorActive value="true"/>
@@ -239,11 +239,11 @@
       </alternative>
       <alternative>
         <title value="No drugs"/>
-        <description value="No, patient did not take drugs"/>
+        <description value="No, patient did not take meds"/>
         <step>
           <number value="6b"/>
           <operation>
-            <title value="Register Meds NOT taken"/>
+            <title value="Register meds NOT taken"/>
             <initiator value="Nurse"/>
             <receiver value="MAP"/>
             <initiatorActive value="true"/>
@@ -267,7 +267,7 @@
     <step>
       <number value="8"/>
       <operation>
-        <title value="Register administration"/>
+        <title value="Record administration"/>
         <initiator value="Nurse"/>
         <receiver value="MAP"/>
         <initiatorActive value="true"/>
@@ -277,7 +277,7 @@
     <step>
       <number value="9"/>
       <operation>
-        <title value="Nurse updates administration report"/>
+        <title value="Upload administration reports"/>
         <initiator value="Nurse"/>
         <receiver value="MAP"/>
         <initiatorActive value="true"/>

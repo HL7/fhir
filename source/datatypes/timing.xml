@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Marc Duteau</LastAuthor>
@@ -14,7 +14,8 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -747,7 +748,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s157">
+  <Style ss:ID="s155">
    <Interior/>
   </Style>
  </Styles>
@@ -3654,7 +3655,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">If there's an offset, there must be a when (and not C, CM, CD, CV)</Data></Cell>
     <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">offset.empty() or (when.exists() and ((when in ('C' | 'CM' | 'CD' | 'CV')).not()))</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">offset.empty() or (when.exists() and when.select($this in ('C' | 'CM' | 'CD' | 'CV')).allFalse())</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">not(exists(f:offset)) or exists(f:when)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="43">
@@ -4066,7 +4067,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -6310,12 +6311,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -7856,7 +7858,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">C</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Continuous (frequency)</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Service is provided continuously between start time and stop time.</Data></Cell>

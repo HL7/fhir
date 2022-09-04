@@ -727,6 +727,10 @@
         <display value="#"/>
       </concept>
       <concept>
+        <code value="{1}"/>
+        <display value="1"/>
+      </concept>
+      <concept>
         <code value="{2 or 3 times}/d"/>
         <display value="2 or 3 times / day"/>
       </concept>
@@ -5175,7 +5179,7 @@
         <display value="ElisaUnitsPerMilliLiter [Arbitrary Concentration Units]"/>
       </concept>
       <concept>
-        <code value="{kp_C}"/>
+        <code value="[kp_C]"/>
         <display value="HOMEOPATHIC POTENCY OF CENTESIMAL KORSAKOVIAN SERIES"/>
       </concept>
       <concept>

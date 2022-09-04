@@ -13,9 +13,17 @@
 			  <display value="Cardiac pacemaker implant"/> 
 			</coding> 
 		</type> 
-		<subject> 
-			<reference value="Patient/example"/> 
-		</subject> 
+		<association> 
+      <status> 
+        <coding>
+          <system value="http://hl7.org/fhir/device-association-status"/>
+          <code value="implanted"/>
+        </coding>
+      </status>
+      <humanSubject> 
+        <reference value="Patient/example"/> 
+      </humanSubject> 
+		</association> 
 	</Device>
   </contained>
   <status value="completed"/>
@@ -27,9 +35,9 @@
     </coding>
     <text value="Implant Pacemaker"/>
   </code>
-  <subject>
-    <reference value="Patient/example"/>
-  </subject>
+  <subject> 
+    <reference value="Patient/example"/> 
+  </subject> 
   <occurrenceDateTime value="2015-04-05"/>
   <performer>
     <actor>

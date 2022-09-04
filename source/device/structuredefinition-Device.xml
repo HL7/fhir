@@ -599,6 +599,24 @@
         <map value=".playedRole[typeCode=MANU].id"/>
       </mapping>
     </element>
+    <element id="Device.category">
+      <path value="Device.category"/>
+      <short value="Indicates a high-level grouping of the device"/>
+      <definition value="Devices may be associated with one or more categories."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Categories of medical devices."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-category"/>
+      </binding>
+    </element>
     <element id="Device.type">
       <path value="Device.type"/>
       <short value="The kind or type of device"/>
@@ -648,7 +666,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRDeviceVersionType"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="The type of version indicated for the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-versiontype"/>
       </binding>
@@ -705,8 +723,8 @@
     </element>
     <element id="Device.specialization.systemType">
       <path value="Device.specialization.systemType"/>
-      <short value="Code that specifies the system within which the specialization is indicated"/>
-      <definition value="Code that specifies the system that identifies the specialization that the device is adhering to."/>
+      <short value="Code of the system that identifies the standard that the device adheres to"/>
+      <definition value="Code that specifies the system that identifies the specific standard that the device adheres to."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -716,7 +734,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRDeviceSpecializationSystemType"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="The type of version indicated for the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-specialization-systemtype"/>
       </binding>
@@ -744,7 +762,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRDeviceSpecializationCategory"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="The kind of standards used by the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-specialization-category"/>
       </binding>
@@ -766,7 +784,7 @@
     <element id="Device.property.type">
       <path value="Device.property.type"/>
       <short value="Code that specifies the property being represented"/>
-      <definition value="Code that specifies the property being represented. No codes are specified but the MDC codes are an example: https://build.fhir.org/mdc.html."/>
+      <definition value="Code that specifies the property being represented. No codes are specified but the MDC codes are an example: https://terminology.hl7.org/MDC.html."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -810,7 +828,7 @@
         <code value="Attachment"/>
       </type>
     </element>
-    <element id="Device.subject">
+    <!-- <element id="Device.subject">
       <path value="Device.subject"/>
       <short value="Patient to whom Device is affixed"/>
       <definition value="Patient information, if the device is affixed to, or associated to a patient for their specific use, irrespective of the procedure, use, observation, or other activity that the device is involved in. The use of Patient is also appropriate for the use of devices outside a healthcare setting, such as a fitness tracker."/>
@@ -834,10 +852,10 @@
         <identity value="w5"/>
         <map value="FiveWs.subject"/>
       </mapping>
-    </element>
-    <element id="Device.operationalState">
-      <path value="Device.operationalState"/>
-      <short value="The status of the device itself - whether it is switched on, or activated, etc"/>
+    </element> -->
+    <element id="Device.operation">
+      <path value="Device.operation"/>
+      <short value="The details about the device when it is in use to describe the actions, conditions and status"/>
       <definition value="The status of the device itself - whether it is switched on, or activated, etc."/>
       <min value="0"/>
       <max value="*"/>
@@ -845,8 +863,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Device.operationalState.status">
-      <path value="Device.operationalState.status"/>
+    <element id="Device.operation.status">
+      <path value="Device.operation.status"/>
       <short value="Device operational condition"/>
       <definition value="The state or condition of the device's operation."/>
       <min value="1"/>
@@ -860,12 +878,12 @@
         </extension>
         <strength value="example"/>
         <description value="Operational status of a device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-operationalstatus"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-operationstatus"/>
       </binding>      
     </element>
-    <element id="Device.operationalState.statusReason">
-      <path value="Device.operationalState.statusReason"/>
-      <short value="The reasons given for the current operational status"/>
+    <element id="Device.operation.statusReason">
+      <path value="Device.operation.statusReason"/>
+      <short value="The rationale given for the current operational status"/>
       <definition value="The reasons given for the current operational status - i.e. why is the device switched on etc."/>
       <min value="0"/>
       <max value="*"/>
@@ -881,9 +899,9 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-operation-status-reason"/>
       </binding>
     </element>
-    <element id="Device.operationalState.operator">
-      <path value="Device.operationalState.operator"/>
-      <short value="The current device operator"/>
+    <element id="Device.operation.operator">
+      <path value="Device.operation.operator"/>
+      <short value="The individual performing the action enabled by the device"/>
       <definition value="The individual performing the action enabled by the device."/>
       <min value="0"/>
       <max value="*"/>
@@ -894,9 +912,9 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
     </element>
-    <element id="Device.operationalState.mode">
-      <path value="Device.operationalState.mode"/>
-      <short value="Designated condition for task"/>
+    <element id="Device.operation.mode">
+      <path value="Device.operation.mode"/>
+      <short value="The designated condition for performing a task"/>
       <definition value="The designated condition for performing a task with the device."/>
       <min value="0"/>
       <max value="1"/>
@@ -905,16 +923,16 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceOperationalStateMode"/>
+          <valueString value="DeviceOperationMode"/>
         </extension>
         <strength value="example"/>
         <description value="Operational mode of a device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-operational-state-mode"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-operation-mode"/>
       </binding>
     </element>
-    <element id="Device.operationalState.cycle">
-      <path value="Device.operationalState.cycle"/>
-      <short value="Number of operationcycles"/>
+    <element id="Device.operation.cycle">
+      <path value="Device.operation.cycle"/>
+      <short value="The series of occurrences that repeats during the operation of the device"/>
       <definition value="The series of occurrences that repeats during the operation of the device."/>
       <min value="0"/>
       <max value="1"/>
@@ -922,23 +940,15 @@
         <code value="Count"/>
       </type>
     </element>
-    <element id="Device.operationalState.duration">
-      <path value="Device.operationalState.duration"/>
-      <short value="Operation time measurement"/>
+    <element id="Device.operation.duration">
+      <path value="Device.operation.duration"/>
+      <short value="A measurement of time during the device's operation (e.g., days, hours, mins, etc)"/>
       <definition value="A measurement of time during the device's operation (e.g., days, hours, mins, etc)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="Duration"/>
       </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceOperationalStateMode"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Operational mode of a device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-operational-state-mode"/>
-      </binding>
     </element>
     <element id="Device.association">
       <path value="Device.association"/>

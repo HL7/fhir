@@ -150,6 +150,9 @@
 			<requirements value="Allows the example scenario to be referenced by a single globally unique identifier."/>
 			<min value="0"/>
 			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
 			<constraint>
         <key value="cnl-1"/>
         <severity value="warning"/>
@@ -158,9 +161,6 @@
         <xpath value="not(exists(@value)) or matches(@value, '([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
-			<type>
-				<code value="uri"/>
-			</type>
 			<isSummary value="true"/>
 			<mapping>
 				<identity value="workflow"/>
@@ -229,11 +229,11 @@
       <type>
         <code value="Coding"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <strength value="extensible"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
       </binding>
-      <isSummary value="true"/>
     </element>
 		<element id="ExampleScenario.name">
 			<path value="ExampleScenario.name"/>
@@ -311,6 +311,7 @@
 			<type>
 				<code value="boolean"/>
 			</type>
+			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
 			<isSummary value="true"/>
 			<mapping>
 				<identity value="workflow"/>

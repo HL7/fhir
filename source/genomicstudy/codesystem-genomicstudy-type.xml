@@ -22,7 +22,6 @@
   <name value="GenomicStudyType"/>
   <title value="GenomicStudyType"/>
   <status value="draft"/>
-  <experimental value="true"/>
   <date value="2022-08-17T16:19:24-05:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
@@ -38,7 +37,7 @@
   <description value="The type relevant to GenomicStudy."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-type"/>
-  <content value="example"/>
+  <content value="complete"/>
 <concept>
   <code value="alt-splc"/>
   <display value="Alternative splicing detection"/>

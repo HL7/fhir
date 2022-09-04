@@ -42,7 +42,6 @@
   <name value="GenomicStudyChangeType"/>
   <title value="GenomicStudyChangeType"/>
   <status value="draft"/>
-  <experimental value="false"/>
   <date value="2022-08-17T15:55:11-05:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
