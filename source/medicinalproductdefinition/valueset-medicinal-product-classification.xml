@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="product-classification-codes"/>
+  <id value="medicinal-product-classification"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="phx"/>
+    <valueCode value="brr"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/product-classification-codes"/>
+  <url value="http://hl7.org/fhir/ValueSet/medicinal-product-classification"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1580"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1684"/>
   </identifier>
   <version value="4.3.0-CIBUILD"/>
   <name value="ProductClassification"/>

@@ -446,7 +446,7 @@
         </extension>
         <strength value="example"/>
         <description value="This value set includes codes from the Anatomical Therapeutic Chemical Classification System - provided as an exemplar value set."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/product-classification-codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-classification"/>
       </binding>
       <mapping>
         <identity value="idmp"/>
@@ -621,7 +621,7 @@
     </element>
     <element id="MedicinalProductDefinition.contact">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="800,250"/>
+        <valueCode value="800,290"/>
       </extension>
       <path value="MedicinalProductDefinition.contact"/>
       <short value="A product specific contact, person (in a role), or an organization"/>
@@ -986,7 +986,7 @@
     </element>
     <element id="MedicinalProductDefinition.crossReference">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="800,10"/>
+        <valueCode value="800,30"/>
       </extension>
       <path value="MedicinalProductDefinition.crossReference"/>
       <short value="Reference to another product, e.g. for linking authorised to investigational product"/>
@@ -1061,7 +1061,7 @@
     </element>
     <element id="MedicinalProductDefinition.operation">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="800,110"/>
+        <valueCode value="800,140"/>
       </extension>
       <path value="MedicinalProductDefinition.operation"/>
       <short value="A manufacturing or administrative process for the medicinal product"/>
@@ -1170,7 +1170,7 @@
     </element>
     <element id="MedicinalProductDefinition.characteristic">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="800,350"/>
+        <valueCode value="800,400"/>
       </extension>
       <path value="MedicinalProductDefinition.characteristic"/>
       <short value="Key product features such as &quot;sugar free&quot;, &quot;modified release&quot;"/>
