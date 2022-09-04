@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="device-operationalstatus"/>
+  <id value="deviceusage-adherence-reason"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -13,16 +12,16 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/device-operationalstatus"/>
+  <url value="http://hl7.org/fhir/deviceusage-adherence-reason"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
   </identifier>
-  <version value="5.0.0"/>
-  <name value="FHIRDeviceOperationalStatus"/>
-  <title value="FHIRDeviceOperationalStatus"/>
+  <version value="5.0.0-cibuild"/>
+  <name value="DeviceUsageAdherenceReason"/>
+  <title value="DeviceUsageAdherenceReason"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -37,33 +36,38 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The operational status of the device."/>
+  <description value="A coded concept indicating the reason for the usage of the device."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/device-operationalstatus"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/deviceusage-adherence-reason"/>
   <content value="complete"/>
   <concept>
-    <code value="on"/>
-    <display value="On"/>
-    <definition value="The device is working or switched on, i.e. active."/>
+    <code value="lost"/>
+    <display value="Lost"/>
+    <definition value="The device is lost."/>
   </concept>
   <concept>
-    <code value="off"/>
-    <display value="Off"/>
-    <definition value="The device is inactive, switched off, or deactivated."/>
+    <code value="stolen"/>
+    <display value="Stolen"/>
+    <definition value="The device is stolen."/>
   </concept>
   <concept>
-    <code value="standby"/>
-    <display value="Stand By"/>
-    <definition value="The device is in stand-by mode i.e. not actively working but not powered off."/>
+    <code value="prescribed"/>
+    <display value="Prescribed"/>
+    <definition value="The device is prescribed."/>
   </concept>
   <concept>
-    <code value="defective"/>
-    <display value="Stand By"/>
-    <definition value="The device is defective or for maintenance and is not available or working."/>
+    <code value="broken"/>
+    <display value="Broken"/>
+    <definition value="The device is broken."/>
   </concept>
   <concept>
-    <code value="unknown"/>
-    <display value="Unknown"/>
-    <definition value="The operational status of the device has not been determined."/>
+    <code value="burned"/>
+    <display value="Burned"/>
+    <definition value="The device is burned."/>
+  </concept>
+  <concept>
+    <code value="forgot"/>
+    <display value="Forgot"/>
+    <definition value="The device is forgotten."/>
   </concept>
 </CodeSystem>
