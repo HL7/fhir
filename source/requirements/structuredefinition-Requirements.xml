@@ -69,8 +69,8 @@
         <valueCode value="0,0"/>
       </extension>
       <path value="Requirements"/>
-      <short value="An application that exchanges data"/>
-      <definition value="Describes an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays."/>
+      <short value="A set of stated requirements for a design to meet"/>
+      <definition value="A set of started requirements for a design to meet - either an interoperability specification, a software application, or a business/clinical process."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -404,7 +404,7 @@
       <definition value="Another set of Requirements that this set of Requirements builds on and updates."/>
       <comments value="Existing statements (by key) may be narrowed or clarified, and additional statements added."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>

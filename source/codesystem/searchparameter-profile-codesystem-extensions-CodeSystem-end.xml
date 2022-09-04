@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><SearchParameter xmlns="http://hl7.org/fhir">
   <id value="codesystem-extensions-CodeSystem-end"/>
   <url value="http://hl7.org/fhir/SearchParameter/codesystem-extensions-CodeSystem-end"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.16.5"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="end"/>
   <status value="draft"/>

@@ -35,10 +35,6 @@
     <valueMarkdown value="The key differences between this query operation and simply searching Observation using the combination of `_count` and `_sort` parameters are:&#xD;&#xD;* The *lastn* query returns **only** the last N resource grouped by code.  Using the _count query method doesn't restrict the total matches so you may need to page through several &#34;A&#34; Observations  before getting to Observation &#34;B&#34;.&#xD;* The server is responsible for grouping the observations by codes.  This frees the client from needing to determine which codes she should ask for.&#xD;&#xD;This operation cannot be performed on observations that the user is not authorized to see.  It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification."/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Observation-lastn"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.9.55"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="lastn"/>
   <title value="Last N Observations Query"/>

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="example-terminology-server"/>
   <url value="http://hl7.org/fhir/CapabilityStatement/terminology-server"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.7.4"/>
-  </identifier>
   <version value="20220901"/>
   <name value="ACMETerminologyService—CapabilityStatement"/>
   <title value="ACME Terminology Service — Capability Statement"/>

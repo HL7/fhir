@@ -68,10 +68,6 @@
     </div>
   </text>
   <url value="http://hl7.org/fhir/knowledge-repository"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.7.3"/>
-  </identifier>
   <name value="Knowledge Repository Service Conformance Statement"/>
   <status value="draft"/>
   <date value="2017-02-25"/>

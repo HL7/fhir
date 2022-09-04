@@ -32,10 +32,6 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Claim-submit"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.9.57"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="submit"/>
   <title value="Submit a Claim resource for adjudication"/>

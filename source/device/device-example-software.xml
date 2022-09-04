@@ -16,8 +16,4 @@
 		<value value="http://acme.com"/>
 	</contact>
 	<url value="http://acme.com/goodhealth/ehr/"/>
-<identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.30.1"/>
-  </identifier>
   </Device>

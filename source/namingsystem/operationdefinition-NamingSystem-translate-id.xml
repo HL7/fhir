@@ -35,10 +35,6 @@
     <valueMarkdown value="Servers handle this request by finding the provided identifier in their known naming systems, and returning the requested identifier type ([NamingSystem.uniqueId.type](namingsystem-definitions.html#NamingSystem.uniqueId.type)).  &#xA;&#xA;If the server wishes, it can also look through all code systems and value sets it knows about when attempting to find the requested identifier"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/NamingSystem-translate-id"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.9.31"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="translate-id"/>
   <title value="Translate id"/>

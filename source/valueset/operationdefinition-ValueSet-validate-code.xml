@@ -38,10 +38,6 @@
     <valueMarkdown value="Note: the correct behaviour of validation with regard to language for Coding.display items is currently undefined, and further development and testing may lead to specific requirements or recommendations in subsequent releases"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/ValueSet-validate-code"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.9.25"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="validate-code"/>
   <title value="Value Set based Validation"/>

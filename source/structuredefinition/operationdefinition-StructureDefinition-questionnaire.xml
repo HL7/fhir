@@ -35,10 +35,6 @@
     <valueMarkdown value="**Open Issue**: Ideally, extensions should be populated in the generated [[[Questionnaire]]] that will support taking [[[QuestionnaireResponse]]] resources generated from the Questionnaire and turning them back into the appropriate resources."/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/StructureDefinition-questionnaire"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.9.2"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="questionnaire"/>
   <title value="Build Questionnaire"/>

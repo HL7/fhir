@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="example"/>
 	<url value="http://hl7.org/fhir/us/daf"/>
-	<identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.21.2"/>
-  </identifier>
   <version value="0"/>
 	<name value="Data Access Framework (DAF)"/>
 	<status value="draft"/>

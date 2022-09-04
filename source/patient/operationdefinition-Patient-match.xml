@@ -35,10 +35,6 @@
     <valueMarkdown value="The response from an &#34;mpi&#34; query is a bundle containing patient records, ordered from most likely to least likely. If there are no patient matches, the MPI SHALL return an empty search set with no error, but may include an operation outcome with further advice regarding patient selection. All patient records SHALL have a search score from 0 to 1, where 1 is the most certain match, along with an extension &#34;[match-grade](extension-match-grade.html)&#34; that indicates the MPI's position on the match quality."/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Patient-match"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.9.35"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="match"/>
   <title value="Find patient matches using MPI based logic"/>

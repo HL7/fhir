@@ -35,10 +35,6 @@
     <valueMarkdown value="The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for the plan definition. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the plan definition and any libraries referenced by it. Implementations SHOULD aggregate data requirements intelligently (i.e. by collapsing overlapping data requirements)"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/PlanDefinition-data-requirements"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.9.10"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="data-requirements"/>
   <title value="Data Requirements"/>

@@ -35,10 +35,6 @@
     <valueMarkdown value="While the primary use of this operation is simple - converting a resource from one format to another, there are many potential uses including:&#xA;&#xA;* converting resources from one version to another&#xA;* restructuring information in a resource (e.g. moving method into/out of Observation.code)&#xA;* extracting data from a questionnaire&#xA;* converting CDA documents or v2 messages (as a binary resource) to a bundle (or vice versa) (or even openEHR or openMHealth). &#xA;&#xA;These variants would all be associated with parameters that define and control these kind of conversions, though such parameters are not defined at this time. In the absence of any parameters, simple format conversion is all that will occur.&#xA;&#xA;For this reason, implementers should be aware that:&#xA;&#xA;* the `return` resource type may be different from the `resource` parameter resource type (for example, it might be a bundle)&#xA;* binary resources may be represented directly using some other content-type (in other words, just post the content directly)&#xA;&#xA;Implementers are encouraged to provide feedback to HL7 about their use of this operation"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Resource-convert"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.9.45"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="convert"/>
   <title value="Convert from one form to another"/>

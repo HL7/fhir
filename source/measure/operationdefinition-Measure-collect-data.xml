@@ -35,10 +35,6 @@
     <valueMarkdown value="The effect of invoking this operation is to gather the data required to perform an evaluation of the measure. If the lastReceivedOn parameter is supplied, only data that is new or has been changed since the lastReceivedOn date is included in the response. Note that the resulting MeasureReport is a transient resource"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Measure-collect-data"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.9.41"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="collect-data"/>
   <title value="Collect Data"/>

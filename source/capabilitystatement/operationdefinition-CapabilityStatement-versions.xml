@@ -57,10 +57,6 @@
     <valueMarkdown value="For the convenience of clients, servers that implement this operation SHALL also support the relevant XML or JSON format:"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CapabilityStatement-versions"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.9.3"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="versions"/>
   <title value="Discover what versions a server supports"/>

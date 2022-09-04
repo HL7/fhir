@@ -38,10 +38,6 @@
     <valueMarkdown value="Note that the $lookup operation is more than just a code system search  - the server finds the concept, and gathers the return information from the underlying code system definitions."/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CodeSystem-lookup"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.9.17"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="lookup"/>
   <title value="Concept Look Up &amp; Decomposition"/>

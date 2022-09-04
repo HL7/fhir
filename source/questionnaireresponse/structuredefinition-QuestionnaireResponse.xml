@@ -205,9 +205,6 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="QuestionnaireResponseStatus"/>
 				</extension>
-				<extension url="http://hl7.org/fhir/build/StructureDefinition/vs-oid">
-					<valueString value="required"/>
-				</extension>
 				<strength value="required"/>
 				<description value="Lifecycle status of the questionnaire response."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-answers-status"/>

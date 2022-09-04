@@ -32,10 +32,6 @@
     </extension>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Subscription-status"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.9.29"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="status"/>
   <title value="Get Current Subscription Status for One or More Subscriptions"/>

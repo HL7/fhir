@@ -35,10 +35,6 @@
     <valueMarkdown value="The operation does not perform a full conformance check; in particular it does not check that the profiles align. It merely checks that the behaviors the client wishes to use are provided    Technically, this operation is implemented as follows:   &#xA;&#xA;* The server's capability statement must have an entry for each resource in the client's capability statement    &#xA;* The server's resource support must have matching flags for updateCreate, conditionalCreate, conditionalRead, conditionalUpdate, conditionalPatch, conditionalDelete, searchInclude, searchRevInclude   &#xA;* The server's capability statement must have a matching interaction for each interaction in the client capability statement (whether or not it is on a resource)   &#xA;* The server's capability statement must have a search parameter with matching name and definition for any search parameters in the client capability statement   &#xA;* The server must have an operation definition with a matching reference for any operations in the client capability statement   &#xA;&#xA;If the capability statements match by these rules, then the return value is a 200 OK with an operation outcome that contains no issues with severity &gt;= error. If the capability statement doesn't match, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CapabilityStatement-implements"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.9.4"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="implements"/>
   <title value="Test if a server implements a client's required operations"/>

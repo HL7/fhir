@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><GraphDefinition xmlns="http://hl7.org/fhir">
   <id value="example"/>
   <url value="http://h7.org/fhir/GraphDefinition/example"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.26.1"/>
-  </identifier>
   <name value="Document Generation Template"/>
   <status value="draft"/>
   <date value="2015-08-04"/>

@@ -472,9 +472,6 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
           <valueString value="The performed procedure type."/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/vs-oid">
-          <valueString value="1.3.6.1.4.1.12009.10.2.5.1"/>
-        </extension>
         <strength value="preferred"/>
         <description value="Use of RadLex is preferred"/>
         <valueSet value="http://loinc.org/download/loincrsna-radiology-playbook-file/"/>
