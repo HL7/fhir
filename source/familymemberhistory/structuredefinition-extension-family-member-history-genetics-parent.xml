@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="family-member-history-genetics-parent"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1231"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="parent"/>
   <status value="draft"/>
@@ -54,7 +56,7 @@
       <path value="Extension.extension"/>
       <sliceName value="type"/>
       <short value="mother | father | adoptive mother | etc."/>
-      <definition value="Distinguishes between different types of parental relationships with varying granularity to support capturing the relationship &quot;to the degree known&quot;."/>
+      <definition value="Distinguishes between different types of parental relationships with varying granularity to support capturing the relationship &#34;to the degree known&#34;."/>
       <min value="1"/>
       <max value="1"/>
       <type>

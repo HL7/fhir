@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?><ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <id value="referralPrimaryCareMentalHealth-initial"/>
   <text>
     <status value="generated"/>
@@ -92,6 +91,10 @@
       </div>
   </text>
   <url value="http://motivemi.com/artifacts/ActivityDefinition/referralPrimaryCareMentalHealth"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.19.5"/>
+  </identifier>
   <identifier>
     <use value="official"/>
     <system value="http://motivemi.com/artifacts"/>

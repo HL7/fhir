@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Communication"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Communication"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1410"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Communication"/>
   <status value="draft"/>
@@ -154,7 +156,7 @@
       <path value="Communication.basedOn"/>
       <short value="Request fulfilled by this communication"/>
       <definition value="An order, proposal or plan fulfilled in whole or in part by this Communication."/>
-      <comment value="This must point to some sort of a &#39;Request&#39; resource, such as CarePlan, CommunicationRequest, ServiceRequest, MedicationRequest, etc."/>
+      <comment value="This must point to some sort of a 'Request' resource, such as CarePlan, CommunicationRequest, ServiceRequest, MedicationRequest, etc."/>
       <alias value="fulfills"/>
       <min value="0"/>
       <max value="*"/>
@@ -175,7 +177,7 @@
       <path value="Communication.partOf"/>
       <short value="Part of referenced event (e.g. Communication, Procedure)"/>
       <definition value="A larger event (e.g. Communication, Procedure) of which this particular communication is a component or step."/>
-      <comment value="The event the communication was part of - e.g. if you disclosed as &quot;part&quot; of counselling, it would be partOf that Procedure."/>
+      <comment value="The event the communication was part of - e.g. if you disclosed as &#34;part&#34; of counselling, it would be partOf that Procedure."/>
       <alias value="container"/>
       <min value="0"/>
       <max value="*"/>
@@ -234,7 +236,7 @@
       <path value="Communication.statusReason"/>
       <short value="Reason for current status"/>
       <definition value="Captures the reason for the current state of the Communication."/>
-      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;aborted&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
+      <comment value="This is generally only used for &#34;exception&#34; statuses such as &#34;not-done&#34;, &#34;suspended&#34; or &#34;aborted&#34;. The reason for performing the event at all is captured in reasonCode, not here."/>
       <alias value="Suspended Reason"/>
       <alias value="Cancelled Reason"/>
       <min value="0"/>
@@ -384,7 +386,7 @@
       <path value="Communication.about"/>
       <short value="Resources that pertain to this communication"/>
       <definition value="Other resources that pertain to this communication and to which this communication should be associated."/>
-      <comment value="Don&#39;t use Communication.about element when a more specific element exists, such as basedOn or reasonReference."/>
+      <comment value="Don't use Communication.about element when a more specific element exists, such as basedOn or reasonReference."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -569,7 +571,7 @@
       <path value="Communication.payload.content[x]"/>
       <short value="Message part content"/>
       <definition value="A communicated content (or for multi-part communications, one portion of the communication)."/>
-      <comment value="The content can be codified or textual.  As an example of codified content, when working with machine generated communications, the payload may be drawn from a finite, terminology defined set of communications, especially for short, status update kinds of communications where more of a natural language approach isn&#39;t appropriate.&#xA;&#xA;If the content isn&#39;t codified, contentCodeableConcept.text can be used.  &#xA;&#xA;When using contentCodeableConcept, the CodeableConcept is what is being communicated and is not a categorization of the content."/>
+      <comment value="The content can be codified or textual.  As an example of codified content, when working with machine generated communications, the payload may be drawn from a finite, terminology defined set of communications, especially for short, status update kinds of communications where more of a natural language approach isn't appropriate.&#xA;&#xA;If the content isn't codified, contentCodeableConcept.text can be used.  &#xA;&#xA;When using contentCodeableConcept, the CodeableConcept is what is being communicated and is not a categorization of the content."/>
       <min value="1"/>
       <max value="1"/>
       <type>

@@ -1,5 +1,8 @@
-﻿_query
+﻿_language
+_query
+_in
 _security
+_type
 recruitment_actual
 _lastupdated
 _list

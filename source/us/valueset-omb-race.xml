@@ -1,9 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="omb-race"/>
 
   <url value="http://hl7.org/fhir/ValueSet/omb-race"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.2993"/>
+  </identifier>
   <version value="1.5.0"/>
   <name value="OMB Race Categories"/>
   <status value="active"/>

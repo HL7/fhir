@@ -1,6 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="xds-facilitycodes"/>
   <meta>
     <lastUpdated value="2015-03-17T12:06:30.047+00:00"/>
@@ -9,7 +7,7 @@
   <url value="http://hl7.org/fhir/ValueSet/xds-facilitycodes"/>
 	<identifier>
     <system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.3.3274"/>
 	</identifier>
   <version value="20091109"/>
   <name value="FacilityTypeCodeValueSet"/>
@@ -24,7 +22,7 @@
       <system value="http://snomed.info/sct"/>
       <concept>
         <code value="82242000"/>
-        <display value="Hospital-children&#39;s"/>
+        <display value="Hospital-children's"/>
       </concept>
       <concept>
         <code value="225732001"/>
@@ -60,7 +58,7 @@
       </concept>
       <concept>
         <code value="48311003"/>
-        <display value="Hospital-Veterans&#39; Administration"/>
+        <display value="Hospital-Veterans' Administration"/>
       </concept>
       <concept>
         <code value="284546000"/>
@@ -204,11 +202,11 @@
       </concept>
       <concept>
         <code value="19602009"/>
-        <display value="Fee-for-service private physicians&#39; group office"/>
+        <display value="Fee-for-service private physicians' group office"/>
       </concept>
       <concept>
         <code value="39350007"/>
-        <display value="Private physicians&#39; group office"/>
+        <display value="Private physicians' group office"/>
       </concept>
       <concept>
         <code value="83891005"/>
@@ -312,7 +310,7 @@
       </concept>
       <concept>
         <code value="59374000"/>
-        <display value="Traveler&#39;s aid clinic"/>
+        <display value="Traveler's aid clinic"/>
       </concept>
       <concept>
         <code value="413456002"/>

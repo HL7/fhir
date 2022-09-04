@@ -1,6 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/consentperformer"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1017"/>
+  </identifier>
   <name value="PerformerRoleCodes"/>
   <title value="Performer Role Codes"/>
   <status value="draft"/>

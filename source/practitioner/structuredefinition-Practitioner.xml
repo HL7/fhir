@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Practitioner"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1083"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Practitioner"/>
   <status value="draft"/>
@@ -104,7 +106,7 @@
     </element>
     <element id="Practitioner.identifier">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Under &quot;Comments&quot; it said: &quot;The identifier changes when a new/different person steps into the same role&quot;. This depends on business rules, I would assume a new instance is created instead.  did keep the text here just in case."/>
+        <valueString value="Under &#34;Comments&#34; it said: &#34;The identifier changes when a new/different person steps into the same role&#34;. This depends on business rules, I would assume a new instance is created instead.  did keep the text here just in case."/>
       </extension>
       <path value="Practitioner.identifier"/>
       <short value="An identifier for the person as this agent"/>
@@ -139,8 +141,8 @@
     </element>
     <element id="Practitioner.active">
       <path value="Practitioner.active"/>
-      <short value="Whether this practitioner&#39;s record is in active use"/>
-      <definition value="Whether this practitioner&#39;s record is in active use."/>
+      <short value="Whether this practitioner's record is in active use"/>
+      <definition value="Whether this practitioner's record is in active use."/>
       <comment value="If the practitioner is not in use by one organization, then it should mark the period on the PractitonerRole with an end date (even if they are active) as they may be active in another role."/>
       <requirements value="Need to be able to mark a practitioner record as not to be used because it was created in error."/>
       <min value="0"/>
@@ -300,7 +302,7 @@
       <path value="Practitioner.deceased[x]"/>
       <short value="Indicates if the practitioner is deceased or not"/>
       <definition value="Indicates if the practitioner is deceased or not."/>
-      <comment value="If there&#39;s no value in the instance, it means there is no statement on whether or not the practitioner is deceased. Most systems will interpret the absence of a value as a sign of the person being alive."/>
+      <comment value="If there's no value in the instance, it means there is no statement on whether or not the practitioner is deceased. Most systems will interpret the absence of a value as a sign of the person being alive."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -356,7 +358,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value="./subjectOf/ObservationEvent[code=&quot;photo&quot;]/value"/>
+        <map value="./subjectOf/ObservationEvent[code=&#34;photo&#34;]/value"/>
       </mapping>
       <mapping>
         <identity value="interface"/>
@@ -396,7 +398,7 @@
     <element id="Practitioner.qualification.identifier">
       <path value="Practitioner.qualification.identifier"/>
       <short value="An identifier for this qualification for the practitioner"/>
-      <definition value="An identifier that applies to this person&#39;s qualification."/>
+      <definition value="An identifier that applies to this person's qualification."/>
       <requirements value="Often, specific identities are assigned for the qualification."/>
       <min value="0"/>
       <max value="*"/>
@@ -470,7 +472,7 @@
     </element>
     <element id="Practitioner.communication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Note: cannot be named &quot;language&quot; because of technical reasons."/>
+        <valueString value="Note: cannot be named &#34;language&#34; because of technical reasons."/>
       </extension>
       <path value="Practitioner.communication"/>
       <short value="A language the practitioner can use in patient communication"/>

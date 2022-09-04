@@ -17,9 +17,9 @@
   <url value="http://hl7.org/fhir/ValueSet/deviceusage-adherence-reason"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3214"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="DeviceUsageAdherenceReason"/>
   <title value="DeviceUsageAdherenceReason"/>
   <status value="draft"/>

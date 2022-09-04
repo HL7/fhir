@@ -6,7 +6,7 @@
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="General Condition Example"/>
+      <valueString value="General Terminology Capability Example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="terminologycapabilities-example"/>

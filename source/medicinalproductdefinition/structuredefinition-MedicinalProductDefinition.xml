@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MedicinalProductDefinition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -23,6 +22,10 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1067"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="MedicinalProductDefinition"/>
   <status value="draft"/>
@@ -741,8 +744,8 @@
         <valueCode value="60,201"/> <!-- 80, 177 -->
       </extension>
       <path value="MedicinalProductDefinition.name"/>
-      <short value="The product&#39;s name, including full name and possibly coded parts"/>
-      <definition value="The product&#39;s name, including full name and possibly coded parts."/>
+      <short value="The product's name, including full name and possibly coded parts"/>
+      <definition value="The product's name, including full name and possibly coded parts."/>
       <min value="1"/>
       <max value="*"/>
       <type>
@@ -1173,8 +1176,8 @@
         <valueCode value="800,400"/>
       </extension>
       <path value="MedicinalProductDefinition.characteristic"/>
-      <short value="Key product features such as &quot;sugar free&quot;, &quot;modified release&quot;"/>
-      <definition value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;."/>
+      <short value="Key product features such as &#34;sugar free&#34;, &#34;modified release&#34;"/>
+      <definition value="Allows the key product features to be recorded, such as &#34;sugar free&#34;, &#34;modified release&#34;, &#34;parallel import&#34;."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1250,7 +1253,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Physical Characteristics, attribute&#39;s value"/>
+        <map value="Physical Characteristics, attribute's value"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

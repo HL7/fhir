@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="cholesterol"/>
   <text>
     <status value="generated"/>
@@ -16,6 +14,10 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/cholesterol"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1397"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Example Lipid Profile"/>
   <status value="draft"/>
@@ -84,7 +86,7 @@
         <coding>
           <system value="http://loinc.org"/>
           <code value="35200-5"/>
-          <display value="Cholesterol [Moles/&#x200B;volume] in Serum or Plasma"/>
+          <display value="Cholesterol [Moles/​volume] in Serum or Plasma"/>
         </coding>
       </fixedCodeableConcept>
       <mustSupport value="true"/>

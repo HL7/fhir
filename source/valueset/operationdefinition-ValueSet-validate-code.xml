@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="ValueSet-validate-code"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -70,7 +68,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Value set Canonical URL. The server must know the value set (e.g. it is defined explicitly in the server&#39;s value sets, or it is defined implicitly by some code system known to the server"/>
+    <documentation value="Value set Canonical URL. The server must know the value set (e.g. it is defined explicitly in the server's value sets, or it is defined implicitly by some code system known to the server"/>
     <type value="uri"/>
   </parameter>
   <parameter>
@@ -158,7 +156,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="If this parameter has a value of true or the parametter is ommitted, the client is stating that the validation is being performed in a context where a concept designated as &#39;abstract&#39; is appropriate/allowed to be used, and the server should regard abstract codes as valid. If this parameter is false, abstract codes are not considered to be valid.&#xA;&#xA;Note that. &#39;abstract&#39; is a property defined by many HL7 code systems that indicates that the concept is a logical grouping concept that is not intended to be used as a &#39;concrete&#39; concept to in an actual patient/care/process record. This language is borrowed from object-orientated theory where &#39;abstract&#39; entities are never instantiated. However in the general record and terminology eco-system, there are many contexts where it is appropriate to use these codes e.g. as decision making criterion, or when editing value sets themselves. This parameter allows a client to indicate to the server that it is working in such a context."/>
+    <documentation value="If this parameter has a value of true or the parametter is ommitted, the client is stating that the validation is being performed in a context where a concept designated as 'abstract' is appropriate/allowed to be used, and the server should regard abstract codes as valid. If this parameter is false, abstract codes are not considered to be valid.&#xA;&#xA;Note that. 'abstract' is a property defined by many HL7 code systems that indicates that the concept is a logical grouping concept that is not intended to be used as a 'concrete' concept to in an actual patient/care/process record. This language is borrowed from object-orientated theory where 'abstract' entities are never instantiated. However in the general record and terminology eco-system, there are many contexts where it is appropriate to use these codes e.g. as decision making criterion, or when editing value sets themselves. This parameter allows a client to indicate to the server that it is working in such a context."/>
     <type value="boolean"/>
   </parameter>
   <parameter>

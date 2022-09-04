@@ -1,8 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
+<?xml version="1.0" encoding="UTF-8"?><Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
   <id value="library-cms146-example"/>
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
          <table class="grid dict">
             <tr>
@@ -470,6 +469,10 @@
       </div>
   </text>
   <url value="http://hl7.org/fhir/Library/library-cms146-example"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.17.2"/>
+  </identifier>
   <identifier>
     <use value="official"/>
     <value value="CMS146"/>

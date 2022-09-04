@@ -1,8 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="care-plan-activity-category"/>
   <url value="http://hl7.org/fhir/care-plan-activity-category"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1796"/>
+  </identifier>
   <version value="1.0.0"/>
   <name value="CarePlanActivityCategory"/>
   <status value="draft"/>

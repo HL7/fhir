@@ -1,21 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/testscript.xsd">
+<?xml version="1.0" encoding="UTF-8"?><TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/testscript.xsd">
   <id value="2014-02-washington-ts"/>
   <url value="http://hl7.org/fhir/TestScript/2014-02-washington-ts"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.12.7"/>
+  </identifier>
   <name value="Terminology Connectathon #1 Test Script"/>
   <status value="draft"/>
   <description value="This is the test script the 1st Terminology Services Connectathon"/>
 
   <fixture id="extensional-case-1">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
+      <ValueSet>
         <id value="extensional-case-1"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://example.org/fhir/CodeSystem/patient-contact-relationship</div>
         </text>
         <identifier>
-          <value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-1" />
+          <value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-1"/>
         </identifier>
         <name value="Terminology Services Connectation #1 Extensional case #1"/>
         <publisher value="Grahame Grieve"/>
@@ -66,14 +69,14 @@
   </fixture>
   <fixture id="extensional-case-2">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
+      <ValueSet>
         <id value="extensional-case-2"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://loinc.org</div>
         </text>
         <identifier>
-          <value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-2" />
+          <value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-2"/>
         </identifier>
         <name value="Terminology Services Connectation #1 Extensional case #2"/>
         <publisher value="Grahame Grieve"/>
@@ -192,14 +195,14 @@
   </fixture>
   <fixture id="extensional-case-3">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
+      <ValueSet>
         <id value="extensional-case-3"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://snomed.info/sct</div>
         </text>
         <identifier>
-          <value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-3" />
+          <value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-3"/>
         </identifier>
         <name value="Terminology Services Connectation #1 Extensional case #3"/>
         <publisher value="Grahame Grieve"/>
@@ -418,14 +421,14 @@
   </fixture>
   <fixture id="extensional-case-4">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
+      <ValueSet>
         <id value="extensional-case-4"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://example.org/fhir/CodeSystem/patient-contact-relationship</div>
         </text>
         <identifier>
-          <value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-4" />
+          <value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-4"/>
         </identifier>
         <name value="Terminology Services Connectation #1 Extensional case #4"/>
         <publisher value="Grahame Grieve"/>
@@ -487,14 +490,14 @@
   </fixture>
   <fixture id="intensional-case-1">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
+      <ValueSet>
         <id value="intensional-case-1"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">All loinc codes for system = Arterial system</div>
         </text>
         <identifier>
-          <value value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-1" />
+          <value value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-1"/>
         </identifier>
         <name value="Terminology Services Connectation #1 Intensional case #1"/>
         <publisher value="Grahame Grieve"/>
@@ -522,14 +525,14 @@
   </fixture>
   <fixture id="intensional-case-2">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
+      <ValueSet>
         <id value="intensional-case-2"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">All SNOMED CT codes that are subsumed by 38341003 (Hypertensive disorder, systemic arterial)</div>
         </text>
         <identifier>
-          <value value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-2" />
+          <value value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-2"/>
         </identifier>
         <name value="Terminology Services Connectation #1 Intensional case #2"/>
         <publisher value="Grahame Grieve"/>
@@ -557,14 +560,14 @@
   </fixture>
   <fixture id="intensional-case-3">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
+      <ValueSet>
         <id value="intensional-case-3"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">All SNOMED CT codes that are subsumed by 404684003 (Clinical Finding)</div>
         </text>
         <identifier>
-          <value value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-3" />
+          <value value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-3"/>
         </identifier>
         <name value="Terminology Services Connectation #1 Intensional case #3"/>
         <publisher value="Grahame Grieve"/>
@@ -593,16 +596,16 @@
 
   <fixture id="test1-1-min">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
-        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+      <ValueSet>
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></id>
         <meta>
-          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></lastUpdated>
         </meta>
         <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-1"/>
         <status value="draft"/>
         <experimental value="true"/>
         <expansion>
-          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></timestamp>
           <contains>
               <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
                 <valueCode value="exact-no-order"/>
@@ -647,16 +650,16 @@
   </fixture>
   <fixture id="test1-2-min">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
-        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+      <ValueSet>
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></id>
         <meta>
-          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></lastUpdated>
         </meta>
         <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-2"/>
         <status value="draft"/>
         <experimental value="true"/>
         <expansion>
-          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></timestamp>
           <contains>
               <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
                 <valueCode value="exact-no-order"/>
@@ -786,16 +789,16 @@
   </fixture>
   <fixture id="test1-3-min">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
-        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+      <ValueSet>
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></id>
         <meta>
-          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></lastUpdated>
         </meta>
         <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-3"/>
         <status value="draft"/>
         <experimental value="true"/>
         <expansion>
-          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></timestamp>
           <contains>
               <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
                 <valueCode value="exact-no-order"/>
@@ -1045,16 +1048,16 @@
   </fixture>
   <fixture id="test1-5-min">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
-        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+      <ValueSet>
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></id>
         <meta>
-          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></lastUpdated>
         </meta>
         <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-1"/>
         <status value="draft"/>
         <experimental value="true"/>
         <expansion>
-          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></timestamp>
           <contains>
               <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
                 <valueCode value="exact-no-order"/>
@@ -1399,16 +1402,16 @@
   </fixture>
   <fixture id="test1-6-min">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
-        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+      <ValueSet>
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></id>
         <meta>
-          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></lastUpdated>
         </meta>
         <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-2"/>
         <status value="draft"/>
         <experimental value="true"/>
         <expansion>
-          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></timestamp>
           <contains>
               <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
                 <valueCode value="exact-no-order"/>
@@ -1964,16 +1967,16 @@
 
   <fixture id="test2-1-min">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
-        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+      <ValueSet>
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></id>
         <meta>
-          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></lastUpdated>
         </meta>
         <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-1"/>
         <status value="draft"/>
         <experimental value="true"/>
         <expansion>
-          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></timestamp>
           <contains>
               <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-max">
                 <valueInteger value="5"/>
@@ -1996,16 +1999,16 @@
   </fixture>
   <fixture id="test2-2-min">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
-        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+      <ValueSet>
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></id>
         <meta>
-          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></lastUpdated>
         </meta>
         <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-2"/>
         <status value="draft"/>
         <experimental value="true"/>
         <expansion>
-          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></timestamp>
           <contains>
               <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-max">
                 <valueInteger value="18"/>
@@ -2043,16 +2046,16 @@
   </fixture>
   <fixture id="test2-3-min">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
-        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+      <ValueSet>
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></id>
         <meta>
-          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></lastUpdated>
         </meta>
         <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-3"/>
         <status value="draft"/>
         <experimental value="true"/>
         <expansion>
-          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></timestamp>
           <contains>
               <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
                 <valueCode value="open"/>
@@ -2110,16 +2113,16 @@
   </fixture>
   <fixture id="test2-4-min">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
-        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+      <ValueSet>
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></id>
         <meta>
-          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></lastUpdated>
         </meta>
         <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-4"/>
         <status value="draft"/>
         <experimental value="true"/>
         <expansion>
-          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></timestamp>
           <contains>
               <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
                 <valueCode value="open"/>
@@ -2147,16 +2150,16 @@
   </fixture>
   <fixture id="test2-5-min">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
-        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+      <ValueSet>
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></id>
         <meta>
-          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></lastUpdated>
         </meta>
         <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-1"/>
         <status value="draft"/>
         <experimental value="true"/>
         <expansion>
-          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></timestamp>
           <contains>
               <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
                 <valueCode value="open"/>
@@ -2189,16 +2192,16 @@
   </fixture>
   <fixture id="test2-6-min">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
-        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+      <ValueSet>
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></id>
         <meta>
-          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></lastUpdated>
         </meta>
         <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-2"/>
         <status value="draft"/>
         <experimental value="true"/>
         <expansion>
-          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></timestamp>
           <contains>
               <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
                 <valueCode value="open"/>
@@ -2231,16 +2234,16 @@
   </fixture>
   <fixture id="test2-7-min">
     <resource>
-      <ValueSet xmlns="http://hl7.org/fhir">
-        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></id>
+      <ValueSet>
+        <id><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></id>
         <meta>
-          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></lastUpdated>
+          <lastUpdated><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></lastUpdated>
         </meta>
         <identifier value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-3"/>
         <status value="draft"/>
         <experimental value="true"/>
         <expansion>
-          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"></extension></timestamp>
+          <timestamp><extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/pattern"/></timestamp>
           <contains>
             <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
               <valueCode value="open"/>
@@ -2299,7 +2302,7 @@
 
   <fixture id="test3-1-a-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="empty"/>
@@ -2310,7 +2313,7 @@
   </fixture>
   <fixture id="test3-1-b-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2327,7 +2330,7 @@
   </fixture>
   <fixture id="test3-1-c-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2345,7 +2348,7 @@
 
   <fixture id="test3-2-a-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="empty"/>
@@ -2356,7 +2359,7 @@
   </fixture>
   <fixture id="test3-2-b-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2373,7 +2376,7 @@
   </fixture>
   <fixture id="test3-2-c-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2390,7 +2393,7 @@
   </fixture>
   <fixture id="test3-2-d-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2407,7 +2410,7 @@
   </fixture>
   <fixture id="test3-2-e-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2425,7 +2428,7 @@
 
   <fixture id="test3-3-a-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="empty"/>
@@ -2436,7 +2439,7 @@
   </fixture>
   <fixture id="test3-3-b-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2453,7 +2456,7 @@
   </fixture>
   <fixture id="test3-3-c-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2470,7 +2473,7 @@
   </fixture>
   <fixture id="test3-3-d-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2487,7 +2490,7 @@
   </fixture>
   <fixture id="test3-3-e-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2505,7 +2508,7 @@
 
   <fixture id="test3-4-a-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="empty"/>
@@ -2516,7 +2519,7 @@
   </fixture>
   <fixture id="test3-4-b-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2533,7 +2536,7 @@
   </fixture>
   <fixture id="test3-4-c-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2550,7 +2553,7 @@
   </fixture>
   <fixture id="test3-4-d-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2567,7 +2570,7 @@
   </fixture>
   <fixture id="test3-4-e-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2585,7 +2588,7 @@
 
   <fixture id="test3-5-a-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="empty"/>
@@ -2596,7 +2599,7 @@
   </fixture>
   <fixture id="test3-5-b-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2613,7 +2616,7 @@
   </fixture>
   <fixture id="test3-5-c-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2630,7 +2633,7 @@
   </fixture>
   <fixture id="test3-5-d-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2647,7 +2650,7 @@
   </fixture>
   <fixture id="test3-5-e-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2665,7 +2668,7 @@
 
   <fixture id="test3-6-a-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="empty"/>
@@ -2676,7 +2679,7 @@
   </fixture>
   <fixture id="test3-6-b-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2693,7 +2696,7 @@
   </fixture>
   <fixture id="test3-6-c-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2710,7 +2713,7 @@
   </fixture>
   <fixture id="test3-6-d-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2727,7 +2730,7 @@
   </fixture>
   <fixture id="test3-6-e-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2745,7 +2748,7 @@
 
   <fixture id="test3-7-a-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="empty"/>
@@ -2756,7 +2759,7 @@
   </fixture>
   <fixture id="test3-7-b-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2773,7 +2776,7 @@
   </fixture>
   <fixture id="test3-7-c-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2790,7 +2793,7 @@
   </fixture>
   <fixture id="test3-7-d-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2807,7 +2810,7 @@
   </fixture>
   <fixture id="test3-7-e-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>
@@ -2825,7 +2828,7 @@
 
   <fixture id="test4-1-a-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="empty"/>
@@ -2836,7 +2839,7 @@
   </fixture>
   <fixture id="test4-1-b-min">
     <resource>
-      <OperationOutcome xmlns="http://hl7.org/fhir">
+      <OperationOutcome>
         <issue>
           <extension url="http://www.healthintersections.com.au/fhir/ExtensionDefinition/list-rules">
             <valueCode value="minimum-no-order"/>

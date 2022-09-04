@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="research-study-phase"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
@@ -18,7 +16,7 @@
   <url value="http://terminology.hl7.org/CodeSystem/research-study-phase"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1247"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1247"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="ResearchStudyPhase"/>
@@ -49,7 +47,7 @@
   <concept>
     <code value="early-phase-1"/>
     <display value="Early Phase 1"/>
-    <definition value="Designation for optional exploratory trials conducted in accordance with the United States Food and Drug Administration&#39;s (FDA) 2006 Guidance on Exploratory Investigational New Drug (IND) Studies. Formerly called Phase 0."/>
+    <definition value="Designation for optional exploratory trials conducted in accordance with the United States Food and Drug Administration's (FDA) 2006 Guidance on Exploratory Investigational New Drug (IND) Studies. Formerly called Phase 0."/>
   </concept>
   <concept>
     <code value="phase-1"/>
@@ -79,6 +77,6 @@
   <concept>
     <code value="phase-4"/>
     <display value="Phase 4"/>
-    <definition value="Studies of FDA-approved drugs to delineate additional information including the drug&#39;s risks, benefits, and optimal use."/>
+    <definition value="Studies of FDA-approved drugs to delineate additional information including the drug's risks, benefits, and optimal use."/>
   </concept>
 </CodeSystem>

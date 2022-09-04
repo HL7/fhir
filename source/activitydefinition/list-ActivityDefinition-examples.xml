@@ -12,7 +12,7 @@
       <valueString value="activitydefinition-example"/>
     </extension>
     <item>
-      <reference value="ActivityDefinition/referralPrimaryCareMentalHealth"/>
+      <reference value="ActivityDefinition/referralPrimaryCareMentalHealthEx"/>
       <display value="Referral Example"/>
     </item>
   </entry>

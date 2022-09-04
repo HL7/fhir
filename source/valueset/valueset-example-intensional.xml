@@ -1,6 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="example-intensional"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -8,7 +6,7 @@
   <text>
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Value set &quot;LOINC Codes for Cholesterol&quot;: This is an example value set that includes 
+      <p>Value set "LOINC Codes for Cholesterol": This is an example value set that includes 
         all the  codes for serum cholesterol from LOINC v2.36.</p>
       <p>Developed by: FHIR project team (example)</p>
       <p>Published for testing on 13-June 2012</p>
@@ -22,6 +20,10 @@
   <url value="http://hl7.org/fhir/ValueSet/example-intensional"/>
 <!--   an imaginary identifier. This is a non FHIR identifier - might be used in a 
 	  v2 context (though you always need to translate namespaces for v2)   -->
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3145"/>
+  </identifier>
   <identifier>
     <system value="http://acme.com/identifiers/valuesets"/>
     <value value="loinc-cholesterol-ext"/>

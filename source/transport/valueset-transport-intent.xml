@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="transport-intent"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
@@ -200,7 +198,7 @@
               <td>Filler Order</td>
 
 
-              <td>The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller&#39;s intention to act upon a submitted order.</td>
+              <td>The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller's intention to act upon a submitted order.</td>
 
 
             </tr>
@@ -271,7 +269,7 @@
   <url value="http://hl7.org/fhir/ValueSet/transport-intent"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3034"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="TransportIntent"/>

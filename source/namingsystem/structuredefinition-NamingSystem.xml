@@ -26,6 +26,10 @@
 		<valueString value="MetadataResource"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1259"/>
+  </identifier>
 	<version value="5.0.0"/>
 	<name value="NamingSystem"/>
 	<status value="draft"/>
