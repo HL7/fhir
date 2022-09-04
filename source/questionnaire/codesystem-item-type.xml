@@ -97,7 +97,7 @@
 		<concept>
 			<code value="string"/>
 			<display value="String"/>
-			<definition value="Question with a short (few words to short sentence) free-text entry answer (valueString)."/>
+			<definition value="Question with a short (few words to short sentence) free-text entry answer (valueString).  Strings SHOULD NOT contain carriage return or newline characters.  If multi-line answers are needed, use the 'text' type."/>
 		</concept>
 		<concept>
 			<code value="text"/>
