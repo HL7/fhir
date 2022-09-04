@@ -1,0 +1,43 @@
+@startuml
+hide footbox
+skinparam actorStyle awesome
+
+Title IHE Mobile Medication Administration
+
+actor "Physician" as MD
+participant "Catalog\nsystem" as CAT
+participant "CPOE" as CPOE
+     
+    
+Nurse -> MAP : 1.Get today's schedule
+Activate Nurse
+Activate MAP
+
+MAP -> OP : 2. Query administration orders \n<&arrow-right> [[{/MedicationRequest?intent=instance-order?combo-date=ltDDDD-MM-YY} GET scheduled administrations for 2 days]]\n<&arrow-left> [[{Bundle/iherx001bundle} Bundle with all administrations for days 1 and 2]]
+    
+MAP -> Nurse : 3.Notify (alert) 
+    
+Nurse -> MAP : 4. Read orders 
+deactivate Nurse
+...
+
+Nurse -> Nurse : 5. Ask if patient took meds 
+activate Nurse    
+
+alt Patient took meds
+  Nurse -> MAP : 6a. Register meds taken
+end
+alt Patient didn't take meds
+  Nurse -> MAP : 6b. Register meds NOT taken
+end
+alt Not clear
+end 
+...
+
+Nurse -> Nurse : 7.Administer medication
+    
+Nurse -> MAP : 8. Record administration
+...
+    
+MAP -> MAC : 9. Upload administration reports\n<&arrow-right> [[{POST MedicationAdministration/iherx001.001\n...\nPOST MedicationAdministration/iherx001.006} POST MedicationAdministrations]]\n<&arrow-left> <font:monospaced>201 CREATED
+@enduml
