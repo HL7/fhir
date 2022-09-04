@@ -429,6 +429,7 @@
       <path value="NamingSystem.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the naming system and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the naming system."/>
+      <comment value="..."/>
       <requirements value="Consumers must be able to determine any legal restrictions on the use of the naming system and/or its content."/>
       <alias value="License"/>
       <alias value="Restrictions"/>

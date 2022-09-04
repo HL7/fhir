@@ -344,6 +344,18 @@
         <code value="markdown"/>
       </type>
     </element>
+    <element id="Requirements.copyrightLabel">
+      <path value="Requirements.copyrightLabel"/>
+      <short value="Copyright holder and year(s)"/>
+      <definition value="This is a short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="Requirements.derivedFrom">
       <path value="Requirements.derivedFrom"/>
       <short value="Other set of Requirements this builds on"/>

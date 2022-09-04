@@ -99,6 +99,10 @@
       <path value="Library.copyright"/>
       <mustSupport value="true"/>
     </element>
+    <element id="Library.copyrightLabel">
+      <path value="Library.copyrightLabel"/>
+      <mustSupport value="true"/>
+    </element>
     <element id="Library.approvalDate">
       <path value="Library.approvalDate"/>
       <mustSupport value="true"/>

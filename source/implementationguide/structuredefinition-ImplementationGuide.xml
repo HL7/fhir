@@ -343,6 +343,7 @@
       <path value="ImplementationGuide.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the implementation guide."/>
+      <comment value="..."/>
       <requirements value="Consumers must be able to determine any legal restrictions on the use of the implementation guide and/or its content."/>
       <alias value="License"/>
       <alias value="Restrictions"/>
@@ -355,6 +356,18 @@
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
+    </element>
+    <element id="ImplementationGuide.copyrightLabel">
+      <path value="ImplementationGuide.copyrightLabel"/>
+      <short value="Copyright holder and year(s)"/>
+      <definition value="This is a short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="ImplementationGuide.packageId">
       <path value="ImplementationGuide.packageId"/>
