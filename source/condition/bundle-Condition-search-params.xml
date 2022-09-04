@@ -18,7 +18,7 @@
         <type value="quantity"/>
         <expression value="Condition.abatement.ofType(Age) | Condition.abatement.ofType(Range)"/>
         <xpath value="f:Condition/f:abatementAge | f:Condition/f:abatementRange"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="date"/>
         <expression value="Condition.abatement.ofType(dateTime) | Condition.abatement.ofType(Period)"/>
         <xpath value="f:Condition/f:abatementDateTime | f:Condition/f:abatementPeriod"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="string"/>
         <expression value="Condition.abatement.ofType(string)"/>
         <xpath value="f:Condition/f:abatementString"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -106,7 +106,7 @@
         <type value="token"/>
         <expression value="Condition.bodySite"/>
         <xpath value="f:Condition/f:bodySite"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -126,7 +126,7 @@
         <type value="token"/>
         <expression value="Condition.category"/>
         <xpath value="f:Condition/f:category"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -146,7 +146,7 @@
         <type value="token"/>
         <expression value="Condition.clinicalStatus"/>
         <xpath value="f:Condition/f:clinicalStatus"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -166,7 +166,7 @@
         <type value="token"/>
         <expression value="Condition.code"/>
         <xpath value="f:Condition/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -186,7 +186,7 @@
         <type value="reference"/>
         <expression value="Condition.encounter"/>
         <xpath value="f:Condition/f:encounter"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -206,7 +206,7 @@
         <type value="token"/>
         <expression value="Condition.evidence.concept"/>
         <xpath value="f:Condition/f:evidence/f:concept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -226,7 +226,7 @@
         <type value="reference"/>
         <expression value="Condition.evidence.reference"/>
         <xpath value="f:Condition/f:evidence/f:reference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -246,7 +246,7 @@
         <type value="token"/>
         <expression value="Condition.identifier"/>
         <xpath value="f:Condition/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -266,7 +266,7 @@
         <type value="quantity"/>
         <expression value="Condition.onset.ofType(Age) | Condition.onset.ofType(Range)"/>
         <xpath value="f:Condition/f:onsetAge | f:Condition/f:onsetRange"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -286,7 +286,7 @@
         <type value="date"/>
         <expression value="Condition.onset.ofType(dateTime) | Condition.onset.ofType(Period)"/>
         <xpath value="f:Condition/f:onsetDateTime | f:Condition/f:onsetPeriod"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -306,7 +306,7 @@
         <type value="string"/>
         <expression value="Condition.onset.ofType(string)"/>
         <xpath value="f:Condition/f:onsetString"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -326,7 +326,7 @@
         <type value="reference"/>
         <expression value="Condition.subject.where(resolve() is Patient)"/>
         <xpath value="f:Condition/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -347,7 +347,7 @@
         <type value="date"/>
         <expression value="Condition.recordedDate"/>
         <xpath value="f:Condition/f:recordedDate"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -367,7 +367,7 @@
         <type value="token"/>
         <expression value="Condition.severity"/>
         <xpath value="f:Condition/f:severity"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -387,7 +387,7 @@
         <type value="token"/>
         <expression value="Condition.stage.summary"/>
         <xpath value="f:Condition/f:stage/f:summary"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -407,7 +407,7 @@
         <type value="reference"/>
         <expression value="Condition.subject"/>
         <xpath value="f:Condition/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -427,7 +427,7 @@
         <type value="token"/>
         <expression value="Condition.verificationStatus"/>
         <xpath value="f:Condition/f:verificationStatus"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

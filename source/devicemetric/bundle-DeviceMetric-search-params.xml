@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="DeviceMetric.category"/>
         <xpath value="f:DeviceMetric/f:category"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="DeviceMetric.identifier"/>
         <xpath value="f:DeviceMetric/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="reference"/>
         <expression value="DeviceMetric.parent"/>
         <xpath value="f:DeviceMetric/f:parent"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="reference"/>
         <expression value="DeviceMetric.source"/>
         <xpath value="f:DeviceMetric/f:source"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="token"/>
         <expression value="DeviceMetric.type"/>
         <xpath value="f:DeviceMetric/f:type"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

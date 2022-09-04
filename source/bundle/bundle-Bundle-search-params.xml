@@ -18,7 +18,7 @@
         <type value="reference"/>
         <expression value="Bundle.entry[0].resource as Composition"/>
         <xpath value="f:Bundle/f:entry[0]/f:resource[f:Composition]"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="Bundle.identifier"/>
         <xpath value="f:Bundle/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="reference"/>
         <expression value="Bundle.entry[0].resource as MessageHeader"/>
         <xpath value="f:Bundle/f:entry[0]/f:resource[f:MessageHeader]"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="date"/>
         <expression value="Bundle.timestamp"/>
         <xpath value="f:Bundle/f:timestamp"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="token"/>
         <expression value="Bundle.type"/>
         <xpath value="f:Bundle/f:type"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

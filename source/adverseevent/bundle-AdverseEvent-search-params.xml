@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="AdverseEvent.actuality"/>
         <xpath value="f:AdverseEvent/f:actuality"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="AdverseEvent.category"/>
         <xpath value="f:AdverseEvent/f:category"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="AdverseEvent.code"/>
         <xpath value="f:AdverseEvent/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="date"/>
         <expression value="AdverseEvent.occurrence"/>
         <xpath value="f:AdverseEvent/f:occurrenceDateTime | f:AdverseEvent/f:occurrencePeriod | f:AdverseEvent/f:occurrenceTiming"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="token"/>
         <expression value="AdverseEvent.identifier"/>
         <xpath value="f:AdverseEvent/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="reference"/>
         <expression value="AdverseEvent.location"/>
         <xpath value="f:AdverseEvent/f:location"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -138,7 +138,7 @@
         <type value="reference"/>
         <expression value="AdverseEvent.subject"/>
         <xpath value="f:AdverseEvent/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -158,7 +158,7 @@
         <type value="reference"/>
         <expression value="AdverseEvent.recorder"/>
         <xpath value="f:AdverseEvent/f:recorder"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -178,7 +178,7 @@
         <type value="reference"/>
         <expression value="AdverseEvent.resultingCondition"/>
         <xpath value="f:AdverseEvent/f:resultingCondition"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -198,7 +198,7 @@
         <type value="token"/>
         <expression value="AdverseEvent.seriousness"/>
         <xpath value="f:AdverseEvent/f:seriousness"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -218,7 +218,7 @@
         <type value="token"/>
         <expression value="AdverseEvent.status"/>
         <xpath value="f:AdverseEvent/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -238,7 +238,7 @@
         <type value="reference"/>
         <expression value="AdverseEvent.study"/>
         <xpath value="f:AdverseEvent/f:study"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -258,7 +258,7 @@
         <type value="reference"/>
         <expression value="AdverseEvent.subject"/>
         <xpath value="f:AdverseEvent/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -278,7 +278,7 @@
         <type value="reference"/>
         <expression value="(AdverseEvent.suspectEntity.instance as Reference)"/>
         <xpath value="f:AdverseEvent/f:suspectEntity/f:instanceReference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

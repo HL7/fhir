@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="CareTeam.category"/>
         <xpath value="f:CareTeam/f:category"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -33,7 +33,7 @@
         <description value="A date within the coverage time period."/>
         <code value="date"/>
         <type value="date"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -53,7 +53,7 @@
         <type value="token"/>
         <expression value="CareTeam.identifier"/>
         <xpath value="f:CareTeam/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -76,7 +76,7 @@
         <type value="string"/>
         <expression value="CareTeam.name | CareTeam.extension(&#39;http://hl7.org/fhir/StructureDefinition/careteam-alias&#39;).value"/>
         <xpath value="f:CareTeam/f:name"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -96,7 +96,7 @@
         <type value="reference"/>
         <expression value="CareTeam.participant.member"/>
         <xpath value="f:CareTeam/f:participant/f:member"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -116,7 +116,7 @@
         <type value="reference"/>
         <expression value="CareTeam.subject.where(resolve() is Patient)"/>
         <xpath value="f:CareTeam/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -137,7 +137,7 @@
         <type value="token"/>
         <expression value="CareTeam.status"/>
         <xpath value="f:CareTeam/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -157,7 +157,7 @@
         <type value="reference"/>
         <expression value="CareTeam.subject"/>
         <xpath value="f:CareTeam/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

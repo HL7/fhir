@@ -18,7 +18,7 @@
         <type value="reference"/>
         <expression value="EpisodeOfCare.careManager.where(resolve() is Practitioner)"/>
         <xpath value="f:EpisodeOfCare/f:careManager"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Practitioner"/>
       </SearchParameter>
     </resource>
@@ -40,7 +40,7 @@
         <type value="reference"/>
         <expression value="EpisodeOfCare.diagnosis.condition.reference"/>
         <xpath value="f:EpisodeOfCare/f:diagnosis/f:condition/f:reference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -60,7 +60,7 @@
         <type value="reference"/>
         <expression value="EpisodeOfCare.diagnosis.condition.reference"/>
         <xpath value="f:EpisodeOfCare/f:diagnosis/f:condition/f:reference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -80,7 +80,7 @@
         <type value="token"/>
         <expression value="EpisodeOfCare.diagnosis.condition.concept"/>
         <xpath value="f:EpisodeOfCare/f:diagnosis/f:condition/f:concept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -100,7 +100,7 @@
         <type value="date"/>
         <expression value="EpisodeOfCare.period"/>
         <xpath value="f:EpisodeOfCare/f:period"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -120,7 +120,7 @@
         <type value="token"/>
         <expression value="EpisodeOfCare.identifier"/>
         <xpath value="f:EpisodeOfCare/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -140,7 +140,7 @@
         <type value="reference"/>
         <expression value="EpisodeOfCare.referralRequest"/>
         <xpath value="f:EpisodeOfCare/f:referralRequest"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -160,7 +160,7 @@
         <type value="reference"/>
         <expression value="EpisodeOfCare.managingOrganization"/>
         <xpath value="f:EpisodeOfCare/f:managingOrganization"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -180,7 +180,7 @@
         <type value="reference"/>
         <expression value="EpisodeOfCare.patient"/>
         <xpath value="f:EpisodeOfCare/f:patient"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -200,7 +200,7 @@
         <type value="token"/>
         <expression value="EpisodeOfCare.status"/>
         <xpath value="f:EpisodeOfCare/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -220,7 +220,7 @@
         <type value="token"/>
         <expression value="EpisodeOfCare.type"/>
         <xpath value="f:EpisodeOfCare/f:type"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="BodyStructure.identifier"/>
         <xpath value="f:BodyStructure/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="BodyStructure.includedStructure.structure"/>
         <xpath value="f:BodyStructure/f:includedStructure/f:structure"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="BodyStructure.excludedStructure.structure"/>
         <xpath value="f:BodyStructure/f:excludedStructure/f:structure"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="token"/>
         <expression value="BodyStructure.morphology"/>
         <xpath value="f:BodyStructure/f:morphology"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="reference"/>
         <expression value="BodyStructure.patient"/>
         <xpath value="f:BodyStructure/f:patient"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

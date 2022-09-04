@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="ValueSet.expansion.contains.code | ValueSet.compose.include.concept.code"/>
         <xpath value="f:ValueSet/f:expansion/f:contains/f:code | f:ValueSet/f:compose/f:include/f:concept/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="(ValueSet.useContext.value as CodeableConcept)"/>
         <xpath value="f:ValueSet/f:useContext/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="quantity"/>
         <expression value="(ValueSet.useContext.value as Quantity) | (ValueSet.useContext.value as Range)"/>
         <xpath value="f:ValueSet/f:useContext/f:valueQuantity | f:ValueSet/f:useContext/f:valueRange"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="token"/>
         <expression value="ValueSet.useContext.code"/>
         <xpath value="f:ValueSet/f:useContext/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -94,7 +94,7 @@
         <code value="context-type-quantity"/>
         <type value="composite"/>
         <expression value="ValueSet.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -118,7 +118,7 @@
         <code value="context-type-value"/>
         <type value="composite"/>
         <expression value="ValueSet.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -146,7 +146,7 @@
         <type value="date"/>
         <expression value="ValueSet.date"/>
         <xpath value="f:ValueSet/f:date"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -166,7 +166,7 @@
         <type value="string"/>
         <expression value="ValueSet.description"/>
         <xpath value="f:ValueSet/f:description"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -186,7 +186,7 @@
         <type value="uri"/>
         <expression value="ValueSet.expansion.identifier"/>
         <xpath value="f:ValueSet/f:expansion/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -206,7 +206,7 @@
         <type value="token"/>
         <expression value="ValueSet.identifier"/>
         <xpath value="f:ValueSet/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -226,7 +226,7 @@
         <type value="token"/>
         <expression value="ValueSet.jurisdiction"/>
         <xpath value="f:ValueSet/f:jurisdiction"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -246,7 +246,7 @@
         <type value="string"/>
         <expression value="ValueSet.name"/>
         <xpath value="f:ValueSet/f:name"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -266,7 +266,7 @@
         <type value="string"/>
         <expression value="ValueSet.publisher"/>
         <xpath value="f:ValueSet/f:publisher"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -286,7 +286,7 @@
         <type value="uri"/>
         <expression value="ValueSet.compose.include.system"/>
         <xpath value="f:ValueSet/f:compose/f:include/f:system"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -306,7 +306,7 @@
         <type value="token"/>
         <expression value="ValueSet.status"/>
         <xpath value="f:ValueSet/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -326,7 +326,7 @@
         <type value="string"/>
         <expression value="ValueSet.title"/>
         <xpath value="f:ValueSet/f:title"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -346,7 +346,7 @@
         <type value="uri"/>
         <expression value="ValueSet.url"/>
         <xpath value="f:ValueSet/f:url"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -366,7 +366,7 @@
         <type value="token"/>
         <expression value="ValueSet.version"/>
         <xpath value="f:ValueSet/f:version"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -386,7 +386,7 @@
         <type value="date"/>
         <expression value="ValueSet.effectivePeriod"/>
         <xpath value="f:ValueSet/f:effectivePeriod"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

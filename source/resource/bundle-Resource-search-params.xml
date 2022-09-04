@@ -13,7 +13,7 @@
         <description value="Search on the entire content of the resource"/>
         <code value="_content"/>
         <type value="special"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -33,7 +33,7 @@
         <type value="token"/>
         <expression value="Resource.id"/>
         <xpath value="f:Resource/f:id"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -53,7 +53,7 @@
         <type value="reference"/>
         <expression value="Resource.id"/>
         <xpath value="f:Resource/f:id"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -73,7 +73,7 @@
         <type value="token"/>
         <expression value="Resource.language"/>
         <xpath value="f:Resource/f:language"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -93,7 +93,7 @@
         <type value="date"/>
         <expression value="Resource.meta.lastUpdated"/>
         <xpath value="f:Resource/f:meta/f:lastUpdated"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -108,7 +108,7 @@
         <description value="Allows for the retrieval of resources that are referenced by a List resource or by one of the pre-defined functional lists"/>
         <code value="_list"/>
         <type value="special"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -128,7 +128,7 @@
         <type value="reference"/>
         <expression value="Resource.meta.profile"/>
         <xpath value="f:Resource/f:meta/f:profile"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -143,7 +143,7 @@
         <description value="A custom search profile that describes a specific defined query operation"/>
         <code value="_query"/>
         <type value="special"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -163,7 +163,7 @@
         <type value="token"/>
         <expression value="Resource.meta.security"/>
         <xpath value="f:Resource/f:meta/f:security"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -183,7 +183,7 @@
         <type value="uri"/>
         <expression value="Resource.meta.source"/>
         <xpath value="f:Resource/f:meta/f:source"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -203,7 +203,7 @@
         <type value="token"/>
         <expression value="Resource.meta.tag"/>
         <xpath value="f:Resource/f:meta/f:tag"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -218,7 +218,7 @@
         <description value="A resource type filter"/>
         <code value="_type"/>
         <type value="special"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -233,7 +233,7 @@
         <description value="Text search against the narrative"/>
         <code value="_text"/>
         <type value="string"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

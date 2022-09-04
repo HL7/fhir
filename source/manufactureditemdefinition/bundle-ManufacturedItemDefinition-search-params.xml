@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="ManufacturedItemDefinition.manufacturedDoseForm"/>
         <xpath value="f:ManufacturedItemDefinition/f:manufacturedDoseForm"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="ManufacturedItemDefinition.identifier"/>
         <xpath value="f:ManufacturedItemDefinition/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="ManufacturedItemDefinition.ingredient"/>
         <xpath value="f:ManufacturedItemDefinition/f:ingredient"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="token"/>
         <expression value="ManufacturedItemDefinition.name"/>
         <xpath value="f:ManufacturedItemDefinition/f:name"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="token"/>
         <expression value="ManufacturedItemDefinition.status"/>
         <xpath value="f:ManufacturedItemDefinition/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
