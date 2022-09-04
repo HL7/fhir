@@ -746,15 +746,15 @@
 				<map value=".participation[typeCode=LOC].role"/>
 			</mapping>
 		</element>
-		<element id="Task.reasonCode">
-			<path value="Task.reasonCode"/>
+		<element id="Task.reason">
+			<path value="Task.reason"/>
 			<short value="Why task is needed"/>
-			<definition value="A description or code indicating why this task needs to be performed."/>
+			<definition value="A description, code, or reference indicating why this task needs to be performed."/>
 			<comment value="This will typically not be present for Tasks with a code of 'please fulfill' as, for those, the reason for action is conveyed on the Request pointed to by Task.focus.  Some types of tasks will not need a 'reason'.  E.g. a request to discharge a patient can be inferred to be 'because the patient is ready' and this would not need a reason to be stated on the Task."/>
 			<min value="0"/>
-			<max value="1"/>
+			<max value="*"/>
 			<type>
-				<code value="CodeableConcept"/>
+				<code value="CodeableReference"/>
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -765,7 +765,7 @@
 			</binding>
 			<mapping>
 				<identity value="workflow"/>
-				<map value="Event.location"/>
+				<map value="Event.reason, Request.reason"/>
 			</mapping>
 			<mapping>
 				<identity value="w5"/>
@@ -778,30 +778,6 @@
 			<mapping>
 				<identity value="rim"/>
 				<map value=".reasonCode"/>
-			</mapping>
-		</element>
-		<element id="Task.reasonReference">
-			<path value="Task.reasonReference"/>
-			<short value="Why task is needed"/>
-			<definition value="A resource reference indicating why this task needs to be performed."/>
-			<comment value="Tasks might be justified based on an Observation, a Condition, a past or planned procedure, etc.   This should only be included if there is no focus or if it differs from the reason indicated on the focus.    Use the CodeableConcept text element in `Task.reasonCode` if the data is free (uncoded) text."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Request.reasonReference, Event.reasonReference"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.why[x]"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".outboundRelationship[typeCode=RSON].target"/>
 			</mapping>
 		</element>
 		<element id="Task.insurance">
