@@ -6,6 +6,9 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
     <extension url="list">
       <valueString value="1"/>
