@@ -1,200 +1,218 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-	<id value="1minute-apgar-score"/><!--	Using a contained patient for the purposes of this example Observation.  Typically the reference would be to an external resource  --><contained>
-		<Patient>
-			<id value="newborn"/><!--   MRN assigned by ACME healthcare on   --><identifier>
-				<system value="http://acmehealthcare/org/mrns"/>
-				<value value="12345"/>
-			</identifier>
-			<active value="true"/><!--   Peter James Chalmers   --><name>
-				<family value="Chalmers"/>
-				<given value="Peter"/>
-				<given value="James"/>
-			</name><!--   use FHIR code system for male / female   --><gender value="male"/>
-			<birthDate value="2016-05-18">
-				<extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
-					<valueDateTime value="2016-05-18T10:28:45Z"/>
-				</extension>
-			</birthDate>
-		</Patient>
-	</contained>
-	<status value="final"/>
-	<category>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
-			<code value="survey"/>
-			<display value="Survey"/>
-		</coding>
-		<text value="Survey"/>
-	</category>
-	<code>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="9272-6"/>
-			<display value="1 minute Apgar Score"/>
-		</coding>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="169895004"/>
-			<display value="Apgar at 1 minute"/>
-		</coding>
-		<text value="1 minute Apgar Score"/>
-	</code>
-	<subject>
-		<reference value="#newborn"/>
-	</subject>
-	<effectiveDateTime value="2016-05-18T22:33:22Z"/>
-	<performer>
-		<reference value="Practitioner/example"/>
-	</performer>
-	<valueQuantity>
-		<value value="0"/>
-		<system value="http://unitsofmeasure.org"/>
-		<code value="{score}"/>
-	</valueQuantity>
-	<component>
-		<code>
-			<coding>
-				<system value="http://loinc.org"/>
-				<code value="32406-1"/>
-				<display value="1 minute Apgar Color"/>
-			</coding>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="249227004"/>
-				<display value="Apgar color score"/>
-			</coding>
-			<text value="Apgar color score"/>
-		</code>
-		<valueCodeableConcept>
-			<coding><!--this  extension  maps a numeric score to the code this may already be known and unecessary--><extension url="http://hl7.org/fhir/StructureDefinition/ordinalValue">
-					<valueDecimal value="0"/>
-				</extension>
-				<system value="http://loinc.org"/>
-				<code value="LA6722-8"/>
-				<display value="The baby's whole body is completely bluish-gray or pale"/>
-			</coding>
-			<coding>
-				<system value="http://acme.ped/apgarcolor"/>
-				<code value="0"/>
-			</coding>
-			<text value="0. The baby's whole body is completely bluish-gray or pale"/>
-		</valueCodeableConcept>
-	</component>
-	<component>
-		<code>
-			<coding>
-				<system value="http://loinc.org"/>
-				<code value="32407-9"/>
-				<display value="1 minute Apgar Heart Rate"/>
-			</coding>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="249223000"/>
-				<display value="Apgar heart rate score"/>
-			</coding>
-			<text value="Apgar respiratory effort score"/>
-		</code>
-		<valueCodeableConcept>
-			<coding><!--this  extension  maps a numeric score to the code this may already be known and unecessary--><extension url="http://hl7.org/fhir/StructureDefinition/ordinalValue">
-					<valueDecimal value="0"/>
-				</extension>
-				<system value="http://loinc.org"/>
-				<code value="LA6716-0"/>
-				<display value="No heart rate"/>
-			</coding>
-			<coding>
-				<system value="http://acme.ped/apgarheartrate"/>
-				<code value="0"/>
-			</coding>
-			<text value="0. No heart rate"/>
-		</valueCodeableConcept>
-	</component>
-	<component>
-		<code>
-			<coding>
-				<system value="http://loinc.org"/>
-				<code value="32409-5"/>
-				<display value="1 minute Apgar Reflex Irritability"/>
-			</coding>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="249226008"/>
-				<display value="Apgar response to stimulus score"/>
-			</coding>
-			<text value="Apgar response to stimulus score"/>
-		</code>
-		<valueCodeableConcept>
-			<coding><!--this  extension  maps a numeric score to the code this may already be known and unecessary--><extension url="http://hl7.org/fhir/StructureDefinition/ordinalValue">
-					<valueDecimal value="0"/>
-				</extension>
-				<system value="http://loinc.org"/>
-				<code value="LA6719-4"/>
-				<display value="No response to airways being suctioned"/>
-			</coding>
-			<coding>
-				<system value="http://acme.ped/apgarreflexirritability"/>
-				<code value="0"/>
-			</coding>
-			<text value="0. No response to airways being suctioned"/>
-		</valueCodeableConcept>
-	</component>
-	<component>
-		<code>
-			<coding>
-				<system value="http://loinc.org"/>
-				<code value="32408-7"/>
-				<display value="1 minute Apgar Muscle Tone"/>
-			</coding>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="249225007"/>
-				<display value="Apgar muscle tone score"/>
-			</coding>
-			<text value="Apgar muscle tone score"/>
-		</code>
-		<valueCodeableConcept>
-			<coding><!--this  extension  maps a numeric score to the code this may already be known and unecessary--><extension url="http://hl7.org/fhir/StructureDefinition/ordinalValue">
-					<valueDecimal value="0"/>
-				</extension>
-				<system value="http://loinc.org"/>
-				<code value="LA6713-7"/>
-				<display value="Limp; no movement"/>
-			</coding>
-			<coding>
-				<system value="http://acme.ped/apgarmuscletone"/>
-				<code value="0"/>
-			</coding>
-			<text value="0. Limp; no movement"/>
-		</valueCodeableConcept>
-	</component>
-	<component>
-		<code>
-			<coding>
-				<system value="http://loinc.org"/>
-				<code value="32410-3"/>
-				<display value="1 minute Apgar Respiratory effort"/>
-			</coding>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="249224006"/>
-				<display value="Apgar respiratory effort score"/>
-			</coding>
-			<text value="Apgar respiratory effort score"/>
-		</code>
-		<valueCodeableConcept>
-			<coding><!--this  extension  maps a numeric score to the code this may already be known and unecessary--><extension url="http://hl7.org/fhir/StructureDefinition/ordinalValue">
-					<valueDecimal value="0"/>
-				</extension>
-				<system value="http://loinc.org"/>
-				<code value="LA6725-1"/>
-				<display value="Not breathing"/>
-			</coding>
-			<coding>
-				<system value="http://acme.ped/apgarrespiratoryeffort"/>
-				<code value="0"/>
-			</coding>
-			<text value="0. Not breathing"/>
-		</valueCodeableConcept>
-	</component>
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+  <id value="1minute-apgar-score"/>
+  <!--	Using a contained patient for the purposes of this example Observation.  Typically the reference would be to an external resource  -->
+  <contained>
+    <Patient>
+      <id value="newborn"/>
+      <!--   MRN assigned by ACME healthcare on   -->
+      <identifier>
+        <system value="http://acmehealthcare/org/mrns"/>
+        <value value="12345"/>
+      </identifier>
+      <active value="true"/>
+      <!--   Peter James Chalmers   -->
+      <name>
+        <family value="Chalmers"/>
+        <given value="Peter"/>
+        <given value="James"/>
+      </name>
+      <!--   use FHIR code system for male / female   -->
+      <gender value="male"/>
+      <birthDate value="2016-05-18">
+        <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+          <valueDateTime value="2016-05-18T10:28:45Z"/>
+        </extension>
+      </birthDate>
+    </Patient>
+  </contained>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="survey"/>
+      <display value="Survey"/>
+    </coding>
+    <text value="Survey"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="9272-6"/>
+      <display value="1 minute Apgar Score"/>
+    </coding>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="169895004"/>
+      <display value="Apgar at 1 minute"/>
+    </coding>
+    <text value="1 minute Apgar Score"/>
+  </code>
+  <subject>
+    <reference value="#newborn"/>
+  </subject>
+  <effectiveDateTime value="2016-05-18T22:33:22Z"/>
+  <performer>
+    <reference value="Practitioner/example"/>
+  </performer>
+  <valueQuantity>
+    <value value="0"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="{score}"/>
+  </valueQuantity>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="32406-1"/>
+        <display value="1 minute Apgar Color"/>
+      </coding>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="249227004"/>
+        <display value="Apgar color score"/>
+      </coding>
+      <text value="Apgar color score"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <!--this  extension  maps a numeric score to the code this may already be known and unecessary-->
+        <extension url="http://hl7.org/fhir/StructureDefinition/itemWeight">
+          <valueDecimal value="0"/>
+        </extension>
+        <system value="http://loinc.org"/>
+        <code value="LA6722-8"/>
+        <display value="The baby's whole body is completely bluish-gray or pale"/>
+      </coding>
+      <coding>
+        <system value="http://acme.ped/apgarcolor"/>
+        <code value="0"/>
+      </coding>
+      <text value="0. The baby's whole body is completely bluish-gray or pale"/>
+    </valueCodeableConcept>
+  </component>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="32407-9"/>
+        <display value="1 minute Apgar Heart Rate"/>
+      </coding>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="249223000"/>
+        <display value="Apgar heart rate score"/>
+      </coding>
+      <text value="Apgar respiratory effort score"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <!--this  extension  maps a numeric score to the code this may already be known and unecessary-->
+        <extension url="http://hl7.org/fhir/StructureDefinition/itemWeight">
+          <valueDecimal value="0"/>
+        </extension>
+        <system value="http://loinc.org"/>
+        <code value="LA6716-0"/>
+        <display value="No heart rate"/>
+      </coding>
+      <coding>
+        <system value="http://acme.ped/apgarheartrate"/>
+        <code value="0"/>
+      </coding>
+      <text value="0. No heart rate"/>
+    </valueCodeableConcept>
+  </component>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="32409-5"/>
+        <display value="1 minute Apgar Reflex Irritability"/>
+      </coding>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="249226008"/>
+        <display value="Apgar response to stimulus score"/>
+      </coding>
+      <text value="Apgar response to stimulus score"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <!--this  extension  maps a numeric score to the code this may already be known and unecessary-->
+        <extension url="http://hl7.org/fhir/StructureDefinition/itemWeight">
+          <valueDecimal value="0"/>
+        </extension>
+        <system value="http://loinc.org"/>
+        <code value="LA6719-4"/>
+        <display value="No response to airways being suctioned"/>
+      </coding>
+      <coding>
+        <system value="http://acme.ped/apgarreflexirritability"/>
+        <code value="0"/>
+      </coding>
+      <text value="0. No response to airways being suctioned"/>
+    </valueCodeableConcept>
+  </component>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="32408-7"/>
+        <display value="1 minute Apgar Muscle Tone"/>
+      </coding>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="249225007"/>
+        <display value="Apgar muscle tone score"/>
+      </coding>
+      <text value="Apgar muscle tone score"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <!--this  extension  maps a numeric score to the code this may already be known and unecessary-->
+        <extension url="http://hl7.org/fhir/StructureDefinition/itemWeight">
+          <valueDecimal value="0"/>
+        </extension>
+        <system value="http://loinc.org"/>
+        <code value="LA6713-7"/>
+        <display value="Limp; no movement"/>
+      </coding>
+      <coding>
+        <system value="http://acme.ped/apgarmuscletone"/>
+        <code value="0"/>
+      </coding>
+      <text value="0. Limp; no movement"/>
+    </valueCodeableConcept>
+  </component>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="32410-3"/>
+        <display value="1 minute Apgar Respiratory effort"/>
+      </coding>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="249224006"/>
+        <display value="Apgar respiratory effort score"/>
+      </coding>
+      <text value="Apgar respiratory effort score"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <!--this  extension  maps a numeric score to the code this may already be known and unecessary-->
+        <extension url="http://hl7.org/fhir/StructureDefinition/itemWeight">
+          <valueDecimal value="0"/>
+        </extension>
+        <system value="http://loinc.org"/>
+        <code value="LA6725-1"/>
+        <display value="Not breathing"/>
+      </coding>
+      <coding>
+        <system value="http://acme.ped/apgarrespiratoryeffort"/>
+        <code value="0"/>
+      </coding>
+      <text value="0. Not breathing"/>
+    </valueCodeableConcept>
+  </component>
 </Observation>

@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="guide-parameter-code"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <url value="http://hl7.org/fhir/guide-parameter-code"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -10,6 +14,9 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="GuideParameterCode"/>
+  <status value="draft"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
   <concept>
     <code value="apply"/>
     <display value="Apply Metadata Value"/>

@@ -241,6 +241,10 @@
 			<condition value="cnl-0"/>
 			<isSummary value="true"/>
 			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.name"/>
+			</mapping>
+			<mapping>
 				<identity value="rim"/>
 				<map value="N/A"/>
 			</mapping>

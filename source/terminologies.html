@@ -658,6 +658,36 @@ When binding a ValueSet to an element, values may be limited by declaring a maxi
 A binding may be further constrained to declare a value set for use when the binding strength is 'extensible' or 'preferred'. This value set is the value set from which additional codes can be taken from. This defines a 'required' binding over the top of the 'extensible' binding.
 </p>
 
+<a name="legacy"></a>
+<h2>Bindings and legacy data</h2>
+<p>
+Systems with legacy or external data that was constructed without an awareness of the terminology requirements asserted in a binding may
+have trouble complying with the expectations of the binding.  Both 'required' and 'extensible' bindings impose an expectation of systems
+to map their existing data to the value set.  For 'required' bindings, if no mapping is possible, the element can't be sent (not even with
+an extension).  If the element and its ancestor elements all have a 'min' cardinality of 1 or more, then the system cannot produce a
+conformant instance.  For extensible bindings, if a mapping has been tried and there is no corresponding concept, then the legacy data may be
+freely sent.  However, this still imposes the expectation of performing a mapping, and this might not be possible if new externally sourced
+data with arbitrary codes is being regularly received.  If no mapping has been performed, then the element would need to be omitted, or the
+instance would not be able to claim conformance to the specification that imposed the binding.
+</p>
+<p>
+R5 introduces some new binding capabilities through the 
+<a href="https://build.fhir.org/ig/FHIR/fhir-tools-ig/StructureDefinition-additional-binding.html">Additional Binding</a> extension.  This
+extension allows specifications to specify more refined types of bindings.  In particular, the 'current' binding allows a specification to
+differentiate between terminology requirements that apply to data captured by a system from the time it complies with a specification as
+opposed to historical or externally sourced data.  Implementers that find the bindings asserted by specifications are too onerous for external
+or historical data, but are reasonable for 'current' data, might encourage specification authors to consider making use of this Additional
+Binding extension to better reflect the expectations of systems.
+</p>
+<p>
+Servers may support a variety of implementation guides.  There is no guarantee that all data they have available on their FHIR interfaces will 
+necessarily comply with all implementation guides.  On the other hand, some clients might not be able to safely consume data that does not comply 
+with a given IG.  In environments where there will be a need to expose a mixture of IG-conformant and non-IG conformant data, but some consumers will depend on data 
+being conformant to safely consume, then Resource.meta.profile can be used to explicitly flag the instances that conform.  Clients can then
+filter using the _profile search parameter to ensure they only receive data they can safely handle - with the known cost that they won't necessarily
+have access to all data that exists.
+</p>
+
 
 <a name="other"></a>
 <h2>Other notes</h2>

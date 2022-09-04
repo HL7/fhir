@@ -1,0 +1,68 @@
+@startuml
+hide footbox
+skinparam actorStyle awesome
+
+Title Lab order tracking with Task
+
+actor "Clinician" as Clin
+participant "CPOE" as CPOE
+participant "EMR" as EMR
+participant "Lab" as LAB
+actor "Lab staff" as LabMan
+    
+
+group Create order
+Clin -> LabMan : Make a call
+...
+Clin -> CPOE : Create new order
+
+CPOE -> EMR : Submit order to EMR \n<&arrow-right> <font:monospaced>[[{/ServiceDefinition?intent=instance-order?combo-date=ltDDDD-MM-YY} POST ServiceRequest/req1]]
+
+EMR -> EMR : Create new Task \n<font:monospaced>[[{/Task/task1} Task/task1-v1]]
+
+EMR -> LAB : Send Task to Lab \n<&arrow-right> <font:monospaced>[[{/Task/task1_v1} POST task1_v1]]
+
+LAB -> LabMan : Notify of new task
+end
+...
+group Accept order
+LabMan -> LAB : Accept task
+
+LAB -> LAB : Task status: accepted \n<font:monospaced>[[{/Task/task1} Task/task1-v2]]
+
+LAB -> LAB : Create internal lab request \n<font:monospaced>[[{/Task/task1} ServiceRequest/req.lab1]]
+
+LAB -> EMR : Send Task to EMR \n<&arrow-left> <font:monospaced>[[{/Task/task1} POST task1-v2]]
+
+EMR -> CPOE : Inform CPOE of Task status \n<&arrow-left> <font:monospaced>[[{/Task/task1} POST task1-v2]]
+end
+...
+group Initiate procedure
+LabMan -> LAB : Begin procedure
+
+LAB -> LAB : Task status = in-progress \n<font:monospaced>[[{/Task/task1} Task/task1-v3]]
+
+LAB -> LAB : Internal lab request: in-progress \n<font:monospaced>[[{/Task/task1} ServiceRequest/req.lab1]]
+
+LAB -> EMR : Send updated Task to EMR \n<&arrow-left> <font:monospaced>[[{/Task/task1} POST task1-v3]]
+
+EMR -> CPOE : Inform CPOE of Task status \n<&arrow-left> <font:monospaced>[[{/Task/task1} POST task1-v3]]
+
+CPOE -> CPOE : Order status: in progress \n<&arrow-left> <font:monospaced>[[{/Task/task1} ServiceRequest/req1-v2]]
+end
+
+...
+group Finish procedure
+LabMan -> LAB : Finish procedure
+
+LAB -> LAB : Task status = completed \n<font:monospaced>[[{/Task/task1} Task/task1-v4]]
+
+LAB -> LAB : Internal lab request: complete \n<font:monospaced>[[{/Task/task1} ServiceRequest/req.lab1]]
+
+LAB -> EMR : Send updated Task to EMR \n<&arrow-left> <font:monospaced> [[{/Task/task1} POST task1-v4]]
+
+EMR -> CPOE : Inform CPOE of Task status \n<&arrow-left> <font:monospaced>[[{/Task/task1} POST task1-v4]]
+
+CPOE -> CPOE : Order status = completed \n<font:monospaced>[[{/Task/task1} ServiceRequest/req1-v3]]
+end
+@enduml

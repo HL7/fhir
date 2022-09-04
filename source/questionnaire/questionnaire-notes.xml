@@ -311,7 +311,7 @@ guidance is provided by the parent question or group.
 <p>
 Many questionnaires involve computations on questionnaire answers, e.g. tabulating scores.
 
-To help with associating numeric values to coded answers, the <a href="extension-ordinalvalue.html">ordinalValue</a> 
+To help with associating numeric values to coded answers, the <a href="extension-itemweight.html">itemweight</a> 
 extension can be used to define the numeric weighting of a code defined in a value set or in the questionnaire itself.
 </p>
 
