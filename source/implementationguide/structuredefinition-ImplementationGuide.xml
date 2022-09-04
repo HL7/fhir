@@ -773,7 +773,7 @@
     <element id="ImplementationGuide.definition.parameter.code">
       <path value="ImplementationGuide.definition.parameter.code"/>
       <short value="Code that identifies parameter"/>
-      <definition value="Code that identifies parameter."/>
+      <definition value="A tool-specific code that defines the parameter."/>
       <min value="1"/>
       <max value="1"/>
       <type>
