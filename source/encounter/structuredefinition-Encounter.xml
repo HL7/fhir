@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Encounter"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1268"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Encounter"/>
   <status value="draft"/>
@@ -85,7 +87,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="PatientEncounter[@moodCode=&#39;EVN&#39;]"/>
+        <map value="PatientEncounter[@moodCode='EVN']"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -440,7 +442,7 @@
     <element id="Encounter.subjectStatus">
       <path value="Encounter.subjectStatus"/>
       <short value="The current status of the subject in relation to the Encounter"/>
-      <definition value="The subjectStatus value can be used to track the patient&#39;s status within the encounter. It details whether the patient has arrived or departed, has been triaged or is currently in a waiting status."/>
+      <definition value="The subjectStatus value can be used to track the patient's status within the encounter. It details whether the patient has arrived or departed, has been triaged or is currently in a waiting status."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -525,7 +527,7 @@
       <path value="Encounter.partOf"/>
       <short value="Another Encounter this encounter is part of"/>
       <definition value="Another Encounter of which this encounter is a part of (administratively or in time)."/>
-      <comment value="This is also used for associating a child&#39;s encounter back to the mother&#39;s encounter.&#xD;&#xD;Refer to the Notes section in the Patient resource for further details."/>
+      <comment value="This is also used for associating a child's encounter back to the mother's encounter.&#xD;&#xD;Refer to the Notes section in the Patient resource for further details."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -547,7 +549,7 @@
     <element id="Encounter.serviceProvider">
       <path value="Encounter.serviceProvider"/>
       <short value="The organization (facility) responsible for this encounter"/>
-      <definition value="The organization that is primarily responsible for this Encounter&#39;s services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy."/>
+      <definition value="The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -635,7 +637,7 @@
     <element id="Encounter.participant.period">
       <path value="Encounter.participant.period"/>
       <short value="Period of time during the encounter that the participant participated"/>
-      <definition value="The period of time that the specified participant participated in the encounter. These can overlap or be sub-sets of the overall encounter&#39;s period."/>
+      <definition value="The period of time that the specified participant participated in the encounter. These can overlap or be sub-sets of the overall encounter's period."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -898,8 +900,8 @@
     </element>
     <element id="Encounter.diagnosis.use">
       <path value="Encounter.diagnosis.use"/>
-      <short value="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge &#x2026;)"/>
-      <definition value="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge &#x2026;)."/>
+      <short value="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)"/>
+      <definition value="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1039,7 +1041,7 @@
     </element>
     <element id="Encounter.admission.reAdmission">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="This concept doesn&#x2019;t exist in v3 and since unlikely to start adopting v3 encounters, will leave until a direct request comes in."/>
+        <valueString value="This concept doesn’t exist in v3 and since unlikely to start adopting v3 encounters, will leave until a direct request comes in."/>
       </extension>
       <path value="Encounter.admission.reAdmission"/>
       <short value="The type of re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission"/>
@@ -1071,7 +1073,7 @@
       <short value="Diet preferences reported by the patient"/>
       <definition value="Diet preferences reported by the patient."/>
       <comment value="For example, a patient may request both a dairy-free and nut-free diet preference (not mutually exclusive)."/>
-      <requirements value="Used to track patient&#39;s diet restrictions and/or preference. For a complete description of the nutrition needs of a patient during their stay, one should use the nutritionOrder resource which links to Encounter."/>
+      <requirements value="Used to track patient's diet restrictions and/or preference. For a complete description of the nutrition needs of a patient during their stay, one should use the nutritionOrder resource which links to Encounter."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1091,7 +1093,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=EVN, code=&quot;diet&quot;]"/>
+        <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=EVN, code=&#34;diet&#34;]"/>
       </mapping>
     </element>
     <element id="Encounter.admission.specialCourtesy">
@@ -1199,7 +1201,7 @@
       <path value="Encounter.location"/>
       <short value="List of locations where the patient has been"/>
       <definition value="List of locations where  the patient has been during this encounter."/>
-      <comment value="Virtual encounters can be recorded in the Encounter by specifying a location reference to a location of type &quot;kind&quot; such as &quot;client&#39;s home&quot; and an encounter.class = &quot;virtual&quot;."/>
+      <comment value="Virtual encounters can be recorded in the Encounter by specifying a location reference to a location of type &#34;kind&#34; such as &#34;client's home&#34; and an encounter.class = &#34;virtual&#34;."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1240,7 +1242,7 @@
     <element id="Encounter.location.status">
       <path value="Encounter.location.status"/>
       <short value="planned | active | reserved | completed"/>
-      <definition value="The status of the participants&#39; presence at the specified location during the period specified. If the participant is no longer at the location, then the period will have an end date/time."/>
+      <definition value="The status of the participants' presence at the specified location during the period specified. If the participant is no longer at the location, then the period will have an end date/time."/>
       <comment value="When the patient is no longer active at a location, then the period end date is entered, and the status may be changed to completed."/>
       <min value="0"/>
       <max value="1"/>

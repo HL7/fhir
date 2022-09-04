@@ -1,7 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ex-oralprostho"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.539"/>
+  </identifier>
   <name value="OralMaterialTypeCodes"/>
   <title value="Oral Material type Codes"/>
   <status value="draft"/>

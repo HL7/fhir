@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="contract-security-control"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -19,7 +17,7 @@
   <url value="http://hl7.org/fhir/contract-security-control"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1223"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1223"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="ContractSecurityControl"/>

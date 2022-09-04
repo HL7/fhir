@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
+<?xml version="1.0" encoding="UTF-8"?><SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
 	<id value="admission"/>
 	<url value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
-	<title value="admission"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.24.1"/>
+  </identifier>
+  <title value="admission"/>
 	<status value="active"/>
   <description value="Example admission topic"/>
 	<resourceTrigger>
@@ -34,9 +37,9 @@
     <description value="Matching based on the Patient (subject) of an Encounter or based on the Patient's group membership (in/not-in)."/>
     <resource value="Encounter"/>
     <filterParameter value="patient"/>
-    <modifier value="=" />
-    <modifier value="in" />
-    <modifier value="not-in" />
+    <modifier value="="/>
+    <modifier value="in"/>
+    <modifier value="not-in"/>
   </canFilterBy>
   <notificationShape>
     <resource value="Encounter"/>

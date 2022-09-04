@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="animal-genderstatus"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,13 +9,13 @@
   <url value="http://hl7.org/fhir/animal-genderstatus"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.419"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.419"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="GenderStatus"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This example value set defines a set of codes that can be used to indicate the current state of the animal&#39;s reproductive organs."/>
+  <description value="This example value set defines a set of codes that can be used to indicate the current state of the animal's reproductive organs."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
@@ -32,7 +30,7 @@
   <concept>
     <code value="intact"/>
     <display value="Intact"/>
-    <definition value="The animal&#39;s reproductive organs are intact."/>
+    <definition value="The animal's reproductive organs are intact."/>
     <designation>
       <language value="nl"/>
       <value value="intact"/>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="valueset-compose-include-valueSetTitle"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
@@ -7,27 +6,31 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/valueset-compose-include-valueSetTitle" />
-  <name value="valueset-compose-include-valueSetTitle" />
+  <url value="http://hl7.org/fhir/StructureDefinition/valueset-compose-include-valueSetTitle"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1185"/>
+  </identifier>
+  <name value="valueset-compose-include-valueSetTitle"/>
   <version value="5.0.0"/>
-  <status value="draft" />
+  <status value="draft"/>
   <publisher value="HL7"/>
-  <description value="Human readable name for the included Value Set." />
+  <description value="Human readable name for the included Value Set."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>
     <name value="RIM Mapping"/>
   </mapping>
-  <kind value="complex-type" />
-  <abstract value="false" />
+  <kind value="complex-type"/>
+  <abstract value="false"/>
   <context>
-    <type value="element" />
-    <expression value="ValueSet.compose.include.valueSet" />
+    <type value="element"/>
+    <expression value="ValueSet.compose.include.valueSet"/>
   </context>
-  <type value="Extension" />
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
-  <derivation value="constraint" />
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
   <differential>
     <element id="Extension">
       <path value="Extension"/>
@@ -42,14 +45,14 @@
       <max value="0"/>
     </element>
     <element id="Extension.url">
-      <path value="Extension.url" />
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-compose-include-valueSetTitle" />
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-compose-include-valueSetTitle"/>
     </element>
     <element id="Extension.value[x]">
-      <path value="Extension.value[x]" />
+      <path value="Extension.value[x]"/>
 	  <min value="1"/>
       <type>
-        <code value="string" />
+        <code value="string"/>
       </type>
     </element>
   </differential>

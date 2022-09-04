@@ -22,6 +22,7 @@
     </type>
     <subjectState>
       <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/research-subject-state"/>
 				<code value="on-study"/>
       </coding>
     </subjectState>

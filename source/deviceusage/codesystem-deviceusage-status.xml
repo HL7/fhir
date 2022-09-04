@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="device-usage-status"/>
+  <id value="deviceusage-status"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
@@ -14,10 +14,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/device-usage-status"/>
+  <url value="http://hl7.org/fhir/deviceusage-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.215"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2059"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="DeviceUsageStatus"/>
@@ -38,7 +38,7 @@
   </contact>
   <description value="A coded concept indicating the current status of the Device Usage."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/device-usage-status"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/deviceusage-status"/>
   <content value="complete"/>
   <concept>
     <code value="active"/>
@@ -73,6 +73,6 @@
   <concept>
     <code value="on-hold"/>
     <display value="On Hold"/>
-    <definition value="Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called &quot;suspended&quot;."/>
+    <definition value="Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called &#34;suspended&#34;."/>
   </concept>
 </CodeSystem>

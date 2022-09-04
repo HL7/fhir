@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ImagingStudy"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1089"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="ImagingStudy"/>
   <status value="draft"/>
@@ -131,7 +133,7 @@
       <path value="ImagingStudy.status"/>
       <short value="registered | available | cancelled | entered-in-error | unknown"/>
       <definition value="The current state of the ImagingStudy resource. This is not the status of any ServiceRequest or Task resources associated with the ImagingStudy."/>
-      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <comment value="Unknown does not represent &#34;other&#34; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -167,7 +169,7 @@
     </element>
     <element id="ImagingStudy.modality">
       <path value="ImagingStudy.modality"/>
-      <short value="All of the distinct values for series&#39; modalities"/>
+      <short value="All of the distinct values for series' modalities"/>
       <definition value="A list of all the distinct values of series.modality. This may include both acquisition and non-acquisition modalities."/>
       <alias value="ModalitiesInStudy"/>
       <min value="0"/>
@@ -396,7 +398,7 @@
       <short value="Study access endpoint"/>
       <definition value="The network service providing access (e.g., query, view, or retrieval) for the study. See implementation notes for information about using DICOM endpoints. A study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same Endpoint.connectionType."/>
       <comment value="Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG), formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach; DICOM QIDO-RS, which allows RESTful query for DICOM information without retrieving the actual instances; or IHE Invoke Image Display (IID), which provides standard invocation of an imaging web viewer."/>
-      <requirements value="Access methods for viewing (e.g., IHE&#x2019;s IID profile) or retrieving (e.g., DICOM&#x2019;s WADO-URI and WADO-RS) the study or the study&#x2019;s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type."/>
+      <requirements value="Access methods for viewing (e.g., IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -469,9 +471,6 @@
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
           <valueString value="The performed procedure type."/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/vs-oid">
-          <valueString value="1.3.6.1.4.1.12009.10.2.5.1"/>
         </extension>
         <strength value="preferred"/>
         <description value="Use of RadLex is preferred"/>
@@ -603,7 +602,7 @@
     </element>
     <element id="ImagingStudy.series">
         <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="right" />
+            <valueCode value="right"/>
         </extension>
       <path value="ImagingStudy.series"/>
       <short value="Each study has one or more series of instances"/>
@@ -749,7 +748,7 @@
       <short value="Series access endpoint"/>
       <definition value="The network service providing access (e.g., query, view, or retrieval) for this series. See implementation notes for information about using DICOM endpoints. A series-level endpoint, if present, has precedence over a study-level endpoint with the same Endpoint.connectionType."/>
       <comment value="Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG) formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach; and DICOM QIDO-RS, which allows RESTful query for DICOM information without retrieving the actual instances."/>
-      <requirements value="Access methods for retrieving (e.g., DICOM&#x2019;s WADO-URI and WADO-RS) the series or the series&#x2019; instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level."/>
+      <requirements value="Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the series or the series’ instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -865,7 +864,7 @@
     </element>
     <element id="ImagingStudy.series.performer">
         <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="down" />
+            <valueCode value="down"/>
         </extension>
       <path value="ImagingStudy.series.performer"/>
       <short value="Who performed the series"/>
@@ -950,7 +949,7 @@
     </element>
     <element id="ImagingStudy.series.instance">
         <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="right" />
+            <valueCode value="right"/>
         </extension>
       <path value="ImagingStudy.series.instance"/>
       <short value="A single SOP instance from the series"/>
@@ -1013,7 +1012,7 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP]. source[classCode=OBS, moodCode=EVN, code=&quot;sop class&quot;].value"/>
+        <map value=".inboundRelationship[typeCode=COMP]. source[classCode=OBS, moodCode=EVN, code=&#34;sop class&#34;].value"/>
       </mapping>
       <mapping>
         <identity value="dicom"/>

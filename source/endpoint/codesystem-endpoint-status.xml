@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="endpoint-status"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -18,7 +16,7 @@
   <url value="http://hl7.org/fhir/endpoint-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.495"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.495"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="EndpointStatus"/>
@@ -64,6 +62,6 @@
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in error"/>
-    <definition value="This instance should not have been part of this patient&#39;s medical record."/>
+    <definition value="This instance should not have been part of this patient's medical record."/>
   </concept>
 </CodeSystem>

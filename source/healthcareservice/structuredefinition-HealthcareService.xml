@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="HealthcareService"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1302"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="HealthcareService"/>
   <status value="draft"/>
@@ -41,7 +43,7 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="The details of a healthcare service available at a location or in a catalog.  In the case where there is a hierarchy of services (for example, Lab -> Pathology -> Wound Cultures), this can be represented using a set of linked HealthcareServices."/>
+  <description value="The details of a healthcare service available at a location or in a catalog.  In the case where there is a hierarchy of services (for example, Lab -&gt; Pathology -&gt; Wound Cultures), this can be represented using a set of linked HealthcareServices."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -143,7 +145,7 @@
       <path value="HealthcareService.providedBy"/>
       <short value="Organization that provides this service"/>
       <definition value="The organization that provides this healthcare service."/>
-      <comment value="This property is recommended to be the same as the Location&#39;s managingOrganization, and if not provided should be interpreted as such. If the Location does not have a managing Organization, then this property should be populated."/>
+      <comment value="This property is recommended to be the same as the Location's managingOrganization, and if not provided should be interpreted as such. If the Location does not have a managing Organization, then this property should be populated."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -301,8 +303,8 @@
     </element>
     <element id="HealthcareService.extraDetails">
       <path value="HealthcareService.extraDetails"/>
-      <short value="Extra details about the service that can&#39;t be placed in the other fields"/>
-      <definition value="Extra details about the service that can&#39;t be placed in the other fields."/>
+      <short value="Extra details about the service that can't be placed in the other fields"/>
+      <definition value="Extra details about the service that can't be placed in the other fields."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -333,7 +335,7 @@
       <short value="Official contact details for the HealthcareService"/>
       <definition value="The contact details of communication devices available relevant to the specific HealthcareService. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
       <requirements value="Need to keep track of both simple contact details and also assigned contacts within larger organizations."/>
-      <comment value="The address/telecom use code &#39;home&#39; are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the HealthcareService itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc.&#xA;&#xA;If this is empty (or the type of interest is empty), refer to the location&#39;s contacts."/>
+      <comment value="The address/telecom use code 'home' are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the HealthcareService itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc.&#xA;&#xA;If this is empty (or the type of interest is empty), refer to the location's contacts."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -344,7 +346,7 @@
       <path value="HealthcareService.coverageArea"/>
       <short value="Location(s) service is intended for/available to"/>
       <definition value="The location(s) that this service is available to (not where the service is provided)."/>
-      <comment value="The locations referenced by the coverage area can include both specific locations, including areas, and also conceptual domains too (mode = kind), such as a physical area (tri-state area) and some other attribute (covered by Example Care Organization). These types of Locations are often not managed by any specific organization. This could also include generic locations such as &quot;in-home&quot;."/>
+      <comment value="The locations referenced by the coverage area can include both specific locations, including areas, and also conceptual domains too (mode = kind), such as a physical area (tri-state area) and some other attribute (covered by Example Care Organization). These types of Locations are often not managed by any specific organization. This could also include generic locations such as &#34;in-home&#34;."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -358,7 +360,7 @@
     </element>
     <element id="HealthcareService.serviceProvisionCode">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="The name &quot;Service Provision Code&quot; is how this is known and should be permitted to have the name overlap (Provision Code doesn&#39;t have the same meaning) - This was the same in Australia and the UK."/>
+        <valueString value="The name &#34;Service Provision Code&#34; is how this is known and should be permitted to have the name overlap (Provision Code doesn't have the same meaning) - This was the same in Australia and the UK."/>
       </extension>
       <path value="HealthcareService.serviceProvisionCode"/>
       <short value="Conditions under which service is available/offered"/>
@@ -432,7 +434,7 @@
       <path value="HealthcareService.program"/>
       <short value="Programs that this service is applicable to"/>
       <definition value="Programs that this service is applicable to."/>
-      <comment value="Programs are often defined externally to an Organization, commonly by governments; e.g. Home and Community Care Programs, Homeless Program, &#x2026;."/>
+      <comment value="Programs are often defined externally to an Organization, commonly by governments; e.g. Home and Community Care Programs, Homeless Program, …."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -544,7 +546,7 @@
       <path value="HealthcareService.availability"/>
       <short value="Times the healthcare service is available (including exceptions)"/>
       <definition value="A collection of times that the healthcare service is available."/>
-      <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;.&#xD;&#xD;The NotAvailableTime(s) included indicate the general days/periods where the service is not available (for things such as public holidays)."/>
+      <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &#34;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&#34; as would be implied by two availableTime repetitions, an application could render this information as &#34;Mon-Fri 9-12am and 1-5pm&#34;.&#xD;&#xD;The NotAvailableTime(s) included indicate the general days/periods where the service is not available (for things such as public holidays)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

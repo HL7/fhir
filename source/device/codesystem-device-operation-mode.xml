@@ -3,113 +3,8 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="device-operation-mode"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/device-operation-mode defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">Normal
-           
-            <a name="device-operation-mode-normal"/>
-          
-          </td>
-          
-          <td>Normal</td>
-          
-          <td>The device operates in a mode that supports the fulfillment of its clinical functions.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">demo
-            
-            <a name="device-operation-mode-demo"/>
-          
-          </td>
-          
-          <td>Demo</td>
-          
-          <td>The device operates in a mode that is intended for demonstration purposes only. Arbitrary values are generated.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">service
-            
-            <a name="device-operation-mode-service"/>
-          
-          </td>
-          
-          <td>Service</td>
-          
-          <td>The device operates in a mode that is intended for correcting an functional problem of the device only. Arbitrary values may be generated.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">maintenance
-            
-            <a name="device-operation-mode-maintenance"/>
-          
-          </td>
-          
-          <td>Maintenance</td>
-          
-          <td>The device operates in a mode that is intended for preventative and/or scheduled maintenance purposes only.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">test
-            
-            <a name="device-operation-mode-test"/>
-          
-          </td>
-          
-          <td>Test</td>
-          
-          <td>The device operates in a test mode that is not intended to be used for production/operational purposes.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -122,7 +17,7 @@
   <url value="http://hl7.org/fhir/device-operation-mode"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2107"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="FHIRDeviceOperationMode"/>

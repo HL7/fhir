@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="CapabilityStatement-versions"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>

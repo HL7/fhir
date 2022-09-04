@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
 	<id value="questionnaire-referenceFilter"/>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
 		<valueCode value="fhir"/>
@@ -11,7 +10,11 @@
 		<valueCode value="deprecated"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter"/>
-	<version value="5.0.0"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1233"/>
+  </identifier>
+  <version value="5.0.0"/>
 	<name value="referenceFilter"/>
 	<status value="retired"/>
 	<date value="2013-07-04"/>
@@ -39,7 +42,7 @@
 		<type value="element"/>
 		<expression value="ElementDefinition"/>
 	</context>
-	<contextInvariant value="type=&#39;reference&#39;"/>
+	<contextInvariant value="type='reference'"/>
 	<type value="Extension"/>
 	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
 	<derivation value="constraint"/>
@@ -48,9 +51,7 @@
 			<path value="Extension"/>
 			<short value="Filter to apply when looking up references"/>
 			<definition value="Identifies a filter to apply when looking up candidate answers for the question."/>
-			<comment value="The filter may include $subj and/or $encounter which should be substituted by the implementer with the subject and/or encounter id relevant in the context in which the questionnaire is being populated.
-			
-**This extension has been replaced by the Structured Data Capture candidateExpression extension.**"/>
+			<comment value="The filter may include $subj and/or $encounter which should be substituted by the implementer with the subject and/or encounter id relevant in the context in which the questionnaire is being populated.     **This extension has been replaced by the Structured Data Capture candidateExpression extension.**"/>
 			<min value="0"/>
 			<max value="1"/>
 			<mapping>

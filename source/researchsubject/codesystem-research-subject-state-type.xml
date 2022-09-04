@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="research-subject-state-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -17,7 +15,7 @@
   <url value="http://terminology.hl7.org/CodeSystem/research-subject-state-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1471"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2008"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="ResearchSubjectStateType"/>
@@ -43,7 +41,7 @@
   <concept>
     <code value="Milestone"/>
     <display value="Milestone status"/>
-    <definition value="One of a set of milestone events that once they have occurred remain true thereafter.  For example once a subject has reached the &quot;Signed Informed Consent&quot; milestone they achieve a status of &quot;Consented&quot; that will be true thereafter, even when they have left the study.  For a subject a number of these states can be simulataneously true and should be recorded."/>
+    <definition value="One of a set of milestone events that once they have occurred remain true thereafter.  For example once a subject has reached the &#34;Signed Informed Consent&#34; milestone they achieve a status of &#34;Consented&#34; that will be true thereafter, even when they have left the study.  For a subject a number of these states can be simulataneously true and should be recorded."/>
   </concept>
   <concept>
     <code value="Enrollment"/>

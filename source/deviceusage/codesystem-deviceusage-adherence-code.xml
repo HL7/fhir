@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="device-usage-adherence-code"/>
+  <id value="deviceusage-adherence-code"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -11,7 +14,11 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/device-usage-adherence-code"/>
+  <url value="http://hl7.org/fhir/deviceusage-adherence-code"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1854"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="DeviceUsageAdherenceCode"/>
   <title value="DeviceUsageAdherenceCode"/>
@@ -31,7 +38,7 @@
   </contact>
   <description value="A coded concept indicating the usage of the device."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/device-usage-adherence-code"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/deviceusage-adherence-code"/>
   <content value="complete"/>
   <concept>
     <code value="always"/>

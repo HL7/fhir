@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://hl7.org/fhir ../../schema/activitydefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?><ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/activitydefinition.xsd">
   <id value="serum-zika-dengue-virus-igm"/>
   <text>
     <status value="generated"/>
@@ -103,6 +101,10 @@
       </div>
   </text>
   <url value="http://example.org/ActivityDefinition/serum-zika-dengue-virus-igm"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.19.2"/>
+  </identifier>
   <status value="draft"/>
   <description value="Order Serum Zika and Dengue Virus IgM"/>
   <relatedArtifact>

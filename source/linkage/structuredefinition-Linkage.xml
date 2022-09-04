@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Linkage"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Linkage"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1479"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Linkage"/>
   <status value="draft"/>
@@ -41,7 +43,7 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Identifies two or more records (resource instances) that refer to the same real-world &quot;occurrence&quot;."/>
+  <description value="Identifies two or more records (resource instances) that refer to the same real-world &#34;occurrence&#34;."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -61,8 +63,8 @@
   <differential>
     <element id="Linkage">
       <path value="Linkage"/>
-      <short value="Links records for &#39;same&#39; item"/>
-      <definition value="Identifies two or more records (resource instances) that refer to the same real-world &quot;occurrence&quot;."/>
+      <short value="Links records for 'same' item"/>
+      <definition value="Identifies two or more records (resource instances) that refer to the same real-world &#34;occurrence&#34;."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -75,7 +77,7 @@
       </constraint>
       <mapping>
         <identity value="rim"/>
-        <map value="N/A - RIM doesn&#39;t know how to do this"/>
+        <map value="N/A - RIM doesn't know how to do this"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -85,7 +87,7 @@
     <element id="Linkage.active">
       <path value="Linkage.active"/>
       <short value="Whether this linkage assertion is active or not"/>
-      <definition value="Indicates whether the asserted set of linkages are considered to be &quot;in effect&quot;."/>
+      <definition value="Indicates whether the asserted set of linkages are considered to be &#34;in effect&#34;."/>
       <comment value="If false, any asserted linkages should not be considered current/relevant/applicable."/>
       <requirements value="Need to be able to mark a linkage record as not to be used because it was created in error."/>
       <min value="0"/>
@@ -104,7 +106,7 @@
       <path value="Linkage.author"/>
       <short value="Who is responsible for linkages"/>
       <definition value="Identifies the user or organization responsible for asserting the linkages as well as the user or organization who establishes the context in which the nature of each linkage is evaluated."/>
-      <requirements value="&quot;Primary&quot; for the same set of linked resources may be different from different user&#39;s/organization&#39;s perspectives."/>
+      <requirements value="&#34;Primary&#34; for the same set of linked resources may be different from different user's/organization's perspectives."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -134,7 +136,7 @@
     <element id="Linkage.item.type">
       <path value="Linkage.item.type"/>
       <short value="source | alternate | historical"/>
-      <definition value="Distinguishes which item is &quot;source of truth&quot; (if any) and which items are no longer considered to be current representations."/>
+      <definition value="Distinguishes which item is &#34;source of truth&#34; (if any) and which items are no longer considered to be current representations."/>
       <min value="1"/>
       <max value="1"/>
       <type>

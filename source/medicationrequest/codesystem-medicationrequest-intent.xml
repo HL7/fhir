@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="medicationrequest-intent"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,7 +9,7 @@
   <url value="http://hl7.org/fhir/CodeSystem/medicationrequest-intent"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1378"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1378"/>
   </identifier>
   <name value="MedicationRequest Intent Codes"/>
   <status value="draft"/>
@@ -23,7 +21,7 @@
   <concept>
     <code value="proposal"/>
     <display value="Proposal"/>
-    <definition value="The request is a suggestion made by someone/something that doesn&#39;t have an intention to ensure it occurs and without providing an authorization to act"/>
+    <definition value="The request is a suggestion made by someone/something that doesn't have an intention to ensure it occurs and without providing an authorization to act"/>
   </concept>
   <concept>
     <code value="plan"/>
@@ -47,7 +45,7 @@
     <concept>
       <code value="filler-order"/>
       <display value="Filler Order"/>
-      <definition value="The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller&#39;s intention to act upon a submitted order."/>
+      <definition value="The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller's intention to act upon a submitted order."/>
       <concept>
         <code value="instance-order"/>
         <display value="Instance Order"/>
