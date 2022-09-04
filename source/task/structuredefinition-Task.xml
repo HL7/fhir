@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="Task"/>
 	<meta>
 		<lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -23,7 +22,11 @@
 		<valueCode value=".status = entered-in-error"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/Task"/>
-	<version value="5.0.0"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1366"/>
+  </identifier>
+  <version value="5.0.0"/>
 	<name value="Task"/>
 	<status value="draft"/>
 	<date value="2021-01-02T08:58:31+11:00"/>
@@ -169,7 +172,7 @@
 		<element id="Task.basedOn">
 			<path value="Task.basedOn"/>
 			<short value="Request fulfilled by this task"/>
-			<definition value="BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a &quot;request&quot; resource such as a ServiceRequest, MedicationRequest, ServiceRequest, CarePlan, etc. which is distinct from the &quot;request&quot; resource the task is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a task is created to fulfill a procedureRequest ( = FocusOn ) to collect a specimen from a patient."/>
+			<definition value="BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a &#34;request&#34; resource such as a ServiceRequest, MedicationRequest, ServiceRequest, CarePlan, etc. which is distinct from the &#34;request&#34; resource the task is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a task is created to fulfill a procedureRequest ( = FocusOn ) to collect a specimen from a patient."/>
 			<comment value="Task.basedOn is never the same as Task.focus.  Task.basedOn will typically not be present for 'please fulfill' Tasks as a distinct authorization is rarely needed to request fulfillment.  If the Task is seeking fulfillment of an order, the order to be fulfilled is always communicated using `focus`, never basedOn.  However, authorization may be needed to perform other types of Task actions.  As an example of when both would be present, a Task seeking suspension of a prescription might have a Task.basedOn pointing to the ServiceRequest ordering surgery (which is the driver for suspending the MedicationRequest - which would be the Task.focus)."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -284,14 +287,14 @@
 			</binding>
 			<mapping>
 				<identity value="rim"/>
-				<map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=&quot;status change&quot;].reasonCode"/>
+				<map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=&#34;status change&#34;].reasonCode"/>
 			</mapping>
 		</element>
 		<element id="Task.businessStatus">
 			<path value="Task.businessStatus"/>
-			<short value="E.g. &quot;Specimen collected&quot;, &quot;IV prepped&quot;"/>
+			<short value="E.g. &#34;Specimen collected&#34;, &#34;IV prepped&#34;"/>
 			<definition value="Contains business-specific nuances of the business state."/>
-			<requirements value="There&#39;s often a need to track substates of a task - this is often variable by specific workflow implementation."/>
+			<requirements value="There's often a need to track substates of a task - this is often variable by specific workflow implementation."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -303,18 +306,18 @@
 					<valueString value="TaskBusinessStatus"/>
 				</extension>
 				<strength value="example"/>
-				<description value="The domain-specific business-contextual sub-state of the task.  For example: &quot;Blood drawn&quot;, &quot;IV inserted&quot;, &quot;Awaiting physician signature&quot;, etc."/>
+				<description value="The domain-specific business-contextual sub-state of the task.  For example: &#34;Blood drawn&#34;, &#34;IV inserted&#34;, &#34;Awaiting physician signature&#34;, etc."/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>
-				<map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;business status&quot;]"/>
+				<map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;business status&#34;]"/>
 			</mapping>
 		</element>
 		<element id="Task.intent">
 			<path value="Task.intent"/>
 			<short value="unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
-			<definition value="Indicates the &quot;level&quot; of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc."/>
-			<comment value="This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.&#xA;&#xA;In most cases, Tasks will have an intent of &quot;order&quot;."/>
+			<definition value="Indicates the &#34;level&#34; of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc."/>
+			<comment value="This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.&#xA;&#xA;In most cases, Tasks will have an intent of &#34;order&#34;."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -358,7 +361,7 @@
 					<valueString value="TaskPriority"/>
 				</extension>
 				<extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-					<valueString value="The task&#39;s priority."/>
+					<valueString value="The task's priority."/>
 				</extension>
 				<strength value="required"/>
 				<description value="The priority of a task (may affect service level applied to the task)."/>
@@ -381,7 +384,7 @@
 			<path value="Task.doNotPerform"/>
 			<short value="True if Task is prohibiting action"/>
 			<definition value="If true indicates that the Task is asking for the specified action to *not* occur."/>
-			<comment value="The attributes provided with the Task qualify what is not to be done. For example, if a requestedPeriod is provided, the 'do not' request only applies within the specified time. If a requestedPerformer is specified then the 'do not' request only applies to performers of that type. Qualifiers include: code, subject, occurrence, requestedPerformer and performer.&#x0a;&#x0a;In some cases, the Request.code may pre-coordinate prohibition into the requested action. E.g. 'NPO' (nothing by mouth), 'DNR' (do not recussitate). If this happens, doNotPerform SHALL NOT be set to true. I.e. The resource shall not have double negation. (E.g. 'Do not DNR').&#x0a;&#x0a;doNotPerform should ONLY be used with Tasks that are tightly bounded in time or process phase.  E.g. 'Do not fulfill the midnight dose of medication X tonight due to the early morning scheduled procedure, where the nurse could reasonably check off 'Med X not given at midnight as instructed'.  Similarly, a decision support proposal that a patient should not be given a standard intake questionnaire (because the patient is cognitively impaired) would be marked as 'complete' or 'rejected' when the clinician preps the CarePlan or order set after reviewing the decision support results.  If there is a need to create a standing order to not do something that can't be satisfied by a single 'non-action', but rather an ongoing refusal to perform the function, MedicationRequest, ServiceRequest or some other form of authorization should be used."/>
+			<comment value="The attributes provided with the Task qualify what is not to be done. For example, if a requestedPeriod is provided, the 'do not' request only applies within the specified time. If a requestedPerformer is specified then the 'do not' request only applies to performers of that type. Qualifiers include: code, subject, occurrence, requestedPerformer and performer.&#xA;&#xA;In some cases, the Request.code may pre-coordinate prohibition into the requested action. E.g. 'NPO' (nothing by mouth), 'DNR' (do not recussitate). If this happens, doNotPerform SHALL NOT be set to true. I.e. The resource shall not have double negation. (E.g. 'Do not DNR').&#xA;&#xA;doNotPerform should ONLY be used with Tasks that are tightly bounded in time or process phase.  E.g. 'Do not fulfill the midnight dose of medication X tonight due to the early morning scheduled procedure, where the nurse could reasonably check off 'Med X not given at midnight as instructed'.  Similarly, a decision support proposal that a patient should not be given a standard intake questionnaire (because the patient is cognitively impaired) would be marked as 'complete' or 'rejected' when the clinician preps the CarePlan or order set after reviewing the decision support results.  If there is a need to create a standing order to not do something that can't be satisfied by a single 'non-action', but rather an ongoing refusal to perform the function, MedicationRequest, ServiceRequest or some other form of authorization should be used."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -407,7 +410,7 @@
 			<path value="Task.code"/>
 			<short value="Task Type"/>
 			<definition value="A name or code (or both) briefly describing what the task involves."/>
-			<comment value="The title (eg &quot;My Tasks&quot;, &quot;Outstanding Tasks for Patient X&quot;) should go into the code."/>
+			<comment value="The title (eg &#34;My Tasks&#34;, &#34;Outstanding Tasks for Patient X&#34;) should go into the code."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -843,7 +846,7 @@
 			</mapping>
 			<mapping>
 				<identity value="rim"/>
-				<map value=".inboundRelationship[typeCode=SUBJ, ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value(string)"/>
+				<map value=".inboundRelationship[typeCode=SUBJ, ].source[classCode=OBS, moodCode=EVN, code=&#34;annotation&#34;].value(string)"/>
 			</mapping>
 		</element>
 		<element id="Task.relevantHistory">
@@ -875,7 +878,7 @@
 			<short value="Constraints on fulfillment tasks"/>
 			<definition value="If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned."/>
 			<comment value="Task.restriction can only be present if the Task is seeking fulfillment of another Request resource, and the restriction identifies what subset of the authorization conveyed by the request is supposed to be fulfilled by this Task. A possible example could be a standing order (the request) covering a significant time period and/or individuals, while the Task seeks fulfillment for only a subset of that time-period and a single individual."/>
-			<requirements value="Sometimes when fulfillment is sought, you don&#39;t want full fulfillment."/>
+			<requirements value="Sometimes when fulfillment is sought, you don't want full fulfillment."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -905,8 +908,8 @@
 			<path value="Task.restriction.period"/>
 			<short value="When fulfillment is sought"/>
 			<definition value="The time-period for which fulfillment is sought. This must fall within the overall time period authorized in the referenced request.  E.g. ServiceRequest.occurance[x]."/>
-			<comment value="This is distinct from Task.executionPeriod. ExecutionPeriod indicates when the task needs to be initiated, while Task.restriction.period specifies the subset of the overall authorization that this period covers. For example, a MedicationRequest with an overall effective period of 1 year might have a Task whose restriction.period is 2 months (i.e. satisfy 2 months of medication therapy), while the execution period might be 'between now and 5 days from now' - i.e. If you say yes to this, then you're agreeing to supply medication for that 2 month period within the next 5 days.&#x0a;&#x0a;Note that period.high is the due date representing the time by which the task should be completed."/>
-			<requirements value="E.g. order that authorizes 1 year&#39;s services.  Fulfillment is sought for next 3 months."/>
+			<comment value="This is distinct from Task.executionPeriod. ExecutionPeriod indicates when the task needs to be initiated, while Task.restriction.period specifies the subset of the overall authorization that this period covers. For example, a MedicationRequest with an overall effective period of 1 year might have a Task whose restriction.period is 2 months (i.e. satisfy 2 months of medication therapy), while the execution period might be 'between now and 5 days from now' - i.e. If you say yes to this, then you're agreeing to supply medication for that 2 month period within the next 5 days.&#xA;&#xA;Note that period.high is the due date representing the time by which the task should be completed."/>
+			<requirements value="E.g. order that authorizes 1 year's services.  Fulfillment is sought for next 3 months."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -963,7 +966,7 @@
 			<path value="Task.input.type"/>
 			<short value="Label for the input"/>
 			<definition value="A code or description indicating how the input is intended to be used as part of the task execution."/>
-			<comment value="If referencing a BPMN workflow or Protocol, the &quot;system&quot; is the URL for the workflow definition and the code is the &quot;name&quot; of the required input."/>
+			<comment value="If referencing a BPMN workflow or Protocol, the &#34;system&#34; is the URL for the workflow definition and the code is the &#34;name&#34; of the required input."/>
 			<requirements value="Inputs are named to enable task automation to bind data and pass it from one task to the next."/>
 			<alias value="Name"/>
 			<min value="1"/>
@@ -976,7 +979,7 @@
 					<valueString value="TaskInputParameterType"/>
 				</extension>
 				<strength value="example"/>
-				<description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc."/>
+				<description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &#34;Comparison source&#34;, &#34;Applicable consent&#34;, &#34;Concomitent Medications&#34;, etc."/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>
@@ -1181,7 +1184,7 @@
 					<valueString value="TaskOutputParameterType"/>
 				</extension>
 				<strength value="example"/>
-				<description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
+				<description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &#34;Identified issues&#34;, &#34;Preliminary results&#34;, &#34;Filler order&#34;, &#34;Final results&#34;, etc."/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>

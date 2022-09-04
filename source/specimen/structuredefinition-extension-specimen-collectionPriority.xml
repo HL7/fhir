@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="specimen-collectionPriority"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/specimen-collectionPriority"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1408"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="collectionPriority"/>
   <title value="Collection Priority"/>
@@ -21,7 +23,7 @@
       <value value="HL7"/>
     </telecom>
   </contact>
-  <description value="The urgency of sample collection, such as STAT, ASAP, ASAP-ED, ROUTINE, ROUTINE-AM, etc&#x2026;."/>
+  <description value="The urgency of sample collection, such as STAT, ASAP, ASAP-ED, ROUTINE, ROUTINE-AM, etc…."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -41,7 +43,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="Urgency for collection"/>
-      <definition value="The urgency of sample collection, such as STAT, ASAP, ASAP-ED, ROUTINE, ROUTINE-AM, etc&#x2026;."/>
+      <definition value="The urgency of sample collection, such as STAT, ASAP, ASAP-ED, ROUTINE, ROUTINE-AM, etc…."/>
       <min value="0"/>
       <max value="1"/>
     </element>

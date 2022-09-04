@@ -26,6 +26,10 @@
 		<valueString value="CanonicalResource"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1169"/>
+  </identifier>
 	<version value="5.0.0"/>
 	<name value="Requirements"/>
 	<status value="active"/>
@@ -402,7 +406,7 @@
 			<definition value="Another set of Requirements that this set of Requirements builds on and updates."/>
 			<comment value="Existing statements (by key) may be narrowed or clarified, and additional statements added."/>
 			<min value="0"/>
-			<max value="1"/>
+      <max value="*"/>
 			<type>
 				<code value="canonical"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>

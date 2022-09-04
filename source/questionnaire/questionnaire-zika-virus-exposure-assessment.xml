@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?><Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
 	<id value="zika-virus-exposure-assessment"/>
 	<url value="http://example.org/Questionnaire/zika-virus-exposure-assessment"/>
-	<name value="ExampleZikaVirusExposureAssessment"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.20.1"/>
+  </identifier>
+  <name value="ExampleZikaVirusExposureAssessment"/>
 	<title value="Example Zika Virus Exposure Assessment"/>
 	<status value="draft"/>
 	<subjectType value="Patient"/>

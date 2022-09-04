@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="familymemberhistory-type"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/familymemberhistory-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1230"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="type"/>
   <title value="type"/>
@@ -42,7 +44,7 @@
       <path value="Extension"/>
       <short value="Purpose of the family member history"/>
       <definition value="Purpose of the family member history or why it was created, such as when family member history is targeted for cardiovascular health, mental health, or genetic counseling."/>
-      <comment value="List.code can be used to capture the type across a list of family members&#39; histories."/>
+      <comment value="List.code can be used to capture the type across a list of family members' histories."/>
       <min value="0"/>
       <max value="1"/>
     </element>

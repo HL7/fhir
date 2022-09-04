@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="NutritionProduct"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1488"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="NutritionProduct"/>
   <status value="draft"/>
@@ -115,7 +117,7 @@
       <path value="NutritionProduct.status"/>
       <short value="active | inactive | entered-in-error"/>
       <definition value="The current state of the product."/>
-      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <comment value="Unknown does not represent &#34;other&#34; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -147,7 +149,7 @@
     </element>
     <element id="NutritionProduct.category">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Should we have a category negation, as in &quot;not suitable for kosher diet&quot;?"/>
+        <valueString value="Should we have a category negation, as in &#34;not suitable for kosher diet&#34;?"/>
       </extension>
       <path value="NutritionProduct.category"/>
       <short value="Broad product groups or categories used to classify the product, such as Legume and Legume Products, Beverages, or Beef Products"/>
@@ -201,8 +203,8 @@
         <valueCode value="400,0"/>
       </extension>
       <path value="NutritionProduct.nutrient"/>
-      <short value="The product&#39;s nutritional information expressed by the nutrients"/>
-      <definition value="The product&#39;s nutritional information expressed by the nutrients."/>
+      <short value="The product's nutritional information expressed by the nutrients"/>
+      <definition value="The product's nutritional information expressed by the nutrients."/>
       <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
       <requirements value="Allows identification of the {{title}} as it is known by various participating systems and in a way that remains consistent across servers."/>
       <min value="0"/>

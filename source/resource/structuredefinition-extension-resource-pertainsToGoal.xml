@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="resource-pertainsToGoal"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1428"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="pertainsToGoal"/>
   <title value="pertains to goal"/>
@@ -36,7 +38,7 @@
       <path value="Extension"/>
       <short value="Pertains to goal"/>
       <definition value="Indicates that the resource is related to either the measurement, achievement or progress towards the referenced goal.  For example, a Procedure to exercise pertainsToGoal of losing weight."/>
-      <comment value="This extension is  limited to subject-specific activity-related resources (events &amp; intents).  I.e. This can&#39;t be put on Goal or Patient.  This association isn&#39;t for the purpose of goal management, but for things such as noting that a particular observation result, prescription or other activity is pertinent to the achievement (or possibly non-achievement) of the referenced goal."/>
+      <comment value="This extension is  limited to subject-specific activity-related resources (events &amp; intents).  I.e. This can't be put on Goal or Patient.  This association isn't for the purpose of goal management, but for things such as noting that a particular observation result, prescription or other activity is pertinent to the achievement (or possibly non-achievement) of the referenced goal."/>
       <min value="0"/>
       <max value="*"/>
     </element>

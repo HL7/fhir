@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Group"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Group"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1091"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Group"/>
   <status value="draft"/>
@@ -41,7 +43,7 @@
       <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn&#39;t an Organization."/>
+  <description value="Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -70,13 +72,13 @@
       </extension>
       <path value="Group"/>
       <short value="Group of multiple entities"/>
-      <definition value="Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn&#39;t an Organization."/>
-      <comment value="If both Group.characteristic and Group.member are present, then the members are the individuals who were found who met the characteristic.  It&#39;s possible that there might be other candidate members who meet the characteristic and aren&#39;t (yet) in the list.  All members SHALL have the listed characteristics."/>
+      <definition value="Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization."/>
+      <comment value="If both Group.characteristic and Group.member are present, then the members are the individuals who were found who met the characteristic.  It's possible that there might be other candidate members who meet the characteristic and aren't (yet) in the list.  All members SHALL have the listed characteristics."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
         <identity value="rim"/>
-        <map value="Entity[determinerCode=&quot;GRP&quot; or determinerCode=&quot;GRP_KIND&quot;]"/>
+        <map value="Entity[determinerCode=&#34;GRP&#34; or determinerCode=&#34;GRP_KIND&#34;]"/>
       </mapping>
       <mapping>
         <identity value="interface"/>
@@ -104,7 +106,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(./id[displayable=&quot;true&quot; and scope=&quot;OBJ&quot;])"/>
+        <map value="unique(./id[displayable=&#34;true&#34; and scope=&#34;OBJ&#34;])"/>
       </mapping>
       <mapping>
         <identity value="interface"/>
@@ -113,7 +115,7 @@
     </element>
     <element id="Group.active">
       <path value="Group.active"/>
-      <short value="Whether this group&#39;s record is in active use"/>
+      <short value="Whether this group's record is in active use"/>
       <definition value="Indicates whether the record for the group is available for use or is merely being retained for historical purposes."/>
       <requirements value="Need to be able to mark a group record as not to be used because it was created in error or is otherwise no longer available (e.g. a herd that no longer exists)."/>
       <min value="0"/>
@@ -138,7 +140,7 @@
     </element>
     <element id="Group.type">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Do we need &quot;mixed&quot; groups?"/>
+        <valueString value="Do we need &#34;mixed&#34; groups?"/>
       </extension>
       <path value="Group.type"/>
       <short value="person | animal | practitioner | device | careteam | healthcareservice | location | organization | relatedperson | specimen"/>
@@ -165,14 +167,14 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="person: ./classCode=&quot;PSN&quot;  animal: ./classCode=&quot;ANM&quot;  device: ./classCode=&quot;DEV&quot;  medication: ./classCode=&quot;MMAT&quot; and ./playedRole[isNormalRole() and classCode=&quot;THER&quot;]  food: ./classCode=&quot;FOOD&quot;"/>
+        <map value="person: ./classCode=&#34;PSN&#34;  animal: ./classCode=&#34;ANM&#34;  device: ./classCode=&#34;DEV&#34;  medication: ./classCode=&#34;MMAT&#34; and ./playedRole[isNormalRole() and classCode=&#34;THER&#34;]  food: ./classCode=&#34;FOOD&#34;"/>
       </mapping>
     </element>
     <element id="Group.membership">
       <path value="Group.membership"/>
       <short value="definitional | enumerated"/>
-      <definition value="Basis for membership in the Group:&#10;&#10;* 'definitional': The Group.characteristics specified are both necessary and sufficient to determine membership. All entities that meet the criteria are considered to be members of the group, whether referenced by the group or not. If members are present, they are individuals that happen to be known as meeting the Group.characteristics. The list cannot be presumed to be complete.&#10;* 'enumerated': The Group.characteristics are necessary but not sufficient to determine membership. Membership is determined by being listed as one of the Group.member."/>
-      <requirements value="There are use-cases for groups that define specific collections of individuals, and other groups that define &quot;types&quot; of intended individuals.  The requirements for both kinds of groups are similar, so we use a single resource, distinguished by this element."/>
+      <definition value="Basis for membership in the Group:&#xA;&#xA;* 'definitional': The Group.characteristics specified are both necessary and sufficient to determine membership. All entities that meet the criteria are considered to be members of the group, whether referenced by the group or not. If members are present, they are individuals that happen to be known as meeting the Group.characteristics. The list cannot be presumed to be complete.&#xA;* 'enumerated': The Group.characteristics are necessary but not sufficient to determine membership. Membership is determined by being listed as one of the Group.member."/>
+      <requirements value="There are use-cases for groups that define specific collections of individuals, and other groups that define &#34;types&#34; of intended individuals.  The requirements for both kinds of groups are similar, so we use a single resource, distinguished by this element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -188,7 +190,7 @@
     <element id="Group.code">
       <path value="Group.code"/>
       <short value="Kind of Group members"/>
-      <definition value="Provides a specific type of resource the group includes; e.g. &quot;cow&quot;, &quot;syringe&quot;, etc."/>
+      <definition value="Provides a specific type of resource the group includes; e.g. &#34;cow&#34;, &#34;syringe&#34;, etc."/>
       <comment value="This would generally be omitted for Person resources."/>
       <min value="0"/>
       <max value="1"/>
@@ -225,7 +227,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value="./name[type=&quot;ST&quot;]"/>
+        <map value="./name[type=&#34;ST&#34;]"/>
       </mapping>
       <mapping>
         <identity value="interface"/>
@@ -261,7 +263,7 @@
     </element>
     <element id="Group.managingEntity">
       <path value="Group.managingEntity"/>
-      <short value="Entity that is the custodian of the Group&#39;s definition"/>
+      <short value="Entity that is the custodian of the Group's definition"/>
       <definition value="Entity responsible for defining and maintaining Group characteristics and/or registered members."/>
       <comment value="This does not strictly align with ownership of a herd or flock, but may suffice to represent that relationship in simple cases. More complex cases will require an extension."/>
       <min value="0"/>
@@ -292,7 +294,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value="./playedRole[isNormalRole()]/participation[isNormalParticipation() and typeCode=&quot;SBJ&quot;]/act[isNormalAct and classCode=&quot;OBS&quot; and moodCode=&quot;EVN&quot;]"/>
+        <map value="./playedRole[isNormalRole()]/participation[isNormalParticipation() and typeCode=&#34;SBJ&#34;]/act[isNormalAct and classCode=&#34;OBS&#34; and moodCode=&#34;EVN&#34;]"/>
       </mapping>
     </element>
     <element id="Group.characteristic.code">
@@ -321,7 +323,7 @@
     <element id="Group.characteristic.value[x]">
       <path value="Group.characteristic.value[x]"/>
       <short value="Value held by characteristic"/>
-      <definition value="The value of the trait that holds (or does not hold - see &#39;exclude&#39;) for members of the group."/>
+      <definition value="The value of the trait that holds (or does not hold - see 'exclude') for members of the group."/>
       <comment value="For Range, it means members of the group have a value that falls somewhere within the specified range."/>
       <requirements value="The value of the characteristic is what determines group membership."/>
       <min value="1"/>
@@ -358,7 +360,7 @@
       <path value="Group.characteristic.exclude"/>
       <short value="Group includes or excludes"/>
       <definition value="If true, indicates the characteristic is one that is NOT held by members of the group."/>
-      <comment value="This is labeled as &quot;Is Modifier&quot; because applications cannot wrongly include excluded members as included or vice versa."/>
+      <comment value="This is labeled as &#34;Is Modifier&#34; because applications cannot wrongly include excluded members as included or vice versa."/>
       <requirements value="Sometimes group membership is determined by characteristics not possessed."/>
       <min value="1"/>
       <max value="1"/>
@@ -383,7 +385,7 @@
     </element>
     <element id="Group.member">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Is &quot;group of groups&quot; in the 80%?"/>
+        <valueString value="Is &#34;group of groups&#34; in the 80%?"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="200,180"/>
@@ -391,7 +393,7 @@
       <path value="Group.member"/>
       <short value="Who or what is in group"/>
       <definition value="Identifies the resource instances that are members of the group."/>
-      <requirements value="Often the only thing of interest about a group is &quot;who&#39;s in it&quot;."/>
+      <requirements value="Often the only thing of interest about a group is &#34;who's in it&#34;."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -399,7 +401,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value="./scopedRole[isNormalRole() and classCode=&quot;MBR&quot;]/player"/>
+        <map value="./scopedRole[isNormalRole() and classCode=&#34;MBR&#34;]/player"/>
       </mapping>
     </element>
     <element id="Group.member.entity">
@@ -439,7 +441,7 @@
       <path value="Group.member.inactive"/>
       <short value="If member is no longer in group"/>
       <definition value="A flag to indicate that the member is no longer in the group, but previously may have been a member."/>
-      <requirements value="Sometimes you don&#39;t know when someone stopped being in a group, but not when."/>
+      <requirements value="Sometimes you don't know when someone stopped being in a group, but not when."/>
       <min value="0"/>
       <max value="1"/>
       <type>

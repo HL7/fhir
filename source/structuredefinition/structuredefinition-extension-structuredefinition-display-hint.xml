@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="structuredefinition-display-hint"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/structuredefinition-display-hint"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1036"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="display-hint"/>
   <status value="draft"/>
@@ -41,7 +43,7 @@
       <path value="Extension"/>
       <short value="Hinting information for the narrative generator"/>
       <definition value="Hinting information for the narrative generator - a series of name: value; pairs."/>
-      <comment value="known names: default (default value - don&#39;t represent if this value)."/>
+      <comment value="known names: default (default value - don't represent if this value)."/>
       <min value="0"/>
       <max value="1"/>
     </element>

@@ -1,11 +1,13 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
 	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
 	  <valueBoolean value="true"/>
 	</extension>
   <id value="ucum-common"/>
   <url value="http://hl7.org/fhir/ValueSet/ucum-common"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3144"/>
+  </identifier>
   <name value="Common UCUM units"/>
   <status value="draft"/>
   <publisher value="FHIR Project"/>
@@ -199,7 +201,7 @@
         <display value="per 12 * hour"/>
       </concept>
       <concept>
-        <code value="/[arb&#39;U]"/>
+        <code value="/[arb'U]"/>
         <display value="per arbitrary unit"/>
       </concept>
       <concept>
@@ -331,7 +333,7 @@
         <display value="per kilogram"/>
       </concept>
       <concept>
-        <code value="/kg{body&#39;wt}"/>
+        <code value="/kg{body'wt}"/>
         <display value="per kilogram body wt"/>
       </concept>
       <concept>
@@ -387,23 +389,23 @@
         <display value="per week"/>
       </concept>
       <concept>
-        <code value="[APL&#39;U]"/>
+        <code value="[APL'U]"/>
         <display value="IgA anticardiolipin unit"/>
       </concept>
       <concept>
-        <code value="[APL&#39;U]/mL"/>
+        <code value="[APL'U]/mL"/>
         <display value="IgA anticardiolipin unit per milliliter"/>
       </concept>
       <concept>
-        <code value="[arb&#39;U]"/>
+        <code value="[arb'U]"/>
         <display value="arbitrary unit"/>
       </concept>
       <concept>
-        <code value="[arb&#39;U]/L"/>
+        <code value="[arb'U]/L"/>
         <display value="arbitary unit / liter"/>
       </concept>
       <concept>
-        <code value="[arb&#39;U]/mL"/>
+        <code value="[arb'U]/mL"/>
         <display value="arbitrary unit per milliliter"/>
       </concept>
       <concept>
@@ -415,7 +417,7 @@
         <display value="bioequivalent allergen unit"/>
       </concept>
       <concept>
-        <code value="[beth&#39;U]"/>
+        <code value="[beth'U]"/>
         <display value="Bethesda unit"/>
       </concept>
       <concept>
@@ -503,7 +505,7 @@
         <display value="gallon (US)"/>
       </concept>
       <concept>
-        <code value="[GPL&#39;U]"/>
+        <code value="[GPL'U]"/>
         <display value="IgG anticardiolipin unit"/>
       </concept>
       <concept>
@@ -591,7 +593,7 @@
         <display value="minim"/>
       </concept>
       <concept>
-        <code value="[MPL&#39;U]"/>
+        <code value="[MPL'U]"/>
         <display value="IgM anticardiolipin unit"/>
       </concept>
 <!-- GG 25/03/2018 this is not legal
@@ -681,11 +683,11 @@
         <display value="tablespoon (US)"/>
       </concept>
       <concept>
-        <code value="[tb&#39;U]"/>
+        <code value="[tb'U]"/>
         <display value="tuberculin unit"/>
       </concept>
       <concept>
-        <code value="[todd&#39;U]"/>
+        <code value="[todd'U]"/>
         <display value="Todd unit"/>
       </concept>
       <concept>
@@ -769,7 +771,7 @@
         <display value="applicator"/>
       </concept>
       <concept>
-        <code value="{APS&#39;U}"/>
+        <code value="{APS'U}"/>
         <display value="IgA antiphosphatidylserine unit"/>
       </concept>
       <concept>
@@ -797,7 +799,7 @@
         <display value="breaths / minute"/>
       </concept>
       <concept>
-        <code value="{CAE&#39;U}"/>
+        <code value="{CAE'U}"/>
         <display value="complement activity enzyme unit"/>
       </concept>
       <concept>
@@ -857,7 +859,7 @@
         <display value="cgg"/>
       </concept>
       <concept>
-        <code value="{CH100&#39;U}"/>
+        <code value="{CH100'U}"/>
         <display value="complement CH100 unit"/>
       </concept>
       <concept>
@@ -933,19 +935,19 @@
         <display value="each"/>
       </concept>
       <concept>
-        <code value="{Ehrlich&#39;U}"/>
+        <code value="{Ehrlich'U}"/>
         <display value="Ehrlich unit"/>
       </concept>
       <concept>
-        <code value="{Ehrlich&#39;U}/(2.h)"/>
+        <code value="{Ehrlich'U}/(2.h)"/>
         <display value="Ehrlich unit per 2 hour"/>
       </concept>
       <concept>
-        <code value="{Ehrlich&#39;U}/100.g"/>
+        <code value="{Ehrlich'U}/100.g"/>
         <display value="Ehrlich unit per 100 gram"/>
       </concept>
       <concept>
-        <code value="{Ehrlich&#39;U}/d"/>
+        <code value="{Ehrlich'U}/d"/>
         <display value="Ehrlich unit per day"/>
       </concept>
       <concept>
@@ -965,7 +967,7 @@
         <display value="EIA titer"/>
       </concept>
       <concept>
-        <code value="{EIA&#39;U}"/>
+        <code value="{EIA'U}"/>
         <display value="EIA unit"/>
       </concept>
       <concept>
@@ -977,7 +979,7 @@
         <display value="ELISA index"/>
       </concept>
       <concept>
-        <code value="{ELISA&#39;U}"/>
+        <code value="{ELISA'U}"/>
         <display value="ELISA unit"/>
       </concept>
       <concept>
@@ -1049,7 +1051,7 @@
         <display value="igmindex"/>
       </concept>
       <concept>
-        <code value="{ImmuneComplex&#39;U}"/>
+        <code value="{ImmuneComplex'U}"/>
         <display value="immune complex unit"/>
       </concept>
       <concept>
@@ -1089,11 +1091,11 @@
         <display value="inr&#39;unit"/>
       </concept>
       <concept>
-        <code value="{JDF&#39;U}"/>
+        <code value="{JDF'U}"/>
         <display value="Juvenile Diabetes Foundation unit"/>
       </concept>
       <concept>
-        <code value="{JDF&#39;U}/L"/>
+        <code value="{JDF'U}/L"/>
         <display value="Juvenile Diabetes Foundation unit per liter"/>
       </concept>
       <concept>
@@ -1101,15 +1103,15 @@
         <display value="juvenile diabetes found unit"/>
       </concept>
       <concept>
-        <code value="{KCT&#39;U}"/>
+        <code value="{KCT'U}"/>
         <display value="kaolin clotting time"/>
       </concept>
       <concept>
-        <code value="{KRONU&#39;U}/L"/>
+        <code value="{KRONU'U}/L"/>
         <display value="Kronus unit per liter"/>
       </concept>
       <concept>
-        <code value="{KRONU&#39;U}/mL"/>
+        <code value="{KRONU'U}/mL"/>
         <display value="Kronus unit per milliliter"/>
       </concept>
       <concept>
@@ -1153,11 +1155,11 @@
         <display value="m-portionphospholipids"/>
       </concept>
       <concept>
-        <code value="{MPS&#39;U}"/>
+        <code value="{MPS'U}"/>
         <display value="IgM antiphosphatidylserine unit"/>
       </concept>
       <concept>
-        <code value="{MPS&#39;U}/mL"/>
+        <code value="{MPS'U}/mL"/>
         <display value="IgM antiphosphatidylserine unit per milliliter"/>
       </concept>
       <concept>
@@ -2261,8 +2263,8 @@
         <display value="milliliter"/>
       </concept>
       <concept>
-        <code value="mL/({h&#39;b}.m2)"/>
-        <display value="milliliter / h&#39;b * (meter ^ 2)"/>
+        <code value="mL/({h'b}.m2)"/>
+        <display value="milliliter / h'b * (meter ^ 2)"/>
       </concept>
       <concept>
         <code value="mL/(10.h)"/>
@@ -3573,7 +3575,7 @@
         <display value="binding index"/>
       </concept>
       <concept>
-        <code value="[bdsk&#39;U]"/>
+        <code value="[bdsk'U]"/>
         <display value="Bodansky unit"/>
       </concept>
       <concept>
@@ -3629,7 +3631,7 @@
         <display value="dyne second per centimeter per square meter"/>
       </concept>
       <concept>
-        <code value="{Ehrlich&#39;U}/100.g"/>
+        <code value="{Ehrlich'U}/100.g"/>
         <display value="Ehrlich unit per 100 gram"/>
       </concept>
       <concept>
@@ -3793,15 +3795,15 @@
         <display value="high power field"/>
       </concept>
       <concept>
-        <code value="[GPL&#39;U]/mL"/>
+        <code value="[GPL'U]/mL"/>
         <display value="IgG anticardiolipin unit per milliliter**"/>
       </concept>
       <concept>
-        <code value="{GPS&#39;U}"/>
+        <code value="{GPS'U}"/>
         <display value="IgG antiphosphatidylserine unit"/>
       </concept>
       <concept>
-        <code value="[MPL&#39;U]/mL"/>
+        <code value="[MPL'U]/mL"/>
         <display value="IgM anticardiolipin unit per milliliter**"/>
       </concept>
       <concept>
@@ -3817,7 +3819,7 @@
         <display value="Immunofluorescence assay titer"/>
       </concept>
       <concept>
-        <code value="[in_i&#39;H2O]"/>
+        <code value="[in_i'H2O]"/>
         <display value="inch (international) of water"/>
       </concept>
       <concept>
@@ -3865,7 +3867,7 @@
         <display value="kilocalorie per ounce (US &amp; British)"/>
       </concept>
       <concept>
-        <code value="[ka&#39;U]"/>
+        <code value="[ka'U]"/>
         <display value="King Armstrong unit"/>
       </concept>
       <concept>
@@ -4317,7 +4319,7 @@
         <display value="osmole"/>
       </concept>
       <concept>
-        <code value="{Pan_Bio&#39;U}"/>
+        <code value="{Pan_Bio'U}"/>
         <display value="panbio unit"/>
       </concept>
       <concept>
@@ -4629,11 +4631,11 @@
         <display value="1*"/>
       </concept>
       <concept>
-        <code value="&#39;"/>
+        <code value="'"/>
         <display value="minute"/>
       </concept>
       <concept>
-        <code value="&#39;&#39;"/>
+        <code value="''"/>
         <display value="second"/>
       </concept>
       <concept>
@@ -4877,7 +4879,7 @@
         <display value="inch"/>
       </concept>
       <concept>
-        <code value="[in_i&#39;Hg]"/>
+        <code value="[in_i'Hg]"/>
         <display value="inch of mercury column"/>
       </concept>
       <concept>
@@ -4917,7 +4919,7 @@
         <display value="knot"/>
       </concept>
       <concept>
-        <code value="[knk&#39;U]"/>
+        <code value="[knk'U]"/>
         <display value="Kunkel unit"/>
       </concept>
       <concept>
@@ -5021,7 +5023,7 @@
         <display value="printer&#39;s pica"/>
       </concept>
       <concept>
-        <code value="[p&#39;diop]"/>
+        <code value="[p'diop]"/>
         <display value="prism diopter"/>
       </concept>
       <concept>
@@ -5345,7 +5347,7 @@
         <display value="kilo international units per milliliter"/>
       </concept>
       <concept>
-        <code value="kg{wet&#39;tis}"/>
+        <code value="kg{wet'tis}"/>
         <display value="kilogram of wet tissue"/>
       </concept>
       <concept>

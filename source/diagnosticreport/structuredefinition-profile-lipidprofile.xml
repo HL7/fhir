@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="lipidprofile"/>
   <text>
     <status value="generated"/>
@@ -22,6 +20,10 @@
     <valueString value="This is a test summary [lipids](observation.html)"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/lipidprofile"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1392"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Example Lipid Profile"/>
   <status value="draft"/>
@@ -74,7 +76,7 @@
       <path value="DiagnosticReport.code"/>
       <short value="LOINC Code for Lipid Panel with LDL"/>
       <definition value="LOINC Code for Lipid Panel with LDL."/>
-      <comment value="LOINC code includes &quot;direct&quot; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL."/>
+      <comment value="LOINC code includes &#34;direct&#34; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -157,7 +159,7 @@
       <path value="DiagnosticReport.conclusion"/>
       <short value="Clinical Interpretation of Lipid Panel"/>
       <definition value="May include diagnosis or suggestions for follow up testing."/>
-      <comment value="It&#39;s not unusual for the lab to make some kind of interpretative comment on the set of results."/>
+      <comment value="It's not unusual for the lab to make some kind of interpretative comment on the set of results."/>
       <min value="0"/>
       <max value="1"/>
       <type>

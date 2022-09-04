@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="filter-operator"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -88,7 +86,7 @@
           
           <td>The definition of is-a is that all the properties of the value are true for the specified property of the code. 
 
-Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelling &quot;descendent&quot; is maintained in the code for backwards compatibility reasons</td>
+Spelling note: "descendant" is a more correct spelling, but the spelling "descendent" is maintained in the code for backwards compatibility reasons</td>
         
         </tr>
         
@@ -239,7 +237,7 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
   <url value="http://hl7.org/fhir/filter-operator"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.479"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.479"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="FilterOperator"/>
@@ -277,7 +275,7 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
   </concept>
   <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
-      <valueString value="The definition of is-a is that all the properties of the value are true for the specified property of the code. &#xA;&#xA;Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelling &quot;descendent&quot; is maintained in the code for backwards compatibility reasons"/>
+      <valueString value="The definition of is-a is that all the properties of the value are true for the specified property of the code. &#xA;&#xA;Spelling note: &#34;descendant&#34; is a more correct spelling, but the spelling &#34;descendent&#34; is maintained in the code for backwards compatibility reasons"/>
     </extension>
     <code value="descendent-of"/>
     <display value="Descendent Of (by subsumption)"/>

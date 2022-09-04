@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="PackagedProductDefinition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1095"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="PackagedProductDefinition"/>
   <status value="draft"/>
@@ -307,8 +309,8 @@
     </element>
     <element id="PackagedProductDefinition.characteristic">
       <path value="PackagedProductDefinition.characteristic"/>
-      <short value="Allows the key features to be recorded, such as &quot;hospital pack&quot;, &quot;nurse prescribable&quot;"/>
-      <definition value="Allows the key features to be recorded, such as &quot;hospital pack&quot;, &quot;nurse prescribable&quot;, &quot;calendar pack&quot;."/>
+      <short value="Allows the key features to be recorded, such as &#34;hospital pack&#34;, &#34;nurse prescribable&#34;"/>
+      <definition value="Allows the key features to be recorded, such as &#34;hospital pack&#34;, &#34;nurse prescribable&#34;, &#34;calendar pack&#34;."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -589,7 +591,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Physical Characteristics, attribute&#39;s value"/>
+        <map value="Physical Characteristics, attribute's value"/>
       </mapping>
     </element>
     <element id="PackagedProductDefinition.packaging.containedItem">

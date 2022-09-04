@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="patient-animal"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/patient-animal"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1343"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="animal"/>
   <title value="animal"/>
@@ -54,7 +56,7 @@
       <sliceName value="species"/>
       <short value="The animal species.  E.g. Dog, Cow."/>
       <definition value="Identifies the high level taxonomic categorization of the kind of animal."/>
-      <comment value="If the patient is non-human, at least a species SHALL be specified. Species SHALL be a widely recognized taxonomic classification.  It might or might not be Linnaean taxonomy and might or might not be at the level of species. If the level is finer than species--such as a breed code--the code system used SHALL allow inference of the species.  (The common example is that the word &quot;Hereford&quot; does not allow inference of the species Bos taurus, because there is a Hereford pig breed, but the SNOMED CT code for &quot;Hereford Cattle Breed&quot; does.)."/>
+      <comment value="If the patient is non-human, at least a species SHALL be specified. Species SHALL be a widely recognized taxonomic classification.  It might or might not be Linnaean taxonomy and might or might not be at the level of species. If the level is finer than species--such as a breed code--the code system used SHALL allow inference of the species.  (The common example is that the word &#34;Hereford&#34; does not allow inference of the species Bos taurus, because there is a Hereford pig breed, but the SNOMED CT code for &#34;Hereford Cattle Breed&#34; does.)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -144,8 +146,8 @@
     <element id="Extension.extension:genderStatus">
       <path value="Extension.extension"/>
       <sliceName value="genderStatus"/>
-      <short value="The status of the animal&#39;s reproductive parts.  E.g. Neutered, Intact."/>
-      <definition value="Indicates the current state of the animal&#39;s reproductive organs."/>
+      <short value="The status of the animal's reproductive parts.  E.g. Neutered, Intact."/>
+      <definition value="Indicates the current state of the animal's reproductive organs."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -182,7 +184,7 @@
           <valueString value="AnimalGenderStatus"/>
         </extension>
         <strength value="example"/>
-        <description value="The state of the animal&#39;s reproductive organs."/>
+        <description value="The state of the animal's reproductive organs."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/animal-genderstatus"/>
       </binding>
     </element>

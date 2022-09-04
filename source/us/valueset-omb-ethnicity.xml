@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<id value="omb-ethnicity"/>
 	<url value="http://hl7.org/fhir/omb-ethnicity"/>
-	<name value="OMB Ethnicity Categories"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.2992"/>
+  </identifier>
+  <name value="OMB Ethnicity Categories"/>
 	<status value="draft"/>
 	<date value="2016-08-30"/>
 	<publisher value="USRealm Task Force"/>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="medicinal-product-additional-monitoring"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -17,7 +15,7 @@
   <url value="http://hl7.org/fhir/ValueSet/medicinal-product-additional-monitoring"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1564"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3020"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="AdditionalMonitoring"/>

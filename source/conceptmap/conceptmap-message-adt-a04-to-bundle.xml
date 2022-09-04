@@ -1,7 +1,10 @@
-<?xml version="1.0"?>
-<ConceptMap xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ConceptMap xmlns="http://hl7.org/fhir">
   <id value="message-adt-a04-to-bundle"/>
   <url value="http://hl7.org/fhir/uv/v2mappings/message-adt-a04-to-bundle"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.14.2"/>
+  </identifier>
   <version value="0.1.0"/>
   <name value="MessageADT_A04toBundle"/>
   <status value="active"/>
@@ -149,7 +152,7 @@
         </dependsOn>
         <product>
           <property value="antlr"/>
-          <valueString value="IF ARV-1 IN (&quot;PID&quot;, &quot;PD1&quot;) AND ARV-3 NOT VALUED"/>
+          <valueString value="IF ARV-1 IN (&#34;PID&#34;, &#34;PD1&#34;) AND ARV-3 NOT VALUED"/>
         </product>
       </target>
     </element>
@@ -166,11 +169,11 @@
         </dependsOn>
         <product>
           <property value="antlr"/>
-          <valueString value="IF ROL-3.1 EQUALS &quot;PP&quot; AND ROL-3.3 EQUALS &quot;HL70443&quot;"/>
+          <valueString value="IF ROL-3.1 EQUALS &#34;PP&#34; AND ROL-3.3 EQUALS &#34;HL70443&#34;"/>
         </product>
         <product>
           <property value="fhirpath"/>
-          <valueString value="(element(&quot;3.1&quot;)=&quot;PP&quot;)and(element(&quot;3.3&quot;)=&quot;HL70443&quot;)"/>
+          <valueString value="(element(&#34;3.1&#34;)=&#34;PP&#34;)and(element(&#34;3.3&#34;)=&#34;HL70443&#34;)"/>
         </product>
       </target>
     </element>
@@ -191,11 +194,11 @@
         </dependsOn>
         <product>
           <property value="antlr"/>
-          <valueString value="IF ROL-3.1 NOT EQUALS  &quot;PP&quot; OR ROL-3.3 NOT EQUALS &quot;HL70443&quot;"/>
+          <valueString value="IF ROL-3.1 NOT EQUALS  &#34;PP&#34; OR ROL-3.3 NOT EQUALS &#34;HL70443&#34;"/>
         </product>
         <product>
           <property value="fhirpath"/>
-          <valueString value="(element(&quot;3.1&quot;)!=&quot;PP&quot;)or(element(&quot;3.3&quot;)!=&quot;HL70443&quot;)"/>
+          <valueString value="(element(&#34;3.1&#34;)!=&#34;PP&#34;)or(element(&#34;3.3&#34;)!=&#34;HL70443&#34;)"/>
         </product>
         <product>
           <property value="narrative"/>
@@ -301,7 +304,7 @@
         </dependsOn>
         <product>
           <property value="antlr"/>
-          <valueString value="IF ARV-1 IN (&quot;PV1&quot;, &quot;PV2&quot;) AND ARV-3 NOT VALUED"/>
+          <valueString value="IF ARV-1 IN (&#34;PV1&#34;, &#34;PV2&#34;) AND ARV-3 NOT VALUED"/>
         </product>
       </target>
     </element>
@@ -407,7 +410,7 @@
         </dependsOn>
         <product>
           <property value="antlr"/>
-          <valueString value="IF DG1-6 EQUALS &quot;admitting&quot;"/>
+          <valueString value="IF DG1-6 EQUALS &#34;admitting&#34;"/>
         </product>
       </target>
     </element>

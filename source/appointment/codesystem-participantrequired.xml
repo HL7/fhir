@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="participantrequired"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
@@ -14,7 +12,7 @@
   <url value="http://hl7.org/fhir/participantrequired"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.489"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.489"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="ParticipantRequired"/>
@@ -50,6 +48,6 @@
   <concept>
     <code value="information-only"/>
     <display value="Information Only"/>
-    <definition value="The participant is excluded from the appointment, and might not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient&#39;s test)."/>
+    <definition value="The participant is excluded from the appointment, and might not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient's test)."/>
   </concept>
 </CodeSystem>

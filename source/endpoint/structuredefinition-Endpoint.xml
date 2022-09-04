@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Endpoint"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1353"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Endpoint"/>
   <status value="draft"/>
@@ -216,7 +218,7 @@
       <path value="Endpoint.managingOrganization"/>
       <short value="Organization that manages this endpoint (might not be the organization that exposes the endpoint)"/>
       <definition value="The organization that manages this endpoint (even if technically another organization is hosting this in the cloud, it is the organization associated with the data)."/>
-      <comment value="This property is not typically used when searching for Endpoint resources for usage. The typical usage is via the reference from an applicable Organization/Location/Practitioner resource, which is where the context is provided. Multiple Locations may reference a single endpoint, and don&#39;t have to be within the same organization resource, but most likely within the same organizational hierarchy."/>
+      <comment value="This property is not typically used when searching for Endpoint resources for usage. The typical usage is via the reference from an applicable Organization/Location/Practitioner resource, which is where the context is provided. Multiple Locations may reference a single endpoint, and don't have to be within the same organization resource, but most likely within the same organizational hierarchy."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -320,7 +322,7 @@
       <path value="Endpoint.address"/>
       <short value="The technical base address for connecting to this endpoint"/>
       <definition value="The uri that describes the actual end-point to connect to."/>
-      <comment value="For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since there may be more than one, clients should avoid using relative URIs)&#xA;&#xA;This address will be to the service base, without any parameters, or sub-services or resources tacked on.&#xA;&#xA;E.g. for a WADO-RS endpoint, the url should be &quot;https://pacs.hospital.org/wado-rs&quot;&#xA;&#xA;and not &quot;https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/...&quot;."/>
+      <comment value="For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since there may be more than one, clients should avoid using relative URIs)&#xA;&#xA;This address will be to the service base, without any parameters, or sub-services or resources tacked on.&#xA;&#xA;E.g. for a WADO-RS endpoint, the url should be &#34;https://pacs.hospital.org/wado-rs&#34;&#xA;&#xA;and not &#34;https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/...&#34;."/>
       <min value="1"/>
       <max value="1"/>
       <type>

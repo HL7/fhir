@@ -1,8 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="nhin-purposeofuse"/>
   <url value="http://healthit.gov/nhin/purposeofuse"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1825"/>
+  </identifier>
   <version value="2.0"/>
   <name value="NHIN PurposeOfUse"/>
   <status value="active"/>
@@ -141,7 +143,7 @@
   </concept>
   <concept>
     <code value="WORKERSCOMP"/>
-    <display value="Worker&#39;s Comp"/>
+    <display value="Worker's Comp"/>
     <definition value="Disclosures for workers' compensation."/>
   </concept>
   <concept>

@@ -1,4 +1,4 @@
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
     <id value="knowledge-capability"/>
 		<meta>
       <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -16,7 +16,11 @@
       <valueCode value="structured"/>
     </extension>
     <url value="http://hl7.org/fhir/ValueSet/knowledge-capability"/>
-    <name value="KnowledgeCapability"/>
+    <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3222"/>
+  </identifier>
+  <name value="KnowledgeCapability"/>
 		<title value="Knowledge Capability"/>
     <status value="active"/>
     <experimental value="false"/>

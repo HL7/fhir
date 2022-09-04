@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<SearchParameter xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><SearchParameter xmlns="http://hl7.org/fhir">
   <id value="codesystem-extensions-CodeSystem-author"/>
   <url value="http://hl7.org/fhir/SearchParameter/codesystem-extensions-CodeSystem-author"/>
   <version value="5.0.0"/>
@@ -12,6 +10,6 @@
   <base value="CodeSystem"/>
   <type value="string"/>
   <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/codesystem-author').value"/>
-  <xpath value="f:CodeSystem/f:extension[@url=&#39;http://hl7.org/fhir/StructureDefinition/codesystem-author&#39;]/f:valueDateTime"/>
+  <xpath value="f:CodeSystem/f:extension[@url='http://hl7.org/fhir/StructureDefinition/codesystem-author']/f:valueDateTime"/>
   <xpathUsage value="normal"/>
 </SearchParameter>
