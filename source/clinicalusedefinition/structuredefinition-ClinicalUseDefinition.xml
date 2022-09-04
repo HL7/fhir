@@ -715,7 +715,7 @@
     </element>
     <element id="ClinicalUseDefinition.undesirableEffect">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,425"/>
+        <valueCode value="420,435"/>
       </extension>
       <path value="ClinicalUseDefinition.undesirableEffect"/>
       <short value="A possible negative outcome from the use of this treatment"/>
@@ -805,7 +805,7 @@
     </element>
     <element id="ClinicalUseDefinition.warning">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,555"/>
+        <valueCode value="420,565"/>
       </extension>
       <path value="ClinicalUseDefinition.warning"/>
       <short value="Critical environmental, health or physical risks or hazards. For example 'Do not operate heavy machinery', 'May cause drowsiness'"/>
