@@ -279,8 +279,8 @@
 		</element>
 		<element id="ConceptMap.publisher">
 			<path value="ConceptMap.publisher"/>
-			<short value="Name of the publisher (organization or individual)"/>
-			<definition value="The name of the organization or individual that published the concept map."/>
+			<short value="Name of the publisher/steward (organization or individual)"/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the concept map."/>
 			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the concept map is the organization or individual primarily responsible for the maintenance and upkeep of the concept map. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the concept map. This item SHOULD be populated unless the information is available from context."/>
 			<requirements value="Helps establish the &quot;authority/credibility&quot; of the concept map.  May also allow for contact."/>
 			<min value="0"/>

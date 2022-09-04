@@ -133,7 +133,7 @@
         <human value="Process titles must be unique"/>
         <expression value="process.title.count() = process.title.distinct().count()"/>
         <xpath value="count(f:process/f:title/@value) = count(distinct-values(f:process/f:title/@value))"/>
-      </constraint>      
+      </constraint>
 			<mapping>
 				<identity value="w5"/>
 				<map value="infrastructure.information"/>
@@ -342,8 +342,8 @@
 		</element>
 		<element id="ExampleScenario.publisher">
 			<path value="ExampleScenario.publisher"/>
-			<short value="Name of the publisher (organization or individual)"/>
-			<definition value="The name of the organization or individual that published the example scenario."/>
+			<short value="Name of the publisher/steward (organization or individual)"/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the example scenario."/>
 			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the example scenario is the organization or individual primarily responsible for the maintenance and upkeep of the example scenario. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the example scenario. This item SHOULD be populated unless the information is available from context."/>
 			<requirements value="Helps establish the &quot;authority/credibility&quot; of the example scenario.  May also allow for contact."/>
 			<min value="0"/>
@@ -381,7 +381,7 @@
 			<path value="ExampleScenario.description"/>
 			<short value="Natural language description of the ExampleScenario"/>
 			<definition value="A free text natural language description of the ExampleScenario from a consumer's perspective."/>
-			<comment value="This description can be used to capture details such as why the ExampleScenario was built. It is not a rendering of the ExampleScenario as conveyed in the 'text' field of the resource itself."/>
+			<comment value="This description can be used to capture details such as comments about misuse. It is not a rendering of the ExampleScenario as conveyed in the 'text' field of the resource itself."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

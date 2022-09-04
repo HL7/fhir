@@ -402,8 +402,8 @@
 		</element>
 		<element id="Questionnaire.publisher">
 			<path value="Questionnaire.publisher"/>
-			<short value="Name of the publisher (organization or individual)"/>
-			<definition value="The name of the organization or individual that published the questionnaire."/>
+			<short value="Name of the publisher/steward (organization or individual)"/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the questionnaire."/>
 			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the questionnaire is the organization or individual primarily responsible for the maintenance and upkeep of the questionnaire. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the questionnaire. This item SHOULD be populated unless the information is available from context."/>
 			<requirements value="Helps establish the &quot;authority/credibility&quot; of the questionnaire.  May also allow for contact."/>
 			<min value="0"/>
@@ -449,7 +449,7 @@
 			<path value="Questionnaire.description"/>
 			<short value="Natural language description of the questionnaire"/>
 			<definition value="A free text natural language description of the questionnaire from a consumer's perspective."/>
-			<comment value="This description can be used to capture details such as why the questionnaire was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the questionnaire as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the questionnaire is presumed to be the predominant language in the place the questionnaire was created)."/>
+			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the questionnaire as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the questionnaire is presumed to be the predominant language in the place the questionnaire was created)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -928,7 +928,7 @@
 			<path value="Questionnaire.item.enableWhen"/>
 			<short value="Only allow data when"/>
 			<definition value="A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true."/>
-			<comment value="If multiple repetitions of this extension are present, the interpretation is driven by enableBehavior (either all repetitions must evaluate to true for this item to be enabled, or only one must evaluate to true for the item to be 
+			<comment value="If multiple repetitions of this extension are present, the interpretation is driven by enableBehavior (either all repetitions must evaluate to true for this item to be enabled, or only one must evaluate to true for the item to be
 enabled).  If the enableWhen.question has multiple answers, the condition evaluates to true if *any* of the answers for the referenced item match the enableWhen condition.
 
 This element is a modifier because if enableWhen is present for an item, &quot;required&quot; is ignored unless one of the enableWhen conditions is met. When an item is disabled, all of its descendants are disabled, regardless of what their own enableWhen logic might evaluate to.  If enableWhen logic depends on an item that is disabled, the logic should proceed as though the item is not valued - even if a default value or other value might be retained in memory in the event of the item being re-enabled.
@@ -1095,7 +1095,7 @@ In some cases, the comparison between the indicated answer and the specified val
 			<short value="Whether the item must be included in data results"/>
 			<definition value="An indication, if true, that the item must be present in a &quot;completed&quot; QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire."/>
 			<comment value="If the required item is a question, it must have a direct answer (i.e. an answer to the question itself, not merely answers to child questions) in order for the QuestionnaireResponse to be complete.  If the required item is a group, it must have at least one descendant question which has an answer
-			
+
 Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  It also only has meaning if the parent element is present.  If a non-required 'group' item contains a 'required' question item, it's completely fine to omit the group (because it's not required) despite it having a required child.  Similarly, if an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one descendant item with a populated answer). The value for 'required' may come from the ElementDefinition referred to by .definition."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1114,7 +1114,7 @@ Questionnaire.item.required only has meaning for elements that are conditionally
 			<short value="Whether the item may repeat"/>
 			<definition value="An indication, if true, that a QuestionnaireResponse for this item may include multiple answers associated with a single instance of this item (for question-type items) or multiple repetitions of the item (for group-type items)."/>
 			<comment value="If a question is marked as repeats=true, then multiple answers can be provided for the question in the corresponding QuestionnaireResponse.  When rendering the questionnaire, it is up to the rendering software whether to render the question text for each answer repetition (i.e. &quot;repeat the question&quot;) or to simply allow entry/selection of multiple answers for the question (repeat the answers).  Which is most appropriate visually may depend on the type of answer as well as whether there are nested items.&#xA;&#xA;The resulting QuestionnaireResponse will be populated the same way regardless of rendering - one 'question' item with multiple answer values.&#xA;&#xA; The value may come from the ElementDefinition referred to by .definition.
-			
+
 When repeats=true for a group, it'll be represented with multiple items with the same linkId in the QuestionnaireResponse.  For a question, it'll be represented by a single item with that linkId with multiple answers."/>
 			<requirements value="Items may be used to create set of (related) questions that can be repeated to give multiple answers to such a set."/>
 			<min value="0"/>
