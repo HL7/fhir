@@ -5,9 +5,14 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/guide-parameter-code"/>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="GuideParameterCode"/>
+  <experimental value="false"/>
+  <description value="Codes used to define implementation guide parameters"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/guide-parameter-code"/>

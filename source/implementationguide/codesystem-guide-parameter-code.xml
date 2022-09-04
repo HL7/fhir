@@ -5,9 +5,13 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <url value="http://hl7.org/fhir/guide-parameter-code"/>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="GuideParameterCode"/>
+  <status value="draft"/>
   <concept>
     <code value="apply"/>
     <display value="Apply Metadata Value"/>
@@ -16,17 +20,17 @@
   <concept>
     <code value="path-resource"/>
     <display value="Resource Path"/>
-    <definition value="The value of this string 0..* parameter is a subfolder of the build context&#39;s location that is to be scanned to load resources. Scope is (if present) a particular resource type."/>
+    <definition value="The value of this string 0..* parameter is a subfolder of the build context's location that is to be scanned to load resources. Scope is (if present) a particular resource type."/>
   </concept>
   <concept>
     <code value="path-pages"/>
     <display value="Pages Path"/>
-    <definition value="The value of this string 0..1 parameter is a subfolder of the build context&#39;s location that contains files that are part of the html content processed by the builder."/>
+    <definition value="The value of this string 0..1 parameter is a subfolder of the build context's location that contains files that are part of the html content processed by the builder."/>
   </concept>
   <concept>
     <code value="path-tx-cache"/>
     <display value="Terminology Cache Path"/>
-    <definition value="The value of this string 0..1 parameter is a subfolder of the build context&#39;s location that is used as the terminology cache. If this is not present, the terminology cache is on the local system, not under version control."/>
+    <definition value="The value of this string 0..1 parameter is a subfolder of the build context's location that is used as the terminology cache. If this is not present, the terminology cache is on the local system, not under version control."/>
   </concept>
   <concept>
     <code value="expansion-parameter"/>
