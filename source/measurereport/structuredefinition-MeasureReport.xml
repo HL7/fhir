@@ -215,7 +215,7 @@
       <path value="MeasureReport.measure"/>
       <short value="What measure was calculated"/>
       <definition value="A reference to the Measure that was calculated to produce this report."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="canonical"/>
