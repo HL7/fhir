@@ -189,7 +189,7 @@ by its identity in the bundle first before trying to access it by its URL extern
 <p>
 Note that reference.value in entry resources can use any URI scheme (in addition to using
 relative values like "Patient/123").</p>
-<p>
+
 <p>
 How to resolve a reference in a Bundle:
 </p>
