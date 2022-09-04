@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="search-xpath-usage"/>
+  <id value="search-processingmode"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
@@ -14,14 +14,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/search-xpath-usage"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.635"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/ValueSet/search-processingmode"/>
   <version value="5.0.0-cibuild"/>
-  <name value="XPathUsageType"/>
-  <title value="XPathUsageType"/>
+  <name value="SearchProcessingModeType"/>
+  <title value="SearchProcessingModeType"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -36,11 +32,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="How a search parameter relates to the set of elements returned by evaluating its xpath query."/>
+  <description value="How a search parameter relates to the set of elements returned by evaluating its expression query."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/search-xpath-usage"/>
+      <system value="http://hl7.org/fhir/search-processingmode"/>
     </include>
   </compose>
 </ValueSet>

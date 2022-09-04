@@ -18,7 +18,7 @@
         <type value="reference"/>
         <expression value="Contract.authority"/>
         <xpath value="f:Contract/f:authority"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="reference"/>
         <expression value="Contract.domain"/>
         <xpath value="f:Contract/f:domain"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="Contract.identifier"/>
         <xpath value="f:Contract/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="uri"/>
         <expression value="Contract.instantiatesUri"/>
         <xpath value="f:Contract/f:instantiatesUri"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="date"/>
         <expression value="Contract.issued"/>
         <xpath value="f:Contract/f:issued"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="reference"/>
         <expression value="Contract.subject.where(resolve() is Patient)"/>
         <xpath value="f:Contract/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -139,7 +139,7 @@
         <type value="reference"/>
         <expression value="Contract.signer.party"/>
         <xpath value="f:Contract/f:signer/f:party"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -159,7 +159,7 @@
         <type value="token"/>
         <expression value="Contract.status"/>
         <xpath value="f:Contract/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -179,7 +179,7 @@
         <type value="reference"/>
         <expression value="Contract.subject"/>
         <xpath value="f:Contract/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -199,7 +199,7 @@
         <type value="uri"/>
         <expression value="Contract.url"/>
         <xpath value="f:Contract/f:url"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

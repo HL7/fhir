@@ -18,7 +18,7 @@
         <type value="reference"/>
         <expression value="DocumentManifest.author"/>
         <xpath value="f:DocumentManifest/f:author"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="date"/>
         <expression value="DocumentManifest.created"/>
         <xpath value="f:DocumentManifest/f:created"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="string"/>
         <expression value="DocumentManifest.description"/>
         <xpath value="f:DocumentManifest/f:description"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="token"/>
         <expression value="DocumentManifest.masterIdentifier | DocumentManifest.identifier"/>
         <xpath value="f:DocumentManifest/f:masterIdentifier | f:DocumentManifest/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="reference"/>
         <expression value="DocumentManifest.content"/>
         <xpath value="f:DocumentManifest/f:content"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="reference"/>
         <expression value="DocumentManifest.subject.where(resolve() is Patient)"/>
         <xpath value="f:DocumentManifest/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -139,7 +139,7 @@
         <type value="reference"/>
         <expression value="DocumentManifest.recipient"/>
         <xpath value="f:DocumentManifest/f:recipient"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -159,7 +159,7 @@
         <type value="token"/>
         <expression value="DocumentManifest.related.identifier"/>
         <xpath value="f:DocumentManifest/f:related/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -179,7 +179,7 @@
         <type value="reference"/>
         <expression value="DocumentManifest.related.ref"/>
         <xpath value="f:DocumentManifest/f:related/f:ref"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -199,7 +199,7 @@
         <type value="uri"/>
         <expression value="DocumentManifest.source"/>
         <xpath value="f:DocumentManifest/f:source"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -219,7 +219,7 @@
         <type value="token"/>
         <expression value="DocumentManifest.status"/>
         <xpath value="f:DocumentManifest/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -239,7 +239,7 @@
         <type value="reference"/>
         <expression value="DocumentManifest.subject"/>
         <xpath value="f:DocumentManifest/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -259,7 +259,7 @@
         <type value="token"/>
         <expression value="DocumentManifest.type"/>
         <xpath value="f:DocumentManifest/f:type"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

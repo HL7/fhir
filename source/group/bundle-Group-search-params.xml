@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="Group.membership"/>
         <xpath value="f:Group/f:membership"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="Group.characteristic.code"/>
         <xpath value="f:Group/f:characteristic/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -54,7 +54,7 @@
         <code value="characteristic-value"/>
         <type value="composite"/>
         <expression value="Group.characteristic"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="characteristic"/>
           <expression value="code"/>
@@ -97,7 +97,7 @@
         <type value="token"/>
         <expression value="Group.code"/>
         <xpath value="f:Group/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -117,7 +117,7 @@
         <type value="token"/>
         <expression value="Group.characteristic.exclude"/>
         <xpath value="f:Group/f:characteristic/f:exclude"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -137,7 +137,7 @@
         <type value="token"/>
         <expression value="Group.identifier"/>
         <xpath value="f:Group/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -157,7 +157,7 @@
         <type value="reference"/>
         <expression value="Group.managingEntity"/>
         <xpath value="f:Group/f:managingEntity"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -177,7 +177,7 @@
         <type value="reference"/>
         <expression value="Group.member.entity"/>
         <xpath value="f:Group/f:member/f:entity"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -197,7 +197,7 @@
         <type value="token"/>
         <expression value="Group.type"/>
         <xpath value="f:Group/f:type"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -217,7 +217,7 @@
         <type value="token"/>
         <expression value="(Group.characteristic.value as CodeableConcept) | (Group.characteristic.value as boolean)"/>
         <xpath value="f:Group/f:characteristic/f:valueCodeableConcept | f:Group/f:characteristic/f:valueBoolean | f:Group/f:characteristic/f:valueQuantity | f:Group/f:characteristic/f:valueRange | f:Group/f:characteristic/f:valueReference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -237,7 +237,7 @@
         <type value="string"/>
         <expression value="Group.name"/>
         <xpath value="f:Group/f:name"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

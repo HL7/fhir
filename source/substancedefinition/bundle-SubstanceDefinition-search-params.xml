@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="SubstanceDefinition.classification"/>
         <xpath value="f:SubstanceDefinition/f:classification"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="SubstanceDefinition.code.code"/>
         <xpath value="f:SubstanceDefinition/f:code/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="SubstanceDefinition.domain"/>
         <xpath value="f:SubstanceDefinition/f:domain"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="token"/>
         <expression value="SubstanceDefinition.identifier"/>
         <xpath value="f:SubstanceDefinition/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="string"/>
         <expression value="SubstanceDefinition.name.name"/>
         <xpath value="f:SubstanceDefinition/f:name/f:name"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

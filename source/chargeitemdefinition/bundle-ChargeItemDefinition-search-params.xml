@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="(ChargeItemDefinition.useContext.value as CodeableConcept)"/>
         <xpath value="f:ChargeItemDefinition/f:useContext/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="quantity"/>
         <expression value="(ChargeItemDefinition.useContext.value as Quantity) | (ChargeItemDefinition.useContext.value as Range)"/>
         <xpath value="f:ChargeItemDefinition/f:useContext/f:valueQuantity | f:ChargeItemDefinition/f:useContext/f:valueRange"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="ChargeItemDefinition.useContext.code"/>
         <xpath value="f:ChargeItemDefinition/f:useContext/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -74,7 +74,7 @@
         <code value="context-type-quantity"/>
         <type value="composite"/>
         <expression value="ChargeItemDefinition.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -98,7 +98,7 @@
         <code value="context-type-value"/>
         <type value="composite"/>
         <expression value="ChargeItemDefinition.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -126,7 +126,7 @@
         <type value="date"/>
         <expression value="ChargeItemDefinition.date"/>
         <xpath value="f:ChargeItemDefinition/f:date"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -146,7 +146,7 @@
         <type value="string"/>
         <expression value="ChargeItemDefinition.description"/>
         <xpath value="f:ChargeItemDefinition/f:description"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -166,7 +166,7 @@
         <type value="date"/>
         <expression value="ChargeItemDefinition.applicability.effectivePeriod"/>
         <xpath value="f:ChargeItemDefinition/f:applicability/f:effectivePeriod"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -186,7 +186,7 @@
         <type value="token"/>
         <expression value="ChargeItemDefinition.identifier"/>
         <xpath value="f:ChargeItemDefinition/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -206,7 +206,7 @@
         <type value="token"/>
         <expression value="ChargeItemDefinition.jurisdiction"/>
         <xpath value="f:ChargeItemDefinition/f:jurisdiction"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -226,7 +226,7 @@
         <type value="string"/>
         <expression value="ChargeItemDefinition.publisher"/>
         <xpath value="f:ChargeItemDefinition/f:publisher"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -246,7 +246,7 @@
         <type value="token"/>
         <expression value="ChargeItemDefinition.status"/>
         <xpath value="f:ChargeItemDefinition/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -266,7 +266,7 @@
         <type value="string"/>
         <expression value="ChargeItemDefinition.title"/>
         <xpath value="f:ChargeItemDefinition/f:title"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -286,7 +286,7 @@
         <type value="uri"/>
         <expression value="ChargeItemDefinition.url"/>
         <xpath value="f:ChargeItemDefinition/f:url"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -306,7 +306,7 @@
         <type value="token"/>
         <expression value="ChargeItemDefinition.version"/>
         <xpath value="f:ChargeItemDefinition/f:version"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

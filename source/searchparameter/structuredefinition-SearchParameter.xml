@@ -101,9 +101,9 @@
       <constraint>
         <key value="spd-1"/>
         <severity value="error"/>
-        <human value="If an xpath is present, there SHALL be an xpathUsage"/>
-        <expression value="xpath.empty() or xpathUsage.exists()"/>
-        <xpath value="not(exists(f:xpath)) or exists(f:xpathUsage)"/>
+        <human value="If an expression is present, there SHALL be a processingMode"/>
+        <expression value="expression.empty() or processingMode.exists()"/>
+        <xpath value="not(exists(f:xpath)) or exists(f:processingMode)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
       </constraint>
       <constraint>
@@ -479,10 +479,10 @@
       </type>
       <condition value="spd-1"/>
     </element>
-    <element id="SearchParameter.xpathUsage">
-      <path value="SearchParameter.xpathUsage"/>
+    <element id="SearchParameter.processingMode">
+      <path value="SearchParameter.processingMode"/>
       <short value="normal | phonetic | other"/>
-      <definition value="How the search parameter relates to the set of elements returned by evaluating the xpath query."/>
+      <definition value="How the search parameter relates to the set of elements returned by evaluating the expression query."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -491,11 +491,11 @@
       <condition value="spd-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="XPathUsageType"/>
+          <valueString value="SearchProcessingModeType"/>
         </extension>
         <strength value="required"/>
-        <description value="How a search parameter relates to the set of elements returned by evaluating its xpath query."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/search-xpath-usage"/>
+        <description value="How a search parameter relates to the set of elements returned by evaluating its expression query."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/search-processingmode"/>
       </binding>
     </element>
     <element id="SearchParameter.constraint">
